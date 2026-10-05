@@ -1,0 +1,10 @@
+:root { color-scheme: dark; font-family: Georgia, serif; color: #e6e0d5; background: #141719; }
+body { margin: 0; }
+main { max-width: 42rem; margin: 12vh auto; padding: 1.5rem; }
+h1 { font-size: clamp(2rem, 6vw, 3.5rem); margin: .5rem 0 1.5rem; }
+p { line-height: 1.6; font-size: 1rem; }
+.eyebrow { font-family: system-ui, sans-serif; color: #b6ab97; }
+button { font: inherit; min-height: 44px; padding: .75rem 1rem; border: 1px solid #b0a080; background: #2e3830; color: #fff; cursor: pointer; }
+button:disabled { opacity: .7; cursor: wait; }
+button:focus-visible { outline: 3px solid #e6d295; outline-offset: 4px; }
+.note { color: #b6ab97; }

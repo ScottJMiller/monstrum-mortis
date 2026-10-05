@@ -1,0 +1,35 @@
+{
+  "name": "monstrum-mortis",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0 <25"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "dev:worker": "wrangler dev --ip 127.0.0.1 --port 8787",
+    "typecheck": "tsc --noEmit -p tsconfig.client.json && tsc --noEmit -p tsconfig.server.json",
+    "test": "node --test tests/*.test.ts",
+    "check:config": "node scripts/check-config.mjs",
+    "check": "npm run check:config && npm run typecheck && npm test",
+    "build": "vite build",
+    "deploy:dry": "npm run check && npm run build && wrangler deploy --dry-run --outdir dist/worker",
+    "deploy": "npm run check && npm run build && wrangler deploy",
+    "cf:login": "wrangler login",
+    "cf:whoami": "wrangler whoami"
+  },
+  "dependencies": {
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "typescript": "7.0.2",
+    "vite": "8.3.2",
+    "wrangler": "4.147.0"
+  }
+}

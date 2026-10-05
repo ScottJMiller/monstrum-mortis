@@ -1,0 +1,2 @@
+# Copy to .dev.vars only when a later implementation step needs secrets.
+# Step 1 uses no Worker secrets. Never commit credentials or paste them into chat.
