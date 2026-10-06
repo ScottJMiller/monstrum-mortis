@@ -46,6 +46,12 @@ Completed:
 
 `npm run test:rooms` uses isolated local workerd/Miniflare, separate network clients and temporary SQLite persistence, which it removes on completion. Local runtime results cannot establish deployed room behavior or account quota. The npm lockfile, Worker bindings/class names, SQLite export configuration, and domain routing remain unchanged. `git diff --check` passed.
 
+## Follow-up: entry-key lifecycle regression
+
+- Successful private create/join now clears the client's completed entry key. Leaving and entering again with unchanged name/code or creation details starts a fresh operation; failed requests retain their key for idempotent retries.
+- Added six component-handler regression checks: leave → rejoin, leave → create, and network/HTTP retry retention for each entry mode. They exercise the actual `App.tsx` handlers with controlled hooks and browser/transport doubles. All six reproduced key reuse before the fix and passed afterward.
+- Re-ran `npm run check` successfully (configuration guard, both TypeScript projects and all three test files), `npm run build`, and the focused six-check client regression suite using Node 24.21.0. `git diff --check` passed. No dependencies, rules, protocol, Worker behavior, or deployment configuration changed; the 13 backend runtime scenarios above remain the earlier step 2 verification.
+
 Outstanding:
 
 - Publish this step 2 tree only when requested; the workers.dev origin remains the previously reported foundation deployment.

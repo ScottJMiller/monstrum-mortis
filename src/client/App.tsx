@@ -101,6 +101,7 @@ export function App() {
       const data = await response.json();
       if (!response.ok) throw new Error(`${data.code}: ${data.message}`);
       const entry = data as RoomEntryResponse;
+      entryKey.current = null;
       setRoom(entry.snapshot); setOwn(entry.controller); setReplace(false); remember(entry.credentials);
     } catch (error) { setStatus(error instanceof Error ? error.message : 'Entry failed. Retry to use the same entry key.'); }
     finally { setPending(false); }
