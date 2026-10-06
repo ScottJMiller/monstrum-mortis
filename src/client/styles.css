@@ -5,9 +5,11 @@ h1 { font-size: clamp(2rem, 6vw, 3.5rem); margin: .5rem 0 1.5rem; }
 p { line-height: 1.6; font-size: 1rem; }
 .eyebrow { font-family: system-ui, sans-serif; color: #b6ab97; }
 button { font: inherit; min-height: 44px; padding: .75rem 1rem; border: 1px solid #b0a080; background: #2e3830; color: #fff; cursor: pointer; }
-button:disabled { opacity: .7; cursor: wait; }
+button:disabled { opacity: .7; cursor: not-allowed; }
 button:focus-visible { outline: 3px solid #e6d295; outline-offset: 4px; }
 .note { color: #b6ab97; }
+.entry-warning { color: #f2c36b; font-family: system-ui, sans-serif; }
+input.name-required { border-color: #f2c36b; }
 section { border-top: 1px solid #536153; margin-top: 1.5rem; padding-top: 1rem; }
 label { display: block; margin: 1rem 0; font-family: system-ui, sans-serif; }
 input, select { display: block; box-sizing: border-box; width: 100%; min-height: 44px; margin-top: .4rem; padding: .5rem; font: inherit; background: #202629; border: 1px solid #8b9183; color: #fff; }

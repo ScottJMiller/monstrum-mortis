@@ -61,6 +61,7 @@ function entryConsole() {
     require: name => name === 'react' ? react : name === '../shared/protocol.ts' ? { PROTOCOL_VERSION } : require(name),
     crypto, URL, URLSearchParams, Date, Error, WebSocket: Socket,
     location: { href: 'http://localhost:5173/?room=ABCDEF', origin: 'http://localhost:5173', protocol: 'http:', search: '?room=ABCDEF' },
+    history: { state: null, replaceState() {} },
     sessionStorage: { getItem: key => storage.get(key) ?? null, setItem: (key, value) => storage.set(key, value), removeItem: key => storage.delete(key) },
     setInterval: () => 1, clearInterval: () => {},
     fetch: async (path, options) => {

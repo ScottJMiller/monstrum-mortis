@@ -103,6 +103,9 @@ export function App() {
       const entry = data as RoomEntryResponse;
       entryKey.current = null;
       setRoom(entry.snapshot); setOwn(entry.controller); setReplace(false); remember(entry.credentials);
+      const address = new URL(location.href);
+      address.searchParams.delete('room'); address.searchParams.delete('display');
+      history.replaceState(history.state, '', `${address.pathname}${address.search}${address.hash}`);
     } catch (error) { setStatus(error instanceof Error ? error.message : 'Entry failed. Retry to use the same entry key.'); }
     finally { setPending(false); }
   }
@@ -118,7 +121,8 @@ export function App() {
     <h1>Monstrum Mortis</h1>
     <p>Private rooms and synchronization are available here. DNA, creature artwork, battles, and public matchmaking are still being built.</p>
     {!credentials ? <section aria-label="Private room entry">
-      <label>Your laboratory name<input value={name} maxLength={24} onChange={event => setName(event.target.value)} autoComplete="nickname" /></label>
+      <label>Player Name<input value={name} maxLength={24} onChange={event => setName(event.target.value)} autoComplete="nickname" aria-describedby="player-name-hint" className={!name.trim() && !display ? 'name-required' : undefined} /></label>
+      <p id="player-name-hint" className={!name.trim() && !display ? 'entry-warning' : 'note'}>{!name.trim() ? (display ? 'Display devices can join without a player name. Creating a laboratory requires a player name.' : 'Enter your player name first to create or join a laboratory.') : 'This is your name in the player roster.'}</p>
       <label>Presentation<select value={presentation} onChange={event => setPresentation(event.target.value as PresentationMode)}><option value="remote">Remote</option><option value="same-room">Same-Room</option></select></label>
       <button disabled={pending || !name.trim()} onClick={() => enter(true)}>Create Private Laboratory</button>
       <label>Invitation code<input value={code} maxLength={6} onChange={event => setCode(event.target.value.toUpperCase())} autoCapitalize="characters" /></label>

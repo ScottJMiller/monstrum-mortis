@@ -58,6 +58,12 @@ Outstanding:
 - Test the published room service with independent browser sessions and at least two human-operated devices. No deployed room/WebSocket check or human playtest has been completed in this session.
 - Measure latency, deliberate network delay/loss and free-tier resource consumption before making capacity claims. Ten-room load and 100 idle queued guests belong to the later acceptance work; queues do not exist yet.
 
+## Follow-up: player entry clarity
+
+- Renamed the entry field to `Player Name`, added an amber field border and explanatory name-required hint, and replaced the disabled-button loading cursor with `not-allowed`. Display entry still does not require a player name.
+- Successful entry removes the consumed `room` and `display` URL parameters while preserving unrelated parameters and the hash. Reload identification continues through tab-local credentials.
+- Chat-workspace verification: `npm run check` passed (17 tests and both TypeScript projects), `npm run build` passed, and `git diff --check` passed. No Worker, rules, dependencies, or hosting changes. These edits have not been pushed or deployed; human device verification remains outstanding.
+
 ## Not implemented
 
 Step 3 regional public queues, readiness/allocation orchestration, cross-pool guest leases, public activation/results/recovery/replacement/replay; step 4 art/scene; step 5 DNA mechanics; step 6 battle/outcomes/awards/complete three-round play; step 7 exports/cabinet; step 8 polish and broad failure/load/device testing; step 9 complete-game deployment.
