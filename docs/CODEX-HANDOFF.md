@@ -46,12 +46,14 @@ No deployment is triggered by this push; CI/CD is not configured yet.
 
 ## Current handoff
 
-Step 1 was deployed successfully by the user at https://monstrum-mortis.scott-jeffrey-miller.workers.dev. Cloudflare authentication has already been completed locally; do not repeat login unnecessarily. The current working tree adds step 2 and has not been published. The import notes above describe the original handoff, not outstanding work in this clone.
+Step 1 was deployed successfully by the user at https://monstrum-mortis.scott-jeffrey-miller.workers.dev. Cloudflare authentication has already been completed locally; do not repeat login unnecessarily. The user declared step 2 complete and authorized step 3 on 6 October 2026. The current working tree adds step 3 and has not been published. The import notes above describe the original handoff, not outstanding work in this clone.
 
-> We are developing Monstrum Mortis. Read AGENTS.md, docs/APPROVED-PLAN.md, docs/IMPLEMENTATION-STATUS.md, docs/ARCHITECTURE.md, and docs/CLOUDFLARE-SETUP.md. The current authorized milestone is step 2 only. Review existing changes and run npm run check, npm run build, and npm run test:rooms with Node 24. Verify storage, authorized WebSockets and reconnection with independent clients. Keep scottjmiller.com and www self-hosted and use workers.dev only. Do not implement step 3 matchmaking or later stages until requested. Do not assume access to earlier chat history.
+> We are developing Monstrum Mortis. Read AGENTS.md, docs/APPROVED-PLAN.md, docs/IMPLEMENTATION-STATUS.md, docs/ARCHITECTURE.md, and docs/CLOUDFLARE-SETUP.md. The current authorized milestone is step 3 only. Review existing changes and run npm run check, npm run build, and npm run test:rooms and npm run test:matchmaking with Node 24. Verify storage, authorized WebSockets and reconnection with independent clients. Keep scottjmiller.com and www self-hosted and use workers.dev only. Do not implement step 4 or later stages until requested. Do not assume access to earlier chat history.
 
 Use npm run dev:worker and npm run dev for the service console. Two independent browser profiles/devices can join the same private invitation; a display uses no player seat. The host can start the server timeline, which stops at the battle boundary until combat is implemented. Reconnect uses a private credential in tab session storage; a second active connection requires explicit replacement. See docs/ARCHITECTURE.md for contracts and limits.
 
 The approved specification and project documents provide continuity independently of the chat. Return to this interface whenever you want to review design choices or discuss a larger change.
 
 Official IDE guidance: https://developers.openai.com/codex/ide/
+
+Quick Play now includes regional queues, authored guest identities, ready checks and explicit replacement queues. Public rooms start without a host. Results/replay/recovery are implemented behind the future trusted battle-completion boundary; step 3 does not fabricate combat results. Guest claims apply across all public pools and private entries carrying that issued identity. Legacy private-only guests remain independent anonymous seats. See the current status for local runtime evidence and outstanding deployed/human verification.

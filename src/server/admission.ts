@@ -1,8 +1,10 @@
+import type { MatchmakingRegion } from '../shared/rules.ts';
 /** Binding-only contracts for step 3. Never expose allocation or cancellation as browser routes. */
 export interface PublicAllocation {
   allocationId: string;
   roomId: string;
-  members: { reservationId: string; guestId: string; alias: string }[];
+  region?: MatchmakingRegion;
+  members: { reservationId: string; guestId: string; alias: string; ticketId?: string }[];
 }
 export interface PublicGrant {
   reservationId: string;

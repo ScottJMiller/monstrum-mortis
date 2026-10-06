@@ -1,3 +1,4 @@
+import { QuickPlay, guestHeaders } from './QuickPlay.tsx';
 import { useEffect, useRef, useState } from 'react';
 import { PROTOCOL_VERSION } from '../shared/protocol.ts';
 import type { ClientAction, ServerMessage } from '../shared/protocol.ts';
@@ -11,8 +12,11 @@ function storedCredentials(): RoomCredentials | null {
     return raw && typeof raw.roomId === 'string' && typeof raw.reconnectToken === 'string' ? raw : null;
   } catch { return null; }
 }
-/** Step 2 service console. Production scene, DNA controls and battle are later milestones. */
+/** Step 3 service console. Production scene, DNA controls and battle are later milestones. */
 export function App() {
+  const [queueBusy, setQueueBusy] = useState(false);
+  const [findNew, setFindNew] = useState(false);
+  const findingNew = useRef(false);
   const [credentials, setCredentials] = useState<RoomCredentials | null>(storedCredentials);
   const [room, setRoom] = useState<RoomSnapshot | null>(null);
   const [own, setOwn] = useState<ControllerSnapshot | null>(null);
@@ -30,6 +34,7 @@ export function App() {
   const serverOffset = useRef(0);
   const socket = useRef<WebSocket | null>(null);
   const entryKey = useRef<{ fingerprint: string; id: string } | null>(null);
+  const displayKey = useRef<string | null>(null);
   const pendingAction = useRef<ClientAction | null>(null);
 
   function remember(value: RoomCredentials | null) {
@@ -45,7 +50,7 @@ export function App() {
       if (pendingAction.current?.actionId === message.actionId) {
         const leaving = pendingAction.current.kind === 'leave';
         pendingAction.current = null; setPending(false);
-        if (message.kind === 'action-accepted' && leaving) { remember(null); setRoom(null); setOwn(null); setStatus('You left the laboratory.'); }
+        if (message.kind === 'action-accepted' && leaving) { remember(null); setRoom(null); setOwn(null); setFindNew(findingNew.current); findingNew.current = false; setStatus('You left the laboratory.'); }
       }
       if (message.kind === 'action-rejected') setStatus(`${message.code}: ${message.message}`);
       else setStatus('Intent accepted by the server.');
@@ -62,7 +67,7 @@ export function App() {
     const url = new URL(`/api/rooms/${credentials.roomId}/socket`, location.href);
     url.protocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
     if (replace) url.searchParams.set('replace', '1');
-    const ws = new WebSocket(url, ['mm-v2', `token.${credentials.reconnectToken}`]); socket.current = ws;
+    const ws = new WebSocket(url, ['mm-v3', `token.${credentials.reconnectToken}`]); socket.current = ws;
     setStatus('Connecting to the authoritative room…'); setConnected(false);
     ws.onopen = () => {
       if (disposed) return;
@@ -97,7 +102,7 @@ export function App() {
     const fingerprint = JSON.stringify([path, details]);
     if (entryKey.current?.fingerprint !== fingerprint) entryKey.current = { fingerprint, id: crypto.randomUUID() };
     try {
-      const response = await fetch(path, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...details, operationId: entryKey.current.id }) });
+      const response = await fetch(path, { method: 'POST', headers: { 'Content-Type': 'application/json', ...guestHeaders() }, body: JSON.stringify({ ...details, operationId: entryKey.current.id }) });
       const data = await response.json();
       if (!response.ok) throw new Error(`${data.code}: ${data.message}`);
       const entry = data as RoomEntryResponse;
@@ -109,7 +114,21 @@ export function App() {
     } catch (error) { setStatus(error instanceof Error ? error.message : 'Entry failed. Retry to use the same entry key.'); }
     finally { setPending(false); }
   }
-  function intent(kind: 'start-private-session' | 'leave') {
+  async function openPublicDisplay() {
+    if (!credentials) return;
+    const displayWindow = window.open('about:blank', '_blank');
+    if (!displayWindow) { setStatus('Allow a new browser tab to open the shared display.'); return; }
+    displayKey.current ??= crypto.randomUUID();
+    try {
+      const response = await fetch(`/api/rooms/${credentials.roomId}/display`, { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${credentials.reconnectToken}` }, body: JSON.stringify({ operationId: displayKey.current }) });
+      const entry = await response.json() as RoomEntryResponse & { message?: string };
+      if (!response.ok) throw new Error(entry.message ?? 'Display entry failed.');
+      displayKey.current = null;
+      displayWindow.sessionStorage.setItem(STORAGE_KEY, JSON.stringify(entry.credentials));
+      displayWindow.opener = null; displayWindow.location.replace(location.origin);
+    } catch (error) { displayWindow.close(); setStatus(String(error)); }
+  }
+  function intent(kind: 'start-private-session' | 'leave' | 'next-round-ready' | 'public-replay-opt-in') {
     if (!socket.current || socket.current.readyState !== WebSocket.OPEN) return;
     const action: ClientAction = { protocolVersion: PROTOCOL_VERSION, actionId: crypto.randomUUID(), kind };
     pendingAction.current = action; setPending(true); socket.current.send(JSON.stringify(action));
@@ -117,26 +136,36 @@ export function App() {
   const invitation = room?.visibility === 'private' ? `${location.origin}/?room=${room.roomId}` : '';
   const remaining = room?.phaseDeadlineMs ? Math.max(0, Math.ceil((room.phaseDeadlineMs - clock - serverOffset.current) / 1000)) : null;
   return <main>
-    <p className="eyebrow">Step 2 · Room service verification</p>
+    <p className="eyebrow">Monstrum Mortis · Cooperative laboratory</p>
     <h1>Monstrum Mortis</h1>
-    <p>Private rooms and synchronization are available here. DNA, creature artwork, battles, and public matchmaking are still being built.</p>
-    {!credentials ? <section aria-label="Private room entry">
+    <p>Find a public laboratory or invite friends. Creature artwork, DNA, and automatic battles are still being built.</p>
+    {!credentials ? <><QuickPlay autoStart={findNew} onBusy={setQueueBusy} onEntry={entry => { setFindNew(false); setRoom(entry.snapshot); setOwn(entry.controller); setReplace(false); remember(entry.credentials); }} /><section aria-label="Private room entry">
       <label>Player Name<input value={name} maxLength={24} onChange={event => setName(event.target.value)} autoComplete="nickname" aria-describedby="player-name-hint" className={!name.trim() && !display ? 'name-required' : undefined} /></label>
       <p id="player-name-hint" className={!name.trim() && !display ? 'entry-warning' : 'note'}>{!name.trim() ? (display ? 'Display devices can join without a player name. Creating a laboratory requires a player name.' : 'Enter your player name first to create or join a laboratory.') : 'This is your name in the player roster.'}</p>
       <label>Presentation<select value={presentation} onChange={event => setPresentation(event.target.value as PresentationMode)}><option value="remote">Remote</option><option value="same-room">Same-Room</option></select></label>
-      <button disabled={pending || !name.trim()} onClick={() => enter(true)}>Create Private Laboratory</button>
+      <button disabled={pending || queueBusy || !name.trim()} onClick={() => enter(true)}>Create Private Laboratory</button>
       <label>Invitation code<input value={code} maxLength={6} onChange={event => setCode(event.target.value.toUpperCase())} autoCapitalize="characters" /></label>
       <label className="checkbox"><input type="checkbox" checked={display} onChange={event => setDisplay(event.target.checked)} /> Join as a display without a player seat</label>
-      <button disabled={pending || code.trim().length !== 6 || (!display && !name.trim())} onClick={() => enter(false)}>Join by Code</button>
-    </section> : <section aria-label="Laboratory room">
+      <button disabled={pending || queueBusy || code.trim().length !== 6 || (!display && !name.trim())} onClick={() => enter(false)}>Join by Code</button>
+    </section></> : <section aria-label="Laboratory room">
       <p>Room <strong>{credentials.roomId}</strong> · {credentials.role} · {connected ? 'online' : 'offline'}</p>
       {invitation && <label>Player invitation link<input readOnly value={invitation} onFocus={event => event.target.select()} /></label>}
+      {room?.visibility === 'public' && credentials.role === 'player' && <button disabled={pending || !connected} onClick={openPublicDisplay}>Open shared display</button>}
       {invitation && <p><a href={`${invitation}&display=1`} target="_blank" rel="noreferrer">Open shared display</a></p>}
       {room && <>
         <p>Phase: <strong>{room.phase}</strong>{remaining !== null && ` · ${remaining}s remaining`} · revision {room.revision}</p>
         {room.recoveryDeadlineMs && <p>Experiment suspended for reconnection. Recovery deadline: {new Date(room.recoveryDeadlineMs).toLocaleTimeString()}.</p>}
         {room.phase === 'battle' && <p>The synchronized service has reached the battle boundary. Combat will be added in step 6.</p>}
         <ul>{room.players.map(player => <li key={player.playerId}>{player.symbol} {player.alias} · {player.connected ? 'connected' : 'disconnected'}{player.playerId === room.hostPlayerId ? ' · host' : ''}{player.waitingForNextRound ? ' · waiting for next round' : ''}{player.finishedThisRound ? ' · finished' : ''}</li>)}</ul>
+        {room.publicSession && <>
+          {room.players.find(p => p.playerId === credentials.sessionId)?.inactivityPrompt && <p>You made no injections this round. Choose Next round ready to keep your seat.</p>}
+          <p>Team score: {room.teamScore} · {room.publicSession.completedRounds} completed rounds. This laboratory’s score includes earlier rounds; your contribution starts when you join.</p>
+          {['autopsy', 'recovery-lobby'].includes(room.phase) && <button disabled={!connected || pending || room.publicSession.readyPlayerIds.includes(credentials.sessionId)} onClick={() => intent('next-round-ready')}>Next round ready</button>}
+          {room.phase === 'session-results' && room.phaseDeadlineMs !== null && <button disabled={!connected || pending || room.publicSession.replayPlayerIds.includes(credentials.sessionId)} onClick={() => intent('public-replay-opt-in')}>Stay for a new session</button>}
+          {['autopsy', 'session-results', 'recovery-lobby'].includes(room.phase) && <button disabled={!connected || pending} onClick={() => { findingNew.current = true; intent('leave'); }}>Find New Laboratory</button>}
+          {room.phase === 'recovery-lobby' && <p>The interrupted round was abandoned. Completed results remain; two ready players can retry this round.</p>}
+          {room.phase === 'session-results' && room.phaseDeadlineMs === null && <p>Regroup has ended. Leave or choose Find New Laboratory when you are ready.</p>}
+        </>}
         {own && <p>Your controller is private. Specimen dealing and doses arrive in step 5.</p>}
         {credentials.sessionId === room.hostPlayerId && room.phase === 'lobby' && <button disabled={!connected || pending || room.players.filter(p => p.connected).length < 2} onClick={() => intent('start-private-session')}>Start service timeline</button>}
       </>}

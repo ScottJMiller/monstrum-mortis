@@ -2,11 +2,11 @@
 
 A cooperative browser party game for 2–8 players. Remote-first Quick Play matchmaking, private invitation rooms, and an optional shared TV display. The approved design is in [docs/APPROVED-PLAN.md](docs/APPROVED-PLAN.md).
 
-Current milestone: **step 2, real room service**. Private invitations, SQLite persistence, authorized WebSockets, reconnect and authoritative deadlines are implemented. The service console stops at the battle boundary; DNA, battles and public matchmaking remain later milestones. The user deployed step 1 at https://monstrum-mortis.scott-jeffrey-miller.workers.dev; this working tree has not been published.
+Current milestone: **step 3, public matchmaking**. Private invitations, SQLite persistence, authorized WebSockets, reconnect and authoritative deadlines are implemented. Regional Quick Play, guest leases, readiness, replacement admission and public progression are implemented. The service console stops at the battle boundary until the future combat producer supplies results; DNA and battles remain later milestones. The user deployed step 1 at https://monstrum-mortis.scott-jeffrey-miller.workers.dev; this working tree has not been published.
 
 ## Work locally
 
-Use Node.js 24 LTS and npm. Node 24 runs the TypeScript foundation and room tests without a separate test transpiler.
+Use Node.js 24 LTS and npm. Node 24 runs the TypeScript foundation, room and matchmaking tests without a separate test transpiler.
 
 ```sh
 npm ci
@@ -28,13 +28,16 @@ npm run dev
 
 Open `http://localhost:5173`. The Vite server proxies `/api` and WebSocket requests to the Worker at port 8787. Worker API changes are watched by Wrangler; client changes are watched by Vite. Authentication is not needed for local development.
 
+For Quick Play, skip or complete the rehearsal, select the same regional pool on independent browser profiles, and tap Ready when enough guests join. Two guests trigger readiness after thirty seconds; four trigger it immediately. Each public player needs a separate browser guest identity.
+
 Create a private room and join its code/link from another browser profile or device. Optional display entry consumes no player seat. The host can start the service timeline with two connected players; DNA and battle controls remain unavailable. Credentials live in tab session storage; use Reconnect after a drop and explicitly confirm replacement if the same seat is still open elsewhere. For isolated automated runtime verification:
 
 ```sh
 npm run test:rooms
+npm run test:matchmaking
 ```
 
-See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for API contracts, limits and the step 2 boundary.
+See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for API contracts, limits and the step 3 boundary.
 
 ## Layout
 
@@ -68,8 +71,9 @@ Open this directory in VS Code with the official Codex extension. Begin with [do
 
 | Command | Purpose |
 | --- | --- |
-| `npm run check` | Configuration guards, TypeScript checks, foundation/room tests |
+| `npm run check` | Configuration guards, TypeScript checks, foundation/room/matchmaking and client regressions |
 | `npm run test:rooms` | Build/dry run, then independent WebSocket clients, SQLite persistence, alarms and runtime restart |
+| `npm run test:matchmaking` | Public queues, guest claims, readiness, allocation recovery and independent-client admission |
 | `npm run build` | Build the client |
 | `npm run deploy:dry` | Run checks, build, and validate the Worker bundle without publishing |
 | `npm run cf:login` | Browser-based Cloudflare login |

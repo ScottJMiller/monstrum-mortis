@@ -290,4 +290,4 @@ References:
 
 Approval authorizes building this revised first release with the specified defaults, including remote-first public Quick Play matchmaking, private remote/same-room code and link play, optional TV/browser display, preset team signals, the 30-type catalogue, six rivals, free-hosting architecture, real multiplayer, tarot exports, and device-local cabinet. Ordinary implementation and numeric balancing choices may proceed within that scope. Material changes to mode, scoring, saving promises, paid services, or scope require discussion.
 
-Approval was granted on 5 October 2026. The current implementation request covers step 2 only after the successful foundation deployment; step 3 and later stages require a new request and are tracked in docs/IMPLEMENTATION-STATUS.md.
+Approval was granted on 5 October 2026. The user declared step 2 complete and authorized step 3 on 6 October 2026. Step 4 and later stages require a new request; actual verification and remaining integration boundaries are tracked in docs/IMPLEMENTATION-STATUS.md.

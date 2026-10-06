@@ -10,7 +10,7 @@ export function createHealth(bindings: {
 }): HealthResponse {
   return {
     service: 'monstrum-mortis',
-    stage: 'room-service',
+    stage: 'public-matchmaking',
     protocolVersion: PROTOCOL_VERSION,
     rulesVersion: GAME_RULES.rulesVersion,
     configuredBindings: {
@@ -21,5 +21,6 @@ export function createHealth(bindings: {
     },
     gameplayAvailable: false,
     roomServiceAvailable: true,
+    matchmakingAvailable: true,
   };
 }

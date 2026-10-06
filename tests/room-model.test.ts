@@ -66,7 +66,7 @@ test('public projections and runtime validators reject authoritative client fiel
   const room = fixture();
   const serialized = JSON.stringify(snapshot(room, 10));
   for (const hidden of ['secret', 'tokenHash', 'operationHash', 'creationHash', 'guestId']) assert.ok(!serialized.includes(hidden));
-  const action = { protocolVersion: 2, actionId: crypto.randomUUID(), kind: 'start-private-session' };
+  const action = { protocolVersion: 3, actionId: crypto.randomUUID(), kind: 'start-private-session' };
   assert.equal(parseAction(action).kind, 'start-private-session');
   for (const invalid of [{ ...action, playerId: 'somebody' }, { ...action, protocolVersion: 1 }, { ...action, actionId: 'small' }, null, [], { ...action, kind: 'set-phase', phase: 'autopsy' }]) assert.throws(() => parseAction(invalid));
 });

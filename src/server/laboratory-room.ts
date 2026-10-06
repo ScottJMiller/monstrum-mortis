@@ -1,4 +1,6 @@
 import { DurableObject } from 'cloudflare:workers';
+import type { MatchmakingRegion } from '../shared/rules.ts';
+import type { ReplacementOffer } from '../shared/matchmaking.ts';
 import { GAME_RULES } from '../shared/rules.ts';
 import { PROTOCOL_VERSION } from '../shared/protocol.ts';
 import type { ActionErrorCode, ClientAction, ServerMessage } from '../shared/protocol.ts';
@@ -7,7 +9,7 @@ import type { WorkerEnv } from './env.ts';
 import type { PublicAllocation, PublicGrant, ServiceResult } from './admission.ts';
 import { body, exact, failure, alias, operationId, parseAction, PRIVATE_CODE, PUBLIC_ID, ServiceError } from './validation.ts';
 import { hash, deriveToken, randomSecret } from './security.ts';
-import { connectedPlayers, connect, controller, disconnect, expiresAt, livePlayers, newRoom, nextAlarm, requireLive, settle, snapshot, startRound, touch } from './room-model.ts';
+import { completePublicRound, publicIntent, publicProgress, connectedPlayers, connect, controller, disconnect, expiresAt, livePlayers, newRoom, nextAlarm, requireLive, settle, snapshot, startRound, touch } from './room-model.ts';
 import type { Seat, StoredRoom } from './room-model.ts';
 
 interface Attachment {
@@ -41,7 +43,8 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
     const row = this.ctx.storage.sql.exec<{ record: string }>('SELECT record FROM room_state WHERE singleton = 1').toArray()[0];
     if (!row) return null;
     const room = JSON.parse(row.record) as StoredRoom;
-    if (room.schemaVersion !== 2) throw new ServiceError('temporarily-unavailable', 'Unsupported stored room schema.', 503);
+    if ((room as { schemaVersion: number }).schemaVersion === 2) { room.schemaVersion = 3; room.publicState = null; }
+    if (room.schemaVersion !== 3) throw new ServiceError('temporarily-unavailable', 'Unsupported stored room schema.', 503);
     return room;
   }
   private save(room: StoredRoom) {
@@ -111,16 +114,17 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
   private advance(room: StoredRoom, now: number) {
     this.reconcile(room, now);
     settle(room, now);
+    if (room.publicState && ['autopsy', 'recovery-lobby', 'session-results'].includes(room.phase)) for (const seat of livePlayers(room)) if (!seat.connected && seat.disconnectDeadlineMs === null) disconnect(room, seat, now, true);
     for (const grant of room.reservations) {
       if (!grant.cancelled && !grant.consumedByOperationHash && grant.expiresAtMs <= now) grant.cancelled = true;
     }
   }
   private async schedule(room: StoredRoom) {
     if (room.phase === 'closed') { await this.ctx.storage.deleteAlarm(); return; }
-    const socketCheck = this.sockets().length ? Date.now() + SOCKET_LIVENESS_MS : Infinity;
-    await this.ctx.storage.setAlarm(Math.max(Date.now() + 1, Math.min(nextAlarm(room), socketCheck)));
+    const socketCheck = this.sockets().length || room.publicState || room.seats.some(s => s.guestId && !s.departed) ? Date.now() + SOCKET_LIVENESS_MS : Infinity;
+    await this.ctx.storage.setAlarm(Math.max(Date.now() + 1, Math.min(nextAlarm(room), socketCheck, room.publicState?.notice?.pending ? Date.now() + 1000 : Infinity, ...room.seats.filter(s => s.guestId && s.reservationId && !s.departed).map(s => s.leaseRenewAtMs ?? Infinity))));
   }
-  private envelope(): { protocolVersion: 2; serverTimeMs: number } { return { protocolVersion: PROTOCOL_VERSION, serverTimeMs: Date.now() }; }
+  private envelope(): { protocolVersion: 3; serverTimeMs: number } { return { protocolVersion: PROTOCOL_VERSION, serverTimeMs: Date.now() }; }
   private send(ws: WebSocket, message: ServerMessage) { try { ws.send(JSON.stringify(message)); } catch { /* Close/error callback handles transport loss. */ } }
   private sendSnapshots(ws: WebSocket, room: StoredRoom) {
     const a = this.attachment(ws);
@@ -133,8 +137,22 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
   private broadcast(room: StoredRoom) {
     for (const ws of this.sockets()) this.sendSnapshots(ws, room);
   }
+  private prepareNotice(room: StoredRoom) {
+    const p = room.publicState; if (!p) return;
+    const signature = JSON.stringify(this.offer(room));
+    if (p.notice?.signature !== signature) p.notice = { revision: (p.notice?.revision ?? 0) + 1, signature, pending: true };
+  }
   private async persisted(room: StoredRoom, broadcast = true) {
+    this.prepareNotice(room);
     await this.ctx.storage.transaction(async () => { this.save(room); await this.schedule(room); });
+    if (room.publicState || room.seats.some(s => s.guestId && s.reservationId)) await this.maintainLeases(room);
+    if (room.publicState) {
+      // Lease maintenance can retire a seat and change the available capacity.
+      this.prepareNotice(room);
+      await this.ctx.storage.transaction(async () => { this.save(room); await this.schedule(room); });
+      // Send after the room event releases its serialization queue: pool allocation calls rooms.
+      this.ctx.waitUntil(this.tail.then(() => this.flushNotice()).catch(() => undefined));
+    }
     if (broadcast) this.broadcast(room);
   }
   private async entryResponse(room: StoredRoom, seat: Seat): Promise<RoomEntryResponse> {
@@ -165,6 +183,19 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
     room.revision++; touch(room, now);
     return seat;
   }
+  private async privateGuest(request: Request): Promise<string | null> {
+    const id = request.headers.get('X-Guest-Id'); if (!id) return null;
+    operationId(id); const identity = await this.lease(id).authenticate(request.headers.get('X-Guest-Token') ?? '');
+    if (!identity) throw new ServiceError('unauthorized', 'Guest credential invalid.', 401);
+    return id;
+  }
+  private async claimPrivate(room: StoredRoom, seat: Seat, guestId: string | null) {
+    if (guestId !== seat.guestId) throw new ServiceError('idempotency-conflict', 'Guest entry identity differs.', 409);
+    if (guestId) {
+      if (!await this.lease(guestId).acquirePrivate(room.id, seat.operationHash)) throw new ServiceError('guest-busy', 'Cancel or leave your current queue/room first.', 409);
+      seat.reservationId = seat.operationHash;
+    }
+  }
   private async auth(room: StoredRoom, request: Request): Promise<Seat> {
     const header = request.headers.get('Authorization') ?? '';
     const token = header.startsWith('Bearer ') ? header.slice(7) : '';
@@ -175,6 +206,7 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
     const digest = await hash(token);
     const seat = room.seats.find(s => s.tokenHash === digest && !s.departed);
     if (!seat) throw new ServiceError('unauthorized', 'Invalid or revoked reconnect credential.', 401);
+    if (seat.guestId && seat.reservationId && !await this.lease(seat.guestId).renew('room', room.id, seat.reservationId)) throw new ServiceError('stale-session', 'This guest no longer owns this seat.', 409);
     return seat;
   }
   async fetch(request: Request): Promise<Response> {
@@ -205,7 +237,9 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
       if (room && room.creationHash !== opHash) throw new ServiceError('code-collision', 'Room code is already allocated.', 409);
       if (room && room.creationFingerprint !== fingerprint) throw new ServiceError('idempotency-conflict', 'Creation key reused.', 409);
       room ??= newRoom(v.roomId, 'private', v.presentation, randomSecret(), opHash, fingerprint, now);
-      const seat = await this.addSeat(room, opHash, JSON.stringify([name, 'player']), name, 'player', null, now);
+      const guestId = await this.privateGuest(request);
+      const seat = await this.addSeat(room, opHash, JSON.stringify([name, 'player']), name, 'player', guestId, now);
+      await this.claimPrivate(room, seat, guestId);
       await this.persisted(room);
       return Response.json(await this.entryResponse(room, seat), { status: 201, headers: { 'Cache-Control': 'no-store' } });
     }
@@ -215,7 +249,9 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
       const v = await body(request); exact(v, ['operationId', 'alias', 'role']);
       const op = operationId(v.operationId); const name = alias(v.alias);
       if (v.role !== 'player' && v.role !== 'display') throw new ServiceError('invalid-action', 'Invalid role.');
-      const seat = await this.addSeat(room, await hash(op), JSON.stringify([name, v.role]), name, v.role, null, Date.now());
+      const guestId = v.role === 'player' ? await this.privateGuest(request) : null;
+      const seat = await this.addSeat(room, await hash(op), JSON.stringify([name, v.role]), name, v.role, guestId, Date.now());
+      await this.claimPrivate(room, seat, guestId);
       await this.persisted(room);
       return Response.json(await this.entryResponse(room, seat), { headers: { 'Cache-Control': 'no-store' } });
     }
@@ -230,9 +266,13 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
       if (grant.cancelled) throw new ServiceError('unauthorized', 'Cancelled reservation.', 403);
       if (grant.consumedByOperationHash && grant.consumedByOperationHash !== opHash) throw new ServiceError('admission-used', 'Reservation already consumed.', 409);
       if (!grant.consumedByOperationHash && grant.expiresAtMs <= Date.now()) throw new ServiceError('admission-expired', 'Reservation expired.', 410);
-      if (!grant.consumedByOperationHash && room.phase !== 'lobby') throw new ServiceError('wrong-phase', 'Fresh admissions only enter a lobby.', 409);
+      if (!grant.consumedByOperationHash && !(grant.purpose === 'replacement' ? ['autopsy', 'recovery-lobby'].includes(room.phase) : ['lobby', 'briefing'].includes(room.phase))) throw new ServiceError('wrong-phase', 'Fresh admissions only enter a lobby.', 409);
+      if (room.publicState && !await this.lease(grant.guestId).renew('room', room.id, grant.id)) throw new ServiceError('stale-session', 'Admission claim was cancelled or expired.', 409);
       const seat = await this.addSeat(room, opHash, JSON.stringify([grant.guestId, grant.id]), grant.alias, 'player', grant.guestId, Date.now());
-      grant.consumedByOperationHash = opHash;
+      if (room.publicState) { const profile = await this.lease(grant.guestId).publicProfile(); if (profile) { seat.alias = profile.alias; seat.symbol = profile.symbol; } }
+      grant.consumedByOperationHash = opHash; if (room.publicState) seat.reservationId = grant.id;
+      if (room.phase === 'briefing' && grant.purpose !== 'replacement' && !room.lockedPlayerIds.includes(seat.id)) { room.lockedPlayerIds.push(seat.id); seat.eligible = true; }
+      if (grant.purpose === 'replacement' && room.publicState && !room.publicState.ready.includes(seat.id)) room.publicState.ready.push(seat.id);
       await this.persisted(room);
       return Response.json(await this.entryResponse(room, seat), { headers: { 'Cache-Control': 'no-store' } });
     }
@@ -252,7 +292,7 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
     if (path === '/internal/socket' && request.method === 'GET') {
       if (request.headers.get('Upgrade')?.toLowerCase() !== 'websocket') throw new ServiceError('invalid-action', 'WebSocket upgrade required.', 426);
       const protocols = (request.headers.get('Sec-WebSocket-Protocol') ?? '').split(',').map(s => s.trim());
-      if (!protocols.includes('mm-v2')) throw new ServiceError('stale-session', 'Current WebSocket protocol required.', 426);
+      if (!protocols.includes('mm-v3')) throw new ServiceError('stale-session', 'Current WebSocket protocol required.', 426);
       const seat = await this.tokenSeat(room, protocols.find(s => s.startsWith('token.'))?.slice(6) ?? '');
       if (this.limited(`connect:${seat.id}`, 10, 60_000, Date.now())) throw new ServiceError('rate-limited', 'Reconnect attempts limited.', 429);
       const existing = this.sockets(seat.id);
@@ -261,9 +301,10 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
       const pair = new WebSocketPair(); const client = pair[0]; const server = pair[1];
       this.ctx.acceptWebSocket(server);
       server.serializeAttachment({ sessionId: seat.id, connectionId: crypto.randomUUID(), openedAtMs: Date.now(), lastMessageAtMs: Date.now(), closed: false } satisfies Attachment);
-      connect(room, seat, Date.now());
+      if (seat.guestId && seat.reservationId && !await this.lease(seat.guestId).renew('room', room.id, seat.reservationId, true)) { this.closeSocket(server, 4003, 'Admission cancelled'); throw new ServiceError('stale-session', 'Admission cancelled.', 409); }
+      connect(room, seat, Date.now()); publicProgress(room, Date.now());
       await this.persisted(room);
-      return new Response(null, { status: 101, webSocket: client, headers: { 'Sec-WebSocket-Protocol': 'mm-v2' } });
+      return new Response(null, { status: 101, webSocket: client, headers: { 'Sec-WebSocket-Protocol': 'mm-v3' } });
     }
     throw new ServiceError('not-found', 'Unknown room operation.', 404);
   }
@@ -273,7 +314,8 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
       const now = Date.now(); this.advance(room, now);
       if (room.phase === 'closed') { await this.expire(room); return; }
       const seat = room.seats.find(s => s.id === a.sessionId && !s.departed);
-      if (!seat) { this.closeSocket(ws, 4003, 'Seat revoked'); await this.persisted(room); return; }
+      if (seat && seat.guestId && seat.reservationId && !await this.lease(seat.guestId).renew('room', room.id, seat.reservationId)) disconnect(room, seat, now, true);
+      if (!seat || seat.departed) { this.closeSocket(ws, 4003, 'Seat revoked'); await this.persisted(room); return; }
       if (a.closed) { await this.persisted(room); return; } // Reconciliation may have expired this socket.
       a.lastMessageAtMs = now; ws.serializeAttachment(a);
       let action: ClientAction;
@@ -309,9 +351,11 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
           if (action.kind === 'advance-private-round' && room.phase !== 'autopsy') throw new ServiceError('wrong-phase', 'Advance requires completed battle results.', 409);
           if (room.round === 3 && action.kind === 'advance-private-round') throw new ServiceError('wrong-phase', 'Session already completed.', 409);
           startRound(room, now); touch(room, now);
+        } else if (action.kind === 'next-round-ready' || action.kind === 'public-replay-opt-in') {
+          publicIntent(room, seat, action.kind, now);
         } else {
           if (action.kind === 'inject' && (room.phase !== 'experiment' || room.recovery || !seat.eligible || seat.finished)) throw new ServiceError('wrong-phase', 'Injections are locked in this phase.', 409);
-          throw new ServiceError('not-implemented', 'DNA, switches, and public progression belong to later milestones.', 501);
+          throw new ServiceError('not-implemented', 'DNA and switches belong to later milestones.', 501);
         }
         result = { ...this.envelope(), kind: 'action-accepted', actionId: action.actionId, revision: room.revision };
       } catch (error) {
@@ -322,6 +366,7 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
         this.ctx.storage.sql.exec('INSERT INTO action_receipts VALUES(?, ?, ?, ?)', seat.id, action.actionId, fingerprint, JSON.stringify(result));
         await this.schedule(room);
       });
+      await this.persisted(room, false);
       this.send(ws, result); this.broadcast(room);
       if (seat.departed) for (const socket of this.sockets(seat.id)) this.closeSocket(socket, 4002, 'You left the laboratory');
     });
@@ -339,6 +384,11 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
   async webSocketError(ws: WebSocket): Promise<void> { return this.exclusive(() => this.socketClosed(ws)); }
   private async expire(room: StoredRoom) {
     for (const ws of this.sockets()) this.closeSocket(ws, 4004, 'Laboratory expired');
+    {
+      for (const seat of room.seats) if (seat.guestId && seat.reservationId) await this.lease(seat.guestId).release('room', room.id, seat.reservationId);
+      for (const g of room.reservations) await this.lease(g.guestId).release('room', room.id, g.id);
+      // Expired offers have their own bounded deadlines; no synchronous pool call here.
+    }
     // Delete all room secrets, receipts and snapshots. A minimal tombstone distinguishes expiry from an unknown code.
     await this.ctx.storage.transaction(async () => {
       this.ctx.storage.sql.exec('DELETE FROM room_state');
@@ -375,15 +425,101 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
         const fingerprint = JSON.stringify(v);
         if (room && (room.visibility !== 'public' || room.creationHash !== v.allocationId || room.creationFingerprint !== fingerprint)) throw new ServiceError('idempotency-conflict', 'Allocation already differs.', 409);
         room ??= newRoom(v.roomId, 'public', 'remote', randomSecret(), v.allocationId, fingerprint, now);
+        if (v.region && !room.publicState) {
+          room.publicState = { region: v.region, sessionId: crypto.randomUUID(), teamScore: 0, completed: [], ready: [], replay: [], resultsStartedAtMs: null };
+          room.phaseDeadlineMs = now + GAME_RULES.matchmaking.readyCheckMs;
+        }
         if (!room.reservations.length) {
           for (const member of v.members) {
             const token = await deriveToken(room.secret, `admission:${member.reservationId}`);
-            room.reservations.push({ id: member.reservationId, guestId: member.guestId, alias: member.alias, tokenHash: await hash(token), expiresAtMs: now + GAME_RULES.matchmaking.readyCheckMs, cancelled: false, consumedByOperationHash: null });
+            room.reservations.push({ allocationId: v.allocationId, purpose: 'fresh', id: member.reservationId, guestId: member.guestId, alias: member.alias, tokenHash: await hash(token), expiresAtMs: now + GAME_RULES.matchmaking.readyCheckMs, cancelled: false, consumedByOperationHash: null });
           }
         }
         await this.persisted(room);
         const value = await Promise.all(room.reservations.map(async r => ({ reservationId: r.id, guestId: r.guestId, admissionToken: await deriveToken(room!.secret, `admission:${r.id}`), expiresAtMs: r.expiresAtMs })));
         return { ok: true, value };
+      } catch (error) { return rpcError(error); }
+    });
+  }
+  private lease(guestId: string) { return this.env.GUEST_LEASES.get(this.env.GUEST_LEASES.idFromName(`guest:${guestId}`)); }
+  private offer(r: StoredRoom): ReplacementOffer | null {
+    if (!r.publicState || !['autopsy', 'recovery-lobby'].includes(r.phase) || !r.phaseDeadlineMs) return null;
+    const occupied = livePlayers(r).length;
+    const reserved = r.reservations.filter(g => !g.cancelled && !g.consumedByOperationHash && g.expiresAtMs > Date.now()).length;
+    const vacancies = GAME_RULES.maxPlayers - occupied - reserved;
+    if (vacancies <= 0) return null;
+    return { roomId: r.id, round: r.round ?? 1, teamScore: r.publicState.teamScore, reason: r.phase === 'autopsy' ? 'vacancy' : 'recovery', vacancies, deadlineMs: r.phaseDeadlineMs,
+      remainingSessionMs: Math.max(0, (r.phase === 'autopsy' ? 3 : 4) - (r.round ?? 1)) * (GAME_RULES.briefingDurationMs + GAME_RULES.experimentDurationMs + GAME_RULES.releaseDurationMs + GAME_RULES.maxBattleDurationMs + GAME_RULES.publicResultsDurationMs) };
+  }
+  private async flushNotice() {
+    const r = this.load(); const p = r?.publicState; const notice = p?.notice;
+    if (!r || !p || !notice?.pending) return;
+    await this.env.MATCHMAKING.get(this.env.MATCHMAKING.idFromName(`pool:${p.region}`)).announce(p.region, r.id, notice.revision, JSON.parse(notice.signature));
+    await this.exclusive(async () => {
+      const latest = this.load(); if (latest?.publicState?.notice?.signature === notice.signature && latest.publicState.notice.revision === notice.revision) { latest.publicState.notice.pending = false; this.save(latest); await this.schedule(latest); }
+    });
+  }
+  private async maintainLeases(r: StoredRoom) {
+    const now = Date.now(); let changed = false;
+    for (const seat of r.seats) {
+      if (!seat.guestId || !seat.reservationId) continue;
+      if (seat.departed || r.phase === 'closed') { await this.lease(seat.guestId).release('room', r.id, seat.reservationId); continue; }
+      if ((seat.leaseRenewAtMs ?? 0) > now) continue;
+      if (!seat.connected && seat.disconnectDeadlineMs === null && ['autopsy', 'recovery-lobby', 'session-results', 'lobby'].includes(r.phase)) disconnect(r, seat, now, true);
+      if (seat.departed) { await this.lease(seat.guestId).release('room', r.id, seat.reservationId); changed = true; continue; }
+      if (!await this.lease(seat.guestId).renew('room', r.id, seat.reservationId)) {
+        disconnect(r, seat, now, true); for (const ws of this.sockets(seat.id)) this.closeSocket(ws, 4003, 'Guest claim expired');
+      }
+      seat.leaseRenewAtMs = now + 45_000; changed = true;
+    }
+    for (const grant of r.reservations) if (grant.cancelled && !grant.consumedByOperationHash) await this.lease(grant.guestId).release('room', r.id, grant.id);
+    if (changed) { this.save(r); await this.schedule(r); }
+  }
+  /** Binding-only boundary for the future authoritative battle producer; never a browser route. */
+  async finishPublicBattle(sessionId: string, completionId: string, outcome: 'victory' | 'draw' | 'defeat'): Promise<ServiceResult<null>> {
+    return this.exclusive(async () => {
+      try {
+        operationId(sessionId); operationId(completionId);
+        if (!['victory', 'draw', 'defeat'].includes(outcome)) throw new ServiceError('invalid-action', 'Invalid outcome.');
+        const r = this.load(); if (!r) throw new ServiceError('room-not-found', 'No room.', 404);
+        this.advance(r, Date.now()); requireLive(r, Date.now()); completePublicRound(r, sessionId, completionId, outcome, Date.now());
+        await this.persisted(r); return { ok: true, value: null };
+      } catch (error) { return rpcError(error); }
+    });
+  }
+  async reserveReplacements(allocationId: string, region: MatchmakingRegion, members: PublicAllocation['members'], expires: number): Promise<ServiceResult<PublicGrant[]>> {
+    return this.exclusive(async () => {
+      try {
+        operationId(allocationId); const r = this.load(); const now = Date.now();
+        if (!r?.publicState || r.publicState.region !== region) throw new ServiceError('room-not-found', 'Public laboratory unavailable.', 404);
+        this.advance(r, now); requireLive(r, now);
+        const prior = r.reservations.filter(g => g.allocationId === allocationId);
+        if (!prior.length) {
+          if (!['autopsy', 'recovery-lobby'].includes(r.phase) || !r.phaseDeadlineMs || expires <= now) throw new ServiceError('wrong-phase', 'Replacement window ended.', 409);
+          if (!Array.isArray(members) || !members.length || members.length > 8) throw new ServiceError('invalid-action', 'Invalid replacements.');
+          if (members.length > (this.offer(r)?.vacancies ?? 0) || r.reservations.length + members.length > 128) throw new ServiceError('room-full', 'Replacement capacity reached.', 409);
+          const ids = new Set<string>(); const guests = new Set<string>();
+          for (const m of members) {
+            operationId(m.guestId); operationId(m.reservationId); alias(m.alias);
+            if (ids.has(m.reservationId) || guests.has(m.guestId) || r.reservations.some(g => g.id === m.reservationId) || livePlayers(r).some(s => s.guestId === m.guestId)) throw new ServiceError('invalid-action', 'Duplicate replacement.');
+            ids.add(m.reservationId); guests.add(m.guestId);
+            r.reservations.push({ id: m.reservationId, allocationId, purpose: 'replacement', guestId: m.guestId, alias: m.alias, tokenHash: await hash(await deriveToken(r.secret, `admission:${m.reservationId}`)), expiresAtMs: Math.min(expires, r.phaseDeadlineMs), cancelled: false, consumedByOperationHash: null });
+          }
+          r.revision++; await this.persisted(r);
+        } else if (JSON.stringify(prior.map(g => [g.id, g.guestId, g.alias])) !== JSON.stringify(members.map(m => [m.reservationId, m.guestId, m.alias]))) throw new ServiceError('idempotency-conflict', 'Replacement allocation differs.', 409);
+        return { ok: true, value: await Promise.all(r.reservations.filter(g => g.allocationId === allocationId).map(async g => ({ reservationId: g.id, guestId: g.guestId, admissionToken: await deriveToken(r.secret, `admission:${g.id}`), expiresAtMs: g.expiresAtMs }))) };
+      } catch (error) { return rpcError(error); }
+    });
+  }
+  async revokeAdmission(guestId: string, reservationId: string): Promise<ServiceResult<null>> {
+    return this.exclusive(async () => {
+      try {
+        const r = this.load(); const grant = r?.reservations.find(g => g.guestId === guestId && g.id === reservationId);
+        if (!r || !grant) throw new ServiceError('room-not-found', 'Reservation not found.', 404);
+        grant.cancelled = true; r.revision++;
+        const seat = r.seats.find(s => s.operationHash === grant.consumedByOperationHash);
+        if (seat) { disconnect(r, seat, Date.now(), true); for (const ws of this.sockets(seat.id)) this.closeSocket(ws, 4003, 'Admission revoked'); }
+        await this.persisted(r); return { ok: true, value: null };
       } catch (error) { return rpcError(error); }
     });
   }
@@ -411,6 +547,7 @@ function rpcError(error: unknown): { ok: false; code: string; message: string; s
 function objectAllocation(input: PublicAllocation): PublicAllocation {
   if (!input || !PUBLIC_ID.test(input.roomId) || !Array.isArray(input.members) || input.members.length < 2 || input.members.length > 8) throw new ServiceError('invalid-action', 'Public allocation requires an opaque room ID and 2–8 unique members.');
   operationId(input.allocationId);
+  if (input.region && !GAME_RULES.matchmaking.regions.includes(input.region)) throw new ServiceError('invalid-action', 'Invalid pool region.');
   const guests = new Set<string>(); const reservations = new Set<string>();
   for (const member of input.members) {
     operationId(member.guestId); operationId(member.reservationId); alias(member.alias);

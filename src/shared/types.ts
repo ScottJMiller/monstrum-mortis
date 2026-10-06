@@ -45,6 +45,7 @@ export interface PlayerView {
   finishedThisRound: boolean;
   injectionsThisRound: number;
   waitingForNextRound?: boolean;
+  inactivityPrompt?: boolean;
 }
 
 export interface MorphologyPart {
@@ -64,7 +65,7 @@ export interface CreatureView {
 
 /** Shared state excludes hands, reconnect tokens, internal seeds, and DNA effects. */
 export interface RoomSnapshot {
-  protocolVersion: 2;
+  protocolVersion: 3;
   rulesVersion: string;
   revision: number;
   serverTimeMs: EpochMs;
@@ -81,6 +82,7 @@ export interface RoomSnapshot {
   recoveryDeadlineMs?: EpochMs | null;
   playerCountAtExperimentStart?: number | null;
   mechanicsAvailable?: boolean;
+  publicSession?: { sessionId: string; readyPlayerIds: string[]; replayPlayerIds: string[]; resultsStartedAtMs: number | null; completedRounds: number; region: MatchmakingRegion } | null;
 }
 
 /** Only sent to the owner. Display sessions cannot request a controller snapshot. */
@@ -92,14 +94,7 @@ export interface ControllerSnapshot {
   switchPulled: boolean;
 }
 
-export interface QueueStatus {
-  ticketId: string;
-  region: MatchmakingRegion;
-  mode: QueueMode;
-  enteredAtMs: EpochMs;
-  state: 'waiting' | 'ready-check' | 'reserved' | 'inactive';
-  readyDeadlineMs: EpochMs | null;
-}
+export type QueueStatus = import('./matchmaking.ts').PublicQueueStatus;
 
 export type BattleEventKind = 'attack' | 'block' | 'dodge' | 'poison'
   | 'restraint' | 'regeneration' | 'malfunction' | 'detach' | 'knockout';
@@ -153,10 +148,11 @@ export interface CardRecord {
 
 export interface HealthResponse {
   service: 'monstrum-mortis';
-  stage: 'foundation' | 'room-service';
-  protocolVersion: 2;
+  stage: 'foundation' | 'room-service' | 'public-matchmaking';
+  protocolVersion: 3;
   rulesVersion: string;
   configuredBindings: { assets: boolean; rooms: boolean; matchmaking: boolean; guestLeases: boolean };
   gameplayAvailable: false;
   roomServiceAvailable?: boolean;
+  matchmakingAvailable?: boolean;
 }

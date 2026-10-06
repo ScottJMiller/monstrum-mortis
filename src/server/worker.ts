@@ -1,4 +1,6 @@
 import type { WorkerEnv } from './env.ts';
+import { GAME_RULES } from '../shared/rules.ts';
+import type { MatchmakingRegion } from '../shared/rules.ts';
 import { createHealth } from './health.ts';
 import { alias, body, exact, failure, operationId, PRIVATE_CODE, PUBLIC_ID, ServiceError } from './validation.ts';
 import { hash } from './security.ts';
@@ -41,7 +43,7 @@ export default {
           const allocation = await gate.privateCode(opHash, fingerprint, collision);
           if (!allocation.ok) throw new ServiceError(allocation.code, allocation.message, allocation.status);
           const code = allocation.value;
-          const response = await env.ROOMS.get(env.ROOMS.idFromName(`room:${code}`)).fetch(new Request('https://room.internal/internal/create', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...v, roomId: code }) }));
+          const response = await env.ROOMS.get(env.ROOMS.idFromName(`room:${code}`)).fetch(new Request('https://room.internal/internal/create', { method: 'POST', headers: { 'Content-Type': 'application/json', ...(request.headers.get('X-Guest-Id') ? { 'X-Guest-Id': request.headers.get('X-Guest-Id')!, 'X-Guest-Token': request.headers.get('X-Guest-Token') ?? '' } : {}) }, body: JSON.stringify({ ...v, roomId: code }) }));
           if (response.status !== 409) return response;
           const error = await response.clone().json() as { code: string };
           if (error.code !== 'code-collision') return response;
@@ -60,7 +62,28 @@ export default {
         const forwarded = new Request(internal, request);
         return env.ROOMS.get(env.ROOMS.idFromName(`room:${id}`)).fetch(forwarded);
       }
-      if (url.pathname.startsWith('/api/queue')) return Response.json({ code: 'not-implemented', message: 'Public matchmaking belongs to step 3.' }, { status: 501 });
+      if (url.pathname === '/api/guests') {
+        if (request.method !== 'POST') return new Response(null, { status: 405, headers: { Allow: 'POST' } });
+        await limitEntry(false); const v = await body(request); exact(v, ['operationId']);
+        const guest = await env.GUEST_LEASES.get(env.GUEST_LEASES.idFromName('control:guest-identities')).issue(operationId(v.operationId));
+        return Response.json(guest, { headers: { 'Cache-Control': 'no-store' } });
+      }
+      const queue = /^\/api\/(?:queue|pools)\/([^/]+)\/(ping|enter|ready|resume|cancel|status|socket)$/.exec(url.pathname);
+      if (queue) {
+        const region = queue[1] as MatchmakingRegion; const op = queue[2]!;
+        if (!GAME_RULES.matchmaking.regions.includes(region)) throw new ServiceError('invalid-action', 'Unknown regional pool.');
+        const method = ['ping', 'status', 'socket'].includes(op) ? 'GET' : 'POST';
+        if (request.method !== method) return new Response(null, { status: 405, headers: { Allow: method } });
+        const internal = new URL(`https://pool.internal/internal/${region}/${op}`); internal.search = url.search;
+        const forwarded = new Request(internal, request);
+        if (op === 'socket') {
+          const protocols = (request.headers.get('Sec-WebSocket-Protocol') ?? '').split(',').map(s => s.trim());
+          if (!protocols.includes('mm-queue-v3')) throw new ServiceError('stale-session', 'Current queue protocol required.', 426);
+          forwarded.headers.set('X-Guest-Id', protocols.find(s => s.startsWith('guest.'))?.slice(6) ?? '');
+          forwarded.headers.set('Authorization', `Bearer ${protocols.find(s => s.startsWith('token.'))?.slice(6) ?? ''}`);
+        }
+        return env.MATCHMAKING.get(env.MATCHMAKING.idFromName(`pool:${region}`)).fetch(forwarded);
+      }
       throw new ServiceError('not-found', 'Unknown API route.', 404);
     } catch (error) { return failure(error); }
   },

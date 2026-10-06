@@ -1,6 +1,6 @@
 # Implementation status
 
-The remote-first plan was approved on 5 October 2026. Step 1 is deployed. The user authorized **step 2 only** on 5 October 2026; public matchmaking remains step 3.
+The remote-first plan was approved on 5 October 2026. The user declared step 2 complete and authorized **step 3 only** on 6 October 2026. This tree implements step 3; step 4 and later remain unauthorized. The last deployment evidence supplied in this conversation is the step 1 foundation, recorded below. This session has not published a deployment.
 
 ## Successful foundation deployment
 
@@ -16,7 +16,7 @@ This records a user-verified deployment wiring result, not storage operations, W
 - Exact-version npm lockfile and generated Wrangler binding types; workers.dev-only routing and three SQLite-backed infrastructure classes.
 - Original chat-workspace configuration/type checks, five foundation tests, client build and deploy dry run passed. That environment could not start the local runtime (`uv_interface_addresses`), authenticate to Cloudflare or push GitHub changes. The user's later local authentication and foundation deployment supersede that earlier deployment-access gap.
 
-## Step 2 changes in this working tree
+## Step 2 implementation (historical)
 
 - Actual SQLite persistence with explicit schema 2, atomic state/action-receipt/alarm writes, idle/hard expiry and bounded cleanup.
 - Collision-checked six-character private codes, invitation links, replay-safe creation/join keys, eight player seats, separate display sessions and waiting seats for mid-round private invitees.
@@ -52,11 +52,11 @@ Completed:
 - Added six component-handler regression checks: leave → rejoin, leave → create, and network/HTTP retry retention for each entry mode. They exercise the actual `App.tsx` handlers with controlled hooks and browser/transport doubles. All six reproduced key reuse before the fix and passed afterward.
 - Re-ran `npm run check` successfully (configuration guard, both TypeScript projects and all three test files), `npm run build`, and the focused six-check client regression suite using Node 24.21.0. `git diff --check` passed. No dependencies, rules, protocol, Worker behavior, or deployment configuration changed; the 13 backend runtime scenarios above remain the earlier step 2 verification.
 
-Outstanding:
+Outstanding at the step 2 handoff (current work is recorded below):
 
 - Publish this step 2 tree only when requested; the workers.dev origin remains the previously reported foundation deployment.
 - Test the published room service with independent browser sessions and at least two human-operated devices. No deployed room/WebSocket check or human playtest has been completed in this session.
-- Measure latency, deliberate network delay/loss and free-tier resource consumption before making capacity claims. Ten-room load and 100 idle queued guests belong to the later acceptance work; queues do not exist yet.
+- Measure latency, deliberate network delay/loss and free-tier resource consumption before making capacity claims. Ten-room load and 100 idle queued guests belong to the later acceptance work; queues were deferred until step 3.
 
 ## Follow-up: player entry clarity
 
@@ -66,4 +66,38 @@ Outstanding:
 
 ## Not implemented
 
-Step 3 regional public queues, readiness/allocation orchestration, cross-pool guest leases, public activation/results/recovery/replacement/replay; step 4 art/scene; step 5 DNA mechanics; step 6 battle/outcomes/awards/complete three-round play; step 7 exports/cabinet; step 8 polish and broad failure/load/device testing; step 9 complete-game deployment.
+Step 4 art/scene; step 5 DNA mechanics; step 6 battle/outcomes/awards/complete three-round play; step 7 exports/cabinet; step 8 polish and broad failure/load/device testing; step 9 complete-game deployment.
+
+## Step 3 implementation (6 October 2026)
+
+The user explicitly declared step 2 complete and requested step 3. A clean working tree and passing baseline checks were reviewed before implementation. Authorization is recorded in AGENTS.md, the approved plan and the handoff; later milestones remain deferred.
+
+Implemented:
+
+- Three regional SQLite-backed queue coordinators, response-time probes/manual selection, fresh FIFO grouping at four guests, filling to six, thirty-second two-player fallback, ten-second readiness and sixty-second alternatives.
+- Server-issued opaque guest credentials, authored aliases/symbols, one fenced queue/room claim per issued guest, conditional transfer/release, expiry and cancellation tombstones. Existing issued identities also claim private player entries; legacy private-only invitation identities remain supported.
+- Owner-only queue status and hibernating sockets, bounded HTTP/sync limits, explicit inactive resumption, cancellation before connection, temporary admission expiry and priority retention after failed checks/allocations.
+- A durable allocation journal recorded before cross-object operations, idempotent room grants and reactivation retry. A persisted, sequenced vacancy-notification outbox retries by alarm and avoids room/pool callback deadlocks.
+- Hostless public start, explicit between-round/recovery replacement consent and context, independent room phase/capacity/lease checks, fixed round player count and preserved private/display behavior.
+- Public results timers, minimum reading time/early advance, recovery abandonment and same-round retry, regroup opt-in/new session/reset score and explicit Find New Laboratory/exit choices. These use a binding-only future battle-completion boundary; no browser can submit a battle outcome.
+- Browser rehearsal/skip, queue cancellation/readiness/resumption, stable queue/admission operation keys across retries and reload, room reconnect/progression controls and participant-issued shared display tabs.
+- An inactivity prompt/expiry hook for initialized per-round injection/interaction counters. Step 5 must initialize/update those counters with real gameplay; service-only rounds do not falsely mark everyone inactive.
+- Protocol **3**, unchanged rules **0.1.0**, schema **3** with an explicit private-room schema-2 migration. Health reports public-matchmaking with room/matchmaking available and gameplay unavailable. No bindings, class identities, DNS, hosting configuration, dependencies or lockfile versions changed.
+
+Verification:
+
+- `npm run check`: configuration guard, both TypeScript projects and **30 tests** passed. Includes ten deterministic matchmaking/public-progression checks, three actual QuickPlay component-handler regressions and the prior seventeen checks.
+- `npm run build` and the Worker deploy dry run passed with all four existing bindings. Sandbox attempts could not write Wrangler logs/open local sockets; approved runs outside the sandbox completed. No publication occurred.
+- `npm run test:rooms`: all **13 private/legacy admission runtime scenarios** passed, including explicit schema-2 private-room migration with preserved credentials.
+- `npm run test:matchmaking`: all **7 public runtime scenarios** passed after final hardening, including pending-grant expiry release, cancellation fences, allocation journal replay, runtime restart, replacement/recovery admission and regroup opt-in.
+- Independent queue and room network clients verified real ten-second readiness, eight-second briefing and thirty-second fallback; owner projection privacy, cross-pool claim races, cancellation fences, inactive priority, hostless admission, hibernating eviction, persisted allocation replay, runtime restart, replacements and guest release.
+- Runtime fixtures seed the future battle boundary, regroup deadline, pending-grant expiry and failed-reconnection timestamps, then exercise actual binding completion, browser intents, storage, room settlement and synchronization. They do not validate combat or claim three-round gameplay. Deterministic tests cover exact twenty-five/ten/thirty/sixty-second progression boundaries.
+- `git diff --check` passed. The committed npm lockfile and workers.dev-only SQLite deployment configuration are unchanged.
+- Browser handlers are tested with controlled hooks/storage/transports, including lost admission responses and reload recovery. This is not a human browser/device playtest.
+
+Remaining integration and operational checks:
+
+- Step 5 DNA dealing, budgets, injections, switch activity and participation-counter updates; step 6 real combat producer, outcomes/awards and complete three-round gameplay; step 7 cards/cabinet. Results/recovery/replay orchestration exists, but the production service still stops at battle until those producers exist.
+- No new deployed-origin storage/WebSocket verification or human two-device playtest was performed. Publish only when requested; health is still only wiring evidence.
+- Cross-region response measurements from real devices, deliberate network delay/loss, ten-room/idle-guest load and free-plan quota consumption remain unmeasured. Pools organize matchmaking rather than promise physical execution-region pinning.
+- Anonymous credentials cannot enforce person-level uniqueness across deliberately separate browser identities. Legacy private-only identities remain independent anonymous seats; issued guest credentials enforce exclusion across public pools and private entries carrying that identity.
