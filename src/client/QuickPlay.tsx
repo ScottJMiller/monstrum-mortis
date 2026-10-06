@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { GAME_RULES } from '../shared/rules.ts';
 import type { MatchmakingRegion } from '../shared/rules.ts';
-import type { GuestCredentials, PublicQueueStatus } from '../shared/matchmaking.ts';
+import type { GuestCredentials, GuestSessionClaim, PublicQueueStatus } from '../shared/matchmaking.ts';
 import type { RoomEntryResponse } from '../shared/room-service.ts';
 
 const GUEST_KEY = 'mm.guest.v3';
@@ -12,7 +12,11 @@ export function guestHeaders(): Record<string, string> {
 const labels: Record<MatchmakingRegion, string> = { americas: 'Americas', 'europe-africa': 'Europe / Africa', 'asia-pacific': 'Asia / Pacific' };
 async function request<T>(path: string, g: GuestCredentials | null, value?: unknown): Promise<T> {
   const response = await fetch(path, { method: value ? 'POST' : 'GET', headers: { 'Content-Type': 'application/json', ...(g ? { 'X-Guest-Id': g.guestId, Authorization: `Bearer ${g.accessToken}` } : {}) }, ...(value ? { body: JSON.stringify(value) } : {}) });
-  const data = await response.json(); if (!response.ok) throw new Error(`${data.code}: ${data.message}`); return data as T;
+  const data = await response.json(); if (!response.ok) throw new RequestError(data.code, data.message); return data as T;
+}
+class RequestError extends Error {
+  readonly code: string;
+  constructor(code: string, message: string) { super(`${code}: ${message}`); this.code = code; }
 }
 function read<T>(storage: Storage, key: string): T | null { try { return JSON.parse(storage.getItem(key) ?? 'null') as T | null; } catch { return null; } }
 
@@ -24,6 +28,7 @@ export function QuickPlay({ onEntry, onBusy, autoStart = false }: { onEntry: (en
   const [mode, setMode] = useState<'fresh-session' | 'fill-existing-laboratory'>(ticket?.mode ?? 'fresh-session');
   const [status, setStatus] = useState<PublicQueueStatus | null>(null);
   const [notice, setNotice] = useState('');
+  const [claim, setClaim] = useState<GuestSessionClaim | null>(null);
   const [measured, setMeasured] = useState(false);
   const [pending, setPending] = useState(false);
   const [tutorial, setTutorial] = useState(() => { try { return localStorage.getItem('mm.tutorial.v1') === 'done' ? 4 : 0; } catch { return 0; } });
@@ -35,6 +40,7 @@ export function QuickPlay({ onEntry, onBusy, autoStart = false }: { onEntry: (en
   const entryKey = useRef(ticket?.admissionOperationId ?? crypto.randomUUID());
   const queueKey = useRef(crypto.randomUUID());
   const entering = useRef(false);
+  const queueRequestInFlight = useRef(false);
   const autoStarted = useRef(false);
   function updateStatus(s: PublicQueueStatus | null) { if (s) serverOffset.current = s.serverTimeMs - Date.now(); setStatus(s); }
   function remember(value: typeof ticket) {
@@ -42,8 +48,29 @@ export function QuickPlay({ onEntry, onBusy, autoStart = false }: { onEntry: (en
     setTicket(value); onBusy(!!value);
   }
   function finishTutorial() { setTutorial(4); try { localStorage.setItem('mm.tutorial.v1', 'done'); } catch { /* optional preference */ } }
+  function clearTicket() {
+    remember(null); updateStatus(null);
+    queueKey.current = crypto.randomUUID(); entryKey.current = crypto.randomUUID();
+  }
+  async function checkSession() {
+    if (!guest) return;
+    try {
+      const result = await request<{ holder: GuestSessionClaim | null }>('/api/guests/session', guest);
+      setClaim(result.holder);
+      setNotice(result.holder ? `Your guest still belongs to a ${result.holder.kind === 'room' ? 'laboratory' : 'queue'}. Use the button below to leave it before joining another.` : 'No previous session is holding your guest. You can enter Quick Play or a private laboratory.');
+    } catch (error) { setNotice(String(error)); }
+  }
+  async function leaveSession() {
+    if (!guest || !claim) return; setPending(true);
+    try {
+      const result = await request<{ holder: GuestSessionClaim | null }>('/api/guests/leave-session', guest, { kind: claim.kind, id: claim.id, nonce: claim.nonce });
+      setClaim(result.holder);
+      if (result.holder) setNotice('Your session changed. Check the current session before leaving again.');
+      else { clearTicket(); setNotice('Previous session released. Choose Quick Play or a private laboratory.'); }
+    } catch (error) { setNotice(String(error)); } finally { setPending(false); }
+  }
   async function enterQueue() {
-    if (pending || ticket) return; setPending(true); onBusy(true);
+    if (pending || ticket) return; queueRequestInFlight.current = true; setPending(true); onBusy(true);
     try {
       let identity = guest;
       if (!identity) {
@@ -55,7 +82,10 @@ export function QuickPlay({ onEntry, onBusy, autoStart = false }: { onEntry: (en
       remember({ region, id, mode, admissionOperationId: entryKey.current });
       const result = await request<PublicQueueStatus>(`/api/queue/${region}/enter`, identity, { operationId: id, mode });
       updateStatus(result); setNotice('');
-    } catch (error) { setNotice(String(error)); } finally { setPending(false); }
+    } catch (error) {
+      if (error instanceof RequestError && error.code === 'guest-busy') { clearTicket(); void checkSession(); }
+      setNotice(String(error));
+    } finally { queueRequestInFlight.current = false; setPending(false); }
   }
   useEffect(() => { onBusy(!!ticket); }, [ticket, onBusy]);
   useEffect(() => {
@@ -69,7 +99,16 @@ export function QuickPlay({ onEntry, onBusy, autoStart = false }: { onEntry: (en
   useEffect(() => {
     if (!ticket || !guest) return;
     let stopped = false;
-    const refresh = async () => { try { const s = await request<PublicQueueStatus>(`/api/queue/${ticket.region}/status?ticketId=${ticket.id}`, guest); if (!stopped) updateStatus(s); } catch (error) { if (!stopped) setNotice(String(error)); } };
+    const refresh = async () => {
+      try { const s = await request<PublicQueueStatus>(`/api/queue/${ticket.region}/status?ticketId=${ticket.id}`, guest); if (!stopped) updateStatus(s); }
+      catch (error) {
+        if (stopped) return;
+        if (error instanceof RequestError && error.code === 'ticket-not-found') {
+          if (!queueRequestInFlight.current) { clearTicket(); void checkSession(); }
+        }
+        else setNotice(String(error));
+      }
+    };
     void refresh(); const poll = setInterval(refresh, 10_000);
     const url = new URL(`/api/queue/${ticket.region}/socket?ticketId=${ticket.id}`, location.href); url.protocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
     const socket = new WebSocket(url, ['mm-queue-v3', `guest.${guest.guestId}`, `token.${guest.accessToken}`]);
@@ -92,7 +131,7 @@ export function QuickPlay({ onEntry, onBusy, autoStart = false }: { onEntry: (en
     try {
       const s = await request<PublicQueueStatus>(`/api/queue/${ticket.region}/${op}`, guest, { ticketId: ticket.id, ...(op === 'ready' ? { readyCheckId: status?.readyCheckId } : {}) });
       updateStatus(s);
-      if (op === 'cancel') { remember(null); updateStatus(null); queueKey.current = crypto.randomUUID(); entryKey.current = crypto.randomUUID(); }
+      if (op === 'cancel') clearTicket();
       setNotice('');
     } catch (error) { setNotice(String(error)); } finally { setPending(false); }
   }
@@ -117,6 +156,8 @@ export function QuickPlay({ onEntry, onBusy, autoStart = false }: { onEntry: (en
     <p>At least two players must be present in the same pool.</p>
     <p>Public guests use server-assigned aliases and symbols. Fresh sessions start with a group of 2–6; laboratories hold up to 8 players.</p>
     {guest && <p>{guest.symbol} {guest.alias}</p>}
+    {guest && <button disabled={pending} onClick={checkSession}>Check previous session</button>}
+    {claim && <button disabled={pending} onClick={leaveSession}>{claim.kind === 'room' ? 'Leave previous laboratory' : 'Cancel previous queue'}</button>}
     <label>Regional pool<select value={region} disabled={!!ticket || pending} onChange={e => setRegion(e.target.value as MatchmakingRegion)}>{GAME_RULES.matchmaking.regions.map(r => <option key={r} value={r}>{labels[r]}</option>)}</select></label>
     <button disabled={!!ticket || pending} onClick={measure}>Choose fastest responding pool</button>
     <label>Queue mode<select value={mode} disabled={!!ticket || pending} onChange={e => setMode(e.target.value as typeof mode)}><option value="fresh-session">Fresh session</option><option value="fill-existing-laboratory">Fill Existing Laboratory (join between rounds)</option></select></label>
@@ -132,6 +173,6 @@ export function QuickPlay({ onEntry, onBusy, autoStart = false }: { onEntry: (en
       <button disabled={pending} onClick={() => action('cancel')}>Cancel queue</button>
     </>}
     {notice && <p role="status">{notice}</p>}
-    {notice.includes('unauthorized') && <button onClick={() => { remember(null); updateStatus(null); setGuest(null); try { localStorage.removeItem(GUEST_KEY); } catch { /* unavailable */ } issueKey.current = crypto.randomUUID(); queueKey.current = crypto.randomUUID(); entryKey.current = crypto.randomUUID(); setNotice('Expired guest credential cleared. Enter Quick Play when ready.'); }}>Reset expired guest credential</button>}
+    {notice.includes('unauthorized') && <button onClick={() => { remember(null); updateStatus(null); setGuest(null); setClaim(null); try { localStorage.removeItem(GUEST_KEY); } catch { /* unavailable */ } issueKey.current = crypto.randomUUID(); queueKey.current = crypto.randomUUID(); entryKey.current = crypto.randomUUID(); setNotice('Expired guest credential cleared. Enter Quick Play when ready.'); }}>Reset expired guest credential</button>}
   </section>;
 }

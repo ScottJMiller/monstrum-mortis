@@ -19,7 +19,8 @@
     "deploy": "npm run check && npm run build && wrangler deploy",
     "cf:login": "wrangler login",
     "cf:whoami": "wrangler whoami",
-    "test:matchmaking": "npm run deploy:dry && node tests/matchmaking.runtime.mjs"
+    "test:matchmaking": "npm run deploy:dry && node tests/matchmaking.runtime.mjs",
+    "test:recovery": "npm run deploy:dry && node tests/session-recovery.runtime.mjs"
   },
   "dependencies": {
     "react": "19.3.0",

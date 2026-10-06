@@ -68,6 +68,31 @@ export default {
         const guest = await env.GUEST_LEASES.get(env.GUEST_LEASES.idFromName('control:guest-identities')).issue(operationId(v.operationId));
         return Response.json(guest, { headers: { 'Cache-Control': 'no-store' } });
       }
+      if (url.pathname === '/api/guests/session' || url.pathname === '/api/guests/leave-session') {
+        const leaving = url.pathname.endsWith('/leave-session');
+        const method = leaving ? 'POST' : 'GET';
+        if (request.method !== method) return new Response(null, { status: 405, headers: { Allow: method } });
+        await limitEntry(false);
+        const id = operationId(request.headers.get('X-Guest-Id'));
+        const authority = env.GUEST_LEASES.get(env.GUEST_LEASES.idFromName(`guest:${id}`));
+        const token = (request.headers.get('Authorization') ?? '').replace(/^Bearer /, '');
+        if (!await authority.authenticate(token)) throw new ServiceError('unauthorized', 'Guest credential required.', 401);
+        const holder = await authority.currentHolder();
+        if (!leaving) return Response.json({ holder }, { headers: { 'Cache-Control': 'no-store' } });
+        const v = await body(request); exact(v, ['kind', 'id', 'nonce']);
+        if (!['queue', 'room'].includes(String(v.kind)) || typeof v.id !== 'string' || typeof v.nonce !== 'string' || v.id.length > 80 || v.nonce.length > 80) throw new ServiceError('invalid-action', 'A current session is required.');
+        if (holder && (holder.kind !== v.kind || holder.id !== v.id || holder.nonce !== v.nonce)) throw new ServiceError('stale-session', 'Your session changed. Check it again before leaving.', 409);
+        if (holder?.kind === 'queue') {
+          const pool = env.MATCHMAKING.get(env.MATCHMAKING.idFromName(`pool:${holder.region}`));
+          const response = await pool.fetch(new Request(`https://pool.internal/internal/${holder.region}/cancel`, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Guest-Id': id, Authorization: `Bearer ${token}` }, body: JSON.stringify({ ticketId: holder.ticketId }) }));
+          if (!response.ok) return response;
+        } else if (holder?.kind === 'room') {
+          const response = await env.ROOMS.get(env.ROOMS.idFromName(`room:${holder.id}`)).fetch(new Request('https://room.internal/internal/leave-guest', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ guestId: id, nonce: holder.nonce }) }));
+          if (!response.ok && ![404, 410].includes(response.status)) return response;
+          await authority.release('room', holder.id, holder.nonce);
+        }
+        return Response.json({ holder: await authority.currentHolder() }, { headers: { 'Cache-Control': 'no-store' } });
+      }
       const queue = /^\/api\/(?:queue|pools)\/([^/]+)\/(ping|enter|ready|resume|cancel|status|socket)$/.exec(url.pathname);
       if (queue) {
         const region = queue[1] as MatchmakingRegion; const op = queue[2]!;

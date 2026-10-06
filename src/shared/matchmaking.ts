@@ -1,6 +1,7 @@
 import type { MatchmakingRegion } from './rules.ts';
 import type { PROTOCOL_VERSION } from './protocol.ts';
 export interface GuestCredentials { guestId: string; accessToken: string; alias: string; symbol: string }
+export interface GuestSessionClaim { kind: 'queue' | 'room'; id: string; nonce: string; region: MatchmakingRegion }
 export interface ReplacementOffer {
   roomId: string; round: number; teamScore: number; remainingSessionMs: number;
   reason: 'vacancy' | 'recovery'; vacancies: number; deadlineMs: number;

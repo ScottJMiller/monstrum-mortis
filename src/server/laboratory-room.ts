@@ -244,6 +244,20 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
       return Response.json(await this.entryResponse(room, seat), { status: 201, headers: { 'Cache-Control': 'no-store' } });
     }
     if (!room) throw new ServiceError('room-not-found', 'No laboratory has this invitation.', 404);
+    if (path === '/internal/leave-guest' && request.method === 'POST') {
+      const v = await body(request); exact(v, ['guestId', 'nonce']);
+      const guestId = operationId(v.guestId);
+      if (typeof v.nonce !== 'string' || v.nonce.length > 80) throw new ServiceError('invalid-action', 'Session nonce required.');
+      const seat = room.seats.find(s => s.guestId === guestId && s.reservationId === v.nonce);
+      const grant = room.reservations.find(g => g.guestId === guestId && g.id === v.nonce);
+      if (grant) grant.cancelled = true;
+      if (seat && !seat.departed) {
+        disconnect(room, seat, Date.now(), true);
+        for (const ws of this.sockets(seat.id)) this.closeSocket(ws, 4002, 'You left the laboratory');
+      }
+      if (seat || grant) { touch(room, Date.now()); settle(room, Date.now()); await this.persisted(room); }
+      return Response.json({ left: true });
+    }
     if (path === '/internal/join' && request.method === 'POST') {
       if (room.visibility !== 'private') throw new ServiceError('unauthorized', 'Public laboratories require a server-issued admission reservation.', 403);
       const v = await body(request); exact(v, ['operationId', 'alias', 'role']);

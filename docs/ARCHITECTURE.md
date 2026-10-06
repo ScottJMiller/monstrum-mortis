@@ -22,6 +22,8 @@ Events reload SQLite state. Per-object promise queues serialize asynchronous ope
 | --- | --- | --- |
 | `/api/health` | GET / HEAD | `stage: public-matchmaking`, protocol 3, rules 0.1.0, room/matchmaking available, gameplay unavailable |
 | `/api/guests` | POST | `{ operationId }` returns owner-only opaque guest credentials, authored alias and symbol |
+| `/api/guests/session` | GET | Authenticated owner-only current queue/room claim for session recovery |
+| `/api/guests/leave-session` | POST | Authenticated explicit leave with the observed `{ kind, id, nonce }`; stale claims cannot release newer sessions |
 | `/api/pools/:region/ping` | GET | Response-time probe; no precise location or execution-region guarantee |
 | `/api/queue/:region/enter` | POST | `{ operationId, mode }`; exact fresh-session or fill-existing-laboratory consent |
 | `/api/queue/:region/ready` | POST | `{ ticketId, readyCheckId }`; only this guest's chosen ready check |
@@ -71,6 +73,8 @@ Room state, secrets and receipts expire after two hours without participant acti
 ## Browser recovery and verification
 
 Room credentials remain in tab session storage. Guest access credentials are browser-scoped in local storage; queue tickets, queue mode and the admission operation key are tab-local. Reload or a lost admission response retries the same operation, recovering the same seat. Successful room entry retires its key; leave → create/rejoin uses a fresh key. Storage failure is reported. Private invitation links contain only code/display hints; public display tabs receive a separate viewing credential in their own session storage.
+
+A missing server ticket retires the stale browser ticket and checks the guest's current claim. An in-flight queue entry is allowed to complete before classifying its ticket as missing. Check previous session and explicit Leave previous laboratory/Cancel previous queue controls recover issued guest identities even after a room credential is lost. Recovery preserves the identity, uses owner authentication and the observed claim nonce, and revokes the matching seat before conditionally releasing its claim. It never resets the guest or releases a newer claim automatically. Existing aliases intentionally survive reload.
 
 `npm run check` covers configuration, both TypeScript projects and deterministic/component regressions. `npm run test:rooms` builds/dry-runs and tests independent private-room clients, real alarms, SQLite, eviction and restart. `npm run test:matchmaking` also uses independent network queue/room clients with isolated SQLite storage, real ready/fallback timers, cross-pool fences, persisted journal recovery, replacements and restart. Test-only database seeding reaches the future battle, regroup and recovery boundaries without fabricating production gameplay.
 

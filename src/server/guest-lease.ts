@@ -74,6 +74,13 @@ export class GuestLease extends DurableObject<WorkerEnv> {
       i.holder = { kind: 'queue', id: ticketId, nonce: ticketId, ticketId, region, committed: false, expiresAtMs: Date.now() + LEASE_MS }; await this.save(i); return true;
     });
   }
+  /** Owner-only recovery projection; callers authenticate through the Worker. */
+  async currentHolder(): Promise<Holder | null> {
+    return this.exclusive(async () => {
+      const identity = this.load(); const holder = identity?.holder;
+      return holder && holder.expiresAtMs > Date.now() ? { ...holder } : null;
+    });
+  }
   /** Issued public identities also claim private player seats; legacy invitation guests remain supported. */
   async acquirePrivate(roomId: string, nonce: string): Promise<boolean> {
     return this.exclusive(async () => {

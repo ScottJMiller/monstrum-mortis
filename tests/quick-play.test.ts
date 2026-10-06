@@ -7,8 +7,8 @@ import { transformSync } from 'esbuild';
 import { GAME_RULES } from '../src/shared/rules.ts';
 const require = createRequire(import.meta.url);
 const compiled = transformSync(readFileSync(new URL('../src/client/QuickPlay.tsx', import.meta.url), 'utf8'), { loader: 'tsx', format: 'cjs', jsx: 'automatic' }).code;
-function harness(local = new Map(), session = new Map()) {
-  let cursor=0;const hooks=[];let effects=[];const calls=[];const entries=[];const sockets=[];let tree;let failure=null;let ticketStatus=null;
+function harness(local = new Map(), session = new Map(), options = {}) {
+  let cursor=0;const hooks=[];let effects=[];const calls=[];const entries=[];const sockets=[];let tree;let failure=null;let ticketStatus=null; let holder=options.holder ?? null; const restored=session.get('mm.queue.v3'); if(restored && !options.missingTicket) {const t=JSON.parse(restored); ticketStatus={ticketId:t.id,region:t.region,state:'waiting',enteredAtMs:Date.now(),serverTimeMs:Date.now()};}
   const react={ useState(initial) {const i=cursor++;if(!(i in hooks)) hooks[i]=typeof initial==='function'?initial():initial;return [hooks[i],v=>{hooks[i]=typeof v==='function'?v(hooks[i]):v;}];}, useRef(initial){const i=cursor++;if(!(i in hooks))hooks[i]={current:initial};return hooks[i];},useEffect(cb,deps){const i=cursor++;const prev=hooks[i];if(!prev||deps.some((v,j)=>!Object.is(v,prev.deps[j]))){hooks[i]={deps,cleanup:prev?.cleanup};effects.push(()=>{hooks[i].cleanup?.();hooks[i].cleanup=cb();});}}};
   const storage=m=>({getItem:k=>m.get(k)??null,setItem:(k,v)=>m.set(k,v),removeItem:k=>m.delete(k)});
   class Socket {static OPEN=1;readyState=1;constructor(){sockets.push(this);}send(){}close(){this.readyState=3;}}
@@ -17,6 +17,8 @@ function harness(local = new Map(), session = new Map()) {
   new Script(compiled).runInNewContext({module,exports:module.exports,require:n=>n==='react'?react:n==='../shared/rules.ts'?{GAME_RULES}:require(n),crypto,URL,Date,Error,performance,WebSocket:Socket,localStorage:storage(local),sessionStorage:storage(session),location:{href:'http://localhost/',protocol:'http:'},setInterval:()=>1,clearInterval:()=>{},fetch:async(path,opts)=>{
     const body=opts.body?JSON.parse(opts.body):null;calls.push({path,body});
     if(path.includes('/ping'))return Response.json({});
+    if(path==='/api/guests/session') return Response.json({holder});
+    if(path==='/api/guests/leave-session') {holder=null;return Response.json({holder});}
     if(path==='/api/guests')return Response.json(guest);
     if(path.endsWith('/enter')){ticketStatus={protocolVersion:3,serverTimeMs:Date.now(),region:'americas',ticketId:body.operationId,enteredAtMs:Date.now(),state:'waiting',waitingPlayers:1,readyConfirmed:false,readyDeadlineMs:null,readyCheckId:null,offer:null,admission:null};}
     if(path.includes('/admit')){if(failure){failure=null;throw new Error('Lost admission response');}return Response.json({credentials:{roomId:body.reservationId,sessionId:crypto.randomUUID(),role:'player',reconnectToken:'b'.repeat(43)},snapshot:{},controller:null});}
@@ -44,4 +46,19 @@ test('reloading an interrupted admission restores its operation key and explicit
  const local=new Map([['mm.tutorial.v1','done'],['mm.guest.v3',JSON.stringify({guestId:crypto.randomUUID(),accessToken:'a'.repeat(43),alias:'Hollow Scholar',symbol:'*'})]]);
  const ticket={id:crypto.randomUUID(),region:'americas',mode:'fill-existing-laboratory',admissionOperationId:crypto.randomUUID()};const session=new Map([['mm.queue.v3',JSON.stringify(ticket)]]);
  const app=harness(local,session);await app.flush();await app.match();assert.equal(app.calls.find(c=>c.path.includes('/admit')).body.operationId,ticket.admissionOperationId);app.dispose();
+});
+
+test('missing saved ticket is cleared and an existing room can be explicitly released without resetting the guest', async()=>{
+ const g={guestId:crypto.randomUUID(),accessToken:'a'.repeat(43),alias:'Grim Curator',symbol:'*'};
+ const local=new Map([['mm.tutorial.v1','done'],['mm.guest.v3',JSON.stringify(g)]]);
+ const old={id:crypto.randomUUID(),region:'americas',mode:'fresh-session',admissionOperationId:crypto.randomUUID()};
+ const session=new Map([['mm.queue.v3',JSON.stringify(old)]]);
+ const holder={kind:'room',id:'p-previous',nonce:crypto.randomUUID(),region:'americas'};
+ const app=harness(local,session,{missingTicket:true,holder}); await app.flush();
+ assert.equal(session.has('mm.queue.v3'),false);
+ assert.equal(app.calls.filter(c=>c.path==='/api/guests/leave-session').length,0);
+ await app.click('Leave previous laboratory');
+ const leave=app.calls.find(c=>c.path==='/api/guests/leave-session'); assert.deepEqual(leave.body,{kind:holder.kind,id:holder.id,nonce:holder.nonce});
+ assert.equal(local.get('mm.guest.v3'),JSON.stringify(g));
+ await app.click('Enter Quick Play');assert.notEqual(JSON.parse(session.get('mm.queue.v3')).id,old.id);app.dispose();
 });
