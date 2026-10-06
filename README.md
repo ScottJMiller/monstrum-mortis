@@ -2,11 +2,11 @@
 
 A cooperative browser party game for 2–8 players. Remote-first Quick Play matchmaking, private invitation rooms, and an optional shared TV display. The approved design is in [docs/APPROVED-PLAN.md](docs/APPROVED-PLAN.md).
 
-Current milestone: **step 1, project foundation**. Room creation, matchmaking, mutations, and battles are not implemented yet. The development screen checks the Worker connection; it is not a playable game.
+Current milestone: **step 2, real room service**. Private invitations, SQLite persistence, authorized WebSockets, reconnect and authoritative deadlines are implemented. The service console stops at the battle boundary; DNA, battles and public matchmaking remain later milestones. The user deployed step 1 at https://monstrum-mortis.scott-jeffrey-miller.workers.dev; this working tree has not been published.
 
 ## Work locally
 
-Use Node.js 24 LTS and npm. Node 24 runs the small TypeScript foundation tests without a separate test transpiler.
+Use Node.js 24 LTS and npm. Node 24 runs the TypeScript foundation and room tests without a separate test transpiler.
 
 ```sh
 npm ci
@@ -26,7 +26,15 @@ Start the client in another terminal:
 npm run dev
 ```
 
-Open `http://localhost:5173`. The Vite server proxies `/api` and future WebSocket requests to the Worker at port 8787. Worker API changes are watched by Wrangler; client changes are watched by Vite. Authentication is not needed for local development.
+Open `http://localhost:5173`. The Vite server proxies `/api` and WebSocket requests to the Worker at port 8787. Worker API changes are watched by Wrangler; client changes are watched by Vite. Authentication is not needed for local development.
+
+Create a private room and join its code/link from another browser profile or device. Optional display entry consumes no player seat. The host can start the service timeline with two connected players; DNA and battle controls remain unavailable. Credentials live in tab session storage; use Reconnect after a drop and explicitly confirm replacement if the same seat is still open elsewhere. For isolated automated runtime verification:
+
+```sh
+npm run test:rooms
+```
+
+See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for API contracts, limits and the step 2 boundary.
 
 ## Layout
 
@@ -38,17 +46,17 @@ Open `http://localhost:5173`. The Vite server proxies `/api` and future WebSocke
 | `src/server/catalogue/` | Hidden DNA definitions and rival design records |
 | `src/assets/` | Versioned asset production manifest |
 | `public/assets/` | Finished original/licensed assets in later stages |
-| `tests/` | Foundation invariants |
+| `tests/` | Foundation invariants, deterministic room tests and independent-client runtime verification |
 | `docs/` | Approved plan, setup guidance, implementation status |
 | `wrangler.json` | Cloudflare deployment and SQLite-backed bindings |
 
-The client must never import the server catalogue, persistent seat records, or authentication tokens. Specimen trays expose only visual clues until injection. Protocol types alone do not validate untrusted messages; runtime validation comes with the room service.
+The client must never import the server catalogue, persistent seat records, or server secrets. Specimen trays expose only visual clues until injection. Protocol types alone do not validate untrusted messages; the room service validates and authorizes every supported intent.
 
 ## Cloudflare
 
 Cloudflare runs the Worker and stores room state. You do not run the Worker on your self-hosted server. The initial configuration uses only a provider `workers.dev` address and contains no route for `scottjmiller.com`.
 
-Follow [docs/CLOUDFLARE-SETUP.md](docs/CLOUDFLARE-SETUP.md) to sign in, check your account, review a dry run, and optionally deploy the foundation. Durable Object namespaces are created by deployment; no D1, KV namespace, R2 bucket, tunnel, or separate paid server is needed.
+Follow [docs/CLOUDFLARE-SETUP.md](docs/CLOUDFLARE-SETUP.md) to sign in, check your account, review a dry run, and publish a reviewed milestone when requested. Durable Object namespaces are created by deployment; no D1, KV namespace, R2 bucket, tunnel, or separate paid server is needed.
 
 The health endpoint confirms bindings are present. It does not prove namespace storage operations, WebSockets, or matchmaking work. Those are verified in the corresponding stages.
 
@@ -60,11 +68,12 @@ Open this directory in VS Code with the official Codex extension. Begin with [do
 
 | Command | Purpose |
 | --- | --- |
-| `npm run check` | Configuration guards, TypeScript checks, foundation tests |
+| `npm run check` | Configuration guards, TypeScript checks, foundation/room tests |
+| `npm run test:rooms` | Build/dry run, then independent WebSocket clients, SQLite persistence, alarms and runtime restart |
 | `npm run build` | Build the client |
 | `npm run deploy:dry` | Run checks, build, and validate the Worker bundle without publishing |
 | `npm run cf:login` | Browser-based Cloudflare login |
 | `npm run cf:whoami` | Confirm the local authenticated Cloudflare account |
-| `npm run deploy` | Publish the foundation to Cloudflare |
+| `npm run deploy` | Publish the reviewed milestone to Cloudflare |
 
 Never commit `.env`, `.dev.vars`, tokens, or login files. Only template files belong in Git. No automatic deployments are configured at this milestone.

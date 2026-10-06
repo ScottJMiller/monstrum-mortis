@@ -44,6 +44,7 @@ export interface PlayerView {
   connected: boolean;
   finishedThisRound: boolean;
   injectionsThisRound: number;
+  waitingForNextRound?: boolean;
 }
 
 export interface MorphologyPart {
@@ -63,7 +64,7 @@ export interface CreatureView {
 
 /** Shared state excludes hands, reconnect tokens, internal seeds, and DNA effects. */
 export interface RoomSnapshot {
-  protocolVersion: 1;
+  protocolVersion: 2;
   rulesVersion: string;
   revision: number;
   serverTimeMs: EpochMs;
@@ -77,6 +78,9 @@ export interface RoomSnapshot {
   players: PlayerView[];
   creature: CreatureView | null;
   teamScore: number;
+  recoveryDeadlineMs?: EpochMs | null;
+  playerCountAtExperimentStart?: number | null;
+  mechanicsAvailable?: boolean;
 }
 
 /** Only sent to the owner. Display sessions cannot request a controller snapshot. */
@@ -149,9 +153,10 @@ export interface CardRecord {
 
 export interface HealthResponse {
   service: 'monstrum-mortis';
-  stage: 'foundation';
-  protocolVersion: 1;
+  stage: 'foundation' | 'room-service';
+  protocolVersion: 2;
   rulesVersion: string;
   configuredBindings: { assets: boolean; rooms: boolean; matchmaking: boolean; guestLeases: boolean };
   gameplayAvailable: false;
+  roomServiceAvailable?: boolean;
 }

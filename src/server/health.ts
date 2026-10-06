@@ -1,5 +1,6 @@
 import { GAME_RULES } from '../shared/rules.ts';
 import type { HealthResponse } from '../shared/types.ts';
+import { PROTOCOL_VERSION } from '../shared/protocol.ts';
 
 export function createHealth(bindings: {
   ASSETS?: unknown;
@@ -9,8 +10,8 @@ export function createHealth(bindings: {
 }): HealthResponse {
   return {
     service: 'monstrum-mortis',
-    stage: 'foundation',
-    protocolVersion: 1,
+    stage: 'room-service',
+    protocolVersion: PROTOCOL_VERSION,
     rulesVersion: GAME_RULES.rulesVersion,
     configuredBindings: {
       assets: Boolean(bindings.ASSETS),
@@ -19,5 +20,6 @@ export function createHealth(bindings: {
       guestLeases: Boolean(bindings.GUEST_LEASES),
     },
     gameplayAvailable: false,
+    roomServiceAvailable: true,
   };
 }

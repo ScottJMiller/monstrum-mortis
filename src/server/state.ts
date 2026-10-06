@@ -1,5 +1,5 @@
 import type {
-  CreatureStats, GuestId, PlayerId, QueueMode, RoomSnapshot, SpecimenId,
+  GuestId, PlayerId, QueueMode, SpecimenId,
 } from '../shared/types.ts';
 import type { MatchmakingRegion } from '../shared/rules.ts';
 
@@ -20,16 +20,8 @@ export interface PrivateSeatRecord {
   lastActivityAtMs: number;
 }
 
-export interface RoomRecord {
-  schemaVersion: 1;
-  publicSnapshot: RoomSnapshot;
-  seats: PrivateSeatRecord[];
-  playerCountAtExperimentStart: number | null;
-  authoritativeStats: CreatureStats | null;
-  battleSeed: string | null;
-  createdAtMs: number;
-  expiresAtMs: number;
-}
+/** Active step 2 SQLite record. Foundation records were never persisted. */
+export type { StoredRoom as RoomRecord } from './room-model.ts';
 
 export interface QueueTicketRecord {
   schemaVersion: 1;

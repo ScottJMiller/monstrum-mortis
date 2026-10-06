@@ -8,3 +8,11 @@ button { font: inherit; min-height: 44px; padding: .75rem 1rem; border: 1px soli
 button:disabled { opacity: .7; cursor: wait; }
 button:focus-visible { outline: 3px solid #e6d295; outline-offset: 4px; }
 .note { color: #b6ab97; }
+section { border-top: 1px solid #536153; margin-top: 1.5rem; padding-top: 1rem; }
+label { display: block; margin: 1rem 0; font-family: system-ui, sans-serif; }
+input, select { display: block; box-sizing: border-box; width: 100%; min-height: 44px; margin-top: .4rem; padding: .5rem; font: inherit; background: #202629; border: 1px solid #8b9183; color: #fff; }
+.checkbox { display: flex; align-items: center; gap: .75rem; }
+.checkbox input { width: 1.25rem; min-height: 1.25rem; margin: 0; }
+button { margin: .25rem .5rem .25rem 0; }
+a { color: #d9cead; }
+li { margin: .5rem 0; line-height: 1.5; }

@@ -1,7 +1,7 @@
 # Monstrum Mortis project instructions
 
 - Read `docs/APPROVED-PLAN.md` and `docs/IMPLEMENTATION-STATUS.md` before changing game behavior.
-- The current requested milestone is step 1 only. Do not silently implement later stages.
+- The current requested milestone is step 2 only, authorized on 5 October 2026 after the foundation deployment. Do not implement step 3 matchmaking or later stages without a new request.
 - Preserve remote-first public cooperative matchmaking, private invitation play, and the optional shared display.
 - Shared rules live in `src/shared/rules.ts`; bump rulesVersion for changed defaults, and protocolVersion for breaking wire changes.
 - Server owns hidden DNA, doses, timers, switch state, outcomes, admission, and attribution. Clients send intentions only.

@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises';
 const config = JSON.parse(await readFile(new URL('../wrangler.json', import.meta.url), 'utf8'));
 assert.equal(config.name, 'monstrum-mortis');
 assert.equal(config.workers_dev, true);
-assert.equal(config.routes, undefined, 'Step 1 must not route any existing domain to this Worker.');
+assert.equal(config.routes, undefined, 'This milestone must not route any existing domain to this Worker.');
 assert.equal(config.assets.directory, './dist/client');
 assert.deepEqual(config.assets.run_worker_first, ['/api/*']);
 assert.equal(config.assets.not_found_handling, 'single-page-application');

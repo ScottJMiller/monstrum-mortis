@@ -2,6 +2,8 @@
 
 Cloudflare hosts this game's Worker, static client, and SQLite-backed room/coordinator storage. Your computer is used for development and deployment commands; it does not need to stay online for deployed games. Your self-hosted `scottjmiller.com` site is separate.
 
+The user completed the initial local login and deployment on 5 October 2026. The reported live foundation is https://monstrum-mortis.scott-jeffrey-miller.workers.dev. The current step 2 working tree is not deployed by this session; do not repeat authentication unless the existing local login has expired. The steps below also serve as setup guidance for a new machine.
+
 ## 1. Use the account you already have
 
 Sign in to your Cloudflare dashboard and open **Workers & Pages**. Check that you are in the intended account and using the Workers Free plan. You do not need to transfer a domain, change nameservers, edit your home-server DNS records, or create a paid database for this milestone.
@@ -24,7 +26,7 @@ npm run cf:whoami
 
 Wrangler opens your browser for Cloudflare authorization. Complete that browser flow yourself. Do not paste a Cloudflare token into this chat or put one in the repository. `whoami` should identify the account you intended. If you have several accounts, set the selected account's public account ID as Wrangler's `account_id` in your local reviewed configuration before deploying. An account ID is not an API token; it is not needed in the starter because most single-account logins can select the account automatically.
 
-Authentication/account access remains an uncompleted check until you perform it locally. A local dry run cannot establish your account plan, permissions, or deployed domain state.
+The user has completed authentication/account access locally for the foundation deployment. A new machine or expired login still requires local verification. A local dry run cannot establish your account plan, permissions, or deployed domain state.
 
 ## 3. Review the supplied configuration
 
@@ -45,17 +47,17 @@ You should not manually create a D1 database called ROOMS. A Durable Object owns
 npm run deploy:dry
 ```
 
-Expected: configuration checks, type checks, foundation tests, a client build, and a Worker bundle dry run all succeed. Inspect the listed bindings and confirm the SQLite exports. The dry run does not publish a service or verify your authenticated account's permissions.
+Expected: configuration checks, type checks, foundation/room tests, a client build, and a Worker bundle dry run all succeed. Inspect the listed bindings and confirm the SQLite exports. The dry run does not publish a service or verify your authenticated account's permissions.
 
-To test locally, start `npm run dev:worker` and then `npm run dev` in separate terminals. Open the local client and choose Check Worker connection. Alternatively:
+To test locally, start `npm run dev:worker` and then `npm run dev` in separate terminals. Open the local client, create a private laboratory, and join from another browser profile. Alternatively:
 
 ```sh
 curl http://localhost:8787/api/health
 ```
 
-Expect `stage: foundation`, `gameplayAvailable: false`, and all four `configuredBindings` values true. Health is a wiring check; real storage/WebSocket checks belong to steps 2–3.
+With the step 2 tree, expect `stage: room-service`, `protocolVersion: 2`, `roomServiceAvailable: true`, `gameplayAvailable: false`, and all four `configuredBindings` values true. The already deployed foundation still reports stage foundation and protocol 1. Health remains a wiring check. Run `npm run test:rooms` to build and verify local SQLite operations, independent WebSockets, alarm deadlines, authorization and reconnection. It publishes nothing.
 
-## 5. Create the hosted foundation when ready
+## 5. Publish a reviewed milestone when requested
 
 After confirming the selected account, Worker name, and free plan:
 
@@ -63,7 +65,7 @@ After confirming the selected account, Worker name, and free plan:
 npm run deploy
 ```
 
-Wrangler builds the app, uploads the Worker and assets, registers its SQLite-backed namespaces, and prints the actual workers.dev URL. Open that URL and `/api/health`. You should see the foundation screen and health result. No one can play yet; game services have not been implemented.
+Wrangler builds the app, uploads the Worker and assets, registers its SQLite-backed namespaces, and prints the actual workers.dev URL. Open that URL and `/api/health`. Expect the screen and health stage for the milestone being published. Step 2 exposes a room-service console, not playable DNA or battles. After a step 2 publication, test actual private storage/WebSocket operations from separate browser profiles and devices on that origin; the health result alone is insufficient.
 
 In Workers & Pages, inspect this Worker and its bindings. Keep the Worker on the free plan, and inspect usage as testing expands. Free quotas are limits, not unlimited public matchmaking capacity; exceeding a quota can interrupt operations. Do not choose a paid upgrade just to make a failed configuration deploy.
 

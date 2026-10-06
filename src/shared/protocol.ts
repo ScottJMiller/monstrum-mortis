@@ -4,7 +4,7 @@ import type {
 } from './types.ts';
 import type { MatchmakingRegion } from './rules.ts';
 
-export const PROTOCOL_VERSION = 1 as const;
+export const PROTOCOL_VERSION = 2 as const;
 
 interface ClientEnvelope {
   protocolVersion: typeof PROTOCOL_VERSION;
@@ -36,9 +36,10 @@ interface ServerEnvelope {
 
 export type ActionErrorCode = 'not-implemented' | 'unauthorized' | 'invalid-action'
   | 'room-full' | 'room-expired' | 'wrong-phase' | 'cooldown'
-  | 'no-doses' | 'switch-locked' | 'deadline-passed' | 'stale-session';
+  | 'no-doses' | 'switch-locked' | 'deadline-passed' | 'stale-session'
+  | 'not-enough-players' | 'rate-limited' | 'idempotency-conflict';
 
-/** Runtime validation, session verification, and replay-safe dispatch arrive in steps 2–3. */
+/** Runtime validation and seat authorization are mandatory before dispatch. */
 export type ServerMessage = ServerEnvelope & (
   | { kind: 'room-snapshot'; snapshot: RoomSnapshot }
   | { kind: 'controller-snapshot'; snapshot: ControllerSnapshot }
