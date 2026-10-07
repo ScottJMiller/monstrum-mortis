@@ -1,6 +1,6 @@
 # Step 4 proposal: laboratory, creature assets and accessible presentation
 
-Status: proposed and **explicitly approved by the user on 6 October 2026**. The user confirmed steps 1–3 complete, deployed, and verified with multiple devices, and authorized step 4 only. Implementation and asset production may proceed within this plan. Deployment is not authorized.
+Status: **approved on 6 October 2026; user-confirmed complete, pushed, deployed and presentation reviewed on 7 October 2026**. This document preserves the historical step 4 scope/proposal. Current authorization is step 5 only, under the subsequently approved [STEP-5-PLAN.md](STEP-5-PLAN.md). No new deployment is authorized.
 
 ## Scope and protected behavior
 

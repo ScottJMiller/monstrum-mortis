@@ -5,6 +5,7 @@ import { createRequire } from 'node:module';
 import { Script } from 'node:vm';
 import { transformSync } from 'esbuild';
 import { GAME_RULES } from '../src/shared/rules.ts';
+import { QUEUE_SOCKET_PROTOCOL } from '../src/shared/protocol.ts';
 const require = createRequire(import.meta.url);
 const compiled = transformSync(readFileSync(new URL('../src/client/QuickPlay.tsx', import.meta.url), 'utf8'), { loader: 'tsx', format: 'cjs', jsx: 'automatic' }).code;
 function harness(local = new Map(), session = new Map(), options = {}) {
@@ -14,13 +15,13 @@ function harness(local = new Map(), session = new Map(), options = {}) {
   class Socket {static OPEN=1;readyState=1;constructor(){sockets.push(this);}send(){}close(){this.readyState=3;}}
   const module={exports:{}};
   const guest={guestId:crypto.randomUUID(),accessToken:'a'.repeat(43),alias:'Grim Curator',symbol:'*'};
-  new Script(compiled).runInNewContext({module,exports:module.exports,require:n=>n==='react'?react:n==='../shared/rules.ts'?{GAME_RULES}:require(n),crypto,URL,Date,Error,performance,WebSocket:Socket,localStorage:storage(local),sessionStorage:storage(session),location:{href:'http://localhost/',protocol:'http:'},setInterval:()=>1,clearInterval:()=>{},fetch:async(path,opts)=>{
+  new Script(compiled).runInNewContext({module,exports:module.exports,require:n=>n==='react'?react:n==='../shared/rules.ts'?{GAME_RULES}:n==='../shared/protocol.ts'?{QUEUE_SOCKET_PROTOCOL}:require(n),crypto,URL,Date,Error,performance,WebSocket:Socket,localStorage:storage(local),sessionStorage:storage(session),location:{href:'http://localhost/',protocol:'http:'},setInterval:()=>1,clearInterval:()=>{},fetch:async(path,opts)=>{
     const body=opts.body?JSON.parse(opts.body):null;calls.push({path,body});
     if(path.includes('/ping'))return Response.json({});
     if(path==='/api/guests/session') return Response.json({holder});
     if(path==='/api/guests/leave-session') {holder=null;return Response.json({holder});}
     if(path==='/api/guests')return Response.json(guest);
-    if(path.endsWith('/enter')){ticketStatus={protocolVersion:3,serverTimeMs:Date.now(),region:'americas',ticketId:body.operationId,enteredAtMs:Date.now(),state:'waiting',waitingPlayers:1,readyConfirmed:false,readyDeadlineMs:null,readyCheckId:null,offer:null,admission:null};}
+    if(path.endsWith('/enter')){ticketStatus={protocolVersion:4,serverTimeMs:Date.now(),region:'americas',ticketId:body.operationId,enteredAtMs:Date.now(),state:'waiting',waitingPlayers:1,readyConfirmed:false,readyDeadlineMs:null,readyCheckId:null,offer:null,admission:null};}
     if(path.includes('/admit')){if(failure){failure=null;throw new Error('Lost admission response');}return Response.json({credentials:{roomId:body.reservationId,sessionId:crypto.randomUUID(),role:'player',reconnectToken:'b'.repeat(43)},snapshot:{},controller:null});}
     if(path.endsWith('/cancel'))ticketStatus={...ticketStatus,state:'cancelled',admission:null};
     return ticketStatus?Response.json(ticketStatus):Response.json({code:'ticket-not-found'}, {status:404});

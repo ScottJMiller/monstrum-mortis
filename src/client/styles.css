@@ -122,3 +122,22 @@ input.name-required { border-color: #f2cf8a; }
  .display-layout .laboratory-footer { padding-top: .6rem; margin-top: .5rem; }
 }
 .room-panel p > a { display: inline-flex; align-items: center; min-height: 44px; padding: .35rem .1rem; }
+
+.specimen-tray { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; margin: .75rem 0; }
+.specimen-button { display: flex; flex-direction: column; align-items: center; min-width: 0; padding: .5rem; background: #222c28; color: #eee6d2; border: 2px solid #887757; }
+.specimen-button[aria-pressed="true"] { border-color: #efe0a1; box-shadow: inset 0 0 0 2px #efe0a1; }
+.specimen-button img { width: min(100%, 120px); height: 104px; }
+.specimen-button span { overflow-wrap: anywhere; }
+.specimen-clue { font-size: .85rem; line-height: 1.35; margin-top: .3rem; }
+.primary-injection, .unleash-switch { width: 100%; min-height: 48px; margin-top: .5rem; }
+.unleash-switch { border: 2px solid #aa745f; background: #462721; color: #f1e7d2; }
+.creature-readings { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; padding: .7rem; background: #1b2420; }
+.creature-readings div { min-width: 0; }
+.creature-readings dt { text-transform: capitalize; color: #ddd3b8; }
+.creature-readings dd { margin: 0; color: #bccaa0; font-weight: 700; }
+.mutation-log { max-height: 12rem; overflow: auto; padding: .5rem .8rem; background: #1b2420; }
+.mutation-log h2 { font-size: 1.1rem; }
+.mutation-log ol { margin: .3rem 0; padding-left: 1.3rem; }
+.mutation-log li { overflow-wrap: anywhere; padding: .2rem 0; }
+.mutation-log li span { color: #c3bba5; }
+@media (max-width: 400px) { .creature-readings { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

@@ -2,6 +2,8 @@ import type { MatchmakingRegion } from '../shared/rules.ts';
 import { GAME_RULES } from '../shared/rules.ts';
 import { PROTOCOL_VERSION } from '../shared/protocol.ts';
 import type { ControllerSnapshot, PresentationMode, RoomPhase, RoomSnapshot } from '../shared/types.ts';
+import { beginRelease, initializeExperiment, newExperiment, privateSpecimens, publicCreature, publicHistory, readings } from './dna-mechanics.ts';
+import type { Experiment, Specimen, DrawPacket } from './dna-mechanics.ts';
 import { ServiceError } from './validation.ts';
 
 export interface Seat {
@@ -22,7 +24,11 @@ export interface Seat {
   eligible: boolean;
   finished: boolean;
   departed: boolean;
-  // Mechanics remain empty until step 5. Never project this record wholesale.
+  tray?: Specimen[];
+  drawPlan?: DrawPacket[];
+  drawCursor?: number;
+  switchPulled?: boolean;
+  finishReason?: 'switch' | 'grace' | 'deadline' | 'left' | 'legacy' | null;
   /** Step 5 initializes these counters; undefined means mechanics unavailable. */
   injectionsThisRound?: number;
   interactedThisRound?: boolean;
@@ -41,7 +47,9 @@ export interface AdmissionReservation {
   purpose?: 'fresh' | 'replacement';
 }
 export interface StoredRoom {
-  schemaVersion: 3;
+  schemaVersion: 4;
+  experiment: Experiment | null;
+  legacyRulesVersion?: string;
   publicState: PublicState | null;
   id: string;
   visibility: 'private' | 'public';
@@ -73,7 +81,7 @@ export interface PublicState {
   notice?: { revision: number; signature: string; pending: boolean };
 }
 export function newRoom(id: string, visibility: StoredRoom['visibility'], presentation: PresentationMode, secret: string, creationHash: string, creationFingerprint: string, now: number): StoredRoom {
-  return { schemaVersion: 3, publicState: null, id, visibility, presentation, secret, creationHash, creationFingerprint, createdAtMs: now, lastActivityAtMs: now, revision: 0, phase: 'lobby', round: null, phaseDeadlineMs: null, hostId: null, seats: [], reservations: [], lockedPlayerIds: [], playerCountAtExperimentStart: null, recovery: null };
+  return { schemaVersion: 4, experiment: null, publicState: null, id, visibility, presentation, secret, creationHash, creationFingerprint, createdAtMs: now, lastActivityAtMs: now, revision: 0, phase: 'lobby', round: null, phaseDeadlineMs: null, hostId: null, seats: [], reservations: [], lockedPlayerIds: [], playerCountAtExperimentStart: null, recovery: null };
 }
 export const livePlayers = (r: StoredRoom) => r.seats.filter(s => s.role === 'player' && !s.departed);
 export const connectedPlayers = (r: StoredRoom) => livePlayers(r).filter(s => s.connected);
@@ -83,19 +91,21 @@ export function requireLive(r: StoredRoom, now: number) {
 }
 export function snapshot(r: StoredRoom, now: number): RoomSnapshot {
   return {
-    protocolVersion: PROTOCOL_VERSION, rulesVersion: GAME_RULES.rulesVersion, revision: r.revision, serverTimeMs: now,
+    protocolVersion: PROTOCOL_VERSION, rulesVersion: r.experiment?.rulesVersion ?? r.legacyRulesVersion ?? GAME_RULES.rulesVersion, revision: r.revision, serverTimeMs: now,
     roomId: r.id, visibility: r.visibility, presentation: r.presentation, phase: r.phase, round: r.round,
     phaseDeadlineMs: r.phaseDeadlineMs, hostPlayerId: r.hostId,
-    players: livePlayers(r).map(s => ({ playerId: s.id, alias: s.alias, symbol: s.symbol, connected: s.connected, finishedThisRound: s.finished, injectionsThisRound: s.injectionsThisRound ?? 0, inactivityPrompt: r.phase === 'autopsy' && s.injectionsThisRound === 0, waitingForNextRound: !s.eligible && r.phase !== 'lobby' })),
-    creature: null, teamScore: r.publicState?.teamScore ?? 0,
+    players: livePlayers(r).map(s => ({ playerId: s.id, alias: s.alias, symbol: s.symbol, connected: s.connected, finishedThisRound: s.finished, injectionsThisRound: s.injectionsThisRound ?? 0, cooldownUntilMs: s.nextInjectionAtMs, completionReason: s.finishReason ?? null, inactivityPrompt: r.phase === 'autopsy' && s.injectionsThisRound === 0, waitingForNextRound: !s.eligible && r.phase !== 'lobby' })),
+    creature: r.experiment ? publicCreature(r.experiment) : null, teamScore: r.publicState?.teamScore ?? 0,
     publicSession: r.publicState ? { sessionId: r.publicState.sessionId, region: r.publicState.region, readyPlayerIds: [...r.publicState.ready], replayPlayerIds: [...r.publicState.replay], resultsStartedAtMs: r.publicState.resultsStartedAtMs, completedRounds: r.publicState.completed.length } : null,
     recoveryDeadlineMs: r.recovery?.deadlineMs ?? null,
     playerCountAtExperimentStart: r.playerCountAtExperimentStart,
-    mechanicsAvailable: false,
+    mechanicsAvailable: r.experiment !== null,
+    attemptId: r.experiment?.id ?? null, mutations: r.experiment ? publicHistory(r.experiment) : [],
+    readings: r.experiment ? readings(r.experiment) : null, releasedAtMs: r.experiment?.frozen?.releasedAtMs ?? null,
   };
 }
-export function controller(s: Seat): ControllerSnapshot | null {
-  return s.role === 'display' ? null : { playerId: s.id, tray: [], remainingDoses: s.remainingDoses, nextInjectionAtMs: s.nextInjectionAtMs, switchPulled: s.finished };
+export function controller(s: Seat, r: StoredRoom): ControllerSnapshot | null {
+  return s.role === 'display' ? null : { revision: r.revision, attemptId: r.experiment?.id ?? null, playerId: s.id, tray: privateSpecimens(s), remainingDoses: s.remainingDoses, nextInjectionAtMs: s.nextInjectionAtMs, switchPulled: s.switchPulled ?? false };
 }
 export function touch(r: StoredRoom, now: number) { r.lastActivityAtMs = now; }
 export function setPhase(r: StoredRoom, phase: RoomPhase, deadline: number | null) { r.phase = phase; r.phaseDeadlineMs = deadline; r.revision++; }
@@ -106,8 +116,10 @@ export function startRound(r: StoredRoom, now: number) {
   r.lockedPlayerIds = players.map(s => s.id);
   r.playerCountAtExperimentStart = null;
   r.recovery = null;
+  r.experiment = newExperiment();
+  delete r.legacyRulesVersion;
   if (r.publicState) { r.publicState.ready = []; r.publicState.resultsStartedAtMs = null; }
-  for (const seat of livePlayers(r)) { seat.eligible = players.includes(seat); seat.finished = false; seat.remainingDoses = 0; if (seat.injectionsThisRound !== undefined) { seat.injectionsThisRound = 0; seat.interactedThisRound = false; } }
+  for (const seat of livePlayers(r)) { seat.eligible = players.includes(seat); seat.finished = false; seat.remainingDoses = 0; seat.tray = []; seat.drawPlan = []; seat.drawCursor = 0; seat.switchPulled = false; seat.finishReason = null; seat.nextInjectionAtMs = 0; if (seat.injectionsThisRound !== undefined) { seat.injectionsThisRound = 0; seat.interactedThisRound = false; } }
   setPhase(r, 'briefing', now + GAME_RULES.briefingDurationMs);
 }
 export function connect(r: StoredRoom, seat: Seat, now: number) {
@@ -131,7 +143,7 @@ export function disconnect(r: StoredRoom, seat: Seat, now: number, explicit = fa
   if (seat.departed) return;
   seat.connected = false; seat.connectedAtMs = null;
   seat.disconnectDeadlineMs = explicit ? now : now + GAME_RULES.reconnectGraceMs;
-  if (explicit) { seat.departed = true; seat.finished = true; }
+  if (explicit) { seat.departed = true; seat.finished = true; seat.finishReason ??= 'left'; }
   r.revision++;
 }
 function transferHost(r: StoredRoom) {
@@ -152,7 +164,7 @@ export function settle(r: StoredRoom, now: number): boolean {
       let hostLost = false;
       for (const s of r.seats) {
         if (s.disconnectDeadlineMs !== null && s.disconnectDeadlineMs <= next) {
-          s.disconnectDeadlineMs = null; s.finished = true;
+          s.disconnectDeadlineMs = null; s.finished = true; s.finishReason ??= 'grace';
           if (s.id === r.hostId) hostLost = true;
           r.revision++;
         }
@@ -163,11 +175,12 @@ export function settle(r: StoredRoom, now: number): boolean {
           r.recovery = { remainingMs: Math.max(0, (r.phaseDeadlineMs ?? next) - next), deadlineMs: next + GAME_RULES.experimentRecoveryPauseMs };
           r.phaseDeadlineMs = null; r.revision++;
         } else if (r.lockedPlayerIds.every(id => r.seats.find(s => s.id === id)?.finished)) {
-          setPhase(r, 'release', next + GAME_RULES.releaseDurationMs);
+          beginRelease(r, next, 'unanimous');
         }
       }
     } else if (recovery === next) {
-      r.recovery = null; r.lockedPlayerIds = []; r.playerCountAtExperimentStart = null;
+      r.recovery = null; r.lockedPlayerIds = []; r.playerCountAtExperimentStart = null; r.experiment = null;
+      for (const seat of r.seats) { seat.tray = []; seat.drawPlan = []; seat.remainingDoses = 0; }
       for (const s of livePlayers(r)) { s.eligible = false; s.finished = false; }
       if (r.visibility === 'private') { r.round = null; setPhase(r, 'lobby', null); }
       else { if (r.publicState) r.publicState.ready = []; setPhase(r, 'recovery-lobby', next + GAME_RULES.matchmaking.recoveryLobbyMs); }
@@ -180,13 +193,14 @@ export function settle(r: StoredRoom, now: number): boolean {
         r.lockedPlayerIds = connected.map(s => s.id);
         for (const s of livePlayers(r)) s.eligible = connected.includes(s);
         r.playerCountAtExperimentStart = connected.length;
+        initializeExperiment(r);
         setPhase(r, 'experiment', next + GAME_RULES.experimentDurationMs);
       }
     } else if (r.phase === 'experiment') {
-      for (const s of r.seats) if (s.eligible) s.finished = true;
-      setPhase(r, 'release', next + GAME_RULES.releaseDurationMs);
+      for (const s of r.seats) if (s.eligible) { s.finished = true; s.finishReason ??= 'deadline'; }
+      beginRelease(r, next, 'deadline');
     } else if (r.phase === 'release') {
-      setPhase(r, 'battle', null); // No fabricated battle, score, cards, or outcomes in step 2.
+      setPhase(r, 'battle', null); // Frozen creature boundary; combat producer remains step 6.
     } else if (r.publicState) { publicDeadline(r, next); } else { r.phaseDeadlineMs = null; r.revision++; }
   }
   publicProgress(r, now);

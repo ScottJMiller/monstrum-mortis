@@ -24,7 +24,10 @@
     "test:fresh-admission": "npm run deploy:dry && node tests/fresh-admission.runtime.mjs",
     "test:presentation": "npm run deploy:dry && node tests/presentation.browser.mjs",
     "test:step4": "npm run deploy:dry && node tests/rooms.runtime.mjs && node tests/matchmaking.runtime.mjs && node tests/session-recovery.runtime.mjs && node tests/fresh-admission.runtime.mjs && node tests/presentation.browser.mjs",
-    "test:art": "node tests/art.browser.mjs"
+    "test:art": "node tests/art.browser.mjs",
+    "test:dna": "npm run deploy:dry && node tests/dna.runtime.mjs",
+    "test:dna-browser": "npm run deploy:dry && node tests/dna.browser.mjs",
+    "test:step5": "npm run deploy:dry && node tests/rooms.runtime.mjs && node tests/matchmaking.runtime.mjs && node tests/session-recovery.runtime.mjs && node tests/fresh-admission.runtime.mjs && node tests/dna.runtime.mjs && node tests/presentation.browser.mjs && node tests/dna.browser.mjs && node tests/art.browser.mjs"
   },
   "dependencies": {
     "pixi.js": "8.22.0",
@@ -41,5 +44,14 @@
     "typescript": "7.0.2",
     "vite": "8.3.2",
     "wrangler": "4.147.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true,
+    "workerd@1.20261001.1": true
+  },
+  "overrides": {
+    "miniflare": {
+      "sharp": "0.35.5"
+    }
   }
 }

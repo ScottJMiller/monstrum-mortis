@@ -1,7 +1,7 @@
 import { DurableObject } from 'cloudflare:workers';
 import { GAME_RULES as R } from '../shared/rules.ts';
 import type { MatchmakingRegion } from '../shared/rules.ts';
-import { PROTOCOL_VERSION } from '../shared/protocol.ts';
+import { PROTOCOL_VERSION, QUEUE_SOCKET_PROTOCOL } from '../shared/protocol.ts';
 import type { PublicQueueStatus, ReplacementOffer } from '../shared/matchmaking.ts';
 import type { WorkerEnv } from './env.ts';
 import { advanceQueue, newPool, queueDeadline } from './queue-model.ts';
@@ -175,7 +175,7 @@ export class MatchmakingPool extends DurableObject<WorkerEnv> {
       for (const ws of old) this.close(ws, 'Queue connection replaced');
       const pair = new WebSocketPair(); this.ctx.acceptWebSocket(pair[1]); pair[1].serializeAttachment({ guestId: guest.guestId, ticketId: t.id, openedAtMs: now, closed: false } satisfies Attachment);
       await this.tick(p, region);
-      return new Response(null, { status: 101, webSocket: pair[0], headers: { 'Sec-WebSocket-Protocol': 'mm-queue-v3' } });
+      return new Response(null, { status: 101, webSocket: pair[0], headers: { 'Sec-WebSocket-Protocol': QUEUE_SOCKET_PROTOCOL } });
     }
     await this.tick(p, region);
     return Response.json(this.status(p, region, t), { headers: { 'Cache-Control': 'no-store' } });

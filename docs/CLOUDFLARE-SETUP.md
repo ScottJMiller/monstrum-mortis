@@ -2,7 +2,7 @@
 
 Cloudflare hosts this game's Worker, static client, and SQLite-backed room/coordinator storage. Your computer is used for development and deployment commands; it does not need to stay online for deployed games. Your self-hosted `scottjmiller.com` site is separate.
 
-The user completed the initial local login and deployment on 5 October 2026. The reported live foundation is https://monstrum-mortis.scott-jeffrey-miller.workers.dev. The current step 3 working tree is not deployed by this session; do not repeat authentication unless the existing local login has expired. The steps below also serve as setup guidance for a new machine.
+The user completed the initial local login and deployment on 5 October 2026 and confirmed steps 1–4 pushed and deployed on 7 October at https://monstrum-mortis.scott-jeffrey-miller.workers.dev. Steps 1–3 passed multi-device tests and step 4 presentation was reviewed. Step 5 was subsequently approved and implemented locally; no new deployment is authorized. Do not repeat authentication unless the existing local login has expired. The steps below also serve as setup guidance for a new machine.
 
 ## 1. Use the account you already have
 
@@ -55,7 +55,9 @@ To test locally, start `npm run dev:worker` and then `npm run dev` in separate t
 curl http://localhost:8787/api/health
 ```
 
-With the step 3 tree, expect `stage: public-matchmaking`, `protocolVersion: 3`, `roomServiceAvailable: true`, `matchmakingAvailable: true`, `gameplayAvailable: false`, and all four `configuredBindings` values true. The already deployed foundation still reports stage foundation and protocol 1. Health remains a wiring check. Run `npm run test:rooms` to build and verify local SQLite operations, independent WebSockets, alarm deadlines, authorization and reconnection. Run `npm run test:matchmaking` for public queues, readiness, claims and admission. Neither suite publishes anything.
+The local step 5 tree returns `stage: dna-mechanics`, `protocolVersion: 4`, `rulesVersion: 0.2.0`, `roomServiceAvailable: true`, `matchmakingAvailable: true`, `mechanicsAvailable: true`, `combatAvailable: false`, `gameplayAvailable: false`, and all four configured bindings true. The user-reported deployed steps 1–4 tree remains at protocol 3/rules 0.1.0 until a separately authorized publication; this session has not queried or changed that origin. Health remains a wiring/capability check, not multiplayer evidence.
+
+Use `npm run test:step5` for the local service, DNA, actual browser and art regressions, or the focused commands in README. The harnesses use isolated SQLite and independent clients. Neither the tests nor the dry run publishes anything.
 
 ## 5. Publish a reviewed milestone when requested
 
@@ -65,7 +67,7 @@ After confirming the selected account, Worker name, and free plan:
 npm run deploy
 ```
 
-Wrangler builds the app, uploads the Worker and assets, registers its SQLite-backed namespaces, and prints the actual workers.dev URL. Open that URL and `/api/health`. Expect the screen and health stage for the milestone being published. Step 3 exposes public/private room and queue controls; DNA and battles remain future milestones. After publication, test actual private storage/WebSocket operations from separate browser profiles and devices on that origin; the health result alone is insufficient.
+Wrangler builds the app, uploads the Worker and assets, registers its SQLite-backed namespaces, and prints the actual workers.dev URL. Open that URL and `/api/health`. Expect the screen and health stage for the milestone being published. The local step 5 tree exposes real DNA controls and stops at the frozen creature boundary; combat remains step 6. Active legacy experiments remain service-only on migration, preserving deadlines; start a new laboratory to use DNA. Old protocol clients must reload while retaining their reconnect credentials. After a separately authorized publication, test actual private storage/WebSocket operations and the new milestone behavior from separate browser profiles and devices on that origin; the health result alone is insufficient.
 
 In Workers & Pages, inspect this Worker and its bindings. Keep the Worker on the free plan, and inspect usage as testing expands. Free quotas are limits, not unlimited public matchmaking capacity; exceeding a quota can interrupt operations. Do not choose a paid upgrade just to make a failed configuration deploy.
 

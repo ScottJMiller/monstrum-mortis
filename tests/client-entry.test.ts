@@ -5,7 +5,7 @@ import { Script } from 'node:vm';
 import test from 'node:test';
 // esbuild is supplied by the locked Wrangler dependency; no additional test packages.
 import { transformSync } from 'esbuild';
-import { PROTOCOL_VERSION } from '../src/shared/protocol.ts';
+import { PROTOCOL_VERSION, ROOM_SOCKET_PROTOCOL } from '../src/shared/protocol.ts';
 
 const require = createRequire(import.meta.url);
 const compiled = transformSync(readFileSync(new URL('../src/client/App.tsx', import.meta.url), 'utf8'), {
@@ -58,7 +58,7 @@ function entryConsole() {
   const module = { exports: {} };
   new Script(compiled, { filename: 'App.cjs' }).runInNewContext({
     module, exports: module.exports,
-    require: name => name === './Presentation.tsx' ? { Presentation: () => null } : name === './QuickPlay.tsx' ? { QuickPlay: () => null, guestHeaders: () => ({}) } : name === 'react' ? react : name === '../shared/protocol.ts' ? { PROTOCOL_VERSION } : require(name),
+    require: name => name === './DnaController.tsx' ? { DnaController: () => null } : name === './Presentation.tsx' ? { Presentation: () => null } : name === './QuickPlay.tsx' ? { QuickPlay: () => null, guestHeaders: () => ({}) } : name === 'react' ? react : name === '../shared/protocol.ts' ? { PROTOCOL_VERSION, ROOM_SOCKET_PROTOCOL } : require(name),
     crypto, URL, URLSearchParams, Date, Error, WebSocket: Socket,
     location: { href: 'http://localhost:5173/?room=ABCDEF', origin: 'http://localhost:5173', protocol: 'http:', search: '?room=ABCDEF' },
     history: { state: null, replaceState() {} },

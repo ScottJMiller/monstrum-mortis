@@ -20,7 +20,7 @@ export interface PrivateSeatRecord {
   lastActivityAtMs: number;
 }
 
-/** Active step 2 SQLite record. Foundation records were never persisted. */
+/** Active schema-4 SQLite room record. Foundation records were never persisted. */
 export type { StoredRoom as RoomRecord } from './room-model.ts';
 
 export interface QueueTicketRecord {

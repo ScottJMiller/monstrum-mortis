@@ -1,0 +1,562 @@
+[
+  {
+    "id": "clue.c01",
+    "source": "public/assets/specimens/c01.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Olive serrated filaments with 3 dotted marks.",
+    "sha256": "abd717529d24fb8477e44ae64aa1754c3e3e79a254a3616d711d68c2e1837379",
+    "bytes": 477,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.c02",
+    "source": "public/assets/specimens/c02.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Olive pulsing filaments with 3 dotted marks.",
+    "sha256": "68178ff741d2f2bac681111d0b9bd0fd856f89d3038217661194c6e1e3582c36",
+    "bytes": 592,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.c03",
+    "source": "public/assets/specimens/c03.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Olive branching filaments with 3 dotted marks.",
+    "sha256": "f1f318d8212cb9c1a50a19c2eec93472ee310ad58aba32c2332f280beda396bc",
+    "bytes": 577,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.c04",
+    "source": "public/assets/specimens/c04.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Olive fuzzy filaments with 3 dotted marks.",
+    "sha256": "ccc38b516ab4c1010ae5a902de6c78fafe37dcc1dae16fb785fe4df553b29a33",
+    "bytes": 669,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.c05",
+    "source": "public/assets/specimens/c05.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Olive spiral filaments with 3 dotted marks.",
+    "sha256": "c2d04dc07db41d57ffb45d7557cf899cdbe58562151084234461fb7c14be9c16",
+    "bytes": 460,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.c06",
+    "source": "public/assets/specimens/c06.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Violet serrated filaments with 4 dotted marks.",
+    "sha256": "46b66fb0e2ddabd953e562f59e50b3fabfde9b19b1d8a81feda42f30f7b523ec",
+    "bytes": 520,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.c07",
+    "source": "public/assets/specimens/c07.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Violet pulsing filaments with 4 dotted marks.",
+    "sha256": "a3eb5875952a290152bddbf4843968c1a3643e485880cbc6bba2c8ed8398fdcc",
+    "bytes": 706,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.c08",
+    "source": "public/assets/specimens/c08.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Violet branching filaments with 4 dotted marks.",
+    "sha256": "89743d38ec555faacad303361e4d305386fe492fb294e705d07228f05d2bf6d1",
+    "bytes": 666,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.c09",
+    "source": "public/assets/specimens/c09.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Violet fuzzy filaments with 4 dotted marks.",
+    "sha256": "e2ac942b9572ae5b446db6da7ca172bd2f49eba999a9b196755a94c5fb1311df",
+    "bytes": 720,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.c10",
+    "source": "public/assets/specimens/c10.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Violet spiral filaments with 4 dotted marks.",
+    "sha256": "8a6f09faef6483aa4e6586e9890e4f38dc024181b667c7cdcf61b80b90b18b49",
+    "bytes": 486,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.c11",
+    "source": "public/assets/specimens/c11.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Ivory serrated filaments with 5 dotted marks.",
+    "sha256": "77046b9be1eca08526484a09f1a7db8f257c74eff7dacd08771189c860bb16fe",
+    "bytes": 588,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.c12",
+    "source": "public/assets/specimens/c12.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Ivory pulsing filaments with 5 dotted marks.",
+    "sha256": "8e186a7831c6a85894eaf80404d9c98c6bc77d15e958cef4a55a2453b5b174d8",
+    "bytes": 845,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.c13",
+    "source": "public/assets/specimens/c13.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Ivory branching filaments with 5 dotted marks.",
+    "sha256": "a125cabb075d7e79888eda6d6331e25248fa0268716ae9bcc07d6ab089acfa2d",
+    "bytes": 781,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.c14",
+    "source": "public/assets/specimens/c14.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Ivory fuzzy filaments with 5 dotted marks.",
+    "sha256": "0b9e6cda171277fea2f1d49fa866deccd842659eac3e4718cc0d8f5e65a5e2b7",
+    "bytes": 848,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.c15",
+    "source": "public/assets/specimens/c15.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Ivory spiral filaments with 5 dotted marks.",
+    "sha256": "7a16c01d48f91f0411961af899d6c501e298f7d5eb00421037f3b0d86515725a",
+    "bytes": 537,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.c16",
+    "source": "public/assets/specimens/c16.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Olive serrated filaments with 6 dotted marks.",
+    "sha256": "365231939846b7e81770ef4a3893621b2a11aa503c2e03fe50fb1b4ca3e5a46c",
+    "bytes": 708,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.c17",
+    "source": "public/assets/specimens/c17.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Olive pulsing filaments with 6 dotted marks.",
+    "sha256": "4740fc769a0b8505bad0cc70361fb68fd691a1f2e10a80642c8e46f8011a6e83",
+    "bytes": 1037,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.c18",
+    "source": "public/assets/specimens/c18.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Olive branching filaments with 6 dotted marks.",
+    "sha256": "f809eb7fcccd961aac3917cb4cfb86a1d5d9b67c98f50ce3847319e5d7983bf9",
+    "bytes": 948,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.c19",
+    "source": "public/assets/specimens/c19.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Olive fuzzy filaments with 6 dotted marks.",
+    "sha256": "b6104c636484841000252d64766b021734d446e97bbaf358b347631f6e9112ae",
+    "bytes": 1137,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.c20",
+    "source": "public/assets/specimens/c20.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Olive spiral filaments with 6 dotted marks.",
+    "sha256": "34372077e05a23575864e6e719e40509534b2afaa38932f540f09b7db843fdc8",
+    "bytes": 641,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.c21",
+    "source": "public/assets/specimens/c21.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Violet serrated filaments with 7 dotted marks.",
+    "sha256": "1f7bacb8868878412ec2ceff2bcef63e9e23e8fd4112df68b20f476d40d8c360",
+    "bytes": 801,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.c22",
+    "source": "public/assets/specimens/c22.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Violet pulsing filaments with 7 dotted marks.",
+    "sha256": "6c2b61a9e6015fb69395f766bd7dbe35727749101aededf5081a3191e0067b18",
+    "bytes": 1201,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.c23",
+    "source": "public/assets/specimens/c23.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Violet branching filaments with 7 dotted marks.",
+    "sha256": "2050f2d212efc5cfd22351e874c480c1411445890bf7c09779a785817594c0ca",
+    "bytes": 1244,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.c24",
+    "source": "public/assets/specimens/c24.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Violet fuzzy filaments with 7 dotted marks.",
+    "sha256": "ed9933729c40718abe27d5df06180bcfa8b5fc1adfa695fffdb64d3846f5d88f",
+    "bytes": 1340,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.c25",
+    "source": "public/assets/specimens/c25.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Violet spiral filaments with 7 dotted marks.",
+    "sha256": "205b0f9ea6d3d9918a0e0f018e59cdd6f810813404b80f0e08832ff5d761cbbd",
+    "bytes": 717,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.c26",
+    "source": "public/assets/specimens/c26.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Ivory serrated filaments with 8 dotted marks.",
+    "sha256": "75200b6628d83eb70f708e4e668eaf72f88ac79ce20b06d95a1273992c747a8f",
+    "bytes": 791,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.c27",
+    "source": "public/assets/specimens/c27.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Ivory pulsing filaments with 8 dotted marks.",
+    "sha256": "4a7db166124e25a1a6a8950b5375cb1e715b5fe802d20dcc5242d7005b942eb3",
+    "bytes": 1263,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.c28",
+    "source": "public/assets/specimens/c28.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Ivory branching filaments with 8 dotted marks.",
+    "sha256": "d342a40808c4381d0e184816386276e2d80ee6e4021041192cdddc9918937893",
+    "bytes": 1125,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.c29",
+    "source": "public/assets/specimens/c29.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Ivory fuzzy filaments with 8 dotted marks.",
+    "sha256": "b913ef8b7e8411bbecbf00ec0593e359abbe0d7aadcee4bddfe07404a57b52eb",
+    "bytes": 1235,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.c30",
+    "source": "public/assets/specimens/c30.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Ivory spiral filaments with 8 dotted marks.",
+    "sha256": "2dae26d17f9d2612df6d5adc677aea0b1a1f3c46d97e3b3ae3e03ed0e003f705",
+    "bytes": 691,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.serrated",
+    "source": "public/assets/specimens/serrated.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Olive serrated filaments with 3 dotted marks.",
+    "sha256": "abd717529d24fb8477e44ae64aa1754c3e3e79a254a3616d711d68c2e1837379",
+    "bytes": 477,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.pulsing",
+    "source": "public/assets/specimens/pulsing.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Olive pulsing filaments with 3 dotted marks.",
+    "sha256": "68178ff741d2f2bac681111d0b9bd0fd856f89d3038217661194c6e1e3582c36",
+    "bytes": 592,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.branching",
+    "source": "public/assets/specimens/branching.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Olive branching filaments with 3 dotted marks.",
+    "sha256": "f1f318d8212cb9c1a50a19c2eec93472ee310ad58aba32c2332f280beda396bc",
+    "bytes": 577,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.fuzzy",
+    "source": "public/assets/specimens/fuzzy.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Olive fuzzy filaments with 3 dotted marks.",
+    "sha256": "ccc38b516ab4c1010ae5a902de6c78fafe37dcc1dae16fb785fe4df553b29a33",
+    "bytes": 669,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  },
+  {
+    "id": "clue.spiral",
+    "source": "public/assets/specimens/spiral.svg",
+    "origin": "original",
+    "creator": "Project-authored SVG via scripts/prepare-specimens.py",
+    "date": "2026-10-07",
+    "description": "Olive spiral filaments with 3 dotted marks.",
+    "sha256": "c2d04dc07db41d57ffb45d7557cf899cdbe58562151084234461fb7c14be9c16",
+    "bytes": 460,
+    "dimensions": [
+      160,
+      144
+    ],
+    "attachment": null,
+    "license": "Original project code artwork; no third-party source or invented stock license."
+  }
+]

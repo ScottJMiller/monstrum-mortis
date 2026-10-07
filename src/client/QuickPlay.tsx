@@ -1,3 +1,4 @@
+import { QUEUE_SOCKET_PROTOCOL } from '../shared/protocol.ts';
 import { useEffect, useRef, useState } from 'react';
 import { GAME_RULES } from '../shared/rules.ts';
 import type { MatchmakingRegion } from '../shared/rules.ts';
@@ -113,7 +114,7 @@ export function QuickPlay({ onEntry, onBusy, autoStart = false }: { onEntry: (en
     };
     void refresh(); const poll = setInterval(refresh, 10_000);
     const url = new URL(`/api/queue/${ticket.region}/socket?ticketId=${ticket.id}`, location.href); url.protocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-    const socket = new WebSocket(url, ['mm-queue-v3', `guest.${guest.guestId}`, `token.${guest.accessToken}`]);
+    const socket = new WebSocket(url, [QUEUE_SOCKET_PROTOCOL, `guest.${guest.guestId}`, `token.${guest.accessToken}`]);
     const ping = setInterval(() => { if (socket.readyState === WebSocket.OPEN) socket.send('ping'); }, 20_000);
     socket.onopen = () => { if (!stopped) setQueueConnection('Queue connected'); };
     socket.onclose = () => { if (!stopped) setQueueConnection('Queue socket offline · checking status periodically'); };

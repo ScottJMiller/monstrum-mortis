@@ -24,7 +24,7 @@ test('deadlines catch up chronologically once; step 2 stops at battle without an
   assert.equal(room.phase, 'battle'); assert.equal(room.phaseDeadlineMs, null);
   const revision = room.revision;
   settle(room, deadline + R.releaseDurationMs + 100_001); assert.equal(room.revision, revision);
-  assert.equal(snapshot(room, 20).teamScore, 0); assert.equal(snapshot(room, 20).creature, null);
+  assert.equal(snapshot(room, 20).teamScore, 0); assert.equal(snapshot(room, 20).creature?.parts.length, 3);
 });
 
 test('grace preserves identity, transfers host only at expiry, and locks scaling', () => {
@@ -66,7 +66,7 @@ test('public projections and runtime validators reject authoritative client fiel
   const room = fixture();
   const serialized = JSON.stringify(snapshot(room, 10));
   for (const hidden of ['secret', 'tokenHash', 'operationHash', 'creationHash', 'guestId']) assert.ok(!serialized.includes(hidden));
-  const action = { protocolVersion: 3, actionId: crypto.randomUUID(), kind: 'start-private-session' };
+  const action = { protocolVersion: 4, actionId: crypto.randomUUID(), kind: 'start-private-session' };
   assert.equal(parseAction(action).kind, 'start-private-session');
   for (const invalid of [{ ...action, playerId: 'somebody' }, { ...action, protocolVersion: 1 }, { ...action, actionId: 'small' }, null, [], { ...action, kind: 'set-phase', phase: 'autopsy' }]) assert.throws(() => parseAction(invalid));
 });

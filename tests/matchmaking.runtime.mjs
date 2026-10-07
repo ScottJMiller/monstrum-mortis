@@ -23,10 +23,10 @@ async function socket(path, protocols) {
  ws.addEventListener('message',e=>{ if(e.data!=='pong') messages.push(JSON.parse(e.data)); });
  await new Promise((resolve,reject)=>{ws.addEventListener('open',resolve,{once:true});ws.addEventListener('error',reject,{once:true});});
  const timer=setInterval(()=>{if(ws.readyState===WebSocket.OPEN) ws.send('ping');},10000);
- const c={ws,messages,close(){clearInterval(timer);ws.close();},async send(kind) {const actionId=uid();ws.send(JSON.stringify({protocolVersion:3,actionId,kind}));return wait(async()=>messages.find(m=>m.actionId===actionId),Boolean,5000);}};
+ const c={ws,messages,close(){clearInterval(timer);ws.close();},async send(kind) {const actionId=uid();ws.send(JSON.stringify({protocolVersion:4,actionId,kind}));return wait(async()=>messages.find(m=>m.actionId===actionId),Boolean,5000);}};
  clients.push(c); return c;
 }
-async function roomSocket(entry) { return socket(`/api/rooms/${entry.credentials.roomId}/socket`,['mm-v3',`token.${entry.credentials.reconnectToken}`]); }
+async function roomSocket(entry) { return socket(`/api/rooms/${entry.credentials.roomId}/socket`,['mm-v4',`token.${entry.credentials.reconnectToken}`]); }
 async function snap(e) {return (await api(`/api/rooms/${e.credentials.roomId}/snapshot`,null,null,200,e.credentials)).snapshot;}
 async function inspect(className, id) {return mf.unsafeGetDurableObjectStorage('monstrum-mortis', className, {id});}
 async function editRoom(roomId, edit) {
@@ -46,7 +46,7 @@ try {
  const replay=await api('/api/queue/americas/enter',{operationId:first.id,mode:'fresh-session'},g); assert.equal(replay.enteredAtMs,first.status.enteredAtMs);
  await api('/api/rooms/private',{operationId:uid(),alias:'Guest',presentation:'remote'},g,409);
  await api('/api/queue/americas/enter',{operationId:first.id,mode:'fill-existing-laboratory'},g,409);
- const qsocket=await socket(`/api/queue/americas/socket?ticketId=${first.id}`,['mm-queue-v3',`guest.${g.guestId}`,`token.${g.accessToken}`]);
+ const qsocket=await socket(`/api/queue/americas/socket?ticketId=${first.id}`,['mm-queue-v4',`guest.${g.guestId}`,`token.${g.accessToken}`]);
  checked('guest issuance replay, authored identity, authorization, duplicate ticket and cross-pool/private-seat exclusion');
  const group=[first];for(let i=0;i<3;i++) group.push(await enter(await createGuest()));
  const check=await status(first);assert.equal(check.state,'ready-check');assert.equal(check.readyDeadlineMs-check.serverTimeMs<=10000,true);

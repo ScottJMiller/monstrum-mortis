@@ -1,3 +1,4 @@
+import type { PROTOCOL_VERSION } from './protocol.ts';
 import type { MatchmakingRegion } from './rules.ts';
 
 export type RoomId = string;
@@ -45,6 +46,8 @@ export interface PlayerView {
   finishedThisRound: boolean;
   injectionsThisRound: number;
   waitingForNextRound?: boolean;
+  cooldownUntilMs?: EpochMs;
+  completionReason?: 'switch' | 'grace' | 'deadline' | 'left' | 'legacy' | null;
   inactivityPrompt?: boolean;
 }
 
@@ -55,6 +58,8 @@ export interface MorphologyPart {
   variant: number;
   scale: number;
   contributorIds: PlayerId[];
+  opacity?: number;
+  layerOffset?: number;
 }
 
 export interface CreatureView {
@@ -63,9 +68,11 @@ export interface CreatureView {
   revealedMutationIds: MutationId[];
 }
 
+export interface MutationView { sequence: number; injectionId: string; playerId: string; alias: string; name: string; atMs: EpochMs; change: 'added' | 'reinforced' | 'replaced'; status: 'active' | 'partial' | 'replaced' }
+
 /** Shared state excludes hands, reconnect tokens, internal seeds, and DNA effects. */
 export interface RoomSnapshot {
-  protocolVersion: 3;
+  protocolVersion: typeof PROTOCOL_VERSION;
   rulesVersion: string;
   revision: number;
   serverTimeMs: EpochMs;
@@ -82,11 +89,17 @@ export interface RoomSnapshot {
   recoveryDeadlineMs?: EpochMs | null;
   playerCountAtExperimentStart?: number | null;
   mechanicsAvailable?: boolean;
+  attemptId?: string | null;
+  mutations?: MutationView[];
+  readings?: Record<keyof CreatureStats, 'low' | 'moderate' | 'high'> | null;
+  releasedAtMs?: EpochMs | null;
   publicSession?: { sessionId: string; readyPlayerIds: string[]; replayPlayerIds: string[]; resultsStartedAtMs: number | null; completedRounds: number; region: MatchmakingRegion } | null;
 }
 
 /** Only sent to the owner. Display sessions cannot request a controller snapshot. */
 export interface ControllerSnapshot {
+  revision: number;
+  attemptId: string | null;
   playerId: PlayerId;
   tray: SpecimenView[];
   remainingDoses: number;
@@ -148,11 +161,13 @@ export interface CardRecord {
 
 export interface HealthResponse {
   service: 'monstrum-mortis';
-  stage: 'foundation' | 'room-service' | 'public-matchmaking';
-  protocolVersion: 3;
+  stage: 'foundation' | 'room-service' | 'public-matchmaking' | 'dna-mechanics';
+  protocolVersion: typeof PROTOCOL_VERSION;
   rulesVersion: string;
   configuredBindings: { assets: boolean; rooms: boolean; matchmaking: boolean; guestLeases: boolean };
   gameplayAvailable: false;
   roomServiceAvailable?: boolean;
   matchmakingAvailable?: boolean;
+  mechanicsAvailable?: boolean;
+  combatAvailable?: boolean;
 }

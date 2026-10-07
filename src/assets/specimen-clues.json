@@ -1,0 +1,177 @@
+[
+  {
+    "id": "clue.c01",
+    "url": "/assets/specimens/c01.svg",
+    "description": "Olive serrated filaments with 3 dotted marks."
+  },
+  {
+    "id": "clue.c02",
+    "url": "/assets/specimens/c02.svg",
+    "description": "Olive pulsing filaments with 3 dotted marks."
+  },
+  {
+    "id": "clue.c03",
+    "url": "/assets/specimens/c03.svg",
+    "description": "Olive branching filaments with 3 dotted marks."
+  },
+  {
+    "id": "clue.c04",
+    "url": "/assets/specimens/c04.svg",
+    "description": "Olive fuzzy filaments with 3 dotted marks."
+  },
+  {
+    "id": "clue.c05",
+    "url": "/assets/specimens/c05.svg",
+    "description": "Olive spiral filaments with 3 dotted marks."
+  },
+  {
+    "id": "clue.c06",
+    "url": "/assets/specimens/c06.svg",
+    "description": "Violet serrated filaments with 4 dotted marks."
+  },
+  {
+    "id": "clue.c07",
+    "url": "/assets/specimens/c07.svg",
+    "description": "Violet pulsing filaments with 4 dotted marks."
+  },
+  {
+    "id": "clue.c08",
+    "url": "/assets/specimens/c08.svg",
+    "description": "Violet branching filaments with 4 dotted marks."
+  },
+  {
+    "id": "clue.c09",
+    "url": "/assets/specimens/c09.svg",
+    "description": "Violet fuzzy filaments with 4 dotted marks."
+  },
+  {
+    "id": "clue.c10",
+    "url": "/assets/specimens/c10.svg",
+    "description": "Violet spiral filaments with 4 dotted marks."
+  },
+  {
+    "id": "clue.c11",
+    "url": "/assets/specimens/c11.svg",
+    "description": "Ivory serrated filaments with 5 dotted marks."
+  },
+  {
+    "id": "clue.c12",
+    "url": "/assets/specimens/c12.svg",
+    "description": "Ivory pulsing filaments with 5 dotted marks."
+  },
+  {
+    "id": "clue.c13",
+    "url": "/assets/specimens/c13.svg",
+    "description": "Ivory branching filaments with 5 dotted marks."
+  },
+  {
+    "id": "clue.c14",
+    "url": "/assets/specimens/c14.svg",
+    "description": "Ivory fuzzy filaments with 5 dotted marks."
+  },
+  {
+    "id": "clue.c15",
+    "url": "/assets/specimens/c15.svg",
+    "description": "Ivory spiral filaments with 5 dotted marks."
+  },
+  {
+    "id": "clue.c16",
+    "url": "/assets/specimens/c16.svg",
+    "description": "Olive serrated filaments with 6 dotted marks."
+  },
+  {
+    "id": "clue.c17",
+    "url": "/assets/specimens/c17.svg",
+    "description": "Olive pulsing filaments with 6 dotted marks."
+  },
+  {
+    "id": "clue.c18",
+    "url": "/assets/specimens/c18.svg",
+    "description": "Olive branching filaments with 6 dotted marks."
+  },
+  {
+    "id": "clue.c19",
+    "url": "/assets/specimens/c19.svg",
+    "description": "Olive fuzzy filaments with 6 dotted marks."
+  },
+  {
+    "id": "clue.c20",
+    "url": "/assets/specimens/c20.svg",
+    "description": "Olive spiral filaments with 6 dotted marks."
+  },
+  {
+    "id": "clue.c21",
+    "url": "/assets/specimens/c21.svg",
+    "description": "Violet serrated filaments with 7 dotted marks."
+  },
+  {
+    "id": "clue.c22",
+    "url": "/assets/specimens/c22.svg",
+    "description": "Violet pulsing filaments with 7 dotted marks."
+  },
+  {
+    "id": "clue.c23",
+    "url": "/assets/specimens/c23.svg",
+    "description": "Violet branching filaments with 7 dotted marks."
+  },
+  {
+    "id": "clue.c24",
+    "url": "/assets/specimens/c24.svg",
+    "description": "Violet fuzzy filaments with 7 dotted marks."
+  },
+  {
+    "id": "clue.c25",
+    "url": "/assets/specimens/c25.svg",
+    "description": "Violet spiral filaments with 7 dotted marks."
+  },
+  {
+    "id": "clue.c26",
+    "url": "/assets/specimens/c26.svg",
+    "description": "Ivory serrated filaments with 8 dotted marks."
+  },
+  {
+    "id": "clue.c27",
+    "url": "/assets/specimens/c27.svg",
+    "description": "Ivory pulsing filaments with 8 dotted marks."
+  },
+  {
+    "id": "clue.c28",
+    "url": "/assets/specimens/c28.svg",
+    "description": "Ivory branching filaments with 8 dotted marks."
+  },
+  {
+    "id": "clue.c29",
+    "url": "/assets/specimens/c29.svg",
+    "description": "Ivory fuzzy filaments with 8 dotted marks."
+  },
+  {
+    "id": "clue.c30",
+    "url": "/assets/specimens/c30.svg",
+    "description": "Ivory spiral filaments with 8 dotted marks."
+  },
+  {
+    "id": "clue.serrated",
+    "url": "/assets/specimens/serrated.svg",
+    "description": "Olive serrated filaments with 3 dotted marks."
+  },
+  {
+    "id": "clue.pulsing",
+    "url": "/assets/specimens/pulsing.svg",
+    "description": "Olive pulsing filaments with 3 dotted marks."
+  },
+  {
+    "id": "clue.branching",
+    "url": "/assets/specimens/branching.svg",
+    "description": "Olive branching filaments with 3 dotted marks."
+  },
+  {
+    "id": "clue.fuzzy",
+    "url": "/assets/specimens/fuzzy.svg",
+    "description": "Olive fuzzy filaments with 3 dotted marks."
+  },
+  {
+    "id": "clue.spiral",
+    "url": "/assets/specimens/spiral.svg",
+    "description": "Olive spiral filaments with 3 dotted marks."
+  }
+]

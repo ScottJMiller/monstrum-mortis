@@ -1,3 +1,4 @@
+import { QUEUE_SOCKET_PROTOCOL } from '../shared/protocol.ts';
 import type { WorkerEnv } from './env.ts';
 import { GAME_RULES } from '../shared/rules.ts';
 import type { MatchmakingRegion } from '../shared/rules.ts';
@@ -103,7 +104,7 @@ export default {
         const forwarded = new Request(internal, request);
         if (op === 'socket') {
           const protocols = (request.headers.get('Sec-WebSocket-Protocol') ?? '').split(',').map(s => s.trim());
-          if (!protocols.includes('mm-queue-v3')) throw new ServiceError('stale-session', 'Current queue protocol required.', 426);
+          if (!protocols.includes(QUEUE_SOCKET_PROTOCOL)) throw new ServiceError('stale-session', 'Current queue protocol required.', 426);
           forwarded.headers.set('X-Guest-Id', protocols.find(s => s.startsWith('guest.'))?.slice(6) ?? '');
           forwarded.headers.set('Authorization', `Bearer ${protocols.find(s => s.startsWith('token.'))?.slice(6) ?? ''}`);
         }

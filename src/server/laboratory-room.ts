@@ -2,12 +2,14 @@ import { DurableObject } from 'cloudflare:workers';
 import type { MatchmakingRegion } from '../shared/rules.ts';
 import type { ReplacementOffer } from '../shared/matchmaking.ts';
 import { GAME_RULES } from '../shared/rules.ts';
-import { PROTOCOL_VERSION } from '../shared/protocol.ts';
+import { PROTOCOL_VERSION, ROOM_SOCKET_PROTOCOL } from '../shared/protocol.ts';
 import type { ActionErrorCode, ClientAction, ServerMessage } from '../shared/protocol.ts';
 import type { RoomEntryResponse } from '../shared/room-service.ts';
 import type { WorkerEnv } from './env.ts';
 import type { PublicAllocation, PublicGrant, ServiceResult } from './admission.ts';
 import { body, exact, failure, alias, operationId, parseAction, PRIVATE_CODE, PUBLIC_ID, ServiceError } from './validation.ts';
+import { inject, pullSwitch } from './dna-mechanics.ts';
+import { migrateRoom } from './room-storage.ts';
 import { hash, deriveToken, randomSecret } from './security.ts';
 import { completePublicRound, publicIntent, publicProgress, connectedPlayers, connect, controller, disconnect, expiresAt, livePlayers, newRoom, nextAlarm, requireLive, settle, snapshot, startRound, touch } from './room-model.ts';
 import type { Seat, StoredRoom } from './room-model.ts';
@@ -42,10 +44,7 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
   private load(): StoredRoom | null {
     const row = this.ctx.storage.sql.exec<{ record: string }>('SELECT record FROM room_state WHERE singleton = 1').toArray()[0];
     if (!row) return null;
-    const room = JSON.parse(row.record) as StoredRoom;
-    if ((room as { schemaVersion: number }).schemaVersion === 2) { room.schemaVersion = 3; room.publicState = null; }
-    if (room.schemaVersion !== 3) throw new ServiceError('temporarily-unavailable', 'Unsupported stored room schema.', 503);
-    return room;
+    return migrateRoom(JSON.parse(row.record));
   }
   private save(room: StoredRoom) {
     this.ctx.storage.sql.exec('INSERT OR REPLACE INTO room_state(singleton, record) VALUES(1, ?)', JSON.stringify(room));
@@ -124,14 +123,14 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
     const socketCheck = this.sockets().length || room.publicState || room.seats.some(s => s.guestId && !s.departed) ? Date.now() + SOCKET_LIVENESS_MS : Infinity;
     await this.ctx.storage.setAlarm(Math.max(Date.now() + 1, Math.min(nextAlarm(room), socketCheck, room.publicState?.notice?.pending ? Date.now() + 1000 : Infinity, ...room.seats.filter(s => s.guestId && s.reservationId && !s.departed).map(s => s.leaseRenewAtMs ?? Infinity))));
   }
-  private envelope(): { protocolVersion: 3; serverTimeMs: number } { return { protocolVersion: PROTOCOL_VERSION, serverTimeMs: Date.now() }; }
+  private envelope(): { protocolVersion: typeof PROTOCOL_VERSION; serverTimeMs: number } { return { protocolVersion: PROTOCOL_VERSION, serverTimeMs: Date.now() }; }
   private send(ws: WebSocket, message: ServerMessage) { try { ws.send(JSON.stringify(message)); } catch { /* Close/error callback handles transport loss. */ } }
   private sendSnapshots(ws: WebSocket, room: StoredRoom) {
     const a = this.attachment(ws);
     const seat = room.seats.find(s => s.id === a.sessionId);
     if (!seat || seat.departed || a.closed) return;
     this.send(ws, { ...this.envelope(), kind: 'room-snapshot', snapshot: snapshot(room, Date.now()) });
-    const own = controller(seat);
+    const own = controller(seat, room);
     if (own) this.send(ws, { ...this.envelope(), kind: 'controller-snapshot', snapshot: own });
   }
   private broadcast(room: StoredRoom) {
@@ -158,7 +157,7 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
   private async entryResponse(room: StoredRoom, seat: Seat): Promise<RoomEntryResponse> {
     return {
       credentials: { roomId: room.id, sessionId: seat.id, role: seat.role, reconnectToken: await deriveToken(room.secret, `seat:${seat.operationHash}`) },
-      snapshot: snapshot(room, Date.now()), controller: controller(seat),
+      snapshot: snapshot(room, Date.now()), controller: controller(seat, room),
     };
   }
   private async addSeat(room: StoredRoom, operationHash: string, entryFingerprint: string, name: string, role: Seat['role'], guestId: string | null, now: number): Promise<Seat> {
@@ -292,7 +291,7 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
     }
     if (path === '/internal/snapshot' && request.method === 'GET') {
       const seat = await this.auth(room, request); touch(room, Date.now()); await this.persisted(room, false);
-      return Response.json({ snapshot: snapshot(room, Date.now()), controller: controller(seat) }, { headers: { 'Cache-Control': 'no-store' } });
+      return Response.json({ snapshot: snapshot(room, Date.now()), controller: controller(seat, room) }, { headers: { 'Cache-Control': 'no-store' } });
     }
     if (path === '/internal/display' && request.method === 'POST') {
       const owner = await this.auth(room, request);
@@ -306,7 +305,7 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
     if (path === '/internal/socket' && request.method === 'GET') {
       if (request.headers.get('Upgrade')?.toLowerCase() !== 'websocket') throw new ServiceError('invalid-action', 'WebSocket upgrade required.', 426);
       const protocols = (request.headers.get('Sec-WebSocket-Protocol') ?? '').split(',').map(s => s.trim());
-      if (!protocols.includes('mm-v3')) throw new ServiceError('stale-session', 'Current WebSocket protocol required.', 426);
+      if (!protocols.includes(ROOM_SOCKET_PROTOCOL)) throw new ServiceError('stale-session', 'Current WebSocket protocol required.', 426);
       const seat = await this.tokenSeat(room, protocols.find(s => s.startsWith('token.'))?.slice(6) ?? '');
       if (this.limited(`connect:${seat.id}`, 10, 60_000, Date.now())) throw new ServiceError('rate-limited', 'Reconnect attempts limited.', 429);
       const existing = this.sockets(seat.id);
@@ -318,14 +317,14 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
       if (seat.guestId && seat.reservationId && !await this.lease(seat.guestId).renew('room', room.id, seat.reservationId, true)) { this.closeSocket(server, 4003, 'Admission cancelled'); throw new ServiceError('stale-session', 'Admission cancelled.', 409); }
       connect(room, seat, Date.now()); publicProgress(room, Date.now());
       await this.persisted(room);
-      return new Response(null, { status: 101, webSocket: client, headers: { 'Sec-WebSocket-Protocol': 'mm-v3' } });
+      return new Response(null, { status: 101, webSocket: client, headers: { 'Sec-WebSocket-Protocol': ROOM_SOCKET_PROTOCOL } });
     }
     throw new ServiceError('not-found', 'Unknown room operation.', 404);
   }
   async webSocketMessage(ws: WebSocket, message: string | ArrayBuffer): Promise<void> {
     return this.exclusive(async () => {
-      const a = this.attachment(ws); const room = this.load(); if (!room || a.closed) return;
-      const now = Date.now(); this.advance(room, now);
+      const a = this.attachment(ws); let room = this.load(); if (!room || a.closed) return;
+      const now = Date.now(); const experimentExpired = room.phase === 'experiment' && room.phaseDeadlineMs !== null && now >= room.phaseDeadlineMs; this.advance(room, now);
       if (room.phase === 'closed') { await this.expire(room); return; }
       const seat = room.seats.find(s => s.id === a.sessionId && !s.departed);
       if (seat && seat.guestId && seat.reservationId && !await this.lease(seat.guestId).renew('room', room.id, seat.reservationId)) disconnect(room, seat, now, true);
@@ -333,12 +332,15 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
       if (a.closed) { await this.persisted(room); return; } // Reconciliation may have expired this socket.
       a.lastMessageAtMs = now; ws.serializeAttachment(a);
       let action: ClientAction;
+      let rejectedActionId = '';
       try {
         if (typeof message !== 'string' || new TextEncoder().encode(message).byteLength > 2048) { this.closeSocket(ws, 1009, 'Messages must be JSON under 2 KiB'); await this.persisted(room); return; }
-        if (this.limited(`action:${seat.id}`, 30, 10_000, now)) throw new ServiceError('rate-limited', 'Too many actions.', 429);
+        const limited = this.limited(`action:${seat.id}`, 30, 10_000, now);
         action = parseAction(JSON.parse(message));
+        rejectedActionId = action.actionId;
+        if (limited) throw new ServiceError('rate-limited', 'Too many actions.', 429);
       } catch (error) {
-        this.send(ws, { ...this.envelope(), kind: 'action-rejected', actionId: '', code: error instanceof ServiceError ? error.code as ActionErrorCode : 'invalid-action', message: error instanceof ServiceError ? error.message : 'Invalid JSON.' });
+        this.send(ws, { ...this.envelope(), kind: 'action-rejected', actionId: rejectedActionId, code: error instanceof ServiceError ? error.code as ActionErrorCode : 'invalid-action', message: error instanceof ServiceError ? error.message : 'Invalid JSON.' });
         await this.persisted(room); return;
       }
       if (action.kind === 'sync-request') {
@@ -367,9 +369,15 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
           startRound(room, now); touch(room, now);
         } else if (action.kind === 'next-round-ready' || action.kind === 'public-replay-opt-in') {
           publicIntent(room, seat, action.kind, now);
+        } else if (action.kind === 'inject' || action.kind === 'pull-switch') {
+          if (experimentExpired && room.experiment?.id === action.attemptId) throw new ServiceError('deadline-passed', 'The experiment deadline passed.', 409);
+          const candidate = structuredClone(room);
+          const candidateSeat = candidate.seats.find(s => s.id === seat.id)!;
+          if (action.kind === 'inject') inject(candidate, candidateSeat, action.attemptId, action.specimenId, action.actionId, now);
+          else pullSwitch(candidate, candidateSeat, action.attemptId, now);
+          room = candidate;
         } else {
-          if (action.kind === 'inject' && (room.phase !== 'experiment' || room.recovery || !seat.eligible || seat.finished)) throw new ServiceError('wrong-phase', 'Injections are locked in this phase.', 409);
-          throw new ServiceError('not-implemented', 'DNA and switches belong to later milestones.', 501);
+          throw new ServiceError('not-implemented', 'This intent belongs to a later milestone.', 501);
         }
         result = { ...this.envelope(), kind: 'action-accepted', actionId: action.actionId, revision: room.revision };
       } catch (error) {

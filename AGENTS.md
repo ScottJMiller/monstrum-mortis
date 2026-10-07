@@ -1,7 +1,7 @@
 # Monstrum Mortis project instructions
 
 - Read `docs/APPROVED-PLAN.md` and `docs/IMPLEMENTATION-STATUS.md` before changing game behavior.
-- On 6 October 2026 the user confirmed steps 1–3 complete, deployed, and verified with multiple devices, authorized step 4 only, and approved docs/STEP-4-PLAN.md. Implement step 4 within that plan. Do not implement step 5 or later stages, or deploy, without a new instruction.
+- On 7 October 2026 the user confirmed steps 1–4 complete, pushed and deployed, steps 1–3 tested on multiple devices, and step 4 presentation reviewed. Step 5 only is authorized. The user approved docs/STEP-5-PLAN.md with the release message ‘Creature released. Prepare for combat!’ and authorized scripts needed to complete step 5. Implement only that approved scope. Do not implement step 6 or later stages, or deploy, without a new instruction.
 - Preserve remote-first public cooperative matchmaking, private invitation play, and the optional shared display.
 - Shared rules live in `src/shared/rules.ts`; bump rulesVersion for changed defaults, and protocolVersion for breaking wire changes.
 - Server owns hidden DNA, doses, timers, switch state, outcomes, admission, and attribution. Clients send intentions only.

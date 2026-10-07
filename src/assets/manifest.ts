@@ -1,3 +1,4 @@
+import clues from './specimen-clues.json' with { type: 'json' };
 import production from './production.json' with { type: 'json' };
 
 export interface AssetDefinition {
@@ -12,9 +13,11 @@ export interface AssetDefinition {
   attachment: { x: number; y: number } | null;
 }
 
-export const ASSET_MANIFEST_VERSION = '0.2.0';
+export const ASSET_MANIFEST_VERSION = '0.3.0';
 
 const planned = (id: string, kind: AssetDefinition['kind']): AssetDefinition => {
+  const clue = clues.find(a => a.id === id);
+  if (clue) return { id, kind, status: 'ready', url: clue.url, origin: 'original', license: 'Project-authored SVG; assets/specimen-provenance.json', attachment: null };
   const ready = production.find(a => a.id === id);
   return ready ? {
     id, kind, status: 'ready', url: ready.url, origin: 'generated',

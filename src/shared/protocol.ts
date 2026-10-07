@@ -4,7 +4,9 @@ import type {
 } from './types.ts';
 import type { MatchmakingRegion } from './rules.ts';
 
-export const PROTOCOL_VERSION = 3 as const;
+export const PROTOCOL_VERSION = 4 as const;
+export const ROOM_SOCKET_PROTOCOL = `mm-v${PROTOCOL_VERSION}`;
+export const QUEUE_SOCKET_PROTOCOL = `mm-queue-v${PROTOCOL_VERSION}`;
 
 interface ClientEnvelope {
   protocolVersion: typeof PROTOCOL_VERSION;
@@ -13,8 +15,8 @@ interface ClientEnvelope {
 
 /** Intent only. Authentication is server-issued session context, never playerId supplied by a client. */
 export type ClientAction = ClientEnvelope & (
-  | { kind: 'inject'; specimenId: SpecimenId }
-  | { kind: 'pull-switch' }
+  | { kind: 'inject'; specimenId: SpecimenId; attemptId: string }
+  | { kind: 'pull-switch'; attemptId: string }
   | { kind: 'team-signal'; signal: TeamSignal }
   | { kind: 'start-private-session' }
   | { kind: 'advance-private-round' }

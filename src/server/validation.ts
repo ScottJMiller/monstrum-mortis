@@ -36,10 +36,14 @@ export function parseAction(value: unknown): ClientAction {
       exact(v, [...base, 'afterRevision']);
       if (!Number.isSafeInteger(v.afterRevision) || (v.afterRevision as number) < 0) throw new ServiceError('invalid-action', 'Invalid revision.');
       break;
-    case 'start-private-session': case 'advance-private-round': case 'leave': case 'pull-switch': case 'next-round-ready': case 'public-replay-opt-in':
+    case 'start-private-session': case 'advance-private-round': case 'leave': case 'next-round-ready': case 'public-replay-opt-in':
       exact(v, base); break;
+    case 'pull-switch':
+      exact(v, [...base, 'attemptId']);
+      operationId(v.attemptId); break;
     case 'inject':
-      exact(v, [...base, 'specimenId']);
+      exact(v, [...base, 'specimenId', 'attemptId']);
+      operationId(v.attemptId);
       if (typeof v.specimenId !== 'string' || v.specimenId.length > 80 || !v.specimenId.length) throw new ServiceError('invalid-action', 'Invalid specimen.');
       break;
     default: throw new ServiceError('not-implemented', 'This intent belongs to a later milestone.');

@@ -9,7 +9,7 @@ export interface RenderAsset {
 export const ART = production as RenderAsset[];
 export const CHAMBER_URL = '/assets/laboratory/lab.chamber.webp';
 export const PHONE_CHAMBER_URL = '/assets/laboratory/lab.chamber-phone.webp';
-export interface RenderLayer { key: string; asset: RenderAsset; x: number; y: number; width: number; height: number; order: number; mirror: boolean; }
+export interface RenderLayer { key: string; asset: RenderAsset; x: number; y: number; width: number; height: number; order: number; mirror: boolean; opacity: number; }
 const slots: Record<BodySlot, { x: number; y: number }> = {
   body: { x: .5, y: .55 }, eyes: { x: .5, y: .44 }, mouth: { x: .5, y: .57 },
   'forelimb-left': { x: .25, y: .54 }, 'forelimb-right': { x: .75, y: .54 },
@@ -38,7 +38,8 @@ export function creatureLayers(creature: CreatureView | null): { layers: RenderL
     const height = Math.min(610, width * (asset.dimensions[1]! / asset.dimensions[0]!));
     const x = Math.max(width / 2, Math.min(600 - width / 2, point.x * 600));
     const y = Math.max(height / 2, Math.min(720 - height / 2, point.y * 720));
-    layers.push({ key: part.instanceId, asset, x, y, width, height, order: asset.order ?? 0, mirror });
+    const style = part as { opacity?: number; layerOffset?: number };
+    layers.push({ key: part.instanceId, asset, x, y, width, height, order: (asset.order ?? 0) + Math.max(0, Math.min(1, style.layerOffset ?? 0)), mirror, opacity: Math.max(.2, Math.min(1, style.opacity ?? 1)) });
   }
   layers.sort((a, b) => a.order - b.order || a.key.localeCompare(b.key));
   return { layers, missing };

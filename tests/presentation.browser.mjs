@@ -8,7 +8,7 @@ import { chromium } from 'playwright-core';
 const persistence = await mkdtemp(join(tmpdir(), 'mm-presentation-'));
 const artifacts = resolve('dist/presentation-checks');
 await mkdir(artifacts, { recursive: true });
-const mime = { '.html': 'text/html', '.js': 'application/javascript', '.css': 'text/css', '.webp': 'image/webp' };
+const mime = { '.html': 'text/html', '.js': 'application/javascript', '.css': 'text/css', '.webp': 'image/webp', '.svg': 'image/svg+xml' };
 const mf = new Miniflare(convertV4MiniflareOptions({ name: 'monstrum-mortis', modules: true, scriptPath: resolve('dist/worker/worker.js'), compatibilityDate: '2026-10-05', resourcePersistencePath: persistence,
   durableObjects: Object.fromEntries(['LaboratoryRoom', 'MatchmakingPool', 'GuestLease'].map((className, i) => [['ROOMS', 'MATCHMAKING', 'GUEST_LEASES'][i], { className, useSQLite: true }])),
   serviceBindings: { ASSETS: async request => { const path = new URL(request.url).pathname; const file = path === '/' ? '/index.html' : path; try { return new Response(await readFile(resolve('dist/client') + file), { headers: { 'Content-Type': mime[extname(file)] ?? 'application/octet-stream' } }); } catch { return new Response('Missing asset', { status: 404 }); } } },
@@ -64,7 +64,7 @@ try {
   await display.getByRole('button', { name: 'Join by Code', exact: true }).click(); await roomConnected(display);
   assert.equal(await display.locator('.display-layout').count(), 1);
   assert.equal(await display.locator('.chamber-stage').evaluate(el => el.getBoundingClientRect().bottom < innerHeight), true, 'TV chamber fits vertically');
-  assert.equal(await display.getByRole('button', { name: 'Start laboratory preview' }).count(), 0);
+  assert.equal(await display.getByRole('button', { name: 'Start experiment' }).count(), 0);
   await checkA11y(display, 'display accessibility');
   await display.screenshot({ path: join(artifacts, 'display-room.png'), fullPage: true });
   const snap = await host.request.get(new URL(`/api/rooms/${first.roomId}/snapshot`, origin).href, { headers: { Authorization: `Bearer ${first.reconnectToken}` } });

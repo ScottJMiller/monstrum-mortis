@@ -28,12 +28,12 @@ async function api(path, value, credentials, expected = 200) {
   assert.equal(response.status, expected, JSON.stringify(data)); return data;
 }
 const uid = () => crypto.randomUUID();
-const action = kind => ({ protocolVersion: 3, actionId: uid(), kind });
+const action = kind => ({ protocolVersion: 4, actionId: uid(), kind });
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 async function client(credentials, replace = false) {
   const url = new URL(`/api/rooms/${credentials.roomId}/socket`, origin); url.protocol = 'ws:';
   if (replace) url.searchParams.set('replace', '1');
-  const ws = new WebSocket(url, ['mm-v3', `token.${credentials.reconnectToken}`]);
+  const ws = new WebSocket(url, ['mm-v4', `token.${credentials.reconnectToken}`]);
   const messages = []; ws.addEventListener('message', event => { if (event.data !== 'pong') messages.push(JSON.parse(event.data)); });
   await new Promise((resolve, reject) => { ws.addEventListener('open', resolve, { once: true }); ws.addEventListener('error', reject, { once: true }); });
   const timer = setInterval(() => { if (ws.readyState === WebSocket.OPEN) ws.send('ping'); }, 10_000);
@@ -56,7 +56,7 @@ function checked(message) { passed++; console.log(`PASS ${passed}: ${message}`);
 function copyGrants(result, n) { return { ok: result.ok, value: Array.from({ length: n }, (_, i) => ({ reservationId: result.value[i].reservationId, guestId: result.value[i].guestId, admissionToken: result.value[i].admissionToken, expiresAtMs: result.value[i].expiresAtMs })) }; }
 try {
   origin = await mf.ready;
-  const health = await api('/api/health'); assert.equal(health.stage, 'public-matchmaking'); assert.equal(health.gameplayAvailable, false);
+  const health = await api('/api/health'); assert.equal(health.stage, 'dna-mechanics'); assert.equal(health.gameplayAvailable, false);
   const create = { operationId: uid(), alias: 'Host', presentation: 'remote' };
   const first = await api('/api/rooms/private', create, undefined, 201);
   const repeated = await api('/api/rooms/private', create, undefined, 201);
@@ -107,7 +107,7 @@ try {
   checked('host/display authorization, replay-safe actions, conflict detection and snapshot privacy');
 
   const duplicateUrl = new URL(`/api/rooms/${roomId}/socket`, origin);
-  const denied = await mf.dispatchFetch(duplicateUrl, { headers: { Upgrade: 'websocket', 'Sec-WebSocket-Protocol': `mm-v3, token.${first.credentials.reconnectToken}` } });
+  const denied = await mf.dispatchFetch(duplicateUrl, { headers: { Upgrade: 'websocket', 'Sec-WebSocket-Protocol': `mm-v4, token.${first.credentials.reconnectToken}` } });
   assert.equal(denied.status, 409);
   const replacement = await client(first.credentials, true);
   await sleep(100); assert.equal(host.ws.readyState, WebSocket.CLOSED);
@@ -138,7 +138,7 @@ try {
   const waitingState = await snapshot(waitingEntry.credentials);
   assert.equal(waitingState.players.find(p => p.playerId === waitingEntry.credentials.sessionId).waitingForNextRound, true);
   assert.equal(waitingState.playerCountAtExperimentStart, 8);
-  assert.equal((await waiting.send({ ...action('inject'), specimenId: 'invented' })).code, 'wrong-phase');
+  assert.equal((await waiting.send({ ...action('inject'), attemptId: (await snapshot(waitingEntry.credentials)).attemptId, specimenId: 'invented' })).code, 'wrong-phase');
   checked('explicit departure frees capacity; mid-round invitation is a waiting seat with no injection permission');
 
   const bindings = await mf.getBindings();
@@ -179,7 +179,7 @@ try {
   if (waitMs) { console.log(`Waiting ${Math.ceil(waitMs / 1000)}s for the real experiment alarm…`); await sleep(waitMs); }
   await waiting.wait(m => m.kind === 'room-snapshot' && m.snapshot.phase === 'release', 5000);
   await waiting.wait(m => m.kind === 'room-snapshot' && m.snapshot.phase === 'battle', 7000);
-  const battle = await snapshot(waitingEntry.credentials); assert.equal(battle.phase, 'battle'); assert.equal(battle.teamScore, 0); assert.equal(battle.creature, null);
+  const battle = await snapshot(waitingEntry.credentials); assert.equal(battle.phase, 'battle'); assert.equal(battle.teamScore, 0); assert.equal(battle.creature.parts.length, 3);
   for (const c of clients.filter(c => c.ws.readyState === WebSocket.OPEN)) {
     const observed = await c.wait(m => m.kind === 'room-snapshot' && m.snapshot.phase === 'battle');
     assert.equal(observed.snapshot.revision, battle.revision);
@@ -206,7 +206,7 @@ try {
   await db.exec('UPDATE room_state SET record = ? WHERE singleton = 1', JSON.stringify(legacy));
   const migrated = await snapshot(waitingEntry.credentials); assert.equal(migrated.phase, 'battle');
   assert.equal(migrated.players.find(p => p.playerId === waitingEntry.credentials.sessionId).alias, legacy.seats.find(s => s.id === waitingEntry.credentials.sessionId).alias);
-  assert.equal(JSON.parse((await db.exec('SELECT record FROM room_state'))[0].record).schemaVersion, 3);
+  assert.equal(JSON.parse((await db.exec('SELECT record FROM room_state'))[0].record).schemaVersion, 4);
   checked('runtime restart retains phase, roster, hashed tokens and receipts; schema-2 private room migrates preserving credentials');
 
   const expiredRoomId = `p-${uid()}`; const expiredStub = (await mf.getBindings()).ROOMS.get((await mf.getBindings()).ROOMS.idFromName(`room:${expiredRoomId}`));
