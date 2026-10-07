@@ -113,6 +113,12 @@ export function startRound(r: StoredRoom, now: number) {
 export function connect(r: StoredRoom, seat: Seat, now: number) {
   requireLive(r, now);
   seat.connected = true; seat.connectedAtMs = now; seat.disconnectDeadlineMs = null;
+  // Admission can finish in the lobby before the first two sockets start briefing.
+  // Include the remaining fresh cohort when its sockets arrive before the deadline.
+  if (r.publicState && r.phase === 'briefing' && now < (r.phaseDeadlineMs ?? 0) && seat.role === 'player' && !seat.finished && !seat.departed) {
+    const grant = r.reservations.find(g => g.id === seat.reservationId && g.guestId === seat.guestId && g.consumedByOperationHash === seat.operationHash && g.purpose === 'fresh' && !g.cancelled);
+    if (grant) { seat.eligible = true; if (!r.lockedPlayerIds.includes(seat.id)) r.lockedPlayerIds.push(seat.id); }
+  }
   if (r.visibility === 'private' && !r.hostId && seat.role === 'player') r.hostId = seat.id;
   // A return after grace does not undo finished for this attempt.
   if (r.recovery && connectedPlayers(r).filter(s => s.eligible).length >= GAME_RULES.minPlayers) {

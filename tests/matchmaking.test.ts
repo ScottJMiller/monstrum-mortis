@@ -88,3 +88,29 @@ test('initialized DNA participation counters prompt idle players; acknowledgment
   publicIntent(r, r.seats[1]!, 'next-round-ready', 1002);
   settle(r, 26000); assert.equal(r.seats[2]!.departed, true); assert.equal(r.seats[1]!.departed, false); assert.equal(r.phase, 'briefing');
 });
+
+for (const playerCount of [3, 4, 5, 6]) {
+ test(`all ${playerCount} fresh admissions join round one when sockets connect after the first two start briefing`, () => {
+  const room=publicRoom(playerCount); room.phase='lobby'; room.round=null; room.phaseDeadlineMs=null; room.lockedPlayerIds=[];
+  for (const seat of room.seats) {
+   seat.connected=false; seat.connectedAtMs=null; seat.reservationId=uid();
+   room.reservations.push({id:seat.reservationId,guestId:seat.guestId!,alias:seat.alias,tokenHash:'hidden',expiresAtMs:10000,cancelled:false,consumedByOperationHash:seat.operationHash,purpose:'fresh'});
+  }
+  connect(room,room.seats[0]!,1); publicProgress(room,1);
+  connect(room,room.seats[1]!,2); publicProgress(room,2);
+  assert.equal(room.phase,'briefing'); const deadline=room.phaseDeadlineMs;
+  for (const seat of room.seats.slice(2)) connect(room,seat,3);
+  assert.equal(room.phaseDeadlineMs,deadline);
+  assert.ok(snapshot(room,3).players.every(p=>!p.waitingForNextRound));
+  settle(room,deadline!);
+  assert.equal(room.playerCountAtExperimentStart,playerCount);
+  assert.equal(new Set(room.lockedPlayerIds).size,playerCount);
+ });
+}
+test('briefing reconnect does not admit replacements, expired-grace viewers, or new participants after experiment starts', () => {
+ const r=publicRoom(3);const seat=r.seats[2]!;seat.connected=false;seat.eligible=false;r.lockedPlayerIds=r.lockedPlayerIds.filter(id=>id!==seat.id);seat.reservationId=uid();
+ const grant={id:seat.reservationId,guestId:seat.guestId!,alias:seat.alias,tokenHash:'hidden',expiresAtMs:10000,cancelled:false,consumedByOperationHash:seat.operationHash,purpose:'replacement' as 'fresh'|'replacement'};
+ r.reservations.push(grant);connect(r,seat,1);assert.equal(seat.eligible,false);
+ grant.purpose='fresh';seat.finished=true;connect(r,seat,2);assert.equal(seat.eligible,false);
+ seat.finished=false;r.phase='experiment';connect(r,seat,3);assert.equal(seat.eligible,false);
+});
