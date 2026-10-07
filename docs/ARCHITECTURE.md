@@ -1,6 +1,6 @@
-# Room and matchmaking architecture (step 3)
+# Service and presentation architecture (steps 1–4)
 
-One repository, one Cloudflare Worker, one static client origin. The user declared step 2 complete and authorized step 3 on 6 October 2026. This session does not publish a deployment. The last deployment result supplied in this conversation is the foundation at https://monstrum-mortis.scott-jeffrey-miller.workers.dev. There are no custom-domain routes or paid dependencies.
+One repository, one Cloudflare Worker, one static client origin. On 6 October 2026 the user confirmed steps 1–3 complete, deployed, and verified with multiple devices at https://monstrum-mortis.scott-jeffrey-miller.workers.dev. Step 4 only is authorized and its detailed plan was explicitly approved on the same date. The client now implements that presentation locally; no deployment occurred. There are no custom-domain routes or paid dependencies.
 
 ## Stable infrastructure
 
@@ -78,4 +78,12 @@ A missing server ticket retires the stale browser ticket and checks the guest's 
 
 `npm run check` covers configuration, both TypeScript projects and deterministic/component regressions. `npm run test:rooms` builds/dry-runs and tests independent private-room clients, real alarms, SQLite, eviction and restart. `npm run test:matchmaking` also uses independent network queue/room clients with isolated SQLite storage, real ready/fallback timers, cross-pool fences, persisted journal recovery, replacements and restart. Test-only database seeding reaches the future battle, regroup and recovery boundaries without fabricating production gameplay.
 
-No runtime test publishes a Worker. Deployed multiplayer, human devices, cross-region latency, delayed/lost packets and free-tier load/quota measurements remain separate validation. Account access and health alone cannot establish these results.
+No runtime test publishes a Worker. The user has separately confirmed deployed multi-device verification for steps 1–3. This session has not repeated it; cross-region latency, delayed/lost packets and free-tier load/quota measurements remain separate validation. Account access and health alone cannot establish these results.
+
+## Step 4 presentation boundary
+
+The approved presentation plan is in [STEP-4-PLAN.md](STEP-4-PLAN.md). React retains semantic controller controls and the existing transport/session lifecycle. The client-only PixiJS scene consumes client-safe shared projections and local asset metadata. Animation, layout resizing, asset loading and renderer recovery must not recreate sockets, replay admission, release claims, or decide authoritative phases.
+
+The art pipeline produces transparent raster creature layers with calibrated normalized anchors, pivots, ordering and bounds for the existing BodySlot contract. Rendering accepts public CreatureView data without importing the server catalogue or inferring hidden DNA. Fixture compositions are confined to local development/tests. Since the current service projects no creature and no usable doses, the starter blob is explicitly atmospheric presentation, not an authoritative initialized specimen; unavailable gameplay remains clearly identified.
+
+No service schema, wire version, rules defaults, Durable Object identities, domain routing, combat producer or DNA mechanics changed. The scene owns per-instance image textures and destroys them when its composition is replaced; it does not share texture ownership across scene lifetimes. Renderer initialization failure uses the same real layers in a static DOM composition. Motion preferences change animation without recreating transport. Source images and exact prompts stay outside the public directory; only optimized artwork and render metadata are shipped. Export compatibility informs the asset contract; actual card export belongs to step 7.

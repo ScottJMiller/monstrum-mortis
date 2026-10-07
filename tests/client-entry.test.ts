@@ -58,7 +58,7 @@ function entryConsole() {
   const module = { exports: {} };
   new Script(compiled, { filename: 'App.cjs' }).runInNewContext({
     module, exports: module.exports,
-    require: name => name === './QuickPlay.tsx' ? { QuickPlay: () => null, guestHeaders: () => ({}) } : name === 'react' ? react : name === '../shared/protocol.ts' ? { PROTOCOL_VERSION } : require(name),
+    require: name => name === './Presentation.tsx' ? { Presentation: () => null } : name === './QuickPlay.tsx' ? { QuickPlay: () => null, guestHeaders: () => ({}) } : name === 'react' ? react : name === '../shared/protocol.ts' ? { PROTOCOL_VERSION } : require(name),
     crypto, URL, URLSearchParams, Date, Error, WebSocket: Socket,
     location: { href: 'http://localhost:5173/?room=ABCDEF', origin: 'http://localhost:5173', protocol: 'http:', search: '?room=ABCDEF' },
     history: { state: null, replaceState() {} },

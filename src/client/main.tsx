@@ -5,4 +5,7 @@ import './styles.css';
 
 const root = document.getElementById('root');
 if (!root) throw new Error('Missing root element.');
-createRoot(root).render(<StrictMode><App /></StrictMode>);
+const application = createRoot(root);
+if (import.meta.env.DEV && location.pathname === '/art-gallery') {
+  void import('./ArtGallery.tsx').then(({ ArtGallery }) => application.render(<StrictMode><ArtGallery /></StrictMode>));
+} else application.render(<StrictMode><App /></StrictMode>);

@@ -1,6 +1,6 @@
 # Monstrum Mortis — Final Plan for Approval
 
-Status: approved by the user on 5 October 2026. Step 1 is deployed; step 2 room-service implementation authorized on 5 October 2026. Remote play is primary; public matchmaking, private room codes, and optional shared display are included.
+Status: approved by the user on 5 October 2026. On 6 October 2026 the user confirmed steps 1–3 complete, deployed, and verified with multiple devices, and authorized step 4 only. The detailed [step 4 plan](STEP-4-PLAN.md) was explicitly approved on the same date; implementation and local verification are recorded in the implementation status. Remote play is primary; public matchmaking, private room codes, and optional shared display are included.
 
 ## 1. Product and first-release scope
 
@@ -290,4 +290,4 @@ References:
 
 Approval authorizes building this revised first release with the specified defaults, including remote-first public Quick Play matchmaking, private remote/same-room code and link play, optional TV/browser display, preset team signals, the 30-type catalogue, six rivals, free-hosting architecture, real multiplayer, tarot exports, and device-local cabinet. Ordinary implementation and numeric balancing choices may proceed within that scope. Material changes to mode, scoring, saving promises, paid services, or scope require discussion.
 
-Approval was granted on 5 October 2026. The user declared step 2 complete and authorized step 3 on 6 October 2026. Step 4 and later stages require a new request; actual verification and remaining integration boundaries are tracked in docs/IMPLEMENTATION-STATUS.md.
+Approval was granted on 5 October 2026. On 6 October 2026 the user confirmed steps 1–3 complete, deployed, and verified with multiple devices, and authorized step 4 only. The user explicitly approved the detailed step 4 plan on the same date, authorizing its asset production and presentation implementation. Steps 5 and later require a new request. Deployment requires a separate instruction; keep Cloudflare Free, SQLite-backed Durable Objects, and workers.dev-only routing. Actual verification and remaining integration boundaries are tracked in docs/IMPLEMENTATION-STATUS.md.

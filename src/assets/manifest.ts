@@ -1,3 +1,5 @@
+import production from './production.json' with { type: 'json' };
+
 export interface AssetDefinition {
   id: string;
   kind: 'texture' | 'creature-part' | 'audio' | 'font' | 'card-frame';
@@ -10,18 +12,25 @@ export interface AssetDefinition {
   attachment: { x: number; y: number } | null;
 }
 
-export const ASSET_MANIFEST_VERSION = '0.1.0';
+export const ASSET_MANIFEST_VERSION = '0.2.0';
 
-const planned = (id: string, kind: AssetDefinition['kind']): AssetDefinition => ({
-  id, kind, status: 'planned', url: null, origin: null, license: null, attachment: null,
-});
+const planned = (id: string, kind: AssetDefinition['kind']): AssetDefinition => {
+  const ready = production.find(a => a.id === id);
+  return ready ? {
+    id, kind, status: 'ready', url: ready.url, origin: 'generated',
+    license: 'Generated project output; applicable OpenAI terms and production details in assets/provenance.json',
+    attachment: 'attachment' in ready ? ready.attachment ?? null : null,
+  } : { id, kind, status: 'planned', url: null, origin: null, license: null, attachment: null };
+};
 
-/** Production briefs, not finished art. Runtime asset loader comes in step 4. */
+/** Readiness requires a real selected file and corresponding provenance record. */
 export const ASSET_MANIFEST: readonly AssetDefinition[] = [
   planned('lab.chamber', 'texture'),
   planned('lab.iron', 'texture'),
   planned('lab.glass', 'texture'),
   planned('creature.blob', 'creature-part'),
+  planned('creature.eyes', 'creature-part'),
+  planned('creature.mouth', 'creature-part'),
   planned('card.occult-frame', 'card-frame'),
   planned('font.display', 'font'),
   planned('font.interface', 'font'),

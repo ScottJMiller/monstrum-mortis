@@ -1,6 +1,15 @@
 # Implementation status
 
-The remote-first plan was approved on 5 October 2026. The user declared step 2 complete and authorized **step 3 only** on 6 October 2026. This tree implements step 3; step 4 and later remain unauthorized. The last deployment evidence supplied in this conversation is the step 1 foundation, recorded below. This session has not published a deployment.
+The remote-first plan was approved on 5 October 2026. On 6 October 2026 the user confirmed **steps 1–3 complete, deployed, and verified with multiple devices**, and authorized **step 4 only**. The user explicitly approved [STEP-4-PLAN.md](STEP-4-PLAN.md) on the same date; step 4 implementation and local checks are recorded below. Steps 5 and later are not authorized, and no deployment is authorized for this work.
+
+## Historical planning baseline and deployment confirmation (6 October 2026)
+
+- The user's confirmation establishes the deployed room service, matchmaking, and multi-device verification at the existing workers.dev origin. This is user-reported evidence; this planning session has not independently exercised the deployed service. The user did not supply device/browser details, measured latency, or account quota results.
+- This confirmation supersedes earlier outstanding publication/multi-device checks for steps 1–3 below. Those entries remain as historical records of what each earlier session actually tested. It does not establish future DNA mechanics, combat, finished artwork, card export, or broad load/performance acceptance.
+- Reviewed a clean working tree, AGENTS.md, the approved plan, implementation status, architecture, current client/shared contracts, and the asset inventory before editing. Existing room, matchmaking, entry-key, session-recovery, and fresh-admission fixes are preserved.
+- Updated the milestone instructions, approved plan, architecture, README and handoff, and wrote a detailed step 4 proposal. No client, Worker, rules, protocol, asset files, dependencies, lockfile, or hosting configuration changes were made. All production art remains planned.
+- Planning-session baseline: with Node 24.21.0, `npm run check` passed the configuration guard, both TypeScript projects and all five automated test files; `npm run build` passed. `git diff --check` passed for tracked documentation; the new plan was also checked for whitespace. These checks validate the existing source baseline, not new visual work or deployed multiplayer. No Worker dry run or independent-client runtime suite was rerun because this update changes documentation only.
+- Step 4 still requires plan approval, real asset production/provenance, presentation implementation, responsive/accessibility/performance checks and local multiplayer regression verification. Cross-region latency, deliberate network loss, broad load and free-tier consumption remain unmeasured. No deployment occurred.
 
 ## Successful foundation deployment
 
@@ -29,7 +38,7 @@ This records a user-verified deployment wiring result, not storage operations, W
 
 The step 2 timeline deliberately stops at `battle`, awaiting the step 6 combat producer. Empty trays and zero dose budgets reflect that DNA dealing/mechanics are step 5. No outcomes, cards, automatic results, score or completed three-round gameplay are manufactured. Public activation/progression/replacements/replay belong to step 3.
 
-## Current-session verification (5 October 2026)
+## Historical step 2 local verification (5 October 2026)
 
 Completed:
 
@@ -66,7 +75,7 @@ Outstanding at the step 2 handoff (current work is recorded below):
 
 ## Not implemented
 
-Step 4 art/scene; step 5 DNA mechanics; step 6 battle/outcomes/awards/complete three-round play; step 7 exports/cabinet; step 8 polish and broad failure/load/device testing; step 9 complete-game deployment.
+Step 4 presentation is recorded below. Step 5 DNA mechanics; step 6 battle/outcomes/awards/complete three-round play; step 7 exports/cabinet; step 8 polish and broad failure/load/device testing; step 9 complete-game deployment remain deferred and require a new request.
 
 ## Step 3 implementation (6 October 2026)
 
@@ -95,7 +104,7 @@ Verification:
 - `git diff --check` passed. The committed npm lockfile and workers.dev-only SQLite deployment configuration are unchanged.
 - Browser handlers are tested with controlled hooks/storage/transports, including lost admission responses and reload recovery. This is not a human browser/device playtest.
 
-Remaining integration and operational checks:
+Integration and operational checks recorded at the step 3 handoff (historical):
 
 - Step 5 DNA dealing, budgets, injections, switch activity and participation-counter updates; step 6 real combat producer, outcomes/awards and complete three-round gameplay; step 7 cards/cabinet. Results/recovery/replay orchestration exists, but the production service still stops at battle until those producers exist.
 - No new deployed-origin storage/WebSocket verification or human two-device playtest was performed. Publish only when requested; health is still only wiring evidence.
@@ -121,3 +130,36 @@ Remaining integration and operational checks:
 - `npm run test:fresh-admission` runs that runtime check with the required build/dry run. No dependencies, protocol, rules, bindings, or hosting configuration changed. These changes have not been pushed or deployed; repeat the three-device Quick Play test after publication.
 
 - Local patch-application verification: `fresh-admission-fix.patch` applied cleanly to a clean working tree. `npm run test:fresh-admission` passed with configuration checks, both TypeScript projects, all 36 automated tests, client build, Worker deploy dry run, and the three-client runtime test of staggered fresh connections and the real briefing deadline. Sandbox restrictions on Wrangler logs and local sockets required approved execution outside the sandbox. `git diff --check` passed. No deployment occurred; the published three-device Quick Play test remains outstanding.
+
+## Step 4 implementation and local verification (6 October 2026)
+
+The user explicitly approved STEP-4-PLAN.md after reviewing the detailed proposal. Step 4 presentation and asset production are implemented locally. No deployment, step 5 DNA mechanics or step 6 combat work occurred.
+
+Implemented:
+
+- Finished generated containment-chamber illustration and separate transparent starter body, eyes and mouth; breathing/wobble/blinks, subtle fluid motion and foreground glass treatment. The blob is labelled as a starter preview awaiting specimen initialization while the service sends no creature.
+- All 30 mutation appearance modules, calibrated render metadata for the nine body slots, mirrored forelimbs, stable layer ordering, bounded drawing geometry, unchanged source masters and optimized same-origin WebP files. Each mutation has one produced visual module; further authored variants remain future art work. See ASSET-PROVENANCE.md and assets/provenance.json for exact prompts, applicable terms, source hashes and dimensions.
+- Client-only PixiJS rendering, private per-scene texture ownership/disposal, loading timeout/retry and a static composition using the same real images if graphics initialization fails. The development-only art gallery is excluded from production; it sends no room actions or DNA intentions.
+- Responsive controller layouts, explicit private/public entry links, phone safe-area spacing, a TV layout that fits the chamber vertically, readable roster/status/deadlines and viewing-role controls. Display clients do not receive player readiness/host actions or invitation-management controls. Offline room timers are labelled awaiting synchronization.
+- Semantic controls, keyboard skip/focus behavior, meaningful live status announcements without countdown tick announcements, creature descriptions, 44-pixel targets, system reduced-motion support, a persisted override and decorative-animation pause. Scene rendering and fluid movement pause offscreen/hidden; preferences and resize do not recreate the live room socket.
+- Clear queue connection/readiness/admission feedback, artwork failure distinct from service connection failure, and preservation of successful-entry key retirement, failed-request retry retention, stale-ticket/lost-credential recovery and late fresh admission.
+- Exact-version PixiJS 8.22.0 runtime dependency plus playwright-core 1.63.0 and axe-core 4.14.0 development dependencies; committed lockfile updated without changing existing dependency versions. No server/shared rules/protocol, Wrangler bindings, Durable Object identities, Cloudflare routing, DNS or domain changes.
+
+Actual checks:
+
+- `npm run test:step4` passed its configuration guard, both TypeScript projects, **41 automated tests**, client build and Worker deploy dry run; then all **13 room runtime scenarios**, all **7 matchmaking runtime scenarios**, authenticated session-recovery runtime checks, the focused staggered fresh-admission runtime check and all **9 browser scenarios**. Runtime suites use independent network clients and isolated persisted SQLite storage; no Worker is published.
+- After the final TV layout adjustment, `npm run test:presentation` again passed all 41 automated tests, build, Worker dry run and nine browser scenarios. No backend changes followed the complete runtime run.
+- Browser checks use installed headless Chrome with independent contexts: private desktop/phone entry, display permissions/seat count, leave → rejoin/create, resize/motion without socket replacement, reload, lost credentials with guest identity preserved, 320/640/768/1280-pixel widths and 200% zoom, failed artwork/retry, forced graphics failure and four public guests confirming readiness/entering one laboratory with all fresh admissions eligible. Automated axe checks found no violations for the selected WCAG A/AA tags on desktop entry, phone room, display and public room screens. Keyboard skip navigation and room-change focus were exercised. This is not a complete accessibility certification or physical-device playtest.
+- `npm run test:art` passed: all 30 individual modules and three multi-part compositions rendered in the local gallery without browser errors. The module contact sheet, assembled creature examples and desktop/phone/TV screenshots were visually inspected. Diagnostic screenshots remain in ignored dist/presentation-checks.
+- The first browser fixture used an exact roster-text locator that omitted nested status text; it was corrected. A graphics-failure fixture initially disabled only WebGL and PixiJS legitimately used its canvas renderer; disabling all canvas contexts verified the static-layer fallback. The TV pass prompted a viewport-fitting crop/layout adjustment, followed by passing browser checks. These fixture corrections do not imply deployed verification.
+- Sandbox log/socket restrictions required approved execution outside the sandbox for npm downloads, Wrangler, local workerd/Vite and headless Chrome. No credentials were requested or committed, and no Cloudflare login or deployment ran.
+- Core artwork: **330,460 bytes desktop**, **186,696 bytes phone**. The 34 main runtime art files total **2,226,130 bytes**, with an additional phone chamber derivative. All final production JavaScript chunks together measure **231,771 bytes gzipped**; the initial interface chunk is about **84 KB gzipped**. Both proposed critical-art/JavaScript budgets are met by file measurements. Source masters total approximately **68 MB** and are outside deployed public assets.
+- `git diff --check` passed. Documentation/local-link and asset integrity checks accompany the final handoff. Server, shared contracts, rules and hosting configuration have no diff.
+
+Remaining limits:
+
+- Fresh physical-phone/TV visual checks, mobile Safari/Firefox behavior, manual screen-reader testing and measured phone/desktop frame rate, texture-memory and energy usage remain outstanding. Headless Chrome viewports and automated axe checks do not establish them. No new deployed-origin visual or multiplayer verification occurred; the user's steps 1–3 multi-device confirmation remains the deployment evidence.
+- No service latency/load/quota benchmark was added. The existing free-plan resource and cross-region/network-loss acceptance work remains later verification.
+- npm audit reported three high-severity entries in the **existing Wrangler → Miniflare → Sharp development-tool chain**, rooted in the Sharp/librsvg advisory. Those exact dependency versions were already in HEAD; no findings were reported for the new PixiJS/browser-test packages. A forced Wrangler downgrade was not applied. This is a recorded tooling issue, not a claim that the Worker gameplay API was exploited.
+- The production service still reports gameplay unavailable, projects empty trays/zero doses and stops at the combat boundary. Mutation images are ready, but injections, mutation rules, combat/rivals, audio, cards/cabinet and complete three-round gameplay remain later milestones. Additional mutation art variants and specimen clues, standalone lab textures, rival art, audio, bundled fonts and the card frame remain planned in the manifest.
+- Deploy only on a new user instruction. Implement step 5 or later only on a new authorization; keep workers.dev and the existing self-hosted apex/www routing.

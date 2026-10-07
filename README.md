@@ -2,7 +2,7 @@
 
 A cooperative browser party game for 2–8 players. Remote-first Quick Play matchmaking, private invitation rooms, and an optional shared TV display. The approved design is in [docs/APPROVED-PLAN.md](docs/APPROVED-PLAN.md).
 
-Current milestone: **step 3, public matchmaking**. Private invitations, SQLite persistence, authorized WebSockets, reconnect and authoritative deadlines are implemented. Regional Quick Play, guest leases, readiness, replacement admission and public progression are implemented. The service console stops at the battle boundary until the future combat producer supplies results; DNA and battles remain later milestones. The user deployed step 1 at https://monstrum-mortis.scott-jeffrey-miller.workers.dev; this working tree has not been published.
+Current milestone: **step 4, laboratory presentation**, authorized on 6 October 2026; the user approved the [detailed plan](docs/STEP-4-PLAN.md) on the same date. The user confirmed steps 1–3 complete, deployed at https://monstrum-mortis.scott-jeffrey-miller.workers.dev, and verified with multiple devices. Private invitations, persistence, authorized WebSockets, reconnect, deadlines, regional Quick Play, readiness, replacements and public progression are implemented. The service stops at the battle boundary until a future combat producer supplies results; DNA and battles remain later milestones. No deployment or step 5+ work is authorized for the current milestone.
 
 ## Work locally
 
@@ -81,3 +81,19 @@ Open this directory in VS Code with the official Codex extension. Begin with [do
 | `npm run deploy` | Publish the reviewed milestone to Cloudflare |
 
 Never commit `.env`, `.dev.vars`, tokens, or login files. Only template files belong in Git. No automatic deployments are configured at this milestone.
+
+## Step 4 presentation and art review
+
+The approved laboratory presentation is implemented locally: real chamber/starter artwork, all 30 mutation appearance modules, responsive controller/TV views, motion settings and artwork-loading recovery. DNA and combat remain unavailable. Production keeps the existing room/matchmaking/session service and does not expose the development art controls.
+
+With Node 24:
+
+```sh
+npm run test:step4
+npm run test:art
+npm run dev
+```
+
+`test:step4` performs checks/build/Worker dry run, the four service runtime suites and local browser regressions. `test:art` opens the development gallery with headless Chrome. Both browser harnesses use `/usr/bin/google-chrome` by default; set `MM_CHROME_PATH` locally for another installed Chrome/Chromium executable. No browser is downloaded and no deployment is performed.
+
+Visit `/art-gallery` on the Vite development origin to review individual modules and combinations. Start `npm run dev:worker` as well for actual local room/queue behavior. See [asset provenance](docs/ASSET-PROVENANCE.md) for source files/prompts/optimization and [implementation status](docs/IMPLEMENTATION-STATUS.md) for actual checks and physical-device/accessibility/performance limitations. New visuals have not been deployed.

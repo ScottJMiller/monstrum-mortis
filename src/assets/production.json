@@ -1,0 +1,718 @@
+[
+  {
+    "id": "lab.chamber",
+    "url": "/assets/laboratory/lab.chamber.webp",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "Corroded containment machinery surrounding an empty glass chamber."
+  },
+  {
+    "id": "creature.blob",
+    "url": "/assets/laboratory/creature.blob.webp",
+    "dimensions": [
+      639,
+      640
+    ],
+    "slot": "body",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.55
+    },
+    "width": 0.78,
+    "order": 0,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "A waxy olive-green blob."
+  },
+  {
+    "id": "creature.eyes",
+    "url": "/assets/laboratory/creature.eyes.webp",
+    "dimensions": [
+      640,
+      328
+    ],
+    "slot": "eyes",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.44
+    },
+    "width": 0.28,
+    "order": 4,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "Two weary bulging eyes."
+  },
+  {
+    "id": "creature.mouth",
+    "url": "/assets/laboratory/creature.mouth.webp",
+    "dimensions": [
+      640,
+      325
+    ],
+    "slot": "mouth",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.57
+    },
+    "width": 0.24,
+    "order": 4,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "A crooked uneasy smile."
+  },
+  {
+    "id": "mutation.titan-fibers",
+    "url": "/assets/laboratory/mutation.titan-fibers.webp",
+    "dimensions": [
+      600,
+      640
+    ],
+    "slot": "skin",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.55
+    },
+    "width": 0.66,
+    "order": 2,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "Bulging interlocking muscle bands around a rounded torso silhouette; transparent gaps between bands, no underlying solid body, no eyes or mouth."
+  },
+  {
+    "id": "mutation.spring-tendons",
+    "url": "/assets/laboratory/mutation.spring-tendons.webp",
+    "dimensions": [
+      417,
+      640
+    ],
+    "slot": "lower-limbs",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.78
+    },
+    "width": 0.48,
+    "order": 0,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "A pair of taut elongated crooked hind legs, elastic sinews and knobbly joints, ivory-green flesh, small webbed feet. Proximal attachment at top center."
+  },
+  {
+    "id": "mutation.razor-talons",
+    "url": "/assets/laboratory/mutation.razor-talons.webp",
+    "dimensions": [
+      392,
+      640
+    ],
+    "slot": "forelimb-left",
+    "attachment": {
+      "x": 0.25,
+      "y": 0.54
+    },
+    "width": 0.25,
+    "order": 1,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [
+      "forelimb-left",
+      "forelimb-right"
+    ],
+    "description": "One dangling olive-green forearm with three dramatically hooked ivory razor claws. Upper arm attachment at top; claws curve downward."
+  },
+  {
+    "id": "mutation.guillotine-teeth",
+    "url": "/assets/laboratory/mutation.guillotine-teeth.webp",
+    "dimensions": [
+      640,
+      427
+    ],
+    "slot": "mouth",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.57
+    },
+    "width": 0.29,
+    "order": 3,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "One grotesquely oversized broad mouth with two opposing rows of guillotine-like cutting teeth and olive lip rims, no eyes or head."
+  },
+  {
+    "id": "mutation.ossified-plates",
+    "url": "/assets/laboratory/mutation.ossified-plates.webp",
+    "dimensions": [
+      640,
+      585
+    ],
+    "slot": "skin",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.55
+    },
+    "width": 0.68,
+    "order": 2,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "An irregular torso-sized arrangement of uneven dirty ivory bony armor plates with chipped edges and fleshy seams. Transparent open gaps; no solid underlying body, face or limbs."
+  },
+  {
+    "id": "mutation.auxiliary-heart",
+    "url": "/assets/laboratory/mutation.auxiliary-heart.webp",
+    "dimensions": [
+      640,
+      595
+    ],
+    "slot": "appendages",
+    "attachment": {
+      "x": 0.39,
+      "y": 0.55
+    },
+    "width": 0.19,
+    "order": 4,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "One swollen translucent heart-shaped chest sac with fleshy olive root, violet-red vessels and a visibly enlarged pumping lobe, front view."
+  },
+  {
+    "id": "mutation.reweaving-tissue",
+    "url": "/assets/laboratory/mutation.reweaving-tissue.webp",
+    "dimensions": [
+      640,
+      431
+    ],
+    "slot": "skin",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.56
+    },
+    "width": 0.36,
+    "order": 2,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "One fleshy patch where a jagged seam is visibly knitting closed with branching tiny translucent connecting fibers; healed pale green skin at edges, no blood spray."
+  },
+  {
+    "id": "mutation.venom-glands",
+    "url": "/assets/laboratory/mutation.venom-glands.webp",
+    "dimensions": [
+      640,
+      594
+    ],
+    "slot": "appendages",
+    "attachment": {
+      "x": 0.54,
+      "y": 0.47
+    },
+    "width": 0.27,
+    "order": 4,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "A pair of swollen dripping throat glands on a small fleshy attachment root, translucent green sacs, a few attached viscous droplets, menacing and slightly absurd."
+  },
+  {
+    "id": "mutation.hook-tentacles",
+    "url": "/assets/laboratory/mutation.hook-tentacles.webp",
+    "dimensions": [
+      640,
+      549
+    ],
+    "slot": "appendages",
+    "attachment": {
+      "x": 0.72,
+      "y": 0.53
+    },
+    "width": 0.33,
+    "order": 1,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "A grasping cluster of two curling side tentacles, narrow fleshy roots at upper-left, hooked ivory tips, olive-green waxy skin and violet suckers."
+  },
+  {
+    "id": "mutation.storm-organ",
+    "url": "/assets/laboratory/mutation.storm-organ.webp",
+    "dimensions": [
+      640,
+      595
+    ],
+    "slot": "head-growth",
+    "attachment": {
+      "x": 0.62,
+      "y": 0.3
+    },
+    "width": 0.3,
+    "order": 1,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "One branching dorsal organ resembling crooked biological copper coils, green flesh root below, subtle ivory electrical thread motifs contained close to organ, no intense glare."
+  },
+  {
+    "id": "mutation.acid-bladder",
+    "url": "/assets/laboratory/mutation.acid-bladder.webp",
+    "dimensions": [
+      640,
+      629
+    ],
+    "slot": "appendages",
+    "attachment": {
+      "x": 0.55,
+      "y": 0.64
+    },
+    "width": 0.28,
+    "order": 4,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "One translucent olive-green abdominal sac with bruised violet rim, contained cloudy green liquid and a fleshy hose-like duct. Anatomical isolated pouch."
+  },
+  {
+    "id": "mutation.barbed-hide",
+    "url": "/assets/laboratory/mutation.barbed-hide.webp",
+    "dimensions": [
+      640,
+      428
+    ],
+    "slot": "skin",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.55
+    },
+    "width": 0.67,
+    "order": 3,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "Torso-sized scattered small dark ivory skin spines embedded in separate olive-green skin islands, oval arrangement with transparent gaps, no body or face."
+  },
+  {
+    "id": "mutation.all-seeing-cluster",
+    "url": "/assets/laboratory/mutation.all-seeing-cluster.webp",
+    "dimensions": [
+      640,
+      319
+    ],
+    "slot": "eyes",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.44
+    },
+    "width": 0.39,
+    "order": 4,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "A horizontal cluster of seven differently sized bulging alert ivory eyes with tiny violet pupils, green eyelid rims, each staring a slightly different direction, no head."
+  },
+  {
+    "id": "mutation.bellows-lung",
+    "url": "/assets/laboratory/mutation.bellows-lung.webp",
+    "dimensions": [
+      640,
+      585
+    ],
+    "slot": "skin",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.59
+    },
+    "width": 0.42,
+    "order": 2,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "One exposed expanding rib-cage module framing two waxy translucent lung lobes, crooked ivory ribs, green flesh joining root, front perspective, no full torso."
+  },
+  {
+    "id": "mutation.counterweight-tail",
+    "url": "/assets/laboratory/mutation.counterweight-tail.webp",
+    "dimensions": [
+      640,
+      598
+    ],
+    "slot": "appendages",
+    "attachment": {
+      "x": 0.69,
+      "y": 0.66
+    },
+    "width": 0.43,
+    "order": -1,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "One heavy articulated tail curled into a readable C shape, segmented olive-green flesh, plated ivory joints, root at upper-left and a heavy rounded tip."
+  },
+  {
+    "id": "mutation.funeral-mane",
+    "url": "/assets/laboratory/mutation.funeral-mane.webp",
+    "dimensions": [
+      640,
+      446
+    ],
+    "slot": "head-growth",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.36
+    },
+    "width": 0.66,
+    "order": 1,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "One mane of long wet charcoal-violet hair, a shallow arch over the top and draping strands down both sides, transparent empty central face area, root at top center."
+  },
+  {
+    "id": "mutation.cathedral-horns",
+    "url": "/assets/laboratory/mutation.cathedral-horns.webp",
+    "dimensions": [
+      640,
+      446
+    ],
+    "slot": "head-growth",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.29
+    },
+    "width": 0.57,
+    "order": 1,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "A matched pair of ornate curling cathedral-like horns, weathered ivory, subtle engraved ribbing, broad transparent gap between them and small green fleshy bases at bottom."
+  },
+  {
+    "id": "mutation.mourning-veil",
+    "url": "/assets/laboratory/mutation.mourning-veil.webp",
+    "dimensions": [
+      640,
+      594
+    ],
+    "slot": "skin",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.54
+    },
+    "width": 0.68,
+    "order": 3,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "A ragged translucent violet mourning veil of anatomical frills, open central area and lacy torn perimeter, olive fleshy attachments at top, not fabric on a person."
+  },
+  {
+    "id": "mutation.ink-bloom",
+    "url": "/assets/laboratory/mutation.ink-bloom.webp",
+    "dimensions": [
+      640,
+      534
+    ],
+    "slot": "skin",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.54
+    },
+    "width": 0.64,
+    "order": 3,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "An oval torso-sized branching network of black marbled veins over tiny translucent green skin strips, broad transparent gaps, no underlying body, face or limbs."
+  },
+  {
+    "id": "mutation.lantern-eyes",
+    "url": "/assets/laboratory/mutation.lantern-eyes.webp",
+    "dimensions": [
+      640,
+      427
+    ],
+    "slot": "eyes",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.44
+    },
+    "width": 0.3,
+    "order": 4,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "A pair of unnaturally glowing pale green eyeballs, violet slit pupils, swollen olive eyelid rims; restrained contained glow, no head or wide background halo."
+  },
+  {
+    "id": "mutation.false-halo",
+    "url": "/assets/laboratory/mutation.false-halo.webp",
+    "dimensions": [
+      640,
+      427
+    ],
+    "slot": "head-growth",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.19
+    },
+    "width": 0.36,
+    "order": 4,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "One horizontal floating ring of pale olive fleshy tissue, slightly crooked oval with a genuinely empty transparent central hole, violet veins, sinister comic biological halo."
+  },
+  {
+    "id": "mutation.too-many-smiles",
+    "url": "/assets/laboratory/mutation.too-many-smiles.webp",
+    "dimensions": [
+      640,
+      585
+    ],
+    "slot": "skin",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.56
+    },
+    "width": 0.49,
+    "order": 4,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "Five small mismatched grinning mouths with green flesh rims, scattered in an oval torso-sized pattern, tiny dirty ivory teeth. Transparent gaps between mouths, no underlying face or body."
+  },
+  {
+    "id": "mutation.kitten-paws",
+    "url": "/assets/laboratory/mutation.kitten-paws.webp",
+    "dimensions": [
+      428,
+      640
+    ],
+    "slot": "forelimb-left",
+    "attachment": {
+      "x": 0.25,
+      "y": 0.54
+    },
+    "width": 0.24,
+    "order": 4,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [
+      "forelimb-left",
+      "forelimb-right"
+    ],
+    "description": "One absurdly soft furry kitten paw at the end of a short olive-green forearm, cream fur, tiny pink pads, rounded fingers and no dangerous claws. Attachment at top."
+  },
+  {
+    "id": "mutation.candle-flesh",
+    "url": "/assets/laboratory/mutation.candle-flesh.webp",
+    "dimensions": [
+      592,
+      640
+    ],
+    "slot": "body",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.55
+    },
+    "width": 0.69,
+    "order": 0,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "One full rounded gelatinous torso without eyes, mouth or limbs, sagging dirty-ivory waxy skin in thick drips and soft folded base, bruised violet veins. No candle flame."
+  },
+  {
+    "id": "mutation.brittle-skeleton",
+    "url": "/assets/laboratory/mutation.brittle-skeleton.webp",
+    "dimensions": [
+      438,
+      640
+    ],
+    "slot": "body",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.55
+    },
+    "width": 0.48,
+    "order": 0,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "One narrow cracked anatomical torso with crooked ivory ribs and fragile spine wrapped in thin olive flesh, comically fragile silhouette, no eyes, mouth, head or limbs."
+  },
+  {
+    "id": "mutation.wandering-limb",
+    "url": "/assets/laboratory/mutation.wandering-limb.webp",
+    "dimensions": [
+      637,
+      640
+    ],
+    "slot": "forelimb-left",
+    "attachment": {
+      "x": 0.25,
+      "y": 0.58
+    },
+    "width": 0.27,
+    "order": 2,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [
+      "forelimb-left",
+      "forelimb-right"
+    ],
+    "description": "One loosened forelimb with an absurdly dangling green elbow and splayed crawling hand, ragged dry proximal joint at top, no body, no gore spray."
+  },
+  {
+    "id": "mutation.tremor-ganglia",
+    "url": "/assets/laboratory/mutation.tremor-ganglia.webp",
+    "dimensions": [
+      640,
+      586
+    ],
+    "slot": "appendages",
+    "attachment": {
+      "x": 0.59,
+      "y": 0.58
+    },
+    "width": 0.24,
+    "order": 4,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "One twitchy cluster of knotted violet nerve ganglia with thin crooked olive tendrils, expressive erratic zigzag anatomy, a root at upper center; no drawn motion lines."
+  },
+  {
+    "id": "mutation.porcelain-teeth",
+    "url": "/assets/laboratory/mutation.porcelain-teeth.webp",
+    "dimensions": [
+      640,
+      427
+    ],
+    "slot": "mouth",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.57
+    },
+    "width": 0.3,
+    "order": 4,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "One broad crooked mouth with chipped porcelain-like ivory teeth and tiny broken shards attached at lips, olive flesh rims, comic embarrassed grimace, no head."
+  },
+  {
+    "id": "mutation.excessive-viscera",
+    "url": "/assets/laboratory/mutation.excessive-viscera.webp",
+    "dimensions": [
+      426,
+      640
+    ],
+    "slot": "appendages",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.7
+    },
+    "width": 0.4,
+    "order": 4,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "One pendulous bundle of swollen purple-green organs and looping tubes, dry waxy translucent surfaces, small olive attachment root at top, excessive bulk, no blood spray."
+  },
+  {
+    "id": "mutation.existential-organ",
+    "url": "/assets/laboratory/mutation.existential-organ.webp",
+    "dimensions": [
+      632,
+      640
+    ],
+    "slot": "appendages",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.56
+    },
+    "width": 0.26,
+    "order": 4,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "One bulbous olive-green chest growth containing a single oversized tired ivory eye looking upward in existential dread, violet iris, fleshy attachment base, not an entire creature."
+  }
+]

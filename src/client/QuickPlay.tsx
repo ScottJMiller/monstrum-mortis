@@ -28,6 +28,7 @@ export function QuickPlay({ onEntry, onBusy, autoStart = false }: { onEntry: (en
   const [mode, setMode] = useState<'fresh-session' | 'fill-existing-laboratory'>(ticket?.mode ?? 'fresh-session');
   const [status, setStatus] = useState<PublicQueueStatus | null>(null);
   const [notice, setNotice] = useState('');
+  const [queueConnection, setQueueConnection] = useState('Checking queue connection');
   const [claim, setClaim] = useState<GuestSessionClaim | null>(null);
   const [measured, setMeasured] = useState(false);
   const [pending, setPending] = useState(false);
@@ -99,6 +100,7 @@ export function QuickPlay({ onEntry, onBusy, autoStart = false }: { onEntry: (en
   useEffect(() => {
     if (!ticket || !guest) return;
     let stopped = false;
+    setQueueConnection('Connecting to queue');
     const refresh = async () => {
       try { const s = await request<PublicQueueStatus>(`/api/queue/${ticket.region}/status?ticketId=${ticket.id}`, guest); if (!stopped) updateStatus(s); }
       catch (error) {
@@ -113,8 +115,10 @@ export function QuickPlay({ onEntry, onBusy, autoStart = false }: { onEntry: (en
     const url = new URL(`/api/queue/${ticket.region}/socket?ticketId=${ticket.id}`, location.href); url.protocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
     const socket = new WebSocket(url, ['mm-queue-v3', `guest.${guest.guestId}`, `token.${guest.accessToken}`]);
     const ping = setInterval(() => { if (socket.readyState === WebSocket.OPEN) socket.send('ping'); }, 20_000);
+    socket.onopen = () => { if (!stopped) setQueueConnection('Queue connected'); };
+    socket.onclose = () => { if (!stopped) setQueueConnection('Queue socket offline · checking status periodically'); };
     socket.onmessage = event => { if (stopped || event.data === 'pong') return; try { updateStatus(JSON.parse(event.data).status as PublicQueueStatus); } catch { setNotice('Queue synchronization failed.'); } };
-    socket.onerror = () => { if (!stopped) setNotice('Queue socket unavailable; checking the ticket periodically. Close other tabs using this ticket before reloading.'); };
+    socket.onerror = () => { if (!stopped) { setQueueConnection('Queue socket unavailable · checking status periodically'); setNotice('Queue socket unavailable; checking the ticket periodically. Close other tabs using this ticket before reloading.'); } };
     return () => { stopped = true; clearInterval(poll); clearInterval(ping); socket.close(); };
   }, [ticket, guest]);
   async function admit(s: PublicQueueStatus) {
@@ -143,10 +147,10 @@ export function QuickPlay({ onEntry, onBusy, autoStart = false }: { onEntry: (en
       samples.sort((a, b) => a.ms - b.ms); setRegion(samples[0]!.region); setNotice(`Response times: ${samples.map(s => `${labels[s.region]} ${s.ms} ms`).join('; ')}. You can override this choice.`);
     } catch (error) { setNotice(String(error)); } finally { setPending(false); setMeasured(true); }
   }
-  return <section aria-label="Public Quick Play">
-    <h2>Quick Play</h2>
-    {tutorial < 4 && <div aria-label="Laboratory rehearsal">
-      <p>A short rehearsal before your first queue. Specimen effects stay mysterious.</p>
+  return <section id="public-entry" className="quick-play-panel" aria-label="Public Quick Play" aria-busy={pending}>
+    <p className="eyebrow">Remote cooperative play</p><h2 tabIndex={-1}>Quick Play</h2>
+    {tutorial < 4 && <div className="rehearsal" aria-label="Laboratory rehearsal">
+      <p>A short interface rehearsal before your first queue. These practice buttons do not affect the laboratory. Specimen effects stay mysterious.</p>
       {tutorial === 0 && <><p>Select a mysterious specimen from your tray.</p><button onClick={() => { setSelected(true); setTutorial(1); }}>Select specimen</button></>}
       {tutorial === 1 && <><p>{selected && 'Specimen selected.'} Inject up to six times. In a round, injections have a six-second cooldown.</p><button onClick={() => { setDose(n => n + 1); setTutorial(2); }}>Rehearse injection</button></>}
       {tutorial === 2 && <><p>{dose} of 6 rehearsal doses used. Injecting leaves your switch locked during its cooldown; after at least one injection, the switch ends your personal turn. The round also has a shared deadline.</p><button onClick={() => setTutorial(3)}>Unleash the Creature!</button></>}
@@ -162,7 +166,7 @@ export function QuickPlay({ onEntry, onBusy, autoStart = false }: { onEntry: (en
     <button disabled={!!ticket || pending} onClick={measure}>Choose fastest responding pool</button>
     <label>Queue mode<select value={mode} disabled={!!ticket || pending} onChange={e => setMode(e.target.value as typeof mode)}><option value="fresh-session">Fresh session</option><option value="fill-existing-laboratory">Fill Existing Laboratory (join between rounds)</option></select></label>
     {!ticket ? <button disabled={pending || tutorial < 4} onClick={enterQueue}>Enter Quick Play</button> : <>
-      <p>{status?.state ?? 'Checking ticket'} · {Math.max(0, Math.floor((now + serverOffset.current - (status?.enteredAtMs ?? now + serverOffset.current)) / 1000))}s elapsed · {status?.waitingPlayers ?? 0} waiting</p>
+      <p className="connection-badge" role="status">{queueConnection}</p><p className="queue-state" role="status">{status?.state === 'ready-check' ? (status.readyConfirmed ? 'Ready confirmed · awaiting the group' : 'Your readiness is required') : status?.state === 'matched' ? 'Group allocated · entering laboratory' : status?.state === 'inactive' ? 'Waiting paused · resume when ready' : status?.state ?? 'Checking ticket'}</p><p>{Math.max(0, Math.floor((now + serverOffset.current - (status?.enteredAtMs ?? now + serverOffset.current)) / 1000))}s elapsed{status?.waitingPlayers !== undefined && ` · ${status.waitingPlayers} waiting`}</p>
       {status?.readyDeadlineMs && <p>Ready check: {Math.max(0, Math.ceil((status.readyDeadlineMs - now - serverOffset.current) / 1000))}s remaining</p>}
       {status?.offer && <p>Join round {status.offer.reason === 'vacancy' ? Math.min(3, status.offer.round + 1) : status.offer.round} · team score {status.offer.teamScore} · about {Math.ceil(status.offer.remainingSessionMs / 60_000)} minutes remaining · {status.offer.reason === 'recovery' ? 'Recovering an interrupted round' : 'Between-round vacancy'}.</p>}
       {status?.state === 'ready-check' && <button disabled={pending || status.readyConfirmed} onClick={() => action('ready')}>{status.readyConfirmed ? 'Ready confirmed' : 'Ready'}</button>}
@@ -172,6 +176,7 @@ export function QuickPlay({ onEntry, onBusy, autoStart = false }: { onEntry: (en
       {!status && <button disabled={pending} onClick={async () => { try { updateStatus(await request<PublicQueueStatus>(`/api/queue/${ticket.region}/enter`, guest, { operationId: ticket.id, mode: ticket.mode })); } catch (error) { setNotice(String(error)); } }}>Retry queue entry</button>}
       <button disabled={pending} onClick={() => action('cancel')}>Cancel queue</button>
     </>}
+    {pending && <p className="pending-note">Waiting for server confirmation…</p>}
     {notice && <p role="status">{notice}</p>}
     {notice.includes('unauthorized') && <button onClick={() => { remember(null); updateStatus(null); setGuest(null); setClaim(null); try { localStorage.removeItem(GUEST_KEY); } catch { /* unavailable */ } issueKey.current = crypto.randomUUID(); queueKey.current = crypto.randomUUID(); entryKey.current = crypto.randomUUID(); setNotice('Expired guest credential cleared. Enter Quick Play when ready.'); }}>Reset expired guest credential</button>}
   </section>;

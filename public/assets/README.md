@@ -1,5 +1,7 @@
-# Original game assets
+# Game assets
 
-Step 1 does not generate artwork or audio. Asset IDs and production status are in `src/assets/manifest.ts`.
+Step 4 produced the laboratory chamber, transparent starter body/eyes/mouth and all 30 mutation appearance modules. Runtime WebP files live in `laboratory/`; the phone chamber has a smaller derivative. Source PNG masters are retained outside this public directory in `assets/source/`.
 
-Later stages place original transparent creature layers, textures, sounds, and licensed font files here. Record origin, license, normalized attachment points, and dimensions before marking an asset ready. Use same-origin URLs so the tarot export canvas can be read safely.
+See `docs/ASSET-PROVENANCE.md` and `assets/provenance.json` for exact generation prompts, source hashes, applicable terms, dimensions, anchors and reproducible optimization. Readiness is tracked in `src/assets/manifest.ts`; entries without real produced files remain planned.
+
+Mutation appearance files do not implement DNA mechanics. Rival art, audio, card frames, bundled fonts and specimen-clue artwork remain deferred. Same-origin serving preserves the future export canvas boundary; tarot export is not implemented yet.

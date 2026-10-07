@@ -21,9 +21,13 @@
     "cf:whoami": "wrangler whoami",
     "test:matchmaking": "npm run deploy:dry && node tests/matchmaking.runtime.mjs",
     "test:recovery": "npm run deploy:dry && node tests/session-recovery.runtime.mjs",
-    "test:fresh-admission": "npm run deploy:dry && node tests/fresh-admission.runtime.mjs"
+    "test:fresh-admission": "npm run deploy:dry && node tests/fresh-admission.runtime.mjs",
+    "test:presentation": "npm run deploy:dry && node tests/presentation.browser.mjs",
+    "test:step4": "npm run deploy:dry && node tests/rooms.runtime.mjs && node tests/matchmaking.runtime.mjs && node tests/session-recovery.runtime.mjs && node tests/fresh-admission.runtime.mjs && node tests/presentation.browser.mjs",
+    "test:art": "node tests/art.browser.mjs"
   },
   "dependencies": {
+    "pixi.js": "8.22.0",
     "react": "19.3.0",
     "react-dom": "19.3.0"
   },
@@ -32,6 +36,8 @@
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "@vitejs/plugin-react": "6.1.2",
+    "axe-core": "4.14.0",
+    "playwright-core": "1.63.0",
     "typescript": "7.0.2",
     "vite": "8.3.2",
     "wrangler": "4.147.0"

@@ -1,0 +1,1194 @@
+[
+  {
+    "id": "lab.chamber",
+    "url": "/assets/laboratory/lab.chamber.webp",
+    "source": "assets/source/lab.chamber.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "Create ONE finished production raster illustration for Monstrum Mortis, a sinister comic cooperative monster laboratory game. Asset: laboratory containment chamber background, portrait 2:3 composition, intended as a scalable scene backdrop. Decayed Frankenstein-era machinery: heavy corroded riveted iron cylindrical frame, oxidized brass pipes, cracked ivory ceramic insulators, stained hoses, damp masonry, small occult engravings. Hand-painted dark fantasy illustration, beautifully textured but readable, theatrical diseased green light and bruised violet shadows, dirty ivory highlights, tarnished copper. Straight-on view, consistent orthographic-like front perspective. The containment glass occupies the central 65 percent width and 70 percent height; its dark translucent green interior is EMPTY with clear negative space for a separately composited creature, no person, no monster, no eyes, no face. A heavy rounded top and base frame the chamber, machinery concentrated at sides. Center remains dark, uncluttered and legible; restrained glass reflections at edges only. Subtle fluid at base, no bright flashes. Strong elegant silhouette, atmospheric eldritch horror, aged machinery rather than science-fiction neon. No text, lettering, logos, watermark, gauges with numbers, user interface or buttons. Produce genuine finished illustration, not a diagram or placeholder. High resolution, detailed source suitable for desktop and mobile derivatives.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "ec7bb385c6af4c0e02bd34b9bbca07570aaf1c39d0f816c65fd395e74547a784",
+    "sourceDimensions": [
+      1024,
+      1536
+    ],
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "bytes": 235176,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "Corroded containment machinery surrounding an empty glass chamber."
+  },
+  {
+    "id": "creature.blob",
+    "url": "/assets/laboratory/creature.blob.webp",
+    "source": "assets/source/creature.blob.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "Production game asset for Monstrum Mortis. ONE isolated starter-creature BODY layer only, genuinely transparent alpha background, square canvas. A squat, asymmetrical, pear-shaped gelatinous eldritch blob with a slightly hunched shoulder, tiny loose folds at base, bruised pale olive-green flesh, subtle violet mottling, waxy translucent highlights and gentle veining. Hand-painted dark fantasy illustration matching decayed Frankenstein-era machinery; sinister but oddly vulnerable comic character. Straight-on front perspective, light from upper left, restrained warm ivory highlights, green rim light. Full body centered with generous transparent margins, occupies approximately 70 percent canvas width and 70 percent height. NO EYES, NO MOUTH, NO FACE, no limbs, no props, no ground shadow, no chamber, no text or watermark. Leave a smooth central area for separate eyes and mouth overlays. Two rounded upper bumps may suggest brows without eye sockets. Clean alpha edges and fully finished detailed representational artwork, not flat vector shapes, not an emoji. This is the canonical interchangeable torso for layered monster anatomy.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "898887367e8a7a92156151e6c75d7498923ab3137de430b9f4c1e78bc789fa41",
+    "sourceDimensions": [
+      1254,
+      1254
+    ],
+    "dimensions": [
+      639,
+      640
+    ],
+    "bytes": 43692,
+    "slot": "body",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.55
+    },
+    "width": 0.78,
+    "order": 0,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "A waxy olive-green blob."
+  },
+  {
+    "id": "creature.eyes",
+    "url": "/assets/laboratory/creature.eyes.webp",
+    "source": "assets/source/creature.eyes.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE finished production creature EYES overlay for Monstrum Mortis. Genuine transparent alpha background, no body, no face outline, no backdrop. Exactly two asymmetrical bulging pale ivory eyeballs with small weary violet pupils, surrounded by fleshy olive-green eyelid rims and thin folds. Sinister-comic expression: unexpectedly earnest, slightly worried eyes. Front view, hand-painted dark fantasy raster artwork, waxy flesh, upper-left warm highlights and gentle green rim lighting. Horizontal pair, close together, isolated in the center with transparent margins. No text, watermark, other organs, props or ground shadow. Clean alpha edges; these eyes will be attached to a separately illustrated gelatinous blob.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "7e70c1be5c6034b1b11387470c50fe10b228d833ed0712294fbbf5821f18260f",
+    "sourceDimensions": [
+      1774,
+      887
+    ],
+    "dimensions": [
+      640,
+      328
+    ],
+    "bytes": 26268,
+    "slot": "eyes",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.44
+    },
+    "width": 0.28,
+    "order": 4,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "Two weary bulging eyes."
+  },
+  {
+    "id": "creature.mouth",
+    "url": "/assets/laboratory/creature.mouth.webp",
+    "source": "assets/source/creature.mouth.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE finished production creature MOUTH overlay for Monstrum Mortis. Genuine transparent alpha background, no body, no eyes, no face outline, no backdrop. A small crooked uneasy closed smile, dark slit with two mismatched blunt dirty-ivory teeth peeking out, surrounded by a fleshy olive-green lip rim and subtle wrinkles. Sinister-comic hand-painted dark fantasy raster illustration, waxy flesh, upper-left warm highlights and gentle green rim lighting. Straight-on front view, horizontal mouth isolated center with transparent margins. No text, watermark, props or ground shadow. Clean alpha edges; this mouth will be attached to a separately illustrated gelatinous blob.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "793fd2acdbf85ffec101e4a27b5b56b85863ec3f45a585b8799bd3e545cd168c",
+    "sourceDimensions": [
+      1774,
+      887
+    ],
+    "dimensions": [
+      640,
+      325
+    ],
+    "bytes": 25324,
+    "slot": "mouth",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.57
+    },
+    "width": 0.24,
+    "order": 4,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "A crooked uneasy smile."
+  },
+  {
+    "id": "mutation.titan-fibers",
+    "url": "/assets/laboratory/mutation.titan-fibers.webp",
+    "source": "assets/source/mutation.titan-fibers.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. Bulging interlocking muscle bands around a rounded torso silhouette; transparent gaps between bands, no underlying solid body, no eyes or mouth.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "73514646f6e835265d5efe978e213826ff96fe7689034672176d3a7add1568d9",
+    "sourceDimensions": [
+      1214,
+      1295
+    ],
+    "dimensions": [
+      600,
+      640
+    ],
+    "bytes": 86074,
+    "slot": "skin",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.55
+    },
+    "width": 0.66,
+    "order": 2,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "Bulging interlocking muscle bands around a rounded torso silhouette; transparent gaps between bands, no underlying solid body, no eyes or mouth."
+  },
+  {
+    "id": "mutation.spring-tendons",
+    "url": "/assets/laboratory/mutation.spring-tendons.webp",
+    "source": "assets/source/mutation.spring-tendons.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. A pair of taut elongated crooked hind legs, elastic sinews and knobbly joints, ivory-green flesh, small webbed feet. Proximal attachment at top center.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "963712d141f6d2f38d8898ef1fc6a76273d3744a957a80d23840ca3ec34a3578",
+    "sourceDimensions": [
+      1024,
+      1536
+    ],
+    "dimensions": [
+      417,
+      640
+    ],
+    "bytes": 43620,
+    "slot": "lower-limbs",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.78
+    },
+    "width": 0.48,
+    "order": 0,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "A pair of taut elongated crooked hind legs, elastic sinews and knobbly joints, ivory-green flesh, small webbed feet. Proximal attachment at top center."
+  },
+  {
+    "id": "mutation.razor-talons",
+    "url": "/assets/laboratory/mutation.razor-talons.webp",
+    "source": "assets/source/mutation.razor-talons.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. One dangling olive-green forearm with three dramatically hooked ivory razor claws. Upper arm attachment at top; claws curve downward.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "8fc07b1363adc926aff67e58b41cb058098541b6e1e2d71012de95cde6748bb3",
+    "sourceDimensions": [
+      1024,
+      1536
+    ],
+    "dimensions": [
+      392,
+      640
+    ],
+    "bytes": 30074,
+    "slot": "forelimb-left",
+    "attachment": {
+      "x": 0.25,
+      "y": 0.54
+    },
+    "width": 0.25,
+    "order": 1,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [
+      "forelimb-left",
+      "forelimb-right"
+    ],
+    "description": "One dangling olive-green forearm with three dramatically hooked ivory razor claws. Upper arm attachment at top; claws curve downward."
+  },
+  {
+    "id": "mutation.guillotine-teeth",
+    "url": "/assets/laboratory/mutation.guillotine-teeth.webp",
+    "source": "assets/source/mutation.guillotine-teeth.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. One grotesquely oversized broad mouth with two opposing rows of guillotine-like cutting teeth and olive lip rims, no eyes or head.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "fbc923f90b5056083a437b50b550d9e9249869d3fe7eae8ab9b8f9b28eeeb7de",
+    "sourceDimensions": [
+      1536,
+      1024
+    ],
+    "dimensions": [
+      640,
+      427
+    ],
+    "bytes": 58414,
+    "slot": "mouth",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.57
+    },
+    "width": 0.29,
+    "order": 3,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "One grotesquely oversized broad mouth with two opposing rows of guillotine-like cutting teeth and olive lip rims, no eyes or head."
+  },
+  {
+    "id": "mutation.ossified-plates",
+    "url": "/assets/laboratory/mutation.ossified-plates.webp",
+    "source": "assets/source/mutation.ossified-plates.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. An irregular torso-sized arrangement of uneven dirty ivory bony armor plates with chipped edges and fleshy seams. Transparent open gaps; no solid underlying body, face or limbs.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "20d7bfa516f26441ef767316cce3381fe8d3a3e8188d3ab4562c55b6bb3f1203",
+    "sourceDimensions": [
+      1312,
+      1199
+    ],
+    "dimensions": [
+      640,
+      585
+    ],
+    "bytes": 105552,
+    "slot": "skin",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.55
+    },
+    "width": 0.68,
+    "order": 2,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "An irregular torso-sized arrangement of uneven dirty ivory bony armor plates with chipped edges and fleshy seams. Transparent open gaps; no solid underlying body, face or limbs."
+  },
+  {
+    "id": "mutation.auxiliary-heart",
+    "url": "/assets/laboratory/mutation.auxiliary-heart.webp",
+    "source": "assets/source/mutation.auxiliary-heart.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. One swollen translucent heart-shaped chest sac with fleshy olive root, violet-red vessels and a visibly enlarged pumping lobe, front view.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "d90a779c163e07be6c8fe31db6cc1d153bb79b4eb057556a24e50b5edc83d279",
+    "sourceDimensions": [
+      1312,
+      1199
+    ],
+    "dimensions": [
+      640,
+      595
+    ],
+    "bytes": 63120,
+    "slot": "appendages",
+    "attachment": {
+      "x": 0.39,
+      "y": 0.55
+    },
+    "width": 0.19,
+    "order": 4,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "One swollen translucent heart-shaped chest sac with fleshy olive root, violet-red vessels and a visibly enlarged pumping lobe, front view."
+  },
+  {
+    "id": "mutation.reweaving-tissue",
+    "url": "/assets/laboratory/mutation.reweaving-tissue.webp",
+    "source": "assets/source/mutation.reweaving-tissue.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. One fleshy patch where a jagged seam is visibly knitting closed with branching tiny translucent connecting fibers; healed pale green skin at edges, no blood spray.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "8b34f42f9d68b5e29b2f67d704d671a82abaa42e6ae5d998dca0e448ccd10405",
+    "sourceDimensions": [
+      1536,
+      1024
+    ],
+    "dimensions": [
+      640,
+      431
+    ],
+    "bytes": 49884,
+    "slot": "skin",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.56
+    },
+    "width": 0.36,
+    "order": 2,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "One fleshy patch where a jagged seam is visibly knitting closed with branching tiny translucent connecting fibers; healed pale green skin at edges, no blood spray."
+  },
+  {
+    "id": "mutation.venom-glands",
+    "url": "/assets/laboratory/mutation.venom-glands.webp",
+    "source": "assets/source/mutation.venom-glands.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. A pair of swollen dripping throat glands on a small fleshy attachment root, translucent green sacs, a few attached viscous droplets, menacing and slightly absurd.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "d273e99b80015150eab6a7ce98f3c94cd98c1354c12ac11e1b522777d358b99d",
+    "sourceDimensions": [
+      1312,
+      1199
+    ],
+    "dimensions": [
+      640,
+      594
+    ],
+    "bytes": 63816,
+    "slot": "appendages",
+    "attachment": {
+      "x": 0.54,
+      "y": 0.47
+    },
+    "width": 0.27,
+    "order": 4,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "A pair of swollen dripping throat glands on a small fleshy attachment root, translucent green sacs, a few attached viscous droplets, menacing and slightly absurd."
+  },
+  {
+    "id": "mutation.hook-tentacles",
+    "url": "/assets/laboratory/mutation.hook-tentacles.webp",
+    "source": "assets/source/mutation.hook-tentacles.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. A grasping cluster of two curling side tentacles, narrow fleshy roots at upper-left, hooked ivory tips, olive-green waxy skin and violet suckers.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "0183a472f1d9678e49955845668317242cc2002852dce0084e65df652ece57ab",
+    "sourceDimensions": [
+      1362,
+      1155
+    ],
+    "dimensions": [
+      640,
+      549
+    ],
+    "bytes": 59884,
+    "slot": "appendages",
+    "attachment": {
+      "x": 0.72,
+      "y": 0.53
+    },
+    "width": 0.33,
+    "order": 1,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "A grasping cluster of two curling side tentacles, narrow fleshy roots at upper-left, hooked ivory tips, olive-green waxy skin and violet suckers."
+  },
+  {
+    "id": "mutation.storm-organ",
+    "url": "/assets/laboratory/mutation.storm-organ.webp",
+    "source": "assets/source/mutation.storm-organ.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. One branching dorsal organ resembling crooked biological copper coils, green flesh root below, subtle ivory electrical thread motifs contained close to organ, no intense glare.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "14df0030c3cd7450352b8a793c4e868cc0b885c242a3d5a516c8b67563389c3c",
+    "sourceDimensions": [
+      1312,
+      1199
+    ],
+    "dimensions": [
+      640,
+      595
+    ],
+    "bytes": 88906,
+    "slot": "head-growth",
+    "attachment": {
+      "x": 0.62,
+      "y": 0.3
+    },
+    "width": 0.3,
+    "order": 1,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "One branching dorsal organ resembling crooked biological copper coils, green flesh root below, subtle ivory electrical thread motifs contained close to organ, no intense glare."
+  },
+  {
+    "id": "mutation.acid-bladder",
+    "url": "/assets/laboratory/mutation.acid-bladder.webp",
+    "source": "assets/source/mutation.acid-bladder.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. One translucent olive-green abdominal sac with bruised violet rim, contained cloudy green liquid and a fleshy hose-like duct. Anatomical isolated pouch.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "a5928e7819bbdd63cdd93e866fbf57b90bf4879bfb125cbde73f1047ef17d1da",
+    "sourceDimensions": [
+      1273,
+      1236
+    ],
+    "dimensions": [
+      640,
+      629
+    ],
+    "bytes": 58406,
+    "slot": "appendages",
+    "attachment": {
+      "x": 0.55,
+      "y": 0.64
+    },
+    "width": 0.28,
+    "order": 4,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "One translucent olive-green abdominal sac with bruised violet rim, contained cloudy green liquid and a fleshy hose-like duct. Anatomical isolated pouch."
+  },
+  {
+    "id": "mutation.barbed-hide",
+    "url": "/assets/laboratory/mutation.barbed-hide.webp",
+    "source": "assets/source/mutation.barbed-hide.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. Torso-sized scattered small dark ivory skin spines embedded in separate olive-green skin islands, oval arrangement with transparent gaps, no body or face.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "3099a901a6351fb9d5573308616b2dbd625ad58f83a751815b8b013e443bea7d",
+    "sourceDimensions": [
+      1536,
+      1024
+    ],
+    "dimensions": [
+      640,
+      428
+    ],
+    "bytes": 60682,
+    "slot": "skin",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.55
+    },
+    "width": 0.67,
+    "order": 3,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "Torso-sized scattered small dark ivory skin spines embedded in separate olive-green skin islands, oval arrangement with transparent gaps, no body or face."
+  },
+  {
+    "id": "mutation.all-seeing-cluster",
+    "url": "/assets/laboratory/mutation.all-seeing-cluster.webp",
+    "source": "assets/source/mutation.all-seeing-cluster.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. A horizontal cluster of seven differently sized bulging alert ivory eyes with tiny violet pupils, green eyelid rims, each staring a slightly different direction, no head.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "97ead468071995bb53874ba15fc26c7524fbd5865d7d44d5afc76b19b7dd62d8",
+    "sourceDimensions": [
+      1774,
+      887
+    ],
+    "dimensions": [
+      640,
+      319
+    ],
+    "bytes": 37428,
+    "slot": "eyes",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.44
+    },
+    "width": 0.39,
+    "order": 4,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "A horizontal cluster of seven differently sized bulging alert ivory eyes with tiny violet pupils, green eyelid rims, each staring a slightly different direction, no head."
+  },
+  {
+    "id": "mutation.bellows-lung",
+    "url": "/assets/laboratory/mutation.bellows-lung.webp",
+    "source": "assets/source/mutation.bellows-lung.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. One exposed expanding rib-cage module framing two waxy translucent lung lobes, crooked ivory ribs, green flesh joining root, front perspective, no full torso.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "406dfdeb0d0715cc4df23ae64e15957a63f8ff8b233224952aa2548ea7fa0cfd",
+    "sourceDimensions": [
+      1312,
+      1199
+    ],
+    "dimensions": [
+      640,
+      585
+    ],
+    "bytes": 91512,
+    "slot": "skin",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.59
+    },
+    "width": 0.42,
+    "order": 2,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "One exposed expanding rib-cage module framing two waxy translucent lung lobes, crooked ivory ribs, green flesh joining root, front perspective, no full torso."
+  },
+  {
+    "id": "mutation.counterweight-tail",
+    "url": "/assets/laboratory/mutation.counterweight-tail.webp",
+    "source": "assets/source/mutation.counterweight-tail.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. One heavy articulated tail curled into a readable C shape, segmented olive-green flesh, plated ivory joints, root at upper-left and a heavy rounded tip.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "ea6355d69ad00dfbbbc02463d65b4d62d10e5833dd7474f7f4e51ce7dac05d69",
+    "sourceDimensions": [
+      1298,
+      1212
+    ],
+    "dimensions": [
+      640,
+      598
+    ],
+    "bytes": 63002,
+    "slot": "appendages",
+    "attachment": {
+      "x": 0.69,
+      "y": 0.66
+    },
+    "width": 0.43,
+    "order": -1,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "One heavy articulated tail curled into a readable C shape, segmented olive-green flesh, plated ivory joints, root at upper-left and a heavy rounded tip."
+  },
+  {
+    "id": "mutation.funeral-mane",
+    "url": "/assets/laboratory/mutation.funeral-mane.webp",
+    "source": "assets/source/mutation.funeral-mane.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. One mane of long wet charcoal-violet hair, a shallow arch over the top and draping strands down both sides, transparent empty central face area, root at top center.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "f1a4a3af41b04f69f5e1ac2361b6747f617498071119c07931155ca635340aad",
+    "sourceDimensions": [
+      1536,
+      1024
+    ],
+    "dimensions": [
+      640,
+      446
+    ],
+    "bytes": 67878,
+    "slot": "head-growth",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.36
+    },
+    "width": 0.66,
+    "order": 1,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "One mane of long wet charcoal-violet hair, a shallow arch over the top and draping strands down both sides, transparent empty central face area, root at top center."
+  },
+  {
+    "id": "mutation.cathedral-horns",
+    "url": "/assets/laboratory/mutation.cathedral-horns.webp",
+    "source": "assets/source/mutation.cathedral-horns.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. A matched pair of ornate curling cathedral-like horns, weathered ivory, subtle engraved ribbing, broad transparent gap between them and small green fleshy bases at bottom.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "ab72b3a98b3dcbfa41de42d2c9fb8b5f8f579ca1f2d2dcc2a8a6fcb3f3e0afd1",
+    "sourceDimensions": [
+      1536,
+      1024
+    ],
+    "dimensions": [
+      640,
+      446
+    ],
+    "bytes": 51770,
+    "slot": "head-growth",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.29
+    },
+    "width": 0.57,
+    "order": 1,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "A matched pair of ornate curling cathedral-like horns, weathered ivory, subtle engraved ribbing, broad transparent gap between them and small green fleshy bases at bottom."
+  },
+  {
+    "id": "mutation.mourning-veil",
+    "url": "/assets/laboratory/mutation.mourning-veil.webp",
+    "source": "assets/source/mutation.mourning-veil.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. A ragged translucent violet mourning veil of anatomical frills, open central area and lacy torn perimeter, olive fleshy attachments at top, not fabric on a person.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "5fe898d7342d294a6b667539b2627fccb12282fda17d3565df6f118b31820091",
+    "sourceDimensions": [
+      1312,
+      1199
+    ],
+    "dimensions": [
+      640,
+      594
+    ],
+    "bytes": 80456,
+    "slot": "skin",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.54
+    },
+    "width": 0.68,
+    "order": 3,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "A ragged translucent violet mourning veil of anatomical frills, open central area and lacy torn perimeter, olive fleshy attachments at top, not fabric on a person."
+  },
+  {
+    "id": "mutation.ink-bloom",
+    "url": "/assets/laboratory/mutation.ink-bloom.webp",
+    "source": "assets/source/mutation.ink-bloom.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. An oval torso-sized branching network of black marbled veins over tiny translucent green skin strips, broad transparent gaps, no underlying body, face or limbs.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "49f252599278ec3d81056b698a811ee081123e0312b620d80a5a00a092e34023",
+    "sourceDimensions": [
+      1374,
+      1145
+    ],
+    "dimensions": [
+      640,
+      534
+    ],
+    "bytes": 96162,
+    "slot": "skin",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.54
+    },
+    "width": 0.64,
+    "order": 3,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "An oval torso-sized branching network of black marbled veins over tiny translucent green skin strips, broad transparent gaps, no underlying body, face or limbs."
+  },
+  {
+    "id": "mutation.lantern-eyes",
+    "url": "/assets/laboratory/mutation.lantern-eyes.webp",
+    "source": "assets/source/mutation.lantern-eyes.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. A pair of unnaturally glowing pale green eyeballs, violet slit pupils, swollen olive eyelid rims; restrained contained glow, no head or wide background halo.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "64d196cb9d9cbf7214e7c37e74b28168d8a0711b8a8c9616dcdec1c9ef08fd80",
+    "sourceDimensions": [
+      1536,
+      1024
+    ],
+    "dimensions": [
+      640,
+      427
+    ],
+    "bytes": 55854,
+    "slot": "eyes",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.44
+    },
+    "width": 0.3,
+    "order": 4,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "A pair of unnaturally glowing pale green eyeballs, violet slit pupils, swollen olive eyelid rims; restrained contained glow, no head or wide background halo."
+  },
+  {
+    "id": "mutation.false-halo",
+    "url": "/assets/laboratory/mutation.false-halo.webp",
+    "source": "assets/source/mutation.false-halo.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. One horizontal floating ring of pale olive fleshy tissue, slightly crooked oval with a genuinely empty transparent central hole, violet veins, sinister comic biological halo.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "fdbff6bae91cfa275f445e695784e0f4ed348e7199985e889df24bdbd4c10cce",
+    "sourceDimensions": [
+      1536,
+      1024
+    ],
+    "dimensions": [
+      640,
+      427
+    ],
+    "bytes": 46380,
+    "slot": "head-growth",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.19
+    },
+    "width": 0.36,
+    "order": 4,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "One horizontal floating ring of pale olive fleshy tissue, slightly crooked oval with a genuinely empty transparent central hole, violet veins, sinister comic biological halo."
+  },
+  {
+    "id": "mutation.too-many-smiles",
+    "url": "/assets/laboratory/mutation.too-many-smiles.webp",
+    "source": "assets/source/mutation.too-many-smiles.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. Five small mismatched grinning mouths with green flesh rims, scattered in an oval torso-sized pattern, tiny dirty ivory teeth. Transparent gaps between mouths, no underlying face or body.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "47b5712eb5902e878bde34e776a78e5a0e4cd9d637d29818578f5c191bc4eaa7",
+    "sourceDimensions": [
+      1312,
+      1199
+    ],
+    "dimensions": [
+      640,
+      585
+    ],
+    "bytes": 79710,
+    "slot": "skin",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.56
+    },
+    "width": 0.49,
+    "order": 4,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "Five small mismatched grinning mouths with green flesh rims, scattered in an oval torso-sized pattern, tiny dirty ivory teeth. Transparent gaps between mouths, no underlying face or body."
+  },
+  {
+    "id": "mutation.kitten-paws",
+    "url": "/assets/laboratory/mutation.kitten-paws.webp",
+    "source": "assets/source/mutation.kitten-paws.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. One absurdly soft furry kitten paw at the end of a short olive-green forearm, cream fur, tiny pink pads, rounded fingers and no dangerous claws. Attachment at top.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "b43f1f401d1f3aa9c9c97bd84e4a43197aad38d0d4c051ed1871c81d2448edc7",
+    "sourceDimensions": [
+      1024,
+      1536
+    ],
+    "dimensions": [
+      428,
+      640
+    ],
+    "bytes": 39342,
+    "slot": "forelimb-left",
+    "attachment": {
+      "x": 0.25,
+      "y": 0.54
+    },
+    "width": 0.24,
+    "order": 4,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [
+      "forelimb-left",
+      "forelimb-right"
+    ],
+    "description": "One absurdly soft furry kitten paw at the end of a short olive-green forearm, cream fur, tiny pink pads, rounded fingers and no dangerous claws. Attachment at top."
+  },
+  {
+    "id": "mutation.candle-flesh",
+    "url": "/assets/laboratory/mutation.candle-flesh.webp",
+    "source": "assets/source/mutation.candle-flesh.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. One full rounded gelatinous torso without eyes, mouth or limbs, sagging dirty-ivory waxy skin in thick drips and soft folded base, bruised violet veins. No candle flame.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "67eff46a5ba19cd57c4e02591344bf20737c48221ee49987f1e360788a10dd40",
+    "sourceDimensions": [
+      1199,
+      1312
+    ],
+    "dimensions": [
+      592,
+      640
+    ],
+    "bytes": 62426,
+    "slot": "body",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.55
+    },
+    "width": 0.69,
+    "order": 0,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "One full rounded gelatinous torso without eyes, mouth or limbs, sagging dirty-ivory waxy skin in thick drips and soft folded base, bruised violet veins. No candle flame."
+  },
+  {
+    "id": "mutation.brittle-skeleton",
+    "url": "/assets/laboratory/mutation.brittle-skeleton.webp",
+    "source": "assets/source/mutation.brittle-skeleton.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. One narrow cracked anatomical torso with crooked ivory ribs and fragile spine wrapped in thin olive flesh, comically fragile silhouette, no eyes, mouth, head or limbs.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "9eb0ceef03db8aa00d6ebd8141744f460b0801ade96f930639842f0320657055",
+    "sourceDimensions": [
+      1024,
+      1536
+    ],
+    "dimensions": [
+      438,
+      640
+    ],
+    "bytes": 46312,
+    "slot": "body",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.55
+    },
+    "width": 0.48,
+    "order": 0,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "One narrow cracked anatomical torso with crooked ivory ribs and fragile spine wrapped in thin olive flesh, comically fragile silhouette, no eyes, mouth, head or limbs."
+  },
+  {
+    "id": "mutation.wandering-limb",
+    "url": "/assets/laboratory/mutation.wandering-limb.webp",
+    "source": "assets/source/mutation.wandering-limb.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. One loosened forelimb with an absurdly dangling green elbow and splayed crawling hand, ragged dry proximal joint at top, no body, no gore spray.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "2724424ca24a3d48957b2420432aa833f3aaf5ac5aa289cabf173c504ad45279",
+    "sourceDimensions": [
+      1269,
+      1240
+    ],
+    "dimensions": [
+      637,
+      640
+    ],
+    "bytes": 43938,
+    "slot": "forelimb-left",
+    "attachment": {
+      "x": 0.25,
+      "y": 0.58
+    },
+    "width": 0.27,
+    "order": 2,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [
+      "forelimb-left",
+      "forelimb-right"
+    ],
+    "description": "One loosened forelimb with an absurdly dangling green elbow and splayed crawling hand, ragged dry proximal joint at top, no body, no gore spray."
+  },
+  {
+    "id": "mutation.tremor-ganglia",
+    "url": "/assets/laboratory/mutation.tremor-ganglia.webp",
+    "source": "assets/source/mutation.tremor-ganglia.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. One twitchy cluster of knotted violet nerve ganglia with thin crooked olive tendrils, expressive erratic zigzag anatomy, a root at upper center; no drawn motion lines.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "ec7e10987302623d1802d86775eb51495028d9e01315c4bbaac9b038f9f21454",
+    "sourceDimensions": [
+      1312,
+      1199
+    ],
+    "dimensions": [
+      640,
+      586
+    ],
+    "bytes": 97420,
+    "slot": "appendages",
+    "attachment": {
+      "x": 0.59,
+      "y": 0.58
+    },
+    "width": 0.24,
+    "order": 4,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "One twitchy cluster of knotted violet nerve ganglia with thin crooked olive tendrils, expressive erratic zigzag anatomy, a root at upper center; no drawn motion lines."
+  },
+  {
+    "id": "mutation.porcelain-teeth",
+    "url": "/assets/laboratory/mutation.porcelain-teeth.webp",
+    "source": "assets/source/mutation.porcelain-teeth.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. One broad crooked mouth with chipped porcelain-like ivory teeth and tiny broken shards attached at lips, olive flesh rims, comic embarrassed grimace, no head.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "17bef2747d096407bc5e88808d000225c870c2b89e21e03c7a31cb7cdc1223f1",
+    "sourceDimensions": [
+      1536,
+      1024
+    ],
+    "dimensions": [
+      640,
+      427
+    ],
+    "bytes": 53888,
+    "slot": "mouth",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.57
+    },
+    "width": 0.3,
+    "order": 4,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "One broad crooked mouth with chipped porcelain-like ivory teeth and tiny broken shards attached at lips, olive flesh rims, comic embarrassed grimace, no head."
+  },
+  {
+    "id": "mutation.excessive-viscera",
+    "url": "/assets/laboratory/mutation.excessive-viscera.webp",
+    "source": "assets/source/mutation.excessive-viscera.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. One pendulous bundle of swollen purple-green organs and looping tubes, dry waxy translucent surfaces, small olive attachment root at top, excessive bulk, no blood spray.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "993a511c695dd09f5db2ca2a1e3f522395eaf29175e73dcd76d652c333a30413",
+    "sourceDimensions": [
+      1024,
+      1536
+    ],
+    "dimensions": [
+      426,
+      640
+    ],
+    "bytes": 50804,
+    "slot": "appendages",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.7
+    },
+    "width": 0.4,
+    "order": 4,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "One pendulous bundle of swollen purple-green organs and looping tubes, dry waxy translucent surfaces, small olive attachment root at top, excessive bulk, no blood spray."
+  },
+  {
+    "id": "mutation.existential-organ",
+    "url": "/assets/laboratory/mutation.existential-organ.webp",
+    "source": "assets/source/mutation.existential-organ.png",
+    "origin": "generated",
+    "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+    "date": "2026-10-06",
+    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. One bulbous olive-green chest growth containing a single oversized tired ivory eye looking upward in existential dread, violet iris, fleshy attachment base, not an entire creature.",
+    "references": [],
+    "terms": "https://openai.com/policies/terms-of-use/",
+    "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+    "sourceSha256": "1c08acb9a0d425b719452c5498d8cf1938233dad3b689d444d63243418a1a573",
+    "sourceDimensions": [
+      1246,
+      1262
+    ],
+    "dimensions": [
+      632,
+      640
+    ],
+    "bytes": 62956,
+    "slot": "appendages",
+    "attachment": {
+      "x": 0.5,
+      "y": 0.56
+    },
+    "width": 0.26,
+    "order": 4,
+    "pivot": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "mirroredSlots": [],
+    "description": "One bulbous olive-green chest growth containing a single oversized tired ivory eye looking upward in existential dread, violet iris, fleshy attachment base, not an entire creature."
+  }
+]
