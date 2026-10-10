@@ -4,6 +4,9 @@ import { PROTOCOL_VERSION } from '../shared/protocol.ts';
 import type { ControllerSnapshot, PresentationMode, RoomPhase, RoomSnapshot } from '../shared/types.ts';
 import { beginRelease, initializeExperiment, newExperiment, privateSpecimens, publicCreature, publicHistory, readings } from './dna-mechanics.ts';
 import type { Experiment, Specimen, DrawPacket } from './dna-mechanics.ts';
+import { awardSummaries, combineContributions, newCombatSession, produceBattle, rivalView } from './combat.ts';
+import type { CombatSession } from './combat.ts';
+import { COMBAT_VERSION } from './catalogue/combat.ts';
 import { ServiceError } from './validation.ts';
 
 export interface Seat {
@@ -47,7 +50,8 @@ export interface AdmissionReservation {
   purpose?: 'fresh' | 'replacement';
 }
 export interface StoredRoom {
-  schemaVersion: 4;
+  schemaVersion: 5;
+  combat: CombatSession | null;
   experiment: Experiment | null;
   legacyRulesVersion?: string;
   publicState: PublicState | null;
@@ -81,7 +85,7 @@ export interface PublicState {
   notice?: { revision: number; signature: string; pending: boolean };
 }
 export function newRoom(id: string, visibility: StoredRoom['visibility'], presentation: PresentationMode, secret: string, creationHash: string, creationFingerprint: string, now: number): StoredRoom {
-  return { schemaVersion: 4, experiment: null, publicState: null, id, visibility, presentation, secret, creationHash, creationFingerprint, createdAtMs: now, lastActivityAtMs: now, revision: 0, phase: 'lobby', round: null, phaseDeadlineMs: null, hostId: null, seats: [], reservations: [], lockedPlayerIds: [], playerCountAtExperimentStart: null, recovery: null };
+  return { schemaVersion: 5, combat: null, experiment: null, publicState: null, id, visibility, presentation, secret, creationHash, creationFingerprint, createdAtMs: now, lastActivityAtMs: now, revision: 0, phase: 'lobby', round: null, phaseDeadlineMs: null, hostId: null, seats: [], reservations: [], lockedPlayerIds: [], playerCountAtExperimentStart: null, recovery: null };
 }
 export const livePlayers = (r: StoredRoom) => r.seats.filter(s => s.role === 'player' && !s.departed);
 export const connectedPlayers = (r: StoredRoom) => livePlayers(r).filter(s => s.connected);
@@ -95,7 +99,12 @@ export function snapshot(r: StoredRoom, now: number): RoomSnapshot {
     roomId: r.id, visibility: r.visibility, presentation: r.presentation, phase: r.phase, round: r.round,
     phaseDeadlineMs: r.phaseDeadlineMs, hostPlayerId: r.hostId,
     players: livePlayers(r).map(s => ({ playerId: s.id, alias: s.alias, symbol: s.symbol, connected: s.connected, finishedThisRound: s.finished, injectionsThisRound: s.injectionsThisRound ?? 0, cooldownUntilMs: s.nextInjectionAtMs, completionReason: s.finishReason ?? null, inactivityPrompt: r.phase === 'autopsy' && s.injectionsThisRound === 0, waitingForNextRound: !s.eligible && r.phase !== 'lobby' })),
-    creature: r.experiment ? publicCreature(r.experiment) : null, teamScore: r.publicState?.teamScore ?? 0,
+    creature: r.experiment ? publicCreature(r.experiment) : null, teamScore: r.publicState?.teamScore ?? r.combat?.completed.reduce((n,result)=>n+GAME_RULES.score[result.outcome],0) ?? 0,
+    combatAvailable: r.combat !== null,
+    rival: r.combat && r.round ? rivalView(r.combat.rivalIds[r.round-1]!) : null,
+    battle: r.phase === 'battle' ? r.combat?.battle?.timeline ?? null : null,
+    result: ['autopsy','session-results'].includes(r.phase) ? r.combat?.completed.at(-1) ?? null : null,
+    session: r.combat ? { sessionId: r.combat.sessionId, completed: structuredClone(r.combat.completed), contributions: combineContributions(r.combat.completed), awards: awardSummaries(combineContributions(r.combat.completed)) } : null,
     publicSession: r.publicState ? { sessionId: r.publicState.sessionId, region: r.publicState.region, readyPlayerIds: [...r.publicState.ready], replayPlayerIds: [...r.publicState.replay], resultsStartedAtMs: r.publicState.resultsStartedAtMs, completedRounds: r.publicState.completed.length } : null,
     recoveryDeadlineMs: r.recovery?.deadlineMs ?? null,
     playerCountAtExperimentStart: r.playerCountAtExperimentStart,
@@ -113,6 +122,8 @@ export function startRound(r: StoredRoom, now: number) {
   const players = connectedPlayers(r);
   if (players.length < GAME_RULES.minPlayers) throw new ServiceError('not-enough-players', 'At least two connected players are required.', 409);
   r.round = r.phase === 'recovery-lobby' ? (r.round ?? 1) : r.phase === 'lobby' ? 1 : ((r.round ?? 0) + 1) as 1 | 2 | 3;
+  if (!r.combat || r.phase === 'lobby') r.combat = newCombatSession(r.publicState?.sessionId);
+  r.combat.battle = null;
   r.lockedPlayerIds = players.map(s => s.id);
   r.playerCountAtExperimentStart = null;
   r.recovery = null;
@@ -200,7 +211,13 @@ export function settle(r: StoredRoom, now: number): boolean {
       for (const s of r.seats) if (s.eligible) { s.finished = true; s.finishReason ??= 'deadline'; }
       beginRelease(r, next, 'deadline');
     } else if (r.phase === 'release') {
-      setPhase(r, 'battle', null); // Frozen creature boundary; combat producer remains step 6.
+      if (r.combat && r.experiment?.frozen) {
+        const id = crypto.randomUUID();
+        r.combat.battle = produceBattle(r.experiment.frozen, r.combat.rivalIds[r.round!-1]!, r.round!, next, crypto.randomUUID(), id, r.lockedPlayerIds.map(playerId=>({playerId,alias:r.seats.find(s=>s.id===playerId)?.alias??'Former accomplice'})));
+        setPhase(r, 'battle', next + r.combat.battle.timeline.durationMs);
+      } else setPhase(r, 'battle', null); // Existing pre-combat attempts preserve their frozen boundary.
+    } else if (r.phase === 'battle' && r.combat?.battle) {
+      finishBattle(r, next);
     } else if (r.publicState) { publicDeadline(r, next); } else { r.phaseDeadlineMs = null; r.revision++; }
   }
   publicProgress(r, now);
@@ -216,6 +233,7 @@ export function completePublicRound(r: StoredRoom, sessionId: string, completion
   if (!p || sessionId !== p.sessionId) throw new ServiceError('stale-session', 'Session mismatch.', 409);
   const prior = p.completed.find(c => c.completionId === completionId);
   if (prior) { if (prior.outcome !== outcome) throw new ServiceError('idempotency-conflict', 'Completion differs.', 409); return; }
+  if (r.combat?.battle && (r.combat.battle.timeline.battleId !== completionId || r.combat.battle.result.outcome !== outcome || now < r.combat.battle.result.completedAtMs)) throw new ServiceError('unauthorized', 'Only the completed authoritative battle can supply this result.', 403);
   if (r.phase !== 'battle' || !r.round) throw new ServiceError('wrong-phase', 'Completion requires an unfinished battle.', 409);
   p.completed.push({ completionId, round: r.round, outcome }); p.teamScore += GAME_RULES.score[outcome];
   p.resultsStartedAtMs = now; p.ready = []; p.replay = [];
@@ -263,4 +281,25 @@ export function publicIntent(r: StoredRoom, seat: Seat, kind: 'next-round-ready'
   }
   seat.interactedThisRound = true;
   touch(r, now); publicProgress(r, now);
+}
+
+/** Persisted battle/result commit is idempotent under alarms, reconnects and reactivation. */
+export function finishBattle(r: StoredRoom, now: number) {
+  const session=r.combat, b=session?.battle;
+  if(!session || session.version !== COMBAT_VERSION || !b || now < b.result.completedAtMs)return;
+  if(session.completed.some(result=>result.battleId===b.timeline.battleId))return;
+  session.completed.push(structuredClone(b.result));
+  if(r.publicState)completePublicRound(r,r.publicState.sessionId,b.timeline.battleId,b.result.outcome,now);
+  else setPhase(r,r.round===3?'session-results':'autopsy',null);
+}
+export function advancePrivate(r:StoredRoom, battleId:string, now:number){
+ if(r.phase!=='autopsy'||r.round===3)throw new ServiceError('wrong-phase','Advance requires completed round results.',409);
+ if(r.combat?.completed.at(-1)?.battleId!==battleId)throw new ServiceError('stale-session','These results have changed.',409);
+ startRound(r,now);touch(r,now);
+}
+export function replayPrivate(r:StoredRoom, sessionId:string, now:number){
+ if(r.phase!=='session-results')throw new ServiceError('wrong-phase','Replay requires session results.',409);
+ if(r.combat?.sessionId!==sessionId)throw new ServiceError('stale-session','This session changed.',409);
+ if(connectedPlayers(r).length<2)throw new ServiceError('not-enough-players','At least two connected players are required.',409);
+ r.round=null;r.phase='lobby';r.combat=null;startRound(r,now);touch(r,now);
 }

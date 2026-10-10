@@ -1,0 +1,50 @@
+[
+  {
+    "id": "rival.iron-widow",
+    "url": "/assets/rivals/iron-widow.webp",
+    "attachment": {
+      "x": 0.5,
+      "y": 1
+    }
+  },
+  {
+    "id": "rival.gutter-seraph",
+    "url": "/assets/rivals/gutter-seraph.webp",
+    "attachment": {
+      "x": 0.5,
+      "y": 1
+    }
+  },
+  {
+    "id": "rival.carrion-duke",
+    "url": "/assets/rivals/carrion-duke.webp",
+    "attachment": {
+      "x": 0.5,
+      "y": 1
+    }
+  },
+  {
+    "id": "rival.coil-saint",
+    "url": "/assets/rivals/coil-saint.webp",
+    "attachment": {
+      "x": 0.5,
+      "y": 1
+    }
+  },
+  {
+    "id": "rival.maw-engine",
+    "url": "/assets/rivals/maw-engine.webp",
+    "attachment": {
+      "x": 0.5,
+      "y": 1
+    }
+  },
+  {
+    "id": "rival.the-unfinished",
+    "url": "/assets/rivals/the-unfinished.webp",
+    "attachment": {
+      "x": 0.5,
+      "y": 1
+    }
+  }
+]

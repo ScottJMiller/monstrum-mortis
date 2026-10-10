@@ -3,21 +3,25 @@ import { dna, newExperiment } from './dna-mechanics.ts';
 import { DNA_VERSION } from './catalogue/mechanics.ts';
 import { GAME_RULES } from '../shared/rules.ts';
 import { ServiceError, UUID } from './validation.ts';
+import { validateCombatSession } from './combat-storage.ts';
 import { STAT_BOUNDS } from './catalogue/mechanics.ts';
 
 /** Application JSON migration only; preserve deployed class/namespace identities. */
 export function migrateRoom(value: unknown): StoredRoom {
   if (!value || typeof value !== 'object') throw new ServiceError('temporarily-unavailable', 'Invalid stored room.', 503);
   const r = value as StoredRoom; const version = (value as { schemaVersion: number }).schemaVersion;
-  if (![2, 3, 4].includes(version) || typeof r.id !== 'string' || typeof r.secret !== 'string' || !Array.isArray(r.seats) || !Array.isArray(r.lockedPlayerIds) || !Array.isArray(r.reservations) || !Number.isSafeInteger(r.revision)) throw new ServiceError('temporarily-unavailable', 'Unsupported or corrupt stored room schema.', 503);
+  if (![2, 3, 4, 5].includes(version) || typeof r.id !== 'string' || typeof r.secret !== 'string' || !Array.isArray(r.seats) || !Array.isArray(r.lockedPlayerIds) || !Array.isArray(r.reservations) || !Number.isSafeInteger(r.revision)) throw new ServiceError('temporarily-unavailable', 'Unsupported or corrupt stored room schema.', 503);
   if (version === 2) r.publicState = null;
-  if (version !== 4) {
-    r.schemaVersion = 4; r.experiment = r.phase === 'briefing' ? newExperiment() : null; r.legacyRulesVersion = '0.1.0';
+  if (version < 4) {
+    r.schemaVersion = 5; r.experiment = r.phase === 'briefing' ? newExperiment() : null; r.legacyRulesVersion = '0.1.0';
     for (const s of r.seats) { s.tray = []; s.drawPlan = []; s.drawCursor = 0; s.switchPulled = false; s.finishReason = s.finished ? 'legacy' : null; }
   }
+  if (version < 5) { r.schemaVersion = 5; r.combat = null; }
+  if (r.combat) validateCombatSession(r.combat);
+  else if(r.combat!==null) throw new ServiceError('temporarily-unavailable','Invalid combat session.',503);
   if (r.experiment) {
     const e = r.experiment;
-    if (e.catalogueVersion !== DNA_VERSION || e.rulesVersion !== GAME_RULES.rulesVersion || !UUID.test(e.id) || !UUID.test(e.compositionSeed) || !e.active || Array.isArray(e.active) || !Array.isArray(e.history) || e.history.length > 48) throw new ServiceError('temporarily-unavailable', 'Unsupported stored mechanics version.', 503);
+    if (e.catalogueVersion !== DNA_VERSION || !['0.2.0', GAME_RULES.rulesVersion].includes(e.rulesVersion) || !UUID.test(e.id) || !UUID.test(e.compositionSeed) || !e.active || Array.isArray(e.active) || !Array.isArray(e.history) || e.history.length > 48) throw new ServiceError('temporarily-unavailable', 'Unsupported stored mechanics version.', 503);
     for (const [slot, p] of Object.entries(e.active)) {
       const definition = dna(p.dnaId);
       if (!definition.targets.some(target => target === slot) || !Array.isArray(p.contributions) || !p.contributions.length || p.contributions.length > 48 || p.contributions.some(c => !UUID.test(c.injectionId) || typeof c.playerId !== 'string' || !Number.isFinite(c.units) || c.units <= 0 || c.units > 1)) throw new ServiceError('temporarily-unavailable', 'Invalid stored mutation contributions.', 503);

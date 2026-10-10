@@ -1,5 +1,6 @@
 import { QuickPlay, guestHeaders } from './QuickPlay.tsx';
 import { DnaController } from './DnaController.tsx';
+import { Results } from './Results.tsx';
 import { Presentation } from './Presentation.tsx';
 import { useEffect, useRef, useState } from 'react';
 import { PROTOCOL_VERSION, ROOM_SOCKET_PROTOCOL } from '../shared/protocol.ts';
@@ -8,7 +9,7 @@ import type { RoomCredentials, RoomEntryResponse } from '../shared/room-service.
 import type { ControllerSnapshot, PresentationMode, RoomSnapshot } from '../shared/types.ts';
 
 const STORAGE_KEY = 'mm.room.v2';
-const ACTION_KEY = 'mm.pending-intent.v4';
+const ACTION_KEY = 'mm.pending-intent.v5';
 function storedIntent(credentials: RoomCredentials | null): ClientAction | null {
   try {
     const saved = JSON.parse(sessionStorage.getItem(ACTION_KEY) ?? 'null');
@@ -168,8 +169,11 @@ export function App() {
     }
     socket.current.send(JSON.stringify(action));
   }
-  function intent(kind: 'start-private-session' | 'leave' | 'next-round-ready' | 'public-replay-opt-in') {
-    sendIntent({ protocolVersion: PROTOCOL_VERSION, actionId: crypto.randomUUID(), kind });
+  function intent(kind: 'start-private-session' | 'advance-private-round' | 'play-again-private' | 'leave' | 'next-round-ready' | 'public-replay-opt-in') {
+    const base={protocolVersion:PROTOCOL_VERSION,actionId:crypto.randomUUID()};
+    if(kind==='advance-private-round'){if(room?.result)sendIntent({...base,kind,battleId:room.result.battleId});}
+    else if(kind==='play-again-private'){if(room?.session)sendIntent({...base,kind,sessionId:room.session.sessionId});}
+    else sendIntent({...base,kind});
   }
   function mechanics(kind: 'inject' | 'pull-switch', specimenId?: string) {
     if (!room?.attemptId) return;
@@ -178,7 +182,7 @@ export function App() {
   }
   const invitation = room?.visibility === 'private' ? `${location.origin}/?room=${room.roomId}` : '';
   const remaining = room?.phaseDeadlineMs ? Math.max(0, Math.ceil((room.phaseDeadlineMs - clock - serverOffset.current) / 1000)) : null;
-  return <Presentation room={room} connected={connected} displayOnly={credentials?.role === 'display'}>
+  return <Presentation now={clock + serverOffset.current} room={room} connected={connected} displayOnly={credentials?.role === 'display'}>
     <div className="service-controls" aria-busy={pending}>
     {!credentials && <nav className="entry-jump" aria-label="Laboratory entry choices"><a href="#public-entry">Quick Play</a><a href="#private-entry">Private invitation</a></nav>}
     {!credentials ? <><QuickPlay autoStart={findNew} onBusy={setQueueBusy} onEntry={entry => { setFindNew(false); setRoom(entry.snapshot); setOwn(entry.controller); setReplace(false); remember(entry.credentials); }} /><section id="private-entry" className="entry-panel" aria-label="Private room entry"><p className="eyebrow">Invitation play</p><h2 tabIndex={-1}>Private laboratory</h2><p className="note">Bring friends by code or invitation link. Remote and shared-room play use the same rules.</p>
@@ -197,7 +201,12 @@ export function App() {
       {room && <>
         <div className="phase-strip"><p>Phase: <strong>{room.phase}</strong></p>{remaining !== null && <p className="deadline">{connected ? `${remaining}s remaining` : 'Timer awaiting synchronization'}</p>}</div>
         {room.recoveryDeadlineMs && <p>Experiment suspended for reconnection. Recovery deadline: {new Date(room.recoveryDeadlineMs).toLocaleTimeString()}.</p>}
-        {room.phase === 'battle' && <div className="combat-boundary"><h3>Creature released. Prepare for combat!</h3><p>Your specimen is frozen. Automatic combat is not available in this milestone; this laboratory will remain at the battle boundary.</p></div>}
+        {room.phase === 'release' && <h3>Creature released. Prepare for combat!</h3>}
+        {room.phase === 'battle' && !room.battle && <div className="combat-boundary"><h3>Creature released. Prepare for combat!</h3><p>This specimen was released before combat was introduced. Its frozen boundary is preserved. A private host can start a new combat session below; public players can leave and choose Quick Play again.</p></div>}
+        {room.result&&<Results room={room} playerId={credentials.role==='player'?credentials.sessionId:null} />}
+        {room.visibility==='private'&&credentials.sessionId===room.hostPlayerId&&room.phase==='autopsy'&&<button disabled={!connected||pending||room.players.filter(p=>p.connected).length<2} onClick={()=>intent('advance-private-round')}>Next experiment</button>}
+        {room.visibility==='private'&&credentials.sessionId===room.hostPlayerId&&room.phase==='session-results'&&<button disabled={!connected||pending||room.players.filter(p=>p.connected).length<2} onClick={()=>intent('play-again-private')}>Play Again</button>}
+        {room.visibility==='private'&&!room.combatAvailable&&room.phase==='battle'&&credentials.sessionId===room.hostPlayerId&&<button disabled={!connected||pending||room.players.filter(p=>p.connected).length<2} onClick={()=>intent('start-private-session')}>Start new combat session</button>}
         <h3>Accomplices <small>{room.players.length}/8</small></h3><ul className="roster">{room.players.map(player => <li key={player.playerId}><span className="player-symbol" aria-hidden="true">{player.symbol}</span><span>{player.alias}<small>{player.connected ? 'Connected' : 'Disconnected'}{player.playerId === room.hostPlayerId ? ' · host' : ''}{player.waitingForNextRound ? ' · waiting for next round' : ''}{player.finishedThisRound ? (player.completionReason === 'switch' ? ' · switch pulled' : ' · finished') : ''}{room.mechanicsAvailable && !player.waitingForNextRound ? ` · ${player.injectionsThisRound} injections${connected && (player.cooldownUntilMs ?? 0) > clock + serverOffset.current && !player.finishedThisRound ? ' · cooling down' : ''}` : ''}</small></span></li>)}</ul>
         {room.publicSession && <>
           {room.players.find(p => p.playerId === credentials.sessionId)?.inactivityPrompt && <p>You made no injections this round. Choose Next round ready to keep your seat.</p>}
@@ -208,7 +217,7 @@ export function App() {
           {room.phase === 'recovery-lobby' && <p>The interrupted round was abandoned. Completed results remain; two ready players can retry this round.</p>}
           {room.phase === 'session-results' && room.phaseDeadlineMs === null && <p>Regroup has ended. Leave or choose Find New Laboratory when you are ready.</p>}
         </>}
-        {own && room.mechanicsAvailable && <DnaController room={room} own={own} connected={connected && own.attemptId === room.attemptId && own.revision >= room.revision} pending={pending} now={clock + serverOffset.current} inject={id => mechanics('inject', id)} unleash={() => mechanics('pull-switch')} />}
+        {own && room.mechanicsAvailable && room.phase === 'experiment' && <DnaController room={room} own={own} connected={connected && own.attemptId === room.attemptId && own.revision >= room.revision} pending={pending} now={clock + serverOffset.current} inject={id => mechanics('inject', id)} unleash={() => mechanics('pull-switch')} />}
         {own && !room.mechanicsAvailable && room.phase !== 'lobby' && <p>This existing laboratory attempt predates DNA mechanics. It retains its original timeline; start a new laboratory to inject specimens.</p>}
         {credentials.sessionId === room.hostPlayerId && room.phase === 'lobby' && <button disabled={!connected || pending || room.players.filter(p => p.connected).length < 2} onClick={() => intent('start-private-session')}>Start experiment</button>}
       </>}

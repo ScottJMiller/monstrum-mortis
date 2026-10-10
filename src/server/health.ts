@@ -10,7 +10,7 @@ export function createHealth(bindings: {
 }): HealthResponse {
   return {
     service: 'monstrum-mortis',
-    stage: 'dna-mechanics',
+    stage: 'automatic-combat',
     protocolVersion: PROTOCOL_VERSION,
     rulesVersion: GAME_RULES.rulesVersion,
     configuredBindings: {
@@ -19,9 +19,10 @@ export function createHealth(bindings: {
       matchmaking: Boolean(bindings.MATCHMAKING),
       guestLeases: Boolean(bindings.GUEST_LEASES),
     },
-    gameplayAvailable: false,
+    gameplayAvailable: true,
+    fullReleaseAvailable: false,
     mechanicsAvailable: true,
-    combatAvailable: false,
+    combatAvailable: true,
     roomServiceAvailable: true,
     matchmakingAvailable: true,
   };

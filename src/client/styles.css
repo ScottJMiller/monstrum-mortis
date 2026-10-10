@@ -141,3 +141,52 @@ input.name-required { border-color: #f2cf8a; }
 .mutation-log li { overflow-wrap: anywhere; padding: .2rem 0; }
 .mutation-log li span { color: #c3bba5; }
 @media (max-width: 400px) { .creature-readings { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Combat uses the calibrated anatomy; motion only decorates authoritative events. */
+.rival-briefing { display: flex; gap: 1rem; align-items: center; padding: 1rem; border: 1px solid #807547; background: #11180e; }
+.rival-briefing .rival-portrait { width: 28%; max-height: 14rem; object-fit: contain; }
+.rival-silhouette { filter: brightness(.2) sepia(.4); }
+.battle-stage { min-width: 0; padding: 1rem; background: radial-gradient(ellipse at 50% 70%, #35442a, #11180f 65%); border: 2px solid #756244; border-radius: .3rem; }
+.battle-stage h2 { font-family: Georgia, serif; font-size: clamp(1.3rem, 3vw, 2.2rem); margin: .5rem 0; }
+.battle-health { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.battle-health label { display: grid; gap: .3rem; font-size: .85rem; }
+.battle-health meter { width: 100%; height: 1.3rem; accent-color: #a9ba62; }
+.battle-arena { position: relative; display: flex; align-items: flex-end; justify-content: space-around; height: clamp(17rem, 43vw, 31rem); border-bottom: 3px solid #655742; background: radial-gradient(ellipse at bottom, #b0ac7726, transparent 65%); overflow: hidden; }
+.battle-camera { position: relative; display: flex; align-items: flex-end; justify-content: space-around; width: 100%; height: 100%; transform-origin: center bottom; transition: transform .18s ease-out; }
+.battle-arena[data-camera="impact"] .battle-camera { transform: scale(1.025); }
+.battle-still .battle-camera { transform: none !important; transition: none; }
+.combatant { width: 47%; height: 96%; display: flex; align-items: flex-end; justify-content: center; transform-origin: center bottom; transition: transform .18s ease-out, filter .2s; }
+.battle-creature { width: 100%; height: 100%; overflow: visible; }
+.rival-combatant .rival-portrait { width: 100%; height: 90%; object-fit: contain; object-position: center bottom; }
+.battle-versus { position: absolute; left: 46%; bottom: 32%; color: #cfbd8299; font-family: Georgia, serif; }
+.combatant[data-pose="attack"] { transform: translateX(4%) rotate(2deg); }
+.rival-combatant[data-pose="attack"] { transform: translateX(-4%) rotate(-2deg); }
+.combatant[data-pose="regeneration"] { filter: drop-shadow(0 0 .7rem #9ccf6180); }
+.combatant[data-pose="electric"] { filter: drop-shadow(0 0 .5rem #70c3cb80); }
+.combatant[data-pose="restraint"] { transform: scaleY(.95); filter: sepia(.2); }
+.combatant[data-pose="malfunction"] { transform: rotate(-4deg); filter: sepia(.25); }
+.combatant[data-pose="knockout"] { transform: rotate(15deg) scaleY(.7); filter: grayscale(.6); }
+.battle-electric { position: absolute; left: 48%; top: 25%; color: #94c5ca; font-size: 5rem; opacity: .6; }
+.battle-still .combatant { transform: none; transition: none; }
+.battle-captions { min-height: 5rem; padding-left: 1.3rem; font-size: .85rem; color: #ded8bd; }
+.battle-record, .revealed-traits { max-height: 18rem; overflow: auto; padding-left: 1.4rem; }
+.battle-record li, .revealed-traits li { margin-block: .55rem; }
+.final-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .6rem; }
+.final-stats dt { font-size: .8rem; text-transform: capitalize; }
+.final-stats dd { margin: .2rem 0; color: #d9c18e; }
+.autopsy { margin: 1rem 0; padding: .9rem; border: 1px solid #79663f; background: #131c12; }
+.autopsy h3 { color: #dfc991; }
+.round-results { padding-left: 1.5rem; }
+@media (max-width: 640px) { .battle-stage { padding: .6rem; } .battle-arena { height: 17rem; } .battle-captions { font-size: .77rem; } .battle-health { gap: .5rem; } }
+@media (orientation: landscape) and (max-height: 550px) { .battle-arena { height: 16rem; } }
+@media (prefers-reduced-motion: reduce) { .combatant, .battle-camera { transition: none; transform: none !important; } }
+.combatant { position: relative; }
+.combatant[data-pose="recoil"] { transform: translateX(-3%) rotate(-3deg); }
+.rival-combatant[data-pose="recoil"] { transform: translateX(3%) rotate(3deg); }
+.battle-still .combatant[data-pose] { transform: none; }
+.battle-statuses { position: absolute; inset: 0 0 auto; display: flex; justify-content: center; flex-wrap: wrap; gap: .3rem; padding: .4rem; font-size: .7rem; }
+.battle-statuses span { padding: .3rem .5rem; background: #132513ee; border: 1px solid #7a8c52; border-radius: .2rem; }
+.battle-statuses [data-condition="bleed"] { border-color: #c38b82; }
+.battle-statuses [data-condition="restraint"] { border-color: #baad79; }
+.battle-art-notice { position: absolute; bottom: .4rem; background: #111e11ee; font-size: .7rem; padding: .5rem; border: 1px solid #958954; }
+.battle-art-notice button { padding: .4rem; font-size: .7rem; }

@@ -11,7 +11,7 @@ import { body, exact, failure, alias, operationId, parseAction, PRIVATE_CODE, PU
 import { inject, pullSwitch } from './dna-mechanics.ts';
 import { migrateRoom } from './room-storage.ts';
 import { hash, deriveToken, randomSecret } from './security.ts';
-import { completePublicRound, publicIntent, publicProgress, connectedPlayers, connect, controller, disconnect, expiresAt, livePlayers, newRoom, nextAlarm, requireLive, settle, snapshot, startRound, touch } from './room-model.ts';
+import { completePublicRound, publicIntent, publicProgress, connectedPlayers, connect, controller, disconnect, expiresAt, livePlayers, newRoom, nextAlarm, requireLive, settle, snapshot, startRound, advancePrivate, replayPrivate, touch } from './room-model.ts';
 import type { Seat, StoredRoom } from './room-model.ts';
 
 interface Attachment {
@@ -361,12 +361,14 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
         if (seat.role !== 'player' && action.kind !== 'leave') throw new ServiceError('unauthorized', 'Displays can only synchronize or leave.', 403);
         if (action.kind === 'leave') {
           disconnect(room, seat, now, true); touch(room, now); settle(room, now);
-        } else if (action.kind === 'start-private-session' || action.kind === 'advance-private-round') {
+        } else if (action.kind === 'start-private-session' || action.kind === 'advance-private-round' || action.kind === 'play-again-private') {
           if (room.visibility !== 'private' || room.hostId !== seat.id) throw new ServiceError('unauthorized', 'Only the private laboratory host can start or advance.', 403);
-          if (action.kind === 'start-private-session' && room.phase !== 'lobby') throw new ServiceError('wrong-phase', 'Start requires a lobby.', 409);
+          if (action.kind === 'start-private-session' && room.phase !== 'lobby' && !(room.phase === 'battle' && !room.combat)) throw new ServiceError('wrong-phase', 'Start requires a lobby.', 409);
           if (action.kind === 'advance-private-round' && room.phase !== 'autopsy') throw new ServiceError('wrong-phase', 'Advance requires completed battle results.', 409);
           if (room.round === 3 && action.kind === 'advance-private-round') throw new ServiceError('wrong-phase', 'Session already completed.', 409);
-          startRound(room, now); touch(room, now);
+          if(action.kind==='advance-private-round') advancePrivate(room,action.battleId,now);
+          else if(action.kind==='play-again-private') replayPrivate(room,action.sessionId,now);
+          else { if(room.phase==='battle'){if(connectedPlayers(room).length<2)throw new ServiceError('not-enough-players','At least two connected players are required.',409);room.phase='lobby';room.round=null;}startRound(room,now);touch(room,now); }
         } else if (action.kind === 'next-round-ready' || action.kind === 'public-replay-opt-in') {
           publicIntent(room, seat, action.kind, now);
         } else if (action.kind === 'inject' || action.kind === 'pull-switch') {

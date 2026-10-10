@@ -1,4 +1,4 @@
-# Asset provenance and production (steps 4–5)
+# Asset provenance and production (steps 4–6)
 
 The chamber, starter body/eyes/mouth and 30 mutation modules were produced with the built-in OpenAI image-generation tool on 6 October 2026. They are generated project illustrations, not third-party stock or human-painted artwork. No external reference images were supplied; each request used a written production brief. The tool did not expose its underlying model identifier, so no model name is inferred.
 
@@ -12,7 +12,7 @@ Each transparent module has a calibrated normalized placement within the 600 × 
 
 Every mutation has one produced visual module. Additional authored shape variants are not produced in this milestone. The local renderer draws only the public part list; the server catalogue is never imported. The gallery is a development fixture, not a source of authoritative specimens or hidden DNA previews in the player flow.
 
-All 30 modules were inspected together for style, alpha edges, complete anatomy and recognizable appearances. Runtime attachment combinations can be reviewed at `/art-gallery` with `npm run dev`; this entry is removed from the production bundle. The manifest marks only actual produced files ready. Rival creatures, audio, card frame and bundled fonts remain planned for later milestones. Step 5 specimen-clue production is recorded below.
+All 30 modules were inspected together for style, alpha edges, complete anatomy and recognizable appearances. Runtime attachment combinations can be reviewed at `/art-gallery` with `npm run dev`; this entry is removed from the production bundle. The manifest marks only actual produced files ready. Rival creatures were planned at this baseline and are now produced as recorded below; audio, card frame and bundled fonts remain planned. Step 5 specimen-clue production is recorded below.
 
 ## Rebuild optimized derivatives
 
@@ -45,3 +45,11 @@ Reproduce clues with `python3 scripts/prepare-specimens.py`, then run the normal
 Step 5 draws the existing mutation appearance for each accepted type. Repetition enlarges that layer within a 1–1.3 bound; there are no additional authored shape variants. Logical mechanical ownership and produced drawing attachments remain separate. Candle Flesh over a body-owned Brittle Skeleton uses a translucent, ordered layer so both remain visible. The renderer keeps one scene, drops superseded asynchronous compositions and bounds its texture cache at 16; all 30 accepted appearances and the existing gallery are exercised by browser checks. See the implementation status for current bundle measurements and the distinction between headless rendering and physical-device performance.
 
 At the final step 5 build, Node zlib default compression measured all production JavaScript chunks at **235,413 gzip bytes**, including an **86,040-byte** initial interface chunk; Vite reports about 86.87 KB for that chunk under its own compression. Original raster payloads above are unchanged. These remain file measurements, not physical-device transfer or performance acceptance.
+
+## Step 6 rival sprites
+
+Six transparent sprites were produced during development with the built-in `image_gen.imagegen` tool following the local imagegen skill. No image API, key, paid runtime dependency or new hosting service is used. No third-party reference image was supplied. Exact prompts, tool/origin/date, retained PNG master paths and source/runtime SHA-256 are in [assets/rival-provenance.json](../assets/rival-provenance.json); masters are in [assets/source/rivals](../assets/source/rivals). Generated project outputs remain subject to applicable OpenAI terms; no invented external stock license or ownership guarantee is asserted.
+
+Runtime WebP sprites are in [public/assets/rivals](../public/assets/rivals) with the minimal [rival index](../src/assets/rivals.json). ImageMagick trims transparent margins, fits within 640×640, strips metadata and writes quality-82 WebP; combined runtime bytes are **382,750**. All six derivatives retain an alpha channel. Full-creature rivals use a bottom-center attachment for arena placement; they are not injected anatomy modules. Rebuild from retained masters with `python3 scripts/prepare-rivals.py`. This refreshes measured dimensions/hashes/bytes and the index without regenerating an image.
+
+The new sprites were inspected together for coherent silhouettes, muted flesh/brass palette, lighting, full-body edges and distinction between archetypes, then in the actual combat renderer. Existing 34 creature/chamber records and the definitive mutation proportions/colors were preserved. Only selected rival art loads for a room. The Vite-only `/combat-gallery` uses deterministic authoritative timelines; see [STEP-6-REVIEW.md](STEP-6-REVIEW.md) for actual browser screenshots/contact sheet and remaining physical-device gaps.

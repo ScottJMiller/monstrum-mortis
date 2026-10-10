@@ -1,0 +1,110 @@
+[
+  {
+    "id": "rival.iron-widow",
+    "subject": "Iron Widow: a squat six-legged armored widow-like laboratory monster, immense layered riveted iron carapace, corroded green brass, pale sutured flesh peeking through, tiny severe maternal face, legs wide and firmly grounded.",
+    "source": "assets/source/rivals/iron-widow.png",
+    "prompt": "Use case: stylized-concept. Asset type: production browser game rival sprite, full body isolated cutout. Subject: Iron Widow: a squat six-legged armored widow-like laboratory monster, immense layered riveted iron carapace, corroded green brass, pale sutured flesh peeking through, tiny severe maternal face, legs wide and firmly grounded. Style: sinister decayed Frankenstein-era eldritch anatomical specimen illustration, painterly realistic organic texture, dark comic mutations, coherent readable silhouette and clear attachment seams. Moss olive, bruised muted purple, antique brass, warm pale flesh; upper-left soft laboratory light, deep warm shadows, matching hand-painted grotesque game assets. Three-quarter frontal view facing slightly left, complete creature centered, all feet visible, generous transparent margin, no scenery or floor shadow. Actual transparent background. No text, frame, lettering, watermark, interface, human person or extra creatures. One coherent creature only.",
+    "sourceSha256": "0b7a2174c7ed9521c0c2988791934a791575ec2221a66acd423f528995a4f761",
+    "tool": "Built-in image_gen.imagegen",
+    "origin": "generated",
+    "createdAt": "2026-10-10",
+    "license": "Generated project output; applicable OpenAI terms. No third-party artwork supplied.",
+    "runtime": "public/assets/rivals/iron-widow.webp",
+    "runtimeBytes": 54410,
+    "runtimeSha256": "bb40cbb239fa6e5230f64c643733135eb15690a0fc9714c11e254d85a2ef1550",
+    "runtimeDimensions": [
+      640,
+      427
+    ]
+  },
+  {
+    "id": "rival.gutter-seraph",
+    "subject": "Gutter Seraph: lanky fast humanoid carrion angel, three long jointed bird legs, narrow stitched moss-pale body, two tattered bat wings made from gutters and skin, tiny smug beaked face, forward tilted running stance.",
+    "source": "assets/source/rivals/gutter-seraph.png",
+    "prompt": "Use case: stylized-concept. Asset type: production browser game rival sprite, full body isolated cutout. Subject: Gutter Seraph: lanky fast humanoid carrion angel, three long jointed bird legs, narrow stitched moss-pale body, two tattered bat wings made from gutters and skin, tiny smug beaked face, forward tilted running stance. Style: sinister decayed Frankenstein-era eldritch anatomical specimen illustration, painterly realistic organic texture, dark comic mutations, coherent readable silhouette and clear attachment seams. Moss olive, bruised muted purple, antique brass, warm pale flesh; upper-left soft laboratory light, deep warm shadows, matching hand-painted grotesque game assets. Three-quarter frontal view facing slightly left, complete creature centered, all feet visible, generous transparent margin, no scenery or floor shadow. Actual transparent background. No text, frame, lettering, watermark, interface, human person or extra creatures. One coherent creature only.",
+    "sourceSha256": "86bb01765122f7ec0b475f33b24e5a0c707aaab595d1b783f2d5e3aa91e4455d",
+    "tool": "Built-in image_gen.imagegen",
+    "origin": "generated",
+    "createdAt": "2026-10-10",
+    "license": "Generated project output; applicable OpenAI terms. No third-party artwork supplied.",
+    "runtime": "public/assets/rivals/gutter-seraph.webp",
+    "runtimeBytes": 89402,
+    "runtimeSha256": "05603f53dbb1f7a73082604281ec6c00b3fbbbca5641b4047b11a2a7ea539853",
+    "runtimeDimensions": [
+      600,
+      640
+    ]
+  },
+  {
+    "id": "rival.carrion-duke",
+    "subject": "Carrion Duke: corpulent aristocratic worm-toad monster, swollen olive corpse flesh, stitched regenerating folds, fungal ruff, small comically pompous face, six short strong legs, no clothing, organic medical grotesque.",
+    "source": "assets/source/rivals/carrion-duke.png",
+    "prompt": "Use case: stylized-concept. Asset type: production browser game rival sprite, full body isolated cutout. Subject: Carrion Duke: corpulent aristocratic worm-toad monster, swollen olive corpse flesh, stitched regenerating folds, fungal ruff, small comically pompous face, six short strong legs, no clothing, organic medical grotesque. Style: sinister decayed Frankenstein-era eldritch anatomical specimen illustration, painterly realistic organic texture, dark comic mutations, coherent readable silhouette and clear attachment seams. Moss olive, bruised muted purple, antique brass, warm pale flesh; upper-left soft laboratory light, deep warm shadows, matching hand-painted grotesque game assets. Three-quarter frontal view facing slightly left, complete creature centered, all feet visible, generous transparent margin, no scenery or floor shadow. Actual transparent background. No text, frame, lettering, watermark, interface, human person or extra creatures. One coherent creature only.",
+    "sourceSha256": "c9e48d1bfb9dd3681efb594a64d345f0fd08cfa9d7f1ab81b58dbc3d68867295",
+    "tool": "Built-in image_gen.imagegen",
+    "origin": "generated",
+    "createdAt": "2026-10-10",
+    "license": "Generated project output; applicable OpenAI terms. No third-party artwork supplied.",
+    "runtime": "public/assets/rivals/carrion-duke.webp",
+    "runtimeBytes": 60674,
+    "runtimeSha256": "a44038da06aff7e6ecc11d535fc2b75fe4a55e2af101563959f8db7cce388f63",
+    "runtimeDimensions": [
+      640,
+      431
+    ]
+  },
+  {
+    "id": "rival.coil-saint",
+    "subject": "Coil Saint: upright eldritch stitched amphibian with a spindly insect lower body, antique copper induction coils organically attached to its shoulders, dim cyan electric filaments looping between coils, readable round sad face, dark brass halo.",
+    "source": "assets/source/rivals/coil-saint.png",
+    "prompt": "Use case: stylized-concept. Asset type: production browser game rival sprite, full body isolated cutout. Subject: Coil Saint: upright eldritch stitched amphibian with a spindly insect lower body, antique copper induction coils organically attached to its shoulders, dim cyan electric filaments looping between coils, readable round sad face, dark brass halo. Style: sinister decayed Frankenstein-era eldritch anatomical specimen illustration, painterly realistic organic texture, dark comic mutations, coherent readable silhouette and clear attachment seams. Moss olive, bruised muted purple, antique brass, warm pale flesh; upper-left soft laboratory light, deep warm shadows, matching hand-painted grotesque game assets. Three-quarter frontal view facing slightly left, complete creature centered, all feet visible, generous transparent margin, no scenery or floor shadow. Actual transparent background. No text, frame, lettering, watermark, interface, human person or extra creatures. One coherent creature only.",
+    "sourceSha256": "81be317d7fa344921d15c7531aff399039a4e26d2d01e7297146c3b4cd39ef11",
+    "tool": "Built-in image_gen.imagegen",
+    "origin": "generated",
+    "createdAt": "2026-10-10",
+    "license": "Generated project output; applicable OpenAI terms. No third-party artwork supplied.",
+    "runtime": "public/assets/rivals/coil-saint.webp",
+    "runtimeBytes": 58634,
+    "runtimeSha256": "b88b8d1d42262ae5a7b5eb6857ef3c97eec7edff6a18075e0086d1945267e3f1",
+    "runtimeDimensions": [
+      426,
+      640
+    ]
+  },
+  {
+    "id": "rival.maw-engine",
+    "subject": "Maw Engine: low huge four-legged pale olive creature built around a single enormous circular toothed maw with antique rusted jaw hinges, broad heavy forequarters, tiny eyes above the mouth, spine of corroded mechanical pistons.",
+    "source": "assets/source/rivals/maw-engine.png",
+    "prompt": "Use case: stylized-concept. Asset type: production browser game rival sprite, full body isolated cutout. Subject: Maw Engine: low huge four-legged pale olive creature built around a single enormous circular toothed maw with antique rusted jaw hinges, broad heavy forequarters, tiny eyes above the mouth, spine of corroded mechanical pistons. Style: sinister decayed Frankenstein-era eldritch anatomical specimen illustration, painterly realistic organic texture, dark comic mutations, coherent readable silhouette and clear attachment seams. Moss olive, bruised muted purple, antique brass, warm pale flesh; upper-left soft laboratory light, deep warm shadows, matching hand-painted grotesque game assets. Three-quarter frontal view facing slightly left, complete creature centered, all feet visible, generous transparent margin, no scenery or floor shadow. Actual transparent background. No text, frame, lettering, watermark, interface, human person or extra creatures. One coherent creature only.",
+    "sourceSha256": "5eb767af701eba37b5350ac7bba363ecc59f729753702ee1b9ddb2b06f3e5065",
+    "tool": "Built-in image_gen.imagegen",
+    "origin": "generated",
+    "createdAt": "2026-10-10",
+    "license": "Generated project output; applicable OpenAI terms. No third-party artwork supplied.",
+    "runtime": "public/assets/rivals/maw-engine.webp",
+    "runtimeBytes": 64524,
+    "runtimeSha256": "b58667bbca2428c3ec3d6ddbc156df87868ea6bc6f11a369e9e0b6efcfad97cb",
+    "runtimeDimensions": [
+      640,
+      427
+    ]
+  },
+  {
+    "id": "rival.the-unfinished",
+    "subject": "The Unfinished: asymmetric grotesque Frankenstein specimen, mismatched olive pallid stitched body halves, one stubby claw and one long arm, two differently sized eyes, delicate antenna and extra dangling comically small leg, nervous unstable posture.",
+    "source": "assets/source/rivals/the-unfinished.png",
+    "prompt": "Use case: stylized-concept. Asset type: production browser game rival sprite, full body isolated cutout. Subject: The Unfinished: asymmetric grotesque Frankenstein specimen, mismatched olive pallid stitched body halves, one stubby claw and one long arm, two differently sized eyes, delicate antenna and extra dangling comically small leg, nervous unstable posture. Style: sinister decayed Frankenstein-era eldritch anatomical specimen illustration, painterly realistic organic texture, dark comic mutations, coherent readable silhouette and clear attachment seams. Moss olive, bruised muted purple, antique brass, warm pale flesh; upper-left soft laboratory light, deep warm shadows, matching hand-painted grotesque game assets. Three-quarter frontal view facing slightly left, complete creature centered, all feet visible, generous transparent margin, no scenery or floor shadow. Actual transparent background. No text, frame, lettering, watermark, interface, human person or extra creatures. One coherent creature only.",
+    "sourceSha256": "e9c75fcab1d5d250509a32c6a091d0f44ea1d10eb62ae51fb1cb67e73c918f1c",
+    "tool": "Built-in image_gen.imagegen",
+    "origin": "generated",
+    "createdAt": "2026-10-10",
+    "license": "Generated project output; applicable OpenAI terms. No third-party artwork supplied.",
+    "runtime": "public/assets/rivals/the-unfinished.webp",
+    "runtimeBytes": 55106,
+    "runtimeSha256": "17dd33cda4a0fa0f5a1589b9e2d905739860fb84b0be4a3fb5dd34e9a3a00e12",
+    "runtimeDimensions": [
+      423,
+      640
+    ]
+  }
+]

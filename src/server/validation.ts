@@ -36,7 +36,11 @@ export function parseAction(value: unknown): ClientAction {
       exact(v, [...base, 'afterRevision']);
       if (!Number.isSafeInteger(v.afterRevision) || (v.afterRevision as number) < 0) throw new ServiceError('invalid-action', 'Invalid revision.');
       break;
-    case 'start-private-session': case 'advance-private-round': case 'leave': case 'next-round-ready': case 'public-replay-opt-in':
+    case 'advance-private-round':
+      exact(v, [...base, 'battleId']); operationId(v.battleId); break;
+    case 'play-again-private':
+      exact(v, [...base, 'sessionId']); operationId(v.sessionId); break;
+    case 'start-private-session': case 'leave': case 'next-round-ready': case 'public-replay-opt-in':
       exact(v, base); break;
     case 'pull-switch':
       exact(v, [...base, 'attemptId']);

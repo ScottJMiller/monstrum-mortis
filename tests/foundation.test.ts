@@ -39,10 +39,10 @@ test('planned assets never advertise a completed URL', () => {
   }
 });
 
-test('health distinguishes missing bindings without claiming gameplay readiness', () => {
+test('health distinguishes missing bindings reports implemented combat but distinguishes the unfinished full release', () => {
   const absent = createHealth({});
   assert.deepEqual(Object.values(absent.configuredBindings), [false, false, false, false]);
   const configured = createHealth({ ASSETS: {}, ROOMS: {}, MATCHMAKING: {}, GUEST_LEASES: {} });
   assert.deepEqual(Object.values(configured.configuredBindings), [true, true, true, true]);
-  assert.equal(configured.gameplayAvailable, false);
+  assert.equal(configured.gameplayAvailable, true); assert.equal(configured.combatAvailable, true); assert.equal(configured.fullReleaseAvailable, false);
 });

@@ -1,7 +1,7 @@
 /** Change rulesVersion when gameplay defaults change. Server is authoritative. */
 export const GAME_RULES = {
   schemaVersion: 1,
-  rulesVersion: '0.2.0',
+  rulesVersion: '0.3.0',
   minPlayers: 2,
   maxPlayers: 8,
   roundsPerSession: 3,

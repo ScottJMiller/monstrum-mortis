@@ -55,7 +55,7 @@ To test locally, start `npm run dev:worker` and then `npm run dev` in separate t
 curl http://localhost:8787/api/health
 ```
 
-The local step 5 tree returns `stage: dna-mechanics`, `protocolVersion: 4`, `rulesVersion: 0.2.0`, `roomServiceAvailable: true`, `matchmakingAvailable: true`, `mechanicsAvailable: true`, `combatAvailable: false`, `gameplayAvailable: false`, and all four configured bindings true. The user-reported deployed steps 1–4 tree remains at protocol 3/rules 0.1.0 until a separately authorized publication; this session has not queried or changed that origin. Health remains a wiring/capability check, not multiplayer evidence.
+The local step 6 tree returns `stage: automatic-combat`, `protocolVersion: 5`, `rulesVersion: 0.3.0`, room/matchmaking/DNA/combat available, `gameplayAvailable: true` for core three-round play, and `fullReleaseAvailable: false` because cards/audio/final acceptance remain later stages. All four configured bindings remain unchanged. The user reported deployed step 5; this session has not queried or changed that origin. Health is a wiring/capability check, not multiplayer or deployed access evidence.
 
 Use `npm run test:step5` for the local service, DNA, actual browser and art regressions, or the focused commands in README. The harnesses use isolated SQLite and independent clients. Neither the tests nor the dry run publishes anything.
 
@@ -67,7 +67,7 @@ After confirming the selected account, Worker name, and free plan:
 npm run deploy
 ```
 
-Wrangler builds the app, uploads the Worker and assets, registers its SQLite-backed namespaces, and prints the actual workers.dev URL. Open that URL and `/api/health`. Expect the screen and health stage for the milestone being published. The local step 5 tree exposes real DNA controls and stops at the frozen creature boundary; combat remains step 6. Active legacy experiments remain service-only on migration, preserving deadlines; start a new laboratory to use DNA. Old protocol clients must reload while retaining their reconnect credentials. After a separately authorized publication, test actual private storage/WebSocket operations and the new milestone behavior from separate browser profiles and devices on that origin; the health result alone is insufficient.
+Wrangler builds the app, uploads the Worker and assets, registers its SQLite-backed namespaces, and prints the actual workers.dev URL. Open that URL and `/api/health`. Expect the screen and health stage for the milestone being published. The local step 6 tree adds actual seeded combat/results and three-round sessions. Existing schema-4 attempts keep their frozen pre-combat boundary without a retroactive rival; start a fresh combat session. Schema-2/3 migration preserves its service-only behavior. Old protocol clients must reload while retaining their reconnect credentials. After a separately authorized publication, test actual private storage/WebSocket operations and the new milestone behavior from separate browser profiles and devices on that origin; the health result alone is insufficient.
 
 In Workers & Pages, inspect this Worker and its bindings. Keep the Worker on the free plan, and inspect usage as testing expands. Free quotas are limits, not unlimited public matchmaking capacity; exceeding a quota can interrupt operations. Do not choose a paid upgrade just to make a failed configuration deploy.
 

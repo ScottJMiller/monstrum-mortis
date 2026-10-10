@@ -2,9 +2,9 @@
 
 A cooperative browser party game for 2–8 players. Remote-first Quick Play matchmaking, private invitation rooms, and an optional shared TV display. The approved design is in [docs/APPROVED-PLAN.md](docs/APPROVED-PLAN.md).
 
-Current local milestone: **step 5, DNA/mutation/release mechanics**, implemented under the [plan approved on 7 October 2026](docs/STEP-5-PLAN.md). Players select private specimens and inject into one shared creature, with six doses, six-second cooldowns, all 30 mutations and a deliberate release switch. The service freezes the creature at the battle boundary: **“Creature released. Prepare for combat!”** Combat is unavailable; this milestone cannot complete a game or generate results/cards.
+Current local milestone: **step 6, automatic combat and three-round sessions**, authorized on 10 October 2026 after the user declared step 5 complete. The six rivals have real artwork. Server-owned DNA/release now leads to seeded automatic battles, autopsies, team score and the six personal commendations. Private hosts advance/replay; public sessions retain timed readiness and explicit regroup. [Step 6 decisions and verification scope](docs/STEP-6-PLAN.md).
 
-The user confirmed steps 1–4 complete, pushed and deployed at https://monstrum-mortis.scott-jeffrey-miller.workers.dev, steps 1–3 tested on multiple devices, and step 4 presentation reviewed. Step 5 has been verified locally; it has not been deployed by this session. Deployment and step 6+ require a new instruction.
+Steps 1–5 are user-confirmed complete; the user previously reported deployment of step 5 at https://monstrum-mortis.scott-jeffrey-miller.workers.dev. This session does not publish step 6. Cards/cabinet, audio/signals and final acceptance remain later stages; do not deploy or implement step 7+ without instruction.
 
 ## Work locally
 
@@ -16,7 +16,7 @@ npm run check
 npm run build
 ```
 
-The manifest records installer approvals for the exact locked esbuild/workerd versions. `npm fund` lists optional sponsorship links. For dependency findings, inspect `npm audit` before changing versions; avoid `npm audit fix --force`, which can replace the pinned Cloudflare toolchain. A scoped Miniflare → Sharp 0.35.5 override resolves the recorded librsvg advisory while keeping Wrangler 4.147.0. See the dependency follow-up in [implementation status](docs/IMPLEMENTATION-STATUS.md).
+The manifest records installer approvals for the exact locked esbuild/workerd versions. `npm fund` lists optional sponsorship links. For dependency findings, inspect `npm audit` before changing versions; avoid `npm audit fix --force`, which can replace the pinned Cloudflare toolchain. A scoped Miniflare → Sharp 0.35.5 override resolves the recorded librsvg advisory while keeping the pinned Cloudflare toolchain (currently Wrangler 4.149.0). See the dependency follow-up in [implementation status](docs/IMPLEMENTATION-STATUS.md).
 
 Start the Worker in one terminal after the first build:
 
@@ -41,7 +41,7 @@ npm run test:rooms
 npm run test:matchmaking
 ```
 
-See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for API contracts, version compatibility and the frozen step 5 boundary.
+See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for API contracts, protocol-5/schema-5 compatibility, combat and progression.
 
 ## Layout
 
@@ -50,9 +50,9 @@ See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for API contracts, version comp
 | `src/client/` | React views and per-device controls |
 | `src/shared/` | Public contracts, message types, versioned rules |
 | `src/server/` | Authoritative Worker and Durable Object classes |
-| `src/server/catalogue/` | Hidden DNA definitions and rival design records |
+| `src/server/catalogue/` | Hidden DNA definitions and versioned executable combat/rival tables |
 | `src/assets/` | Versioned asset production manifest |
-| `public/assets/` | Produced chamber, creature layers and original specimen clues |
+| `public/assets/` | Produced chamber, creature layers, rival sprites and original specimen clues |
 | `tests/` | Foundation invariants, deterministic room tests and independent-client runtime verification |
 | `docs/` | Approved plan, setup guidance, implementation status |
 | `wrangler.json` | Cloudflare deployment and SQLite-backed bindings |
@@ -81,6 +81,10 @@ Open this directory in VS Code with the official Codex extension. Begin with [do
 | `npm run test:dna` | Private draws, concurrent/replayed injections, scaling, release and persisted mechanics |
 | `npm run test:dna-browser` | Actual trays/switches, pending reload, all 30 rendered mutations and public browser clients |
 | `npm run test:composition` | Development-only authoritative creature gallery, all 30 art modules, responsive/static screenshot checks |
+| `npm run test:combat` | Independent battle clients, reactivation/restart and full sessions, plus seeded simulation |
+| `npm run test:combat-browser` | Actual combat/results controls, responsive/accessibility/screenshots and rival gallery |
+| `npm run simulate:combat` | 4,536 seeded bounded calibration cases; local Node timings only |
+| `npm run test:step6` | All step 5 regressions plus combat runtime/browser, composition and simulations |
 | `npm run test:step5` | Checks/build/dry run, all service runtime suites, DNA/presentation/art browser checks |
 | `npm run build` | Build the client |
 | `npm run deploy:dry` | Run checks, build, and validate the Worker bundle without publishing |
@@ -92,7 +96,7 @@ Never commit `.env`, `.dev.vars`, tokens, or login files. Only template files be
 
 ## Step 4 presentation and art review
 
-The approved laboratory presentation is implemented and user-confirmed deployed: real chamber/starter artwork, all 30 mutation appearance modules, responsive controller/TV views, motion settings and artwork-loading recovery. Step 5 connects these layers to authoritative mutations; combat remains unavailable. Production keeps the existing room/matchmaking/session service and does not expose the development art controls.
+The approved laboratory presentation is implemented and user-confirmed deployed: real chamber/starter artwork, all 30 mutation appearance modules, responsive controller/TV views, motion settings and artwork-loading recovery. Step 5 connects these layers to authoritative mutations; step 6 reuses the same calibrated anatomy for combat. Production keeps the existing room/matchmaking/session service and does not expose the development art controls.
 
 With Node 24:
 
@@ -106,4 +110,8 @@ npm run dev
 
 Visit `/art-gallery` on the Vite development origin to review individual modules and combinations. Start `npm run dev:worker` as well for actual local room/queue behavior. See [asset provenance](docs/ASSET-PROVENANCE.md) for source files/prompts/optimization and [implementation status](docs/IMPLEMENTATION-STATUS.md) for actual checks, user-reported deployment confirmation and physical-device/accessibility/performance limitations.
 
-Creature assembly was refined within step 5: body-relative sockets, actual pivots, outward limbs, protected facial areas, the definitive user contact sheet, half-opacity isolated lungs and original-part body assemblies calibrated to the higher-resolution sheet, and a single-triangle chamber seal. See [the composition review and screenshots](docs/CREATURE-COMPOSITION-REVIEW.md). Run `npm run test:composition` in addition to the existing step 5 regression suite. No deployment or step 6 work is included.
+Creature assembly was refined within step 5: body-relative sockets, actual pivots, outward limbs, protected facial areas, the definitive user contact sheet, half-opacity isolated lungs and original-part body assemblies calibrated to the higher-resolution sheet, and a single-triangle chamber seal. See [the composition review and screenshots](docs/CREATURE-COMPOSITION-REVIEW.md). Run `npm run test:composition` in addition to the existing step 5 regression suite. The refinement remains unchanged by step 6; no deployment is included.
+
+## Step 6 review
+
+Run `npm run test:step6` for the full local suite. `npm run dev` exposes `/combat-gallery` for six authoritative battle fixtures; `node scripts/prepare-combat-fixtures.mjs` regenerates them. Both galleries are excluded from production. Local runtime/browser checks cannot establish physical-device performance, deployed combat behavior or free-tier quota use. See the latest implementation status and [step 6 review](docs/STEP-6-REVIEW.md).

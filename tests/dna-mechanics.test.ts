@@ -129,7 +129,7 @@ test('legacy schema migration preserves credentials/deadlines and leaves active 
   for (const schemaVersion of [2, 3]) for (const phase of ['lobby', 'briefing', 'experiment', 'release', 'battle'] as const) {
     const r = fixture(); const deadline = r.phaseDeadlineMs; const raw = JSON.parse(JSON.stringify(r));
     raw.schemaVersion = schemaVersion; raw.phase = phase; delete raw.experiment;
-    const migrated = migrateRoom(raw); assert.equal(migrated.schemaVersion, 4); assert.equal(migrated.seats[0]!.tokenHash, 'secret'); assert.equal(migrated.phaseDeadlineMs, deadline);
+    const migrated = migrateRoom(raw); assert.equal(migrated.schemaVersion, 5); assert.equal(migrated.seats[0]!.tokenHash, 'secret'); assert.equal(migrated.phaseDeadlineMs, deadline);
     assert.equal(migrated.experiment !== null, phase === 'briefing'); assert.equal(migrated.seats[0]!.tray!.length, 0);
   }
   const r = fixture(); const persisted = migrateRoom(JSON.parse(JSON.stringify(r))); assert.deepEqual(persisted, r);
@@ -208,16 +208,15 @@ test('real participation counters feed public inactivity/ready hooks and the nex
   inject(r, r.seats[0]!, priorAttempt, r.seats[0]!.tray![0]!.specimenId, uid(), 8000);
   assert.equal(r.seats[0]!.interactedThisRound, true); assert.equal(r.seats[0]!.injectionsThisRound, 1);
   settle(r, 88000); assert.equal(r.phase, 'battle');
-  // Trusted completion fixture only; no production combat or browser outcome producer.
-  completePublicRound(r, r.publicState.sessionId, uid(), 'draw', 88000);
+  const finishAt = r.phaseDeadlineMs!; settle(r, finishAt);
   assert.deepEqual(snapshot(r, 88000).players.map(s => s.inactivityPrompt), [false, true]);
-  publicIntent(r, r.seats[1]!, 'next-round-ready', 88001);
-  settle(r, 113000); assert.equal(r.phase, 'briefing'); assert.notEqual(r.experiment!.id, priorAttempt);
+  publicIntent(r, r.seats[1]!, 'next-round-ready', finishAt + 1);
+  settle(r, finishAt + 25000); assert.equal(r.phase, 'briefing'); assert.notEqual(r.experiment!.id, priorAttempt);
   assert.deepEqual(r.experiment!.history, []); assert.deepEqual(effectiveCreature(r.experiment!).stats, BASE_STATS);
-  settle(r, 121000); assert.equal(r.phase, 'experiment');
+  settle(r, finishAt + 33000); assert.equal(r.phase, 'experiment');
   assert.ok(r.seats.every(s => !s.departed && s.remainingDoses === 6 && s.injectionsThisRound === 0 && !s.switchPulled));
   assert.ok(r.seats.flatMap(s => s.tray!).every(c => !priorSpecimens.includes(c.specimenId)));
-  code(() => inject(r, r.seats[0]!, priorAttempt, r.seats[0]!.tray![0]!.specimenId, uid(), 121000), 'stale-session');
+  code(() => inject(r, r.seats[0]!, priorAttempt, r.seats[0]!.tray![0]!.specimenId, uid(), finishAt + 33000), 'stale-session');
 });
 
 test('switch at the exact experiment deadline rejects and cannot replace a deadline freeze', () => {

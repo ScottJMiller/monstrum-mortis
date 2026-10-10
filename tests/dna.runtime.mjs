@@ -16,7 +16,7 @@ async function api(path,value,credentials,expected=200) { const response=await f
 async function view(e) { return api(`/api/rooms/${e.credentials.roomId}/snapshot`,undefined,e.credentials); }
 async function socket(e) {
  const url=new URL(`/api/rooms/${e.credentials.roomId}/socket`,origin);url.protocol='ws:';
- const ws=new WebSocket(url,['mm-v4',`token.${e.credentials.reconnectToken}`]);const messages=[];
+ const ws=new WebSocket(url,['mm-v5',`token.${e.credentials.reconnectToken}`]);const messages=[];
  ws.addEventListener('message',event=>{if(event.data!=='pong')messages.push(JSON.parse(event.data));});
  await new Promise((resolve,reject)=>{ws.addEventListener('open',resolve,{once:true});ws.addEventListener('error',reject,{once:true});});
  const timer=setInterval(()=>{if(ws.readyState===WebSocket.OPEN)ws.send('ping');},10000);
@@ -81,7 +81,7 @@ try {
  assert.equal((await two.send(lastSwitch)).kind,'action-accepted');assert.deepEqual((await record(id)).experiment.frozen,frozen);
  assert.equal((await two.send(action('inject',{attemptId,specimenId:spent.controller.tray[0].specimenId}))).code,'wrong-phase');
  await wait(()=>view(entries[1]),v=>v.snapshot.phase==='battle',7000);assert.deepEqual((await record(id)).experiment.frozen,frozen);assert.equal((await view(entries[1])).snapshot.teamScore,0);
- pass('six doses do not auto-switch; dose forfeiture, duplicate final switch, one real five-second release and immutable combat-pending boundary pass');
+ pass('six doses do not auto-switch; dose forfeiture, duplicate final switch, one real five-second release and immutable released-creature boundary pass');
  const types=await laboratory(2);let lastSequence=0;
  for(const definition of DNA_CATALOGUE){if(lastSequence===15)await sleep(10010);await edit(types.id,r=>{const s=r.seats[0];s.remainingDoses=6;s.drawCursor=0;s.nextInjectionAtMs=0;s.tray[0].dnaId=definition.id;});const v=await view(types.entries[0]);const result=await types.sockets[0].send(action('inject',{attemptId:v.snapshot.attemptId,specimenId:v.controller.tray[0].specimenId}));assert.equal(result.kind,'action-accepted');const changed=await view(types.entries[1]);assert.equal(changed.snapshot.mutations.at(-1).name,definition.autopsyName);assert.equal(changed.snapshot.mutations.length,++lastSequence);assert.ok(changed.snapshot.creature.parts.some(p=>p.assetId===`mutation.${definition.id}`));}
  assert.equal((await record(types.id)).experiment.history.length,30);
@@ -89,7 +89,7 @@ try {
  for(let n=2;n<=8;n++){const lab=await laboratory(n);const v=await view(lab.entries[0]);assert.equal(v.snapshot.playerCountAtExperimentStart,n);await edit(lab.id,r=>{r.seats[0].tray[0].dnaId='venom-glands';});assert.equal((await lab.sockets[0].send(action('inject',{attemptId:v.snapshot.attemptId,specimenId:v.controller.tray[0].specimenId}))).kind,'action-accepted');const r=await record(lab.id);const units=r.experiment.active.mouth.contributions[0].units;assert.equal(units,2/n);assert.equal(r.seats[0].remainingDoses,5);for(let i=1;i<n;i++)assert.deepEqual((await view(lab.entries[i])).snapshot.creature,(await view(lab.entries[0])).snapshot.creature);}
  pass('2–8 actual independent client cohorts lock N and receive identical normalized accepted anatomy');
  const legacy=await laboratory(2);const original=await record(legacy.id);
- for(const schemaVersion of [2,3]){await edit(legacy.id,r=>{r.schemaVersion=schemaVersion;delete r.experiment;});const migrated=await view(legacy.entries[0]);assert.equal(migrated.snapshot.mechanicsAvailable,false);assert.equal(migrated.controller.tray.length,0);assert.equal(migrated.snapshot.phaseDeadlineMs,original.phaseDeadlineMs);assert.equal((await record(legacy.id)).schemaVersion,4);}
+ for(const schemaVersion of [2,3]){await edit(legacy.id,r=>{r.schemaVersion=schemaVersion;delete r.experiment;});const migrated=await view(legacy.entries[0]);assert.equal(migrated.snapshot.mechanicsAvailable,false);assert.equal(migrated.controller.tray.length,0);assert.equal(migrated.snapshot.phaseDeadlineMs,original.phaseDeadlineMs);assert.equal((await record(legacy.id)).schemaVersion,5);}
  const bad=await record(legacy.id);await edit(legacy.id,r=>{r.schemaVersion=99;});await api(`/api/rooms/${legacy.id}/snapshot`,undefined,legacy.entries[0].credentials,503);await edit(legacy.id,r=>Object.assign(r,bad));
  pass('real schema-2/3 migrations preserve credentials and active deadlines without retroactive doses; unknown schemas fail closed');
  const pending=await view(types.entries[0]);const priorAttempt=pending.snapshot.attemptId;
@@ -100,5 +100,5 @@ try {
  let limited;
  for(let i=0;i<35;i++){const intent=action('pull-switch',{attemptId:priorAttempt});limited=await types.sockets[0].send(intent);assert.equal(limited.actionId,intent.actionId);}
  assert.equal(limited.code,'rate-limited');pass('rate-limited valid intentions retain their action ID so pending controllers can recover');
- console.log(`All ${passed} DNA runtime scenarios passed. Fixtures only seed isolated test storage; no deployment or combat producer.`);
+ console.log(`All ${passed} DNA runtime scenarios passed. Fixtures only seed isolated test storage; no deployment; browser rendering is verified separately.`);
 } finally {for(const c of clients)c.close();await mf.dispose();await rm(persistence,{recursive:true,force:true});}

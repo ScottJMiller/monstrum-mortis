@@ -23,10 +23,10 @@ async function socket(path, protocols) {
  ws.addEventListener('message',e=>{ if(e.data!=='pong') messages.push(JSON.parse(e.data)); });
  await new Promise((resolve,reject)=>{ws.addEventListener('open',resolve,{once:true});ws.addEventListener('error',reject,{once:true});});
  const timer=setInterval(()=>{if(ws.readyState===WebSocket.OPEN) ws.send('ping');},10000);
- const c={ws,messages,close(){clearInterval(timer);ws.close();},async send(kind) {const actionId=uid();ws.send(JSON.stringify({protocolVersion:4,actionId,kind}));return wait(async()=>messages.find(m=>m.actionId===actionId),Boolean,5000);}};
+ const c={ws,messages,close(){clearInterval(timer);ws.close();},async send(kind) {const actionId=uid();ws.send(JSON.stringify({protocolVersion:5,actionId,kind}));return wait(async()=>messages.find(m=>m.actionId===actionId),Boolean,5000);}};
  clients.push(c); return c;
 }
-async function roomSocket(entry) { return socket(`/api/rooms/${entry.credentials.roomId}/socket`,['mm-v4',`token.${entry.credentials.reconnectToken}`]); }
+async function roomSocket(entry) { return socket(`/api/rooms/${entry.credentials.roomId}/socket`,['mm-v5',`token.${entry.credentials.reconnectToken}`]); }
 async function snap(e) {return (await api(`/api/rooms/${e.credentials.roomId}/snapshot`,null,null,200,e.credentials)).snapshot;}
 async function inspect(className, id) {return mf.unsafeGetDurableObjectStorage('monstrum-mortis', className, {id});}
 async function editRoom(roomId, edit) {
@@ -46,7 +46,7 @@ try {
  const replay=await api('/api/queue/americas/enter',{operationId:first.id,mode:'fresh-session'},g); assert.equal(replay.enteredAtMs,first.status.enteredAtMs);
  await api('/api/rooms/private',{operationId:uid(),alias:'Guest',presentation:'remote'},g,409);
  await api('/api/queue/americas/enter',{operationId:first.id,mode:'fill-existing-laboratory'},g,409);
- const qsocket=await socket(`/api/queue/americas/socket?ticketId=${first.id}`,['mm-queue-v4',`guest.${g.guestId}`,`token.${g.accessToken}`]);
+ const qsocket=await socket(`/api/queue/americas/socket?ticketId=${first.id}`,['mm-queue-v5',`guest.${g.guestId}`,`token.${g.accessToken}`]);
  checked('guest issuance replay, authored identity, authorization, duplicate ticket and cross-pool/private-seat exclusion');
  const group=[first];for(let i=0;i<3;i++) group.push(await enter(await createGuest()));
  const check=await status(first);assert.equal(check.state,'ready-check');assert.equal(check.readyDeadlineMs-check.serverTimeMs<=10000,true);
@@ -84,7 +84,7 @@ try {
  await api('/api/queue/asia-pacific/enter',{operationId:uid(),mode:'fresh-session'},first.g,409);
  checked('single-owner admissions, consumed-admission cancellation, hostless start, real eight-second briefing and no fresh mid-session entry');
  const roomId=entries[0].credentials.roomId;const sessionId=experiment.publicSession.sessionId;
- const room=await editRoom(roomId,r=>{r.phase='battle';r.phaseDeadlineMs=null;});
+ const room=await editRoom(roomId,r=>{r.phase='battle';r.phaseDeadlineMs=null;r.combat=null;});
  const completion=uid();assert.equal((await room.finishPublicBattle(sessionId,completion,'victory')).ok,true);
  assert.equal((await room.finishPublicBattle(sessionId,completion,'victory')).ok,true);
  const results=await snap(entries[0]);assert.equal(results.teamScore,100);assert.equal(results.phase,'autopsy');
@@ -119,7 +119,7 @@ try {
  await enter(expiredGuests[0],'asia-pacific');
  checked('atomic fresh cross-pool claim race, cancellation-before-transfer fence and stale release cannot clear a new claim');
  // Seed only the future battle producer boundary; execute real result/replay intents and room synchronization.
- const rc3=await roomSocket(replacement);let progressed=await editRoom(roomId,r=>{r.phase='battle';r.phaseDeadlineMs=null;r.round=3;});
+ const rc3=await roomSocket(replacement);let progressed=await editRoom(roomId,r=>{r.phase='battle';r.phaseDeadlineMs=null;r.combat=null;r.round=3;});
  assert.equal((await progressed.finishPublicBattle(sessionId,uid(),'draw')).ok,true);assert.equal((await snap(entries[1])).phase,'session-results');
  assert.equal((await rc2.send('public-replay-opt-in')).kind,'action-accepted');assert.equal((await rc3.send('public-replay-opt-in')).kind,'action-accepted');
  await editRoom(roomId,r=>{r.phaseDeadlineMs=Date.now()-1;});const replayed=await snap(entries[1]);assert.equal(replayed.phase,'briefing');assert.equal(replayed.round,1);assert.equal(replayed.teamScore,0);assert.notEqual(replayed.publicSession.sessionId,sessionId);

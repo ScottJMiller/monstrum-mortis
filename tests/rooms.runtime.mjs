@@ -28,12 +28,12 @@ async function api(path, value, credentials, expected = 200) {
   assert.equal(response.status, expected, JSON.stringify(data)); return data;
 }
 const uid = () => crypto.randomUUID();
-const action = kind => ({ protocolVersion: 4, actionId: uid(), kind });
+const action = kind => ({ protocolVersion: 5, actionId: uid(), kind });
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 async function client(credentials, replace = false) {
   const url = new URL(`/api/rooms/${credentials.roomId}/socket`, origin); url.protocol = 'ws:';
   if (replace) url.searchParams.set('replace', '1');
-  const ws = new WebSocket(url, ['mm-v4', `token.${credentials.reconnectToken}`]);
+  const ws = new WebSocket(url, ['mm-v5', `token.${credentials.reconnectToken}`]);
   const messages = []; ws.addEventListener('message', event => { if (event.data !== 'pong') messages.push(JSON.parse(event.data)); });
   await new Promise((resolve, reject) => { ws.addEventListener('open', resolve, { once: true }); ws.addEventListener('error', reject, { once: true }); });
   const timer = setInterval(() => { if (ws.readyState === WebSocket.OPEN) ws.send('ping'); }, 10_000);
@@ -56,7 +56,7 @@ function checked(message) { passed++; console.log(`PASS ${passed}: ${message}`);
 function copyGrants(result, n) { return { ok: result.ok, value: Array.from({ length: n }, (_, i) => ({ reservationId: result.value[i].reservationId, guestId: result.value[i].guestId, admissionToken: result.value[i].admissionToken, expiresAtMs: result.value[i].expiresAtMs })) }; }
 try {
   origin = await mf.ready;
-  const health = await api('/api/health'); assert.equal(health.stage, 'dna-mechanics'); assert.equal(health.gameplayAvailable, false);
+  const health = await api('/api/health'); assert.equal(health.stage, 'automatic-combat'); assert.equal(health.gameplayAvailable, true);
   const create = { operationId: uid(), alias: 'Host', presentation: 'remote' };
   const first = await api('/api/rooms/private', create, undefined, 201);
   const repeated = await api('/api/rooms/private', create, undefined, 201);
@@ -96,7 +96,7 @@ try {
   await sleep(150);
   assert.equal(host.messages.filter(m => m.kind === 'action-accepted' && m.actionId === start.actionId).length, 2);
   assert.equal((await snapshot(first.credentials)).revision, revision);
-  host.ws.send(JSON.stringify({ ...start, kind: 'advance-private-round' }));
+  host.ws.send(JSON.stringify({ ...start, kind: 'advance-private-round', battleId: uid() }));
   await host.wait(m => m.actionId === start.actionId && m.code === 'idempotency-conflict');
   const forged = { ...action('start-private-session'), playerId: first.credentials.sessionId, phase: 'autopsy' };
   host.ws.send(JSON.stringify(forged)); await host.wait(m => m.code === 'invalid-action');
@@ -107,7 +107,7 @@ try {
   checked('host/display authorization, replay-safe actions, conflict detection and snapshot privacy');
 
   const duplicateUrl = new URL(`/api/rooms/${roomId}/socket`, origin);
-  const denied = await mf.dispatchFetch(duplicateUrl, { headers: { Upgrade: 'websocket', 'Sec-WebSocket-Protocol': `mm-v4, token.${first.credentials.reconnectToken}` } });
+  const denied = await mf.dispatchFetch(duplicateUrl, { headers: { Upgrade: 'websocket', 'Sec-WebSocket-Protocol': `mm-v5, token.${first.credentials.reconnectToken}` } });
   assert.equal(denied.status, 409);
   const replacement = await client(first.credentials, true);
   await sleep(100); assert.equal(host.ws.readyState, WebSocket.CLOSED);
@@ -187,7 +187,7 @@ try {
     const revisions = c.messages.filter(m => m.kind === 'room-snapshot').map(m => m.snapshot.revision);
     assert.deepEqual(revisions, [...revisions].sort((a, b) => a - b));
   }
-  checked('real briefing, experiment and release alarms synchronize every client and stop at the combat boundary');
+  checked('real briefing, experiment and release alarms synchronize every client and enter the authoritative combat timeline');
 
   for (const c of clients) c.close(); await sleep(300);
   const persisted = await snapshot(waitingEntry.credentials);
@@ -206,7 +206,7 @@ try {
   await db.exec('UPDATE room_state SET record = ? WHERE singleton = 1', JSON.stringify(legacy));
   const migrated = await snapshot(waitingEntry.credentials); assert.equal(migrated.phase, 'battle');
   assert.equal(migrated.players.find(p => p.playerId === waitingEntry.credentials.sessionId).alias, legacy.seats.find(s => s.id === waitingEntry.credentials.sessionId).alias);
-  assert.equal(JSON.parse((await db.exec('SELECT record FROM room_state'))[0].record).schemaVersion, 4);
+  assert.equal(JSON.parse((await db.exec('SELECT record FROM room_state'))[0].record).schemaVersion, 5);
   checked('runtime restart retains phase, roster, hashed tokens and receipts; schema-2 private room migrates preserving credentials');
 
   const expiredRoomId = `p-${uid()}`; const expiredStub = (await mf.getBindings()).ROOMS.get((await mf.getBindings()).ROOMS.idFromName(`room:${expiredRoomId}`));

@@ -26,7 +26,7 @@ test('ready artwork exists with source, provenance, calibrated metadata and matc
       assert.ok(asset.dimensions.every(value => value > 0 && value <= 640));
     }
   }
-  assert.ok(ASSET_MANIFEST.filter(a => a.id.startsWith('audio.') || a.id.startsWith('rival.')).every(a => a.status === 'planned'));
+  assert.ok(ASSET_MANIFEST.filter(a => a.id.startsWith('audio.')).every(a => a.status === 'planned'));
 });
 test('starter preview is local, stable, layered and does not mutate received public composition', () => {
   assert.equal(creatureLayers(null).layers.length, 3);

@@ -4,7 +4,7 @@ import type {
 } from './types.ts';
 import type { MatchmakingRegion } from './rules.ts';
 
-export const PROTOCOL_VERSION = 4 as const;
+export const PROTOCOL_VERSION = 5 as const;
 export const ROOM_SOCKET_PROTOCOL = `mm-v${PROTOCOL_VERSION}`;
 export const QUEUE_SOCKET_PROTOCOL = `mm-queue-v${PROTOCOL_VERSION}`;
 
@@ -19,7 +19,8 @@ export type ClientAction = ClientEnvelope & (
   | { kind: 'pull-switch'; attemptId: string }
   | { kind: 'team-signal'; signal: TeamSignal }
   | { kind: 'start-private-session' }
-  | { kind: 'advance-private-round' }
+  | { kind: 'advance-private-round'; battleId: string }
+  | { kind: 'play-again-private'; sessionId: string }
   | { kind: 'next-round-ready' }
   | { kind: 'vote-specimen-name'; suggestionId: string }
   | { kind: 'rename-private-specimen'; title: string }

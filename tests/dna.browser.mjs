@@ -24,7 +24,7 @@ async function page(width=1280,reduced=false,fallback=false){const context=await
 async function credentials(p){return p.evaluate(()=>JSON.parse(sessionStorage.getItem('mm.room.v2')));}
 async function view(p){const c=await credentials(p);return (await p.request.get(new URL(`/api/rooms/${c.roomId}/snapshot`,origin).href,{headers:{Authorization:`Bearer ${c.reconnectToken}`}})).json();}
 async function record(p,edit){const c=await credentials(p);const bindings=await mf.getBindings();const stub=bindings.ROOMS.get(bindings.ROOMS.idFromName(`room:${c.roomId}`));const sql=await mf.unsafeGetDurableObjectStorage('monstrum-mortis','LaboratoryRoom',{id:stub.id.toString()});const r=JSON.parse((await sql.exec('SELECT record FROM room_state'))[0].record);if(edit){edit(r,c);r.revision++;await sql.exec('UPDATE room_state SET record=?',JSON.stringify(r));}return r;}
-async function sync(p){const after=await p.evaluate(()=>{const after=window.__mmFrames.length;window.__mmSockets.at(-1).send(JSON.stringify({protocolVersion:4,actionId:crypto.randomUUID(),kind:'sync-request',afterRevision:0}));return after;});await p.waitForFunction(after=>window.__mmFrames.slice(after).some(m=>m.kind==='controller-snapshot'),after);}
+async function sync(p){const after=await p.evaluate(()=>{const after=window.__mmFrames.length;window.__mmSockets.at(-1).send(JSON.stringify({protocolVersion:5,actionId:crypto.randomUUID(),kind:'sync-request',afterRevision:0}));return after;});await p.waitForFunction(after=>window.__mmFrames.slice(after).some(m=>m.kind==='controller-snapshot'),after);}
 async function connected(p){await p.waitForFunction(()=>document.querySelector('.connection-badge')?.textContent.includes('Connected') && !!document.querySelector('.room-panel'));}
 async function create(p,name){await p.getByLabel('Player Name',{exact:true}).fill(name);await p.getByRole('button',{name:'Create Private Laboratory',exact:true}).click();await connected(p);return credentials(p);}
 async function joinLaboratory(p,id,name,display=false){await p.getByLabel('Invitation code',{exact:true}).fill(id);if(display)await p.getByLabel('Join as a display without a player seat').check();else await p.getByLabel('Player Name',{exact:true}).fill(name);await p.getByRole('button',{name:'Join by Code',exact:true}).click();await connected(p);}
@@ -44,7 +44,7 @@ async function inject(p,expected='action-accepted'){
  await p.waitForFunction(previous=>window.__lastInjection!==previous&&window.__mmFrames.some(m=>m.actionId===window.__lastInjection&&['action-accepted','action-rejected'].includes(m.kind)),previous);
  const receipt=await p.evaluate(()=>window.__mmFrames.find(m=>m.actionId===window.__lastInjection&&['action-accepted','action-rejected'].includes(m.kind)));
  assert.equal(receipt.kind,expected,JSON.stringify(receipt));
- await p.waitForFunction(()=>sessionStorage.getItem('mm.pending-intent.v4')===null);return receipt;
+ await p.waitForFunction(()=>sessionStorage.getItem('mm.pending-intent.v5')===null);return receipt;
 }
 async function artMatches(p){const v=await view(p);await p.waitForFunction(ids=>{const e=document.querySelector('.chamber-canvas');return e?.style.visibility==='visible'&&e.dataset.parts?.split(',').sort().join(',')===ids;},v.snapshot.creature.parts.map(p=>p.assetId).sort().join(','));}
 async function a11y(p){await p.addScriptTag({path:resolve('node_modules/axe-core/axe.min.js')});const violations=await p.evaluate(async()=> (await axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa','wcag22aa']}})).violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>n.target)})));assert.deepEqual(violations,[]);}
@@ -65,8 +65,8 @@ try{
  const cooldown=accepted.controller.nextInjectionAtMs-Date.now();if(cooldown>0)assert.equal(await host.getByRole('button',{name:'Unleash the Creature!',exact:true}).isDisabled(),true);
  await host.waitForFunction(()=>!document.querySelector('.unleash-switch').disabled);pass('independent simultaneous browser injections update doses, captions and identical rendered anatomy; focus and real cooldown work');
  await host.evaluate(()=>window.__dropAck=true);await host.locator('.specimen-button').first().click();await host.getByRole('button',{name:'Inject selected specimen',exact:true}).click();await host.waitForFunction(()=>!window.__dropAck);
- const pending=await host.evaluate(()=>JSON.parse(sessionStorage.getItem('mm.pending-intent.v4')).action);assert.equal((await view(host)).controller.remainingDoses,4);
- await host.reload();await connected(host);await host.waitForFunction(()=>sessionStorage.getItem('mm.pending-intent.v4')===null);
+ const pending=await host.evaluate(()=>JSON.parse(sessionStorage.getItem('mm.pending-intent.v5')).action);assert.equal((await view(host)).controller.remainingDoses,4);
+ await host.reload();await connected(host);await host.waitForFunction(()=>sessionStorage.getItem('mm.pending-intent.v5')===null);
  assert.equal((await view(host)).controller.remainingDoses,4);assert.ok(await host.evaluate(id=>window.__mmIntents.some(a=>a.actionId===id&&a.kind==='inject'),pending.actionId));
  pass('a dropped accepted acknowledgment survives reload and retries the same action ID without reroll or double spending');
  const late=await page(320);await joinLaboratory(late,entry.roomId,'Waiting Scientist');assert.equal(await late.locator('.specimen-button').count(),0);assert.equal(await late.getByRole('button',{name:'Unleash the Creature!',exact:true}).isDisabled(),true);
@@ -86,7 +86,7 @@ try{
  // A validated rate-limit rejection must resolve the actual pending UI intent.
  await record(host,(r,c)=>{r.seats.find(s=>s.id===c.sessionId).nextInjectionAtMs=0;});await sync(host);await readyTray(host);
  const rateBudget=(await view(host)).controller.remainingDoses;
- await host.evaluate(()=>{for(let i=0;i<35;i++)window.__mmSockets.at(-1).send(JSON.stringify({protocolVersion:4,actionId:crypto.randomUUID(),kind:'sync-request',afterRevision:0}));});
+ await host.evaluate(()=>{for(let i=0;i<35;i++)window.__mmSockets.at(-1).send(JSON.stringify({protocolVersion:5,actionId:crypto.randomUUID(),kind:'sync-request',afterRevision:0}));});
  const rateReceipt=await inject(host,'action-rejected');assert.equal(rateReceipt.code,'rate-limited');assert.equal((await view(host)).controller.remainingDoses,rateBudget);assert.ok((await host.locator('.service-status').innerText()).includes('rate-limited'));await sleep(10010);
  pass('a rate-limited injection resolves pending feedback and preserves the authoritative dose budget');
  // Leave/recreate to test an ordinary fresh budget with no fixture-refilled dose count.
@@ -98,8 +98,8 @@ try{
  await host.waitForFunction(()=>!document.querySelector('.unleash-switch').disabled);await inject(phone);
  await host.getByRole('button',{name:'Unleash the Creature!',exact:true}).click();await phone.waitForFunction(()=>!document.querySelector('.unleash-switch').disabled);await phone.getByRole('button',{name:'Unleash the Creature!',exact:true}).click();
  await host.getByRole('heading',{name:'Creature released. Prepare for combat!',exact:true}).waitFor();await phone.getByRole('heading',{name:'Creature released. Prepare for combat!',exact:true}).waitFor();
- const frozen=(await record(host)).experiment.frozen;assert.equal(frozen.history.length,7);assert.equal((await view(host)).snapshot.teamScore,0);await a11y(host);await host.screenshot({path:join(artifacts,'frozen-boundary.png'),fullPage:true});
- pass('six browser injections never auto-switch; explicit switches reach one frozen release and the approved Prepare for combat headline with an honest unavailable-combat explanation');
+ const frozen=(await record(host)).experiment.frozen;assert.equal(frozen.history.length,7);assert.equal((await view(host)).snapshot.teamScore,0);await a11y(host);await host.screenshot({path:join(artifacts,'frozen-release.png'),fullPage:true});
+ pass('six browser injections never auto-switch; explicit switches reach one frozen release and the approved Prepare for combat release headline before authoritative combat');
  const publicPages=await Promise.all([page(),page(390),page(768),page()]);
  for(const p of publicPages){const skip=p.getByRole('button',{name:'Skip rehearsal',exact:true});if(await skip.count())await skip.click();await p.getByLabel('Regional pool').selectOption('americas');await p.getByRole('button',{name:'Enter Quick Play',exact:true}).click();}
  await Promise.all(publicPages.map(async p=>{const b=p.getByRole('button',{name:'Ready',exact:true});await b.waitFor();await b.click();}));await Promise.all(publicPages.map(readyTray));

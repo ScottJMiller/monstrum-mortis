@@ -1,3 +1,4 @@
+import rivals from './rivals.json' with { type: 'json' };
 import clues from './specimen-clues.json' with { type: 'json' };
 import production from './production.json' with { type: 'json' };
 
@@ -13,11 +14,13 @@ export interface AssetDefinition {
   attachment: { x: number; y: number } | null;
 }
 
-export const ASSET_MANIFEST_VERSION = '0.3.3';
+export const ASSET_MANIFEST_VERSION = '0.4.0';
 
 const planned = (id: string, kind: AssetDefinition['kind']): AssetDefinition => {
   const clue = clues.find(a => a.id === id);
   if (clue) return { id, kind, status: 'ready', url: clue.url, origin: 'original', license: 'Project-authored SVG; assets/specimen-provenance.json', attachment: null };
+  const combat = rivals.find(a=>a.id===id);
+  if(combat) return {id,kind,status:'ready',url:combat.url,origin:'generated',license:'Generated project output; assets/rival-provenance.json',attachment:combat.attachment};
   const ready = production.find(a => a.id === id);
   return ready ? {
     id, kind, status: 'ready', url: ready.url, origin: 'generated',

@@ -46,9 +46,9 @@ function publicRoom(n = 2) {
   }
   publicProgress(r, 0); return r;
 }
-function finish(r: ReturnType<typeof publicRoom>, at: number) { r.phase = 'battle'; r.phaseDeadlineMs = null; completePublicRound(r, r.publicState!.sessionId, uid(), 'victory', at); }
+function finish(r: ReturnType<typeof publicRoom>, at: number) { r.phase = 'battle'; r.phaseDeadlineMs = null; r.combat = null; completePublicRound(r, r.publicState!.sessionId, uid(), 'victory', at); }
 test('hostless public start and binding completion gate: no fabricated outcome, duplicate score, or early advance', () => {
-  const r = publicRoom(); assert.equal(r.hostId, null); assert.equal(r.phase, 'briefing');
+  const r = publicRoom(); r.combat = null; assert.equal(r.hostId, null); assert.equal(r.phase, 'briefing');
   settle(r, 88000); assert.equal(r.phase, 'battle'); assert.equal(r.publicState!.completed.length, 0);
   const completion = uid(); completePublicRound(r, r.publicState!.sessionId, completion, 'victory', 90000);
   completePublicRound(r, r.publicState!.sessionId, completion, 'victory', 90001); assert.equal(r.publicState!.teamScore, 100);
