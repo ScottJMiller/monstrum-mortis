@@ -2,15 +2,19 @@
   {
     "id": "lab.chamber",
     "url": "/assets/laboratory/lab.chamber.webp",
-    "source": "assets/source/lab.chamber.png",
+    "source": "assets/source/lab.chamber-v2.png",
     "origin": "generated",
     "creator": "OpenAI built-in image generation tool; model identifier not exposed",
-    "date": "2026-10-06",
-    "prompt": "Create ONE finished production raster illustration for Monstrum Mortis, a sinister comic cooperative monster laboratory game. Asset: laboratory containment chamber background, portrait 2:3 composition, intended as a scalable scene backdrop. Decayed Frankenstein-era machinery: heavy corroded riveted iron cylindrical frame, oxidized brass pipes, cracked ivory ceramic insulators, stained hoses, damp masonry, small occult engravings. Hand-painted dark fantasy illustration, beautifully textured but readable, theatrical diseased green light and bruised violet shadows, dirty ivory highlights, tarnished copper. Straight-on view, consistent orthographic-like front perspective. The containment glass occupies the central 65 percent width and 70 percent height; its dark translucent green interior is EMPTY with clear negative space for a separately composited creature, no person, no monster, no eyes, no face. A heavy rounded top and base frame the chamber, machinery concentrated at sides. Center remains dark, uncluttered and legible; restrained glass reflections at edges only. Subtle fluid at base, no bright flashes. Strong elegant silhouette, atmospheric eldritch horror, aged machinery rather than science-fiction neon. No text, lettering, logos, watermark, gauges with numbers, user interface or buttons. Produce genuine finished illustration, not a diagram or placeholder. High resolution, detailed source suitable for desktop and mobile derivatives.",
-    "references": [],
+    "date": "2026-10-07",
+    "prompt": "Edit this tiny aged brass circular containment-chamber seal. Preserve the exact outer round rim, rivets, cracks, perspective, decay, embossed material, colors and surrounding metal. The current center has two intersecting embossed triangles (a six-pointed star). REMOVE the downward-pointing triangle completely and heal its old lines with matching tarnished bronze. KEEP ONLY ONE upward-pointing embossed triangle with tip at top and horizontal base at bottom. There must be no second triangle and no six-pointed star. Preserve the little central circular spiral ornament inside the single triangle. No text, no other changes. Output square/near-square opaque patch suitable for placing back into the original machinery.",
+    "references": [
+      "assets/source/lab.chamber.png",
+      "assets/source/lab.emblem-edit-reference.png",
+      "docs/visual-reviews/step5-composition/sjm_contact-sheet_definitive.png"
+    ],
     "terms": "https://openai.com/policies/terms-of-use/",
     "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
-    "sourceSha256": "ec7bb385c6af4c0e02bd34b9bbca07570aaf1c39d0f816c65fd395e74547a784",
+    "sourceSha256": "97c3dbb2b8b9f47c15ac72c2e966e5c1fdb2eedaebf7ebfbaa8ad1836c553e0d",
     "sourceDimensions": [
       1024,
       1536
@@ -19,13 +23,42 @@
       1024,
       1536
     ],
-    "bytes": 235176,
+    "bytes": 235126,
     "pivot": {
       "x": 0.5,
       "y": 0.5
     },
+    "previousProduction": {
+      "source": "assets/source/lab.chamber.png",
+      "sourceSha256": "ec7bb385c6af4c0e02bd34b9bbca07570aaf1c39d0f816c65fd395e74547a784",
+      "prompt": "Create ONE finished production raster illustration for Monstrum Mortis, a sinister comic cooperative monster laboratory game. Asset: laboratory containment chamber background, portrait 2:3 composition, intended as a scalable scene backdrop. Decayed Frankenstein-era machinery: heavy corroded riveted iron cylindrical frame, oxidized brass pipes, cracked ivory ceramic insulators, stained hoses, damp masonry, small occult engravings. Hand-painted dark fantasy illustration, beautifully textured but readable, theatrical diseased green light and bruised violet shadows, dirty ivory highlights, tarnished copper. Straight-on view, consistent orthographic-like front perspective. The containment glass occupies the central 65 percent width and 70 percent height; its dark translucent green interior is EMPTY with clear negative space for a separately composited creature, no person, no monster, no eyes, no face. A heavy rounded top and base frame the chamber, machinery concentrated at sides. Center remains dark, uncluttered and legible; restrained glass reflections at edges only. Subtle fluid at base, no bright flashes. Strong elegant silhouette, atmospheric eldritch horror, aged machinery rather than science-fiction neon. No text, lettering, logos, watermark, gauges with numbers, user interface or buttons. Produce genuine finished illustration, not a diagram or placeholder. High resolution, detailed source suitable for desktop and mobile derivatives.",
+      "references": [],
+      "date": "2026-10-06"
+    },
+    "assembly": {
+      "patch": "assets/source/lab.emblem-v2.png",
+      "resize": [
+        150,
+        140
+      ],
+      "position": [
+        438,
+        26
+      ],
+      "mask": {
+        "center": [
+          75,
+          70
+        ],
+        "radius": 48,
+        "blur": 1
+      },
+      "note": "ImageMagick resize generated patch, circular mask, paste only interior of medallion into unchanged chamber master.",
+      "patchSha256": "1d54bfccaa782fd8b90c999ca1411da19c074b04f884c52a053467716fe8b018"
+    },
     "mirroredSlots": [],
-    "description": "Corroded containment machinery surrounding an empty glass chamber."
+    "description": "Corroded containment machinery surrounding an empty glass chamber.",
+    "compositionReview": ""
   },
   {
     "id": "creature.blob",
@@ -51,13 +84,20 @@
     "slot": "body",
     "attachment": {
       "x": 0.5,
-      "y": 0.55
+      "y": 0.5
     },
-    "width": 0.78,
+    "width": 1,
     "order": 0,
     "pivot": {
       "x": 0.5,
       "y": 0.5
+    },
+    "anchor": "center",
+    "layer": "body",
+    "compositionReview": "2026-10-07: body-relative width and named anchor; pivot audited in trimmed derivative coordinates; real authoritative fixture gallery.",
+    "bodyFrame": {
+      "width": 400,
+      "height": 400.38560411311056
     },
     "mirroredSlots": [],
     "description": "A waxy olive-green blob."
@@ -85,14 +125,51 @@
     "bytes": 26268,
     "slot": "eyes",
     "attachment": {
-      "x": 0.5,
-      "y": 0.44
+      "x": 0.5106041131105399,
+      "y": 0.25505617977528106
     },
-    "width": 0.28,
-    "order": 4,
+    "width": 0.35379177377892035,
+    "order": 0,
     "pivot": {
       "x": 0.5,
       "y": 0.5
+    },
+    "anchor": "eyes",
+    "layer": "face",
+    "compositionReview": "9–10 October 2026: inspected high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255, cell 1; independent horizontal/vertical dimensions, rotation and actual trimmed-source pivot.",
+    "offset": {
+      "x": 0.010604113110539827,
+      "y": 0.020056179775280986
+    },
+    "rotation": 0.06500000000000028,
+    "heightScale": 1.0066236902151033,
+    "mirror": false,
+    "colorGrade": [
+      0.7142428765342062,
+      0.04688327069004905,
+      -0.007958658615586367,
+      0,
+      0.2599878523248308,
+      0.15723997486597407,
+      0.6690829272514186,
+      -0.020209827804040847,
+      0,
+      0.1985324647743533,
+      0.20774065964820432,
+      0.07621866778636821,
+      0.6835889559918835,
+      0,
+      0.15510932056492782,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "colorGradeCalibration": {
+      "referenceSha256": "7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255",
+      "method": "Least-squares sRGB affine grade from reference-resolution samples with source alpha >235/255. Alpha unchanged. Colors advisory rather than pixel-exact.",
+      "date": "2026-10-10"
     },
     "mirroredSlots": [],
     "description": "Two weary bulging eyes."
@@ -120,14 +197,51 @@
     "bytes": 25324,
     "slot": "mouth",
     "attachment": {
-      "x": 0.5,
-      "y": 0.57
+      "x": 0.5221722365038559,
+      "y": 0.4088282504012842
     },
-    "width": 0.24,
-    "order": 4,
+    "width": 0.41227506426735216,
+    "order": 1,
     "pivot": {
       "x": 0.5,
       "y": 0.5
+    },
+    "anchor": "mouth",
+    "layer": "face",
+    "compositionReview": "9–10 October 2026: inspected high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255, cell 1; independent horizontal/vertical dimensions, rotation and actual trimmed-source pivot.",
+    "offset": {
+      "x": 0.022172236503855913,
+      "y": 0.013828250401284166
+    },
+    "rotation": -0.05999999999999997,
+    "heightScale": 1.0007314587205467,
+    "mirror": false,
+    "colorGrade": [
+      0.7340122650985292,
+      0.26917068288616,
+      -0.07458395975795662,
+      0,
+      0.1544570981139595,
+      0.10394471228185664,
+      0.9267649132695708,
+      -0.13411941222922186,
+      0,
+      0.1010447362206408,
+      0.19445806208879346,
+      0.2701893031974809,
+      0.6165986953155413,
+      0,
+      0.07296277766235724,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "colorGradeCalibration": {
+      "referenceSha256": "7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255",
+      "method": "Least-squares sRGB affine grade from reference-resolution samples with source alpha >235/255. Alpha unchanged. Colors advisory rather than pixel-exact.",
+      "date": "2026-10-10"
     },
     "mirroredSlots": [],
     "description": "A crooked uneasy smile."
@@ -155,15 +269,25 @@
     "bytes": 86074,
     "slot": "skin",
     "attachment": {
-      "x": 0.5,
-      "y": 0.55
+      "x": 0.5212082262210795,
+      "y": 0.4373515248796148
     },
-    "width": 0.66,
-    "order": 2,
+    "width": 0.8104113110539848,
+    "order": 0,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.05
     },
+    "anchor": "chest",
+    "layer": "surface",
+    "compositionReview": "9–10 October 2026: inspected high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255, cell 9; independent horizontal/vertical dimensions, rotation and actual trimmed-source pivot.",
+    "offset": {
+      "x": 0.021208226221079512,
+      "y": -0.08264847512038517
+    },
+    "rotation": 2.220446049250313e-16,
+    "heightScale": 0.8278400079302138,
+    "mirror": false,
     "mirroredSlots": [],
     "description": "Bulging interlocking muscle bands around a rounded torso silhouette; transparent gaps between bands, no underlying solid body, no eyes or mouth."
   },
@@ -190,15 +314,25 @@
     "bytes": 43620,
     "slot": "lower-limbs",
     "attachment": {
-      "x": 0.5,
-      "y": 0.78
+      "x": 0.5282776349614395,
+      "y": 0.7484237560192616
     },
-    "width": 0.48,
+    "width": 0.7451799485861182,
     "order": 0,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.02
     },
+    "anchor": "hips",
+    "layer": "forelimbs",
+    "compositionReview": "9–10 October 2026: inspected high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255, cell 4; independent horizontal/vertical dimensions, rotation and actual trimmed-source pivot.",
+    "offset": {
+      "x": 0.028277634961439587,
+      "y": -0.1015762439807383
+    },
+    "rotation": 0,
+    "heightScale": 0.6299280401034929,
+    "mirror": false,
     "mirroredSlots": [],
     "description": "A pair of taut elongated crooked hind legs, elastic sinews and knobbly joints, ivory-green flesh, small webbed feet. Proximal attachment at top center."
   },
@@ -225,20 +359,43 @@
     "bytes": 30074,
     "slot": "forelimb-left",
     "attachment": {
-      "x": 0.25,
-      "y": 0.54
+      "x": 0.16798760206270247,
+      "y": 0.42535990843091803
     },
-    "width": 0.25,
-    "order": 1,
+    "width": 0.3104113110539846,
+    "order": 0,
     "pivot": {
-      "x": 0.5,
-      "y": 0.5
+      "x": 0.24,
+      "y": 0.05
+    },
+    "anchor": "shoulder-left",
+    "layer": "forelimbs",
+    "compositionReview": "9–10 October 2026: inspected high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255, cell 2; independent horizontal/vertical dimensions, rotation and actual trimmed-source pivot.",
+    "mirrorOnLeft": true,
+    "offset": {
+      "x": -0.002012397937297621,
+      "y": 0.0053599084309181085
+    },
+    "rotation": 5.61499999999999,
+    "heightScale": 1.0087862318840592,
+    "rightPose": {
+      "width": 0.31426735218509,
+      "heightScale": 1.0051763803680982,
+      "rotation": -6.240000000000001,
+      "offset": {
+        "x": 0.02145332089757801,
+        "y": 0.007983194013496543
+      }
     },
     "mirroredSlots": [
       "forelimb-left",
       "forelimb-right"
     ],
-    "description": "One dangling olive-green forearm with three dramatically hooked ivory razor claws. Upper arm attachment at top; claws curve downward."
+    "description": "One dangling olive-green forearm with three dramatically hooked ivory razor claws. Upper arm attachment at top; claws curve downward.",
+    "skew": {
+      "x": -0.8399999999999994,
+      "y": -0.8399999999999994
+    }
   },
   {
     "id": "mutation.guillotine-teeth",
@@ -263,17 +420,54 @@
     "bytes": 58414,
     "slot": "mouth",
     "attachment": {
-      "x": 0.5,
-      "y": 0.57
+      "x": 0.5311696658097687,
+      "y": 0.3959871589085072
     },
-    "width": 0.29,
-    "order": 3,
+    "width": 0.41613110539845766,
+    "order": 1,
     "pivot": {
       "x": 0.5,
       "y": 0.5
     },
+    "anchor": "mouth",
+    "layer": "face",
+    "compositionReview": "9–10 October 2026: inspected high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255, cell 2; independent horizontal/vertical dimensions, rotation and actual trimmed-source pivot.",
+    "offset": {
+      "x": 0.031169665809768644,
+      "y": 0.0009871589085072281
+    },
+    "rotation": -1.6653345369377348e-15,
+    "heightScale": 0.576383677086253,
+    "mirror": false,
     "mirroredSlots": [],
-    "description": "One grotesquely oversized broad mouth with two opposing rows of guillotine-like cutting teeth and olive lip rims, no eyes or head."
+    "description": "One grotesquely oversized broad mouth with two opposing rows of guillotine-like cutting teeth and olive lip rims, no eyes or head.",
+    "colorGrade": [
+      1.3447843218820907,
+      -0.33677031770365273,
+      -0.11531577178583019,
+      0,
+      0.18768689912082884,
+      0.3647199901364482,
+      0.7885511345708143,
+      -0.11871398307404718,
+      0,
+      0.11038448634591046,
+      0.36325593503521925,
+      -0.1449863905920996,
+      0.9117198454278914,
+      0,
+      0.08045872093183655,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "colorGradeCalibration": {
+      "referenceSha256": "7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255",
+      "method": "Least-squares sRGB affine grade from reference-resolution samples with source alpha >235/255. Alpha unchanged. Colors advisory rather than pixel-exact.",
+      "date": "2026-10-10"
+    }
   },
   {
     "id": "mutation.ossified-plates",
@@ -298,15 +492,25 @@
     "bytes": 105552,
     "slot": "skin",
     "attachment": {
-      "x": 0.5,
-      "y": 0.55
+      "x": 0.5238191660669207,
+      "y": 0.7543819996652115
     },
-    "width": 0.68,
-    "order": 2,
+    "width": 0.9196658097686374,
+    "order": 0,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.56
     },
+    "anchor": "belly",
+    "layer": "surface",
+    "compositionReview": "9–10 October 2026: inspected high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255, cell 11; independent horizontal/vertical dimensions, rotation and actual trimmed-source pivot.",
+    "offset": {
+      "x": 0.02381916606692073,
+      "y": 0.024381999665211467
+    },
+    "rotation": -0.06499999999999978,
+    "heightScale": 0.7033513113177685,
+    "mirror": false,
     "mirroredSlots": [],
     "description": "An irregular torso-sized arrangement of uneven dirty ivory bony armor plates with chipped edges and fleshy seams. Transparent open gaps; no solid underlying body, face or limbs."
   },
@@ -333,15 +537,25 @@
     "bytes": 63120,
     "slot": "appendages",
     "attachment": {
-      "x": 0.39,
-      "y": 0.55
+      "x": 0.6430747643588498,
+      "y": 0.4348181817931165
     },
-    "width": 0.19,
-    "order": 4,
+    "width": 0.29402313624678666,
+    "order": 0,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.05
     },
+    "anchor": "heart",
+    "layer": "organs",
+    "compositionReview": "9–10 October 2026: inspected high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255, cell 2; independent horizontal/vertical dimensions, rotation and actual trimmed-source pivot.",
+    "offset": {
+      "x": -0.09692523564115021,
+      "y": -0.03518181820688348
+    },
+    "rotation": -23.894999999999992,
+    "heightScale": 0.9915782706525232,
+    "mirror": false,
     "mirroredSlots": [],
     "description": "One swollen translucent heart-shaped chest sac with fleshy olive root, violet-red vessels and a visibly enlarged pumping lobe, front view."
   },
@@ -368,15 +582,25 @@
     "bytes": 49884,
     "slot": "skin",
     "attachment": {
-      "x": 0.5,
-      "y": 0.56
+      "x": 0.5085831374393806,
+      "y": 0.4181710423370793
     },
-    "width": 0.36,
-    "order": 2,
+    "width": 0.9987146529562981,
+    "order": 0,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.05
     },
+    "anchor": "chest",
+    "layer": "surface",
+    "compositionReview": "9–10 October 2026: inspected high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255, cell 12; independent horizontal/vertical dimensions, rotation and actual trimmed-source pivot.",
+    "offset": {
+      "x": 0.00858313743938055,
+      "y": -0.1018289576629207
+    },
+    "rotation": -0.1399999999999998,
+    "heightScale": 0.9947235933314821,
+    "mirror": false,
     "mirroredSlots": [],
     "description": "One fleshy patch where a jagged seam is visibly knitting closed with branching tiny translucent connecting fibers; healed pale green skin at edges, no blood spray."
   },
@@ -403,15 +627,25 @@
     "bytes": 63816,
     "slot": "appendages",
     "attachment": {
-      "x": 0.54,
-      "y": 0.47
+      "x": 0.39906701643065345,
+      "y": 0.39332784515288666
     },
-    "width": 0.27,
-    "order": 4,
+    "width": 0.5498071979434447,
+    "order": 0,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.04
     },
+    "anchor": "glands",
+    "layer": "organs",
+    "compositionReview": "9–10 October 2026: inspected high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255, cell 7; independent horizontal/vertical dimensions, rotation and actual trimmed-source pivot.",
+    "offset": {
+      "x": 0.019067016430653467,
+      "y": -0.10667215484711336
+    },
+    "rotation": 0.3800000000000001,
+    "heightScale": 1.0106913672080244,
+    "mirror": false,
     "mirroredSlots": [],
     "description": "A pair of swollen dripping throat glands on a small fleshy attachment root, translucent green sacs, a few attached viscous droplets, menacing and slightly absurd."
   },
@@ -438,15 +672,25 @@
     "bytes": 59884,
     "slot": "appendages",
     "attachment": {
-      "x": 0.72,
-      "y": 0.53
+      "x": 0.1473076369148178,
+      "y": 0.6093459385809844
     },
-    "width": 0.33,
-    "order": 1,
+    "width": 0.6233933161953726,
+    "order": 0,
     "pivot": {
-      "x": 0.5,
-      "y": 0.5
+      "x": 0.12,
+      "y": 0.12
     },
+    "anchor": "side",
+    "layer": "rear-growth",
+    "compositionReview": "9–10 October 2026: inspected high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255, cell 7; independent horizontal/vertical dimensions, rotation and actual trimmed-source pivot.",
+    "offset": {
+      "x": -0.012692363085182165,
+      "y": -0.1906540614190156
+    },
+    "rotation": -38.260000000000005,
+    "heightScale": 1.0047133494826583,
+    "mirror": true,
     "mirroredSlots": [],
     "description": "A grasping cluster of two curling side tentacles, narrow fleshy roots at upper-left, hooked ivory tips, olive-green waxy skin and violet suckers."
   },
@@ -473,15 +717,25 @@
     "bytes": 88906,
     "slot": "head-growth",
     "attachment": {
-      "x": 0.62,
-      "y": 0.3
+      "x": 0.5279562982005142,
+      "y": 0.13608346709470298
     },
-    "width": 0.3,
-    "order": 1,
+    "width": 0.5263496143958869,
+    "order": 2,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.85
     },
+    "anchor": "temple",
+    "layer": "surface",
+    "compositionReview": "9–10 October 2026: inspected high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255, cell 8; independent horizontal/vertical dimensions, rotation and actual trimmed-source pivot.",
+    "offset": {
+      "x": 0.02795629820051417,
+      "y": 0.036083467094702996
+    },
+    "rotation": 0,
+    "heightScale": 1.0007695385846644,
+    "mirror": false,
     "mirroredSlots": [],
     "description": "One branching dorsal organ resembling crooked biological copper coils, green flesh root below, subtle ivory electrical thread motifs contained close to organ, no intense glare."
   },
@@ -508,15 +762,25 @@
     "bytes": 58406,
     "slot": "appendages",
     "attachment": {
-      "x": 0.55,
-      "y": 0.64
+      "x": 0.38659937128552285,
+      "y": 0.47929437963490773
     },
-    "width": 0.28,
-    "order": 4,
+    "width": 0.6452442159383035,
+    "order": 0,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.04
     },
+    "anchor": "belly",
+    "layer": "organs",
+    "compositionReview": "9–10 October 2026: inspected high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255, cell 3; independent horizontal/vertical dimensions, rotation and actual trimmed-source pivot.",
+    "offset": {
+      "x": -0.11340062871447713,
+      "y": -0.25070562036509225
+    },
+    "rotation": -0.1200000000000001,
+    "heightScale": 1.0007664097188353,
+    "mirror": false,
     "mirroredSlots": [],
     "description": "One translucent olive-green abdominal sac with bruised violet rim, contained cloudy green liquid and a fleshy hose-like duct. Anatomical isolated pouch."
   },
@@ -543,15 +807,25 @@
     "bytes": 60682,
     "slot": "skin",
     "attachment": {
-      "x": 0.5,
-      "y": 0.55
+      "x": 0.5285989717223651,
+      "y": 0.6704654895666132
     },
-    "width": 0.67,
-    "order": 3,
+    "width": 1.0453084832904884,
+    "order": 9,
     "pivot": {
       "x": 0.5,
       "y": 0.5
     },
+    "anchor": "belly",
+    "layer": "organs",
+    "compositionReview": "9–10 October 2026: inspected high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255, cell 3; independent horizontal/vertical dimensions, rotation and actual trimmed-source pivot.",
+    "offset": {
+      "x": 0.02859897172236515,
+      "y": -0.059534510433386714
+    },
+    "rotation": 0,
+    "heightScale": 0.9997960186283833,
+    "mirror": false,
     "mirroredSlots": [],
     "description": "Torso-sized scattered small dark ivory skin spines embedded in separate olive-green skin islands, oval arrangement with transparent gaps, no body or face."
   },
@@ -578,14 +852,51 @@
     "bytes": 37428,
     "slot": "eyes",
     "attachment": {
-      "x": 0.5,
-      "y": 0.44
+      "x": 0.5411311053984577,
+      "y": 0.26468699839486354
     },
-    "width": 0.39,
-    "order": 4,
+    "width": 0.5022493573264782,
+    "order": 0,
     "pivot": {
       "x": 0.5,
       "y": 0.5
+    },
+    "anchor": "eyes",
+    "layer": "face",
+    "compositionReview": "9–10 October 2026: inspected high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255, cell 3; independent horizontal/vertical dimensions, rotation and actual trimmed-source pivot.",
+    "offset": {
+      "x": 0.041131105398457636,
+      "y": 0.02968699839486351
+    },
+    "rotation": -0.1299999999999999,
+    "heightScale": 0.997358588198485,
+    "mirror": false,
+    "colorGrade": [
+      1.0143437246582798,
+      -0.2124953372769116,
+      0.10200419746606523,
+      0,
+      0.04747828528134299,
+      0.2736204928156097,
+      0.535634572465814,
+      0.08850008532640444,
+      0,
+      0.027625852389569057,
+      0.14305962101648712,
+      -0.1558419870172284,
+      0.8929055573439793,
+      0,
+      0.02575456594332877,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "colorGradeCalibration": {
+      "referenceSha256": "7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255",
+      "method": "Least-squares sRGB affine grade from reference-resolution samples with source alpha >235/255. Alpha unchanged. Colors advisory rather than pixel-exact.",
+      "date": "2026-10-10"
     },
     "mirroredSlots": [],
     "description": "A horizontal cluster of seven differently sized bulging alert ivory eyes with tiny violet pupils, green eyelid rims, each staring a slightly different direction, no head."
@@ -593,37 +904,108 @@
   {
     "id": "mutation.bellows-lung",
     "url": "/assets/laboratory/mutation.bellows-lung.webp",
-    "source": "assets/source/mutation.bellows-lung.png",
+    "source": "assets/source/mutation.bellows-lung-v2.png",
     "origin": "generated",
     "creator": "OpenAI built-in image generation tool; model identifier not exposed",
-    "date": "2026-10-06",
-    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. One exposed expanding rib-cage module framing two waxy translucent lung lobes, crooked ivory ribs, green flesh joining root, front perspective, no full torso.",
-    "references": [],
+    "date": "2026-10-07",
+    "prompt": "Use case: precise-object-edit. Production transparent anatomical sprite for Monstrum Mortis. Edit target is the existing Bellows Lung art; preserve its hand-painted decayed Frankenstein/eldritch style, olive ivory waxy tissue, bruised violet veins, dirty warm upper-left lighting and straight-on front perspective. Replace the illustrated rib cage with ONLY a compact pair of grotesque pleated bellows lungs connected by a very short top-center tracheal attachment stub. No ribs, spine, shoulder mass, torso, eyes, mouth, hands or limbs. The two lung lobes resemble stitched accordion leather organs, believable absurd anatomy, funny sinister. Useful flat short attachment at top center, rounded drooping lungs below. Isolated complete module, genuine transparent alpha surroundings, no ground shadow, no text, no background. One asset centered, detailed painterly texture consistent with reference, clean edges, broad roughly 4:3 silhouette. Intended to mount on the creature's LOWER chest below the face, so no anatomy above the tiny trachea.",
+    "references": [
+      "assets/source/mutation.bellows-lung.png"
+    ],
     "terms": "https://openai.com/policies/terms-of-use/",
     "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
-    "sourceSha256": "406dfdeb0d0715cc4df23ae64e15957a63f8ff8b233224952aa2548ea7fa0cfd",
+    "sourceSha256": "ddc59862566bbe98ee3a3a8ca626136102a88f1cb1ca33fb16653a824318bd12",
     "sourceDimensions": [
-      1312,
-      1199
+      1448,
+      1086
     ],
     "dimensions": [
       640,
-      585
+      480
     ],
-    "bytes": 91512,
+    "bytes": 72554,
     "slot": "skin",
     "attachment": {
-      "x": 0.5,
-      "y": 0.59
+      "x": 0.45565552699228773,
+      "y": 0.6451043338683791
     },
-    "width": 0.42,
-    "order": 2,
+    "width": 0.5732647814910025,
+    "order": 0,
     "pivot": {
       "x": 0.5,
       "y": 0.5
     },
+    "anchor": "belly",
+    "layer": "organs",
+    "compositionReview": "9–10 October 2026: inspected high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255, cell 2; independent horizontal/vertical dimensions, rotation and actual trimmed-source pivot.",
+    "previousProduction": {
+      "id": "mutation.bellows-lung",
+      "url": "/assets/laboratory/mutation.bellows-lung.webp",
+      "source": "assets/source/mutation.bellows-lung.png",
+      "origin": "generated",
+      "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+      "date": "2026-10-06",
+      "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. One exposed expanding rib-cage module framing two waxy translucent lung lobes, crooked ivory ribs, green flesh joining root, front perspective, no full torso.",
+      "references": [],
+      "terms": "https://openai.com/policies/terms-of-use/",
+      "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+      "sourceSha256": "406dfdeb0d0715cc4df23ae64e15957a63f8ff8b233224952aa2548ea7fa0cfd",
+      "sourceDimensions": [
+        1312,
+        1199
+      ],
+      "dimensions": [
+        640,
+        585
+      ],
+      "bytes": 91512,
+      "slot": "skin",
+      "attachment": {
+        "x": 0.5,
+        "y": 0.73
+      },
+      "width": 0.75,
+      "order": 0,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "anchor": "belly",
+      "layer": "organs",
+      "compositionReview": "SJM definitive contact sheet, 7 October 2026: anatomical placement/proportions; non-destructive color grades.",
+      "previousProduction": [
+        {
+          "source": "assets/source/mutation.bellows-lung.png",
+          "sourceSha256": "406dfdeb0d0715cc4df23ae64e15957a63f8ff8b233224952aa2548ea7fa0cfd",
+          "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. One exposed expanding rib-cage module framing two waxy translucent lung lobes, crooked ivory ribs, green flesh joining root, front perspective, no full torso.",
+          "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+          "date": "2026-10-06"
+        },
+        {
+          "source": "assets/source/mutation.bellows-lung-v2.png",
+          "sourceSha256": "ddc59862566bbe98ee3a3a8ca626136102a88f1cb1ca33fb16653a824318bd12",
+          "prompt": "Use case: precise-object-edit. Production transparent anatomical sprite for Monstrum Mortis. Edit target is the existing Bellows Lung art; preserve its hand-painted decayed Frankenstein/eldritch style, olive ivory waxy tissue, bruised violet veins, dirty warm upper-left lighting and straight-on front perspective. Replace the illustrated rib cage with ONLY a compact pair of grotesque pleated bellows lungs connected by a very short top-center tracheal attachment stub. No ribs, spine, shoulder mass, torso, eyes, mouth, hands or limbs. The two lung lobes resemble stitched accordion leather organs, believable absurd anatomy, funny sinister. Useful flat short attachment at top center, rounded drooping lungs below. Isolated complete module, genuine transparent alpha surroundings, no ground shadow, no text, no background. One asset centered, detailed painterly texture consistent with reference, clean edges, broad roughly 4:3 silhouette. Intended to mount on the creature's LOWER chest below the face, so no anatomy above the tiny trachea.",
+          "references": [
+            "assets/source/mutation.bellows-lung.png"
+          ],
+          "date": "2026-10-07"
+        }
+      ],
+      "heightScale": 0.72,
+      "opacity": 0.5,
+      "mirroredSlots": [],
+      "description": "A compact pair of pleated, stitched bellows lungs with a short tracheal root."
+    },
+    "offset": {
+      "x": -0.04434447300771225,
+      "y": -0.08489566613162092
+    },
+    "rotation": 4.8950000000000005,
+    "heightScale": 0.9783258594917791,
+    "opacity": 0.5,
+    "mirror": false,
     "mirroredSlots": [],
-    "description": "One exposed expanding rib-cage module framing two waxy translucent lung lobes, crooked ivory ribs, green flesh joining root, front perspective, no full torso."
+    "description": "A compact pair of pleated, stitched bellows lungs with a short tracheal root."
   },
   {
     "id": "mutation.counterweight-tail",
@@ -648,15 +1030,25 @@
     "bytes": 63002,
     "slot": "appendages",
     "attachment": {
-      "x": 0.69,
-      "y": 0.66
+      "x": 0.8513890853483191,
+      "y": 0.8064952275513672
     },
-    "width": 0.43,
-    "order": -1,
+    "width": 0.35154241645244205,
+    "order": 3,
     "pivot": {
-      "x": 0.5,
-      "y": 0.5
+      "x": 0.12,
+      "y": 0.1
     },
+    "anchor": "tail",
+    "layer": "surface",
+    "compositionReview": "9–10 October 2026: inspected high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255, cell 5; independent horizontal/vertical dimensions, rotation and actual trimmed-source pivot.",
+    "offset": {
+      "x": 0.03138908534831913,
+      "y": -0.06350477244863281
+    },
+    "rotation": -23.13500000000003,
+    "heightScale": 1.009580992094306,
+    "mirror": false,
     "mirroredSlots": [],
     "description": "One heavy articulated tail curled into a readable C shape, segmented olive-green flesh, plated ivory joints, root at upper-left and a heavy rounded tip."
   },
@@ -683,15 +1075,25 @@
     "bytes": 67878,
     "slot": "head-growth",
     "attachment": {
-      "x": 0.5,
-      "y": 0.36
+      "x": 0.5526992287917737,
+      "y": 0.061145425361155865
     },
-    "width": 0.66,
-    "order": 1,
+    "width": 1.3989074550128535,
+    "order": 0,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.08
     },
+    "anchor": "crown",
+    "layer": "surface",
+    "compositionReview": "9–10 October 2026: inspected high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255, cell 6; independent horizontal/vertical dimensions, rotation and actual trimmed-source pivot.",
+    "offset": {
+      "x": 0.05269922879177372,
+      "y": -0.03885457463884411
+    },
+    "rotation": 0,
+    "heightScale": 0.9096256088483803,
+    "mirror": false,
     "mirroredSlots": [],
     "description": "One mane of long wet charcoal-violet hair, a shallow arch over the top and draping strands down both sides, transparent empty central face area, root at top center."
   },
@@ -718,15 +1120,25 @@
     "bytes": 51770,
     "slot": "head-growth",
     "attachment": {
-      "x": 0.5,
-      "y": 0.29
+      "x": 0.524674884064452,
+      "y": 0.1482568069987035
     },
-    "width": 0.57,
-    "order": 1,
+    "width": 0.5080334190231364,
+    "order": 2,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.94
     },
+    "anchor": "crown",
+    "layer": "surface",
+    "compositionReview": "9–10 October 2026: inspected high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255, cell 5; independent horizontal/vertical dimensions, rotation and actual trimmed-source pivot.",
+    "offset": {
+      "x": 0.024674884064451987,
+      "y": 0.04825680699870353
+    },
+    "rotation": 0.024999999999999967,
+    "heightScale": 1.0011260398850699,
+    "mirror": false,
     "mirroredSlots": [],
     "description": "A matched pair of ornate curling cathedral-like horns, weathered ivory, subtle engraved ribbing, broad transparent gap between them and small green fleshy bases at bottom."
   },
@@ -753,15 +1165,25 @@
     "bytes": 80456,
     "slot": "skin",
     "attachment": {
-      "x": 0.5,
-      "y": 0.54
+      "x": 0.5272310131778081,
+      "y": 0.38083468895270656
     },
-    "width": 0.68,
-    "order": 3,
+    "width": 0.9758997429305915,
+    "order": 8,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.1
     },
+    "anchor": "chest",
+    "layer": "surface",
+    "compositionReview": "9–10 October 2026: inspected high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255, cell 9; independent horizontal/vertical dimensions, rotation and actual trimmed-source pivot.",
+    "offset": {
+      "x": 0.027231013177808024,
+      "y": -0.1391653110472935
+    },
+    "rotation": -0.0249999999999993,
+    "heightScale": 0.5225784349920012,
+    "mirror": false,
     "mirroredSlots": [],
     "description": "A ragged translucent violet mourning veil of anatomical frills, open central area and lacy torn perimeter, olive fleshy attachments at top, not fabric on a person."
   },
@@ -788,15 +1210,25 @@
     "bytes": 96162,
     "slot": "skin",
     "attachment": {
-      "x": 0.5,
-      "y": 0.54
+      "x": 0.5144469380840238,
+      "y": 0.692699836605815
     },
-    "width": 0.64,
-    "order": 3,
+    "width": 0.8081619537275064,
+    "order": 0,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.56
     },
+    "anchor": "belly",
+    "layer": "surface",
+    "compositionReview": "9–10 October 2026: inspected high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255, cell 8; independent horizontal/vertical dimensions, rotation and actual trimmed-source pivot.",
+    "offset": {
+      "x": 0.01444693808402377,
+      "y": -0.03730016339418491
+    },
+    "rotation": 0.02500000000000066,
+    "heightScale": 0.7486466965994296,
+    "mirror": false,
     "mirroredSlots": [],
     "description": "An oval torso-sized branching network of black marbled veins over tiny translucent green skin strips, broad transparent gaps, no underlying body, face or limbs."
   },
@@ -823,14 +1255,101 @@
     "bytes": 55854,
     "slot": "eyes",
     "attachment": {
-      "x": 0.5,
-      "y": 0.44
+      "x": 0.5228149100257069,
+      "y": 0.2553772070626004
     },
-    "width": 0.3,
-    "order": 4,
+    "width": 0.34318766066838047,
+    "order": 0,
     "pivot": {
       "x": 0.5,
       "y": 0.5
+    },
+    "anchor": "eyes",
+    "layer": "face",
+    "compositionReview": "9–10 October 2026: inspected high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255, cell 2; independent horizontal/vertical dimensions, rotation and actual trimmed-source pivot.",
+    "previousProduction": {
+      "id": "mutation.lantern-eyes",
+      "url": "/assets/laboratory/mutation.lantern-eyes.webp",
+      "source": "assets/source/mutation.lantern-eyes-v2.png",
+      "origin": "generated",
+      "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+      "date": "2026-10-07",
+      "prompt": "Make a precise color-only edit of these two modular Lantern Eyes for Monstrum Mortis to match the edited eyes in the definitive contact sheet (row 1 column 2, and other pairs of slit-pupil eyes). Preserve the EXACT source shapes, positions, perspective, bulging eyes, vertical dark purple slit pupils, thin veining, lumpy eyelid outlines and transparent surrounds. Change the bright green iris/globe to luminous pale warm cream/off-white with a very subtle lavender tint, with purple slit pupils clearly visible. Shift the heavy dark maroon eyelids to lighter muted mauve/olive-gray flesh that matches the original pale olive blob, as seen in the supplied sheet. Keep sinister Frankenstein textures, upper-left highlights, and pupils dark. Do not turn the lids charcoal gray or make it look like goggles. Preserve all source anatomy and render details; no face, no body, no extra eyes, no background. Output a pair of cutout eyes on genuine alpha transparency.",
+      "references": [
+        "assets/source/mutation.lantern-eyes.png",
+        "assets/source/creature.blob.png",
+        "docs/visual-reviews/step5-composition/sjm_contact-sheet_definitive.png"
+      ],
+      "terms": "https://openai.com/policies/terms-of-use/",
+      "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+      "sourceSha256": "18c343515d7dd602ffe3a8f0c699eb0da562ae1bb682898acca7e7d4d94a9fba",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "dimensions": [
+        640,
+        430
+      ],
+      "bytes": 46224,
+      "slot": "eyes",
+      "attachment": {
+        "x": 0.5,
+        "y": 0.235
+      },
+      "width": 0.4,
+      "order": 0,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "anchor": "eyes",
+      "layer": "face",
+      "compositionReview": "SJM definitive contact sheet, 7 October 2026: anatomical placement/proportions; non-destructive color grades.",
+      "previousProduction": {
+        "source": "assets/source/mutation.lantern-eyes.png",
+        "sourceSha256": "64d196cb9d9cbf7214e7c37e74b28168d8a0711b8a8c9616dcdec1c9ef08fd80",
+        "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. A pair of unnaturally glowing pale green eyeballs, violet slit pupils, swollen olive eyelid rims; restrained contained glow, no head or wide background halo.",
+        "references": [],
+        "date": "2026-10-06"
+      },
+      "heightScale": 0.52,
+      "mirroredSlots": [],
+      "description": "A pair of unnaturally glowing pale green eyeballs, violet slit pupils, swollen olive eyelid rims; restrained contained glow, no head or wide background halo."
+    },
+    "offset": {
+      "x": 0.022814910025706892,
+      "y": 0.020377207062600374
+    },
+    "rotation": 0.155,
+    "heightScale": 1.0062363497618612,
+    "mirror": false,
+    "colorGrade": [
+      0.993313037234874,
+      -0.0925978778962041,
+      0.08572546697717409,
+      0,
+      0.22173308014108037,
+      0.2539182904654469,
+      0.8279991438005992,
+      -0.01588929909122694,
+      0,
+      0.12971345248635552,
+      0.08905751604162193,
+      -0.004164850386992325,
+      1.104751232655609,
+      0,
+      0.11142149989538151,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "colorGradeCalibration": {
+      "referenceSha256": "7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255",
+      "method": "Least-squares sRGB affine grade from reference-resolution samples with source alpha >235/255. Alpha unchanged. Colors advisory rather than pixel-exact.",
+      "date": "2026-10-10"
     },
     "mirroredSlots": [],
     "description": "A pair of unnaturally glowing pale green eyeballs, violet slit pupils, swollen olive eyelid rims; restrained contained glow, no head or wide background halo."
@@ -858,15 +1377,25 @@
     "bytes": 46380,
     "slot": "head-growth",
     "attachment": {
-      "x": 0.5,
-      "y": 0.19
+      "x": 0.5170308483290489,
+      "y": -0.020064205457463763
     },
-    "width": 0.36,
-    "order": 4,
+    "width": 0.368573264781491,
+    "order": 0,
     "pivot": {
       "x": 0.5,
       "y": 0.5
     },
+    "anchor": "halo",
+    "layer": "rear-growth",
+    "compositionReview": "9–10 October 2026: inspected high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255, cell 6; independent horizontal/vertical dimensions, rotation and actual trimmed-source pivot.",
+    "offset": {
+      "x": 0.01703084832904892,
+      "y": 0.08435313001605141
+    },
+    "rotation": 0,
+    "heightScale": 0.5984862251387897,
+    "mirror": false,
     "mirroredSlots": [],
     "description": "One horizontal floating ring of pale olive fleshy tissue, slightly crooked oval with a genuinely empty transparent central hole, violet veins, sinister comic biological halo."
   },
@@ -893,15 +1422,25 @@
     "bytes": 79710,
     "slot": "skin",
     "attachment": {
-      "x": 0.5,
-      "y": 0.56
+      "x": 0.5356683804627248,
+      "y": 0.6433386837881221
     },
-    "width": 0.49,
-    "order": 4,
+    "width": 0.68573264781491,
+    "order": 0,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.45
     },
+    "anchor": "belly",
+    "layer": "surface",
+    "compositionReview": "9–10 October 2026: inspected high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255, cell 5; independent horizontal/vertical dimensions, rotation and actual trimmed-source pivot.",
+    "offset": {
+      "x": 0.035668380462724796,
+      "y": -0.08666131621187785
+    },
+    "rotation": 0,
+    "heightScale": 0.8151298872948359,
+    "mirror": false,
     "mirroredSlots": [],
     "description": "Five small mismatched grinning mouths with green flesh rims, scattered in an oval torso-sized pattern, tiny dirty ivory teeth. Transparent gaps between mouths, no underlying face or body."
   },
@@ -928,14 +1467,33 @@
     "bytes": 39342,
     "slot": "forelimb-left",
     "attachment": {
-      "x": 0.25,
-      "y": 0.54
+      "x": 0.2426619568167816,
+      "y": 0.38733986373454293
     },
-    "width": 0.24,
-    "order": 4,
+    "width": 0.3839974293059127,
+    "order": 0,
     "pivot": {
-      "x": 0.5,
-      "y": 0.5
+      "x": 0.3,
+      "y": 0.06
+    },
+    "anchor": "shoulder-left",
+    "layer": "forelimbs",
+    "compositionReview": "9–10 October 2026: inspected high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255, cell 7; independent horizontal/vertical dimensions, rotation and actual trimmed-source pivot.",
+    "mirrorOnLeft": false,
+    "offset": {
+      "x": 0.07266195681678149,
+      "y": -0.03266013626545702
+    },
+    "rotation": 150.1100000000002,
+    "heightScale": 0.9978085774058577,
+    "rightPose": {
+      "width": 0.3846401028277635,
+      "heightScale": 0.9994935254803674,
+      "rotation": -149.92500000000004,
+      "offset": {
+        "x": -0.041003092431262475,
+        "y": -0.032612041465120395
+      }
     },
     "mirroredSlots": [
       "forelimb-left",
@@ -946,72 +1504,276 @@
   {
     "id": "mutation.candle-flesh",
     "url": "/assets/laboratory/mutation.candle-flesh.webp",
-    "source": "assets/source/mutation.candle-flesh.png",
-    "origin": "generated",
+    "source": "assets/source/mutation.candle-flesh-v3.png",
+    "origin": "assembled-generated-masters",
     "creator": "OpenAI built-in image generation tool; model identifier not exposed",
-    "date": "2026-10-06",
-    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. One full rounded gelatinous torso without eyes, mouth or limbs, sagging dirty-ivory waxy skin in thick drips and soft folded base, bruised violet veins. No candle flame.",
-    "references": [],
+    "date": "2026-10-10",
+    "prompt": "Deterministic SVG assembly of the original blob and original anatomical module using the inspected high-resolution contact-sheet transforms. No new image generation. Original generation prompts remain in previousProduction.",
+    "references": [
+      "assets/source/creature.blob.png",
+      "assets/source/mutation.candle-flesh.png",
+      "docs/visual-reviews/step5-composition/sjm_contact-sheet_definitive.png"
+    ],
     "terms": "https://openai.com/policies/terms-of-use/",
     "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
-    "sourceSha256": "67eff46a5ba19cd57c4e02591344bf20737c48221ee49987f1e360788a10dd40",
+    "sourceSha256": "ed6069fd73df17ad2d8e90d5aed8fc145a806962bf4dcf3005e698951d9ebc9e",
     "sourceDimensions": [
-      1199,
-      1312
+      1200,
+      1454
     ],
     "dimensions": [
-      592,
+      528,
       640
     ],
-    "bytes": 62426,
+    "bytes": 45722,
     "slot": "body",
     "attachment": {
       "x": 0.5,
-      "y": 0.55
+      "y": 0.5
     },
-    "width": 0.69,
+    "width": 1,
     "order": 0,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.4132944142231657
+    },
+    "anchor": "center",
+    "layer": "body",
+    "compositionReview": "9–10 October 2026: original-part assembly from high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255. Canonical head frame preserved.",
+    "previousProduction": {
+      "id": "mutation.candle-flesh",
+      "url": "/assets/laboratory/mutation.candle-flesh.webp",
+      "source": "assets/source/mutation.candle-flesh-v2.png",
+      "origin": "generated",
+      "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+      "date": "2026-10-07",
+      "prompt": "Create the SINGLE Candle Flesh replacement body sprite for Monstrum Mortis, faithfully combining the supplied original sprites and definitive contact sheet cell row 3 column 2. Preserve the exact original squat olive-green blob silhouette, two rounded head peaks, veined waxy skin, frontal perspective and upper-left lighting. Keep the upper 35% as the original smooth blank blob head for separate eyes and mouth, no cut-off neck. Integrate the supplied Candle Flesh wax into the LOWER torso only: drips across the shoulders/belly, rounded candle-wax belly and folds. Keep the original blob's upper head distinct above the wax shoulders as in the reference. Restrained olive/cream/purple palette, decayed Frankenstein/eldritch creature, original detailed brush texture. NO eyes, NO mouth, NO limbs, NO organs or nerves, no chamber, no floor, no shadow, no human anatomy. One squat coherent full body on genuine transparent background. Match reference proportions closely; this replaces the body, it is not a headless torso overlay.",
+      "references": [
+        "assets/source/creature.blob.png",
+        "assets/source/mutation.candle-flesh.png",
+        "docs/visual-reviews/step5-composition/sjm_contact-sheet_definitive.png"
+      ],
+      "terms": "https://openai.com/policies/terms-of-use/",
+      "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+      "sourceSha256": "27d74f5e29cb29271ef8b230cc032b793f5c269c784375e357aabb414bac9856",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "dimensions": [
+        640,
+        624
+      ],
+      "bytes": 57228,
+      "slot": "body",
+      "attachment": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "width": 1,
+      "order": 0,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "anchor": "center",
+      "layer": "body",
+      "compositionReview": "SJM definitive contact sheet, 7 October 2026: anatomical placement/proportions; non-destructive color grades.",
+      "previousProduction": {
+        "source": "assets/source/mutation.candle-flesh.png",
+        "sourceSha256": "67eff46a5ba19cd57c4e02591344bf20737c48221ee49987f1e360788a10dd40",
+        "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. One full rounded gelatinous torso without eyes, mouth or limbs, sagging dirty-ivory waxy skin in thick drips and soft folded base, bruised violet veins. No candle flame.",
+        "references": [],
+        "date": "2026-10-06"
+      },
+      "mirroredSlots": [],
+      "description": "The familiar rounded blob silhouette, transformed with draping candle wax."
+    },
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "rotation": 0,
+    "heightScale": 1,
+    "mirror": false,
+    "bodyFrame": {
+      "width": 400,
+      "height": 400.38560411311056
+    },
+    "assembly": {
+      "tool": "SVG affine composition rasterized with Sharp; no repainting",
+      "preserveFrame": true,
+      "components": [
+        {
+          "source": "assets/source/creature.blob.png",
+          "sha256": "898887367e8a7a92156151e6c75d7498923ab3137de430b9f4c1e78bc789fa41",
+          "x": 0,
+          "y": 0,
+          "width": 400,
+          "height": 400.38560411311056
+        },
+        {
+          "source": "assets/source/mutation.candle-flesh.png",
+          "sha256": "67eff46a5ba19cd57c4e02591344bf20737c48221ee49987f1e360788a10dd40",
+          "id": "mutation.candle-flesh",
+          "cell": 10,
+          "mirror": false,
+          "cx": 263.7,
+          "cy": 473,
+          "width": 273,
+          "height": 294.6,
+          "rotation": 0,
+          "score": 0.990400113466527,
+          "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+        }
+      ],
+      "viewBox": {
+        "left": 0,
+        "top": 0,
+        "width": 400,
+        "height": 484.38303341902315
+      },
+      "referenceSha256": "7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255"
     },
     "mirroredSlots": [],
-    "description": "One full rounded gelatinous torso without eyes, mouth or limbs, sagging dirty-ivory waxy skin in thick drips and soft folded base, bruised violet veins. No candle flame."
+    "description": "The familiar rounded blob silhouette, transformed with draping candle wax."
   },
   {
     "id": "mutation.brittle-skeleton",
     "url": "/assets/laboratory/mutation.brittle-skeleton.webp",
-    "source": "assets/source/mutation.brittle-skeleton.png",
-    "origin": "generated",
+    "source": "assets/source/mutation.brittle-skeleton-v3.png",
+    "origin": "assembled-generated-masters",
     "creator": "OpenAI built-in image generation tool; model identifier not exposed",
-    "date": "2026-10-06",
-    "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. One narrow cracked anatomical torso with crooked ivory ribs and fragile spine wrapped in thin olive flesh, comically fragile silhouette, no eyes, mouth, head or limbs.",
-    "references": [],
+    "date": "2026-10-10",
+    "prompt": "Deterministic SVG assembly of the original blob and original anatomical module using the inspected high-resolution contact-sheet transforms. No new image generation. Original generation prompts remain in previousProduction.",
+    "references": [
+      "assets/source/creature.blob.png",
+      "assets/source/mutation.brittle-skeleton.png",
+      "docs/visual-reviews/step5-composition/sjm_contact-sheet_definitive.png"
+    ],
     "terms": "https://openai.com/policies/terms-of-use/",
     "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
-    "sourceSha256": "9eb0ceef03db8aa00d6ebd8141744f460b0801ade96f930639842f0320657055",
+    "sourceSha256": "c7dedde4ac4e1bb089f06ed12dacb173aa9aeac80f93508c524d7b57e4fd504d",
     "sourceDimensions": [
-      1024,
-      1536
+      1200,
+      1351
     ],
     "dimensions": [
-      438,
+      568,
       640
     ],
-    "bytes": 46312,
+    "bytes": 52146,
     "slot": "body",
     "attachment": {
       "x": 0.5,
-      "y": 0.55
+      "y": 0.5
     },
-    "width": 0.48,
+    "width": 1,
     "order": 0,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.444682369735903
+    },
+    "anchor": "center",
+    "layer": "body",
+    "compositionReview": "9–10 October 2026: original-part assembly from high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255. Canonical head frame preserved.",
+    "previousProduction": {
+      "id": "mutation.brittle-skeleton",
+      "url": "/assets/laboratory/mutation.brittle-skeleton.webp",
+      "source": "assets/source/mutation.brittle-skeleton-v2.png",
+      "origin": "generated",
+      "creator": "OpenAI built-in image generation tool; model identifier not exposed",
+      "date": "2026-10-07",
+      "prompt": "Create the SINGLE replacement body sprite for Monstrum Mortis from the supplied existing sprites and definitive contact sheet. Match the silhouette/proportions of cell row 1 column 4 of the contact sheet: the original squat waxy olive-green blob with two rounded peaks at its head, now with the supplied brittle rib cage embedded across its LOWER torso. Preserve the original blob outline, folds, color, veined skin and exact head shape; do not turn it into a human. Keep the top 35% as the original blank blob head, a smooth empty surface for separate eyes and mouth. Flatten the supplied rib cage to occupy the lower 60% of the squat body, from just below the face to the lower belly, with its bony shoulder corners against the sides. No human neck sticking out, no extra head, no eyes, no mouth, no limbs, no organs, no chamber, no shadow/background. One coherent body image on genuine transparent background; consistent original upper-left light, aged ivory bones, restrained olive/purple Frankenstein palette. Front view. This is brittle skeleton body DNA, not a separate rib cage sprite. Use the contact sheet for placement only, leave all other mutations absent.",
+      "references": [
+        "assets/source/creature.blob.png",
+        "assets/source/mutation.brittle-skeleton.png",
+        "docs/visual-reviews/step5-composition/sjm_contact-sheet_definitive.png"
+      ],
+      "terms": "https://openai.com/policies/terms-of-use/",
+      "edits": "ImageMagick: trim transparent margins for modules, resize, strip metadata, WebP quality 82; chamber phone quality 78. Source unchanged.",
+      "sourceSha256": "c552e8e2f3452492c1854b5fad704daa3c61176501c5069a3e653701466755b5",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "dimensions": [
+        640,
+        614
+      ],
+      "bytes": 69578,
+      "slot": "body",
+      "attachment": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "width": 1,
+      "order": 0,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "anchor": "center",
+      "layer": "body",
+      "compositionReview": "SJM definitive contact sheet, 7 October 2026: anatomical placement/proportions; non-destructive color grades.",
+      "previousProduction": {
+        "source": "assets/source/mutation.brittle-skeleton.png",
+        "sourceSha256": "9eb0ceef03db8aa00d6ebd8141744f460b0801ade96f930639842f0320657055",
+        "prompt": "ONE isolated finished production creature module for Monstrum Mortis, genuinely transparent alpha background. Hand-painted dark fantasy raster illustration; Frankenstein-era sinister comic mutation; pale olive waxy flesh, bruised violet mottling, dirty ivory accents, upper-left warm highlight, subdued green rim light. Consistent straight-on front perspective for attachment to a gelatinous torso. Only the requested anatomical module, no whole creature, no chamber, no background, no ground shadow, no text, watermark, labels or diagram. Clean alpha edges, full module visible with transparent margins. One narrow cracked anatomical torso with crooked ivory ribs and fragile spine wrapped in thin olive flesh, comically fragile silhouette, no eyes, mouth, head or limbs.",
+        "references": [],
+        "date": "2026-10-06"
+      },
+      "mirroredSlots": [],
+      "description": "The familiar rounded blob silhouette, transformed with an integrated brittle rib cage."
+    },
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "rotation": 0,
+    "heightScale": 1,
+    "mirror": false,
+    "bodyFrame": {
+      "width": 400,
+      "height": 400.38560411311056
+    },
+    "assembly": {
+      "tool": "SVG affine composition rasterized with Sharp; no repainting",
+      "preserveFrame": true,
+      "components": [
+        {
+          "source": "assets/source/creature.blob.png",
+          "sha256": "898887367e8a7a92156151e6c75d7498923ab3137de430b9f4c1e78bc789fa41",
+          "x": 0,
+          "y": 0,
+          "width": 400,
+          "height": 400.38560411311056
+        },
+        {
+          "source": "assets/source/mutation.brittle-skeleton.png",
+          "sha256": "9eb0ceef03db8aa00d6ebd8141744f460b0801ade96f930639842f0320657055",
+          "id": "mutation.brittle-skeleton",
+          "cell": 4,
+          "mirror": false,
+          "cx": 261.7,
+          "cy": 464.99999999999994,
+          "width": 277.00000000000006,
+          "height": 257.3999999999999,
+          "rotation": 0,
+          "score": 0.9849979302190982,
+          "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+        }
+      ],
+      "viewBox": {
+        "left": 0,
+        "top": 0,
+        "width": 400,
+        "height": 450.1928020565552
+      },
+      "referenceSha256": "7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255"
     },
     "mirroredSlots": [],
-    "description": "One narrow cracked anatomical torso with crooked ivory ribs and fragile spine wrapped in thin olive flesh, comically fragile silhouette, no eyes, mouth, head or limbs."
+    "description": "The familiar rounded blob silhouette, transformed with an integrated brittle rib cage."
   },
   {
     "id": "mutation.wandering-limb",
@@ -1036,14 +1798,33 @@
     "bytes": 43938,
     "slot": "forelimb-left",
     "attachment": {
-      "x": 0.25,
-      "y": 0.58
+      "x": 0.3023704076046465,
+      "y": 0.1534936640366492
     },
-    "width": 0.27,
-    "order": 2,
+    "width": 0.5520565552699231,
+    "order": 0,
     "pivot": {
-      "x": 0.5,
-      "y": 0.5
+      "x": 0.2,
+      "y": 0.08
+    },
+    "anchor": "shoulder-left",
+    "layer": "forelimbs",
+    "compositionReview": "9–10 October 2026: inspected high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255, cell 8; independent horizontal/vertical dimensions, rotation and actual trimmed-source pivot.",
+    "mirrorOnLeft": true,
+    "offset": {
+      "x": 0.13237040760464638,
+      "y": -0.2665063359633507
+    },
+    "rotation": 19.92,
+    "heightScale": 0.9976298748544818,
+    "rightPose": {
+      "width": 0.5520565552699231,
+      "heightScale": 0.9976298748544818,
+      "rotation": -19.92,
+      "offset": {
+        "x": -0.13237040760464652,
+        "y": -0.2665063359633507
+      }
     },
     "mirroredSlots": [
       "forelimb-left",
@@ -1074,15 +1855,25 @@
     "bytes": 97420,
     "slot": "appendages",
     "attachment": {
-      "x": 0.59,
-      "y": 0.58
+      "x": 0.5388817480719795,
+      "y": 0.3721508828250403
     },
-    "width": 0.24,
-    "order": 4,
+    "width": 1.2779562982005142,
+    "order": 0,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.05
     },
+    "anchor": "chest",
+    "layer": "organs",
+    "compositionReview": "9–10 October 2026: inspected high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255, cell 10; independent horizontal/vertical dimensions, rotation and actual trimmed-source pivot.",
+    "offset": {
+      "x": 0.038881748071979555,
+      "y": -0.14784911717495977
+    },
+    "rotation": 0,
+    "heightScale": 1.0009774634180668,
+    "mirror": false,
     "mirroredSlots": [],
     "description": "One twitchy cluster of knotted violet nerve ganglia with thin crooked olive tendrils, expressive erratic zigzag anatomy, a root at upper center; no drawn motion lines."
   },
@@ -1109,15 +1900,25 @@
     "bytes": 53888,
     "slot": "mouth",
     "attachment": {
-      "x": 0.5,
-      "y": 0.57
+      "x": 0.5334190231362467,
+      "y": 0.4040128410914929
     },
-    "width": 0.3,
-    "order": 4,
+    "width": 0.4289845758354756,
+    "order": 1,
     "pivot": {
       "x": 0.5,
       "y": 0.5
     },
+    "anchor": "mouth",
+    "layer": "face",
+    "compositionReview": "9–10 October 2026: inspected high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255, cell 4; independent horizontal/vertical dimensions, rotation and actual trimmed-source pivot.",
+    "offset": {
+      "x": 0.03341902313624672,
+      "y": 0.009012841091492868
+    },
+    "rotation": -0.060000000000000026,
+    "heightScale": 0.9980966414932154,
+    "mirror": false,
     "mirroredSlots": [],
     "description": "One broad crooked mouth with chipped porcelain-like ivory teeth and tiny broken shards attached at lips, olive flesh rims, comic embarrassed grimace, no head."
   },
@@ -1144,15 +1945,25 @@
     "bytes": 50804,
     "slot": "appendages",
     "attachment": {
-      "x": 0.5,
-      "y": 0.7
+      "x": 0.4151335895966035,
+      "y": 0.39469030904303515
     },
-    "width": 0.4,
-    "order": 4,
+    "width": 0.5716580976863753,
+    "order": 0,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.02
     },
+    "anchor": "chest",
+    "layer": "organs",
+    "compositionReview": "9–10 October 2026: inspected high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255, cell 12; independent horizontal/vertical dimensions, rotation and actual trimmed-source pivot.",
+    "offset": {
+      "x": -0.08486641040339649,
+      "y": -0.12530969095696484
+    },
+    "rotation": 0.04000000000000009,
+    "heightScale": 1.0001212057335584,
+    "mirror": false,
     "mirroredSlots": [],
     "description": "One pendulous bundle of swollen purple-green organs and looping tubes, dry waxy translucent surfaces, small olive attachment root at top, excessive bulk, no blood spray."
   },
@@ -1179,15 +1990,25 @@
     "bytes": 62956,
     "slot": "appendages",
     "attachment": {
-      "x": 0.5,
-      "y": 0.56
+      "x": 0.7642862443306031,
+      "y": 0.5324748502963145
     },
-    "width": 0.26,
-    "order": 4,
+    "width": 0.39524421593830333,
+    "order": 0,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.06
     },
+    "anchor": "heart",
+    "layer": "organs",
+    "compositionReview": "9–10 October 2026: inspected high-resolution reference 7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255, cell 7; independent horizontal/vertical dimensions, rotation and actual trimmed-source pivot.",
+    "offset": {
+      "x": 0.024286244330603068,
+      "y": 0.06247485029631448
+    },
+    "rotation": 16.799999999999994,
+    "heightScale": 1.0003455284552845,
+    "mirror": false,
     "mirroredSlots": [],
     "description": "One bulbous olive-green chest growth containing a single oversized tired ivory eye looking upward in existential dread, violet iris, fleshy attachment base, not an entire creature."
   }

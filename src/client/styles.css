@@ -33,7 +33,7 @@ h3 small { font: .8rem system-ui, sans-serif; color: #bab5a6; }
 .chamber-backdrop { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
 .chamber-canvas { position: absolute; inset: 0; }
 .chamber-canvas canvas { display: block; width: 100%; height: 100%; }
-.static-creature { position: absolute; left: 20.7%; top: 25.8%; width: 58.6%; height: 46.9%; }
+.static-creature { position: absolute; left: 20.703125%; top: 25.78125%; width: 58.59375%; height: 46.875%; }
 .static-creature img { position: absolute; object-fit: fill; }
 .chamber-glass { position: absolute; pointer-events: none; inset: 16% 21% 25%; background: linear-gradient(105deg, transparent 30%, #d1f5a608 35%, transparent 41%); opacity: .6; }
 .chamber figcaption { padding: .7rem .5rem; text-align: center; color: #c5bd9f; font-size: .73rem; letter-spacing: .025em; }
@@ -111,7 +111,7 @@ input.name-required { border-color: #f2cf8a; }
  .display-layout .chamber-stage { aspect-ratio: 1; width: min(100%, calc(100svh - 20rem)); }
  .display-layout .chamber-backdrop { object-fit: cover; }
  .display-layout .chamber-canvas { top: -25%; bottom: auto; height: 150%; }
- .display-layout .static-creature { top: 13.7%; height: 70.35%; }
+ .display-layout .static-creature { top: 13.671875%; height: 70.3125%; }
  .display-layout .chamber-glass { inset: 0 21% 13%; }
  .display-layout .chamber-fluid { inset: 68% 24% 15.5%; }
  .display-layout .chamber figcaption { font-size: .9rem; }

@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { existsSync, readFileSync } from 'node:fs';
 import { ASSET_MANIFEST } from '../src/assets/manifest.ts';
-import { ART, creatureLayers } from '../src/client/creature-render.ts';
+import { ART, DRAW_BOUNDS, creatureLayers, layerBounds } from '../src/client/creature-render.ts';
 
 test('all thirty planned mutation appearances have real modules and every body slot is supported', () => {
   const mutations = ART.filter(a => a.id.startsWith('mutation.'));
@@ -38,7 +38,7 @@ test('starter preview is local, stable, layered and does not mutate received pub
   const view = creatureLayers(creature);
   assert.equal(view.missing.length, 0);
   assert.equal(view.layers[0].key, 'body');
-  assert.equal(view.layers[1].mirror, true);
+  assert.equal(view.layers[1].mirror, false); // Source arm bends outward to the right; left uses the mirrored drawing.
   assert.deepEqual(creature, original);
   assert.deepEqual(creatureLayers(creature), view);
 });
@@ -53,7 +53,8 @@ test('extreme finite scales stay inside the chamber drawing area', () => {
   for (const asset of ART.filter(a => a.slot)) {
     const { layers } = creatureLayers({ compositionSeed: '', revealedMutationIds: [], parts: [{ instanceId: asset.id, assetId: asset.id, slot: asset.slot!, scale: 100, variant: 0, contributorIds: [] }] });
     const layer = layers[0]!;
-    assert.ok(layer.x - layer.width / 2 >= 0 && layer.x + layer.width / 2 <= 600);
-    assert.ok(layer.y - layer.height / 2 >= 0 && layer.y + layer.height / 2 <= 720);
+    const bounds = layerBounds(layer);
+    assert.ok(bounds.left >= DRAW_BOUNDS.left - 1e-8 && bounds.left + bounds.width <= DRAW_BOUNDS.right + 1e-8, asset.id);
+    assert.ok(bounds.top >= DRAW_BOUNDS.top - 1e-8 && bounds.top + bounds.height <= DRAW_BOUNDS.bottom + 1e-8, asset.id);
   }
 });

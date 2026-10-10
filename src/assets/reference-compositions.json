@@ -1,0 +1,610 @@
+[
+  {
+    "id": "reference-01",
+    "label": "SJM 1: Starter face",
+    "creature": {
+      "compositionSeed": "reference-art-sampler",
+      "parts": [
+        {
+          "instanceId": "reference-0-creature.blob-body",
+          "assetId": "creature.blob",
+          "slot": "body",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-0-creature.eyes-eyes",
+          "assetId": "creature.eyes",
+          "slot": "eyes",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-0-creature.mouth-mouth",
+          "assetId": "creature.mouth",
+          "slot": "mouth",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        }
+      ],
+      "revealedMutationIds": []
+    }
+  },
+  {
+    "id": "reference-02",
+    "label": "SJM 2: Claws, faint lungs, heart",
+    "creature": {
+      "compositionSeed": "reference-art-sampler",
+      "parts": [
+        {
+          "instanceId": "reference-1-creature.blob-body",
+          "assetId": "creature.blob",
+          "slot": "body",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-1-mutation.razor-talons-forelimb-left",
+          "assetId": "mutation.razor-talons",
+          "slot": "forelimb-left",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-1-mutation.razor-talons-forelimb-right",
+          "assetId": "mutation.razor-talons",
+          "slot": "forelimb-right",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-1-mutation.bellows-lung-skin",
+          "assetId": "mutation.bellows-lung",
+          "slot": "skin",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-1-mutation.auxiliary-heart-appendages",
+          "assetId": "mutation.auxiliary-heart",
+          "slot": "appendages",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-1-mutation.lantern-eyes-eyes",
+          "assetId": "mutation.lantern-eyes",
+          "slot": "eyes",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-1-mutation.guillotine-teeth-mouth",
+          "assetId": "mutation.guillotine-teeth",
+          "slot": "mouth",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        }
+      ],
+      "revealedMutationIds": []
+    }
+  },
+  {
+    "id": "reference-03",
+    "label": "SJM 3: Eye cluster, hide, bladder",
+    "creature": {
+      "compositionSeed": "reference-art-sampler",
+      "parts": [
+        {
+          "instanceId": "reference-2-creature.blob-body",
+          "assetId": "creature.blob",
+          "slot": "body",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-2-creature.mouth-mouth",
+          "assetId": "creature.mouth",
+          "slot": "mouth",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-2-mutation.all-seeing-cluster-eyes",
+          "assetId": "mutation.all-seeing-cluster",
+          "slot": "eyes",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-2-mutation.barbed-hide-skin",
+          "assetId": "mutation.barbed-hide",
+          "slot": "skin",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-2-mutation.acid-bladder-appendages",
+          "assetId": "mutation.acid-bladder",
+          "slot": "appendages",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        }
+      ],
+      "revealedMutationIds": []
+    }
+  },
+  {
+    "id": "reference-04",
+    "label": "SJM 4: Skeleton, legs, porcelain grin",
+    "creature": {
+      "compositionSeed": "reference-art-sampler",
+      "parts": [
+        {
+          "instanceId": "reference-3-mutation.brittle-skeleton-body",
+          "assetId": "mutation.brittle-skeleton",
+          "slot": "body",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-3-mutation.spring-tendons-lower-limbs",
+          "assetId": "mutation.spring-tendons",
+          "slot": "lower-limbs",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-3-mutation.lantern-eyes-eyes",
+          "assetId": "mutation.lantern-eyes",
+          "slot": "eyes",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-3-mutation.porcelain-teeth-mouth",
+          "assetId": "mutation.porcelain-teeth",
+          "slot": "mouth",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        }
+      ],
+      "revealedMutationIds": []
+    }
+  },
+  {
+    "id": "reference-05",
+    "label": "SJM 5: Horns, many smiles, tail",
+    "creature": {
+      "compositionSeed": "reference-art-sampler",
+      "parts": [
+        {
+          "instanceId": "reference-4-creature.blob-body",
+          "assetId": "creature.blob",
+          "slot": "body",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-4-creature.eyes-eyes",
+          "assetId": "creature.eyes",
+          "slot": "eyes",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-4-mutation.cathedral-horns-head-growth",
+          "assetId": "mutation.cathedral-horns",
+          "slot": "head-growth",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-4-mutation.too-many-smiles-skin",
+          "assetId": "mutation.too-many-smiles",
+          "slot": "skin",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-4-mutation.counterweight-tail-appendages",
+          "assetId": "mutation.counterweight-tail",
+          "slot": "appendages",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        }
+      ],
+      "revealedMutationIds": []
+    }
+  },
+  {
+    "id": "reference-06",
+    "label": "SJM 6: Mane and small halo",
+    "creature": {
+      "compositionSeed": "reference-art-sampler",
+      "parts": [
+        {
+          "instanceId": "reference-5-creature.blob-body",
+          "assetId": "creature.blob",
+          "slot": "body",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-5-mutation.funeral-mane-head-growth",
+          "assetId": "mutation.funeral-mane",
+          "slot": "head-growth",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-5-mutation.false-halo-head-growth",
+          "assetId": "mutation.false-halo",
+          "slot": "head-growth",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-5-mutation.lantern-eyes-eyes",
+          "assetId": "mutation.lantern-eyes",
+          "slot": "eyes",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-5-mutation.guillotine-teeth-mouth",
+          "assetId": "mutation.guillotine-teeth",
+          "slot": "mouth",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        }
+      ],
+      "revealedMutationIds": []
+    }
+  },
+  {
+    "id": "reference-07",
+    "label": "SJM 7: Raised paws, glands, gaze, hooks",
+    "creature": {
+      "compositionSeed": "reference-art-sampler",
+      "parts": [
+        {
+          "instanceId": "reference-6-creature.blob-body",
+          "assetId": "creature.blob",
+          "slot": "body",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-6-creature.eyes-eyes",
+          "assetId": "creature.eyes",
+          "slot": "eyes",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-6-creature.mouth-mouth",
+          "assetId": "creature.mouth",
+          "slot": "mouth",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-6-mutation.kitten-paws-forelimb-left",
+          "assetId": "mutation.kitten-paws",
+          "slot": "forelimb-left",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-6-mutation.kitten-paws-forelimb-right",
+          "assetId": "mutation.kitten-paws",
+          "slot": "forelimb-right",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-6-mutation.venom-glands-appendages",
+          "assetId": "mutation.venom-glands",
+          "slot": "appendages",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-6-mutation.existential-organ-appendages",
+          "assetId": "mutation.existential-organ",
+          "slot": "appendages",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-6-mutation.hook-tentacles-appendages",
+          "assetId": "mutation.hook-tentacles",
+          "slot": "appendages",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        }
+      ],
+      "revealedMutationIds": []
+    }
+  },
+  {
+    "id": "reference-08",
+    "label": "SJM 8: Storm, wandering limb, ink",
+    "creature": {
+      "compositionSeed": "reference-art-sampler",
+      "parts": [
+        {
+          "instanceId": "reference-7-creature.blob-body",
+          "assetId": "creature.blob",
+          "slot": "body",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-7-mutation.storm-organ-head-growth",
+          "assetId": "mutation.storm-organ",
+          "slot": "head-growth",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-7-mutation.wandering-limb-forelimb-right",
+          "assetId": "mutation.wandering-limb",
+          "slot": "forelimb-right",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-7-mutation.ink-bloom-skin",
+          "assetId": "mutation.ink-bloom",
+          "slot": "skin",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-7-mutation.lantern-eyes-eyes",
+          "assetId": "mutation.lantern-eyes",
+          "slot": "eyes",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-7-mutation.guillotine-teeth-mouth",
+          "assetId": "mutation.guillotine-teeth",
+          "slot": "mouth",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        }
+      ],
+      "revealedMutationIds": []
+    }
+  },
+  {
+    "id": "reference-09",
+    "label": "SJM 9: Veil and titan fibers",
+    "creature": {
+      "compositionSeed": "reference-art-sampler",
+      "parts": [
+        {
+          "instanceId": "reference-8-creature.blob-body",
+          "assetId": "creature.blob",
+          "slot": "body",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-8-creature.eyes-eyes",
+          "assetId": "creature.eyes",
+          "slot": "eyes",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-8-creature.mouth-mouth",
+          "assetId": "creature.mouth",
+          "slot": "mouth",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-8-mutation.mourning-veil-skin",
+          "assetId": "mutation.mourning-veil",
+          "slot": "skin",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-8-mutation.titan-fibers-skin",
+          "assetId": "mutation.titan-fibers",
+          "slot": "skin",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        }
+      ],
+      "revealedMutationIds": []
+    }
+  },
+  {
+    "id": "reference-10",
+    "label": "SJM 10: Candle and tremor nerves",
+    "creature": {
+      "compositionSeed": "reference-art-sampler",
+      "parts": [
+        {
+          "instanceId": "reference-9-mutation.candle-flesh-body",
+          "assetId": "mutation.candle-flesh",
+          "slot": "body",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-9-mutation.tremor-ganglia-appendages",
+          "assetId": "mutation.tremor-ganglia",
+          "slot": "appendages",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-9-mutation.lantern-eyes-eyes",
+          "assetId": "mutation.lantern-eyes",
+          "slot": "eyes",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-9-mutation.guillotine-teeth-mouth",
+          "assetId": "mutation.guillotine-teeth",
+          "slot": "mouth",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        }
+      ],
+      "revealedMutationIds": []
+    }
+  },
+  {
+    "id": "reference-11",
+    "label": "SJM 11: Ossified plates",
+    "creature": {
+      "compositionSeed": "reference-art-sampler",
+      "parts": [
+        {
+          "instanceId": "reference-10-creature.blob-body",
+          "assetId": "creature.blob",
+          "slot": "body",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-10-creature.eyes-eyes",
+          "assetId": "creature.eyes",
+          "slot": "eyes",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-10-creature.mouth-mouth",
+          "assetId": "creature.mouth",
+          "slot": "mouth",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-10-mutation.ossified-plates-skin",
+          "assetId": "mutation.ossified-plates",
+          "slot": "skin",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        }
+      ],
+      "revealedMutationIds": []
+    }
+  },
+  {
+    "id": "reference-12",
+    "label": "SJM 12: Viscera and reweaving tissue",
+    "creature": {
+      "compositionSeed": "reference-art-sampler",
+      "parts": [
+        {
+          "instanceId": "reference-11-creature.blob-body",
+          "assetId": "creature.blob",
+          "slot": "body",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-11-mutation.excessive-viscera-appendages",
+          "assetId": "mutation.excessive-viscera",
+          "slot": "appendages",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-11-mutation.reweaving-tissue-skin",
+          "assetId": "mutation.reweaving-tissue",
+          "slot": "skin",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-11-mutation.lantern-eyes-eyes",
+          "assetId": "mutation.lantern-eyes",
+          "slot": "eyes",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "reference-11-mutation.guillotine-teeth-mouth",
+          "assetId": "mutation.guillotine-teeth",
+          "slot": "mouth",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": []
+        }
+      ],
+      "revealedMutationIds": []
+    }
+  }
+]

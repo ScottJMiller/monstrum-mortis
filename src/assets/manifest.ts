@@ -9,11 +9,11 @@ export interface AssetDefinition {
   url: string | null;
   origin: 'original' | 'licensed' | 'generated' | null;
   license: string | null;
-  /** Normalized attachment point for creature layers; calibrated with the art. */
+  /** Body-relative anatomical attachment hint; renderer resolves the named anchor against its body frame. */
   attachment: { x: number; y: number } | null;
 }
 
-export const ASSET_MANIFEST_VERSION = '0.3.0';
+export const ASSET_MANIFEST_VERSION = '0.3.3';
 
 const planned = (id: string, kind: AssetDefinition['kind']): AssetDefinition => {
   const clue = clues.find(a => a.id === id);

@@ -1,11 +1,12 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import type { CreatureView } from '../shared/types.ts';
-import { CHAMBER_URL, PHONE_CHAMBER_URL, creatureLayers, describeCreature } from './creature-render.ts';
+import { ART, CHAMBER_URL, PHONE_CHAMBER_URL, colorMatrix, layerTransform, creatureLayers, describeCreature } from './creature-render.ts';
 import type { RenderLayer } from './creature-render.ts';
 
 interface Scene { update: (layers: RenderLayer[]) => Promise<void>; motion: () => void }
 /** Scene lifetime is independent of anatomy revisions and transport/session ownership. */
 export function Chamber({ creature, motion }: { creature: CreatureView | null; motion: boolean }) {
+  const filterId = useId().replaceAll(':', '');
   const host = useRef<HTMLDivElement>(null);
   const [attempt, setAttempt] = useState(0);
   const [state, setState] = useState<'loading' | 'ready' | 'static' | 'error'>('loading');
@@ -24,7 +25,7 @@ export function Chamber({ creature, motion }: { creature: CreatureView | null; m
     let cleanup = () => {};
     setState('loading');
     async function start() {
-      const { Application, Container, Sprite, Texture } = await import('pixi.js');
+      const { Application, ColorMatrixFilter, Container, Sprite, Texture } = await import('pixi.js');
       const app = new Application();
       let initialized = false;
       try {
@@ -64,16 +65,20 @@ export function Chamber({ creature, motion }: { creature: CreatureView | null; m
           catch { if (!disposed && requested === generation) setState('error'); return; }
           if (disposed || requested !== generation) return;
           const keys = new Set(layers.map(l => l.key));
-          for (const [key, value] of sprites) if (!keys.has(key)) { body.removeChild(value.sprite); value.sprite.destroy(); sprites.delete(key); }
+          for (const [key, value] of sprites) if (!keys.has(key)) { body.removeChild(value.sprite); value.sprite.filters?.forEach(f => f.destroy()); value.sprite.destroy(); sprites.delete(key); }
           for (const [index, layer] of layers.entries()) {
             let texture = textures.get(layer.asset.url);
             if (!texture) { texture = Texture.from(decoded[index]!); textures.set(layer.asset.url, texture); }
             let value = sprites.get(layer.key);
             if (!value) { value = { sprite: new Sprite(texture), height: layer.height, eye: layer.asset.slot === 'eyes' }; sprites.set(layer.key, value); body.addChild(value.sprite); }
             value.sprite.texture = texture; value.height = layer.height; value.eye = layer.asset.slot === 'eyes';
-            value.sprite.anchor.set(.5); value.sprite.position.set(layer.x - 300, layer.y - 360);
+            value.sprite.anchor.set(layer.pivot.x, layer.pivot.y); value.sprite.position.set(layer.anchor.x - 300, layer.anchor.y - 360);
             value.sprite.scale.set(1); value.sprite.width = layer.width; value.sprite.height = layer.height;
             value.sprite.alpha = layer.opacity;
+            value.sprite.rotation = layer.rotation; value.sprite.skew.set(layer.skew.x, layer.skew.y);
+            if ((layer.asset.color || layer.asset.colorGrade) && !value.sprite.filters?.length) value.sprite.filters = [new ColorMatrixFilter({ resolution: 'inherit' })];
+            if (layer.asset.color || layer.asset.colorGrade) (value.sprite.filters![0] as InstanceType<typeof ColorMatrixFilter>).matrix = colorMatrix(layer.asset);
+            else { value.sprite.filters?.forEach(f => f.destroy()); value.sprite.filters = []; }
             if (layer.mirror) value.sprite.scale.x *= -1;
             body.setChildIndex(value.sprite, index);
           }
@@ -101,7 +106,7 @@ export function Chamber({ creature, motion }: { creature: CreatureView | null; m
         document.addEventListener('visibilitychange', updateMotion);
         cleanup = () => {
           generation++; observer.disconnect(); intersection.disconnect(); document.removeEventListener('visibilitychange', updateMotion);
-          engine.current = null; app.destroy({ removeView: true }, { children: true });
+          engine.current = null; for (const value of sprites.values()) value.sprite.filters?.forEach(f => f.destroy()); app.destroy({ removeView: true }, { children: true });
           for (const texture of textures.values()) texture.destroy(true); textures.clear(); images.clear();
         };
         await update(latest.current);
@@ -115,10 +120,11 @@ export function Chamber({ creature, motion }: { creature: CreatureView | null; m
   }, [attempt]);
   const failure = backgroundFailed || state === 'error' || projection.missing.length > 0;
   return <figure className={`chamber ${motion ? '' : 'chamber-still'}`}>
+    <svg width="0" height="0" aria-hidden="true" style={{ position: 'absolute' }}><defs>{ART.filter(a => a.color || a.colorGrade).map(a => <filter key={a.id} id={`${filterId}-${a.id}`} colorInterpolationFilters="sRGB"><feColorMatrix type="matrix" values={colorMatrix(a).join(' ')} /></filter>)}</defs></svg>
     <div className="chamber-stage">
       <picture key={attempt}><source media="(max-width: 640px)" srcSet={PHONE_CHAMBER_URL} /><img className="chamber-backdrop" src={CHAMBER_URL} alt="" onError={() => setBackgroundFailed(true)} onLoad={() => setBackgroundFailed(false)} /></picture>
       <div className="chamber-canvas" role="img" aria-label={describeCreature(creature)} ref={host} style={{ visibility: state === 'ready' ? 'visible' : 'hidden' }} />
-      {state !== 'ready' && <div className="static-creature" aria-hidden="true">{projection.layers.map(layer => <img key={layer.key} src={layer.asset.url} alt="" style={{ left: `${layer.x / 6}%`, top: `${layer.y / 7.2}%`, width: `${layer.width / 6}%`, height: `${layer.height / 7.2}%`, transform: `translate(-50%, -50%)${layer.mirror ? ' scaleX(-1)' : ''}`, zIndex: layer.order + 5, opacity: layer.opacity }} />)}</div>}
+      {state !== 'ready' && <div className="static-creature" aria-hidden="true">{projection.layers.map(layer => <img key={layer.key} src={layer.asset.url} alt="" style={{ left: `${layer.x / 6}%`, top: `${layer.y / 7.2}%`, width: `${layer.width / 6}%`, height: `${layer.height / 7.2}%`, transform: layerTransform(layer), filter: layer.asset.color || layer.asset.colorGrade ? `url(#${filterId}-${layer.asset.id})` : undefined, zIndex: layer.order + 5, opacity: layer.opacity }} />)}</div>}
       <div className="chamber-glass" aria-hidden="true" /><div className="chamber-fluid" aria-hidden="true"><span /><span /><span /></div>
       {state === 'loading' && <p className="art-notice" role="status">Preparing the chamber artwork… Controls remain available.</p>}
       {failure && <div className="art-notice" role="status"><p>Some laboratory artwork is unavailable. Your connection controls remain available.</p><button onClick={() => { setBackgroundFailed(false); setAttempt(n => n + 1); }}>Retry artwork</button></div>}

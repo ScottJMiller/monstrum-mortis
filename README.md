@@ -80,6 +80,7 @@ Open this directory in VS Code with the official Codex extension. Begin with [do
 | `npm run test:matchmaking` | Public queues, guest claims, readiness, allocation recovery and independent-client admission |
 | `npm run test:dna` | Private draws, concurrent/replayed injections, scaling, release and persisted mechanics |
 | `npm run test:dna-browser` | Actual trays/switches, pending reload, all 30 rendered mutations and public browser clients |
+| `npm run test:composition` | Development-only authoritative creature gallery, all 30 art modules, responsive/static screenshot checks |
 | `npm run test:step5` | Checks/build/dry run, all service runtime suites, DNA/presentation/art browser checks |
 | `npm run build` | Build the client |
 | `npm run deploy:dry` | Run checks, build, and validate the Worker bundle without publishing |
@@ -104,3 +105,5 @@ npm run dev
 `test:step4` performs checks/build/Worker dry run, the four service runtime suites and local browser regressions. `test:art` opens the development gallery with headless Chrome. Both browser harnesses use `/usr/bin/google-chrome` by default; set `MM_CHROME_PATH` locally for another installed Chrome/Chromium executable. No browser is downloaded and no deployment is performed.
 
 Visit `/art-gallery` on the Vite development origin to review individual modules and combinations. Start `npm run dev:worker` as well for actual local room/queue behavior. See [asset provenance](docs/ASSET-PROVENANCE.md) for source files/prompts/optimization and [implementation status](docs/IMPLEMENTATION-STATUS.md) for actual checks, user-reported deployment confirmation and physical-device/accessibility/performance limitations.
+
+Creature assembly was refined within step 5: body-relative sockets, actual pivots, outward limbs, protected facial areas, the definitive user contact sheet, half-opacity isolated lungs and original-part body assemblies calibrated to the higher-resolution sheet, and a single-triangle chamber seal. See [the composition review and screenshots](docs/CREATURE-COMPOSITION-REVIEW.md). Run `npm run test:composition` in addition to the existing step 5 regression suite. No deployment or step 6 work is included.

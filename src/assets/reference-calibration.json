@@ -1,0 +1,506 @@
+{
+  "reference": "docs/visual-reviews/step5-composition/sjm_contact-sheet_definitive.png",
+  "sha256": "7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255",
+  "dimensions": [
+    2480,
+    3508
+  ],
+  "cellSize": [
+    530,
+    733
+  ],
+  "columns": [
+    133,
+    696,
+    1260,
+    1824
+  ],
+  "rows": [
+    115,
+    912,
+    1716
+  ],
+  "bodyFrame": {
+    "cx": 257.3,
+    "cy": 399.2,
+    "width": 311.2,
+    "height": 311.5
+  },
+  "camera": {
+    "left": 181,
+    "top": 221,
+    "width": 681,
+    "height": 942,
+    "stageWidth": 1024,
+    "stageHeight": 1536
+  },
+  "method": "Original trimmed masters registered against the flattened reference; partially occluded modules inspected separately. Coordinates are in reference-cell pixels, not visible-alpha bounds.",
+  "parts": [
+    {
+      "id": "creature.blob",
+      "cell": 1,
+      "mirror": false,
+      "cx": 257.3,
+      "cy": 399.2,
+      "width": 311.2,
+      "height": 311.5,
+      "rotation": 0,
+      "score": 0.8753850985302156,
+      "review": "Canonical frame; semi-transparent edge fringe included."
+    },
+    {
+      "id": "creature.eyes",
+      "cell": 1,
+      "mirror": false,
+      "cx": 260.6,
+      "cy": 322.90000000000003,
+      "width": 110.10000000000001,
+      "height": 56.79999999999997,
+      "rotation": 0.06500000000000028,
+      "score": 0.981488312832951,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "creature.mouth",
+      "cell": 1,
+      "mirror": false,
+      "cx": 264.2,
+      "cy": 370.8,
+      "width": 128.29999999999998,
+      "height": 65.2,
+      "rotation": -0.05999999999999997,
+      "score": 0.9861242228988324,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "mutation.razor-talons",
+      "cell": 2,
+      "mirror": true,
+      "cx": 120.9,
+      "cy": 445.00000000000006,
+      "width": 96.60000000000001,
+      "height": 159.1000000000002,
+      "rotation": 5.61499999999999,
+      "score": 0.8960421411994746,
+      "skew": {
+        "x": -0.8399999999999994,
+        "y": -0.8399999999999994
+      },
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "mutation.razor-talons:right",
+      "cell": 2,
+      "mirror": false,
+      "cx": 399.8,
+      "cy": 445.8,
+      "width": 97.8,
+      "height": 160.50000000000003,
+      "rotation": -6.240000000000001,
+      "score": 0.9322531369942308,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "mutation.guillotine-teeth",
+      "cell": 2,
+      "mirror": false,
+      "cx": 267,
+      "cy": 366.8,
+      "width": 129.5,
+      "height": 49.8,
+      "rotation": -1.6653345369377348e-15,
+      "score": 0.9749946122967652,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "mutation.lantern-eyes",
+      "cell": 2,
+      "mirror": false,
+      "cx": 264.4,
+      "cy": 323,
+      "width": 106.8,
+      "height": 71.7,
+      "rotation": 0.155,
+      "score": 0.9711710746023027,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "mutation.bellows-lung",
+      "cell": 2,
+      "mirror": false,
+      "cx": 243.49999999999997,
+      "cy": 444.40000000000003,
+      "width": 178.39999999999995,
+      "height": 130.9,
+      "rotation": 4.8950000000000005,
+      "score": 0.9663286967571336,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "mutation.auxiliary-heart",
+      "cell": 2,
+      "mirror": false,
+      "cx": 317.2,
+      "cy": 413.6,
+      "width": 91.5,
+      "height": 84.35,
+      "rotation": -23.894999999999992,
+      "score": 0.9291203077001683,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "mutation.all-seeing-cluster",
+      "cell": 3,
+      "mirror": false,
+      "cx": 270.1,
+      "cy": 325.9,
+      "width": 156.3,
+      "height": 77.7,
+      "rotation": -0.1299999999999999,
+      "score": 0.9831553888861867,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "mutation.barbed-hide",
+      "cell": 3,
+      "mirror": false,
+      "cx": 266.20000000000005,
+      "cy": 452.3,
+      "width": 325.3,
+      "height": 217.49999999999997,
+      "rotation": 0,
+      "score": 0.9802461242849031,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "mutation.acid-bladder",
+      "cell": 3,
+      "mirror": false,
+      "cx": 222.20000000000002,
+      "cy": 483.59999999999997,
+      "width": 200.80000000000004,
+      "height": 197.50000000000006,
+      "rotation": -0.1200000000000001,
+      "score": 0.9772038294983016,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "mutation.brittle-skeleton",
+      "cell": 4,
+      "mirror": false,
+      "cx": 261.7,
+      "cy": 464.99999999999994,
+      "width": 277.00000000000006,
+      "height": 257.3999999999999,
+      "rotation": 0,
+      "score": 0.9849979302190982,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "mutation.spring-tendons",
+      "cell": 4,
+      "mirror": false,
+      "cx": 266.1,
+      "cy": 584.2,
+      "width": 231.89999999999998,
+      "height": 224.20000000000002,
+      "rotation": 0,
+      "score": 0.9970663278962595,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "mutation.porcelain-teeth",
+      "cell": 4,
+      "mirror": false,
+      "cx": 267.7,
+      "cy": 369.3,
+      "width": 133.5,
+      "height": 88.9,
+      "rotation": -0.060000000000000026,
+      "score": 0.9850278098215607,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "mutation.cathedral-horns",
+      "cell": 5,
+      "mirror": false,
+      "cx": 265,
+      "cy": 241.10000000000002,
+      "width": 158.10000000000002,
+      "height": 110.3,
+      "rotation": 0.024999999999999967,
+      "score": 0.9890551874174228,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "mutation.too-many-smiles",
+      "cell": 5,
+      "mirror": false,
+      "cx": 268.4,
+      "cy": 451.8,
+      "width": 213.39999999999998,
+      "height": 159,
+      "rotation": 0,
+      "score": 0.9837502707240684,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "mutation.counterweight-tail",
+      "cell": 5,
+      "mirror": false,
+      "cx": 421.1,
+      "cy": 516.2999999999998,
+      "width": 109.39999999999996,
+      "height": 103.19999999999997,
+      "rotation": -23.13500000000003,
+      "score": 0.9816561024274911,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "mutation.funeral-mane",
+      "cell": 6,
+      "mirror": false,
+      "cx": 273.7,
+      "cy": 378.40000000000003,
+      "width": 435.34000000000003,
+      "height": 275.96000000000004,
+      "rotation": 0,
+      "score": 0.9547448827168286,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "mutation.false-halo",
+      "cell": 6,
+      "mirror": false,
+      "cx": 262.6,
+      "cy": 237.20000000000002,
+      "width": 114.69999999999999,
+      "height": 45.79999999999999,
+      "rotation": 0,
+      "score": 0.9726611586704058,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "mutation.kitten-paws",
+      "cell": 7,
+      "mirror": false,
+      "cx": 117.4,
+      "cy": 308,
+      "width": 119.50000000000001,
+      "height": 178.29999999999998,
+      "rotation": 150.1100000000002,
+      "score": 0.9860783697348718,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "mutation.kitten-paws:right",
+      "cell": 7,
+      "mirror": true,
+      "cx": 407.40000000000003,
+      "cy": 308,
+      "width": 119.7,
+      "height": 178.89999999999995,
+      "rotation": -149.92500000000004,
+      "score": 0.988628013287045,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "mutation.hook-tentacles",
+      "cell": 7,
+      "mirror": true,
+      "cx": 129,
+      "cy": 528.8,
+      "width": 193.99999999999997,
+      "height": 167.19999999999996,
+      "rotation": -38.260000000000005,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity.",
+      "landmarks": {
+        "dimensions": [
+          640,
+          549
+        ],
+        "points": [
+          {
+            "source": [
+              574,
+              335
+            ],
+            "reference": [
+              80,
+              591
+            ]
+          },
+          {
+            "source": [
+              427,
+              531
+            ],
+            "reference": [
+              152,
+              610
+            ]
+          },
+          {
+            "source": [
+              423,
+              207
+            ],
+            "reference": [
+              92,
+              532
+            ]
+          }
+        ]
+      },
+      "score": 0.9825865824172305
+    },
+    {
+      "id": "mutation.venom-glands",
+      "cell": 7,
+      "mirror": false,
+      "cx": 225.4,
+      "cy": 439.8,
+      "width": 171.1,
+      "height": 160.50000000000003,
+      "rotation": 0.3800000000000001,
+      "score": 0.9104326968857237,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "mutation.existential-organ",
+      "cell": 7,
+      "mirror": false,
+      "cx": 323.7,
+      "cy": 461.8,
+      "width": 123,
+      "height": 124.6,
+      "rotation": 16.799999999999994,
+      "score": 0.9900639894439621,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "mutation.storm-organ",
+      "cell": 8,
+      "mirror": false,
+      "cx": 266,
+      "cy": 232.5,
+      "width": 163.8,
+      "height": 152.39999999999998,
+      "rotation": 0,
+      "score": 0.9857713661430809,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "mutation.wandering-limb",
+      "cell": 8,
+      "mirror": false,
+      "cx": 391.90000000000003,
+      "cy": 341.7,
+      "width": 171.80000000000007,
+      "height": 172.20000000000002,
+      "rotation": -19.92,
+      "score": 0.9270606272344155,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "mutation.ink-bloom",
+      "cell": 8,
+      "mirror": false,
+      "cx": 261.8,
+      "cy": 449.8,
+      "width": 251.5,
+      "height": 157.1,
+      "rotation": 0.02500000000000066,
+      "score": 0.977442775047263,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "mutation.mourning-veil",
+      "cell": 9,
+      "mirror": false,
+      "cx": 265.8,
+      "cy": 421,
+      "width": 303.70000000000005,
+      "height": 147.30000000000007,
+      "rotation": -0.0249999999999993,
+      "score": 0.9498603609253266,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "mutation.titan-fibers",
+      "cell": 9,
+      "mirror": false,
+      "cx": 263.9,
+      "cy": 479.90000000000003,
+      "width": 252.20000000000005,
+      "height": 222.7,
+      "rotation": 2.220446049250313e-16,
+      "score": 0.9851363021230846,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "mutation.candle-flesh",
+      "cell": 10,
+      "mirror": false,
+      "cx": 263.7,
+      "cy": 473,
+      "width": 273,
+      "height": 294.6,
+      "rotation": 0,
+      "score": 0.990400113466527,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "mutation.tremor-ganglia",
+      "cell": 10,
+      "mirror": false,
+      "cx": 269.40000000000003,
+      "cy": 523.4000000000001,
+      "width": 397.7,
+      "height": 364.5,
+      "rotation": 0,
+      "score": 0.9450245287578504,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "mutation.ossified-plates",
+      "cell": 11,
+      "mirror": false,
+      "cx": 264.7,
+      "cy": 467.40000000000003,
+      "width": 286.19999999999993,
+      "height": 184,
+      "rotation": -0.06499999999999978,
+      "score": 0.9893584083948082,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "mutation.reweaving-tissue",
+      "cell": 12,
+      "mirror": false,
+      "cx": 260.20000000000005,
+      "cy": 467.4,
+      "width": 310.8,
+      "height": 208.20000000000002,
+      "rotation": -0.1399999999999998,
+      "score": 0.992060999334713,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    },
+    {
+      "id": "mutation.excessive-viscera",
+      "cell": 12,
+      "mirror": false,
+      "cx": 230.8,
+      "cy": 494.7,
+      "width": 177.89999999999998,
+      "height": 267.3,
+      "rotation": 0.04000000000000009,
+      "score": 0.9572815884251682,
+      "review": "Registered against the reference at its actual sampling resolution. Occluding parts masked where applicable; lung fit subtracts the canonical blob behind its half opacity."
+    }
+  ],
+  "selectedSources": {
+    "mutation.bellows-lung": "assets/source/mutation.bellows-lung-v2.png",
+    "mutation.lantern-eyes": "assets/source/mutation.lantern-eyes.png"
+  }
+}

@@ -23,16 +23,22 @@
     "slot": "body",
     "attachment": {
       "x": 0.5,
-      "y": 0.55
+      "y": 0.5
     },
-    "width": 0.78,
+    "width": 1,
     "order": 0,
     "pivot": {
       "x": 0.5,
       "y": 0.5
     },
     "mirroredSlots": [],
-    "description": "A waxy olive-green blob."
+    "description": "A waxy olive-green blob.",
+    "anchor": "center",
+    "layer": "body",
+    "bodyFrame": {
+      "width": 400,
+      "height": 400.38560411311056
+    }
   },
   {
     "id": "creature.eyes",
@@ -43,17 +49,48 @@
     ],
     "slot": "eyes",
     "attachment": {
-      "x": 0.5,
-      "y": 0.44
+      "x": 0.5106041131105399,
+      "y": 0.25505617977528106
     },
-    "width": 0.28,
-    "order": 4,
+    "width": 0.35379177377892035,
+    "order": 0,
     "pivot": {
       "x": 0.5,
       "y": 0.5
     },
     "mirroredSlots": [],
-    "description": "Two weary bulging eyes."
+    "description": "Two weary bulging eyes.",
+    "anchor": "eyes",
+    "layer": "face",
+    "offset": {
+      "x": 0.010604113110539827,
+      "y": 0.020056179775280986
+    },
+    "rotation": 0.06500000000000028,
+    "heightScale": 1.0066236902151033,
+    "mirror": false,
+    "colorGrade": [
+      0.7142428765342062,
+      0.04688327069004905,
+      -0.007958658615586367,
+      0,
+      0.2599878523248308,
+      0.15723997486597407,
+      0.6690829272514186,
+      -0.020209827804040847,
+      0,
+      0.1985324647743533,
+      0.20774065964820432,
+      0.07621866778636821,
+      0.6835889559918835,
+      0,
+      0.15510932056492782,
+      0,
+      0,
+      0,
+      1,
+      0
+    ]
   },
   {
     "id": "creature.mouth",
@@ -64,17 +101,48 @@
     ],
     "slot": "mouth",
     "attachment": {
-      "x": 0.5,
-      "y": 0.57
+      "x": 0.5221722365038559,
+      "y": 0.4088282504012842
     },
-    "width": 0.24,
-    "order": 4,
+    "width": 0.41227506426735216,
+    "order": 1,
     "pivot": {
       "x": 0.5,
       "y": 0.5
     },
     "mirroredSlots": [],
-    "description": "A crooked uneasy smile."
+    "description": "A crooked uneasy smile.",
+    "anchor": "mouth",
+    "layer": "face",
+    "offset": {
+      "x": 0.022172236503855913,
+      "y": 0.013828250401284166
+    },
+    "rotation": -0.05999999999999997,
+    "heightScale": 1.0007314587205467,
+    "mirror": false,
+    "colorGrade": [
+      0.7340122650985292,
+      0.26917068288616,
+      -0.07458395975795662,
+      0,
+      0.1544570981139595,
+      0.10394471228185664,
+      0.9267649132695708,
+      -0.13411941222922186,
+      0,
+      0.1010447362206408,
+      0.19445806208879346,
+      0.2701893031974809,
+      0.6165986953155413,
+      0,
+      0.07296277766235724,
+      0,
+      0,
+      0,
+      1,
+      0
+    ]
   },
   {
     "id": "mutation.titan-fibers",
@@ -85,17 +153,26 @@
     ],
     "slot": "skin",
     "attachment": {
-      "x": 0.5,
-      "y": 0.55
+      "x": 0.5212082262210795,
+      "y": 0.4373515248796148
     },
-    "width": 0.66,
-    "order": 2,
+    "width": 0.8104113110539848,
+    "order": 0,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.05
     },
     "mirroredSlots": [],
-    "description": "Bulging interlocking muscle bands around a rounded torso silhouette; transparent gaps between bands, no underlying solid body, no eyes or mouth."
+    "description": "Bulging interlocking muscle bands around a rounded torso silhouette; transparent gaps between bands, no underlying solid body, no eyes or mouth.",
+    "anchor": "chest",
+    "layer": "surface",
+    "offset": {
+      "x": 0.021208226221079512,
+      "y": -0.08264847512038517
+    },
+    "rotation": 2.220446049250313e-16,
+    "heightScale": 0.8278400079302138,
+    "mirror": false
   },
   {
     "id": "mutation.spring-tendons",
@@ -106,17 +183,26 @@
     ],
     "slot": "lower-limbs",
     "attachment": {
-      "x": 0.5,
-      "y": 0.78
+      "x": 0.5282776349614395,
+      "y": 0.7484237560192616
     },
-    "width": 0.48,
+    "width": 0.7451799485861182,
     "order": 0,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.02
     },
     "mirroredSlots": [],
-    "description": "A pair of taut elongated crooked hind legs, elastic sinews and knobbly joints, ivory-green flesh, small webbed feet. Proximal attachment at top center."
+    "description": "A pair of taut elongated crooked hind legs, elastic sinews and knobbly joints, ivory-green flesh, small webbed feet. Proximal attachment at top center.",
+    "anchor": "hips",
+    "layer": "forelimbs",
+    "offset": {
+      "x": 0.028277634961439587,
+      "y": -0.1015762439807383
+    },
+    "rotation": 0,
+    "heightScale": 0.6299280401034929,
+    "mirror": false
   },
   {
     "id": "mutation.razor-talons",
@@ -127,20 +213,42 @@
     ],
     "slot": "forelimb-left",
     "attachment": {
-      "x": 0.25,
-      "y": 0.54
+      "x": 0.16798760206270247,
+      "y": 0.42535990843091803
     },
-    "width": 0.25,
-    "order": 1,
+    "width": 0.3104113110539846,
+    "order": 0,
     "pivot": {
-      "x": 0.5,
-      "y": 0.5
+      "x": 0.24,
+      "y": 0.05
     },
     "mirroredSlots": [
       "forelimb-left",
       "forelimb-right"
     ],
-    "description": "One dangling olive-green forearm with three dramatically hooked ivory razor claws. Upper arm attachment at top; claws curve downward."
+    "description": "One dangling olive-green forearm with three dramatically hooked ivory razor claws. Upper arm attachment at top; claws curve downward.",
+    "anchor": "shoulder-left",
+    "layer": "forelimbs",
+    "mirrorOnLeft": true,
+    "offset": {
+      "x": -0.002012397937297621,
+      "y": 0.0053599084309181085
+    },
+    "rotation": 5.61499999999999,
+    "skew": {
+      "x": -0.8399999999999994,
+      "y": -0.8399999999999994
+    },
+    "heightScale": 1.0087862318840592,
+    "rightPose": {
+      "width": 0.31426735218509,
+      "heightScale": 1.0051763803680982,
+      "rotation": -6.240000000000001,
+      "offset": {
+        "x": 0.02145332089757801,
+        "y": 0.007983194013496543
+      }
+    }
   },
   {
     "id": "mutation.guillotine-teeth",
@@ -151,17 +259,48 @@
     ],
     "slot": "mouth",
     "attachment": {
-      "x": 0.5,
-      "y": 0.57
+      "x": 0.5311696658097687,
+      "y": 0.3959871589085072
     },
-    "width": 0.29,
-    "order": 3,
+    "width": 0.41613110539845766,
+    "order": 1,
     "pivot": {
       "x": 0.5,
       "y": 0.5
     },
     "mirroredSlots": [],
-    "description": "One grotesquely oversized broad mouth with two opposing rows of guillotine-like cutting teeth and olive lip rims, no eyes or head."
+    "description": "One grotesquely oversized broad mouth with two opposing rows of guillotine-like cutting teeth and olive lip rims, no eyes or head.",
+    "anchor": "mouth",
+    "layer": "face",
+    "offset": {
+      "x": 0.031169665809768644,
+      "y": 0.0009871589085072281
+    },
+    "rotation": -1.6653345369377348e-15,
+    "heightScale": 0.576383677086253,
+    "mirror": false,
+    "colorGrade": [
+      1.3447843218820907,
+      -0.33677031770365273,
+      -0.11531577178583019,
+      0,
+      0.18768689912082884,
+      0.3647199901364482,
+      0.7885511345708143,
+      -0.11871398307404718,
+      0,
+      0.11038448634591046,
+      0.36325593503521925,
+      -0.1449863905920996,
+      0.9117198454278914,
+      0,
+      0.08045872093183655,
+      0,
+      0,
+      0,
+      1,
+      0
+    ]
   },
   {
     "id": "mutation.ossified-plates",
@@ -172,17 +311,26 @@
     ],
     "slot": "skin",
     "attachment": {
-      "x": 0.5,
-      "y": 0.55
+      "x": 0.5238191660669207,
+      "y": 0.7543819996652115
     },
-    "width": 0.68,
-    "order": 2,
+    "width": 0.9196658097686374,
+    "order": 0,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.56
     },
     "mirroredSlots": [],
-    "description": "An irregular torso-sized arrangement of uneven dirty ivory bony armor plates with chipped edges and fleshy seams. Transparent open gaps; no solid underlying body, face or limbs."
+    "description": "An irregular torso-sized arrangement of uneven dirty ivory bony armor plates with chipped edges and fleshy seams. Transparent open gaps; no solid underlying body, face or limbs.",
+    "anchor": "belly",
+    "layer": "surface",
+    "offset": {
+      "x": 0.02381916606692073,
+      "y": 0.024381999665211467
+    },
+    "rotation": -0.06499999999999978,
+    "heightScale": 0.7033513113177685,
+    "mirror": false
   },
   {
     "id": "mutation.auxiliary-heart",
@@ -193,17 +341,26 @@
     ],
     "slot": "appendages",
     "attachment": {
-      "x": 0.39,
-      "y": 0.55
+      "x": 0.6430747643588498,
+      "y": 0.4348181817931165
     },
-    "width": 0.19,
-    "order": 4,
+    "width": 0.29402313624678666,
+    "order": 0,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.05
     },
     "mirroredSlots": [],
-    "description": "One swollen translucent heart-shaped chest sac with fleshy olive root, violet-red vessels and a visibly enlarged pumping lobe, front view."
+    "description": "One swollen translucent heart-shaped chest sac with fleshy olive root, violet-red vessels and a visibly enlarged pumping lobe, front view.",
+    "anchor": "heart",
+    "layer": "organs",
+    "offset": {
+      "x": -0.09692523564115021,
+      "y": -0.03518181820688348
+    },
+    "rotation": -23.894999999999992,
+    "heightScale": 0.9915782706525232,
+    "mirror": false
   },
   {
     "id": "mutation.reweaving-tissue",
@@ -214,17 +371,26 @@
     ],
     "slot": "skin",
     "attachment": {
-      "x": 0.5,
-      "y": 0.56
+      "x": 0.5085831374393806,
+      "y": 0.4181710423370793
     },
-    "width": 0.36,
-    "order": 2,
+    "width": 0.9987146529562981,
+    "order": 0,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.05
     },
     "mirroredSlots": [],
-    "description": "One fleshy patch where a jagged seam is visibly knitting closed with branching tiny translucent connecting fibers; healed pale green skin at edges, no blood spray."
+    "description": "One fleshy patch where a jagged seam is visibly knitting closed with branching tiny translucent connecting fibers; healed pale green skin at edges, no blood spray.",
+    "anchor": "chest",
+    "layer": "surface",
+    "offset": {
+      "x": 0.00858313743938055,
+      "y": -0.1018289576629207
+    },
+    "rotation": -0.1399999999999998,
+    "heightScale": 0.9947235933314821,
+    "mirror": false
   },
   {
     "id": "mutation.venom-glands",
@@ -235,17 +401,26 @@
     ],
     "slot": "appendages",
     "attachment": {
-      "x": 0.54,
-      "y": 0.47
+      "x": 0.39906701643065345,
+      "y": 0.39332784515288666
     },
-    "width": 0.27,
-    "order": 4,
+    "width": 0.5498071979434447,
+    "order": 0,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.04
     },
     "mirroredSlots": [],
-    "description": "A pair of swollen dripping throat glands on a small fleshy attachment root, translucent green sacs, a few attached viscous droplets, menacing and slightly absurd."
+    "description": "A pair of swollen dripping throat glands on a small fleshy attachment root, translucent green sacs, a few attached viscous droplets, menacing and slightly absurd.",
+    "anchor": "glands",
+    "layer": "organs",
+    "offset": {
+      "x": 0.019067016430653467,
+      "y": -0.10667215484711336
+    },
+    "rotation": 0.3800000000000001,
+    "heightScale": 1.0106913672080244,
+    "mirror": false
   },
   {
     "id": "mutation.hook-tentacles",
@@ -256,17 +431,26 @@
     ],
     "slot": "appendages",
     "attachment": {
-      "x": 0.72,
-      "y": 0.53
+      "x": 0.1473076369148178,
+      "y": 0.6093459385809844
     },
-    "width": 0.33,
-    "order": 1,
+    "width": 0.6233933161953726,
+    "order": 0,
     "pivot": {
-      "x": 0.5,
-      "y": 0.5
+      "x": 0.12,
+      "y": 0.12
     },
     "mirroredSlots": [],
-    "description": "A grasping cluster of two curling side tentacles, narrow fleshy roots at upper-left, hooked ivory tips, olive-green waxy skin and violet suckers."
+    "description": "A grasping cluster of two curling side tentacles, narrow fleshy roots at upper-left, hooked ivory tips, olive-green waxy skin and violet suckers.",
+    "anchor": "side",
+    "layer": "rear-growth",
+    "offset": {
+      "x": -0.012692363085182165,
+      "y": -0.1906540614190156
+    },
+    "rotation": -38.260000000000005,
+    "heightScale": 1.0047133494826583,
+    "mirror": true
   },
   {
     "id": "mutation.storm-organ",
@@ -277,17 +461,26 @@
     ],
     "slot": "head-growth",
     "attachment": {
-      "x": 0.62,
-      "y": 0.3
+      "x": 0.5279562982005142,
+      "y": 0.13608346709470298
     },
-    "width": 0.3,
-    "order": 1,
+    "width": 0.5263496143958869,
+    "order": 2,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.85
     },
     "mirroredSlots": [],
-    "description": "One branching dorsal organ resembling crooked biological copper coils, green flesh root below, subtle ivory electrical thread motifs contained close to organ, no intense glare."
+    "description": "One branching dorsal organ resembling crooked biological copper coils, green flesh root below, subtle ivory electrical thread motifs contained close to organ, no intense glare.",
+    "anchor": "temple",
+    "layer": "surface",
+    "offset": {
+      "x": 0.02795629820051417,
+      "y": 0.036083467094702996
+    },
+    "rotation": 0,
+    "heightScale": 1.0007695385846644,
+    "mirror": false
   },
   {
     "id": "mutation.acid-bladder",
@@ -298,17 +491,26 @@
     ],
     "slot": "appendages",
     "attachment": {
-      "x": 0.55,
-      "y": 0.64
+      "x": 0.38659937128552285,
+      "y": 0.47929437963490773
     },
-    "width": 0.28,
-    "order": 4,
+    "width": 0.6452442159383035,
+    "order": 0,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.04
     },
     "mirroredSlots": [],
-    "description": "One translucent olive-green abdominal sac with bruised violet rim, contained cloudy green liquid and a fleshy hose-like duct. Anatomical isolated pouch."
+    "description": "One translucent olive-green abdominal sac with bruised violet rim, contained cloudy green liquid and a fleshy hose-like duct. Anatomical isolated pouch.",
+    "anchor": "belly",
+    "layer": "organs",
+    "offset": {
+      "x": -0.11340062871447713,
+      "y": -0.25070562036509225
+    },
+    "rotation": -0.1200000000000001,
+    "heightScale": 1.0007664097188353,
+    "mirror": false
   },
   {
     "id": "mutation.barbed-hide",
@@ -319,17 +521,26 @@
     ],
     "slot": "skin",
     "attachment": {
-      "x": 0.5,
-      "y": 0.55
+      "x": 0.5285989717223651,
+      "y": 0.6704654895666132
     },
-    "width": 0.67,
-    "order": 3,
+    "width": 1.0453084832904884,
+    "order": 9,
     "pivot": {
       "x": 0.5,
       "y": 0.5
     },
     "mirroredSlots": [],
-    "description": "Torso-sized scattered small dark ivory skin spines embedded in separate olive-green skin islands, oval arrangement with transparent gaps, no body or face."
+    "description": "Torso-sized scattered small dark ivory skin spines embedded in separate olive-green skin islands, oval arrangement with transparent gaps, no body or face.",
+    "anchor": "belly",
+    "layer": "organs",
+    "offset": {
+      "x": 0.02859897172236515,
+      "y": -0.059534510433386714
+    },
+    "rotation": 0,
+    "heightScale": 0.9997960186283833,
+    "mirror": false
   },
   {
     "id": "mutation.all-seeing-cluster",
@@ -340,38 +551,79 @@
     ],
     "slot": "eyes",
     "attachment": {
-      "x": 0.5,
-      "y": 0.44
+      "x": 0.5411311053984577,
+      "y": 0.26468699839486354
     },
-    "width": 0.39,
-    "order": 4,
+    "width": 0.5022493573264782,
+    "order": 0,
     "pivot": {
       "x": 0.5,
       "y": 0.5
     },
     "mirroredSlots": [],
-    "description": "A horizontal cluster of seven differently sized bulging alert ivory eyes with tiny violet pupils, green eyelid rims, each staring a slightly different direction, no head."
+    "description": "A horizontal cluster of seven differently sized bulging alert ivory eyes with tiny violet pupils, green eyelid rims, each staring a slightly different direction, no head.",
+    "anchor": "eyes",
+    "layer": "face",
+    "offset": {
+      "x": 0.041131105398457636,
+      "y": 0.02968699839486351
+    },
+    "rotation": -0.1299999999999999,
+    "heightScale": 0.997358588198485,
+    "mirror": false,
+    "colorGrade": [
+      1.0143437246582798,
+      -0.2124953372769116,
+      0.10200419746606523,
+      0,
+      0.04747828528134299,
+      0.2736204928156097,
+      0.535634572465814,
+      0.08850008532640444,
+      0,
+      0.027625852389569057,
+      0.14305962101648712,
+      -0.1558419870172284,
+      0.8929055573439793,
+      0,
+      0.02575456594332877,
+      0,
+      0,
+      0,
+      1,
+      0
+    ]
   },
   {
     "id": "mutation.bellows-lung",
     "url": "/assets/laboratory/mutation.bellows-lung.webp",
     "dimensions": [
       640,
-      585
+      480
     ],
     "slot": "skin",
     "attachment": {
-      "x": 0.5,
-      "y": 0.59
+      "x": 0.45565552699228773,
+      "y": 0.6451043338683791
     },
-    "width": 0.42,
-    "order": 2,
+    "width": 0.5732647814910025,
+    "order": 0,
     "pivot": {
       "x": 0.5,
       "y": 0.5
     },
     "mirroredSlots": [],
-    "description": "One exposed expanding rib-cage module framing two waxy translucent lung lobes, crooked ivory ribs, green flesh joining root, front perspective, no full torso."
+    "description": "A compact pair of pleated, stitched bellows lungs with a short tracheal root.",
+    "anchor": "belly",
+    "layer": "organs",
+    "offset": {
+      "x": -0.04434447300771225,
+      "y": -0.08489566613162092
+    },
+    "rotation": 4.8950000000000005,
+    "heightScale": 0.9783258594917791,
+    "opacity": 0.5,
+    "mirror": false
   },
   {
     "id": "mutation.counterweight-tail",
@@ -382,17 +634,26 @@
     ],
     "slot": "appendages",
     "attachment": {
-      "x": 0.69,
-      "y": 0.66
+      "x": 0.8513890853483191,
+      "y": 0.8064952275513672
     },
-    "width": 0.43,
-    "order": -1,
+    "width": 0.35154241645244205,
+    "order": 3,
     "pivot": {
-      "x": 0.5,
-      "y": 0.5
+      "x": 0.12,
+      "y": 0.1
     },
     "mirroredSlots": [],
-    "description": "One heavy articulated tail curled into a readable C shape, segmented olive-green flesh, plated ivory joints, root at upper-left and a heavy rounded tip."
+    "description": "One heavy articulated tail curled into a readable C shape, segmented olive-green flesh, plated ivory joints, root at upper-left and a heavy rounded tip.",
+    "anchor": "tail",
+    "layer": "surface",
+    "offset": {
+      "x": 0.03138908534831913,
+      "y": -0.06350477244863281
+    },
+    "rotation": -23.13500000000003,
+    "heightScale": 1.009580992094306,
+    "mirror": false
   },
   {
     "id": "mutation.funeral-mane",
@@ -403,17 +664,26 @@
     ],
     "slot": "head-growth",
     "attachment": {
-      "x": 0.5,
-      "y": 0.36
+      "x": 0.5526992287917737,
+      "y": 0.061145425361155865
     },
-    "width": 0.66,
-    "order": 1,
+    "width": 1.3989074550128535,
+    "order": 0,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.08
     },
     "mirroredSlots": [],
-    "description": "One mane of long wet charcoal-violet hair, a shallow arch over the top and draping strands down both sides, transparent empty central face area, root at top center."
+    "description": "One mane of long wet charcoal-violet hair, a shallow arch over the top and draping strands down both sides, transparent empty central face area, root at top center.",
+    "anchor": "crown",
+    "layer": "surface",
+    "offset": {
+      "x": 0.05269922879177372,
+      "y": -0.03885457463884411
+    },
+    "rotation": 0,
+    "heightScale": 0.9096256088483803,
+    "mirror": false
   },
   {
     "id": "mutation.cathedral-horns",
@@ -424,17 +694,26 @@
     ],
     "slot": "head-growth",
     "attachment": {
-      "x": 0.5,
-      "y": 0.29
+      "x": 0.524674884064452,
+      "y": 0.1482568069987035
     },
-    "width": 0.57,
-    "order": 1,
+    "width": 0.5080334190231364,
+    "order": 2,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.94
     },
     "mirroredSlots": [],
-    "description": "A matched pair of ornate curling cathedral-like horns, weathered ivory, subtle engraved ribbing, broad transparent gap between them and small green fleshy bases at bottom."
+    "description": "A matched pair of ornate curling cathedral-like horns, weathered ivory, subtle engraved ribbing, broad transparent gap between them and small green fleshy bases at bottom.",
+    "anchor": "crown",
+    "layer": "surface",
+    "offset": {
+      "x": 0.024674884064451987,
+      "y": 0.04825680699870353
+    },
+    "rotation": 0.024999999999999967,
+    "heightScale": 1.0011260398850699,
+    "mirror": false
   },
   {
     "id": "mutation.mourning-veil",
@@ -445,17 +724,26 @@
     ],
     "slot": "skin",
     "attachment": {
-      "x": 0.5,
-      "y": 0.54
+      "x": 0.5272310131778081,
+      "y": 0.38083468895270656
     },
-    "width": 0.68,
-    "order": 3,
+    "width": 0.9758997429305915,
+    "order": 8,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.1
     },
     "mirroredSlots": [],
-    "description": "A ragged translucent violet mourning veil of anatomical frills, open central area and lacy torn perimeter, olive fleshy attachments at top, not fabric on a person."
+    "description": "A ragged translucent violet mourning veil of anatomical frills, open central area and lacy torn perimeter, olive fleshy attachments at top, not fabric on a person.",
+    "anchor": "chest",
+    "layer": "surface",
+    "offset": {
+      "x": 0.027231013177808024,
+      "y": -0.1391653110472935
+    },
+    "rotation": -0.0249999999999993,
+    "heightScale": 0.5225784349920012,
+    "mirror": false
   },
   {
     "id": "mutation.ink-bloom",
@@ -466,17 +754,26 @@
     ],
     "slot": "skin",
     "attachment": {
-      "x": 0.5,
-      "y": 0.54
+      "x": 0.5144469380840238,
+      "y": 0.692699836605815
     },
-    "width": 0.64,
-    "order": 3,
+    "width": 0.8081619537275064,
+    "order": 0,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.56
     },
     "mirroredSlots": [],
-    "description": "An oval torso-sized branching network of black marbled veins over tiny translucent green skin strips, broad transparent gaps, no underlying body, face or limbs."
+    "description": "An oval torso-sized branching network of black marbled veins over tiny translucent green skin strips, broad transparent gaps, no underlying body, face or limbs.",
+    "anchor": "belly",
+    "layer": "surface",
+    "offset": {
+      "x": 0.01444693808402377,
+      "y": -0.03730016339418491
+    },
+    "rotation": 0.02500000000000066,
+    "heightScale": 0.7486466965994296,
+    "mirror": false
   },
   {
     "id": "mutation.lantern-eyes",
@@ -487,17 +784,48 @@
     ],
     "slot": "eyes",
     "attachment": {
-      "x": 0.5,
-      "y": 0.44
+      "x": 0.5228149100257069,
+      "y": 0.2553772070626004
     },
-    "width": 0.3,
-    "order": 4,
+    "width": 0.34318766066838047,
+    "order": 0,
     "pivot": {
       "x": 0.5,
       "y": 0.5
     },
     "mirroredSlots": [],
-    "description": "A pair of unnaturally glowing pale green eyeballs, violet slit pupils, swollen olive eyelid rims; restrained contained glow, no head or wide background halo."
+    "description": "A pair of unnaturally glowing pale green eyeballs, violet slit pupils, swollen olive eyelid rims; restrained contained glow, no head or wide background halo.",
+    "anchor": "eyes",
+    "layer": "face",
+    "offset": {
+      "x": 0.022814910025706892,
+      "y": 0.020377207062600374
+    },
+    "rotation": 0.155,
+    "heightScale": 1.0062363497618612,
+    "mirror": false,
+    "colorGrade": [
+      0.993313037234874,
+      -0.0925978778962041,
+      0.08572546697717409,
+      0,
+      0.22173308014108037,
+      0.2539182904654469,
+      0.8279991438005992,
+      -0.01588929909122694,
+      0,
+      0.12971345248635552,
+      0.08905751604162193,
+      -0.004164850386992325,
+      1.104751232655609,
+      0,
+      0.11142149989538151,
+      0,
+      0,
+      0,
+      1,
+      0
+    ]
   },
   {
     "id": "mutation.false-halo",
@@ -508,17 +836,26 @@
     ],
     "slot": "head-growth",
     "attachment": {
-      "x": 0.5,
-      "y": 0.19
+      "x": 0.5170308483290489,
+      "y": -0.020064205457463763
     },
-    "width": 0.36,
-    "order": 4,
+    "width": 0.368573264781491,
+    "order": 0,
     "pivot": {
       "x": 0.5,
       "y": 0.5
     },
     "mirroredSlots": [],
-    "description": "One horizontal floating ring of pale olive fleshy tissue, slightly crooked oval with a genuinely empty transparent central hole, violet veins, sinister comic biological halo."
+    "description": "One horizontal floating ring of pale olive fleshy tissue, slightly crooked oval with a genuinely empty transparent central hole, violet veins, sinister comic biological halo.",
+    "anchor": "halo",
+    "layer": "rear-growth",
+    "offset": {
+      "x": 0.01703084832904892,
+      "y": 0.08435313001605141
+    },
+    "rotation": 0,
+    "heightScale": 0.5984862251387897,
+    "mirror": false
   },
   {
     "id": "mutation.too-many-smiles",
@@ -529,17 +866,26 @@
     ],
     "slot": "skin",
     "attachment": {
-      "x": 0.5,
-      "y": 0.56
+      "x": 0.5356683804627248,
+      "y": 0.6433386837881221
     },
-    "width": 0.49,
-    "order": 4,
+    "width": 0.68573264781491,
+    "order": 0,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.45
     },
     "mirroredSlots": [],
-    "description": "Five small mismatched grinning mouths with green flesh rims, scattered in an oval torso-sized pattern, tiny dirty ivory teeth. Transparent gaps between mouths, no underlying face or body."
+    "description": "Five small mismatched grinning mouths with green flesh rims, scattered in an oval torso-sized pattern, tiny dirty ivory teeth. Transparent gaps between mouths, no underlying face or body.",
+    "anchor": "belly",
+    "layer": "surface",
+    "offset": {
+      "x": 0.035668380462724796,
+      "y": -0.08666131621187785
+    },
+    "rotation": 0,
+    "heightScale": 0.8151298872948359,
+    "mirror": false
   },
   {
     "id": "mutation.kitten-paws",
@@ -550,62 +896,106 @@
     ],
     "slot": "forelimb-left",
     "attachment": {
-      "x": 0.25,
-      "y": 0.54
+      "x": 0.2426619568167816,
+      "y": 0.38733986373454293
     },
-    "width": 0.24,
-    "order": 4,
+    "width": 0.3839974293059127,
+    "order": 0,
     "pivot": {
-      "x": 0.5,
-      "y": 0.5
+      "x": 0.3,
+      "y": 0.06
     },
     "mirroredSlots": [
       "forelimb-left",
       "forelimb-right"
     ],
-    "description": "One absurdly soft furry kitten paw at the end of a short olive-green forearm, cream fur, tiny pink pads, rounded fingers and no dangerous claws. Attachment at top."
+    "description": "One absurdly soft furry kitten paw at the end of a short olive-green forearm, cream fur, tiny pink pads, rounded fingers and no dangerous claws. Attachment at top.",
+    "anchor": "shoulder-left",
+    "layer": "forelimbs",
+    "mirrorOnLeft": false,
+    "offset": {
+      "x": 0.07266195681678149,
+      "y": -0.03266013626545702
+    },
+    "rotation": 150.1100000000002,
+    "heightScale": 0.9978085774058577,
+    "rightPose": {
+      "width": 0.3846401028277635,
+      "heightScale": 0.9994935254803674,
+      "rotation": -149.92500000000004,
+      "offset": {
+        "x": -0.041003092431262475,
+        "y": -0.032612041465120395
+      }
+    }
   },
   {
     "id": "mutation.candle-flesh",
     "url": "/assets/laboratory/mutation.candle-flesh.webp",
     "dimensions": [
-      592,
+      528,
       640
     ],
     "slot": "body",
     "attachment": {
       "x": 0.5,
-      "y": 0.55
+      "y": 0.5
     },
-    "width": 0.69,
+    "width": 1,
     "order": 0,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.4132944142231657
     },
     "mirroredSlots": [],
-    "description": "One full rounded gelatinous torso without eyes, mouth or limbs, sagging dirty-ivory waxy skin in thick drips and soft folded base, bruised violet veins. No candle flame."
+    "description": "The familiar rounded blob silhouette, transformed with draping candle wax.",
+    "anchor": "center",
+    "layer": "body",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "rotation": 0,
+    "heightScale": 1,
+    "mirror": false,
+    "bodyFrame": {
+      "width": 400,
+      "height": 400.38560411311056
+    }
   },
   {
     "id": "mutation.brittle-skeleton",
     "url": "/assets/laboratory/mutation.brittle-skeleton.webp",
     "dimensions": [
-      438,
+      568,
       640
     ],
     "slot": "body",
     "attachment": {
       "x": 0.5,
-      "y": 0.55
+      "y": 0.5
     },
-    "width": 0.48,
+    "width": 1,
     "order": 0,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.444682369735903
     },
     "mirroredSlots": [],
-    "description": "One narrow cracked anatomical torso with crooked ivory ribs and fragile spine wrapped in thin olive flesh, comically fragile silhouette, no eyes, mouth, head or limbs."
+    "description": "The familiar rounded blob silhouette, transformed with an integrated brittle rib cage.",
+    "anchor": "center",
+    "layer": "body",
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "rotation": 0,
+    "heightScale": 1,
+    "mirror": false,
+    "bodyFrame": {
+      "width": 400,
+      "height": 400.38560411311056
+    }
   },
   {
     "id": "mutation.wandering-limb",
@@ -616,20 +1006,38 @@
     ],
     "slot": "forelimb-left",
     "attachment": {
-      "x": 0.25,
-      "y": 0.58
+      "x": 0.3023704076046465,
+      "y": 0.1534936640366492
     },
-    "width": 0.27,
-    "order": 2,
+    "width": 0.5520565552699231,
+    "order": 0,
     "pivot": {
-      "x": 0.5,
-      "y": 0.5
+      "x": 0.2,
+      "y": 0.08
     },
     "mirroredSlots": [
       "forelimb-left",
       "forelimb-right"
     ],
-    "description": "One loosened forelimb with an absurdly dangling green elbow and splayed crawling hand, ragged dry proximal joint at top, no body, no gore spray."
+    "description": "One loosened forelimb with an absurdly dangling green elbow and splayed crawling hand, ragged dry proximal joint at top, no body, no gore spray.",
+    "anchor": "shoulder-left",
+    "layer": "forelimbs",
+    "mirrorOnLeft": true,
+    "offset": {
+      "x": 0.13237040760464638,
+      "y": -0.2665063359633507
+    },
+    "rotation": 19.92,
+    "heightScale": 0.9976298748544818,
+    "rightPose": {
+      "width": 0.5520565552699231,
+      "heightScale": 0.9976298748544818,
+      "rotation": -19.92,
+      "offset": {
+        "x": -0.13237040760464652,
+        "y": -0.2665063359633507
+      }
+    }
   },
   {
     "id": "mutation.tremor-ganglia",
@@ -640,17 +1048,26 @@
     ],
     "slot": "appendages",
     "attachment": {
-      "x": 0.59,
-      "y": 0.58
+      "x": 0.5388817480719795,
+      "y": 0.3721508828250403
     },
-    "width": 0.24,
-    "order": 4,
+    "width": 1.2779562982005142,
+    "order": 0,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.05
     },
     "mirroredSlots": [],
-    "description": "One twitchy cluster of knotted violet nerve ganglia with thin crooked olive tendrils, expressive erratic zigzag anatomy, a root at upper center; no drawn motion lines."
+    "description": "One twitchy cluster of knotted violet nerve ganglia with thin crooked olive tendrils, expressive erratic zigzag anatomy, a root at upper center; no drawn motion lines.",
+    "anchor": "chest",
+    "layer": "organs",
+    "offset": {
+      "x": 0.038881748071979555,
+      "y": -0.14784911717495977
+    },
+    "rotation": 0,
+    "heightScale": 1.0009774634180668,
+    "mirror": false
   },
   {
     "id": "mutation.porcelain-teeth",
@@ -661,17 +1078,26 @@
     ],
     "slot": "mouth",
     "attachment": {
-      "x": 0.5,
-      "y": 0.57
+      "x": 0.5334190231362467,
+      "y": 0.4040128410914929
     },
-    "width": 0.3,
-    "order": 4,
+    "width": 0.4289845758354756,
+    "order": 1,
     "pivot": {
       "x": 0.5,
       "y": 0.5
     },
     "mirroredSlots": [],
-    "description": "One broad crooked mouth with chipped porcelain-like ivory teeth and tiny broken shards attached at lips, olive flesh rims, comic embarrassed grimace, no head."
+    "description": "One broad crooked mouth with chipped porcelain-like ivory teeth and tiny broken shards attached at lips, olive flesh rims, comic embarrassed grimace, no head.",
+    "anchor": "mouth",
+    "layer": "face",
+    "offset": {
+      "x": 0.03341902313624672,
+      "y": 0.009012841091492868
+    },
+    "rotation": -0.060000000000000026,
+    "heightScale": 0.9980966414932154,
+    "mirror": false
   },
   {
     "id": "mutation.excessive-viscera",
@@ -682,17 +1108,26 @@
     ],
     "slot": "appendages",
     "attachment": {
-      "x": 0.5,
-      "y": 0.7
+      "x": 0.4151335895966035,
+      "y": 0.39469030904303515
     },
-    "width": 0.4,
-    "order": 4,
+    "width": 0.5716580976863753,
+    "order": 0,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.02
     },
     "mirroredSlots": [],
-    "description": "One pendulous bundle of swollen purple-green organs and looping tubes, dry waxy translucent surfaces, small olive attachment root at top, excessive bulk, no blood spray."
+    "description": "One pendulous bundle of swollen purple-green organs and looping tubes, dry waxy translucent surfaces, small olive attachment root at top, excessive bulk, no blood spray.",
+    "anchor": "chest",
+    "layer": "organs",
+    "offset": {
+      "x": -0.08486641040339649,
+      "y": -0.12530969095696484
+    },
+    "rotation": 0.04000000000000009,
+    "heightScale": 1.0001212057335584,
+    "mirror": false
   },
   {
     "id": "mutation.existential-organ",
@@ -703,16 +1138,25 @@
     ],
     "slot": "appendages",
     "attachment": {
-      "x": 0.5,
-      "y": 0.56
+      "x": 0.7642862443306031,
+      "y": 0.5324748502963145
     },
-    "width": 0.26,
-    "order": 4,
+    "width": 0.39524421593830333,
+    "order": 0,
     "pivot": {
       "x": 0.5,
-      "y": 0.5
+      "y": 0.06
     },
     "mirroredSlots": [],
-    "description": "One bulbous olive-green chest growth containing a single oversized tired ivory eye looking upward in existential dread, violet iris, fleshy attachment base, not an entire creature."
+    "description": "One bulbous olive-green chest growth containing a single oversized tired ivory eye looking upward in existential dread, violet iris, fleshy attachment base, not an entire creature.",
+    "anchor": "heart",
+    "layer": "organs",
+    "offset": {
+      "x": 0.024286244330603068,
+      "y": 0.06247485029631448
+    },
+    "rotation": 16.799999999999994,
+    "heightScale": 1.0003455284552845,
+    "mirror": false
   }
 ]

@@ -1,0 +1,2832 @@
+[
+  {
+    "id": "starter",
+    "label": "Starter blob",
+    "creature": {
+      "compositionSeed": "starter",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        }
+      ],
+      "revealedMutationIds": []
+    }
+  },
+  {
+    "id": "light-claws",
+    "label": "Light · paired claws",
+    "creature": {
+      "compositionSeed": "light-claws",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-light-claws:forelimb-left",
+          "slot": "forelimb-left",
+          "assetId": "mutation.razor-talons",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-light-claws:forelimb-right",
+          "slot": "forelimb-right",
+          "assetId": "mutation.razor-talons",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "razor-talons"
+      ]
+    }
+  },
+  {
+    "id": "light-heart",
+    "label": "Light · heart and eyes",
+    "creature": {
+      "compositionSeed": "light-heart",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-light-heart:body",
+          "slot": "appendages",
+          "assetId": "mutation.auxiliary-heart",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-light-heart:eyes",
+          "slot": "eyes",
+          "assetId": "mutation.all-seeing-cluster",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "auxiliary-heart",
+        "all-seeing-cluster"
+      ]
+    }
+  },
+  {
+    "id": "light-paws",
+    "label": "Light · comic paws",
+    "creature": {
+      "compositionSeed": "light-paws",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-light-paws:forelimb-left",
+          "slot": "forelimb-left",
+          "assetId": "mutation.kitten-paws",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-light-paws:forelimb-right",
+          "slot": "forelimb-right",
+          "assetId": "mutation.kitten-paws",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-light-paws:mouth",
+          "slot": "mouth",
+          "assetId": "mutation.porcelain-teeth",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "kitten-paws",
+        "porcelain-teeth"
+      ]
+    }
+  },
+  {
+    "id": "medium-lung",
+    "label": "Moderate · lung and facial features",
+    "creature": {
+      "compositionSeed": "medium-lung",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-medium-lung:body",
+          "slot": "skin",
+          "assetId": "mutation.bellows-lung",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-medium-lung:mouth",
+          "slot": "mouth",
+          "assetId": "mutation.guillotine-teeth",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        },
+        {
+          "instanceId": "gallery-medium-lung:eyes",
+          "slot": "eyes",
+          "assetId": "mutation.lantern-eyes",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-medium-lung:head-growth",
+          "slot": "head-growth",
+          "assetId": "mutation.cathedral-horns",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "bellows-lung",
+        "guillotine-teeth",
+        "lantern-eyes",
+        "cathedral-horns"
+      ]
+    }
+  },
+  {
+    "id": "medium-tail",
+    "label": "Moderate · tail and surface",
+    "creature": {
+      "compositionSeed": "medium-tail",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-medium-tail:appendages",
+          "slot": "appendages",
+          "assetId": "mutation.counterweight-tail",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-medium-tail:body",
+          "slot": "skin",
+          "assetId": "mutation.titan-fibers",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        },
+        {
+          "instanceId": "gallery-medium-tail:forelimb-left",
+          "slot": "forelimb-left",
+          "assetId": "mutation.razor-talons",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-medium-tail:forelimb-right",
+          "slot": "forelimb-right",
+          "assetId": "mutation.razor-talons",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-medium-tail:eyes",
+          "slot": "eyes",
+          "assetId": "mutation.all-seeing-cluster",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "counterweight-tail",
+        "titan-fibers",
+        "razor-talons",
+        "all-seeing-cluster"
+      ]
+    }
+  },
+  {
+    "id": "medium-tentacles",
+    "label": "Moderate · tentacles and head growth",
+    "creature": {
+      "compositionSeed": "medium-tentacles",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-medium-tentacles:appendages",
+          "slot": "appendages",
+          "assetId": "mutation.hook-tentacles",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-medium-tentacles:head-growth",
+          "slot": "head-growth",
+          "assetId": "mutation.cathedral-horns",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        },
+        {
+          "instanceId": "gallery-medium-tentacles:body",
+          "slot": "appendages",
+          "assetId": "mutation.tremor-ganglia",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-medium-tentacles:eyes",
+          "slot": "eyes",
+          "assetId": "mutation.lantern-eyes",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        },
+        {
+          "instanceId": "gallery-medium-tentacles:mouth",
+          "slot": "appendages",
+          "assetId": "mutation.venom-glands",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "hook-tentacles",
+        "cathedral-horns",
+        "tremor-ganglia",
+        "lantern-eyes",
+        "venom-glands"
+      ]
+    }
+  },
+  {
+    "id": "heavy-all-slots",
+    "label": "Heavy · all nine ownership slots",
+    "creature": {
+      "compositionSeed": "heavy-all-slots",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-heavy-all-slots:body",
+          "slot": "appendages",
+          "assetId": "mutation.acid-bladder",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-heavy-all-slots:skin",
+          "slot": "skin",
+          "assetId": "mutation.ossified-plates",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        },
+        {
+          "instanceId": "gallery-heavy-all-slots:forelimb-left",
+          "slot": "forelimb-left",
+          "assetId": "mutation.razor-talons",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-heavy-all-slots:forelimb-right",
+          "slot": "forelimb-right",
+          "assetId": "mutation.razor-talons",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-heavy-all-slots:lower-limbs",
+          "slot": "lower-limbs",
+          "assetId": "mutation.spring-tendons",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        },
+        {
+          "instanceId": "gallery-heavy-all-slots:mouth",
+          "slot": "mouth",
+          "assetId": "mutation.guillotine-teeth",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-heavy-all-slots:eyes",
+          "slot": "eyes",
+          "assetId": "mutation.lantern-eyes",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        },
+        {
+          "instanceId": "gallery-heavy-all-slots:head-growth",
+          "slot": "head-growth",
+          "assetId": "mutation.funeral-mane",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-heavy-all-slots:appendages",
+          "slot": "appendages",
+          "assetId": "mutation.hook-tentacles",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "acid-bladder",
+        "ossified-plates",
+        "razor-talons",
+        "spring-tendons",
+        "guillotine-teeth",
+        "lantern-eyes",
+        "funeral-mane",
+        "hook-tentacles"
+      ]
+    }
+  },
+  {
+    "id": "heavy-viscera",
+    "label": "Heavy · organs, eyes and mouth",
+    "creature": {
+      "compositionSeed": "heavy-viscera",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-heavy-viscera:body",
+          "slot": "appendages",
+          "assetId": "mutation.excessive-viscera",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-heavy-viscera:mouth",
+          "slot": "mouth",
+          "assetId": "mutation.guillotine-teeth",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        },
+        {
+          "instanceId": "gallery-heavy-viscera:eyes",
+          "slot": "eyes",
+          "assetId": "mutation.all-seeing-cluster",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-heavy-viscera:skin",
+          "slot": "skin",
+          "assetId": "mutation.barbed-hide",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        },
+        {
+          "instanceId": "gallery-heavy-viscera:forelimb-left",
+          "slot": "forelimb-left",
+          "assetId": "mutation.kitten-paws",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-heavy-viscera:forelimb-right",
+          "slot": "forelimb-right",
+          "assetId": "mutation.kitten-paws",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-heavy-viscera:lower-limbs",
+          "slot": "lower-limbs",
+          "assetId": "mutation.spring-tendons",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        },
+        {
+          "instanceId": "gallery-heavy-viscera:appendages",
+          "slot": "head-growth",
+          "assetId": "mutation.storm-organ",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-heavy-viscera:head-growth",
+          "slot": "head-growth",
+          "assetId": "mutation.false-halo",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "excessive-viscera",
+        "guillotine-teeth",
+        "all-seeing-cluster",
+        "barbed-hide",
+        "kitten-paws",
+        "spring-tendons",
+        "storm-organ",
+        "false-halo"
+      ]
+    }
+  },
+  {
+    "id": "heavy-veil",
+    "label": "Heavy · veil and chest organ",
+    "creature": {
+      "compositionSeed": "heavy-veil",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-heavy-veil:body",
+          "slot": "appendages",
+          "assetId": "mutation.auxiliary-heart",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-heavy-veil:appendages",
+          "slot": "skin",
+          "assetId": "mutation.mourning-veil",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        },
+        {
+          "instanceId": "gallery-heavy-veil:head-growth",
+          "slot": "head-growth",
+          "assetId": "mutation.false-halo",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-heavy-veil:mouth",
+          "slot": "mouth",
+          "assetId": "mutation.porcelain-teeth",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        },
+        {
+          "instanceId": "gallery-heavy-veil:eyes",
+          "slot": "eyes",
+          "assetId": "mutation.lantern-eyes",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-heavy-veil:forelimb-left",
+          "slot": "forelimb-left",
+          "assetId": "mutation.razor-talons",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        },
+        {
+          "instanceId": "gallery-heavy-veil:forelimb-right",
+          "slot": "forelimb-right",
+          "assetId": "mutation.razor-talons",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        },
+        {
+          "instanceId": "gallery-heavy-veil:lower-limbs",
+          "slot": "lower-limbs",
+          "assetId": "mutation.spring-tendons",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "auxiliary-heart",
+        "mourning-veil",
+        "false-halo",
+        "porcelain-teeth",
+        "lantern-eyes",
+        "razor-talons",
+        "spring-tendons"
+      ]
+    }
+  },
+  {
+    "id": "candle",
+    "label": "Full body · candle",
+    "creature": {
+      "compositionSeed": "candle",
+      "parts": [
+        {
+          "instanceId": "gallery-candle:skin",
+          "slot": "body",
+          "assetId": "mutation.candle-flesh",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-candle:forelimb-left",
+          "slot": "forelimb-left",
+          "assetId": "mutation.razor-talons",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        },
+        {
+          "instanceId": "gallery-candle:forelimb-right",
+          "slot": "forelimb-right",
+          "assetId": "mutation.razor-talons",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        },
+        {
+          "instanceId": "gallery-candle:head-growth",
+          "slot": "head-growth",
+          "assetId": "mutation.cathedral-horns",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-candle:eyes",
+          "slot": "eyes",
+          "assetId": "mutation.all-seeing-cluster",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        },
+        {
+          "instanceId": "gallery-candle:mouth",
+          "slot": "appendages",
+          "assetId": "mutation.venom-glands",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-candle:lower-limbs",
+          "slot": "lower-limbs",
+          "assetId": "mutation.spring-tendons",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "candle-flesh",
+        "razor-talons",
+        "cathedral-horns",
+        "all-seeing-cluster",
+        "venom-glands",
+        "spring-tendons"
+      ]
+    }
+  },
+  {
+    "id": "skeleton",
+    "label": "Full body · skeleton",
+    "creature": {
+      "compositionSeed": "skeleton",
+      "parts": [
+        {
+          "instanceId": "gallery-skeleton:body",
+          "slot": "body",
+          "assetId": "mutation.brittle-skeleton",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-skeleton:eyes",
+          "slot": "eyes",
+          "assetId": "mutation.lantern-eyes",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        },
+        {
+          "instanceId": "gallery-skeleton:mouth",
+          "slot": "mouth",
+          "assetId": "mutation.guillotine-teeth",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-skeleton:forelimb-left",
+          "slot": "forelimb-left",
+          "assetId": "mutation.kitten-paws",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        },
+        {
+          "instanceId": "gallery-skeleton:forelimb-right",
+          "slot": "forelimb-right",
+          "assetId": "mutation.kitten-paws",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        },
+        {
+          "instanceId": "gallery-skeleton:lower-limbs",
+          "slot": "lower-limbs",
+          "assetId": "mutation.spring-tendons",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-skeleton:appendages",
+          "slot": "appendages",
+          "assetId": "mutation.hook-tentacles",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        },
+        {
+          "instanceId": "gallery-skeleton:head-growth",
+          "slot": "head-growth",
+          "assetId": "mutation.cathedral-horns",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "brittle-skeleton",
+        "lantern-eyes",
+        "guillotine-teeth",
+        "kitten-paws",
+        "spring-tendons",
+        "hook-tentacles",
+        "cathedral-horns"
+      ]
+    }
+  },
+  {
+    "id": "two-bodies",
+    "label": "Full body · skeleton and candle",
+    "creature": {
+      "compositionSeed": "two-bodies",
+      "parts": [
+        {
+          "instanceId": "gallery-two-bodies:body",
+          "slot": "body",
+          "assetId": "mutation.brittle-skeleton",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-two-bodies:skin",
+          "slot": "body",
+          "assetId": "mutation.candle-flesh",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ],
+          "opacity": 0.45,
+          "layerOffset": 1
+        },
+        {
+          "instanceId": "gallery-two-bodies:eyes",
+          "slot": "eyes",
+          "assetId": "mutation.all-seeing-cluster",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-two-bodies:mouth",
+          "slot": "mouth",
+          "assetId": "mutation.guillotine-teeth",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        },
+        {
+          "instanceId": "gallery-two-bodies:forelimb-left",
+          "slot": "forelimb-left",
+          "assetId": "mutation.razor-talons",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-two-bodies:forelimb-right",
+          "slot": "forelimb-right",
+          "assetId": "mutation.razor-talons",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-two-bodies:lower-limbs",
+          "slot": "lower-limbs",
+          "assetId": "mutation.spring-tendons",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        },
+        {
+          "instanceId": "gallery-two-bodies:appendages",
+          "slot": "appendages",
+          "assetId": "mutation.counterweight-tail",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-two-bodies:head-growth",
+          "slot": "head-growth",
+          "assetId": "mutation.false-halo",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "brittle-skeleton",
+        "candle-flesh",
+        "all-seeing-cluster",
+        "guillotine-teeth",
+        "razor-talons",
+        "spring-tendons",
+        "counterweight-tail",
+        "false-halo"
+      ]
+    }
+  },
+  {
+    "id": "replacement-paws",
+    "label": "Claws replaced by kitten paws",
+    "creature": {
+      "compositionSeed": "replacement-paws",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-replacement-paws:forelimb-left",
+          "slot": "forelimb-left",
+          "assetId": "mutation.kitten-paws",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        },
+        {
+          "instanceId": "gallery-replacement-paws:forelimb-right",
+          "slot": "forelimb-right",
+          "assetId": "mutation.kitten-paws",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        },
+        {
+          "instanceId": "gallery-replacement-paws:skin",
+          "slot": "skin",
+          "assetId": "mutation.too-many-smiles",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "razor-talons",
+        "kitten-paws",
+        "too-many-smiles"
+      ]
+    }
+  },
+  {
+    "id": "asymmetric",
+    "label": "Mirrored · one wandering limb",
+    "creature": {
+      "compositionSeed": "asymmetric",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-asymmetric:forelimb-left",
+          "slot": "forelimb-left",
+          "assetId": "mutation.razor-talons",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-asymmetric:forelimb-right",
+          "slot": "forelimb-right",
+          "assetId": "mutation.wandering-limb",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        },
+        {
+          "instanceId": "gallery-asymmetric:body",
+          "slot": "appendages",
+          "assetId": "mutation.existential-organ",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-asymmetric:skin",
+          "slot": "skin",
+          "assetId": "mutation.ink-bloom",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        },
+        {
+          "instanceId": "gallery-asymmetric:eyes",
+          "slot": "eyes",
+          "assetId": "mutation.lantern-eyes",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "razor-talons",
+        "wandering-limb",
+        "existential-organ",
+        "ink-bloom",
+        "lantern-eyes"
+      ]
+    }
+  },
+  {
+    "id": "reinforced",
+    "label": "Maximum supported reinforcement",
+    "creature": {
+      "compositionSeed": "reinforced",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-reinforced:body",
+          "slot": "appendages",
+          "assetId": "mutation.acid-bladder",
+          "variant": 4,
+          "scale": 1.3,
+          "contributorIds": [
+            "reviewer-0",
+            "reviewer-1",
+            "reviewer-2",
+            "reviewer-3",
+            "reviewer-4"
+          ]
+        },
+        {
+          "instanceId": "gallery-reinforced:skin",
+          "slot": "skin",
+          "assetId": "mutation.ossified-plates",
+          "variant": 4,
+          "scale": 1.3,
+          "contributorIds": [
+            "reviewer-0",
+            "reviewer-1",
+            "reviewer-5",
+            "reviewer-6",
+            "reviewer-7"
+          ]
+        },
+        {
+          "instanceId": "gallery-reinforced:forelimb-left",
+          "slot": "forelimb-left",
+          "assetId": "mutation.razor-talons",
+          "variant": 4,
+          "scale": 1.3,
+          "contributorIds": [
+            "reviewer-2",
+            "reviewer-3",
+            "reviewer-4",
+            "reviewer-5",
+            "reviewer-6"
+          ]
+        },
+        {
+          "instanceId": "gallery-reinforced:forelimb-right",
+          "slot": "forelimb-right",
+          "assetId": "mutation.razor-talons",
+          "variant": 4,
+          "scale": 1.3,
+          "contributorIds": [
+            "reviewer-2",
+            "reviewer-3",
+            "reviewer-4",
+            "reviewer-5",
+            "reviewer-6"
+          ]
+        },
+        {
+          "instanceId": "gallery-reinforced:lower-limbs",
+          "slot": "lower-limbs",
+          "assetId": "mutation.spring-tendons",
+          "variant": 4,
+          "scale": 1.3,
+          "contributorIds": [
+            "reviewer-0",
+            "reviewer-1",
+            "reviewer-2",
+            "reviewer-3",
+            "reviewer-7"
+          ]
+        },
+        {
+          "instanceId": "gallery-reinforced:mouth",
+          "slot": "mouth",
+          "assetId": "mutation.guillotine-teeth",
+          "variant": 4,
+          "scale": 1.3,
+          "contributorIds": [
+            "reviewer-0",
+            "reviewer-4",
+            "reviewer-5",
+            "reviewer-6",
+            "reviewer-7"
+          ]
+        },
+        {
+          "instanceId": "gallery-reinforced:eyes",
+          "slot": "eyes",
+          "assetId": "mutation.lantern-eyes",
+          "variant": 4,
+          "scale": 1.3,
+          "contributorIds": [
+            "reviewer-1",
+            "reviewer-2",
+            "reviewer-3",
+            "reviewer-4",
+            "reviewer-5"
+          ]
+        },
+        {
+          "instanceId": "gallery-reinforced:head-growth",
+          "slot": "head-growth",
+          "assetId": "mutation.funeral-mane",
+          "variant": 4,
+          "scale": 1.3,
+          "contributorIds": [
+            "reviewer-0",
+            "reviewer-1",
+            "reviewer-2",
+            "reviewer-6",
+            "reviewer-7"
+          ]
+        },
+        {
+          "instanceId": "gallery-reinforced:appendages",
+          "slot": "appendages",
+          "assetId": "mutation.hook-tentacles",
+          "variant": 4,
+          "scale": 1.3,
+          "contributorIds": [
+            "reviewer-3",
+            "reviewer-4",
+            "reviewer-5",
+            "reviewer-6",
+            "reviewer-7"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "acid-bladder",
+        "ossified-plates",
+        "razor-talons",
+        "spring-tendons",
+        "guillotine-teeth",
+        "lantern-eyes",
+        "funeral-mane",
+        "hook-tentacles"
+      ]
+    }
+  },
+  {
+    "id": "screenshot-case",
+    "label": "Reported crowding · viscera and wandering limb",
+    "creature": {
+      "compositionSeed": "screenshot-case",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-screenshot-case:body",
+          "slot": "appendages",
+          "assetId": "mutation.excessive-viscera",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-screenshot-case:forelimb-right",
+          "slot": "forelimb-right",
+          "assetId": "mutation.wandering-limb",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        },
+        {
+          "instanceId": "gallery-screenshot-case:eyes",
+          "slot": "eyes",
+          "assetId": "mutation.lantern-eyes",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "excessive-viscera",
+        "wandering-limb",
+        "lantern-eyes"
+      ]
+    }
+  },
+  {
+    "id": "surface",
+    "label": "Moderate · surface and mouth",
+    "creature": {
+      "compositionSeed": "surface",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-surface:body",
+          "slot": "skin",
+          "assetId": "mutation.titan-fibers",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-surface:skin",
+          "slot": "skin",
+          "assetId": "mutation.too-many-smiles",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        },
+        {
+          "instanceId": "gallery-surface:mouth",
+          "slot": "mouth",
+          "assetId": "mutation.porcelain-teeth",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-surface:head-growth",
+          "slot": "head-growth",
+          "assetId": "mutation.cathedral-horns",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-1"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "titan-fibers",
+        "too-many-smiles",
+        "porcelain-teeth",
+        "cathedral-horns"
+      ]
+    }
+  },
+  {
+    "id": "single-titan-fibers",
+    "label": "Titan Fibers",
+    "creature": {
+      "compositionSeed": "single-titan-fibers",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-single-titan-fibers:body",
+          "slot": "skin",
+          "assetId": "mutation.titan-fibers",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "titan-fibers"
+      ]
+    }
+  },
+  {
+    "id": "single-spring-tendons",
+    "label": "Spring Tendons",
+    "creature": {
+      "compositionSeed": "single-spring-tendons",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-single-spring-tendons:lower-limbs",
+          "slot": "lower-limbs",
+          "assetId": "mutation.spring-tendons",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "spring-tendons"
+      ]
+    }
+  },
+  {
+    "id": "single-razor-talons",
+    "label": "Razor Talons",
+    "creature": {
+      "compositionSeed": "single-razor-talons",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-single-razor-talons:forelimb-left",
+          "slot": "forelimb-left",
+          "assetId": "mutation.razor-talons",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-single-razor-talons:forelimb-right",
+          "slot": "forelimb-right",
+          "assetId": "mutation.razor-talons",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "razor-talons"
+      ]
+    }
+  },
+  {
+    "id": "single-guillotine-teeth",
+    "label": "Guillotine Teeth",
+    "creature": {
+      "compositionSeed": "single-guillotine-teeth",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-single-guillotine-teeth:mouth",
+          "slot": "mouth",
+          "assetId": "mutation.guillotine-teeth",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "guillotine-teeth"
+      ]
+    }
+  },
+  {
+    "id": "single-ossified-plates",
+    "label": "Ossified Plates",
+    "creature": {
+      "compositionSeed": "single-ossified-plates",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-single-ossified-plates:skin",
+          "slot": "skin",
+          "assetId": "mutation.ossified-plates",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "ossified-plates"
+      ]
+    }
+  },
+  {
+    "id": "single-auxiliary-heart",
+    "label": "Auxiliary Heart",
+    "creature": {
+      "compositionSeed": "single-auxiliary-heart",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-single-auxiliary-heart:body",
+          "slot": "appendages",
+          "assetId": "mutation.auxiliary-heart",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "auxiliary-heart"
+      ]
+    }
+  },
+  {
+    "id": "single-reweaving-tissue",
+    "label": "Reweaving Tissue",
+    "creature": {
+      "compositionSeed": "single-reweaving-tissue",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-single-reweaving-tissue:skin",
+          "slot": "skin",
+          "assetId": "mutation.reweaving-tissue",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "reweaving-tissue"
+      ]
+    }
+  },
+  {
+    "id": "single-hook-tentacles",
+    "label": "Hook Tentacles",
+    "creature": {
+      "compositionSeed": "single-hook-tentacles",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-single-hook-tentacles:appendages",
+          "slot": "appendages",
+          "assetId": "mutation.hook-tentacles",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "hook-tentacles"
+      ]
+    }
+  },
+  {
+    "id": "single-venom-glands",
+    "label": "Venom Glands",
+    "creature": {
+      "compositionSeed": "single-venom-glands",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-single-venom-glands:mouth",
+          "slot": "appendages",
+          "assetId": "mutation.venom-glands",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "venom-glands"
+      ]
+    }
+  },
+  {
+    "id": "single-storm-organ",
+    "label": "Storm Organ",
+    "creature": {
+      "compositionSeed": "single-storm-organ",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-single-storm-organ:appendages",
+          "slot": "head-growth",
+          "assetId": "mutation.storm-organ",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "storm-organ"
+      ]
+    }
+  },
+  {
+    "id": "single-acid-bladder",
+    "label": "Acid Bladder",
+    "creature": {
+      "compositionSeed": "single-acid-bladder",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-single-acid-bladder:body",
+          "slot": "appendages",
+          "assetId": "mutation.acid-bladder",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "acid-bladder"
+      ]
+    }
+  },
+  {
+    "id": "single-barbed-hide",
+    "label": "Barbed Hide",
+    "creature": {
+      "compositionSeed": "single-barbed-hide",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-single-barbed-hide:skin",
+          "slot": "skin",
+          "assetId": "mutation.barbed-hide",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "barbed-hide"
+      ]
+    }
+  },
+  {
+    "id": "single-all-seeing-cluster",
+    "label": "All-Seeing Cluster",
+    "creature": {
+      "compositionSeed": "single-all-seeing-cluster",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-single-all-seeing-cluster:eyes",
+          "slot": "eyes",
+          "assetId": "mutation.all-seeing-cluster",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "all-seeing-cluster"
+      ]
+    }
+  },
+  {
+    "id": "single-bellows-lung",
+    "label": "Bellows Lung",
+    "creature": {
+      "compositionSeed": "single-bellows-lung",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-single-bellows-lung:body",
+          "slot": "skin",
+          "assetId": "mutation.bellows-lung",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "bellows-lung"
+      ]
+    }
+  },
+  {
+    "id": "single-counterweight-tail",
+    "label": "Counterweight Tail",
+    "creature": {
+      "compositionSeed": "single-counterweight-tail",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-single-counterweight-tail:appendages",
+          "slot": "appendages",
+          "assetId": "mutation.counterweight-tail",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "counterweight-tail"
+      ]
+    }
+  },
+  {
+    "id": "single-funeral-mane",
+    "label": "Funeral Mane",
+    "creature": {
+      "compositionSeed": "single-funeral-mane",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-single-funeral-mane:head-growth",
+          "slot": "head-growth",
+          "assetId": "mutation.funeral-mane",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "funeral-mane"
+      ]
+    }
+  },
+  {
+    "id": "single-cathedral-horns",
+    "label": "Cathedral Horns",
+    "creature": {
+      "compositionSeed": "single-cathedral-horns",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-single-cathedral-horns:head-growth",
+          "slot": "head-growth",
+          "assetId": "mutation.cathedral-horns",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "cathedral-horns"
+      ]
+    }
+  },
+  {
+    "id": "single-mourning-veil",
+    "label": "Mourning Veil",
+    "creature": {
+      "compositionSeed": "single-mourning-veil",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-single-mourning-veil:appendages",
+          "slot": "skin",
+          "assetId": "mutation.mourning-veil",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "mourning-veil"
+      ]
+    }
+  },
+  {
+    "id": "single-lantern-eyes",
+    "label": "Lantern Eyes",
+    "creature": {
+      "compositionSeed": "single-lantern-eyes",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-single-lantern-eyes:eyes",
+          "slot": "eyes",
+          "assetId": "mutation.lantern-eyes",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "lantern-eyes"
+      ]
+    }
+  },
+  {
+    "id": "single-ink-bloom",
+    "label": "Ink Bloom",
+    "creature": {
+      "compositionSeed": "single-ink-bloom",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-single-ink-bloom:skin",
+          "slot": "skin",
+          "assetId": "mutation.ink-bloom",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "ink-bloom"
+      ]
+    }
+  },
+  {
+    "id": "single-false-halo",
+    "label": "False Halo",
+    "creature": {
+      "compositionSeed": "single-false-halo",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-single-false-halo:head-growth",
+          "slot": "head-growth",
+          "assetId": "mutation.false-halo",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "false-halo"
+      ]
+    }
+  },
+  {
+    "id": "single-too-many-smiles",
+    "label": "Too Many Smiles",
+    "creature": {
+      "compositionSeed": "single-too-many-smiles",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-single-too-many-smiles:skin",
+          "slot": "skin",
+          "assetId": "mutation.too-many-smiles",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "too-many-smiles"
+      ]
+    }
+  },
+  {
+    "id": "single-kitten-paws",
+    "label": "Kitten Paws",
+    "creature": {
+      "compositionSeed": "single-kitten-paws",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-single-kitten-paws:forelimb-left",
+          "slot": "forelimb-left",
+          "assetId": "mutation.kitten-paws",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        },
+        {
+          "instanceId": "gallery-single-kitten-paws:forelimb-right",
+          "slot": "forelimb-right",
+          "assetId": "mutation.kitten-paws",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "kitten-paws"
+      ]
+    }
+  },
+  {
+    "id": "single-candle-flesh",
+    "label": "Candle Flesh",
+    "creature": {
+      "compositionSeed": "single-candle-flesh",
+      "parts": [
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-single-candle-flesh:skin",
+          "slot": "body",
+          "assetId": "mutation.candle-flesh",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "candle-flesh"
+      ]
+    }
+  },
+  {
+    "id": "single-brittle-skeleton",
+    "label": "Brittle Skeleton",
+    "creature": {
+      "compositionSeed": "single-brittle-skeleton",
+      "parts": [
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-single-brittle-skeleton:body",
+          "slot": "body",
+          "assetId": "mutation.brittle-skeleton",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "brittle-skeleton"
+      ]
+    }
+  },
+  {
+    "id": "single-wandering-limb",
+    "label": "Wandering Limb",
+    "creature": {
+      "compositionSeed": "single-wandering-limb",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-single-wandering-limb:forelimb-right",
+          "slot": "forelimb-right",
+          "assetId": "mutation.wandering-limb",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "wandering-limb"
+      ]
+    }
+  },
+  {
+    "id": "single-tremor-ganglia",
+    "label": "Tremor Ganglia",
+    "creature": {
+      "compositionSeed": "single-tremor-ganglia",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-single-tremor-ganglia:body",
+          "slot": "appendages",
+          "assetId": "mutation.tremor-ganglia",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "tremor-ganglia"
+      ]
+    }
+  },
+  {
+    "id": "single-porcelain-teeth",
+    "label": "Porcelain Teeth",
+    "creature": {
+      "compositionSeed": "single-porcelain-teeth",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-single-porcelain-teeth:mouth",
+          "slot": "mouth",
+          "assetId": "mutation.porcelain-teeth",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "porcelain-teeth"
+      ]
+    }
+  },
+  {
+    "id": "single-excessive-viscera",
+    "label": "Excessive Viscera",
+    "creature": {
+      "compositionSeed": "single-excessive-viscera",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-single-excessive-viscera:body",
+          "slot": "appendages",
+          "assetId": "mutation.excessive-viscera",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "excessive-viscera"
+      ]
+    }
+  },
+  {
+    "id": "single-existential-organ",
+    "label": "Existential Organ",
+    "creature": {
+      "compositionSeed": "single-existential-organ",
+      "parts": [
+        {
+          "instanceId": "base:body",
+          "slot": "body",
+          "assetId": "creature.blob",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:eyes",
+          "slot": "eyes",
+          "assetId": "creature.eyes",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "base:mouth",
+          "slot": "mouth",
+          "assetId": "creature.mouth",
+          "scale": 1,
+          "variant": 0,
+          "contributorIds": []
+        },
+        {
+          "instanceId": "gallery-single-existential-organ:body",
+          "slot": "appendages",
+          "assetId": "mutation.existential-organ",
+          "variant": 0,
+          "scale": 1,
+          "contributorIds": [
+            "reviewer-0"
+          ]
+        }
+      ],
+      "revealedMutationIds": [
+        "existential-organ"
+      ]
+    }
+  }
+]
