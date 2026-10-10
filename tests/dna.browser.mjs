@@ -29,7 +29,23 @@ async function connected(p){await p.waitForFunction(()=>document.querySelector('
 async function create(p,name){await p.getByLabel('Player Name',{exact:true}).fill(name);await p.getByRole('button',{name:'Create Private Laboratory',exact:true}).click();await connected(p);return credentials(p);}
 async function joinLaboratory(p,id,name,display=false){await p.getByLabel('Invitation code',{exact:true}).fill(id);if(display)await p.getByLabel('Join as a display without a player seat').check();else await p.getByLabel('Player Name',{exact:true}).fill(name);await p.getByRole('button',{name:'Join by Code',exact:true}).click();await connected(p);}
 async function readyTray(p){await p.waitForFunction(()=>document.querySelectorAll('.specimen-button').length===4&&[...document.querySelectorAll('.specimen-button')].every(b=>!b.disabled));}
-async function inject(p){await p.locator('.specimen-button').first().click();await p.getByRole('button',{name:'Inject selected specimen',exact:true}).click();await p.waitForFunction(()=>sessionStorage.getItem('mm.pending-intent.v4')===null);}
+async function inject(p,expected='action-accepted'){
+ const previous=await p.evaluate(()=>window.__lastInjection);
+ await p.locator('.specimen-button').first().click();const button=p.getByRole('button',{name:'Inject selected specimen',exact:true});
+ // A peer's room snapshot can disable this button between pointer down/up,
+ // until our private controller catches up. Retry only a click that sent nothing.
+ for(let attempt=0;attempt<3;attempt++){
+  await button.click();
+  try{await p.waitForFunction(previous=>window.__lastInjection!==previous,previous,{timeout:1500});break;}
+  catch(error){if(await p.evaluate(previous=>window.__lastInjection!==previous,previous))break;if(attempt===2)throw error;}
+ }
+ // Cleared pending UI alone also permits rejection, or no newly sent action.
+ // Wait for this click's action ID and its real server receipt before reading state.
+ await p.waitForFunction(previous=>window.__lastInjection!==previous&&window.__mmFrames.some(m=>m.actionId===window.__lastInjection&&['action-accepted','action-rejected'].includes(m.kind)),previous);
+ const receipt=await p.evaluate(()=>window.__mmFrames.find(m=>m.actionId===window.__lastInjection&&['action-accepted','action-rejected'].includes(m.kind)));
+ assert.equal(receipt.kind,expected,JSON.stringify(receipt));
+ await p.waitForFunction(()=>sessionStorage.getItem('mm.pending-intent.v4')===null);return receipt;
+}
 async function artMatches(p){const v=await view(p);await p.waitForFunction(ids=>{const e=document.querySelector('.chamber-canvas');return e?.style.visibility==='visible'&&e.dataset.parts?.split(',').sort().join(',')===ids;},v.snapshot.creature.parts.map(p=>p.assetId).sort().join(','));}
 async function a11y(p){await p.addScriptTag({path:resolve('node_modules/axe-core/axe.min.js')});const violations=await p.evaluate(async()=> (await axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa','wcag22aa']}})).violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>n.target)})));assert.deepEqual(violations,[]);}
 try{
@@ -71,7 +87,7 @@ try{
  await record(host,(r,c)=>{r.seats.find(s=>s.id===c.sessionId).nextInjectionAtMs=0;});await sync(host);await readyTray(host);
  const rateBudget=(await view(host)).controller.remainingDoses;
  await host.evaluate(()=>{for(let i=0;i<35;i++)window.__mmSockets.at(-1).send(JSON.stringify({protocolVersion:4,actionId:crypto.randomUUID(),kind:'sync-request',afterRevision:0}));});
- await inject(host);assert.equal((await view(host)).controller.remainingDoses,rateBudget);assert.ok((await host.locator('.service-status').innerText()).includes('rate-limited'));await sleep(10010);
+ const rateReceipt=await inject(host,'action-rejected');assert.equal(rateReceipt.code,'rate-limited');assert.equal((await view(host)).controller.remainingDoses,rateBudget);assert.ok((await host.locator('.service-status').innerText()).includes('rate-limited'));await sleep(10010);
  pass('a rate-limited injection resolves pending feedback and preserves the authoritative dose budget');
  // Leave/recreate to test an ordinary fresh budget with no fixture-refilled dose count.
  await host.getByRole('button',{name:'Leave laboratory',exact:true}).click();await host.getByRole('button',{name:'Create Private Laboratory',exact:true}).waitFor();const budget=await create(host,'Budget Curator');
@@ -86,8 +102,17 @@ try{
  pass('six browser injections never auto-switch; explicit switches reach one frozen release and the approved Prepare for combat headline with an honest unavailable-combat explanation');
  const publicPages=await Promise.all([page(),page(390),page(768),page()]);
  for(const p of publicPages){const skip=p.getByRole('button',{name:'Skip rehearsal',exact:true});if(await skip.count())await skip.click();await p.getByLabel('Regional pool').selectOption('americas');await p.getByRole('button',{name:'Enter Quick Play',exact:true}).click();}
- await Promise.all(publicPages.map(async p=>{const b=p.getByRole('button',{name:'Ready',exact:true});await b.waitFor();await b.click();}));await Promise.all(publicPages.map(readyTray));await Promise.all(publicPages.map(inject));
- const publicViews=await Promise.all(publicPages.map(view));assert.equal(new Set(publicViews.map(v=>v.snapshot.roomId)).size,1);assert.ok(publicViews[0].snapshot.players.every(p=>p.injectionsThisRound===1));for(const v of publicViews)assert.deepEqual(v.snapshot.creature,publicViews[0].snapshot.creature);
+ await Promise.all(publicPages.map(async p=>{const b=p.getByRole('button',{name:'Ready',exact:true});await b.waitFor();await b.click();}));await Promise.all(publicPages.map(readyTray));
+ // Deterministic browser-only lost activation: no intention reaches the app.
+ // The helper must recover without ever repeating a submitted injection.
+ await publicPages[0].evaluate(()=>document.addEventListener('click',function missOnce(event){if(event.target.closest('.primary-injection')){event.stopImmediatePropagation();document.removeEventListener('click',missOnce,true);window.__mmMissedClick=true;}},true));
+ const publicReceipts=await Promise.all(publicPages.map(p=>inject(p)));
+ const publicRevision=Math.max(...publicReceipts.map(r=>r.revision));
+ await Promise.all(publicPages.map(p=>p.waitForFunction(revision=>window.__mmFrames.some(m=>m.kind==='room-snapshot'&&m.snapshot.revision>=revision&&m.snapshot.players.length===4&&m.snapshot.players.every(p=>p.injectionsThisRound===1)),publicRevision)));
+ const publicViews=await Promise.all(publicPages.map(view));assert.equal(new Set(publicViews.map(v=>v.snapshot.roomId)).size,1);
+ const publicEvidence=await Promise.all(publicPages.map(p=>p.evaluate(()=>({intents:window.__mmIntents.filter(a=>a.kind==='inject'),receipts:window.__mmFrames.filter(m=>['action-accepted','action-rejected'].includes(m.kind)),status:document.querySelector('.service-status')?.textContent}))));
+ assert.equal(await publicPages[0].evaluate(()=>window.__mmMissedClick),true);assert.ok(publicEvidence.every(c=>c.intents.length===1),'each browser must submit exactly one injection, including the missed-click recovery');
+ assert.equal(publicViews[0].snapshot.players.length,4);assert.ok(publicViews[0].snapshot.players.every(p=>p.injectionsThisRound===1),JSON.stringify({players:publicViews[0].snapshot.players,controllers:publicViews.map(v=>({playerId:v.controller.playerId,remainingDoses:v.controller.remainingDoses})),clients:publicEvidence}));for(const v of publicViews){assert.equal(v.controller.remainingDoses,5);assert.deepEqual(v.snapshot.creature,publicViews[0].snapshot.creature);}
  await Promise.all(publicPages.map(artMatches));await a11y(publicPages[0]);pass('four real Quick Play browser guests receive private trays and synchronize concurrent public-room injections');
  assert.deepEqual(errors,[]);console.log(`Completed ${passed} DNA browser scenarios and all 30 actual mutation appearances. Screenshots: ${artifacts}. Headless viewport checks do not establish physical-device performance.`);
 }finally{await browser?.close();await mf.dispose();await rm(persistence,{recursive:true,force:true});}
