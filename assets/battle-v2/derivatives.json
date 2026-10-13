@@ -1,0 +1,603 @@
+{
+  "tool": "ImageMagick offline crop/uniform resize/WebP84; backgrounds WebP82",
+  "records": [
+    {
+      "id": "family-1.idle",
+      "source": "assets/battle-v2/source/family-1-idle.png",
+      "sourceSha256": "11da114e1f66c24e7f4dbcc82d8bdef175b75a88a468a70e9afe2201a80a5d4b",
+      "crop": [
+        204,
+        28,
+        677,
+        1480
+      ],
+      "uniformScale": 0.398,
+      "runtime": "assets/battle-v2/runtime/family-1-idle.webp",
+      "sha256": "95acf4658b2dca6e54f62bbdb212552e195c670910d3b7393e9b12666d979203",
+      "bytes": 48310,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/family-1-idle.webp",
+        "width": 269,
+        "height": 589,
+        "pivot": [
+          143.678,
+          579.09
+        ],
+        "torso": [
+          [
+            87.162,
+            101.092
+          ],
+          [
+            158.802,
+            94.326
+          ],
+          [
+            135.718,
+            219.696
+          ],
+          [
+            64.078,
+            211.736
+          ]
+        ],
+        "shoulder": [
+          97.908,
+          100.296
+        ],
+        "eye": [
+          203.776,
+          34.626
+        ],
+        "eyeRadius": 9.552,
+        "facing": "right"
+      }
+    },
+    {
+      "id": "family-1.attack",
+      "source": "assets/battle-v2/source/family-1-poses.png",
+      "sourceSha256": "de0303275e27e6395743c329407d0f7bc86002296c13d1f5ba966bdf13bffca9",
+      "crop": [
+        480,
+        20,
+        606,
+        493
+      ],
+      "uniformScale": 1.16,
+      "runtime": "assets/battle-v2/runtime/family-1-attack.webp",
+      "sha256": "cafb2555cadfbf0edd79feceb64209971fdbc65d7863b1ad3130c2c185e6000f",
+      "bytes": 81380,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/family-1-attack.webp",
+        "width": 703,
+        "height": 572,
+        "pivot": [
+          336.4,
+          553.32
+        ],
+        "torso": [
+          [
+            226.2,
+            103.24
+          ],
+          [
+            312.04,
+            142.68
+          ],
+          [
+            319.0,
+            261.0
+          ],
+          [
+            250.56,
+            252.88
+          ]
+        ],
+        "shoulder": [
+          258.68,
+          113.68
+        ],
+        "eye": [
+          436.16,
+          64.96
+        ],
+        "eyeRadius": 27.839999999999996,
+        "facing": "right"
+      }
+    },
+    {
+      "id": "family-1.bite",
+      "source": "assets/battle-v2/source/family-1-bite.png",
+      "sourceSha256": "4c4fd289a43780b392a682214c8c9e42900eb57d5fa46ad84d87fe56857dcee0",
+      "crop": [
+        10,
+        10,
+        1516,
+        1004
+      ],
+      "uniformScale": 0.47,
+      "runtime": "assets/battle-v2/runtime/family-1-bite.webp",
+      "sha256": "db2ce4b4f94d33e37ad62e0ad12294d45f2d757e72692657761b5fb3b609a823",
+      "bytes": 76652,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/family-1-bite.webp",
+        "width": 713,
+        "height": 472,
+        "pivot": [
+          437.1,
+          455.9
+        ],
+        "torso": [
+          [
+            355.32,
+            102.46
+          ],
+          [
+            497.26,
+            120.79
+          ],
+          [
+            474.7,
+            210.09
+          ],
+          [
+            347.33,
+            188.94
+          ]
+        ],
+        "shoulder": [
+          363.31,
+          108.1
+        ],
+        "eye": [
+          653.3,
+          36.19
+        ],
+        "eyeRadius": 11.28,
+        "facing": "right"
+      }
+    },
+    {
+      "id": "family-1.recoil",
+      "source": "assets/battle-v2/source/family-1-poses.png",
+      "sourceSha256": "de0303275e27e6395743c329407d0f7bc86002296c13d1f5ba966bdf13bffca9",
+      "crop": [
+        60,
+        515,
+        530,
+        518
+      ],
+      "uniformScale": 1.16,
+      "runtime": "assets/battle-v2/runtime/family-1-recoil.webp",
+      "sha256": "69f9769f6360268825242648b21ac6df646f67f9e29069863a1210d27c27aeb2",
+      "bytes": 76242,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/family-1-recoil.webp",
+        "width": 615,
+        "height": 601,
+        "pivot": [
+          388.6,
+          575.36
+        ],
+        "torso": [
+          [
+            91.64,
+            61.48
+          ],
+          [
+            206.48,
+            145.0
+          ],
+          [
+            263.32,
+            247.08
+          ],
+          [
+            175.16,
+            225.04
+          ]
+        ],
+        "shoulder": [
+          96.28,
+          88.16
+        ],
+        "eye": [
+          96.28,
+          46.4
+        ],
+        "eyeRadius": 27.839999999999996,
+        "facing": "right"
+      }
+    },
+    {
+      "id": "family-1.defense",
+      "source": "assets/battle-v2/source/family-1-poses.png",
+      "sourceSha256": "de0303275e27e6395743c329407d0f7bc86002296c13d1f5ba966bdf13bffca9",
+      "crop": [
+        615,
+        535,
+        450,
+        501
+      ],
+      "uniformScale": 1.16,
+      "runtime": "assets/battle-v2/runtime/family-1-defense.webp",
+      "sha256": "62ea6398715d8d7dece10ed8a573b3784b3025e4018e14e1d2f33c7943189de0",
+      "bytes": 58006,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/family-1-defense.webp",
+        "width": 522,
+        "height": 581,
+        "pivot": [
+          278.4,
+          553.32
+        ],
+        "torso": [
+          [
+            157.76,
+            156.6
+          ],
+          [
+            269.12,
+            151.96
+          ],
+          [
+            216.92,
+            299.28
+          ],
+          [
+            119.48,
+            241.28
+          ]
+        ],
+        "shoulder": [
+          168.2,
+          167.04
+        ],
+        "eye": [
+          336.4,
+          131.08
+        ],
+        "eyeRadius": 27.839999999999996,
+        "facing": "right"
+      }
+    },
+    {
+      "id": "family-1.defeat",
+      "source": "assets/battle-v2/source/family-1-poses.png",
+      "sourceSha256": "de0303275e27e6395743c329407d0f7bc86002296c13d1f5ba966bdf13bffca9",
+      "crop": [
+        10,
+        1110,
+        685,
+        310
+      ],
+      "uniformScale": 1.1,
+      "runtime": "assets/battle-v2/runtime/family-1-defeat.webp",
+      "sha256": "038344ad3c1b9826d9894025c8a4a7bf4569461f0da34e43da076fa0a6c574fd",
+      "bytes": 52934,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/family-1-defeat.webp",
+        "width": 754,
+        "height": 341,
+        "pivot": [
+          368.5,
+          305.8
+        ],
+        "torso": [
+          [
+            202.4,
+            91.3
+          ],
+          [
+            305.8,
+            116.6
+          ],
+          [
+            286.0,
+            191.4
+          ],
+          [
+            138.6,
+            189.2
+          ]
+        ],
+        "shoulder": [
+          220.0,
+          100.1
+        ],
+        "eye": [
+          159.5,
+          169.4
+        ],
+        "eyeRadius": 26.400000000000002,
+        "facing": "right"
+      }
+    },
+    {
+      "id": "iron-widow.idle",
+      "source": "assets/battle-v2/source/iron-widow-poses.png",
+      "sourceSha256": "b7b0b7a74f56a8c5df6ca2afa05061063d4bf091484cf7dc36784748c9401178",
+      "crop": [
+        0,
+        10,
+        538,
+        449
+      ],
+      "uniformScale": 1.12,
+      "runtime": "assets/battle-v2/runtime/iron-widow-idle.webp",
+      "sha256": "f8577b5f9524ce148a51f8efd252d72c9ecee8e69207bbce7ec431c479bc6b2f",
+      "bytes": 74766,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/iron-widow-idle.webp",
+        "width": 603,
+        "height": 503,
+        "pivot": [
+          302.4,
+          487.2
+        ],
+        "torso": [
+          [
+            143.36,
+            212.8
+          ],
+          [
+            374.08,
+            196.0
+          ],
+          [
+            436.8,
+            321.44
+          ],
+          [
+            181.44,
+            358.4
+          ]
+        ],
+        "shoulder": [
+          235.2,
+          207.2
+        ],
+        "eye": [
+          201.6,
+          182.56
+        ],
+        "eyeRadius": 26.880000000000003,
+        "facing": "left"
+      }
+    },
+    {
+      "id": "iron-widow.attack",
+      "source": "assets/battle-v2/source/iron-widow-poses.png",
+      "sourceSha256": "b7b0b7a74f56a8c5df6ca2afa05061063d4bf091484cf7dc36784748c9401178",
+      "crop": [
+        533,
+        35,
+        553,
+        432
+      ],
+      "uniformScale": 1.12,
+      "runtime": "assets/battle-v2/runtime/iron-widow-attack.webp",
+      "sha256": "13a95e03b675fdd76629f123b42019c264a511268c19c4fb801e303c4aaec2a8",
+      "bytes": 69160,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/iron-widow-attack.webp",
+        "width": 619,
+        "height": 484,
+        "pivot": [
+          319.2,
+          467.04
+        ],
+        "torso": [
+          [
+            160.16,
+            241.92
+          ],
+          [
+            396.48,
+            179.2
+          ],
+          [
+            446.88,
+            284.48
+          ],
+          [
+            196.0,
+            349.44
+          ]
+        ],
+        "shoulder": [
+          267.68,
+          222.88
+        ],
+        "eye": [
+          178.08,
+          250.88
+        ],
+        "eyeRadius": 26.880000000000003,
+        "facing": "left"
+      }
+    },
+    {
+      "id": "iron-widow.recoil",
+      "source": "assets/battle-v2/source/iron-widow-poses.png",
+      "sourceSha256": "b7b0b7a74f56a8c5df6ca2afa05061063d4bf091484cf7dc36784748c9401178",
+      "crop": [
+        0,
+        462,
+        557,
+        530
+      ],
+      "uniformScale": 1.12,
+      "runtime": "assets/battle-v2/runtime/iron-widow-recoil.webp",
+      "sha256": "b970ec039732da5e5d5f449d41da0c002d654a745213d89eee4defc49a9fdc1f",
+      "bytes": 88900,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/iron-widow-recoil.webp",
+        "width": 624,
+        "height": 594,
+        "pivot": [
+          313.6,
+          575.68
+        ],
+        "torso": [
+          [
+            240.8,
+            237.44
+          ],
+          [
+            393.12,
+            248.64
+          ],
+          [
+            496.16,
+            368.48
+          ],
+          [
+            218.4,
+            380.8
+          ]
+        ],
+        "shoulder": [
+          313.6,
+          218.4
+        ],
+        "eye": [
+          402.08,
+          115.36
+        ],
+        "eyeRadius": 26.880000000000003,
+        "facing": "left"
+      }
+    },
+    {
+      "id": "iron-widow.defense",
+      "source": "assets/battle-v2/source/iron-widow-poses.png",
+      "sourceSha256": "b7b0b7a74f56a8c5df6ca2afa05061063d4bf091484cf7dc36784748c9401178",
+      "crop": [
+        568,
+        538,
+        518,
+        434
+      ],
+      "uniformScale": 1.12,
+      "runtime": "assets/battle-v2/runtime/iron-widow-defense.webp",
+      "sha256": "35d25284c7927998fa54fd4f54a1ce254d5283ab803351aecca2ccbae9b9b8ae",
+      "bytes": 70600,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/iron-widow-defense.webp",
+        "width": 580,
+        "height": 486,
+        "pivot": [
+          296.8,
+          463.68
+        ],
+        "torso": [
+          [
+            171.36,
+            192.64
+          ],
+          [
+            396.48,
+            169.12
+          ],
+          [
+            442.4,
+            294.56
+          ],
+          [
+            173.6,
+            341.6
+          ]
+        ],
+        "shoulder": [
+          234.08,
+          199.36
+        ],
+        "eye": [
+          227.36,
+          218.4
+        ],
+        "eyeRadius": 26.880000000000003,
+        "facing": "left"
+      }
+    },
+    {
+      "id": "iron-widow.defeat",
+      "source": "assets/battle-v2/source/iron-widow-poses.png",
+      "sourceSha256": "b7b0b7a74f56a8c5df6ca2afa05061063d4bf091484cf7dc36784748c9401178",
+      "crop": [
+        0,
+        1021,
+        627,
+        386
+      ],
+      "uniformScale": 1.12,
+      "runtime": "assets/battle-v2/runtime/iron-widow-defeat.webp",
+      "sha256": "d434a9d025c3a117e2524a0aefb8df0ad74fdfec73c307ceae94ebfa42a18073",
+      "bytes": 64468,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/iron-widow-defeat.webp",
+        "width": 702,
+        "height": 432,
+        "pivot": [
+          341.6,
+          408.8
+        ],
+        "torso": [
+          [
+            173.6,
+            201.6
+          ],
+          [
+            408.8,
+            143.36
+          ],
+          [
+            514.08,
+            316.96
+          ],
+          [
+            152.32,
+            349.44
+          ]
+        ],
+        "shoulder": [
+          226.24,
+          212.8
+        ],
+        "eye": [
+          165.76,
+          268.8
+        ],
+        "eyeRadius": 26.880000000000003,
+        "facing": "left"
+      }
+    },
+    {
+      "id": "arena",
+      "source": "assets/battle-v2/source/arena.png",
+      "sourceSha256": "3c6bcb0422716e90e65ad668f9261d66ababda2fa639d8613bd949f433b21eae",
+      "runtime": "assets/battle-v2/runtime/arena.webp",
+      "sha256": "4ff2f3308c01f2d5794ea0f164dd69ee6b4324ab3adec40b8a9cd1a2291f68dd",
+      "bytes": 203024
+    },
+    {
+      "id": "panel",
+      "source": "assets/battle-v2/source/panel.png",
+      "sourceSha256": "1e7c2d296ac20fa46b52154086824731a76e2b0c88b44f8f2a7b11a9b1f15599",
+      "runtime": "assets/battle-v2/runtime/panel.webp",
+      "sha256": "995b53657c0add62eb21f516d1b1949a3f9204e99905ed02bb71f2e2ec3dd926",
+      "bytes": 144010
+    },
+    {
+      "id": "shoulder-eye",
+      "source": "assets/source/mutation.existential-organ.png",
+      "sourceSha256": "1c08acb9a0d425b719452c5498d8cf1938233dad3b689d444d63243418a1a573",
+      "runtime": "assets/battle-v2/runtime/shoulder-eye.webp",
+      "sha256": "941a22a8e871035a48f1810126c36ae8859f7a9cb74030e82f8bb6a3883eaed0",
+      "bytes": 5128,
+      "origin": "Reused approved generated Existential Organ; exact original prompt/tool in assets/provenance.json",
+      "registration": "Pose-specific shoulder anchors in art.json; uniform size, pupil animation on associated growth"
+    }
+  ]
+}

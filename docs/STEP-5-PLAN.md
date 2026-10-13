@@ -1,5 +1,8 @@
 # Approved step 5 plan: authoritative DNA, mutation and release
 
+> Current scope: [Battle v2 specification](BATTLE-V2-SPEC.md) and [Phase A plan](BATTLE-V2-PLAN.md) govern the development-only animation/audio sample. Earlier integration/battle appearance, region-selection, Same-Room and display-entry guidance below is historical and superseded for the future redesign. Production behavior and legacy permissions remain unchanged until Phase C. Historical verification below did not test Battle v2.
+
+
 Status: **approved by the user on 7 October 2026**, with the release message changed to “Creature released. Prepare for combat!”. On 7 October 2026 the user confirmed steps 1–4 complete, pushed and deployed, steps 1–3 tested on multiple devices, and step 4 presentation reviewed. The user authorized step 5 only and explicitly required approval of this implementation and verification plan before building. The user also authorized running the scripts needed to complete step 5. The specification below is the approved implementation scope; actual results are recorded in IMPLEMENTATION-STATUS.md.
 
 ## Delivery boundary

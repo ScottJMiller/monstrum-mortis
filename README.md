@@ -1,10 +1,16 @@
 # Monstrum Mortis
 
-A cooperative browser party game for 2–8 players. Remote-first Quick Play matchmaking, private invitation rooms, and an optional shared TV display. The approved design is in [docs/APPROVED-PLAN.md](docs/APPROVED-PLAN.md).
+A cooperative browser party game for 2–8 players, with remote Quick Play and private invitations. Current production baseline: completed step 5/6 DNA, automatic combat, results and three-round progression. Existing display permissions and regional sessions remain supported during this development work.
 
-Current local milestone: **step 6, automatic combat and three-round sessions**, authorized on 10 October 2026 after the user declared step 5 complete. The six rivals have real artwork. Server-owned DNA/release now leads to seeded automatic battles, autopsies, team score and the six personal commendations. Private hosts advance/replay; public sessions retain timed readiness and explicit regroup. [Step 6 decisions and verification scope](docs/STEP-6-PLAN.md).
+**Current authorization: Battle v2 Phase A only.** The [canonical specification](docs/BATTLE-V2-SPEC.md), [implementation plan](docs/BATTLE-V2-PLAN.md) and [sample review](docs/BATTLE-V2-REVIEW.md) govern the development-only animation/audio sample. Experiment artwork and all gameplay are preserved. Battle appearance and future region/Same-Room/display-entry guidance in earlier notes are superseded; full UI/admission changes belong to Phase C after sample acceptance. No deployment, cards/cabinet/naming or unrelated signals. Historical deployment/verification records remain in [implementation status](docs/IMPLEMENTATION-STATUS.md).
 
-Steps 1–5 are user-confirmed complete; the user previously reported deployment of step 5 at https://monstrum-mortis.scott-jeffrey-miller.workers.dev. This session does not publish step 6. Cards/cabinet, audio/signals and final acceptance remain later stages; do not deploy or implement step 7+ without instruction.
+```sh
+npm run dev
+# Open http://127.0.0.1:5173/battle-v2
+npm run test:battle-v2
+```
+
+The preview uses bundled art/audio and offline producer fixtures; it needs no Worker, credentials or generation service. Enable sound by button on each device. Play/seek the recording, inspect accepted injections, or choose pose/modifier studies. It is excluded from the production build. Rebuild retained derivatives/fixtures with `npm run prepare:battle-v2`; generate contact sheets/recording after browser checks with `npm run review:battle-v2`.
 
 ## Work locally
 
@@ -34,7 +40,7 @@ Open `http://localhost:5173`. The Vite server proxies `/api` and WebSocket reque
 
 For Quick Play, skip or complete the rehearsal, select the same regional pool on independent browser profiles, and tap Ready when enough guests join. Two guests trigger readiness after thirty seconds; four trigger it immediately. Each public player needs a separate browser guest identity.
 
-Create a private room and join its code/link from another browser profile or device. Optional display entry consumes no player seat. The host can start an experiment with two connected players. After the eight-second briefing, select a private specimen and press Inject; finish using Unleash after at least one injection and its cooldown. Timer expiry also releases the creature. Credentials live in tab session storage; use Reconnect after a drop and explicitly confirm replacement if the same seat is still open elsewhere. For isolated automated runtime verification:
+Create a private room and join its code/link from another browser profile or device. Existing legacy displays retain viewing-only permissions. The host can start an experiment with two connected players. After the eight-second briefing, select a private specimen and press Inject; finish using Unleash after at least one injection and its cooldown. Timer expiry also releases the creature. Credentials live in tab session storage; use Reconnect after a drop and explicitly confirm replacement if the same seat is still open elsewhere. For isolated automated runtime verification:
 
 ```sh
 npm run test:rooms
@@ -112,6 +118,6 @@ Visit `/art-gallery` on the Vite development origin to review individual modules
 
 Creature assembly was refined within step 5: body-relative sockets, actual pivots, outward limbs, protected facial areas, the definitive user contact sheet, half-opacity isolated lungs and original-part body assemblies calibrated to the higher-resolution sheet, and a single-triangle chamber seal. See [the composition review and screenshots](docs/CREATURE-COMPOSITION-REVIEW.md). Run `npm run test:composition` in addition to the existing step 5 regression suite. The refinement remains unchanged by step 6; no deployment is included.
 
-## Step 6 review
+## Historical step 6 review
 
 Run `npm run test:step6` for the full local suite. `npm run dev` exposes `/combat-gallery` for six authoritative battle fixtures; `node scripts/prepare-combat-fixtures.mjs` regenerates them. Both galleries are excluded from production. Local runtime/browser checks cannot establish physical-device performance, deployed combat behavior or free-tier quota use. See the latest implementation status and [step 6 review](docs/STEP-6-REVIEW.md).

@@ -1,0 +1,9 @@
+{
+  "id": "family-1-idle",
+  "source": "assets/battle-v2/source/family-1-idle.png",
+  "tool": "Built-in image_gen.imagegen",
+  "prompt": "Use case: finished transparent browser game sprite. Use the referenced sheet solely as CHARACTER IDENTITY reference. Produce just ONE complete idle pose of the SAME long-legged skinny monster shown at top left. SAME dark moss-olive patched flesh, brass sutures, elongated arms and five razor talons per hand, very long spring legs, huge guillotine-tooth jaw, narrow chest and tiny eyes. Three-quarter side view facing RIGHT, upper-left soft lighting, painterly decayed Frankenstein eldritch realism. Upright idle ready posture. Entire figure from uppermost skull to lowest toe with generous 10% clear transparent margin on ALL sides. Do NOT clip head, fingers or feet. No new anatomy or changed silhouette, no sheet, other poses, ground shadows, text or background. Preserve gaunt sinister comic identity. Actual transparent background. High resolution portrait.",
+  "reference": "assets/battle-v2/source/family-1-poses.png",
+  "reason": "The first sheet touched the top of the idle skull. Produced a complete uncropped high-resolution idle reference and retained the original sheet unchanged.",
+  "license": "Generated project output under applicable OpenAI terms"
+}

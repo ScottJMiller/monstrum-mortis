@@ -1,5 +1,8 @@
 # Step 5 creature composition review
 
+> Current scope: [Battle v2 specification](BATTLE-V2-SPEC.md) and [Phase A plan](BATTLE-V2-PLAN.md) govern the development-only animation/audio sample. Earlier integration/battle appearance, region-selection, Same-Room and display-entry guidance below is historical and superseded for the future redesign. Production behavior and legacy permissions remain unchanged until Phase C. Historical verification below did not test Battle v2.
+
+
 On 9 October 2026 the user supplied a **2480 × 3508** replacement [definitive contact sheet](visual-reviews/step5-composition/sjm_contact-sheet_definitive.png) and requested another careful pass over every part’s size, independent proportions, stretching and position relative to the blob. This supersedes the earlier lower-resolution calibration. The current reference SHA-256 is `7f43e2eb7a7b96d06dd477fd32e11a2a2f8ce7fdad03a7f8de0c58f84f8c5255`. The supplied replacement is preserved unchanged. Earlier implementation-status entries and screenshots remain historical evidence, rather than being rewritten as current results.
 
 ## Composition contract

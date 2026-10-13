@@ -1,5 +1,7 @@
 # Cloudflare setup without changing your self-hosted site
 
+> Battle v2 Phase A is development-only and has no deployed route, protocol/storage migration or health-capability change. Use [the sample review](BATTLE-V2-REVIEW.md) for local preview instructions. Deployment remains separately authorized. Future UI/admission changes are Phase C; the existing Workers Free infrastructure and self-hosted domains remain untouched.
+
 Cloudflare hosts this game's Worker, static client, and SQLite-backed room/coordinator storage. Your computer is used for development and deployment commands; it does not need to stay online for deployed games. Your self-hosted `scottjmiller.com` site is separate.
 
 The user completed the initial local login and deployment on 5 October 2026 and confirmed steps 1–4 pushed and deployed on 7 October at https://monstrum-mortis.scott-jeffrey-miller.workers.dev. Steps 1–3 passed multi-device tests and step 4 presentation was reviewed. Step 5 was subsequently approved and implemented locally; no new deployment is authorized. Do not repeat authentication unless the existing local login has expired. The steps below also serve as setup guidance for a new machine.

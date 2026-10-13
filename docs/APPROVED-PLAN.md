@@ -1,6 +1,13 @@
 # Monstrum Mortis — Final Plan for Approval
 
-Current authorization (10 October 2026): the user declared **step 5 complete** and authorized **step 6 only** under the approved design: six rivals, automatic combat, team results, personal commendations, and complete three-round progression. Preserve completed steps 1–5 and the approved creature artwork. Step 7 and later and deployment remain unauthorized. Historical planning and verification records below describe the evidence available at their dates.
+> Current scope: [Battle v2 specification](BATTLE-V2-SPEC.md) and [Phase A plan](BATTLE-V2-PLAN.md) govern the development-only animation/audio sample. Earlier integration/battle appearance, region-selection, Same-Room and display-entry guidance below is historical and superseded for the future redesign. Production behavior and legacy permissions remain unchanged until Phase C. Historical verification below did not test Battle v2.
+
+
+Phase A refinement authorized 13 October 2026: supplied audio/effect replacements, New Rocker lettering with approved word variants, removal of battle shadow disks and a dedicated bite-lunge variant. Non-tint overlays remain review samples; textured anatomical grafts are the user-selected next direction. See [current review](BATTLE-V2-REVIEW.md) for evidence and outstanding acceptance. No Phase B/C rollout or deployment authorization.
+
+Delivery instruction (13 October 2026): the user considers step 6 complete after the final validation and push, and requested the npm commands and commit message. This closes the step 6 milestone; it does not authorize later implementation or deployment. Battle v2 remains a development-only Phase A slice, with remaining artwork/production rollout outside this delivery.
+
+Historical step 6 authorization (10 October 2026): the user declared **step 5 complete** and authorized **step 6 only** under the approved design: six rivals, automatic combat, team results, personal commendations, and complete three-round progression. Preserve completed steps 1–5 and the approved creature artwork. Step 7 and later and deployment remain unauthorized. Historical planning and verification records below describe the evidence available at their dates.
 
 ## 1. Product and first-release scope
 
@@ -45,6 +52,8 @@ The six-dose budget, six-second cooldown, and 75-second timer are configuration 
 
 ## 3. Session flow and screens
 
+> The older entry/display/Same-Room presentation guidance in this section is superseded by Battle v2 section 10 for Phase C. Phase A does not alter current production entry or legacy permissions. Gameplay flow remains preserved.
+
 1. Start screen: Quick Play, Create Private Laboratory, and Join by Code/Link, with Monstrum Mortis branding and a restrained laboratory backdrop. The Specimen Cabinet is accessible without entering a game.
 2. Entry: Quick Play provides a short first-time interactive explanation, a cancellable matchmaking queue, and an automatic ready check. Private laboratories show a six-character room code excluding ambiguous characters, invitation link, QR join link, roster, connectivity, and instructions; the host starts with 2–8 players. No accounts or email.
 3. Rival briefing: approximately eight seconds, showing the rival's silhouette and one meaningful strength and weakness. Each round selects a different rival from the six archetypes.
@@ -61,6 +70,8 @@ Private rooms support Remote and Same-Room presentation presets. Remote enables 
 The host can play from their own device. An optional display-only view can run on a TV or laptop, uses no player seat, and exposes no private tray. Private rooms pair a display by code/link. Public rooms allow a participating player to generate a limited display link; outsiders cannot browse or spectate arbitrary public rooms. No casting integration is required; an ordinary browser or screen mirroring is sufficient.
 
 ## 3A. Public matchmaking and low-population behavior
+
+> Region-selection UI and new pool choice below are historical. Phase C sends new Quick Play entries to Americas and removes that UI, without migrating existing guests. Current Phase A leaves queues unchanged.
 
 Quick Play matches individual guests into cooperative laboratories. The initial system targets 4–6 players and allows up to eight; it never claims a queue time is guaranteed.
 
@@ -286,8 +297,10 @@ References:
 - Synthetic ten-room load plus at least 100 idle queued guests is measured for latency and free-tier resource consumption; report observed limits honestly.
 - The deployed game is tested with separate browser sessions, and a human playtest from at least two independent devices is completed or explicitly identified as the remaining verification step.
 
-## 14. Approval boundary
+## 14. Historical approval boundary and current execution scope
 
 Approval authorizes building this revised first release with the specified defaults, including remote-first public Quick Play matchmaking, private remote/same-room code and link play, optional TV/browser display, preset team signals, the 30-type catalogue, six rivals, free-hosting architecture, real multiplayer, tarot exports, and device-local cabinet. Ordinary implementation and numeric balancing choices may proceed within that scope. Material changes to mode, scoring, saving promises, paid services, or scope require discussion.
 
 Approval was granted on 5 October 2026, followed by the detailed step 4 and step 5 approvals. On 10 October 2026 the user declared step 5 complete and authorized **step 6 only**. The completed DNA and creature artwork remain the baseline. Step 6 implementation decisions are in [STEP-6-PLAN.md](STEP-6-PLAN.md); steps 7 and later require a new request. Deployment requires a separate instruction. Keep Cloudflare Free, SQLite-backed Durable Objects and workers.dev-only routing. Actual verification and remaining limitations are tracked in IMPLEMENTATION-STATUS.md.
+
+Current execution authorization: Battle v2 **Phase A only**, the development animation/audio review sample in [BATTLE-V2-SPEC.md](BATTLE-V2-SPEC.md). This brings sample sound forward, while preserving every gameplay mechanic and experimental anatomy. Full remaining animation production/production presentation and entry changes wait for sample acceptance. Future new Quick Play entry uses Americas; future UI removes Same-Room/display entry while retaining safe legacy recovery/permissions. Those changes are Phase C, not Phase A. No cards/cabinet/naming or deployment. See the [scoped plan](BATTLE-V2-PLAN.md) and [actual evidence](BATTLE-V2-REVIEW.md).

@@ -1,0 +1,19 @@
+{
+  "family": "New Rocker",
+  "designer": "Impallari Type",
+  "license": "SIL Open Font License 1.1",
+  "licenseFile": "assets/battle-v2/source/font/new-rocker/OFL.txt",
+  "officialLicense": "https://raw.githubusercontent.com/google/fonts/main/ofl/newrocker/OFL.txt",
+  "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/newrocker/NewRocker-Regular.ttf",
+  "metadata": "https://raw.githubusercontent.com/google/fonts/main/ofl/newrocker/METADATA.pb",
+  "sourceMaster": "assets/battle-v2/source/font/new-rocker/NewRocker-Regular.ttf",
+  "runtime": "assets/battle-v2/runtime/font/NewRocker-Regular.ttf",
+  "sha256": "28a499ce5b8bcf0652f8b2e25135183eaddf0c3c8c3e251259b075c71d1ef14c",
+  "bytes": 173224,
+  "modified": false,
+  "fallbacks": [
+    "Georgia",
+    "Times New Roman",
+    "serif"
+  ]
+}

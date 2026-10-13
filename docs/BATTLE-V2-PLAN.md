@@ -1,0 +1,50 @@
+# Battle v2: Phase A implementation and review plan
+
+Current authorization: 10 October 2026 plus the 13 October refinement, **Phase A only**, including asset production, local scripts and verification. [BATTLE-V2-SPEC.md](BATTLE-V2-SPEC.md) is the canonical design requirement. This plan records implementation decisions, not another approval gate. The review milestone is the functioning animation/audio sample; remaining production and rollout require sample acceptance. No deployment.
+
+## Requirements and accepted defaults
+
+Preserve the original experimental anatomy and all step 5/6 mechanics, ownership, recovery and infrastructure. Derive presentation from distinct surviving logical DNA IDs; paired targets, reinforcement and contribution counts never multiply votes. Uniform ties use injected server entropy. No votes means animated `blob`. Titan means one 1.10 enlargement. Original percentages mean opacity. Active slot competition applies to modifiers. Red/green combinations use a fixed palette. See specification sections 5–6 for the complete mapping; do not duplicate that table here.
+
+Phase A tests a server-only selector without importing it into the Worker or browser. Production remains protocol 5, schema 5, rules/combat 0.3.0 and DNA catalogue 0.2.0. The future persisted descriptor records version, attempt, votes, selected family, modifiers and existing integration interval; Phase C must atomically persist it before broadcast and retain it on replay/restart.
+
+## Implementation decisions
+
+- One operative DNA-family/modifier registry, with a catalogue coverage/parity test; one effect registry for event semantics, readiness, timing, lettering and sound. No hidden catalogue in browser code.
+- Produce transparent five-pose sheets for family 1 and Iron Widow, preserving coherent identity across idle, attack, recoil, defense and defeat. Extract real pose derivatives offline, register feet, torso, shoulder and eye zones individually. Interpolate pose transitions and local breathing/lunge/recoil against one seekable clock; actual contact and defender reaction share the event timestamp.
+- Produce one finished laboratory arena and apparatus panel. Semantic HTML supplies controls and labels. Existing experiment art is reused unchanged for accepted-injection and integration fixtures.
+- Keep masters/prompts/hashes and runtime files in `assets/battle-v2`, outside Vite's production public directory. Only a DEV-gated lazy preview imports its metadata. Verify production exclusion rather than merely claiming it.
+- The initial procedural WAVs are archived. For the 13 October refinement, balance and compress fourteen supplied sounds offline to AAC-LC; preserve all masters and analysis. No runtime generation service. A gesture-unlocked Web Audio controller provides device-local mute/volume, bounded voices, ambient ducking, no seek/hidden-tab backlog and graceful audio failure.
+- Generate legal fixtures through the existing mutation/combat producer offline. Separately label pose/modifier samplers and isolated reaction studies. No production debug endpoint. No client-side gameplay selection, entropy or outcomes.
+- Accepted injections coalesce into an 800ms reaction showing the latest accepted projection. Integration seeks 0–5,000ms: machinery to 2,000ms, reveal to 3,500ms, hold/unleash to battle. No extra authoritative interval, no release fluid pulse.
+- Cap simultaneous large lettering at one, directional effects at three and foreground audio voices at eight; deterministic event priority. Recurring damage ticks get compact status text. Reduced/paused motion suppresses decorative transforms/particles/flicker while retaining poses, health and captions.
+
+## Asset and loading budgets
+
+Initial targets, to be replaced with measured evidence: eleven pose derivatives together under 1.5 MB, arena/panel under 600 KB, compressed audio under 1 MB, SVG effects under 50 KB, the bundled font under 300 KB, no more than eleven decoded pose images plus current experimental layers, eight audio voices, three recent effects, one major word. Preload sample essentials independently of time; errors preserve text/health and offer retry. These are development targets, not physical-device or Cloudflare measurements. Original source sheets never deploy.
+
+## Verification
+
+Baseline: inspect clean tree, fetch upstream without overwriting files, read source/docs/catalogues/assets, run check/build. Preserve historical checks under their original dates.
+
+Meaningful selector tests cover all 30 IDs, logical replacement, partial/paired survival, reinforcement neutrality, no-vote fallback, deterministic unbiased tie bucket boundaries/rejection, active-only modifiers, fixed tint and no mutation of mechanical input. Animation tests cover exact contact, simultaneous attacks, defense versus recoil, misses/support/retaliation, defeat override, seeking, effect bounds and coalesced injection/release deadlines.
+
+Actual browser evidence must include desktop, phone portrait/landscape, reduced motion, keyboard, sound unlock/mute/volume/failure, pose overlay registration, contacts, seeking, simultaneous events, asset retry and production exclusion. Inspect screenshots and recorded motion/audio; automated assertions alone are insufficient. Run relevant existing DNA/combat/presentation/composition and service regressions, check/build. No Worker behavior changes are planned; if that changes, add dry run and runtime checks.
+
+## Next phases and outstanding evidence
+
+Phase A is the review milestone. After acceptance, Phase B produces the remaining five player sets (including blob's full pose set), five rivals, remaining effects/audio, damage masks/registration and two additional arenas. Phase C persists presentation/background once per frozen attempt with compatibility tests, integrates production playback/themed UI, routes new Quick Play entries to Americas and removes new Same-Room/display entry. Existing guests in other pools and legacy display permissions retain safe recovery/leave. Phase D verifies physical devices, latency, human pacing, loading/performance and budgets; deployment needs a separate instruction. Cards/cabinet/naming/signals remain outside this work.
+
+Actual results, measured budgets, ready versus planned inventory and limitations are recorded in [BATTLE-V2-REVIEW.md](BATTLE-V2-REVIEW.md) and the implementation status when obtained.
+
+## Phase A implementation decisions finalized
+
+The preview uses five actual producer timelines and six clearly labeled isolated choreography studies, including every completed effect in both directions. Twelve modifier studies distinguish legal active-slot fixtures from one incompatible art-only sampler. Eleven distinct transparent derivatives include a dedicated family-1 bite lunge and are registered per pose; a corrected complete idle master replaces the first sheet's cropped skull edge. The shoulder-growth preview reuses the approved generated Existential Organ with a small wandering pupil; surface barbs/veins/mouths are original registered SVG treatments. These are real sample assets, not readiness for unproduced families or damage variants.
+
+The 13 October refinement uses six supplied SVG effects, including separately extracted upper/lower bite rows, no dodge graphic, and bundled New Rocker / Georgia / Times New Roman / serif lettering. The user clarified placement: block/retaliation anchor to the defending source (event actor), attacking effects to the attacked body (event target). Orientation follows the acting creature: a left attack displays original art on the right target; a right attack displays mirrored art on the left target. Left block/retaliation displays original art on the left defender; right block/retaliation displays mirrored art on the right defender. Effects follow their owning creature’s decorative movement; lettering stays unmirrored. Decorative teeth close at contact, rebound open and close against the seekable clock. The semantic attack role chooses a bite variant only from a bite event; bodies do not grant mechanics. Both arena shadow disks are removed, retaining registered foot pivots. Development-only sound audition and attack-artwork selection make review reproducible.
+
+Current runtime media is **1,535,198 bytes**: 761,418 eleven-pose bytes, 347,034 arena/panel bytes, 5,128 growth bytes, 230,726 AAC bytes, 17,668 SVG derivative bytes and 173,224 font bytes. Twenty-one image URLs preload independently of time (fourteen rasters and seven used SVGs; the complete reference bite SVG is retained but two row derivatives render). The font swaps independently. Eleven poses contain 3,385,809 pixels (13,543,236 bytes as one RGBA copy, not measured total memory). Eight voices, three semantic effects, one major word and three captions remain bounded. Audio adds a 1.15 playback-gain multiplier to strike/guard/recoil/defeat only, keeping the existing limiter/ducking and device-local preferences, with source-aware linear normalization, codec-overshoot headroom and millisecond edge fades. A continuous recording clock resumes hidden tabs without replaying sound. Local targets are met; physical-device budgets remain unaccepted.
+
+The non-tint barbs, veins, mouths and growth remain Phase A review assets. The user chose **textured anatomical grafts matching the creature** for their next pass; this refinement records that direction but does not replace those overlays or claim their final acceptance. Tint rules and active slot competition remain unchanged.
+
+Final lettering refinement (13 October): one canonical list per effect holds the user’s 21 phrases across nine families. Cosmetic pseudorandom selection derives from public battle ID, event sequence, timestamp and effect kind, remaining stable on frames, seeking and reload without secret entropy or gameplay changes. Block, miss and timeout now qualify for prominent lettering; existing priority and the one-word cap still apply. The sixth isolated choreography study demonstrates timeout/result text. New Rocker replaces Metal Mania; the old font/provenance remains archived.

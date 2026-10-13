@@ -1,5 +1,8 @@
 # Step 6: automatic combat and three-round sessions
 
+> Current scope: [Battle v2 specification](BATTLE-V2-SPEC.md) and [Phase A plan](BATTLE-V2-PLAN.md) govern the development-only animation/audio sample. Earlier integration/battle appearance, region-selection, Same-Room and display-entry guidance below is historical and superseded for the future redesign. Production behavior and legacy permissions remain unchanged until Phase C. Historical verification below did not test Battle v2.
+
+
 The user declared step 5 complete and authorized step 6 only on 10 October 2026. This records the implementation decisions within the already-approved design; no additional approval is required. Step 7 cards/cabinet/naming, step 8 audio/signals and deployment remain outside this authorization. The user previously reported deployment of step 5. No production deployment or DNS changes occur in this work.
 
 ## Delivery

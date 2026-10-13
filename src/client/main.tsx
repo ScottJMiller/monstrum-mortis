@@ -6,7 +6,9 @@ import './styles.css';
 const root = document.getElementById('root');
 if (!root) throw new Error('Missing root element.');
 const application = createRoot(root);
-if (import.meta.env.DEV && location.pathname === '/art-gallery') {
+if (import.meta.env.DEV && location.pathname === '/battle-v2') {
+  void import('./battle-v2/Preview.tsx').then(({ Preview }) => application.render(<StrictMode><Preview /></StrictMode>));
+} else if (import.meta.env.DEV && location.pathname === '/art-gallery') {
   void import('./ArtGallery.tsx').then(({ ArtGallery }) => application.render(<StrictMode><ArtGallery /></StrictMode>));
 } else if(import.meta.env.DEV && location.pathname === '/combat-gallery') {
   void import('./CombatGallery.tsx').then(({CombatGallery})=>application.render(<StrictMode><CombatGallery /></StrictMode>));

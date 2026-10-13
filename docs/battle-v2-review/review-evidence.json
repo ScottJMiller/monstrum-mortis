@@ -1,0 +1,345 @@
+{
+  "scope": "Actual local browser review artifacts; no physical-device evidence",
+  "files": [
+    {
+      "file": "docs/battle-v2-review/accepted-injection.png",
+      "bytes": 387656,
+      "sha256": "4a2a9ca7033165d88ebacddc77a9772150da6a0b06a4a880622f341dc1e504fd"
+    },
+    {
+      "file": "docs/battle-v2-review/bite-contact.png",
+      "bytes": 1438748,
+      "sha256": "10da5b64f40f3f9f712360fd61909dfe678ec3d51adb8d57f6d23a3d4bc88ce5"
+    },
+    {
+      "file": "docs/battle-v2-review/bite-modifier-0.png",
+      "bytes": 683591,
+      "sha256": "c448b703abab881fec95f5dd4304a43215bbd1795599f098e9deebea56afc8cb"
+    },
+    {
+      "file": "docs/battle-v2-review/bite-modifier-10.png",
+      "bytes": 689884,
+      "sha256": "f6a39ca1d8a8af0f1fa7e2d49dea7a0aa3237b40b9940a024971d1eddd7dbe39"
+    },
+    {
+      "file": "docs/battle-v2-review/bite-modifier-8.png",
+      "bytes": 685158,
+      "sha256": "efb444ba9c2770f2d46832663bbaf2407c298423ea9fba45a0401e40a516bfcd"
+    },
+    {
+      "file": "docs/battle-v2-review/bite-open.png",
+      "bytes": 1455413,
+      "sha256": "025088170daa5b1f1e41040e1238d79b309fe88920a9fcac304caa50cad328c4"
+    },
+    {
+      "file": "docs/battle-v2-review/contact-sheet.png",
+      "bytes": 2521531,
+      "sha256": "44b7f5302c08195bb9d4665037dbe74562bedf32c6aba60977adb7e3e3c18459"
+    },
+    {
+      "file": "docs/battle-v2-review/defeat.png",
+      "bytes": 1429217,
+      "sha256": "fa69c268d958a184907f593244c6e51858492e336c07356880dc168e08406186"
+    },
+    {
+      "file": "docs/battle-v2-review/desktop-static.png",
+      "bytes": 2374162,
+      "sha256": "e33e5209ccf6d5ece92228e903a7f4a509ce4b354267a1751c749e346f693f31"
+    },
+    {
+      "file": "docs/battle-v2-review/desktop.png",
+      "bytes": 2392124,
+      "sha256": "761111a401ade37e2150b313bc0b5ef3b20ac771d1b8f4c3cf887a3902bbb752"
+    },
+    {
+      "file": "docs/battle-v2-review/effect-bite.png",
+      "bytes": 1438748,
+      "sha256": "10da5b64f40f3f9f712360fd61909dfe678ec3d51adb8d57f6d23a3d4bc88ce5"
+    },
+    {
+      "file": "docs/battle-v2-review/effect-block.png",
+      "bytes": 1443228,
+      "sha256": "9248a3941e59a52859189abc2de6ec5d464948bad5b5c41ea574837066034eb4"
+    },
+    {
+      "file": "docs/battle-v2-review/effect-corrosion.png",
+      "bytes": 1476015,
+      "sha256": "3bc4eeb66fd8a239082857c78da7e7b278a7b40299f455e929644a2d9297c5f1"
+    },
+    {
+      "file": "docs/battle-v2-review/effect-retaliation.png",
+      "bytes": 1438130,
+      "sha256": "673bf4605e8e6f8d6575f5470006ff801465687917792d88f7e8f0eb1e2ea5a0"
+    },
+    {
+      "file": "docs/battle-v2-review/effect-slash.png",
+      "bytes": 1454662,
+      "sha256": "35f1532b9ee608155b3df7aab414ab2bf79f10a997a0693d2d1deb9fa8398af4"
+    },
+    {
+      "file": "docs/battle-v2-review/effect-strike.png",
+      "bytes": 1450773,
+      "sha256": "92057c50e7f9d9c101fb0c09c2350747d4a620a15717a122e762b4a4807b6c9d"
+    },
+    {
+      "file": "docs/battle-v2-review/first-look.png",
+      "bytes": 2332492,
+      "sha256": "c7f6e355b42f8499b5b124e2682e4506d2f59e41b8b3dca2947133ddf746d4f8"
+    },
+    {
+      "file": "docs/battle-v2-review/integration-reveal.png",
+      "bytes": 520922,
+      "sha256": "c0ce4f1cbcd294da71ba32d18ab702e0fca2041b6f751af21993128a0e7863bd"
+    },
+    {
+      "file": "docs/battle-v2-review/integration-start.png",
+      "bytes": 510776,
+      "sha256": "6811f1145ce062bce3681e3d9a27f67b40e1da570d932dba48b8f91d5864db67"
+    },
+    {
+      "file": "docs/battle-v2-review/integration-unleash.png",
+      "bytes": 487906,
+      "sha256": "ecf6e15c0d124a4011fb651b042d23b004c6cda1db4f4bac991d7bc9eac7fc9d"
+    },
+    {
+      "file": "docs/battle-v2-review/lettering-bite.png",
+      "bytes": 1441921,
+      "sha256": "3bf3679c549844afc971216360516a2294856a02214cbf4b2c8dcea2bfbc7134"
+    },
+    {
+      "file": "docs/battle-v2-review/lettering-block.png",
+      "bytes": 1443228,
+      "sha256": "9248a3941e59a52859189abc2de6ec5d464948bad5b5c41ea574837066034eb4"
+    },
+    {
+      "file": "docs/battle-v2-review/lettering-contact-sheet.png",
+      "bytes": 1332412,
+      "sha256": "83cb8ac2f4ef6b0744780ca75c7882ba3546d5a5ce72ab4137ce55932846cf18"
+    },
+    {
+      "file": "docs/battle-v2-review/lettering-corrosion.png",
+      "bytes": 1458919,
+      "sha256": "9dc395b51fa64e5632847a9a24c788c44b9dc2b7e9bc80695c01a4f0b73cabe9"
+    },
+    {
+      "file": "docs/battle-v2-review/lettering-dodge.png",
+      "bytes": 1447928,
+      "sha256": "805a9740d92a5a210d38abc735606c07d6e5f89f47855b5d7433bae7ee7200eb"
+    },
+    {
+      "file": "docs/battle-v2-review/lettering-knockout.png",
+      "bytes": 1429217,
+      "sha256": "fa69c268d958a184907f593244c6e51858492e336c07356880dc168e08406186"
+    },
+    {
+      "file": "docs/battle-v2-review/lettering-retaliation.png",
+      "bytes": 1442281,
+      "sha256": "3c54b67a8ade1bb7ac4984607344e5ae7bf84ee4272b04283228eca7d28c10f6"
+    },
+    {
+      "file": "docs/battle-v2-review/lettering-slash.png",
+      "bytes": 1458356,
+      "sha256": "8553b1cbd6f8c706eb461cc1b149976adca7d9e0a145c547573a9cf04fa0e388"
+    },
+    {
+      "file": "docs/battle-v2-review/lettering-strike.png",
+      "bytes": 1447714,
+      "sha256": "42ed590b7e988f240cf3d0a33545d02514784c9e0c41846b9f14eb5614f1af5c"
+    },
+    {
+      "file": "docs/battle-v2-review/lettering-timeout.png",
+      "bytes": 1452442,
+      "sha256": "6fe9c3dbbe9c1e33c69084f5b25f85deac4e12a1a14f9e4c8a6ae04d3a538bdf"
+    },
+    {
+      "file": "docs/battle-v2-review/live-audio.webm",
+      "bytes": 147128,
+      "sha256": "5f1f328161d753badd693948c90aa39bbadb13053dc0e09ca984f142abd6e1f3"
+    },
+    {
+      "file": "docs/battle-v2-review/mirrored-growth.png",
+      "bytes": 650207,
+      "sha256": "a2e6efe01d28f1def158539ac986e705f8210bab7ef2bde01428745a1d24272c"
+    },
+    {
+      "file": "docs/battle-v2-review/miss.png",
+      "bytes": 1447928,
+      "sha256": "805a9740d92a5a210d38abc735606c07d6e5f89f47855b5d7433bae7ee7200eb"
+    },
+    {
+      "file": "docs/battle-v2-review/modifier-0-attack.png",
+      "bytes": 649142,
+      "sha256": "eeb1ecf3534cb35bf8d38fcfe40b2952fb4c5ba34771cde0660171e280bc0afa"
+    },
+    {
+      "file": "docs/battle-v2-review/modifier-0-defeat.png",
+      "bytes": 621579,
+      "sha256": "fa46b2ba78e0b00a97a89758bbdbd08808abb4acdf8cf828d58fb0643578372b"
+    },
+    {
+      "file": "docs/battle-v2-review/modifier-0-defense.png",
+      "bytes": 636149,
+      "sha256": "feb48fb37021ce5741cb852fed262fd963bf9606013d3d783923b094dbec5e6b"
+    },
+    {
+      "file": "docs/battle-v2-review/modifier-0-idle.png",
+      "bytes": 658630,
+      "sha256": "2b73f13dd28da58686d1be2276886a804f395813b3828366b7cd861fcd045fd9"
+    },
+    {
+      "file": "docs/battle-v2-review/modifier-0-recoil.png",
+      "bytes": 689549,
+      "sha256": "4ffb4912da2a6539b9fe63587b43223918d3de4e77d3e3152878d8a1792055d5"
+    },
+    {
+      "file": "docs/battle-v2-review/modifier-1-idle.png",
+      "bytes": 676715,
+      "sha256": "701addc24d718eb94cbf7a446371e1890776088fce570483dccf236e6abe7209"
+    },
+    {
+      "file": "docs/battle-v2-review/modifier-10-idle.png",
+      "bytes": 671622,
+      "sha256": "10c586459d8a42f256739bf67b2ec68724f2ddd4b58c84949f0b73c1f19b54ee"
+    },
+    {
+      "file": "docs/battle-v2-review/modifier-11-idle.png",
+      "bytes": 599053,
+      "sha256": "dd0e13ba2a784c258bcd5bc2bd946be315c464b0d827211232272a3c12fad250"
+    },
+    {
+      "file": "docs/battle-v2-review/modifier-2-idle.png",
+      "bytes": 652914,
+      "sha256": "f1d87d95beec714ba731c6c9949f80e1e5c19f0713330c6718e72c8d0e2cb196"
+    },
+    {
+      "file": "docs/battle-v2-review/modifier-3-idle.png",
+      "bytes": 652318,
+      "sha256": "feb1349db6bc314e462c964aa6f2450abee6d97819015ce0eb6bbe45669cb198"
+    },
+    {
+      "file": "docs/battle-v2-review/modifier-4-idle.png",
+      "bytes": 652676,
+      "sha256": "a2c8b582dd622333437f00036e4d44bbeb2dd02e04950794ef2472a51c1a6bb0"
+    },
+    {
+      "file": "docs/battle-v2-review/modifier-5-idle.png",
+      "bytes": 659357,
+      "sha256": "1f27bb483fa2716941e5ffcc6559e8545e6d9e5fa44177a435b607a4b484a608"
+    },
+    {
+      "file": "docs/battle-v2-review/modifier-6-idle.png",
+      "bytes": 661183,
+      "sha256": "abc72b482daa36c4bacf9037eb299ba78d7b261a69673f24c80163f9d67cd64e"
+    },
+    {
+      "file": "docs/battle-v2-review/modifier-7-idle.png",
+      "bytes": 660100,
+      "sha256": "b8b8c2d99b99f9f381c7fea475e2ef421304676d98a492e1586ac848d15b4c55"
+    },
+    {
+      "file": "docs/battle-v2-review/modifier-8-idle.png",
+      "bytes": 661077,
+      "sha256": "c78e2fc8225d885d4c4b6d1dafa84cb04119f7d1c974712de90f7bedfb79d69b"
+    },
+    {
+      "file": "docs/battle-v2-review/modifier-9-idle.png",
+      "bytes": 658153,
+      "sha256": "09e794f0353a22fa4b6a9844541f1dbdf4e55ba4ecbb17af72e5b53cebbdc1a9"
+    },
+    {
+      "file": "docs/battle-v2-review/modifier-contact-sheet.png",
+      "bytes": 1074261,
+      "sha256": "9c7026d57d36d008b6ea70e873bc6bc1ce05f90645ac186bc55404c995b18da9"
+    },
+    {
+      "file": "docs/battle-v2-review/motion-frames.png",
+      "bytes": 1595775,
+      "sha256": "5d971ff9bbffeb42f5c4d499046a5be2b975c7f6311cc230aa612391c739f971"
+    },
+    {
+      "file": "docs/battle-v2-review/phase-a-recording.mp4",
+      "bytes": 1388567,
+      "sha256": "afc269a3b9b47e0f1afab03ac686070c4f56dff0983f9ecf3396428941de8ac6"
+    },
+    {
+      "file": "docs/battle-v2-review/phone-landscape.png",
+      "bytes": 1289278,
+      "sha256": "ab24dc77b551cc7c50e02d34d25a8f116098a1d04d1d151bb8d2d37270bca136"
+    },
+    {
+      "file": "docs/battle-v2-review/phone-portrait.png",
+      "bytes": 564002,
+      "sha256": "f2a6a4e1e224870df2f494416f2ee051c4c216d5774c15e96b8269f129e39483"
+    },
+    {
+      "file": "docs/battle-v2-review/phone-reduced.png",
+      "bytes": 563912,
+      "sha256": "919c8766a0733cb54714d2b45adebb5eb60dc72fe4bc1a4081d721ac456e6cd0"
+    },
+    {
+      "file": "docs/battle-v2-review/placement-bite-rival.png",
+      "bytes": 1441964,
+      "sha256": "e117ea2fe14e2a6bc07110b87dfb9d18b82362e7edf6ee40f2e4da455fb4e370"
+    },
+    {
+      "file": "docs/battle-v2-review/placement-bite-team.png",
+      "bytes": 1436726,
+      "sha256": "9d18717c4ee18d8c721dce6e035074abe988c9ba8a23cbeb5223dba34a537878"
+    },
+    {
+      "file": "docs/battle-v2-review/placement-block-team.png",
+      "bytes": 1438748,
+      "sha256": "10da5b64f40f3f9f712360fd61909dfe678ec3d51adb8d57f6d23a3d4bc88ce5"
+    },
+    {
+      "file": "docs/battle-v2-review/placement-contact-sheet.png",
+      "bytes": 928531,
+      "sha256": "a144f05f37efab4322ec6c7f79dfd0aa5bada5117db8996b0995317b6f02df31"
+    },
+    {
+      "file": "docs/battle-v2-review/placement-corrosion-rival.png",
+      "bytes": 1458968,
+      "sha256": "c596425a684213552b416ce9bce674dd7d096c99d63b00a441a41fab42c69ba7"
+    },
+    {
+      "file": "docs/battle-v2-review/placement-corrosion-team.png",
+      "bytes": 1461247,
+      "sha256": "4411363acbcd06392288a8bff408ec16c8a43cbf7eb3f88aa175d6302296b0cf"
+    },
+    {
+      "file": "docs/battle-v2-review/placement-retaliation-rival.png",
+      "bytes": 1438248,
+      "sha256": "f432d482e4cb68bf3046538c5439c20471abae084766adf9b9246bee57677efd"
+    },
+    {
+      "file": "docs/battle-v2-review/placement-retaliation-team.png",
+      "bytes": 1442329,
+      "sha256": "16aafab9a327a637d0f7ce2f7b75446a2710d1c3cf17102773703f41e15c25ee"
+    },
+    {
+      "file": "docs/battle-v2-review/placement-slash-rival.png",
+      "bytes": 1458356,
+      "sha256": "8553b1cbd6f8c706eb461cc1b149976adca7d9e0a145c547573a9cf04fa0e388"
+    },
+    {
+      "file": "docs/battle-v2-review/placement-slash-team.png",
+      "bytes": 1457564,
+      "sha256": "810a9369b167f992f7de7bdd7ba0886d8e56a6cdebd7181eeb9f57c03e75dff1"
+    },
+    {
+      "file": "docs/battle-v2-review/placement-strike-rival.png",
+      "bytes": 1447714,
+      "sha256": "42ed590b7e988f240cf3d0a33545d02514784c9e0c41846b9f14eb5614f1af5c"
+    },
+    {
+      "file": "docs/battle-v2-review/placement-strike-team.png",
+      "bytes": 1448390,
+      "sha256": "be5d1b23a1baf0bddbb0c12502c236350f68a761589e264060f9ab2fa1b05e33"
+    },
+    {
+      "file": "docs/battle-v2-review/simultaneous.png",
+      "bytes": 1454180,
+      "sha256": "700adc0f7b62aaf4b50c5808172196cb8d4c73f11c5a2190d244de4af07a8cf9"
+    }
+  ]
+}

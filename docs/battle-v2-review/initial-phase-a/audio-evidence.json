@@ -1,0 +1,12 @@
+{
+  "scope": "Actual captured browser Web Audio output at per-device volume 0.70; no perceptual listening supported in agent environment",
+  "capture": "docs/battle-v2-review/live-audio.webm",
+  "sha256": "5023118b6687ceb420c7303dda6f398188251943502729d2ecf29c5d82650d0e",
+  "analysisTool": "FFmpeg volumedetect",
+  "levels": [
+    "mean_volume: -34.5 dB",
+    "max_volume: -9.6 dB"
+  ],
+  "priorIteration": "Initial overlapping cues reached 0 dBFS; cue headroom and limiter added before final capture",
+  "humanListening": "Outstanding Phase A review"
+}

@@ -1,0 +1,19 @@
+{
+  "family": "Metal Mania",
+  "designer": "Open Window",
+  "license": "SIL Open Font License 1.1",
+  "licenseFile": "assets/battle-v2/source/font/OFL.txt",
+  "officialLicense": "https://raw.githubusercontent.com/google/fonts/main/ofl/metalmania/OFL.txt",
+  "source": "https://fonts.gstatic.com/s/metalmania/v23/RWmMoKWb4e8kqMfBUdPFJeXC.ttf",
+  "metadata": "https://raw.githubusercontent.com/google/fonts/main/ofl/metalmania/METADATA.pb",
+  "css": "assets/battle-v2/source/font/google-fonts.css",
+  "runtime": "assets/battle-v2/runtime/font/MetalMania-Regular.ttf",
+  "sha256": "36966041423cafaba04d97e9350fd9bd7e54af0f54ff32764b95a9e51ec26019",
+  "bytes": 244248,
+  "modified": false,
+  "fallbacks": [
+    "Georgia",
+    "Times New Roman",
+    "serif"
+  ]
+}

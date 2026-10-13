@@ -1,0 +1,64 @@
+{
+  "scope": "Battle v2 Phase A development sample; not production manifest",
+  "createdAt": "2026-10-10",
+  "tool": "Built-in image_gen.imagegen via local imagegen skill",
+  "origin": "Generated project illustrations; no third-party artwork supplied",
+  "license": "Generated project output under applicable OpenAI terms; no external stock license or exclusivity claimed",
+  "sources": [
+    {
+      "id": "family-1-poses",
+      "path": "assets/battle-v2/source/family-1-poses.png",
+      "prompt": "Use case: stylized concept; asset: a high resolution transparent GAME ANIMATION POSE SHEET, exactly TWO columns and THREE rows, five full-body poses of the SAME integrated monster, sixth cell EMPTY. No borders or text. Each cell has equal dimensions, generous clear margins and no overlaps between cells. Read order: top left IDLE, top right ATTACK, middle left RECOIL, middle right DEFENSE, bottom left DEFEAT, bottom right EMPTY. All figures face RIGHT in a three-quarter side view. Character: long-legged skinny Frankenstein eldritch laboratory monster, gaunt olive pale flesh, stitched narrow chest, VERY long sinewy arms with razor talons, two long springy jointed legs, tiny close-set dark eyes, face dominated by terrifying long guillotine teeth. Sinister decayed painterly Victorian anatomy, moss olive and bruised purple flesh, aged brass sutures, upper-left light, comic grotesque coherent anatomy, no clothing or weapon. Consistent SAME identity/proportions/lighting across poses. IDLE upright quivering ready posture; ATTACK strides forward right with right talon arm stretched right for forceful slash and open jaws; RECOIL bends backward to left from contact, claws spread; DEFENSE hunches with talon forearms crossed in front of face, knees braced; DEFEAT lies collapsed on ground with limbs folded, eyes shut, same body. Entire anatomy visible inside each cell. No floor shadow, scenery, letters, words or interface. Truly transparent background, not checkerboard. Target canvas 1536 x 2048 or highest resolution available. Individual pose cells must be clean usable game sprites.",
+      "reference": null,
+      "sourceSha256": "de0303275e27e6395743c329407d0f7bc86002296c13d1f5ba966bdf13bffca9",
+      "sourceBytes": 1244975
+    },
+    {
+      "id": "iron-widow-poses",
+      "path": "assets/battle-v2/source/iron-widow-poses.png",
+      "prompt": "Use case: game animation. Edit the referenced original Iron Widow into a transparent POSE SHEET, exactly 2 columns and 3 rows, 5 distinct complete poses of the SAME Iron Widow character. Retain original armored carapace, green patinated riveted brass, stitched flesh, severe tiny maternal face and six spider legs. Rows reading: IDLE, ATTACK; RECOIL, DEFENSE; DEFEAT, EMPTY. Faces LEFT consistently toward an opponent. Each full sprite has generous transparent margin inside its own cell; absolutely no clipped legs or overlap between cells. NO dark backing, ground shadow, writing, grid or labels. True transparent background. Preserve original illustration style and upper-left soft light. IDLE legs wide firm stance. ATTACK low forward LEFT pounce, leftmost blade legs thrust left ready contact, shell tilted forward. RECOIL face thrown backward RIGHT and forelegs lifted from impact, legs stumble wide. DEFENSE carapace closed and bowed forward, armored front legs crossed covering maternal face, braced. DEFEAT collapsed on ground, six legs curled inward and pale face drooped, clearly same iron widow. Finished hand-painted Frankenstein eldritch browser-game sprites, not concepts. Wide specimens must fit entirely within equal cell boundaries. Target high resolution 1536x2048 sheet.",
+      "reference": "assets/source/rivals/iron-widow.png",
+      "sourceSha256": "b7b0b7a74f56a8c5df6ca2afa05061063d4bf091484cf7dc36784748c9401178",
+      "sourceBytes": 2042009
+    },
+    {
+      "id": "arena",
+      "path": "assets/battle-v2/source/arena.png",
+      "prompt": "Use case: finished game background, landscape 1536x1024. A decayed Victorian Frankenstein anatomical laboratory battle arena, sinister eldritch medical theatre, corroded brass machinery, immense induction coils, stained iron pipes, cracked gothic stone arches, murky olive translucent specimen vats at far edges, worn engraved circular occult floor plates. Strong painterly realism matching moss-olive stitched creatures and antique brass, dim upper-left lamp light, bruised muted purple shadows, deep black-green background. Camera straight across the arena, slightly looking down at the floor, clearly flat grounded platform at bottom 20%. Spacious central floor and dark quiet middle background for two full creature silhouettes and effects; atmospheric depth and many fine mechanical details ONLY around edges/top. No creatures, people, skull focal objects, no words, signs, labels, interface or watermark. No cheerful fantasy, modern technology or bright neon. Foreground arena floor must be visible and lit enough to ground feet. A finished coherent full scene painting, NOT sketch. Useful both at landscape desktop and phone crop.",
+      "reference": null,
+      "sourceSha256": "3c6bcb0422716e90e65ad668f9261d66ababda2fa639d8613bd949f433b21eae",
+      "sourceBytes": 3117995
+    },
+    {
+      "id": "panel",
+      "path": "assets/battle-v2/source/panel.png",
+      "prompt": "Use case: finished browser game decorative instrument panel background. Landscape wide 1536x1024. A single aged brass and corroded black iron Victorian Frankenstein control apparatus panel, straight-on orthographic front view, rectangular. Rich patina, tarnished screws, iron corner brackets, stained parchment inset plaques (ALL BLANK), ceramic insulators, greenish cracked glass gauge windows, copper tubing around outer edges. Sinister decayed gothic laboratory painterly realistic illustration, olive-black and antique warm brass, understated comic institutional horror. Large QUIET dark green-black rectangular recessed center occupying 75% of panel for readable live HTML controls. A narrow top ornamental frame with 2 small round glass gauges and brass rivets; broad left/right margins with pipes. No text, lettering, digits, knobs inside central area, hands, person, creatures, logos or interface mockup. Dark high contrast background, complete rectangular outer panel visible, no transparent cutouts. Crisp beautifully hand-painted texture and worn metal detail. Decoration must not interfere with live input controls overlaid later.",
+      "reference": null,
+      "sourceSha256": "1e7c2d296ac20fa46b52154086824731a76e2b0c88b44f8f2a7b11a9b1f15599",
+      "sourceBytes": 2963321
+    },
+    {
+      "id": "family-1-idle",
+      "source": "assets/battle-v2/source/family-1-idle.png",
+      "tool": "Built-in image_gen.imagegen",
+      "prompt": "Use case: finished transparent browser game sprite. Use the referenced sheet solely as CHARACTER IDENTITY reference. Produce just ONE complete idle pose of the SAME long-legged skinny monster shown at top left. SAME dark moss-olive patched flesh, brass sutures, elongated arms and five razor talons per hand, very long spring legs, huge guillotine-tooth jaw, narrow chest and tiny eyes. Three-quarter side view facing RIGHT, upper-left soft lighting, painterly decayed Frankenstein eldritch realism. Upright idle ready posture. Entire figure from uppermost skull to lowest toe with generous 10% clear transparent margin on ALL sides. Do NOT clip head, fingers or feet. No new anatomy or changed silhouette, no sheet, other poses, ground shadows, text or background. Preserve gaunt sinister comic identity. Actual transparent background. High resolution portrait.",
+      "reference": "assets/battle-v2/source/family-1-poses.png",
+      "reason": "The first sheet touched the top of the idle skull. Produced a complete uncropped high-resolution idle reference and retained the original sheet unchanged.",
+      "license": "Generated project output under applicable OpenAI terms",
+      "sourceSha256": "11da114e1f66c24e7f4dbcc82d8bdef175b75a88a468a70e9afe2201a80a5d4b",
+      "sourceBytes": 2063308
+    },
+    {
+      "id": "family-1-bite",
+      "path": "assets/battle-v2/source/family-1-bite.png",
+      "prompt": "Use case: identity-preserve. Asset type: one finished transparent full-body game sprite, Battle v2 family 1 dedicated BITE ATTACK pose. Input image is the character identity reference, not an edit target. Recreate exactly the same gaunt long-legged monster: stitched olive pale decayed flesh, bruised purple sinews, aged brass sutures and joint fittings, narrow ribbed torso, tiny dark eye, enormous guillotine teeth, very long arms and razor claw hands. Three-quarter side view facing RIGHT. NEW POSE: dynamic forward lunge to BITE an opponent on the right; bent knees, rear foot braced, leading foot forward on same ground plane, neck and open toothed jaws thrust FAR FORWARD, torso pitched toward opponent; talon hands lowered/back for balance, not a slash. Mouth wide open with clearly readable upper and lower tooth rows ready to close at contact. Full creature alone, same lighting from upper left, same sinister painterly Frankenstein eldritch texture and comic horror proportions. All anatomy including claws and feet completely within generous 10% margins. Wide landscape composition accommodates the forward neck/jaw; no extra anatomy, other creature, effect shapes, lettering, scenery, floor, cast shadow or watermark. Truly transparent surroundings. Finished detailed matching game art, not sketch or pose sheet.",
+      "reference": "assets/battle-v2/source/family-1-idle.png",
+      "tool": "Built-in image_gen.imagegen",
+      "sourceSha256": "4c4fd289a43780b392a682214c8c9e42900eb57d5fa46ad84d87fe56857dcee0",
+      "sourceBytes": 2308773,
+      "createdAt": "2026-10-13",
+      "reason": "User-requested forward bite lunge, distinct from slash attack"
+    }
+  ],
+  "readiness": "Pose files are real; final registration and browser review evidence tracked separately in derivatives.json and docs/BATTLE-V2-REVIEW.md"
+}

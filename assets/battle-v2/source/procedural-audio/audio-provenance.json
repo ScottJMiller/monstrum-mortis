@@ -1,0 +1,218 @@
+{
+  "origin": "Original project-authored procedural PCM WAV; no external samples",
+  "tool": "Python standard library, scripts/prepare-battle-v2-audio.py",
+  "license": "Project-authored output; no third-party license asserted",
+  "algorithm": "Swept oscillator, seeded low-pass noise, inharmonic decaying partials and bubble modulation. Exact formulas retained in source script.",
+  "records": [
+    {
+      "id": "strike",
+      "path": "assets/battle-v2/runtime/audio/strike.wav",
+      "bytes": 13274,
+      "sha256": "8e52cf89eaed7842d1449b7e37265a5d7b9ed244ff5992e8225b4463671f383b",
+      "durationSeconds": 0.3,
+      "sampleRate": 22050,
+      "recipe": {
+        "startHz": 82,
+        "endHz": 28,
+        "noise": 0.7,
+        "metal": 0.34,
+        "seed": 1296891904
+      }
+    },
+    {
+      "id": "slash",
+      "path": "assets/battle-v2/runtime/audio/slash.wav",
+      "bytes": 15038,
+      "sha256": "96bce29e547de19fc7fc2d86c9d02891ec403bb0b908ca9c7c4782d99ccc194d",
+      "durationSeconds": 0.34,
+      "sampleRate": 22050,
+      "recipe": {
+        "startHz": 740,
+        "endHz": 90,
+        "noise": 0.9,
+        "metal": 0.08,
+        "seed": 1296891905
+      }
+    },
+    {
+      "id": "bite",
+      "path": "assets/battle-v2/runtime/audio/bite.wav",
+      "bytes": 14156,
+      "sha256": "72f9233b0fbccc129cb586d54419dc65896ea4e6c340a8f303ba0975f65fded1",
+      "durationSeconds": 0.32,
+      "sampleRate": 22050,
+      "recipe": {
+        "startHz": 145,
+        "endHz": 35,
+        "noise": 0.65,
+        "metal": 0.28,
+        "seed": 1296891906
+      }
+    },
+    {
+      "id": "corrosion",
+      "path": "assets/battle-v2/runtime/audio/corrosion.wav",
+      "bytes": 31796,
+      "sha256": "62cd2fbdc106faa3becf7e864d03900546d5860be743d74ff34c25bff6c7c443",
+      "durationSeconds": 0.72,
+      "sampleRate": 22050,
+      "recipe": {
+        "startHz": 390,
+        "endHz": 105,
+        "noise": 0.7,
+        "metal": 0.12,
+        "seed": 1296891907
+      }
+    },
+    {
+      "id": "retaliation",
+      "path": "assets/battle-v2/runtime/audio/retaliation.wav",
+      "bytes": 17684,
+      "sha256": "e331ab0728af638b945dcf9aee9f5edee24c849fc6f5295239ce319de0fb0a0b",
+      "durationSeconds": 0.4,
+      "sampleRate": 22050,
+      "recipe": {
+        "startHz": 990,
+        "endHz": 175,
+        "noise": 0.45,
+        "metal": 0.4,
+        "seed": 1296891908
+      }
+    },
+    {
+      "id": "miss",
+      "path": "assets/battle-v2/runtime/audio/miss.wav",
+      "bytes": 10628,
+      "sha256": "ae770df21c57da0f096e6db60850f7253bb53b81d049d9d147e8f57d33d3ad92",
+      "durationSeconds": 0.24,
+      "sampleRate": 22050,
+      "recipe": {
+        "startHz": 540,
+        "endHz": 100,
+        "noise": 0.6,
+        "metal": 0.05,
+        "seed": 1296891909
+      }
+    },
+    {
+      "id": "guard",
+      "path": "assets/battle-v2/runtime/audio/guard.wav",
+      "bytes": 11952,
+      "sha256": "9ee5582dad7bca96ed581d6d9850a2e878640c3cc2ed4bf9a5d7092d36e8de02",
+      "durationSeconds": 0.27,
+      "sampleRate": 22050,
+      "recipe": {
+        "startHz": 460,
+        "endHz": 160,
+        "noise": 0.25,
+        "metal": 0.55,
+        "seed": 1296891910
+      }
+    },
+    {
+      "id": "recoil",
+      "path": "assets/battle-v2/runtime/audio/recoil.wav",
+      "bytes": 11068,
+      "sha256": "813d1ff019278e421e0c16c9048b08ade3a88e22ca0fd61ee16bb3d294c1b90b",
+      "durationSeconds": 0.25,
+      "sampleRate": 22050,
+      "recipe": {
+        "startHz": 150,
+        "endHz": 65,
+        "noise": 0.4,
+        "metal": 0.23,
+        "seed": 1296891911
+      }
+    },
+    {
+      "id": "defeat",
+      "path": "assets/battle-v2/runtime/audio/defeat.wav",
+      "bytes": 37528,
+      "sha256": "c09713c67edcdb278eec49e1edd6c8c317da37e9440df91f74541ff934744f02",
+      "durationSeconds": 0.85,
+      "sampleRate": 22050,
+      "recipe": {
+        "startHz": 175,
+        "endHz": 32,
+        "noise": 0.48,
+        "metal": 0.25,
+        "seed": 1296891912
+      }
+    },
+    {
+      "id": "result",
+      "path": "assets/battle-v2/runtime/audio/result.wav",
+      "bytes": 26504,
+      "sha256": "10345cf8bba83d13750ef2e5769a8dedd9f9dd3338da5ec876f93b41234f485a",
+      "durationSeconds": 0.6,
+      "sampleRate": 22050,
+      "recipe": {
+        "startHz": 330,
+        "endHz": 110,
+        "noise": 0.16,
+        "metal": 0.5,
+        "seed": 1296891913
+      }
+    },
+    {
+      "id": "injection",
+      "path": "assets/battle-v2/runtime/audio/injection.wav",
+      "bytes": 35324,
+      "sha256": "e31337bdd2ef179dd19f2c529394fd79fb28356a11bc8bf7c971dfdfb8e0d204",
+      "durationSeconds": 0.8,
+      "sampleRate": 22050,
+      "recipe": {
+        "startHz": 230,
+        "endHz": 72,
+        "noise": 0.55,
+        "metal": 0.24,
+        "seed": 1296891914
+      }
+    },
+    {
+      "id": "integration",
+      "path": "assets/battle-v2/runtime/audio/integration.wav",
+      "bytes": 61784,
+      "sha256": "62f78f174314144aefbf660ede224f409acdf741f946c00970329733848fd042",
+      "durationSeconds": 1.4,
+      "sampleRate": 22050,
+      "recipe": {
+        "startHz": 72,
+        "endHz": 180,
+        "noise": 0.3,
+        "metal": 0.45,
+        "seed": 1296891915
+      }
+    },
+    {
+      "id": "unleash",
+      "path": "assets/battle-v2/runtime/audio/unleash.wav",
+      "bytes": 22976,
+      "sha256": "d551df8f5da7557210cf161f883a9b674e1e34ac90fc01740c689f0ace911638",
+      "durationSeconds": 0.52,
+      "sampleRate": 22050,
+      "recipe": {
+        "startHz": 115,
+        "endHz": 35,
+        "noise": 0.45,
+        "metal": 0.48,
+        "seed": 1296891916
+      }
+    },
+    {
+      "id": "ambient",
+      "path": "assets/battle-v2/runtime/audio/ambient.wav",
+      "bytes": 176444,
+      "sha256": "62ff0b5c5562c260615c986308b127b72c91b91b8a484e574d9a0d858a4efee1",
+      "durationSeconds": 4.0,
+      "sampleRate": 22050,
+      "recipe": {
+        "startHz": 50,
+        "endHz": 50,
+        "noise": 0.035,
+        "metal": 0.035,
+        "seed": 1296891917
+      }
+    }
+  ]
+}

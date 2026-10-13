@@ -1,0 +1,76 @@
+{
+  "strike": {
+    "url": "/assets/battle-v2/runtime/effects/strike.svg",
+    "width": 145.893,
+    "height": 150.0,
+    "viewBox": [
+      0.0,
+      0.0,
+      41.430489,
+      42.596802
+    ],
+    "color": "#e9ddaf"
+  },
+  "slash": {
+    "url": "/assets/battle-v2/runtime/effects/slash.svg",
+    "width": 230.0,
+    "height": 199.703,
+    "viewBox": [
+      0.0,
+      0.0,
+      66.573097,
+      57.803734
+    ],
+    "color": "#e9ddaf"
+  },
+  "bite": {
+    "url": "/assets/battle-v2/runtime/effects/bite.svg",
+    "width": 230.0,
+    "height": 161.448,
+    "viewBox": [
+      0.0,
+      0.0,
+      42.243752,
+      29.652906
+    ],
+    "color": "#e9ddaf",
+    "upper": "/assets/battle-v2/runtime/effects/bite-upper.svg",
+    "lower": "/assets/battle-v2/runtime/effects/bite-lower.svg"
+  },
+  "corrosion": {
+    "url": "/assets/battle-v2/runtime/effects/corrosion.svg",
+    "width": 270.0,
+    "height": 92.9,
+    "viewBox": [
+      0.0,
+      0.0,
+      77.420654,
+      26.638498
+    ],
+    "color": "#e9ddaf"
+  },
+  "retaliation": {
+    "url": "/assets/battle-v2/runtime/effects/retaliation.svg",
+    "width": 160.0,
+    "height": 243.74,
+    "viewBox": [
+      0.0,
+      0.0,
+      57.262138,
+      87.231628
+    ],
+    "color": "#e9ddaf"
+  },
+  "block": {
+    "url": "/assets/battle-v2/runtime/effects/block.svg",
+    "width": 86.412,
+    "height": 245.0,
+    "viewBox": [
+      0.0,
+      0.0,
+      30.766718,
+      87.2314
+    ],
+    "color": "#e9ddaf"
+  }
+}

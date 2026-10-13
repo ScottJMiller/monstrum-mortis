@@ -1,6 +1,15 @@
 # Continue in VS Code with Codex
 
+> Current scope: [Battle v2 specification](BATTLE-V2-SPEC.md) and [Phase A plan](BATTLE-V2-PLAN.md) govern the development-only animation/audio sample. Earlier integration/battle appearance, region-selection, Same-Room and display-entry guidance below is historical and superseded for the future redesign. Production behavior and legacy permissions remain unchanged until Phase C. Historical verification below did not test Battle v2.
+
+
 Recommended: VS Code with the official OpenAI Codex extension, working on a local clone of `git@github.com:ScottJMiller/monstrum-mortis.git`. VS Code is the editor; Codex is the agent that can inspect and change the opened project. There is no need to migrate the game to an OpenAI runtime, add an OpenAI API, or create an API key for the game.
+
+## Current Battle v2 handoff
+
+The user authorizes **Phase A only**: a reviewable development animation/audio sample, without another planning approval or deployment. Read [BATTLE-V2-SPEC.md](BATTLE-V2-SPEC.md), [BATTLE-V2-PLAN.md](BATTLE-V2-PLAN.md) and [BATTLE-V2-REVIEW.md](BATTLE-V2-REVIEW.md). Experimental anatomy and step 5/6 mechanics remain unchanged. The pure server-only selector is tested but has no production caller. Protocol/schema/rules remain 5/5/0.3.0. The DEV-only `/battle-v2` preview needs Vite only; production UI/routes/media remain the baseline.
+
+Phase A is the visual/audio review milestone. Stop before remaining Phase B creature production or Phase C rollout until the user accepts the sample. Those phases cover remaining animation/effect/damage sets and atomic persisted form/background selection, compatibility, themed UI, Americas-only new entry and removal of new Same-Room/display entry. Preserve existing regional guests and legacy display permissions. Cards/cabinet/naming/signals and deployment remain outside this authorization. Historical records below describe prior work, not v2 checks.
 
 ## Historical step 1 import instructions
 
@@ -44,7 +53,7 @@ git push -u origin implementation/step-1
 
 No deployment is triggered by this push; CI/CD is not configured yet.
 
-## Current handoff (10 October 2026)
+## Historical step 6 handoff (10 October 2026)
 
 The user declared step 5 complete and authorized **step 6 only**. The user previously reported deployed step 5 and approved its artwork. Cloudflare login is already local; do not request credentials or repeat login unnecessarily. This work does not deploy. Preserve SQLite-backed infrastructure identities, Workers Free compatibility, workers.dev routing and the self-hosted scottjmiller.com/www setup.
 
@@ -63,3 +72,7 @@ Use `npm run dev:worker` plus `npm run dev` for real local play. `/art-gallery` 
 Six rival masters/prompts/hashes are in `assets/rival-provenance.json` and `assets/source/rivals`; rebuild derivatives with `python3 scripts/prepare-rivals.py`. Production receives only same-origin optimized WebP. Existing blob, face, all 30 mutations, half-opacity lungs, definitive high-resolution calibration and single-triangle chamber are preserved. The combat SVG uses the same pivots, mirroring, layer/color projection, with ground framing rather than another Pixi engine. Renderer retry, resize, motion and playback do not own socket/session lifecycle.
 
 Earlier step 1 import notes above are historical; this local clone is authoritative. The approved design and project docs provide continuity without chat history.
+
+Phase A refinement (13 October): supplied sounds/SVGs, Metal Mania, removed shadow disks and dedicated bite lunge are integrated and locally checked. Current evidence/readiness and outstanding non-tint textured-graft discussion are in [BATTLE-V2-REVIEW.md](BATTLE-V2-REVIEW.md). Do not treat historical procedural-audio or initial review counts as the current asset inventory; no Phase B/C acceptance or deployment is inferred.
+
+Latest lettering refinement supersedes the earlier Metal Mania selection: New Rocker and all 21 requested phrases are integrated. Choices are cosmetic and stable per public event identity; block/miss/timeout lettering is enabled with the existing cap. Eleven labeled timelines and current 203-test/ten-browser-scenario evidence are documented in the review. Production/Phase B/C/deployment remain gated.

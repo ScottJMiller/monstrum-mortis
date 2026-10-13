@@ -1,0 +1,425 @@
+{
+  "family-1": {
+    "idle": {
+      "url": "/assets/battle-v2/runtime/family-1-idle.webp",
+      "width": 269,
+      "height": 589,
+      "pivot": [
+        143.678,
+        579.09
+      ],
+      "torso": [
+        [
+          87.162,
+          101.092
+        ],
+        [
+          158.802,
+          94.326
+        ],
+        [
+          135.718,
+          219.696
+        ],
+        [
+          64.078,
+          211.736
+        ]
+      ],
+      "shoulder": [
+        97.908,
+        100.296
+      ],
+      "eye": [
+        203.776,
+        34.626
+      ],
+      "eyeRadius": 9.552,
+      "facing": "right"
+    },
+    "attack": {
+      "url": "/assets/battle-v2/runtime/family-1-attack.webp",
+      "width": 703,
+      "height": 572,
+      "pivot": [
+        336.4,
+        553.32
+      ],
+      "torso": [
+        [
+          226.2,
+          103.24
+        ],
+        [
+          312.04,
+          142.68
+        ],
+        [
+          319.0,
+          261.0
+        ],
+        [
+          250.56,
+          252.88
+        ]
+      ],
+      "shoulder": [
+        258.68,
+        113.68
+      ],
+      "eye": [
+        436.16,
+        64.96
+      ],
+      "eyeRadius": 27.839999999999996,
+      "facing": "right"
+    },
+    "bite": {
+      "url": "/assets/battle-v2/runtime/family-1-bite.webp",
+      "width": 713,
+      "height": 472,
+      "pivot": [
+        437.1,
+        455.9
+      ],
+      "torso": [
+        [
+          355.32,
+          102.46
+        ],
+        [
+          497.26,
+          120.79
+        ],
+        [
+          474.7,
+          210.09
+        ],
+        [
+          347.33,
+          188.94
+        ]
+      ],
+      "shoulder": [
+        363.31,
+        108.1
+      ],
+      "eye": [
+        653.3,
+        36.19
+      ],
+      "eyeRadius": 11.28,
+      "facing": "right"
+    },
+    "recoil": {
+      "url": "/assets/battle-v2/runtime/family-1-recoil.webp",
+      "width": 615,
+      "height": 601,
+      "pivot": [
+        388.6,
+        575.36
+      ],
+      "torso": [
+        [
+          91.64,
+          61.48
+        ],
+        [
+          206.48,
+          145.0
+        ],
+        [
+          263.32,
+          247.08
+        ],
+        [
+          175.16,
+          225.04
+        ]
+      ],
+      "shoulder": [
+        96.28,
+        88.16
+      ],
+      "eye": [
+        96.28,
+        46.4
+      ],
+      "eyeRadius": 27.839999999999996,
+      "facing": "right"
+    },
+    "defense": {
+      "url": "/assets/battle-v2/runtime/family-1-defense.webp",
+      "width": 522,
+      "height": 581,
+      "pivot": [
+        278.4,
+        553.32
+      ],
+      "torso": [
+        [
+          157.76,
+          156.6
+        ],
+        [
+          269.12,
+          151.96
+        ],
+        [
+          216.92,
+          299.28
+        ],
+        [
+          119.48,
+          241.28
+        ]
+      ],
+      "shoulder": [
+        168.2,
+        167.04
+      ],
+      "eye": [
+        336.4,
+        131.08
+      ],
+      "eyeRadius": 27.839999999999996,
+      "facing": "right"
+    },
+    "defeat": {
+      "url": "/assets/battle-v2/runtime/family-1-defeat.webp",
+      "width": 754,
+      "height": 341,
+      "pivot": [
+        368.5,
+        305.8
+      ],
+      "torso": [
+        [
+          202.4,
+          91.3
+        ],
+        [
+          305.8,
+          116.6
+        ],
+        [
+          286.0,
+          191.4
+        ],
+        [
+          138.6,
+          189.2
+        ]
+      ],
+      "shoulder": [
+        220.0,
+        100.1
+      ],
+      "eye": [
+        159.5,
+        169.4
+      ],
+      "eyeRadius": 26.400000000000002,
+      "facing": "right"
+    }
+  },
+  "iron-widow": {
+    "idle": {
+      "url": "/assets/battle-v2/runtime/iron-widow-idle.webp",
+      "width": 603,
+      "height": 503,
+      "pivot": [
+        302.4,
+        487.2
+      ],
+      "torso": [
+        [
+          143.36,
+          212.8
+        ],
+        [
+          374.08,
+          196.0
+        ],
+        [
+          436.8,
+          321.44
+        ],
+        [
+          181.44,
+          358.4
+        ]
+      ],
+      "shoulder": [
+        235.2,
+        207.2
+      ],
+      "eye": [
+        201.6,
+        182.56
+      ],
+      "eyeRadius": 26.880000000000003,
+      "facing": "left"
+    },
+    "attack": {
+      "url": "/assets/battle-v2/runtime/iron-widow-attack.webp",
+      "width": 619,
+      "height": 484,
+      "pivot": [
+        319.2,
+        467.04
+      ],
+      "torso": [
+        [
+          160.16,
+          241.92
+        ],
+        [
+          396.48,
+          179.2
+        ],
+        [
+          446.88,
+          284.48
+        ],
+        [
+          196.0,
+          349.44
+        ]
+      ],
+      "shoulder": [
+        267.68,
+        222.88
+      ],
+      "eye": [
+        178.08,
+        250.88
+      ],
+      "eyeRadius": 26.880000000000003,
+      "facing": "left"
+    },
+    "recoil": {
+      "url": "/assets/battle-v2/runtime/iron-widow-recoil.webp",
+      "width": 624,
+      "height": 594,
+      "pivot": [
+        313.6,
+        575.68
+      ],
+      "torso": [
+        [
+          240.8,
+          237.44
+        ],
+        [
+          393.12,
+          248.64
+        ],
+        [
+          496.16,
+          368.48
+        ],
+        [
+          218.4,
+          380.8
+        ]
+      ],
+      "shoulder": [
+        313.6,
+        218.4
+      ],
+      "eye": [
+        402.08,
+        115.36
+      ],
+      "eyeRadius": 26.880000000000003,
+      "facing": "left"
+    },
+    "defense": {
+      "url": "/assets/battle-v2/runtime/iron-widow-defense.webp",
+      "width": 580,
+      "height": 486,
+      "pivot": [
+        296.8,
+        463.68
+      ],
+      "torso": [
+        [
+          171.36,
+          192.64
+        ],
+        [
+          396.48,
+          169.12
+        ],
+        [
+          442.4,
+          294.56
+        ],
+        [
+          173.6,
+          341.6
+        ]
+      ],
+      "shoulder": [
+        234.08,
+        199.36
+      ],
+      "eye": [
+        227.36,
+        218.4
+      ],
+      "eyeRadius": 26.880000000000003,
+      "facing": "left"
+    },
+    "defeat": {
+      "url": "/assets/battle-v2/runtime/iron-widow-defeat.webp",
+      "width": 702,
+      "height": 432,
+      "pivot": [
+        341.6,
+        408.8
+      ],
+      "torso": [
+        [
+          173.6,
+          201.6
+        ],
+        [
+          408.8,
+          143.36
+        ],
+        [
+          514.08,
+          316.96
+        ],
+        [
+          152.32,
+          349.44
+        ]
+      ],
+      "shoulder": [
+        226.24,
+        212.8
+      ],
+      "eye": [
+        165.76,
+        268.8
+      ],
+      "eyeRadius": 26.880000000000003,
+      "facing": "left"
+    }
+  },
+  "arena": "/assets/battle-v2/runtime/arena.webp",
+  "panel": "/assets/battle-v2/runtime/panel.webp",
+  "shoulderEye": "/assets/battle-v2/runtime/shoulder-eye.webp",
+  "readiness": {
+    "family-1": "five-pose-sample-with-dedicated-bite-variant",
+    "iron-widow": "five-pose-sample",
+    "blob": "existing-art-idle-animation-only",
+    "remainingFamilies": "planned",
+    "remainingRivals": "planned",
+    "remainingArenas": "planned",
+    "damageVariants": "planned-phase-B"
+  }
+}

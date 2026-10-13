@@ -1,6 +1,9 @@
 # Service, DNA and combat architecture (steps 1–6)
 
-One repository, one Cloudflare Worker, one static client origin. The user declared step 5 complete and authorized step 6 only on 10 October 2026. Step 5 was user-reported deployed at the existing workers.dev origin. The local step 6 tree adds real automatic combat and three-round results; publication is not authorized. Cards/cabinet, audio/signals and final acceptance remain later stages. No custom-domain routes or paid dependencies are added.
+> Current scope: [Battle v2 specification](BATTLE-V2-SPEC.md) and [Phase A plan](BATTLE-V2-PLAN.md) govern the development-only animation/audio sample. Earlier integration/battle appearance, region-selection, Same-Room and display-entry guidance below is historical and superseded for the future redesign. Production behavior and legacy permissions remain unchanged until Phase C. Historical verification below did not test Battle v2.
+
+
+One repository, one Cloudflare Worker, one static client origin. The production source baseline below contains the completed step 5/6 mechanics. Current work is the separately authorized Battle v2 Phase A development animation/audio sample, described at the end of this document. It leaves production behavior unchanged. Publication, cards/cabinet/naming, unrelated signals and full redesign rollout remain outside scope. No custom-domain routes or paid dependencies are added.
 
 ## Stable infrastructure
 
@@ -117,3 +120,9 @@ The chamber retains one renderer across mutations, updates sprites by stable par
 `BattleStage.tsx` uses the shared anatomical projection/color matrices in a ground-aligned SVG stage, real optimized rival sprites, health meters, condition badges, bounded recent captions and a keyboard-scrollable chronological record. `battle-playback.ts` seeks directly to a server timestamp, including after reload or skipped frames. No client selects mutations or computes game outcomes. The chamber remains mounted and paused during battle; resource ownership and sockets retain their existing lifecycle. Static/reduced motion uses the same authoritative anatomy, health and text. Art failures expose a retry without blocking controls.
 
 `/combat-gallery` is Vite-only and uses six deterministic public timelines produced by `scripts/prepare-combat-fixtures.mjs`; it is eliminated from production bundles and has no Worker route. Rival source/provenance remains outside public assets; only same-origin WebP sprites and a minimal render index ship. No runtime generation or new hosting requirement is introduced.
+
+## Battle v2 Phase A boundary
+
+[The canonical specification](BATTLE-V2-SPEC.md) supersedes future battle appearance and entry guidance. The production architecture above remains the current baseline. `src/shared/integrated-form.ts` contains the sole presentation mapping; `src/server/integrated-form.ts` is an isolated pure selector with server entropy and no Worker caller. It reads surviving logical ownership, never art placement or history, and returns presentation only. The client imports neither selector nor hidden catalogue. Development fixtures are generated offline with the current mutation/combat producer. One effect/sound registry in `src/client/battle-v2/effects.ts` maps existing public events/captions without wire changes.
+
+Phase A adds no storage migration, public endpoint, live admission behavior, health change or infrastructure configuration. DEV-gated lazy code/media is excluded from the production build. Phase C must settle/freeze first, atomically persist the selected version/attempt/family/votes/modifiers/integration interval and background before broadcast, retain them on duplicates/reload/reactivation, and define legacy compatibility before any schema/protocol bump. Existing frozen mechanics remain separate and immutable; no form choice grants abilities or changes the producer.

@@ -1,0 +1,154 @@
+{
+  "origin": "User-supplied Inkscape SVG replacements received 13 October 2026",
+  "license": "Authorship/licensing unspecified by supplier; development review only",
+  "tool": "Python ElementTree metadata removal; original paths, transforms, parchment #e9ddaf, opacity and aspect ratios preserved",
+  "direction": "Latest user clarification: orientation follows the acting creature: original for left attacks/defenses, mirrored for right attacks/defenses. Offensive placement follows the attacked target; block/retaliation placement follows the defender actor. Never mirror lettering.",
+  "records": [
+    {
+      "id": "strike",
+      "source": "assets/battle-v2/source/user-review/strike.svg",
+      "sourceSha256": "c6567f7b417ea2e323b9bcc9bc13b15d1bd89db2d168295051bbbab7a3289ca4",
+      "sourceBytes": 1055,
+      "runtime": "assets/battle-v2/runtime/effects/strike.svg",
+      "sha256": "622f3db64e63c3a33c3dfd8f783e3ff060c32f89fade79b62fbdbe90f9b92d53",
+      "bytes": 699,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/effects/strike.svg",
+        "width": 145.893,
+        "height": 150.0,
+        "viewBox": [
+          0.0,
+          0.0,
+          41.430489,
+          42.596802
+        ],
+        "color": "#e9ddaf"
+      }
+    },
+    {
+      "id": "slash",
+      "source": "assets/battle-v2/source/user-review/slash.svg",
+      "sourceSha256": "4910cb68baa39db6165b294f00cec15eb783dbeda2100a8f7c01a2ebfa048a0a",
+      "sourceBytes": 2208,
+      "runtime": "assets/battle-v2/runtime/effects/slash.svg",
+      "sha256": "2b6f6b235c003304fa1f54b8ced87885c638cb5c5a0affc6e98901279c7ae6ff",
+      "bytes": 1739,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/effects/slash.svg",
+        "width": 230.0,
+        "height": 199.703,
+        "viewBox": [
+          0.0,
+          0.0,
+          66.573097,
+          57.803734
+        ],
+        "color": "#e9ddaf"
+      }
+    },
+    {
+      "id": "bite-upper",
+      "source": "assets/battle-v2/source/user-review/bite.svg",
+      "sourceSha256": "d269e993cfa11502dcad1cfd4c66c6f2cbefa39fa2a2ad9fd5eba576c3ef7e26",
+      "runtime": "assets/battle-v2/runtime/effects/bite-upper.svg",
+      "sha256": "f55f349f1f315035fbae96c23961c42a650433acb5aba1475baa33b17d7f10c8",
+      "bytes": 641,
+      "derivation": "Exact supplied tooth row, same complete viewBox; animate row translation without distorting art"
+    },
+    {
+      "id": "bite-lower",
+      "source": "assets/battle-v2/source/user-review/bite.svg",
+      "sourceSha256": "d269e993cfa11502dcad1cfd4c66c6f2cbefa39fa2a2ad9fd5eba576c3ef7e26",
+      "runtime": "assets/battle-v2/runtime/effects/bite-lower.svg",
+      "sha256": "f98d571e016bc695f63c23a017143713e1f0bda9bd0d57db5dc1c07d5f441964",
+      "bytes": 647,
+      "derivation": "Exact supplied tooth row, same complete viewBox; animate row translation without distorting art"
+    },
+    {
+      "id": "bite",
+      "source": "assets/battle-v2/source/user-review/bite.svg",
+      "sourceSha256": "d269e993cfa11502dcad1cfd4c66c6f2cbefa39fa2a2ad9fd5eba576c3ef7e26",
+      "sourceBytes": 1570,
+      "runtime": "assets/battle-v2/runtime/effects/bite.svg",
+      "sha256": "d6653739200a5fb3f28732255ac7854b7990c9df244ee78ddd2573a31baaf70a",
+      "bytes": 1159,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/effects/bite.svg",
+        "width": 230.0,
+        "height": 161.448,
+        "viewBox": [
+          0.0,
+          0.0,
+          42.243752,
+          29.652906
+        ],
+        "color": "#e9ddaf",
+        "upper": "/assets/battle-v2/runtime/effects/bite-upper.svg",
+        "lower": "/assets/battle-v2/runtime/effects/bite-lower.svg"
+      }
+    },
+    {
+      "id": "corrosion",
+      "source": "assets/battle-v2/source/user-review/corrosion.svg",
+      "sourceSha256": "e3ad88183012240f154f9e86efa1513f2cd49ecce6c855b5d56e1b2f29946dce",
+      "sourceBytes": 15803,
+      "runtime": "assets/battle-v2/runtime/effects/corrosion.svg",
+      "sha256": "c973c573f3d4ecef6d6c2059b5fd26ef8fd849fe5148fac37fa1a7b6c48c7001",
+      "bytes": 10821,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/effects/corrosion.svg",
+        "width": 270.0,
+        "height": 92.9,
+        "viewBox": [
+          0.0,
+          0.0,
+          77.420654,
+          26.638498
+        ],
+        "color": "#e9ddaf"
+      }
+    },
+    {
+      "id": "retaliation",
+      "source": "assets/battle-v2/source/user-review/retaliation.svg",
+      "sourceSha256": "7b85e23547de86614a9d27d6356f94a5c57b15d0a8d90c6eff0550185319e23e",
+      "sourceBytes": 1185,
+      "runtime": "assets/battle-v2/runtime/effects/retaliation.svg",
+      "sha256": "a9c66146ead81d7a3d83aee94343e2dfc6622fa9fe031e0f3f4b2839d9ffa095",
+      "bytes": 835,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/effects/retaliation.svg",
+        "width": 160.0,
+        "height": 243.74,
+        "viewBox": [
+          0.0,
+          0.0,
+          57.262138,
+          87.231628
+        ],
+        "color": "#e9ddaf"
+      }
+    },
+    {
+      "id": "block",
+      "source": "assets/battle-v2/source/user-review/block.svg",
+      "sourceSha256": "ee46f945e1136fd2fc9c200b1014b52b3b66f676c62c1ab7520cb8eabeb01b7b",
+      "sourceBytes": 1536,
+      "runtime": "assets/battle-v2/runtime/effects/block.svg",
+      "sha256": "6402f35d217cc12c42152adb1fab4bf468bfcac5ab02c147d4835a1d9bc79c69",
+      "bytes": 1127,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/effects/block.svg",
+        "width": 86.412,
+        "height": 245.0,
+        "viewBox": [
+          0.0,
+          0.0,
+          30.766718,
+          87.2314
+        ],
+        "color": "#e9ddaf"
+      }
+    }
+  ]
+}

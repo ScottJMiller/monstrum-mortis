@@ -1,5 +1,10 @@
 # Step 6 review
 
+User milestone decision (13 October 2026): step 6 can be closed after final validation and push. The current Battle v2 animation/audio refinements are documented in [BATTLE-V2-REVIEW.md](BATTLE-V2-REVIEW.md) and remain development-only; remaining artwork/rollout and deployment require separate authorization. Existing device and artistic limitations below remain evidence gaps, not a claim that the full Battle v2 redesign is delivered.
+
+> Current scope: [Battle v2 specification](BATTLE-V2-SPEC.md) and [Phase A plan](BATTLE-V2-PLAN.md) govern the development-only animation/audio sample. Earlier integration/battle appearance, region-selection, Same-Room and display-entry guidance below is historical and superseded for the future redesign. Production behavior and legacy permissions remain unchanged until Phase C. Historical verification below did not test Battle v2.
+
+
 Local step 6 implements six authored rivals, seeded automatic combat, actual results/commendations and three-round sessions. No deployment occurred. The approved DNA and definitive creature composition remain unchanged. Numerical decisions, protocol/schema migration and attribution are in [STEP-6-PLAN.md](STEP-6-PLAN.md); actual verification and scope limits are in [IMPLEMENTATION-STATUS.md](IMPLEMENTATION-STATUS.md).
 
 ## Actual render review

@@ -1,5 +1,8 @@
 # Step 4 proposal: laboratory, creature assets and accessible presentation
 
+> Current scope: [Battle v2 specification](BATTLE-V2-SPEC.md) and [Phase A plan](BATTLE-V2-PLAN.md) govern the development-only animation/audio sample. Earlier integration/battle appearance, region-selection, Same-Room and display-entry guidance below is historical and superseded for the future redesign. Production behavior and legacy permissions remain unchanged until Phase C. Historical verification below did not test Battle v2.
+
+
 Status: **approved on 6 October 2026; user-confirmed complete, pushed, deployed and presentation reviewed on 7 October 2026**. This document preserves the historical step 4 scope/proposal. Current authorization is step 5 only, under the subsequently approved [STEP-5-PLAN.md](STEP-5-PLAN.md). No new deployment is authorized.
 
 ## Scope and protected behavior

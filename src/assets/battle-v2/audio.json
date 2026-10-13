@@ -1,0 +1,16 @@
+{
+  "strike": "/assets/battle-v2/runtime/audio/strike.m4a",
+  "slash": "/assets/battle-v2/runtime/audio/slash.m4a",
+  "bite": "/assets/battle-v2/runtime/audio/bite.m4a",
+  "corrosion": "/assets/battle-v2/runtime/audio/corrosion.m4a",
+  "retaliation": "/assets/battle-v2/runtime/audio/retaliation.m4a",
+  "miss": "/assets/battle-v2/runtime/audio/miss.m4a",
+  "guard": "/assets/battle-v2/runtime/audio/guard.m4a",
+  "recoil": "/assets/battle-v2/runtime/audio/recoil.m4a",
+  "defeat": "/assets/battle-v2/runtime/audio/defeat.m4a",
+  "result": "/assets/battle-v2/runtime/audio/result.m4a",
+  "injection": "/assets/battle-v2/runtime/audio/injection.m4a",
+  "integration": "/assets/battle-v2/runtime/audio/integration.m4a",
+  "unleash": "/assets/battle-v2/runtime/audio/unleash.m4a",
+  "ambient": "/assets/battle-v2/runtime/audio/ambient.m4a"
+}

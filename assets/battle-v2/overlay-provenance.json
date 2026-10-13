@@ -1,0 +1,34 @@
+{
+  "origin": "Original project-authored SVG surface treatments and shader/pupil motion; approved generated growth reuse",
+  "license": "Project-authored code; generated growth remains under its recorded original terms",
+  "code": "src/client/battle-v2/Sprite.tsx",
+  "codeSha256": "b257e3998af0c12e1e5fb80287f326d5a0ebcee2fd630089fc4b25163aac71a5",
+  "poseRegistration": "src/assets/battle-v2/art.json",
+  "registrationSha256": "166b357054c5330b7257ae0cdb13f464ec5c8ac2ee1784694505a8534d32594c",
+  "surfaces": [
+    "barbs: sparse opaque nodes",
+    "veins: opaque branching marbling",
+    "mouths: three oval surface mouths covering approximately one third of the clipped torso"
+  ],
+  "opacity": 1,
+  "growth": {
+    "runtime": "assets/battle-v2/runtime/shoulder-eye.webp",
+    "source": "assets/source/mutation.existential-organ.png",
+    "originalProvenance": "assets/provenance.json",
+    "displayDimensions": [
+      84,
+      85
+    ],
+    "attachmentPivot": [
+      40,
+      42
+    ],
+    "irisCenter": [
+      1,
+      -23
+    ],
+    "pupilTravel": 4,
+    "placement": "Each produced pose supplies its own shoulder root; uniform scaling/mirroring includes art and pupil"
+  },
+  "remainingFamilies": "planned: no generic overlay fit claimed"
+}
