@@ -1,0 +1,25 @@
+{
+  "scenarios": 10,
+  "posePresentations": 72,
+  "performanceResults": [
+    {
+      "viewport": "390x844",
+      "scope": "Desktop Chrome phone viewport emulation, not physical-device performance",
+      "frames": 121,
+      "medianMs": 16.700000000000728,
+      "p95Ms": 16.700000000000728,
+      "decodedAudioBytes": 11259368
+    },
+    {
+      "viewport": "1280x1000",
+      "scope": "Headless Chrome under CDP capture; not physical-device performance",
+      "frames": 541,
+      "medianMs": 16.700000000000728,
+      "p95Ms": 16.700000000000728,
+      "peakVoices": 7,
+      "played": 37
+    }
+  ],
+  "recordingFrames": 263,
+  "physicalDevices": false
+}

@@ -15,18 +15,18 @@ for (const dna of DNA_CATALOGUE) test(`${dna.id}: canonical specification mappin
  assert.ok(row, `Missing canonical row ${dna.autopsyName}`);
  const expected = row.split('|')[2]!.trim();
  const f = fixture([dna.id]), selected = f.select(noEntropy);
- assert.equal(selected.family, expected === 'None' ? 'blob' : Number(expected));
+ assert.equal(selected.family, expected === 'None'||expected==='Blob' ? 'blob' : Number(expected));
  assert.equal(Object.values(selected.votes).reduce((a,b)=>a+b,0), expected === 'None' ? 0 : 1);
  assert.deepEqual(Object.keys(INTEGRATED_RULES).sort(), DNA_CATALOGUE.map(d=>d.id).sort());
 });
 test('paired survival and reinforcement never inflate votes; full replacement does not vote from history', () => {
  const f=fixture(['razor-talons','razor-talons','razor-talons','wandering-limb']);
- assert.deepEqual(f.select().votes,{1:1,2:0,3:0,4:1,5:0});
+ assert.deepEqual(f.select().votes,{1:0,2:0,3:0,4:1,5:0,blob:1});
  applyMutation(f.e,'kitten-paws','p0','Scientist','replace',10,2);
- assert.deepEqual(f.select(noEntropy).votes,{1:0,2:0,3:1,4:0,5:0});
+ assert.deepEqual(f.select(noEntropy).votes,{1:0,2:0,3:1,4:0,5:0,blob:0});
 });
 test('only highest positive candidates receive uniform buckets, including rejection at UINT32 tail', () => {
- for(const count of [2,3,4,5]){
+ for(const count of [2,3,4,5,6]){
   for(let i=0;i<count;i++) assert.equal(uniformIndex(count,()=>i),i);
   const boundary=Math.floor(2**32/count)*count;
   if(boundary<2**32){let calls=0;assert.equal(uniformIndex(count,()=>calls++===0?boundary:count-1),count-1);assert.equal(calls,2);}
@@ -59,4 +59,16 @@ test('tint combination is order independent and fallback has no entropy; unknown
  assert.deepEqual(a.select(noEntropy).modifiers,b.select(noEntropy).modifiers);
  assert.equal(fixture([]).select(noEntropy).family,'blob');
  assert.throws(()=>selectIntegratedForm({active:{body:{dnaId:'unknown',contributions:[]}},attemptId:'x',releasedAtMs:0},noEntropy),/Unsupported/);
+});
+
+test('blob votes from surviving talons/tail compete normally; zero-vote fallback and mechanical effects remain separate',()=>{
+ const f=fixture(['razor-talons','counterweight-tail']);const before=effectiveCreature(f.e);assert.equal(f.select(noEntropy).family,'blob');assert.equal(f.select(noEntropy).votes.blob,2);assert.equal(f.select().version,'battle-v2-b2');assert.deepEqual(effectiveCreature(f.e),before);
+ assert.ok(before.abilities.some(a=>a.kind==='bleed'));assert.ok(before.abilities.some(a=>a.kind==='restraint-resistance'));
+ applyMutation(f.e,'razor-talons','p0','Scientist','reinforce',1,2);assert.equal(f.select().votes.blob,2);
+ applyMutation(f.e,'wandering-limb','p1','Scientist','right-only',2,2);assert.equal(f.select().votes.blob,2,'Partial paired survival retains one talon vote');
+ applyMutation(f.e,'kitten-paws','p1','Scientist','replace-pair',3,2);assert.equal(f.select().votes.blob,1);
+ applyMutation(f.e,'hook-tentacles','p1','Scientist','replace-tail',4,2);assert.equal(f.select().votes.blob,0);
+ const none=fixture(['venom-glands','titan-fibers','reweaving-tissue']).select(noEntropy);assert.equal(none.family,'blob');assert.equal(none.votes.blob,0);
+ const all=fixture(['spring-tendons','hook-tentacles','lantern-eyes','funeral-mane','candle-flesh','razor-talons']);assert.deepEqual([0,1,2,3,4,5].map(n=>all.select(()=>n).family),[1,2,3,4,5,'blob']);
+ const winning=fixture(['spring-tendons','guillotine-teeth','ossified-plates','razor-talons']);assert.equal(winning.select(noEntropy).family,1,'A single blob vote does not override a higher total');
 });

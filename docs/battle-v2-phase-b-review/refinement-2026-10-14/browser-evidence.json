@@ -1,0 +1,196 @@
+{
+  "physicalDevices": false,
+  "scope": "Local headless desktop Chrome, emulated phone layouts",
+  "posePresentations": 60,
+  "overlayPresentations": 120,
+  "damagePosePresentations": 60,
+  "damagePixels": [
+    {
+      "body": "family-1",
+      "damage": "critical",
+      "baselineOpaque": 95287,
+      "damagedOpaque": 95287
+    },
+    {
+      "body": "family-1",
+      "damage": "melted",
+      "baselineOpaque": 95287,
+      "damagedOpaque": 95287
+    },
+    {
+      "body": "family-1",
+      "damage": "limb-lost",
+      "baselineOpaque": 95287,
+      "damagedOpaque": 95287
+    },
+    {
+      "body": "family-1",
+      "damage": "teeth-lost",
+      "baselineOpaque": 95287,
+      "damagedOpaque": 95287
+    },
+    {
+      "body": "family-2",
+      "damage": "critical",
+      "baselineOpaque": 143283,
+      "damagedOpaque": 143283
+    },
+    {
+      "body": "family-2",
+      "damage": "melted",
+      "baselineOpaque": 143283,
+      "damagedOpaque": 143283
+    },
+    {
+      "body": "family-2",
+      "damage": "limb-lost",
+      "baselineOpaque": 143283,
+      "damagedOpaque": 143283
+    },
+    {
+      "body": "family-2",
+      "damage": "teeth-lost",
+      "baselineOpaque": 143283,
+      "damagedOpaque": 143283
+    },
+    {
+      "body": "family-3",
+      "damage": "critical",
+      "baselineOpaque": 186671,
+      "damagedOpaque": 186671
+    },
+    {
+      "body": "family-3",
+      "damage": "melted",
+      "baselineOpaque": 186671,
+      "damagedOpaque": 186671
+    },
+    {
+      "body": "family-3",
+      "damage": "limb-lost",
+      "baselineOpaque": 186671,
+      "damagedOpaque": 186671
+    },
+    {
+      "body": "family-3",
+      "damage": "teeth-lost",
+      "baselineOpaque": 186671,
+      "damagedOpaque": 186671
+    },
+    {
+      "body": "family-4",
+      "damage": "critical",
+      "baselineOpaque": 165879,
+      "damagedOpaque": 165879
+    },
+    {
+      "body": "family-4",
+      "damage": "melted",
+      "baselineOpaque": 165879,
+      "damagedOpaque": 165879
+    },
+    {
+      "body": "family-4",
+      "damage": "limb-lost",
+      "baselineOpaque": 165879,
+      "damagedOpaque": 165879
+    },
+    {
+      "body": "family-4",
+      "damage": "teeth-lost",
+      "baselineOpaque": 165879,
+      "damagedOpaque": 165879
+    },
+    {
+      "body": "family-5",
+      "damage": "critical",
+      "baselineOpaque": 89257,
+      "damagedOpaque": 89257
+    },
+    {
+      "body": "family-5",
+      "damage": "melted",
+      "baselineOpaque": 89257,
+      "damagedOpaque": 89257
+    },
+    {
+      "body": "family-5",
+      "damage": "limb-lost",
+      "baselineOpaque": 89257,
+      "damagedOpaque": 89257
+    },
+    {
+      "body": "family-5",
+      "damage": "teeth-lost",
+      "baselineOpaque": 89257,
+      "damagedOpaque": 89257
+    },
+    {
+      "body": "blob",
+      "damage": "critical",
+      "baselineOpaque": 167358,
+      "damagedOpaque": 167358
+    },
+    {
+      "body": "blob",
+      "damage": "melted",
+      "baselineOpaque": 167358,
+      "damagedOpaque": 167358
+    },
+    {
+      "body": "blob",
+      "damage": "limb-lost",
+      "baselineOpaque": 167358,
+      "damagedOpaque": 167358
+    },
+    {
+      "body": "blob",
+      "damage": "teeth-lost",
+      "baselineOpaque": 167358,
+      "damagedOpaque": 167358
+    }
+  ],
+  "imageCache": 28,
+  "graftComponents": {
+    "barb": 1,
+    "veins": 1,
+    "mouth": 1,
+    "growth": 1,
+    "wound": 1,
+    "scar": 1,
+    "shards": 3,
+    "limb-fragment": 1
+  },
+  "audioCues": [
+    "electric",
+    "poison",
+    "bleed",
+    "restraint",
+    "roar",
+    "regeneration",
+    "slowing",
+    "crawling",
+    "malfunction",
+    "detach"
+  ],
+  "effectsSeen": [
+    "bleed",
+    "malfunction",
+    "poison",
+    "restraint",
+    "electric",
+    "roar",
+    "regeneration",
+    "slowing",
+    "detach",
+    "crawling"
+  ],
+  "recordingFrames": 248,
+  "performance": {
+    "frames": 493,
+    "medianMs": 16.69999999999709,
+    "p95Ms": 16.79999999998836
+  },
+  "peakVoices": 6,
+  "scenarios": 8
+}

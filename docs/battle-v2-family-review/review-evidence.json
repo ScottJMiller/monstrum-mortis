@@ -1,0 +1,145 @@
+{
+  "scope": "Actual local Chrome screenshots/audio/motion; human acceptance and physical devices separate",
+  "files": [
+    {
+      "path": "docs/battle-v2-family-review/battle-blob.png",
+      "sha256": "bcd3cca9b41acc23864dd3e672690d8d5a459a0dc4f59e2c44457fa99e60548a",
+      "bytes": 1428050
+    },
+    {
+      "path": "docs/battle-v2-family-review/battle-family-1.png",
+      "sha256": "5d02b3f53c248f30f39276ea2922fef66d18e2c444b927fe40699841058378cd",
+      "bytes": 1460371
+    },
+    {
+      "path": "docs/battle-v2-family-review/battle-family-3.png",
+      "sha256": "82b2a3bdea4d0ed14022eca7f1a8eec91044820c995aaec93fb354c2ed0a0595",
+      "bytes": 1489456
+    },
+    {
+      "path": "docs/battle-v2-family-review/before-after.png",
+      "sha256": "e3fd9c5bdb49526123ff18dda2831edfc481a2a66f95551a0f2da54fab46ee7d",
+      "bytes": 392179
+    },
+    {
+      "path": "docs/battle-v2-family-review/contact-sheet.png",
+      "sha256": "adf99106edae7c593eb3b66a37f003ca0345d31dd0e0432903632c0907c29c36",
+      "bytes": 561285
+    },
+    {
+      "path": "docs/battle-v2-family-review/family-1-attack.png",
+      "sha256": "3df1be9d10ad5aeda88ff9f28d6e3d7619fd77152be38734973fa079135d3329",
+      "bytes": 687873
+    },
+    {
+      "path": "docs/battle-v2-family-review/family-1-before.png",
+      "sha256": "a39b0e1c3b3a5eda9571a4e0b762725473d97f6bd71fdd7a2cb9def0708f2c25",
+      "bytes": 656811
+    },
+    {
+      "path": "docs/battle-v2-family-review/family-1-bite.png",
+      "sha256": "fc849056e3c84a6ef9ed4a9cc73069d653904ac9d99b6e29096a6b76b2d73d2c",
+      "bytes": 685695
+    },
+    {
+      "path": "docs/battle-v2-family-review/family-1-defeat.png",
+      "sha256": "4f30853d9bc8d4cf4c34bddbd2ce9e77130f341dc97de01cf68a6a029b70a0f7",
+      "bytes": 654179
+    },
+    {
+      "path": "docs/battle-v2-family-review/family-1-defense.png",
+      "sha256": "367758c6e246b0ff189e5fc246d3823587e58ba0d8ff13d879703f9e46db41ed",
+      "bytes": 686168
+    },
+    {
+      "path": "docs/battle-v2-family-review/family-1-idle.png",
+      "sha256": "65d53104436ac94f8ddc02eac1431931f7524c73bbc27e7a8f75ae7a749c2f40",
+      "bytes": 701914
+    },
+    {
+      "path": "docs/battle-v2-family-review/family-1-recoil.png",
+      "sha256": "a9320f16ab5604de1f86a86903d2b9e46b9f1e511e28f1152a26857d3ed0e800",
+      "bytes": 731117
+    },
+    {
+      "path": "docs/battle-v2-family-review/family-3-attack.png",
+      "sha256": "2bab09d3ed4d147999612bbc14d56cf5b829e7f16f357cccb73d179ca82d4463",
+      "bytes": 750625
+    },
+    {
+      "path": "docs/battle-v2-family-review/family-3-before.png",
+      "sha256": "5197929048f292752267db790f34a7e00de33e2aa35e7aa73b6a3a1a8f2eda74",
+      "bytes": 738821
+    },
+    {
+      "path": "docs/battle-v2-family-review/family-3-defeat.png",
+      "sha256": "89b053d833638e9d66c59f4d187a5b718952bced18c97afc4e2cebbb1d5bebab",
+      "bytes": 709949
+    },
+    {
+      "path": "docs/battle-v2-family-review/family-3-defense.png",
+      "sha256": "7e0fe3e525305f7e32ffe41855d4224323c80b96fbee195cb7267c85f41fd597",
+      "bytes": 745382
+    },
+    {
+      "path": "docs/battle-v2-family-review/family-3-idle.png",
+      "sha256": "527c3f1604fab263bb1f6d2aa25bd1e1743d76566a671f08f507734c950ffa45",
+      "bytes": 781826
+    },
+    {
+      "path": "docs/battle-v2-family-review/family-3-recoil.png",
+      "sha256": "dfbca719f74a936f62b34b7821011f2721695f6a9f88ec2d694b46387fbbfdce",
+      "bytes": 794133
+    },
+    {
+      "path": "docs/battle-v2-family-review/family-audio.webm",
+      "sha256": "c2aa47aec9b21f8ca0b2cf53b5a97824ce28069db5f241995de6eedd75029f1c",
+      "bytes": 176108
+    },
+    {
+      "path": "docs/battle-v2-family-review/family-recording.mp4",
+      "sha256": "eb77bc42b24f3d6df5c93e9100f3ffa3c1f98cd6bfda82f70cf4bb7abbe9b477",
+      "bytes": 2619383
+    },
+    {
+      "path": "docs/battle-v2-family-review/kitten-mirrored-tint.png",
+      "sha256": "8a139482631478fa74329f01471307e41d38238253fbaa7935d01c38bdac697d",
+      "bytes": 754242
+    },
+    {
+      "path": "docs/battle-v2-family-review/motion-frames.png",
+      "sha256": "b633c0da4ebde58b119286848538177fc2f03dbb8e2012c89ef31256bd01e44c",
+      "bytes": 1094466
+    },
+    {
+      "path": "docs/battle-v2-family-review/phone-blob.png",
+      "sha256": "e4ad276e9580de14cf83c625684f8c094c87529d46d3a1a0decc90abd7255520",
+      "bytes": 233228
+    },
+    {
+      "path": "docs/battle-v2-family-review/phone-family-1.png",
+      "sha256": "989d4e048586b7e8fefe4a09e3d7fe68ad3581dc82ee9554275fb480b7c7957b",
+      "bytes": 233894
+    },
+    {
+      "path": "docs/battle-v2-family-review/phone-family-3.png",
+      "sha256": "fa4509903d7c560153e8ab3ac2822a3e5457630e98c0e63869d1f684005bc5e2",
+      "bytes": 237657
+    },
+    {
+      "path": "docs/battle-v2-family-review/poses-before.png",
+      "sha256": "e77038326339c8b010c75058053347083916ab61010dbbc7fe307b1107c6b977",
+      "bytes": 1498887
+    },
+    {
+      "path": "docs/battle-v2-family-review/poses-contact-sheet.png",
+      "sha256": "9525aedd265e5c70183bcd06c585ef6fbbaf4acc5a5d468bf95219ecea2d4d94",
+      "bytes": 909320
+    },
+    {
+      "path": "docs/battle-v2-family-review/voting-blob-slash.png",
+      "sha256": "653f1431a81841d730131ac84de64a1cdb1a4c130599b9eb893f9562f183222b",
+      "bytes": 1453230
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-13",
+  "scope": "Phase B development asset library; no production rollout/deployment",
+  "checks": [
+    {
+      "command": "npm run check",
+      "exit": 0,
+      "testFiles": 14,
+      "individualTests": 210
+    },
+    {
+      "command": "npm run test:battle-v2",
+      "exit": 0,
+      "browserScenarios": 10,
+      "posePresentations": 72,
+      "productionFilesExcluded": 93
+    },
+    {
+      "command": "node tests/battle-v2-phase-b.browser.mjs",
+      "exit": 0,
+      "browserScenarios": 8,
+      "bodyRolePresentations": 60,
+      "overlayPresentations": 120,
+      "damagePosePresentations": 60
+    },
+    {
+      "command": "npm run test:step6",
+      "exit": 0,
+      "dryRun": true,
+      "roomRuntime": 13,
+      "matchmakingRuntime": 7,
+      "recoveryAndFreshAdmission": true,
+      "dnaRuntime": 9,
+      "presentationBrowser": 9,
+      "dnaBrowser": 8,
+      "artModules": 30,
+      "combatRuntime": 6,
+      "combatBrowser": 6,
+      "authoritativeCompositions": 48,
+      "definitiveArtSamplers": 12,
+      "seededSimulations": 4536
+    },
+    {
+      "command": "npm run build and node scripts/check-battle-v2-build.mjs",
+      "exit": 0,
+      "productionFiles": 93
+    },
+    {
+      "command": "Phase B art/audio/fixture pipelines and review artifact production",
+      "exit": 0
+    },
+    {
+      "command": "git diff --check",
+      "exit": 0
+    }
+  ],
+  "workerBehaviorChanged": false,
+  "protocolVersion": 5,
+  "schemaVersion": 5,
+  "rulesVersion": "0.3.0",
+  "physicalDevices": false,
+  "subjectiveListening": false,
+  "deployment": false,
+  "runtimeDiagnostics": "NOSENTRY SQLite alarm cancellations occurred during the successful aggregate; no failed suite",
+  "historicalEvidence": "Original Phase A documents/screenshots/audio/video and earlier step 6 checks retained unchanged apart from historical-scope banners"
+}

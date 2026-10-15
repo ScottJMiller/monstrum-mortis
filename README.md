@@ -1,16 +1,22 @@
 # Monstrum Mortis
 
+Current change (14 October 2026): saved monsters, tarot cards and the local cabinet are removed from the product plan, rather than deferred. Historical mentions retain their original dates/scope. Phase C includes production UI/UX; development contact sheets are references, not final production screens. After step 6 and Battle v2 A/B/C are complete and accepted, consolidate guidance and move superseded documents/evidence into dated `docs/archive/` folders, preserving provenance/verification and repairing links. That cleanup is pending; Phase C and deployment remain unauthorized.
+
+Latest Phase B review: [redesigned executioner/kitten and voted blob](docs/BATTLE-V2-FAMILY-REFINEMENT.md), development only.
+
+Battle v2 Phase B current presentation changes and local review: [14 October refinement](docs/BATTLE-V2-REFINEMENT-2026-10-14.md).
+
 A cooperative browser party game for 2–8 players, with remote Quick Play and private invitations. Current production baseline: completed step 5/6 DNA, automatic combat, results and three-round progression. Existing display permissions and regional sessions remain supported during this development work.
 
-**Current authorization: Battle v2 Phase A only.** The [canonical specification](docs/BATTLE-V2-SPEC.md), [implementation plan](docs/BATTLE-V2-PLAN.md) and [sample review](docs/BATTLE-V2-REVIEW.md) govern the development-only animation/audio sample. Experiment artwork and all gameplay are preserved. Battle appearance and future region/Same-Room/display-entry guidance in earlier notes are superseded; full UI/admission changes belong to Phase C after sample acceptance. No deployment, cards/cabinet/naming or unrelated signals. Historical deployment/verification records remain in [implementation status](docs/IMPLEMENTATION-STATUS.md).
+**Current authorization: Battle v2 Phase B only.** The [canonical specification](docs/BATTLE-V2-SPEC.md), [Phase B plan](docs/BATTLE-V2-PHASE-B-PLAN.md) and [current review](docs/BATTLE-V2-PHASE-B-REVIEW.md) govern the development-only twelve-body animation/audio library. Experiment artwork and all gameplay are preserved. Battle appearance and future region/Same-Room/display-entry guidance in earlier notes are superseded; full UI/admission changes belong to separately authorized Phase C. No deployment, cards/cabinet/naming or unrelated signals. Historical deployment/verification records remain in [implementation status](docs/IMPLEMENTATION-STATUS.md).
 
 ```sh
 npm run dev
 # Open http://127.0.0.1:5173/battle-v2
-npm run test:battle-v2
+npm run test:battle-v2-phase-b
 ```
 
-The preview uses bundled art/audio and offline producer fixtures; it needs no Worker, credentials or generation service. Enable sound by button on each device. Play/seek the recording, inspect accepted injections, or choose pose/modifier studies. It is excluded from the production build. Rebuild retained derivatives/fixtures with `npm run prepare:battle-v2`; generate contact sheets/recording after browser checks with `npm run review:battle-v2`.
+The preview uses bundled art/audio and offline producer fixtures; it needs no Worker, credentials or generation service. Enable sound by button on each device. Play/seek a legal producer recording, inspect accepted injections, or choose body/arena/pose/modifier/damage studies. Art overrides and isolated direction samplers are labeled; they do not alter outcomes. It is excluded from the production build. Rebuild retained derivatives/fixtures with `npm run prepare:battle-v2`; generate contact sheets/recording after browser checks with `npm run review:battle-v2`.
 
 ## Work locally
 
@@ -82,6 +88,8 @@ Open this directory in VS Code with the official Codex extension. Begin with [do
 | Command | Purpose |
 | --- | --- |
 | `npm run check` | Configuration guards, TypeScript checks, foundation/room/matchmaking and client regressions |
+| `npm run test:battle-v2-phase-b` | Selector/animation checks, original and expanded browser galleries, build and production exclusion |
+| `npm run review:battle-v2` | Labeled Phase B contact sheets and browser-captured recording after tests |
 | `npm run test:rooms` | Build/dry run, then independent WebSocket clients, SQLite persistence, alarms and runtime restart |
 | `npm run test:matchmaking` | Public queues, guest claims, readiness, allocation recovery and independent-client admission |
 | `npm run test:dna` | Private draws, concurrent/replayed injections, scaling, release and persisted mechanics |

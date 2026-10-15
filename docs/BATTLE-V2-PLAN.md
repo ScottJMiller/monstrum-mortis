@@ -1,6 +1,8 @@
 # Battle v2: Phase A implementation and review plan
 
-Current authorization: 10 October 2026 plus the 13 October refinement, **Phase A only**, including asset production, local scripts and verification. [BATTLE-V2-SPEC.md](BATTLE-V2-SPEC.md) is the canonical design requirement. This plan records implementation decisions, not another approval gate. The review milestone is the functioning animation/audio sample; remaining production and rollout require sample acceptance. No deployment.
+This is the preserved Phase A plan/history. Current Phase B authorization and decisions are in [BATTLE-V2-PHASE-B-PLAN.md](BATTLE-V2-PHASE-B-PLAN.md); current production evidence is in [BATTLE-V2-PHASE-B-REVIEW.md](BATTLE-V2-PHASE-B-REVIEW.md). Later counts and artwork notes here describe the Phase A sample at its date.
+
+Historical Phase A authorization: 10 October 2026 plus the 13 October refinement, **Phase A only**, including asset production, local scripts and verification. [BATTLE-V2-SPEC.md](BATTLE-V2-SPEC.md) is the canonical design requirement. This plan records implementation decisions, not another approval gate. The review milestone is the functioning animation/audio sample; remaining production and rollout require sample acceptance. No deployment.
 
 ## Requirements and accepted defaults
 

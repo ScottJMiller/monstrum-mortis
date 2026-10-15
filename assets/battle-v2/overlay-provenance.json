@@ -1,4 +1,6 @@
 {
+  "scope": "Historical Phase A overlay record. Paths/hashes refer to source at git commit 257b225; Phase B current grafts/registration are in phase-b-derivatives.json, phase-b-registration.json and phase-b-inventory.json.",
+  "sourceRevision": "257b225",
   "origin": "Original project-authored SVG surface treatments and shader/pupil motion; approved generated growth reuse",
   "license": "Project-authored code; generated growth remains under its recorded original terms",
   "code": "src/client/battle-v2/Sprite.tsx",

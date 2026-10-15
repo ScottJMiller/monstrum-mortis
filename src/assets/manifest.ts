@@ -4,7 +4,7 @@ import production from './production.json' with { type: 'json' };
 
 export interface AssetDefinition {
   id: string;
-  kind: 'texture' | 'creature-part' | 'audio' | 'font' | 'card-frame';
+  kind: 'texture' | 'creature-part' | 'audio' | 'font';
   status: 'planned' | 'ready';
   /** null means not produced yet; never point to imaginary asset files. */
   url: string | null;
@@ -37,7 +37,6 @@ export const ASSET_MANIFEST: readonly AssetDefinition[] = [
   planned('creature.blob', 'creature-part'),
   planned('creature.eyes', 'creature-part'),
   planned('creature.mouth', 'creature-part'),
-  planned('card.occult-frame', 'card-frame'),
   planned('font.display', 'font'),
   planned('font.interface', 'font'),
   planned('audio.hum', 'audio'),

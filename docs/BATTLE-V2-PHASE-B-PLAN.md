@@ -1,0 +1,81 @@
+# Battle v2 Phase B production plan
+
+Latest 14 October scope/presentation update: timeout-only smaller winner/draw subtitle below final New Rocker lettering, and no strike SVG for a contact with a matching block. Saved-monster/card/cabinet requirements are removed, rather than deferred. Production UI/UX is Phase C; development contact sheets are references, not final shipping screens. The user authorized consolidation and dated `docs/archive/` moves after step 6 and A/B/C are complete/accepted; this cleanup is pending. See [current plan](APPROVED-PLAN.md#15-battle-v2-production-ui-and-completion-cleanup).
+
+Latest approved family/blob refinement: [family redesign and voting](BATTLE-V2-FAMILY-REFINEMENT.md). Blob receives Razor Talons/Counterweight Tail votes and remains the no-vote fallback; Families 1/3 artwork is redesigned. Production rollout remains Phase C and is not authorized.
+
+Current refinement authorized 14 October 2026: retain intact creature sprites, replace damage drawings with side-specific text, use the new supplied electric SVG and ten sound replacements, suppress recover/shard graphics and sound, play status cues once per initiation and clear transient arena effects at battle end while retaining a larger centered unrotated final word and adding a top-centered 3/2/1 countdown. Defensive SVGs sit beside the defender’s inward anatomy and recoil gain is reduced by 10% from the previous level. Clean whole-sheet rival figure extraction and rebase attachment registration to exclude neighboring-pose fragments. See [refinement review](BATTLE-V2-REFINEMENT-2026-10-14.md). These decisions supersede earlier native-effect/damage-mask plans below; historical evidence is retained.
+
+Authorized 13 October 2026 by “Proceed with Phase B”. This accepts the Phase A review gate for asset production; it does not authorize Phase C production integration, entry changes or deployment. [BATTLE-V2-SPEC.md](BATTLE-V2-SPEC.md) remains the design contract. Preserve the user's final SVG placement/orientation, New Rocker word lists, 1.15 strike/guard/defeat/crawling/malfunction/poison/slowing gains and the current 1.035 recoil gain, tints and experimental anatomy. Phase A history remains dated evidence.
+
+## Deliverables and implementation decisions
+
+- Produce five remaining player sets (families 2–5 and blob) and five rival sets from existing rival identity references. Each supplies independent idle/attack/recoil/defense/defeat art. Keep family 1's dedicated bite variant and Iron Widow intact. Native pose changes, shared-clock lunge/reaction/breathing and directional effects form actual animation, not a static-art claim.
+- Produce two further arenas, bringing the inventory to three. Selection controls are art studies in development; persisted random background selection belongs to Phase C.
+- Replace the flat non-tint treatments with generated textured anatomical grafts: sparse rooted barbs, marbled veins, surface mouths and a shoulder eye. Register clipped surface treatments and individual attachment points to every player pose; preserve opaque coverage, slot competition and the fixed tint rules. Reusable source parts are registered per pose, not whole-creature bitmap variants or one stretched complete-body mask.
+- Finish the effect/sound registry for current timeline semantics, preserving supplied core SVGs/sounds. Build directional electrical, poison/bleed, restraint/roar/crawling, regeneration/slowing, malfunction, detach/recovery presentations and original offline procedural missing cues. Repeated damage ticks stay compact; major lettering and voices remain bounded. No paid/runtime generation or new dependency.
+- Historical 13 October damage registration (superseded by the 14 October refinement) was a presentation projection: health produces bounded wound marks; accepted detach events map Candle Flesh to a melting skin treatment, Wandering Limb to a lost forelimb/graft scar and crawling hazard, Porcelain Teeth to missing tooth/jaw treatment and shards. Freeze family identity, do not reselect the body or restore anatomy. Generic visible anatomy does not invent ability changes. Specify effects for every family/pose using pose-local masks/anchors and show real producer and labeled isolation studies.
+- Extend the existing DEV-only preview with body/rival/arena/damage studies and legal all-family/all-rival producer fixtures. Overriding artwork is explicitly labeled; it does not rewrite health/results. Production build exclusion remains verified. Server, wire/schema/rules and infrastructure remain unchanged.
+
+## Production and provenance
+
+Use the built-in imagegen tool/skill for raster production. Retain exact prompts, references, original PNGs and hashes; crop/optimize offline into WebP with grounded pivots, torso/eye/shoulder/limb/jaw registration and provenance. Original project SVG components and procedural audio record code/formulas/seeds/hashes. Existing supplied originals, fonts and Phase A assets remain preserved. No asset becomes ready based on a promise or a test that checks metadata alone.
+
+## Bounds and verification
+
+Target each five-pose set under 600 KB, backgrounds under 400 KB each and missing compressed audio under 300 KB. Measure actual selected media/decoded pixels. Load the selected pair/arena and small shared graft/effect library, rather than every creature at once; retain at most a selected-pair-sized image cache with retry and no clock gate. Eight foreground voices, three effects and one prominent word remain hard bounds.
+
+Check all twelve sets/five roles, every player overlay/pose, mirroring, three arenas, damage at low/high health and after actual detachment events. Inspect actual contact sheets/screenshots/motion and captured audio; cover desktop/phone portrait/landscape, reduced/static, seeking, simultaneous contact, source-derived capabilities, loading/failure and accessibility. Pure tests cover event semantics, permanent damage state, no family reroll/anatomy restoration, and unchanged mechanics. Run check/build, existing Phase A and relevant gameplay regressions. Worker changes, if unexpectedly necessary, need dry run/runtime checks; none are planned.
+
+Readiness and budgets will be updated from actual results in the Phase B review/status. Physical-device, subjective audio/art acceptance and free-tier load evidence remain distinct. Stop before Phase C; do not deploy, implement cards/cabinet/naming or unrelated signals.
+
+## Historical decisions from 13 October visual inspection
+
+Uneven sheet gutters required component-derived crop boundaries. Register every new pose against actual trimmed anatomy, including both blob/kitten eyes. Clip surface grafts to the actual alpha silhouette, retain the original graft frames/roots while removing disconnected neighboring-cell fragments, and preserve all deliberate tooth shards. Forelimb damage protects pose-local central body, jaw and eye regions: remove exposed limb portions and mark the root, rather than cutting through the underlying face/belly when a painted forelimb overlaps it. Jaw damage uses a rounded wound over the registered mouth, not a rectangular hole. These are cosmetic damaged presentations, never changes to the frozen mechanics/family. The all-pose damage contact sheets are part of the review.
+
+The source/runtime hashes, actual targets and checks are recorded in [BATTLE-V2-PHASE-B-REVIEW.md](BATTLE-V2-PHASE-B-REVIEW.md). The reference target of each set below 600 KB and each arena below 400 KB was met; source masters remain development provenance, not shipped files. New body/arena overrides and the compact-direction sampler remain art-only. Phase C persistence and rollout stay unauthorized.
+
+## Phase B completion checklist
+
+Current snapshot: 14 October 2026. Checked items mean produced and development-verified, not deployed or automatically accepted by the user. [Canonical specification](BATTLE-V2-SPEC.md), [latest presentation review](BATTLE-V2-REFINEMENT-2026-10-14.md) and [family refinement review](BATTLE-V2-FAMILY-REFINEMENT.md) supply requirements and dated evidence; this checklist does not duplicate the DNA mapping or effect registry.
+
+- [x] Six player forms (families 1–5 and blob) and six rivals have real idle, attack, recoil, defense and defeat artwork; Family 1 also has a bite lunge. Latest Family 1/3 redesigns and rival crop/registration fixes are selected.
+- [x] All 30 DNA mappings and survivor-based votes/modifiers are pure and tested, including voted/fallback blob, fully/partially replaced traits, reinforcement neutrality and uniform highest-vote ties. No production selector caller has been added.
+- [x] Registered textured barbs, veins, surface mouths and shoulder growth work across player poses, mirroring, tints and Titan scale; experimental modular anatomy remains unchanged.
+- [x] Three real arenas and the themed instrument panel are available, with originals, prompts/origin/licenses, hashes, runtime derivatives and registration records.
+- [x] The sole effect/sound registry covers current events: supplied SVGs only where approved, onset-only status sounds, silent recover/shards, bounded effects/voices, correct actor mirroring and defender shield placement. Damage remains health-adjacent text.
+- [x] Quick coalesced injection feedback, existing five-second integration choreography, shared contact/reaction timing, seeking, reduced motion, sound unlock/mute/volume and failure/retry work in the development preview.
+- [x] Stable New Rocker word variants, final 3/2/1 countdown, centered final lettering, timeout-only winner/draw subtitle, blocked-strike graphic suppression and the latest four-cue volume adjustment are implemented.
+- [x] Actual desktop/phone portrait/landscape/static screenshots, contact sheets, motion/audio recordings and browser evidence exist; legal producer fixtures are distinguished from art-only/isolated studies.
+- [x] Measured current asset budgets meet the development targets; selected-pair texture loading and voice/effect limits have local-browser coverage. These measurements do not establish physical-phone GPU use or Cloudflare capacity.
+- [x] Check/build, relevant development browser suites, production exclusion and preserved gameplay regressions have dated passing evidence. Production flow, private/public admission, recovery and infrastructure remain preserved.
+- [ ] Run the complete final candidate aggregate after the last accepted refinement: `npm run test:battle-v2-phase-b`, then `npm run review:battle-v2` and `npm run review:battle-v2-families`; attach final evidence and distinguish any suites not rerun. Passing earlier constituent suites does not count as a new full aggregate run.
+- [ ] Human visual acceptance of all forms/rivals, registered grafts, arenas, motion, lettering and readability; close or explicitly accept remaining art issues.
+- [ ] Human listening acceptance of cue balance/timbre, especially the latest crawling/malfunction/poison/slowing boosts, and simultaneous cue headroom. Measured gains and captured sound do not replace listening.
+- [ ] User accepts the Phase B asset-library review milestone. This closes Phase B; beginning Phase C still requires a separate instruction.
+
+Broad physical-device/Safari/Firefox performance, real-network latency and free-tier load acceptance remain Phase D evidence rather than a claim made by the Phase B preview. Saved monsters, tarot cards and the cabinet are cancelled, not pending deliverables.
+
+## Phase C look-ahead completion checklist
+
+**Not authorized or implemented yet.** This is a completion forecast under specification sections 10–14, not permission to start rollout. Existing pure selector/art/preview work is a prerequisite; none of the production tasks below is satisfied merely by a gallery screenshot.
+
+- [ ] Obtain explicit Phase C authorization after Phase B acceptance; inspect the final candidate and document production integration/compatibility decisions.
+- [ ] Derive one integrated form from the frozen surviving DNA on the server, using uniform server-entropy ties among highest-voted families. Persist the descriptor and selected arena atomically once per attempt before broadcast; retries, concurrent switch/deadline/grace release, reload, eviction and restart never reroll either.
+- [ ] Define validated persisted/wire contracts and version compatibility for existing room schemas, older presentation descriptors and active sessions. Bump schema/protocol/rules only as justified; preserve credential recovery and avoid retroactively transforming legacy attempts.
+- [ ] Publish only safe presentation data; keep battle entropy, hidden effects, private hands and tokens private. Preserve DNA targets, stats/abilities, scaling, attribution, budgets, cooldowns, switch eligibility, authoritative deadlines, outcomes, awards and progression.
+- [ ] Integrate accepted injection feedback and five-second release choreography into the actual experiment/release path; retain the modular experiment creature and change form only at release.
+- [ ] Use the persisted form/arena in real three-round combat playback, with timeline-based pose/effect/audio seeking, simultaneous contacts, all current event semantics, terminal cleanup, countdown and timeout-only winner text. No art-derived gameplay decisions or animation backlog.
+- [ ] Integrate device-local audio unlock/mute/volume, bounded timely voices/ambient ducking and no cue backlog after sleep/reconnect. Asset/audio failure must leave captions, health and controls usable.
+- [ ] Complete the themed production UI/UX for entry/matchmaking, briefing/readiness, lab/private trays/doses/cooldown/switch, teammate activity, integration/battle, results and replay; preserve explicit pending, waiting, finished, offline/recovery and error states. Review selectors/debug controls never ship.
+- [ ] Verify desktop and phone portrait/landscape layouts, legible captions/health, visible keyboard focus, semantic controls, at least 44px touch targets, reduced motion and graphics fallback; review the finished UI rather than treating development contact sheets as shipping layouts.
+- [ ] Send new Quick Play entries to the existing Americas pool and remove region selection, new Same-Room options and new display entry UI. Preserve existing non-Americas guest/queue claims and safe legacy display reconnect/leave with viewing-only permissions; no forced migration or infrastructure renames.
+- [ ] Preload essential selected media without gating server time, bound image/texture/audio retention, and preserve renderer/socket lifecycle on resize, mutation, settings, route changes and reconnect. Measure production bundle/media, cold/slow loading and cleanup.
+- [ ] Test real independent clients for identical persisted form/arena, release races, replay-safe requests, privacy/authorization, late join, connection loss, old-session compatibility, Durable Object eviction/restart and all three private/public rounds.
+- [ ] Run relevant room/matchmaking/recovery/fresh-admission/DNA/combat regressions plus new production UI/browser tests, `npm run check`, `npm run build` and Worker deploy dry run. Replace the Phase A/B production-exclusion guard deliberately: shipped production assets must be included, while gallery fixtures/routes/debug endpoints and provenance masters remain excluded.
+- [ ] Update capabilities/help/current documentation and inventories accurately, remove stale plan promises, and report actual checks, production integration limits and remaining physical-device/performance evidence. Preserve Workers Free, SQLite class identities/bindings, workers.dev routing and the self-hosted domains.
+- [ ] User reviews and accepts the integrated production UI/presentation; carry forward Phase D sound/pacing, physical-device/browser, network and quota acceptance. Deployment requires its own explicit instruction.
+
+After step 6 and A/B/C completion/acceptance:
+
+- [ ] Perform the already-authorized consolidation and archive cleanup: dated `docs/archive/` folders/index, retained historical verification/provenance, repaired links/tooling references and relevant checks. Keep live source masters referenced by provenance; do not delete history or add cancelled saved-monster/card/cabinet features.

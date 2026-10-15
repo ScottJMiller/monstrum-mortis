@@ -1,0 +1,7 @@
+{
+  "scope": "Actual local Chrome renderer and legal producer timelines; no physical-device claim",
+  "physicalDevices": false,
+  "poseRoles": 11,
+  "recordingFrames": 302,
+  "scenarios": 3
+}

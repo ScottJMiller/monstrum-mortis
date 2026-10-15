@@ -1,0 +1,27 @@
+{
+  "scope": "User-requested intestinal anatomy correction to archived concept; no runtime selection or Phase C rollout",
+  "createdAt": "2026-10-13",
+  "tool": "Built-in image_gen.imagegen (imagegen skill); underlying model not exposed",
+  "origin": "Generated project output under applicable OpenAI terms; no stock ownership/exclusivity claim",
+  "input": "assets/battle-v2/source/phase-b/family-2-style-candidate.png",
+  "suppliedInput": "/home/scottjmiller/.codex/generated_images/01a10e89-3135-7dd1-b485-5ad9b5c7fb0a/exec-f76af6d2-e556-4fd1-9a0a-6b7d254122b9.png",
+  "output": "assets/battle-v2/source/phase-b/family-2-style-candidate-intestines-v2.png",
+  "prompt": "Use case: precise-object-edit. Asset: transparent five-pose creature concept sheet. Input image 1 is the edit target. Change ONLY the purple hanging intestinal tissue beneath the lower abdomen in ALL FIVE poses. Replace the elongated dangling sacs and solitary downward-pointing tubes with unmistakable exposed INTESTINAL COILS: many short narrow convoluted serpentine bowel loops, folding horizontally back and forth, visibly interconnected by a thin mesentery, clustered tightly against the lower abdominal wall. Keep the exposed intestines grotesque, bruised-purple, painterly and anatomically readable, but compact and high on the abdomen, not between the legs. No free-ended hanging shaft, bulbous tips, paired round sacs, genital silhouettes or sexual anatomy. In the collapsed pose retain a flattened compact coiled bowel cluster against the side abdomen. Preserve exactly the original five creatures, identities, heads, mouths, claws, all limbs, brass machinery, skin, colors, lighting, poses, scale and sheet placement. Keep the original TWO columns THREE rows with fifth pose bottom-left and sixth cell empty; preserve canvas aspect ratio and transparent gutters. Do not redesign the creature or add text, shadows, props or background. Actual transparent background.",
+  "status": "Edited art-only concept available for human review; not a registered runtime body",
+  "visualInspection": "Inspected all five poses: compact interconnected bowel folds replace pendulous tubes; original poses, creature identity and layout preserved subject to generative redraw variation. No runtime/overlay/pivot or physical-device verification claimed.",
+  "originalPreserved": true,
+  "files": [
+    {
+      "path": "assets/battle-v2/source/phase-b/family-2-style-candidate.png",
+      "sha256": "8bb3350fca398792c6e8cf52f4c082efa333f1f9eb307e355443f0582fde031b",
+      "bytes": 2072989,
+      "dimensionsAndChannels": "1086 1448 srgba"
+    },
+    {
+      "path": "assets/battle-v2/source/phase-b/family-2-style-candidate-intestines-v2.png",
+      "sha256": "c032f90feac464d02a22ddbe192358dfccc8f58a7f748d55ec38583f4e7ac945",
+      "bytes": 2077006,
+      "dimensionsAndChannels": "1086 1448 srgba"
+    }
+  ]
+}

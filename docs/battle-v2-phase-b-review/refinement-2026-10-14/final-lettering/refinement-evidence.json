@@ -1,0 +1,247 @@
+{
+  "physicalDevices": false,
+  "scope": "Local Chrome actual decode/render/playback; no subjective listening claim",
+  "rivalComponents": [
+    {
+      "body": "iron-widow",
+      "pose": "idle",
+      "areas": [
+        153049
+      ]
+    },
+    {
+      "body": "iron-widow",
+      "pose": "attack",
+      "areas": [
+        136622
+      ]
+    },
+    {
+      "body": "iron-widow",
+      "pose": "recoil",
+      "areas": [
+        172812
+      ]
+    },
+    {
+      "body": "iron-widow",
+      "pose": "defense",
+      "areas": [
+        144371
+      ]
+    },
+    {
+      "body": "iron-widow",
+      "pose": "defeat",
+      "areas": [
+        149228
+      ]
+    },
+    {
+      "body": "gutter-seraph",
+      "pose": "idle",
+      "areas": [
+        128522
+      ]
+    },
+    {
+      "body": "gutter-seraph",
+      "pose": "attack",
+      "areas": [
+        118952
+      ]
+    },
+    {
+      "body": "gutter-seraph",
+      "pose": "recoil",
+      "areas": [
+        136336
+      ]
+    },
+    {
+      "body": "gutter-seraph",
+      "pose": "defense",
+      "areas": [
+        116356
+      ]
+    },
+    {
+      "body": "gutter-seraph",
+      "pose": "defeat",
+      "areas": [
+        111684
+      ]
+    },
+    {
+      "body": "carrion-duke",
+      "pose": "idle",
+      "areas": [
+        136240
+      ]
+    },
+    {
+      "body": "carrion-duke",
+      "pose": "attack",
+      "areas": [
+        115708
+      ]
+    },
+    {
+      "body": "carrion-duke",
+      "pose": "recoil",
+      "areas": [
+        132934
+      ]
+    },
+    {
+      "body": "carrion-duke",
+      "pose": "defense",
+      "areas": [
+        132777
+      ]
+    },
+    {
+      "body": "carrion-duke",
+      "pose": "defeat",
+      "areas": [
+        148225
+      ]
+    },
+    {
+      "body": "coil-saint",
+      "pose": "idle",
+      "areas": [
+        77551
+      ]
+    },
+    {
+      "body": "coil-saint",
+      "pose": "attack",
+      "areas": [
+        80649
+      ]
+    },
+    {
+      "body": "coil-saint",
+      "pose": "recoil",
+      "areas": [
+        77104
+      ]
+    },
+    {
+      "body": "coil-saint",
+      "pose": "defense",
+      "areas": [
+        75269
+      ]
+    },
+    {
+      "body": "coil-saint",
+      "pose": "defeat",
+      "areas": [
+        73575
+      ]
+    },
+    {
+      "body": "maw-engine",
+      "pose": "idle",
+      "areas": [
+        127302
+      ]
+    },
+    {
+      "body": "maw-engine",
+      "pose": "attack",
+      "areas": [
+        133275
+      ]
+    },
+    {
+      "body": "maw-engine",
+      "pose": "recoil",
+      "areas": [
+        125291
+      ]
+    },
+    {
+      "body": "maw-engine",
+      "pose": "defense",
+      "areas": [
+        136303
+      ]
+    },
+    {
+      "body": "maw-engine",
+      "pose": "defeat",
+      "areas": [
+        132256
+      ]
+    },
+    {
+      "body": "the-unfinished",
+      "pose": "idle",
+      "areas": [
+        126841
+      ]
+    },
+    {
+      "body": "the-unfinished",
+      "pose": "attack",
+      "areas": [
+        114540
+      ]
+    },
+    {
+      "body": "the-unfinished",
+      "pose": "recoil",
+      "areas": [
+        113680
+      ]
+    },
+    {
+      "body": "the-unfinished",
+      "pose": "defense",
+      "areas": [
+        109193
+      ]
+    },
+    {
+      "body": "the-unfinished",
+      "pose": "defeat",
+      "areas": [
+        118612
+      ]
+    }
+  ],
+  "onsetPlayback": [
+    "regeneration",
+    "bite",
+    "recoil",
+    "guard"
+  ],
+  "terminalViews": [
+    {
+      "name": "desktop",
+      "text": "CEASED!",
+      "fontSize": 128
+    },
+    {
+      "name": "phone",
+      "text": "CEASED!",
+      "fontSize": 37.05
+    },
+    {
+      "name": "landscape",
+      "text": "CEASED!",
+      "fontSize": 84.4
+    },
+    {
+      "name": "reduced",
+      "text": "CEASED!",
+      "fontSize": 37.05
+    }
+  ],
+  "shieldPresentations": 18,
+  "recoilGain": 0.18629999458789825,
+  "scenarios": 5
+}

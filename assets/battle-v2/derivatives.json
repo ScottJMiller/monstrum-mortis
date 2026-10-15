@@ -1,317 +1,371 @@
 {
-  "tool": "ImageMagick offline crop/uniform resize/WebP84; backgrounds WebP82",
+  "tool": "ImageMagick offline crop/uniform resize/WebP84; redesigned family sheets WebP82; backgrounds WebP82",
   "records": [
     {
       "id": "family-1.idle",
-      "source": "assets/battle-v2/source/family-1-idle.png",
-      "sourceSha256": "11da114e1f66c24e7f4dbcc82d8bdef175b75a88a468a70e9afe2201a80a5d4b",
+      "source": "assets/battle-v2/source/family-refinement/family-1-poses.png",
+      "sourceSha256": "7ae7a2a5e773d740eb3f40e36840ce7d45bef5f5874beb69885e43d8cd603d6b",
       "crop": [
-        204,
-        28,
-        677,
-        1480
+        108,
+        9,
+        324,
+        539
       ],
-      "uniformScale": 0.398,
+      "uniformScale": 1.0389610389610389,
+      "uniformSetScale": 1.0389610389610389,
       "runtime": "assets/battle-v2/runtime/family-1-idle.webp",
-      "sha256": "95acf4658b2dca6e54f62bbdb212552e195c670910d3b7393e9b12666d979203",
-      "bytes": 48310,
+      "sha256": "57888bd416bac065442ef27aee625137a198e32de61e2848e54cab24f8c425a3",
+      "bytes": 58598,
       "registration": {
         "url": "/assets/battle-v2/runtime/family-1-idle.webp",
-        "width": 269,
-        "height": 589,
+        "width": 337,
+        "height": 560,
         "pivot": [
-          143.678,
-          579.09
+          161.76,
+          554.4
         ],
         "torso": [
           [
-            87.162,
-            101.092
+            117.95,
+            134.4
           ],
           [
-            158.802,
-            94.326
+            222.42,
+            151.2
           ],
           [
-            135.718,
-            219.696
+            192.09,
+            291.2
           ],
           [
-            64.078,
-            211.736
+            97.73,
+            274.4
           ]
         ],
         "shoulder": [
-          97.908,
-          100.296
+          104.47,
+          140.0
         ],
         "eye": [
-          203.776,
-          34.626
+          269.6,
+          44.8
         ],
-        "eyeRadius": 9.552,
+        "eyes": [
+          [
+            269.6,
+            44.8
+          ]
+        ],
+        "eyeRadius": 13.48,
         "facing": "right"
-      }
+      },
+      "cleanup": "Actual complete figure component at 2% alpha, expanded one pixel; preserve original alpha and exclude neighboring poses",
+      "figureComponent": "1"
     },
     {
       "id": "family-1.attack",
-      "source": "assets/battle-v2/source/family-1-poses.png",
-      "sourceSha256": "de0303275e27e6395743c329407d0f7bc86002296c13d1f5ba966bdf13bffca9",
+      "source": "assets/battle-v2/source/family-refinement/family-1-poses.png",
+      "sourceSha256": "7ae7a2a5e773d740eb3f40e36840ce7d45bef5f5874beb69885e43d8cd603d6b",
       "crop": [
-        480,
-        20,
-        606,
-        493
+        484,
+        43,
+        531,
+        494
       ],
-      "uniformScale": 1.16,
+      "uniformScale": 1.0389610389610389,
+      "uniformSetScale": 1.0389610389610389,
       "runtime": "assets/battle-v2/runtime/family-1-attack.webp",
-      "sha256": "cafb2555cadfbf0edd79feceb64209971fdbc65d7863b1ad3130c2c185e6000f",
-      "bytes": 81380,
+      "sha256": "383c8c456afd0322fae924b2e0c4544a2e4cc13c2193f8a76c05dcf9971b8284",
+      "bytes": 61272,
       "registration": {
         "url": "/assets/battle-v2/runtime/family-1-attack.webp",
-        "width": 703,
-        "height": 572,
+        "width": 552,
+        "height": 513,
         "pivot": [
-          336.4,
-          553.32
+          276.0,
+          502.74
         ],
         "torso": [
           [
-            226.2,
-            103.24
+            215.28,
+            112.86
           ],
           [
-            312.04,
-            142.68
+            358.8,
+            123.12
           ],
           [
-            319.0,
-            261.0
+            303.6,
+            251.37
           ],
           [
-            250.56,
-            252.88
+            187.68,
+            215.46
           ]
         ],
         "shoulder": [
-          258.68,
-          113.68
+          231.84,
+          117.99
         ],
         "eye": [
-          436.16,
-          64.96
+          347.76,
+          51.3
         ],
-        "eyeRadius": 27.839999999999996,
-        "facing": "right"
-      }
-    },
-    {
-      "id": "family-1.bite",
-      "source": "assets/battle-v2/source/family-1-bite.png",
-      "sourceSha256": "4c4fd289a43780b392a682214c8c9e42900eb57d5fa46ad84d87fe56857dcee0",
-      "crop": [
-        10,
-        10,
-        1516,
-        1004
-      ],
-      "uniformScale": 0.47,
-      "runtime": "assets/battle-v2/runtime/family-1-bite.webp",
-      "sha256": "db2ce4b4f94d33e37ad62e0ad12294d45f2d757e72692657761b5fb3b609a823",
-      "bytes": 76652,
-      "registration": {
-        "url": "/assets/battle-v2/runtime/family-1-bite.webp",
-        "width": 713,
-        "height": 472,
-        "pivot": [
-          437.1,
-          455.9
-        ],
-        "torso": [
+        "eyes": [
           [
-            355.32,
-            102.46
-          ],
-          [
-            497.26,
-            120.79
-          ],
-          [
-            474.7,
-            210.09
-          ],
-          [
-            347.33,
-            188.94
+            347.76,
+            51.3
           ]
         ],
-        "shoulder": [
-          363.31,
-          108.1
-        ],
-        "eye": [
-          653.3,
-          36.19
-        ],
-        "eyeRadius": 11.28,
+        "eyeRadius": 20.52,
         "facing": "right"
-      }
+      },
+      "cleanup": "Actual complete figure component at 2% alpha, expanded one pixel; preserve original alpha and exclude neighboring poses",
+      "figureComponent": "4"
     },
     {
       "id": "family-1.recoil",
-      "source": "assets/battle-v2/source/family-1-poses.png",
-      "sourceSha256": "de0303275e27e6395743c329407d0f7bc86002296c13d1f5ba966bdf13bffca9",
+      "source": "assets/battle-v2/source/family-refinement/family-1-poses.png",
+      "sourceSha256": "7ae7a2a5e773d740eb3f40e36840ce7d45bef5f5874beb69885e43d8cd603d6b",
       "crop": [
-        60,
-        515,
-        530,
-        518
+        28,
+        541,
+        503,
+        519
       ],
-      "uniformScale": 1.16,
+      "uniformScale": 1.0389610389610389,
+      "uniformSetScale": 1.0389610389610389,
       "runtime": "assets/battle-v2/runtime/family-1-recoil.webp",
-      "sha256": "69f9769f6360268825242648b21ac6df646f67f9e29069863a1210d27c27aeb2",
-      "bytes": 76242,
+      "sha256": "14860870961e709a1d77b7bed1329f92010b796c7548b2ef2fc347c407c3e145",
+      "bytes": 62828,
       "registration": {
         "url": "/assets/battle-v2/runtime/family-1-recoil.webp",
-        "width": 615,
-        "height": 601,
+        "width": 523,
+        "height": 539,
         "pivot": [
-          388.6,
-          575.36
+          298.11,
+          528.22
         ],
         "torso": [
           [
-            91.64,
-            61.48
+            120.29,
+            107.8
           ],
           [
-            206.48,
-            145.0
+            245.81,
+            161.7
           ],
           [
-            263.32,
-            247.08
+            298.11,
+            280.28
           ],
           [
-            175.16,
-            225.04
+            172.59,
+            226.38
           ]
         ],
         "shoulder": [
-          96.28,
-          88.16
+          125.52,
+          123.97
         ],
         "eye": [
-          96.28,
-          46.4
+          95.709,
+          26.95
         ],
-        "eyeRadius": 27.839999999999996,
+        "eyes": [
+          [
+            95.709,
+            26.95
+          ]
+        ],
+        "eyeRadius": 20.92,
         "facing": "right"
-      }
+      },
+      "cleanup": "Actual complete figure component at 2% alpha, expanded one pixel; preserve original alpha and exclude neighboring poses",
+      "figureComponent": "73"
     },
     {
       "id": "family-1.defense",
-      "source": "assets/battle-v2/source/family-1-poses.png",
-      "sourceSha256": "de0303275e27e6395743c329407d0f7bc86002296c13d1f5ba966bdf13bffca9",
+      "source": "assets/battle-v2/source/family-refinement/family-1-poses.png",
+      "sourceSha256": "7ae7a2a5e773d740eb3f40e36840ce7d45bef5f5874beb69885e43d8cd603d6b",
       "crop": [
-        615,
-        535,
-        450,
-        501
+        555,
+        544,
+        407,
+        512
       ],
-      "uniformScale": 1.16,
+      "uniformScale": 1.0389610389610389,
+      "uniformSetScale": 1.0389610389610389,
       "runtime": "assets/battle-v2/runtime/family-1-defense.webp",
-      "sha256": "62ea6398715d8d7dece10ed8a573b3784b3025e4018e14e1d2f33c7943189de0",
-      "bytes": 58006,
+      "sha256": "c06226101c00584344cdb139ab8113290dab8b3d769bd5aa09341ea29861c173",
+      "bytes": 54330,
       "registration": {
         "url": "/assets/battle-v2/runtime/family-1-defense.webp",
-        "width": 522,
-        "height": 581,
+        "width": 423,
+        "height": 532,
         "pivot": [
-          278.4,
-          553.32
+          211.5,
+          521.36
         ],
         "torso": [
           [
-            157.76,
-            156.6
+            148.05,
+            122.36
           ],
           [
-            269.12,
-            151.96
+            249.57,
+            127.68
           ],
           [
-            216.92,
-            299.28
+            241.11,
+            271.32
           ],
           [
-            119.48,
-            241.28
+            126.9,
+            228.76
           ]
         ],
         "shoulder": [
-          168.2,
-          167.04
+          156.51,
+          127.68
         ],
         "eye": [
-          336.4,
-          131.08
+          300.33,
+          63.84
         ],
-        "eyeRadius": 27.839999999999996,
+        "eyes": [
+          [
+            300.33,
+            63.84
+          ]
+        ],
+        "eyeRadius": 16.92,
         "facing": "right"
-      }
+      },
+      "cleanup": "Actual complete figure component at 2% alpha, expanded one pixel; preserve original alpha and exclude neighboring poses",
+      "figureComponent": "74"
     },
     {
       "id": "family-1.defeat",
-      "source": "assets/battle-v2/source/family-1-poses.png",
-      "sourceSha256": "de0303275e27e6395743c329407d0f7bc86002296c13d1f5ba966bdf13bffca9",
+      "source": "assets/battle-v2/source/family-refinement/family-1-poses.png",
+      "sourceSha256": "7ae7a2a5e773d740eb3f40e36840ce7d45bef5f5874beb69885e43d8cd603d6b",
       "crop": [
-        10,
-        1110,
-        685,
-        310
+        18,
+        1173,
+        497,
+        303
       ],
-      "uniformScale": 1.1,
+      "uniformScale": 1.0389610389610389,
+      "uniformSetScale": 1.0389610389610389,
       "runtime": "assets/battle-v2/runtime/family-1-defeat.webp",
-      "sha256": "038344ad3c1b9826d9894025c8a4a7bf4569461f0da34e43da076fa0a6c574fd",
-      "bytes": 52934,
+      "sha256": "8ee401e6ea663763d9d8bc40cf0861c4a054e784261e95cffc3b15e8bd9dac15",
+      "bytes": 40682,
       "registration": {
         "url": "/assets/battle-v2/runtime/family-1-defeat.webp",
-        "width": 754,
-        "height": 341,
+        "width": 516,
+        "height": 315,
         "pivot": [
-          368.5,
-          305.8
+          283.8,
+          299.25
         ],
         "torso": [
           [
-            202.4,
-            91.3
+            263.16,
+            63.0
           ],
           [
-            305.8,
-            116.6
+            371.52,
+            75.6
           ],
           [
-            286.0,
-            191.4
+            361.2,
+            189.0
           ],
           [
-            138.6,
-            189.2
+            221.88,
+            185.85
           ]
         ],
         "shoulder": [
-          220.0,
-          100.1
+          288.96,
+          97.65
         ],
         "eye": [
-          159.5,
-          169.4
+          443.76,
+          119.7
         ],
-        "eyeRadius": 26.400000000000002,
+        "eyes": [
+          [
+            443.76,
+            119.7
+          ]
+        ],
+        "eyeRadius": 12.6,
         "facing": "right"
-      }
+      },
+      "cleanup": "Actual complete figure component at 2% alpha, expanded one pixel; preserve original alpha and exclude neighboring poses",
+      "figureComponent": "179"
+    },
+    {
+      "id": "family-1.bite",
+      "source": "assets/battle-v2/source/family-refinement/family-1-poses.png",
+      "sourceSha256": "7ae7a2a5e773d740eb3f40e36840ce7d45bef5f5874beb69885e43d8cd603d6b",
+      "crop": [
+        528,
+        1030,
+        478,
+        456
+      ],
+      "uniformScale": 1.0389610389610389,
+      "uniformSetScale": 1.0389610389610389,
+      "runtime": "assets/battle-v2/runtime/family-1-bite.webp",
+      "sha256": "145614b31dee5fe5f938e4e9d47f684415017065259d2f1500fc47a6cacca87c",
+      "bytes": 61454,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/family-1-bite.webp",
+        "width": 497,
+        "height": 474,
+        "pivot": [
+          273.35,
+          464.52
+        ],
+        "torso": [
+          [
+            328.02,
+            90.06
+          ],
+          [
+            387.66,
+            151.68
+          ],
+          [
+            263.41,
+            251.22
+          ],
+          [
+            218.68,
+            208.56
+          ]
+        ],
+        "shoulder": [
+          303.17,
+          104.28
+        ],
+        "eye": [
+          447.3,
+          45.03
+        ],
+        "eyes": [
+          [
+            447.3,
+            45.03
+          ]
+        ],
+        "eyeRadius": 18.96,
+        "facing": "right"
+      },
+      "cleanup": "Actual complete figure component at 2% alpha, expanded one pixel; preserve original alpha and exclude neighboring poses",
+      "figureComponent": "158"
     },
     {
       "id": "iron-widow.idle",
@@ -599,5 +653,11 @@
       "origin": "Reused approved generated Existential Organ; exact original prompt/tool in assets/provenance.json",
       "registration": "Pose-specific shoulder anchors in art.json; uniform size, pupil animation on associated growth"
     }
-  ]
+  ],
+  "familyRefinement": {
+    "script": "scripts/battle_v2_family_art.py",
+    "scriptSha256": "c0d641627dcbfde60952c0bfe4503cf57451cd2c76d4cfe6e4e3ea0bb30c0765",
+    "registration": "assets/battle-v2/family-refinement-registration.json",
+    "registrationSha256": "09e73b859d7b26da2a47be1751afd376f38213513328d3d8cd51dc47ee4de6fb"
+  }
 }

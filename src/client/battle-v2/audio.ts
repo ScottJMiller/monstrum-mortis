@@ -13,7 +13,7 @@ export class SampleAudio {
    this.context??=new AudioContext();await this.context.resume();
    if(!this.master){this.master=this.context.createGain();this.limiter=this.context.createDynamicsCompressor();this.limiter.threshold.value=-6;this.limiter.knee.value=3;this.limiter.ratio.value=16;this.limiter.attack.value=.003;this.limiter.release.value=.10;this.limiter.connect(this.master);this.master.connect(this.context.destination);this.capture=this.context.createMediaStreamDestination();this.master.connect(this.capture);}
    this.apply();
-   const names=['strike','slash','bite','corrosion','retaliation','miss','guard','recoil','defeat','result','injection','integration','unleash','ambient'];
+   const names=Object.keys(sounds);
    await Promise.all(names.map(async name=>{if(this.buffers.has(name))return;const response=await fetch(sounds[name as keyof typeof sounds]);if(!response.ok)throw new Error('Sound asset unavailable');const buffer=await this.context!.decodeAudioData(await response.arrayBuffer());if(generation===this.generation)this.buffers.set(name,buffer);}));
    if(generation!==this.generation)return;
    if(!this.ambient){this.ambient=this.context.createBufferSource();this.ambient.buffer=this.buffers.get('ambient')!;this.ambient.loop=true;this.ambienceGain=this.context.createGain();this.ambienceGain.gain.value=.18;this.ambient.connect(this.ambienceGain);this.ambienceGain.connect(this.limiter??this.master);this.ambient.start();}

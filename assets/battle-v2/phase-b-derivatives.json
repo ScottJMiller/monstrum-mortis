@@ -1,0 +1,4903 @@
+{
+  "tool": "ImageMagick offline crops; uniform scale per new set, WebP82/84; pose-local registration and graft alpha cleanup",
+  "script": "scripts/prepare-battle-v2-phase-b-art.py",
+  "scriptSha256": "d51e52694ee4a5b65a1441f8f9ca127b43fbd14425a92a91b8eb26d78a1fc442",
+  "registrationSource": "assets/battle-v2/phase-b-registration.json",
+  "registrationSha256": "e27a95b5f567bae0ea52aff22599fda039ec8bb7db39efde4aa90176f0b06efb",
+  "records": [
+    {
+      "id": "family-2.idle",
+      "source": "assets/battle-v2/source/phase-b/family-2-poses.png",
+      "sourceSha256": "a0c01a404fbd28b505111183657cf5dc14c12e98c1b19f17c493e388d5469a11",
+      "crop": [
+        33,
+        46,
+        475,
+        414
+      ],
+      "uniformSetScale": 1.1059907834101383,
+      "runtime": "assets/battle-v2/runtime/phase-b/family-2-idle.webp",
+      "sha256": "4efbb1ea9e9727bacc79508f728ad696864e114edca009391e67016bd5c93f63",
+      "bytes": 74532,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/family-2-idle.webp",
+        "width": 525,
+        "height": 458,
+        "pivot": [
+          262.5,
+          448.84
+        ],
+        "torso": [
+          [
+            105.0,
+            68.7
+          ],
+          [
+            341.25,
+            68.7
+          ],
+          [
+            341.25,
+            283.96
+          ],
+          [
+            105.0,
+            283.96
+          ]
+        ],
+        "shoulder": [
+          204.75,
+          123.66
+        ],
+        "eye": [
+          357.0,
+          116.79
+        ],
+        "eyeRadius": 45.800000000000004,
+        "facing": "right",
+        "limb": [
+          [
+            414.75,
+            302.28
+          ],
+          [
+            451.5,
+            297.7
+          ],
+          [
+            525,
+            320.6
+          ],
+          [
+            525,
+            458
+          ],
+          [
+            430.5,
+            458
+          ],
+          [
+            462.0,
+            361.82
+          ]
+        ],
+        "jaw": [
+          [
+            383.25,
+            151.14
+          ],
+          [
+            441.0,
+            151.14
+          ],
+          [
+            441.0,
+            185.49
+          ],
+          [
+            383.25,
+            185.49
+          ]
+        ],
+        "eyes": [
+          [
+            357.0,
+            116.79
+          ]
+        ]
+      }
+    },
+    {
+      "id": "family-2.attack",
+      "source": "assets/battle-v2/source/phase-b/family-2-poses.png",
+      "sourceSha256": "a0c01a404fbd28b505111183657cf5dc14c12e98c1b19f17c493e388d5469a11",
+      "crop": [
+        534,
+        110,
+        538,
+        345
+      ],
+      "uniformSetScale": 1.1059907834101383,
+      "runtime": "assets/battle-v2/runtime/phase-b/family-2-attack.webp",
+      "sha256": "594e598a1cd5fd39f728103ca3986af6d429db7fd1f616e3f0e0fd747ffd617a",
+      "bytes": 68730,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/family-2-attack.webp",
+        "width": 595,
+        "height": 382,
+        "pivot": [
+          297.5,
+          374.36
+        ],
+        "torso": [
+          [
+            59.5,
+            64.94
+          ],
+          [
+            297.5,
+            64.94
+          ],
+          [
+            297.5,
+            259.76
+          ],
+          [
+            59.5,
+            259.76
+          ]
+        ],
+        "shoulder": [
+          148.75,
+          103.14
+        ],
+        "eye": [
+          368.9,
+          133.7
+        ],
+        "eyeRadius": 38.2,
+        "facing": "right",
+        "limb": [
+          [
+            404.6,
+            179.54
+          ],
+          [
+            404.6,
+            240.66
+          ],
+          [
+            595,
+            240.66
+          ],
+          [
+            595,
+            0
+          ],
+          [
+            499.8,
+            0
+          ],
+          [
+            499.8,
+            148.98
+          ]
+        ],
+        "jaw": [
+          [
+            380.8,
+            152.8
+          ],
+          [
+            452.2,
+            152.8
+          ],
+          [
+            452.2,
+            183.36
+          ],
+          [
+            380.8,
+            183.36
+          ]
+        ],
+        "eyes": [
+          [
+            368.9,
+            133.7
+          ]
+        ]
+      }
+    },
+    {
+      "id": "family-2.recoil",
+      "source": "assets/battle-v2/source/phase-b/family-2-poses.png",
+      "sourceSha256": "a0c01a404fbd28b505111183657cf5dc14c12e98c1b19f17c493e388d5469a11",
+      "crop": [
+        32,
+        501,
+        475,
+        465
+      ],
+      "uniformSetScale": 1.1059907834101383,
+      "runtime": "assets/battle-v2/runtime/phase-b/family-2-recoil.webp",
+      "sha256": "a014265563cf42d100fa93852387573e95eb03b8eeb69a60b522a59f0d45742b",
+      "bytes": 79692,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/family-2-recoil.webp",
+        "width": 525,
+        "height": 514,
+        "pivot": [
+          262.5,
+          503.72
+        ],
+        "torso": [
+          [
+            136.5,
+            92.52
+          ],
+          [
+            346.5,
+            92.52
+          ],
+          [
+            346.5,
+            318.68
+          ],
+          [
+            136.5,
+            318.68
+          ]
+        ],
+        "shoulder": [
+          204.75,
+          154.2
+        ],
+        "eye": [
+          225.75,
+          133.64
+        ],
+        "eyeRadius": 51.400000000000006,
+        "facing": "right",
+        "limb": [
+          [
+            409.5,
+            370.08
+          ],
+          [
+            446.25,
+            334.1
+          ],
+          [
+            525,
+            349.52
+          ],
+          [
+            525,
+            514
+          ],
+          [
+            409.5,
+            514
+          ],
+          [
+            456.75,
+            431.76
+          ]
+        ],
+        "jaw": [
+          [
+            246.75,
+            164.48
+          ],
+          [
+            294.0,
+            164.48
+          ],
+          [
+            294.0,
+            205.6
+          ],
+          [
+            246.75,
+            205.6
+          ]
+        ],
+        "eyes": [
+          [
+            225.75,
+            133.64
+          ]
+        ]
+      }
+    },
+    {
+      "id": "family-2.defense",
+      "source": "assets/battle-v2/source/phase-b/family-2-poses.png",
+      "sourceSha256": "a0c01a404fbd28b505111183657cf5dc14c12e98c1b19f17c493e388d5469a11",
+      "crop": [
+        586,
+        557,
+        458,
+        398
+      ],
+      "uniformSetScale": 1.1059907834101383,
+      "runtime": "assets/battle-v2/runtime/phase-b/family-2-defense.webp",
+      "sha256": "b47c5ad6919c55527b3dd9252ab5e7c9f2fc5d408c23509c13758fbc86571668",
+      "bytes": 68682,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/family-2-defense.webp",
+        "width": 507,
+        "height": 440,
+        "pivot": [
+          253.5,
+          431.2
+        ],
+        "torso": [
+          [
+            141.96,
+            88.0
+          ],
+          [
+            370.11,
+            88.0
+          ],
+          [
+            370.11,
+            286.0
+          ],
+          [
+            141.96,
+            286.0
+          ]
+        ],
+        "shoulder": [
+          218.01,
+          145.2
+        ],
+        "eye": [
+          321.945,
+          132.0
+        ],
+        "eyeRadius": 44.0,
+        "facing": "right",
+        "limb": [
+          [
+            400.53,
+            299.2
+          ],
+          [
+            441.09,
+            294.8
+          ],
+          [
+            507,
+            338.8
+          ],
+          [
+            507,
+            440
+          ],
+          [
+            420.81,
+            440
+          ],
+          [
+            441.09,
+            360.8
+          ]
+        ],
+        "jaw": [
+          [
+            324.48,
+            158.4
+          ],
+          [
+            380.25,
+            158.4
+          ],
+          [
+            380.25,
+            193.6
+          ],
+          [
+            324.48,
+            193.6
+          ]
+        ],
+        "eyes": [
+          [
+            321.945,
+            132.0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "family-2.defeat",
+      "source": "assets/battle-v2/source/phase-b/family-2-poses.png",
+      "sourceSha256": "a0c01a404fbd28b505111183657cf5dc14c12e98c1b19f17c493e388d5469a11",
+      "crop": [
+        25,
+        1089,
+        651,
+        313
+      ],
+      "uniformSetScale": 1.1059907834101383,
+      "runtime": "assets/battle-v2/runtime/phase-b/family-2-defeat.webp",
+      "sha256": "88557fd444aa26b65e7c807371019b1a891d15e1a2b851f159ce6b287d9362e1",
+      "bytes": 67164,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/family-2-defeat.webp",
+        "width": 720,
+        "height": 346,
+        "pivot": [
+          360.0,
+          339.08
+        ],
+        "torso": [
+          [
+            180.0,
+            51.9
+          ],
+          [
+            475.2,
+            51.9
+          ],
+          [
+            475.2,
+            259.5
+          ],
+          [
+            180.0,
+            259.5
+          ]
+        ],
+        "shoulder": [
+          345.6,
+          128.02
+        ],
+        "eye": [
+          446.4,
+          134.94
+        ],
+        "eyeRadius": 34.6,
+        "facing": "right",
+        "limb": [
+          [
+            583.2,
+            190.3
+          ],
+          [
+            590.4,
+            269.88
+          ],
+          [
+            720,
+            328.7
+          ],
+          [
+            720,
+            190.3
+          ]
+        ],
+        "jaw": [
+          [
+            460.8,
+            162.62
+          ],
+          [
+            532.8,
+            162.62
+          ],
+          [
+            532.8,
+            190.3
+          ],
+          [
+            460.8,
+            190.3
+          ]
+        ],
+        "eyes": [
+          [
+            446.4,
+            134.94
+          ]
+        ]
+      }
+    },
+    {
+      "id": "family-3.idle",
+      "source": "assets/battle-v2/source/family-refinement/family-3-poses.png",
+      "sourceSha256": "6967556b79664ee493da5a362124a7917d165e054cc47e61d9c7f302efe55a7d",
+      "crop": [
+        90,
+        15,
+        490,
+        479
+      ],
+      "uniformScale": 1.1691022964509394,
+      "uniformSetScale": 1.1691022964509394,
+      "runtime": "assets/battle-v2/runtime/phase-b/family-3-idle.webp",
+      "sha256": "a0bcc0410bd5f7eee705221ff1d4ab13c9e85c91dc5eca054115be5dfb1b797e",
+      "bytes": 83180,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/family-3-idle.webp",
+        "width": 573,
+        "height": 560,
+        "pivot": [
+          303.69,
+          548.8
+        ],
+        "torso": [
+          [
+            154.71,
+            274.4
+          ],
+          [
+            297.96,
+            263.2
+          ],
+          [
+            320.88,
+            420.0
+          ],
+          [
+            131.79,
+            408.8
+          ]
+        ],
+        "shoulder": [
+          280.77,
+          285.6
+        ],
+        "eye": [
+          435.48,
+          196.0
+        ],
+        "eyes": [
+          [
+            435.48,
+            196.0
+          ],
+          [
+            507.105,
+            207.2
+          ]
+        ],
+        "eyeRadius": 17.92,
+        "facing": "right"
+      },
+      "cleanup": "Actual complete figure component at 2% alpha, expanded one pixel; preserve original alpha and exclude neighboring poses",
+      "figureComponent": "1"
+    },
+    {
+      "id": "family-3.attack",
+      "source": "assets/battle-v2/source/family-refinement/family-3-poses.png",
+      "sourceSha256": "6967556b79664ee493da5a362124a7917d165e054cc47e61d9c7f302efe55a7d",
+      "crop": [
+        544,
+        72,
+        515,
+        440
+      ],
+      "uniformScale": 1.1691022964509394,
+      "uniformSetScale": 1.1691022964509394,
+      "runtime": "assets/battle-v2/runtime/phase-b/family-3-attack.webp",
+      "sha256": "b44c13be796fdeb979a8da0f3a3b3f264b4462eca569a7b281dc52e08258ce70",
+      "bytes": 80006,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/family-3-attack.webp",
+        "width": 602,
+        "height": 514,
+        "pivot": [
+          294.98,
+          498.58
+        ],
+        "torso": [
+          [
+            168.56,
+            246.72
+          ],
+          [
+            319.06,
+            251.86
+          ],
+          [
+            361.2,
+            370.08
+          ],
+          [
+            150.5,
+            359.8
+          ]
+        ],
+        "shoulder": [
+          313.04,
+          277.56
+        ],
+        "eye": [
+          445.48,
+          231.3
+        ],
+        "eyes": [
+          [
+            445.48,
+            231.3
+          ],
+          [
+            526.75,
+            251.86
+          ]
+        ],
+        "eyeRadius": 15.934,
+        "facing": "right"
+      },
+      "cleanup": "Actual complete figure component at 2% alpha, expanded one pixel; preserve original alpha and exclude neighboring poses",
+      "figureComponent": "12"
+    },
+    {
+      "id": "family-3.recoil",
+      "source": "assets/battle-v2/source/family-refinement/family-3-poses.png",
+      "sourceSha256": "6967556b79664ee493da5a362124a7917d165e054cc47e61d9c7f302efe55a7d",
+      "crop": [
+        23,
+        526,
+        527,
+        482
+      ],
+      "uniformScale": 1.1691022964509394,
+      "uniformSetScale": 1.1691022964509394,
+      "runtime": "assets/battle-v2/runtime/phase-b/family-3-recoil.webp",
+      "sha256": "cce25fad847ba2306a5b9e75671115547948ca1ccf6efee015a063d4921fd57c",
+      "bytes": 82738,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/family-3-recoil.webp",
+        "width": 616,
+        "height": 564,
+        "pivot": [
+          344.96,
+          541.44
+        ],
+        "torso": [
+          [
+            135.52,
+            197.4
+          ],
+          [
+            289.52,
+            287.64
+          ],
+          [
+            258.72,
+            439.92
+          ],
+          [
+            110.88,
+            355.32
+          ]
+        ],
+        "shoulder": [
+          234.08,
+          242.52
+        ],
+        "eye": [
+          221.76,
+          129.72
+        ],
+        "eyes": [
+          [
+            221.76,
+            129.72
+          ],
+          [
+            295.68,
+            112.8
+          ]
+        ],
+        "eyeRadius": 18.048000000000002,
+        "facing": "right"
+      },
+      "cleanup": "Actual complete figure component at 2% alpha, expanded one pixel; preserve original alpha and exclude neighboring poses",
+      "figureComponent": "75"
+    },
+    {
+      "id": "family-3.defense",
+      "source": "assets/battle-v2/source/family-refinement/family-3-poses.png",
+      "sourceSha256": "6967556b79664ee493da5a362124a7917d165e054cc47e61d9c7f302efe55a7d",
+      "crop": [
+        597,
+        608,
+        479,
+        405
+      ],
+      "uniformScale": 1.1691022964509394,
+      "uniformSetScale": 1.1691022964509394,
+      "runtime": "assets/battle-v2/runtime/phase-b/family-3-defense.webp",
+      "sha256": "b92bff476ed2dec5b73d9e3030527f768bf26334cd93ede5895fb2b15a1b35ec",
+      "bytes": 67966,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/family-3-defense.webp",
+        "width": 560,
+        "height": 473,
+        "pivot": [
+          280.0,
+          463.54
+        ],
+        "torso": [
+          [
+            106.4,
+            208.12
+          ],
+          [
+            257.6,
+            189.2
+          ],
+          [
+            308.0,
+            354.75
+          ],
+          [
+            72.8,
+            368.94
+          ]
+        ],
+        "shoulder": [
+          240.8,
+          264.88
+        ],
+        "eye": [
+          355.6,
+          250.69
+        ],
+        "eyes": [
+          [
+            355.6,
+            250.69
+          ]
+        ],
+        "eyeRadius": 15.609,
+        "facing": "right"
+      },
+      "cleanup": "Actual complete figure component at 2% alpha, expanded one pixel; preserve original alpha and exclude neighboring poses",
+      "figureComponent": "79"
+    },
+    {
+      "id": "family-3.defeat",
+      "source": "assets/battle-v2/source/family-refinement/family-3-poses.png",
+      "sourceSha256": "6967556b79664ee493da5a362124a7917d165e054cc47e61d9c7f302efe55a7d",
+      "crop": [
+        32,
+        1125,
+        601,
+        261
+      ],
+      "uniformScale": 1.1691022964509394,
+      "uniformSetScale": 1.1691022964509394,
+      "runtime": "assets/battle-v2/runtime/phase-b/family-3-defeat.webp",
+      "sha256": "f4f4c3b19f4507c7d0a967604fc396d04e56eece18b2391bfb5754496ee565c9",
+      "bytes": 61300,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/family-3-defeat.webp",
+        "width": 703,
+        "height": 305,
+        "pivot": [
+          344.47,
+          292.8
+        ],
+        "torso": [
+          [
+            147.63,
+            94.55
+          ],
+          [
+            337.44,
+            70.15
+          ],
+          [
+            421.8,
+            198.25
+          ],
+          [
+            133.57,
+            201.3
+          ]
+        ],
+        "shoulder": [
+          414.77,
+          131.15
+        ],
+        "eye": [
+          569.43,
+          219.6
+        ],
+        "eyes": [
+          [
+            541.31,
+            207.4
+          ],
+          [
+            601.065,
+            240.95
+          ]
+        ],
+        "eyeRadius": 6.1000000000000005,
+        "facing": "right"
+      },
+      "cleanup": "Actual complete figure component at 2% alpha, expanded one pixel; preserve original alpha and exclude neighboring poses",
+      "figureComponent": "138"
+    },
+    {
+      "id": "family-4.idle",
+      "source": "assets/battle-v2/source/phase-b/family-4-poses.png",
+      "sourceSha256": "25229639f67cabe97f92f945d45508182dce7206a2d26286fb1aa5aec382a62c",
+      "crop": [
+        44,
+        7,
+        446,
+        463
+      ],
+      "uniformSetScale": 1.1594202898550725,
+      "runtime": "assets/battle-v2/runtime/phase-b/family-4-idle.webp",
+      "sha256": "b45dc23d754548bc18ac63150b3a088a71ba6ea0b862d18b24747df56cdf1871",
+      "bytes": 67334,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/family-4-idle.webp",
+        "width": 517,
+        "height": 537,
+        "pivot": [
+          258.5,
+          526.26
+        ],
+        "torso": [
+          [
+            129.25,
+            214.8
+          ],
+          [
+            403.26,
+            214.8
+          ],
+          [
+            403.26,
+            472.56
+          ],
+          [
+            129.25,
+            472.56
+          ]
+        ],
+        "shoulder": [
+          175.78,
+          230.91
+        ],
+        "eye": [
+          341.22,
+          158.415
+        ],
+        "eyeRadius": 33.605000000000004,
+        "facing": "right",
+        "limb": [
+          [
+            434.28,
+            268.5
+          ],
+          [
+            517,
+            268.5
+          ],
+          [
+            517,
+            424.23
+          ],
+          [
+            470.47,
+            402.75
+          ],
+          [
+            454.96,
+            362.475
+          ]
+        ],
+        "jaw": [
+          [
+            338.635,
+            187.95
+          ],
+          [
+            408.43,
+            187.95
+          ],
+          [
+            408.43,
+            217.485
+          ],
+          [
+            338.635,
+            217.485
+          ]
+        ],
+        "eyes": [
+          [
+            341.22,
+            158.415
+          ]
+        ]
+      }
+    },
+    {
+      "id": "family-4.attack",
+      "source": "assets/battle-v2/source/phase-b/family-4-poses.png",
+      "sourceSha256": "25229639f67cabe97f92f945d45508182dce7206a2d26286fb1aa5aec382a62c",
+      "crop": [
+        546,
+        32,
+        533,
+        436
+      ],
+      "uniformSetScale": 1.1594202898550725,
+      "runtime": "assets/battle-v2/runtime/phase-b/family-4-attack.webp",
+      "sha256": "7f996baeaf6d9bb2f966dded2cfe8ea021d2104d821c6cb295b42bd58e03577f",
+      "bytes": 81734,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/family-4-attack.webp",
+        "width": 618,
+        "height": 506,
+        "pivot": [
+          309.0,
+          495.88
+        ],
+        "torso": [
+          [
+            148.32,
+            202.4
+          ],
+          [
+            444.96,
+            202.4
+          ],
+          [
+            444.96,
+            425.04
+          ],
+          [
+            148.32,
+            425.04
+          ]
+        ],
+        "shoulder": [
+          191.58,
+          212.52
+        ],
+        "eye": [
+          429.51,
+          215.05
+        ],
+        "eyeRadius": 32.89,
+        "facing": "right",
+        "limb": [
+          [
+            475.86,
+            237.82
+          ],
+          [
+            494.4,
+            364.32
+          ],
+          [
+            618,
+            364.32
+          ],
+          [
+            618,
+            192.28
+          ],
+          [
+            537.66,
+            202.4
+          ]
+        ],
+        "jaw": [
+          [
+            426.42,
+            237.82
+          ],
+          [
+            519.12,
+            237.82
+          ],
+          [
+            519.12,
+            273.24
+          ],
+          [
+            426.42,
+            273.24
+          ]
+        ],
+        "bodyGuard": [
+          [
+            142.14,
+            126.5
+          ],
+          [
+            352.26,
+            91.08
+          ],
+          [
+            537.66,
+            91.08
+          ],
+          [
+            611.82,
+            263.12
+          ],
+          [
+            519.12,
+            283.36
+          ],
+          [
+            494.4,
+            339.02
+          ],
+          [
+            463.5,
+            430.1
+          ],
+          [
+            247.2,
+            470.58
+          ],
+          [
+            74.16,
+            374.44
+          ],
+          [
+            98.88,
+            202.4
+          ]
+        ],
+        "eyes": [
+          [
+            429.51,
+            215.05
+          ]
+        ]
+      }
+    },
+    {
+      "id": "family-4.recoil",
+      "source": "assets/battle-v2/source/phase-b/family-4-poses.png",
+      "sourceSha256": "25229639f67cabe97f92f945d45508182dce7206a2d26286fb1aa5aec382a62c",
+      "crop": [
+        38,
+        481,
+        490,
+        473
+      ],
+      "uniformSetScale": 1.1594202898550725,
+      "runtime": "assets/battle-v2/runtime/phase-b/family-4-recoil.webp",
+      "sha256": "7c038def587ad43be2dc0b52d23fa2bddb1824dfab6d75a6e7772ea974b8b681",
+      "bytes": 83998,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/family-4-recoil.webp",
+        "width": 568,
+        "height": 548,
+        "pivot": [
+          284.0,
+          537.04
+        ],
+        "torso": [
+          [
+            153.36,
+            186.32
+          ],
+          [
+            403.28,
+            186.32
+          ],
+          [
+            403.28,
+            416.48
+          ],
+          [
+            153.36,
+            416.48
+          ]
+        ],
+        "shoulder": [
+          215.84,
+          219.2
+        ],
+        "eye": [
+          278.32,
+          126.04
+        ],
+        "eyeRadius": 35.620000000000005,
+        "facing": "right",
+        "limb": [
+          [
+            374.88,
+            158.92
+          ],
+          [
+            391.92,
+            202.76
+          ],
+          [
+            494.16,
+            202.76
+          ],
+          [
+            494.16,
+            87.68
+          ],
+          [
+            397.6,
+            87.68
+          ]
+        ],
+        "jaw": [
+          [
+            278.32,
+            158.92
+          ],
+          [
+            346.48,
+            158.92
+          ],
+          [
+            346.48,
+            200.02
+          ],
+          [
+            278.32,
+            200.02
+          ]
+        ],
+        "bodyGuard": [
+          [
+            159.04,
+            175.36
+          ],
+          [
+            340.8,
+            164.4
+          ],
+          [
+            397.6,
+            164.4
+          ],
+          [
+            499.84,
+            219.2
+          ],
+          [
+            548.12,
+            454.84
+          ],
+          [
+            454.4,
+            520.6
+          ],
+          [
+            170.4,
+            537.04
+          ],
+          [
+            68.16,
+            411.0
+          ],
+          [
+            68.16,
+            246.6
+          ]
+        ],
+        "eyes": [
+          [
+            278.32,
+            126.04
+          ]
+        ]
+      }
+    },
+    {
+      "id": "family-4.defense",
+      "source": "assets/battle-v2/source/phase-b/family-4-poses.png",
+      "sourceSha256": "25229639f67cabe97f92f945d45508182dce7206a2d26286fb1aa5aec382a62c",
+      "crop": [
+        591,
+        536,
+        402,
+        415
+      ],
+      "uniformSetScale": 1.1594202898550725,
+      "runtime": "assets/battle-v2/runtime/phase-b/family-4-defense.webp",
+      "sha256": "6b7a9dc615733fc663b2392856a22d9d5b30eff012e780441a9f80521df2a218",
+      "bytes": 64020,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/family-4-defense.webp",
+        "width": 466,
+        "height": 481,
+        "pivot": [
+          233.0,
+          471.38
+        ],
+        "torso": [
+          [
+            139.8,
+            192.4
+          ],
+          [
+            358.82,
+            192.4
+          ],
+          [
+            358.82,
+            408.85
+          ],
+          [
+            139.8,
+            408.85
+          ]
+        ],
+        "shoulder": [
+          177.08,
+          206.83
+        ],
+        "eye": [
+          340.18,
+          175.565
+        ],
+        "eyeRadius": 30.290000000000003,
+        "facing": "right",
+        "limb": [
+          [
+            407.75,
+            247.715
+          ],
+          [
+            426.39,
+            245.31
+          ],
+          [
+            466,
+            334.295
+          ],
+          [
+            456.68,
+            372.775
+          ],
+          [
+            405.42,
+            334.295
+          ]
+        ],
+        "jaw": [
+          [
+            340.18,
+            206.83
+          ],
+          [
+            396.1,
+            206.83
+          ],
+          [
+            396.1,
+            240.5
+          ],
+          [
+            340.18,
+            240.5
+          ]
+        ],
+        "bodyGuard": [
+          [
+            172.42,
+            134.68
+          ],
+          [
+            326.2,
+            125.06
+          ],
+          [
+            400.76,
+            182.78
+          ],
+          [
+            431.05,
+            375.18
+          ],
+          [
+            354.16,
+            471.38
+          ],
+          [
+            116.5,
+            471.38
+          ],
+          [
+            44.27,
+            336.7
+          ],
+          [
+            69.9,
+            202.02
+          ]
+        ],
+        "eyes": [
+          [
+            340.18,
+            175.565
+          ]
+        ]
+      }
+    },
+    {
+      "id": "family-4.defeat",
+      "source": "assets/battle-v2/source/phase-b/family-4-poses.png",
+      "sourceSha256": "25229639f67cabe97f92f945d45508182dce7206a2d26286fb1aa5aec382a62c",
+      "crop": [
+        8,
+        1089,
+        621,
+        292
+      ],
+      "uniformSetScale": 1.1594202898550725,
+      "runtime": "assets/battle-v2/runtime/phase-b/family-4-defeat.webp",
+      "sha256": "56f0217453dd4f0ac247283654c061eedd4f3889079d19405e0655e10cdb4360",
+      "bytes": 64960,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/family-4-defeat.webp",
+        "width": 720,
+        "height": 339,
+        "pivot": [
+          360.0,
+          332.22
+        ],
+        "torso": [
+          [
+            158.4,
+            101.7
+          ],
+          [
+            518.4,
+            101.7
+          ],
+          [
+            518.4,
+            271.2
+          ],
+          [
+            158.4,
+            271.2
+          ]
+        ],
+        "shoulder": [
+          345.6,
+          155.94
+        ],
+        "eye": [
+          532.8,
+          237.3
+        ],
+        "eyeRadius": 22.035,
+        "facing": "right",
+        "limb": [
+          [
+            0,
+            216.96
+          ],
+          [
+            86.4,
+            200.01
+          ],
+          [
+            129.6,
+            271.2
+          ],
+          [
+            93.6,
+            318.66
+          ],
+          [
+            0,
+            318.66
+          ]
+        ],
+        "jaw": [
+          [
+            518.4,
+            267.81
+          ],
+          [
+            604.8,
+            267.81
+          ],
+          [
+            604.8,
+            288.15
+          ],
+          [
+            518.4,
+            288.15
+          ]
+        ],
+        "eyes": [
+          [
+            532.8,
+            237.3
+          ]
+        ]
+      }
+    },
+    {
+      "id": "family-5.idle",
+      "source": "assets/battle-v2/source/phase-b/family-5-poses.png",
+      "sourceSha256": "7d15cd2098805c5b85f8c28e74eca84822fdae6e407d8878eae99a78a01d8d5c",
+      "crop": [
+        63,
+        9,
+        343,
+        499
+      ],
+      "uniformSetScale": 1.1093990755007703,
+      "runtime": "assets/battle-v2/runtime/phase-b/family-5-idle.webp",
+      "sha256": "2c8858a5b7109a7af8a4359d86acf72be8399af81fef7d2b5831d26918f825fd",
+      "bytes": 78596,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/family-5-idle.webp",
+        "width": 381,
+        "height": 554,
+        "pivot": [
+          190.5,
+          542.92
+        ],
+        "torso": [
+          [
+            167.64,
+            110.8
+          ],
+          [
+            300.99,
+            110.8
+          ],
+          [
+            300.99,
+            249.3
+          ],
+          [
+            167.64,
+            249.3
+          ]
+        ],
+        "shoulder": [
+          182.88,
+          127.42
+        ],
+        "eye": [
+          320.04,
+          69.25
+        ],
+        "eyeRadius": 24.765,
+        "facing": "right",
+        "limb": [
+          [
+            300.99,
+            221.6
+          ],
+          [
+            320.04,
+            221.6
+          ],
+          [
+            365.76,
+            343.48
+          ],
+          [
+            327.66,
+            354.56
+          ]
+        ],
+        "jaw": [
+          [
+            318.135,
+            88.64
+          ],
+          [
+            356.235,
+            88.64
+          ],
+          [
+            356.235,
+            121.88
+          ],
+          [
+            318.135,
+            121.88
+          ]
+        ],
+        "eyes": [
+          [
+            320.04,
+            69.25
+          ]
+        ]
+      }
+    },
+    {
+      "id": "family-5.attack",
+      "source": "assets/battle-v2/source/phase-b/family-5-poses.png",
+      "sourceSha256": "7d15cd2098805c5b85f8c28e74eca84822fdae6e407d8878eae99a78a01d8d5c",
+      "crop": [
+        528,
+        36,
+        549,
+        468
+      ],
+      "uniformSetScale": 1.1093990755007703,
+      "runtime": "assets/battle-v2/runtime/phase-b/family-5-attack.webp",
+      "sha256": "2da66f6498c1781abcec06da14cc1017ff05b9ee487683a44a8b6163cf5718a9",
+      "bytes": 118414,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/family-5-attack.webp",
+        "width": 609,
+        "height": 519,
+        "pivot": [
+          304.5,
+          508.62
+        ],
+        "torso": [
+          [
+            243.6,
+            98.61
+          ],
+          [
+            414.12,
+            98.61
+          ],
+          [
+            414.12,
+            233.55
+          ],
+          [
+            243.6,
+            233.55
+          ]
+        ],
+        "shoulder": [
+          261.87,
+          114.18
+        ],
+        "eye": [
+          362.355,
+          54.495
+        ],
+        "eyeRadius": 33.735,
+        "facing": "right",
+        "limb": [
+          [
+            401.94,
+            114.18
+          ],
+          [
+            438.48,
+            114.18
+          ],
+          [
+            593.775,
+            103.8
+          ],
+          [
+            602.91,
+            171.27
+          ],
+          [
+            487.2,
+            153.105
+          ]
+        ],
+        "jaw": [
+          [
+            365.4,
+            72.66
+          ],
+          [
+            417.165,
+            72.66
+          ],
+          [
+            417.165,
+            103.8
+          ],
+          [
+            365.4,
+            103.8
+          ]
+        ],
+        "eyes": [
+          [
+            362.355,
+            54.495
+          ]
+        ]
+      }
+    },
+    {
+      "id": "family-5.recoil",
+      "source": "assets/battle-v2/source/phase-b/family-5-poses.png",
+      "sourceSha256": "7d15cd2098805c5b85f8c28e74eca84822fdae6e407d8878eae99a78a01d8d5c",
+      "crop": [
+        59,
+        526,
+        476,
+        470
+      ],
+      "uniformSetScale": 1.1093990755007703,
+      "runtime": "assets/battle-v2/runtime/phase-b/family-5-recoil.webp",
+      "sha256": "d9ffcba80e7f6f2cf2276014f4650808fd06142a6ed348d6974abba58f995ee1",
+      "bytes": 106516,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/family-5-recoil.webp",
+        "width": 528,
+        "height": 521,
+        "pivot": [
+          264.0,
+          510.58
+        ],
+        "torso": [
+          [
+            158.4,
+            109.41
+          ],
+          [
+            322.08,
+            109.41
+          ],
+          [
+            322.08,
+            255.29
+          ],
+          [
+            158.4,
+            255.29
+          ]
+        ],
+        "shoulder": [
+          179.52,
+          119.83
+        ],
+        "eye": [
+          126.72,
+          44.285
+        ],
+        "eyeRadius": 33.865,
+        "facing": "right",
+        "limb": [
+          [
+            253.44,
+            135.46
+          ],
+          [
+            274.56,
+            140.67
+          ],
+          [
+            343.2,
+            88.57
+          ],
+          [
+            351.12,
+            28.655
+          ],
+          [
+            316.8,
+            23.445
+          ],
+          [
+            290.4,
+            91.175
+          ]
+        ],
+        "jaw": [
+          [
+            137.28,
+            62.52
+          ],
+          [
+            184.8,
+            62.52
+          ],
+          [
+            184.8,
+            91.175
+          ],
+          [
+            137.28,
+            91.175
+          ]
+        ],
+        "eyes": [
+          [
+            126.72,
+            44.285
+          ]
+        ]
+      }
+    },
+    {
+      "id": "family-5.defense",
+      "source": "assets/battle-v2/source/phase-b/family-5-poses.png",
+      "sourceSha256": "7d15cd2098805c5b85f8c28e74eca84822fdae6e407d8878eae99a78a01d8d5c",
+      "crop": [
+        644,
+        536,
+        329,
+        459
+      ],
+      "uniformSetScale": 1.1093990755007703,
+      "runtime": "assets/battle-v2/runtime/phase-b/family-5-defense.webp",
+      "sha256": "8fa3b9c277946211ab3f2b6be9d84651cf6e032aa0a8a08de0f8b4fe34e472e5",
+      "bytes": 74308,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/family-5-defense.webp",
+        "width": 365,
+        "height": 509,
+        "pivot": [
+          182.5,
+          498.82
+        ],
+        "torso": [
+          [
+            156.95,
+            137.43
+          ],
+          [
+            244.55,
+            137.43
+          ],
+          [
+            244.55,
+            285.04
+          ],
+          [
+            156.95,
+            285.04
+          ]
+        ],
+        "shoulder": [
+          164.25,
+          157.79
+        ],
+        "eye": [
+          200.75,
+          81.44
+        ],
+        "eyeRadius": 23.725,
+        "facing": "right",
+        "limb": [
+          [
+            226.3,
+            101.8
+          ],
+          [
+            239.075,
+            119.615
+          ],
+          [
+            288.35,
+            173.06
+          ],
+          [
+            295.65,
+            206.145
+          ],
+          [
+            262.8,
+            203.6
+          ],
+          [
+            217.175,
+            147.61
+          ]
+        ],
+        "jaw": [
+          [
+            206.225,
+            104.345
+          ],
+          [
+            231.775,
+            104.345
+          ],
+          [
+            231.775,
+            129.795
+          ],
+          [
+            206.225,
+            129.795
+          ]
+        ],
+        "eyes": [
+          [
+            200.75,
+            81.44
+          ]
+        ]
+      }
+    },
+    {
+      "id": "family-5.defeat",
+      "source": "assets/battle-v2/source/phase-b/family-5-poses.png",
+      "sourceSha256": "7d15cd2098805c5b85f8c28e74eca84822fdae6e407d8878eae99a78a01d8d5c",
+      "crop": [
+        14,
+        1128,
+        649,
+        297
+      ],
+      "uniformSetScale": 1.1093990755007703,
+      "runtime": "assets/battle-v2/runtime/phase-b/family-5-defeat.webp",
+      "sha256": "1b30aac15b92f3dfbf560ec7ffdf1b613f21c1fa9b56a8387bad7e05e407f50c",
+      "bytes": 76234,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/family-5-defeat.webp",
+        "width": 720,
+        "height": 329,
+        "pivot": [
+          360.0,
+          322.42
+        ],
+        "torso": [
+          [
+            252.0,
+            72.38
+          ],
+          [
+            489.6,
+            72.38
+          ],
+          [
+            489.6,
+            203.98
+          ],
+          [
+            252.0,
+            203.98
+          ]
+        ],
+        "shoulder": [
+          345.6,
+          98.7
+        ],
+        "eye": [
+          626.4,
+          138.18
+        ],
+        "eyeRadius": 21.385,
+        "facing": "right",
+        "limb": [
+          [
+            331.2,
+            128.31
+          ],
+          [
+            360.0,
+            136.535
+          ],
+          [
+            439.2,
+            246.75
+          ],
+          [
+            392.4,
+            276.36
+          ],
+          [
+            316.8,
+            187.53
+          ]
+        ],
+        "jaw": [
+          [
+            619.2,
+            151.34
+          ],
+          [
+            676.8,
+            151.34
+          ],
+          [
+            676.8,
+            171.08
+          ],
+          [
+            619.2,
+            171.08
+          ]
+        ],
+        "eyes": [
+          [
+            626.4,
+            138.18
+          ]
+        ]
+      }
+    },
+    {
+      "id": "blob.idle",
+      "source": "assets/battle-v2/source/phase-b/blob-poses.png",
+      "sourceSha256": "90d0c24235179f986077157b55b5b356c2046760d0822c2976d3da07d1f96e09",
+      "crop": [
+        18,
+        62,
+        496,
+        450
+      ],
+      "uniformSetScale": 1.0434782608695652,
+      "runtime": "assets/battle-v2/runtime/phase-b/blob-idle.webp",
+      "sha256": "75d6c44647ad0e85e10f868282cef71529cb56ff67898bead7c07b5398f9ee71",
+      "bytes": 51352,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/blob-idle.webp",
+        "width": 518,
+        "height": 470,
+        "pivot": [
+          259.0,
+          460.6
+        ],
+        "torso": [
+          [
+            129.5,
+            159.8
+          ],
+          [
+            398.86,
+            159.8
+          ],
+          [
+            398.86,
+            385.4
+          ],
+          [
+            129.5,
+            385.4
+          ]
+        ],
+        "shoulder": [
+          160.58,
+          164.5
+        ],
+        "eye": [
+          367.78,
+          79.9
+        ],
+        "eyeRadius": 47.0,
+        "facing": "right",
+        "limb": [],
+        "jaw": [
+          [
+            253.82,
+            141.0
+          ],
+          [
+            440.3,
+            141.0
+          ],
+          [
+            440.3,
+            183.3
+          ],
+          [
+            253.82,
+            183.3
+          ]
+        ],
+        "eyes": [
+          [
+            271.95,
+            65.8
+          ],
+          [
+            367.78,
+            79.9
+          ]
+        ]
+      }
+    },
+    {
+      "id": "blob.attack",
+      "source": "assets/battle-v2/source/phase-b/blob-poses.png",
+      "sourceSha256": "90d0c24235179f986077157b55b5b356c2046760d0822c2976d3da07d1f96e09",
+      "crop": [
+        534,
+        160,
+        550,
+        338
+      ],
+      "uniformSetScale": 1.0434782608695652,
+      "runtime": "assets/battle-v2/runtime/phase-b/blob-attack.webp",
+      "sha256": "104aa43518f1cbf76f118e0ef2cdbce6711bd9177421f446b227f9b97cb697ff",
+      "bytes": 47430,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/blob-attack.webp",
+        "width": 574,
+        "height": 353,
+        "pivot": [
+          287.0,
+          345.94
+        ],
+        "torso": [
+          [
+            154.98,
+            151.79
+          ],
+          [
+            430.5,
+            151.79
+          ],
+          [
+            430.5,
+            285.93
+          ],
+          [
+            154.98,
+            285.93
+          ]
+        ],
+        "shoulder": [
+          206.64,
+          165.91
+        ],
+        "eye": [
+          459.2,
+          118.255
+        ],
+        "eyeRadius": 35.300000000000004,
+        "facing": "right",
+        "limb": [],
+        "jaw": [
+          [
+            384.58,
+            139.435
+          ],
+          [
+            519.47,
+            139.435
+          ],
+          [
+            519.47,
+            201.21
+          ],
+          [
+            384.58,
+            201.21
+          ]
+        ],
+        "eyes": [
+          [
+            439.11,
+            118.255
+          ],
+          [
+            528.08,
+            95.31
+          ]
+        ]
+      }
+    },
+    {
+      "id": "blob.recoil",
+      "source": "assets/battle-v2/source/phase-b/blob-poses.png",
+      "sourceSha256": "90d0c24235179f986077157b55b5b356c2046760d0822c2976d3da07d1f96e09",
+      "crop": [
+        40,
+        524,
+        535,
+        484
+      ],
+      "uniformSetScale": 1.0434782608695652,
+      "runtime": "assets/battle-v2/runtime/phase-b/blob-recoil.webp",
+      "sha256": "e286972ac972f2731749af1fab0089d34ab637b09078df1797e34cb77f44fd41",
+      "bytes": 53130,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/blob-recoil.webp",
+        "width": 558,
+        "height": 505,
+        "pivot": [
+          279.0,
+          494.9
+        ],
+        "torso": [
+          [
+            184.14,
+            166.65
+          ],
+          [
+            451.98,
+            166.65
+          ],
+          [
+            451.98,
+            409.05
+          ],
+          [
+            184.14,
+            409.05
+          ]
+        ],
+        "shoulder": [
+          239.94,
+          196.95
+        ],
+        "eye": [
+          161.82,
+          63.125
+        ],
+        "eyeRadius": 50.5,
+        "facing": "right",
+        "limb": [],
+        "jaw": [
+          [
+            125.55,
+            196.95
+          ],
+          [
+            251.1,
+            196.95
+          ],
+          [
+            251.1,
+            277.75
+          ],
+          [
+            125.55,
+            277.75
+          ]
+        ],
+        "eyes": [
+          [
+            103.23,
+            116.15
+          ],
+          [
+            161.82,
+            63.125
+          ]
+        ]
+      }
+    },
+    {
+      "id": "blob.defense",
+      "source": "assets/battle-v2/source/phase-b/blob-poses.png",
+      "sourceSha256": "90d0c24235179f986077157b55b5b356c2046760d0822c2976d3da07d1f96e09",
+      "crop": [
+        582,
+        626,
+        472,
+        375
+      ],
+      "uniformSetScale": 1.0434782608695652,
+      "runtime": "assets/battle-v2/runtime/phase-b/blob-defense.webp",
+      "sha256": "de52c34285c5597a3873e42c29cac6ed964c0c024a4c490d9a6c0bf874302db9",
+      "bytes": 48774,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/blob-defense.webp",
+        "width": 493,
+        "height": 391,
+        "pivot": [
+          246.5,
+          383.18
+        ],
+        "torso": [
+          [
+            142.97,
+            156.4
+          ],
+          [
+            374.68,
+            156.4
+          ],
+          [
+            374.68,
+            344.08
+          ],
+          [
+            142.97,
+            344.08
+          ]
+        ],
+        "shoulder": [
+          182.41,
+          156.4
+        ],
+        "eye": [
+          320.45,
+          173.995
+        ],
+        "eyeRadius": 39.1,
+        "facing": "right",
+        "limb": [],
+        "jaw": [
+          [
+            359.89,
+            203.32
+          ],
+          [
+            463.42,
+            203.32
+          ],
+          [
+            463.42,
+            246.33
+          ],
+          [
+            359.89,
+            246.33
+          ]
+        ],
+        "eyes": [
+          [
+            320.45,
+            173.995
+          ],
+          [
+            423.98,
+            195.5
+          ]
+        ]
+      }
+    },
+    {
+      "id": "blob.defeat",
+      "source": "assets/battle-v2/source/phase-b/blob-poses.png",
+      "sourceSha256": "90d0c24235179f986077157b55b5b356c2046760d0822c2976d3da07d1f96e09",
+      "crop": [
+        27,
+        1089,
+        690,
+        314
+      ],
+      "uniformSetScale": 1.0434782608695652,
+      "runtime": "assets/battle-v2/runtime/phase-b/blob-defeat.webp",
+      "sha256": "54cd3066a02df7223af05cc7025d6d7c68297a70600a672eaccbaf1149069af2",
+      "bytes": 54100,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/blob-defeat.webp",
+        "width": 720,
+        "height": 328,
+        "pivot": [
+          360.0,
+          321.44
+        ],
+        "torso": [
+          [
+            144.0,
+            154.16
+          ],
+          [
+            532.8,
+            154.16
+          ],
+          [
+            532.8,
+            282.08
+          ],
+          [
+            144.0,
+            282.08
+          ]
+        ],
+        "shoulder": [
+          252.0,
+          167.28
+        ],
+        "eye": [
+          547.2,
+          177.12
+        ],
+        "eyeRadius": 32.800000000000004,
+        "facing": "right",
+        "limb": [],
+        "jaw": [
+          [
+            532.8,
+            249.28
+          ],
+          [
+            640.8,
+            249.28
+          ],
+          [
+            640.8,
+            282.08
+          ],
+          [
+            532.8,
+            282.08
+          ]
+        ],
+        "eyes": [
+          [
+            482.4,
+            160.72
+          ],
+          [
+            576.0,
+            183.68
+          ]
+        ]
+      }
+    },
+    {
+      "id": "gutter-seraph.idle",
+      "source": "assets/battle-v2/source/phase-b/gutter-seraph-poses.png",
+      "sourceSha256": "4fab9c2f0ad20efca3cdbce95898e4e90b738c40afbaa078ca0b5c1c93c2960f",
+      "crop": [
+        8,
+        24,
+        543,
+        542
+      ],
+      "uniformSetScale": 1.033210332103321,
+      "runtime": "assets/battle-v2/runtime/phase-b/gutter-seraph-idle.webp",
+      "sha256": "0d1db6d3f871fbed13cc01aac56d8e101fdcf10087729b94094671da4293ed53",
+      "bytes": 90348,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/gutter-seraph-idle.webp",
+        "width": 561,
+        "height": 560,
+        "pivot": [
+          267.069,
+          548.8
+        ],
+        "torso": [
+          [
+            181.938,
+            179.2
+          ],
+          [
+            309.635,
+            179.2
+          ],
+          [
+            309.635,
+            358.4
+          ],
+          [
+            181.938,
+            358.4
+          ]
+        ],
+        "shoulder": [
+          224.503,
+          212.8
+        ],
+        "eye": [
+          208.541,
+          64.4
+        ],
+        "eyeRadius": 34.586715867158674,
+        "facing": "left",
+        "limb": [
+          [
+            346.88,
+            291.2
+          ],
+          [
+            442.653,
+            296.8
+          ],
+          [
+            463.936,
+            520.8
+          ],
+          [
+            336.238,
+            504.0
+          ]
+        ],
+        "jaw": [
+          [
+            189.919,
+            84.0
+          ],
+          [
+            277.71,
+            84.0
+          ],
+          [
+            277.71,
+            148.4
+          ],
+          [
+            189.919,
+            148.4
+          ]
+        ],
+        "eyes": [
+          [
+            208.541,
+            64.4
+          ]
+        ]
+      },
+      "cleanup": "Whole-sheet 2% alpha figure component, expanded one pixel, multiplied into original alpha; neighboring pose fragments excluded",
+      "figureComponent": "7"
+    },
+    {
+      "id": "gutter-seraph.attack",
+      "source": "assets/battle-v2/source/phase-b/gutter-seraph-poses.png",
+      "sourceSha256": "4fab9c2f0ad20efca3cdbce95898e4e90b738c40afbaa078ca0b5c1c93c2960f",
+      "crop": [
+        496,
+        3,
+        590,
+        509
+      ],
+      "uniformSetScale": 1.033210332103321,
+      "runtime": "assets/battle-v2/runtime/phase-b/gutter-seraph-attack.webp",
+      "sha256": "7bfeda56bdcbb3fe9045164baa93353e0b9d831649063d3813eeb128e80a3eba",
+      "bytes": 82940,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/gutter-seraph-attack.webp",
+        "width": 610,
+        "height": 526,
+        "pivot": [
+          318.958,
+          514.467
+        ],
+        "torso": [
+          [
+            191.354,
+            209.987
+          ],
+          [
+            388.56,
+            209.987
+          ],
+          [
+            388.56,
+            341.228
+          ],
+          [
+            191.354,
+            341.228
+          ]
+        ],
+        "shoulder": [
+          278.356,
+          225.736
+        ],
+        "eye": [
+          213.955,
+          166.989
+        ],
+        "eyeRadius": 34.122829076620825,
+        "facing": "left",
+        "limb": [
+          [
+            405.96,
+            272.983
+          ],
+          [
+            510.363,
+            278.232
+          ],
+          [
+            533.564,
+            488.219
+          ],
+          [
+            394.36,
+            472.47
+          ]
+        ],
+        "jaw": [
+          [
+            176.853,
+            181.113
+          ],
+          [
+            272.556,
+            181.113
+          ],
+          [
+            272.556,
+            241.485
+          ],
+          [
+            176.853,
+            241.485
+          ]
+        ],
+        "eyes": [
+          [
+            213.955,
+            166.989
+          ]
+        ]
+      },
+      "cleanup": "Whole-sheet 2% alpha figure component, expanded one pixel, multiplied into original alpha; neighboring pose fragments excluded",
+      "figureComponent": "2"
+    },
+    {
+      "id": "gutter-seraph.recoil",
+      "source": "assets/battle-v2/source/phase-b/gutter-seraph-poses.png",
+      "sourceSha256": "4fab9c2f0ad20efca3cdbce95898e4e90b738c40afbaa078ca0b5c1c93c2960f",
+      "crop": [
+        34,
+        564,
+        551,
+        544
+      ],
+      "uniformSetScale": 1.033210332103321,
+      "runtime": "assets/battle-v2/runtime/phase-b/gutter-seraph-recoil.webp",
+      "sha256": "5fae510097017fe3ef020c20361ceda919069d7e1d5dd11dbc837fcd81e3ec22",
+      "bytes": 97214,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/gutter-seraph-recoil.webp",
+        "width": 569,
+        "height": 562,
+        "pivot": [
+          283.984,
+          550.801
+        ],
+        "torso": [
+          [
+            238.546,
+            226.04
+          ],
+          [
+            386.218,
+            226.04
+          ],
+          [
+            386.218,
+            394.02
+          ],
+          [
+            238.546,
+            394.02
+          ]
+        ],
+        "shoulder": [
+          261.265,
+          242.838
+        ],
+        "eye": [
+          391.897,
+          69.258
+        ],
+        "eyeRadius": 36.39569852941176,
+        "facing": "left",
+        "limb": [
+          [
+            369.179,
+            293.232
+          ],
+          [
+            471.413,
+            298.831
+          ],
+          [
+            494.132,
+            522.805
+          ],
+          [
+            357.819,
+            506.007
+          ]
+        ],
+        "jaw": [
+          [
+            372.019,
+            88.856
+          ],
+          [
+            465.733,
+            88.856
+          ],
+          [
+            465.733,
+            153.248
+          ],
+          [
+            372.019,
+            153.248
+          ]
+        ],
+        "eyes": [
+          [
+            391.897,
+            69.258
+          ]
+        ]
+      },
+      "cleanup": "Whole-sheet 2% alpha figure component, expanded one pixel, multiplied into original alpha; neighboring pose fragments excluded",
+      "figureComponent": "418"
+    },
+    {
+      "id": "gutter-seraph.defense",
+      "source": "assets/battle-v2/source/phase-b/gutter-seraph-poses.png",
+      "sourceSha256": "4fab9c2f0ad20efca3cdbce95898e4e90b738c40afbaa078ca0b5c1c93c2960f",
+      "crop": [
+        617,
+        611,
+        445,
+        465
+      ],
+      "uniformSetScale": 1.033210332103321,
+      "runtime": "assets/battle-v2/runtime/phase-b/gutter-seraph-defense.webp",
+      "sha256": "c24087725ead1d6eb4adcddfe5045f6fd27544bc8cd85eaa87a66ab5be88e320",
+      "bytes": 70584,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/gutter-seraph-defense.webp",
+        "width": 460,
+        "height": 480,
+        "pivot": [
+          230.517,
+          470.4
+        ],
+        "torso": [
+          [
+            148.275,
+            187.2
+          ],
+          [
+            280.776,
+            187.2
+          ],
+          [
+            280.776,
+            307.2
+          ],
+          [
+            148.275,
+            307.2
+          ]
+        ],
+        "shoulder": [
+          184.827,
+          206.4
+        ],
+        "eye": [
+          171.12,
+          110.4
+        ],
+        "eyeRadius": 29.69842696629214,
+        "facing": "left",
+        "limb": [
+          [
+            299.052,
+            249.6
+          ],
+          [
+            381.293,
+            254.4
+          ],
+          [
+            399.569,
+            446.4
+          ],
+          [
+            289.914,
+            432.0
+          ]
+        ],
+        "jaw": [
+          [
+            155.129,
+            127.2
+          ],
+          [
+            230.517,
+            127.2
+          ],
+          [
+            230.517,
+            182.4
+          ],
+          [
+            155.129,
+            182.4
+          ]
+        ],
+        "eyes": [
+          [
+            171.12,
+            110.4
+          ]
+        ]
+      },
+      "cleanup": "Whole-sheet 2% alpha figure component, expanded one pixel, multiplied into original alpha; neighboring pose fragments excluded",
+      "figureComponent": "441"
+    },
+    {
+      "id": "gutter-seraph.defeat",
+      "source": "assets/battle-v2/source/phase-b/gutter-seraph-poses.png",
+      "sourceSha256": "4fab9c2f0ad20efca3cdbce95898e4e90b738c40afbaa078ca0b5c1c93c2960f",
+      "crop": [
+        29,
+        1120,
+        669,
+        310
+      ],
+      "uniformSetScale": 1.033210332103321,
+      "runtime": "assets/battle-v2/runtime/phase-b/gutter-seraph-defeat.webp",
+      "sha256": "a0e3d3f7b996b1f71a6e8135409563741242e081766e179ff80752d8a87650ef",
+      "bytes": 60162,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/gutter-seraph-defeat.webp",
+        "width": 691,
+        "height": 320,
+        "pivot": [
+          345.5,
+          311.597
+        ],
+        "torso": [
+          [
+            221.12,
+            143.639
+          ],
+          [
+            449.15,
+            143.639
+          ],
+          [
+            449.15,
+            251.386
+          ],
+          [
+            221.12,
+            251.386
+          ]
+        ],
+        "shoulder": [
+          290.22,
+          159.484
+        ],
+        "eye": [
+          103.65,
+          159.484
+        ],
+        "eyeRadius": 20.598709677419357,
+        "facing": "left",
+        "limb": [
+          [
+            449.15,
+            165.822
+          ],
+          [
+            573.53,
+            168.991
+          ],
+          [
+            601.17,
+            295.752
+          ],
+          [
+            435.33,
+            286.245
+          ]
+        ],
+        "jaw": [
+          [
+            79.465,
+            170.575
+          ],
+          [
+            193.48,
+            170.575
+          ],
+          [
+            193.48,
+            207.019
+          ],
+          [
+            79.465,
+            207.019
+          ]
+        ],
+        "eyes": [
+          [
+            103.65,
+            159.484
+          ]
+        ]
+      },
+      "cleanup": "Whole-sheet 2% alpha figure component, expanded one pixel, multiplied into original alpha; neighboring pose fragments excluded",
+      "figureComponent": "864"
+    },
+    {
+      "id": "carrion-duke.idle",
+      "source": "assets/battle-v2/source/phase-b/carrion-duke-poses.png",
+      "sourceSha256": "11b40e8c1c429a9268207f6b58463e48ab9c604e04354c56675c74199103d048",
+      "crop": [
+        9,
+        53,
+        593,
+        439
+      ],
+      "uniformSetScale": 0.906801007556675,
+      "runtime": "assets/battle-v2/runtime/phase-b/carrion-duke-idle.webp",
+      "sha256": "577d08a4e97f86463e84688d63f7bad84742c37461b11630311773bec76dccd0",
+      "bytes": 59790,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/carrion-duke-idle.webp",
+        "width": 538,
+        "height": 398,
+        "pivot": [
+          259.02,
+          390.04
+        ],
+        "torso": [
+          [
+            166.1,
+            123.38
+          ],
+          [
+            419.05,
+            123.38
+          ],
+          [
+            419.05,
+            330.34
+          ],
+          [
+            166.1,
+            330.34
+          ]
+        ],
+        "shoulder": [
+          222.884,
+          179.1
+        ],
+        "eye": [
+          155.775,
+          127.36
+        ],
+        "eyeRadius": 25.87,
+        "facing": "left",
+        "limb": [
+          [
+            336.454,
+            206.96
+          ],
+          [
+            429.375,
+            210.94
+          ],
+          [
+            450.024,
+            370.14
+          ],
+          [
+            326.13,
+            358.2
+          ]
+        ],
+        "jaw": [
+          [
+            137.707,
+            141.29
+          ],
+          [
+            222.884,
+            141.29
+          ],
+          [
+            222.884,
+            187.06
+          ],
+          [
+            137.707,
+            187.06
+          ]
+        ],
+        "eyes": [
+          [
+            155.775,
+            127.36
+          ]
+        ]
+      },
+      "cleanup": "Whole-sheet 2% alpha figure component, expanded one pixel, multiplied into original alpha; neighboring pose fragments excluded",
+      "figureComponent": "6"
+    },
+    {
+      "id": "carrion-duke.attack",
+      "source": "assets/battle-v2/source/phase-b/carrion-duke-poses.png",
+      "sourceSha256": "11b40e8c1c429a9268207f6b58463e48ab9c604e04354c56675c74199103d048",
+      "crop": [
+        539,
+        45,
+        540,
+        416
+      ],
+      "uniformSetScale": 0.906801007556675,
+      "runtime": "assets/battle-v2/runtime/phase-b/carrion-duke-attack.webp",
+      "sha256": "06ec9f76f289284b3708e6d334a49c2e2a80bf7a7593e8cce469fdbfa982d119",
+      "bytes": 56266,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/carrion-duke-attack.webp",
+        "width": 490,
+        "height": 377,
+        "pivot": [
+          262.694,
+          369.496
+        ],
+        "torso": [
+          [
+            194.775,
+            118.121
+          ],
+          [
+            398.533,
+            118.121
+          ],
+          [
+            398.533,
+            305.714
+          ],
+          [
+            194.775,
+            305.714
+          ]
+        ],
+        "shoulder": [
+          244.583,
+          163.143
+        ],
+        "eye": [
+          185.719,
+          114.369
+        ],
+        "eyeRadius": 24.387187500000003,
+        "facing": "left",
+        "limb": [
+          [
+            330.614,
+            196.91
+          ],
+          [
+            412.117,
+            200.662
+          ],
+          [
+            430.229,
+            350.737
+          ],
+          [
+            321.558,
+            339.481
+          ]
+        ],
+        "jaw": [
+          [
+            169.871,
+            127.5
+          ],
+          [
+            244.583,
+            127.5
+          ],
+          [
+            244.583,
+            170.647
+          ],
+          [
+            169.871,
+            170.647
+          ]
+        ],
+        "eyes": [
+          [
+            185.719,
+            114.369
+          ]
+        ]
+      },
+      "cleanup": "Whole-sheet 2% alpha figure component, expanded one pixel, multiplied into original alpha; neighboring pose fragments excluded",
+      "figureComponent": "1"
+    },
+    {
+      "id": "carrion-duke.recoil",
+      "source": "assets/battle-v2/source/phase-b/carrion-duke-poses.png",
+      "sourceSha256": "11b40e8c1c429a9268207f6b58463e48ab9c604e04354c56675c74199103d048",
+      "crop": [
+        11,
+        504,
+        534,
+        479
+      ],
+      "uniformSetScale": 0.906801007556675,
+      "runtime": "assets/battle-v2/runtime/phase-b/carrion-duke-recoil.webp",
+      "sha256": "c0ffd61d11cd94365e32710c5a60c9b11083bef21db9b4cc2bd751b88d461c88",
+      "bytes": 59304,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/carrion-duke-recoil.webp",
+        "width": 484,
+        "height": 434,
+        "pivot": [
+          239.734,
+          425.338
+        ],
+        "torso": [
+          [
+            153.43,
+            130.834
+          ],
+          [
+            388.369,
+            130.834
+          ],
+          [
+            388.369,
+            356.043
+          ],
+          [
+            153.43,
+            356.043
+          ]
+        ],
+        "shoulder": [
+          215.761,
+          182.806
+        ],
+        "eye": [
+          115.072,
+          39.885
+        ],
+        "eyeRadius": 28.151106471816284,
+        "facing": "left",
+        "limb": [
+          [
+            311.654,
+            226.115
+          ],
+          [
+            397.959,
+            230.446
+          ],
+          [
+            417.137,
+            403.683
+          ],
+          [
+            302.065,
+            390.691
+          ]
+        ],
+        "jaw": [
+          [
+            251.721,
+            102.683
+          ],
+          [
+            330.833,
+            102.683
+          ],
+          [
+            330.833,
+            152.489
+          ],
+          [
+            251.721,
+            152.489
+          ]
+        ],
+        "eyes": [
+          [
+            115.072,
+            39.885
+          ]
+        ]
+      },
+      "cleanup": "Whole-sheet 2% alpha figure component, expanded one pixel, multiplied into original alpha; neighboring pose fragments excluded",
+      "figureComponent": "145"
+    },
+    {
+      "id": "carrion-duke.defense",
+      "source": "assets/battle-v2/source/phase-b/carrion-duke-poses.png",
+      "sourceSha256": "11b40e8c1c429a9268207f6b58463e48ab9c604e04354c56675c74199103d048",
+      "crop": [
+        536,
+        556,
+        545,
+        406
+      ],
+      "uniformSetScale": 0.906801007556675,
+      "runtime": "assets/battle-v2/runtime/phase-b/carrion-duke-defense.webp",
+      "sha256": "052fa034f434ddb09620b4e82531b30934c7f9134fe0f2e637408aa9374cf910",
+      "bytes": 56036,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/carrion-duke-defense.webp",
+        "width": 494,
+        "height": 368,
+        "pivot": [
+          247.906,
+          360.658
+        ],
+        "torso": [
+          [
+            184.393,
+            140.402
+          ],
+          [
+            404.246,
+            140.402
+          ],
+          [
+            404.246,
+            309.265
+          ],
+          [
+            184.393,
+            309.265
+          ]
+        ],
+        "shoulder": [
+          223.478,
+          184.453
+        ],
+        "eye": [
+          174.622,
+          158.757
+        ],
+        "eyeRadius": 23.861083743842364,
+        "facing": "left",
+        "limb": [
+          [
+            321.191,
+            191.795
+          ],
+          [
+            409.132,
+            195.466
+          ],
+          [
+            428.674,
+            342.303
+          ],
+          [
+            311.419,
+            331.291
+          ]
+        ],
+        "jaw": [
+          [
+            157.523,
+            171.605
+          ],
+          [
+            238.135,
+            171.605
+          ],
+          [
+            238.135,
+            213.821
+          ],
+          [
+            157.523,
+            213.821
+          ]
+        ],
+        "eyes": [
+          [
+            174.622,
+            158.757
+          ]
+        ]
+      },
+      "cleanup": "Whole-sheet 2% alpha figure component, expanded one pixel, multiplied into original alpha; neighboring pose fragments excluded",
+      "figureComponent": "149"
+    },
+    {
+      "id": "carrion-duke.defeat",
+      "source": "assets/battle-v2/source/phase-b/carrion-duke-poses.png",
+      "sourceSha256": "11b40e8c1c429a9268207f6b58463e48ab9c604e04354c56675c74199103d048",
+      "crop": [
+        6,
+        1060,
+        794,
+        344
+      ],
+      "uniformSetScale": 0.906801007556675,
+      "runtime": "assets/battle-v2/runtime/phase-b/carrion-duke-defeat.webp",
+      "sha256": "5e126ac08b0f3809919a226f1fc602a042aa0420855299d1a23376125d0d23a5",
+      "bytes": 64018,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/carrion-duke-defeat.webp",
+        "width": 720,
+        "height": 312,
+        "pivot": [
+          360.0,
+          305.778
+        ],
+        "torso": [
+          [
+            216.0,
+            106.679
+          ],
+          [
+            597.6,
+            106.679
+          ],
+          [
+            597.6,
+            252.892
+          ],
+          [
+            216.0,
+            252.892
+          ]
+        ],
+        "shoulder": [
+          324.0,
+          137.788
+        ],
+        "eye": [
+          208.8,
+          156.453
+        ],
+        "eyeRadius": 20.221046511627907,
+        "facing": "left",
+        "limb": [
+          [
+            468.0,
+            162.675
+          ],
+          [
+            597.6,
+            165.786
+          ],
+          [
+            626.4,
+            290.223
+          ],
+          [
+            453.6,
+            280.891
+          ]
+        ],
+        "jaw": [
+          [
+            183.6,
+            167.342
+          ],
+          [
+            302.4,
+            167.342
+          ],
+          [
+            302.4,
+            203.117
+          ],
+          [
+            183.6,
+            203.117
+          ]
+        ],
+        "eyes": [
+          [
+            208.8,
+            156.453
+          ]
+        ]
+      },
+      "cleanup": "Whole-sheet 2% alpha figure component, expanded one pixel, multiplied into original alpha; neighboring pose fragments excluded",
+      "figureComponent": "227"
+    },
+    {
+      "id": "coil-saint.idle",
+      "source": "assets/battle-v2/source/phase-b/coil-saint-poses.png",
+      "sourceSha256": "6b8d79ec1e0715b70ca4d8bf07bc1e67e5c08f462bf52a30f4bae0565f44a509",
+      "crop": [
+        103,
+        14,
+        426,
+        561
+      ],
+      "uniformSetScale": 0.9982174688057041,
+      "runtime": "assets/battle-v2/runtime/phase-b/coil-saint-idle.webp",
+      "sha256": "125356e91753dcad790945857a94c2783c11e09f4c804c7256706db4386c0dc7",
+      "bytes": 55136,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/coil-saint-idle.webp",
+        "width": 425,
+        "height": 560,
+        "pivot": [
+          198.533,
+          539.996
+        ],
+        "torso": [
+          [
+            139.272,
+            159.795
+          ],
+          [
+            257.793,
+            159.795
+          ],
+          [
+            257.793,
+            352.65
+          ],
+          [
+            139.272,
+            352.65
+          ]
+        ],
+        "shoulder": [
+          170.878,
+          170.815
+        ],
+        "eye": [
+          127.42,
+          82.652
+        ],
+        "eyeRadius": 25.679577464788732,
+        "facing": "left",
+        "limb": [
+          [
+            257.793,
+            286.528
+          ],
+          [
+            328.906,
+            292.038
+          ],
+          [
+            344.709,
+            512.445
+          ],
+          [
+            249.892,
+            495.914
+          ]
+        ],
+        "jaw": [
+          [
+            184.705,
+            112.958
+          ],
+          [
+            249.892,
+            112.958
+          ],
+          [
+            249.892,
+            176.325
+          ],
+          [
+            184.705,
+            176.325
+          ]
+        ],
+        "eyes": [
+          [
+            127.42,
+            82.652
+          ]
+        ]
+      },
+      "cleanup": "Whole-sheet 2% alpha figure component, expanded one pixel, multiplied into original alpha; neighboring pose fragments excluded",
+      "figureComponent": "1"
+    },
+    {
+      "id": "coil-saint.attack",
+      "source": "assets/battle-v2/source/phase-b/coil-saint-poses.png",
+      "sourceSha256": "6b8d79ec1e0715b70ca4d8bf07bc1e67e5c08f462bf52a30f4bae0565f44a509",
+      "crop": [
+        470,
+        64,
+        594,
+        511
+      ],
+      "uniformSetScale": 0.9982174688057041,
+      "runtime": "assets/battle-v2/runtime/phase-b/coil-saint-attack.webp",
+      "sha256": "9d5f78dea03000218db027ff233fc0f083b2bd9c62a7f6878dfa7ff9293b26e8",
+      "bytes": 58982,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/coil-saint-attack.webp",
+        "width": 593,
+        "height": 510,
+        "pivot": [
+          311.475,
+          490.997
+        ],
+        "torso": [
+          [
+            249.539,
+            175.356
+          ],
+          [
+            412.824,
+            175.356
+          ],
+          [
+            412.824,
+            340.692
+          ],
+          [
+            249.539,
+            340.692
+          ]
+        ],
+        "shoulder": [
+          300.214,
+          190.387
+        ],
+        "eye": [
+          215.756,
+          100.204
+        ],
+        "eyeRadius": 32.56614481409002,
+        "facing": "left",
+        "limb": [
+          [
+            395.932,
+            260.529
+          ],
+          [
+            497.281,
+            265.539
+          ],
+          [
+            519.803,
+            465.946
+          ],
+          [
+            384.671,
+            450.916
+          ]
+        ],
+        "jaw": [
+          [
+            196.049,
+            117.739
+          ],
+          [
+            288.953,
+            117.739
+          ],
+          [
+            288.953,
+            175.356
+          ],
+          [
+            196.049,
+            175.356
+          ]
+        ],
+        "eyes": [
+          [
+            215.756,
+            100.204
+          ]
+        ]
+      },
+      "cleanup": "Whole-sheet 2% alpha figure component, expanded one pixel, multiplied into original alpha; neighboring pose fragments excluded",
+      "figureComponent": "22"
+    },
+    {
+      "id": "coil-saint.recoil",
+      "source": "assets/battle-v2/source/phase-b/coil-saint-poses.png",
+      "sourceSha256": "6b8d79ec1e0715b70ca4d8bf07bc1e67e5c08f462bf52a30f4bae0565f44a509",
+      "crop": [
+        64,
+        558,
+        493,
+        533
+      ],
+      "uniformSetScale": 0.9982174688057041,
+      "runtime": "assets/battle-v2/runtime/phase-b/coil-saint-recoil.webp",
+      "sha256": "b88fa3e3b049b6090558ef0bf4434dfbf5bb85a8769b1190f69b8d12174a3bb8",
+      "bytes": 55658,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/coil-saint-recoil.webp",
+        "width": 492,
+        "height": 532,
+        "pivot": [
+          245.501,
+          508.804
+        ],
+        "torso": [
+          [
+            196.401,
+            166.407
+          ],
+          [
+            353.521,
+            166.407
+          ],
+          [
+            353.521,
+            350.381
+          ],
+          [
+            196.401,
+            350.381
+          ]
+        ],
+        "shoulder": [
+          235.681,
+          186.849
+        ],
+        "eye": [
+          373.162,
+          99.972
+        ],
+        "eyeRadius": 31.915131845841792,
+        "facing": "left",
+        "limb": [
+          [
+            319.151,
+            273.725
+          ],
+          [
+            407.532,
+            278.836
+          ],
+          [
+            427.172,
+            483.252
+          ],
+          [
+            309.331,
+            467.92
+          ]
+        ],
+        "jaw": [
+          [
+            355.976,
+            117.858
+          ],
+          [
+            436.992,
+            117.858
+          ],
+          [
+            436.992,
+            176.628
+          ],
+          [
+            355.976,
+            176.628
+          ]
+        ],
+        "eyes": [
+          [
+            373.162,
+            99.972
+          ]
+        ]
+      },
+      "cleanup": "Whole-sheet 2% alpha figure component, expanded one pixel, multiplied into original alpha; neighboring pose fragments excluded",
+      "figureComponent": "342"
+    },
+    {
+      "id": "coil-saint.defense",
+      "source": "assets/battle-v2/source/phase-b/coil-saint-poses.png",
+      "sourceSha256": "6b8d79ec1e0715b70ca4d8bf07bc1e67e5c08f462bf52a30f4bae0565f44a509",
+      "crop": [
+        645,
+        588,
+        379,
+        474
+      ],
+      "uniformSetScale": 0.9982174688057041,
+      "runtime": "assets/battle-v2/runtime/phase-b/coil-saint-defense.webp",
+      "sha256": "a136a387aca38c95406051cbcb27051bde4b824988c56a39eb711e023fe616e7",
+      "bytes": 48754,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/coil-saint-defense.webp",
+        "width": 378,
+        "height": 473,
+        "pivot": [
+          202.963,
+          463.101
+        ],
+        "torso": [
+          [
+            129.896,
+            176.028
+          ],
+          [
+            243.556,
+            176.028
+          ],
+          [
+            243.556,
+            324.514
+          ],
+          [
+            129.896,
+            324.514
+          ]
+        ],
+        "shoulder": [
+          162.37,
+          190.876
+        ],
+        "eye": [
+          97.422,
+          121.583
+        ],
+        "eyeRadius": 26.385197889182056,
+        "facing": "left",
+        "limb": [
+          [
+            263.852,
+            235.422
+          ],
+          [
+            336.919,
+            240.372
+          ],
+          [
+            353.156,
+            438.353
+          ],
+          [
+            255.733,
+            423.505
+          ]
+        ],
+        "jaw": [
+          [
+            83.215,
+            138.906
+          ],
+          [
+            150.193,
+            138.906
+          ],
+          [
+            150.193,
+            195.826
+          ],
+          [
+            83.215,
+            195.826
+          ]
+        ],
+        "eyes": [
+          [
+            97.422,
+            121.583
+          ]
+        ]
+      },
+      "cleanup": "Whole-sheet 2% alpha figure component, expanded one pixel, multiplied into original alpha; neighboring pose fragments excluded",
+      "figureComponent": "353"
+    },
+    {
+      "id": "coil-saint.defeat",
+      "source": "assets/battle-v2/source/phase-b/coil-saint-poses.png",
+      "sourceSha256": "6b8d79ec1e0715b70ca4d8bf07bc1e67e5c08f462bf52a30f4bae0565f44a509",
+      "crop": [
+        48,
+        1067,
+        502,
+        355
+      ],
+      "uniformSetScale": 0.9982174688057041,
+      "runtime": "assets/battle-v2/runtime/phase-b/coil-saint-defeat.webp",
+      "sha256": "0f7c50fee8af068168a38365437492dedf2ffd2853b0cfb58a6dc67ac1fd52fd",
+      "bytes": 43278,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/coil-saint-defeat.webp",
+        "width": 501,
+        "height": 354,
+        "pivot": [
+          250.5,
+          347.139
+        ],
+        "torso": [
+          [
+            125.25,
+            158.472
+          ],
+          [
+            300.6,
+            158.472
+          ],
+          [
+            300.6,
+            268.242
+          ],
+          [
+            125.25,
+            268.242
+          ]
+        ],
+        "shoulder": [
+          195.39,
+          165.333
+        ],
+        "eye": [
+          100.2,
+          175.624
+        ],
+        "eyeRadius": 22.297014084507044,
+        "facing": "left",
+        "limb": [
+          [
+            325.65,
+            189.345
+          ],
+          [
+            415.83,
+            192.775
+          ],
+          [
+            435.87,
+            329.988
+          ],
+          [
+            315.63,
+            319.697
+          ]
+        ],
+        "jaw": [
+          [
+            82.665,
+            187.63
+          ],
+          [
+            165.33,
+            187.63
+          ],
+          [
+            165.33,
+            227.079
+          ],
+          [
+            82.665,
+            227.079
+          ]
+        ],
+        "eyes": [
+          [
+            100.2,
+            175.624
+          ]
+        ]
+      },
+      "cleanup": "Whole-sheet 2% alpha figure component, expanded one pixel, multiplied into original alpha; neighboring pose fragments excluded",
+      "figureComponent": "608"
+    },
+    {
+      "id": "maw-engine.idle",
+      "source": "assets/battle-v2/source/phase-b/maw-engine-poses.png",
+      "sourceSha256": "f2a26f601c6e0cea1a18d5ff0c987cd041251d42101950519e54737f6dc4a889",
+      "crop": [
+        1,
+        62,
+        545,
+        429
+      ],
+      "uniformSetScale": 0.9148665819567979,
+      "runtime": "assets/battle-v2/runtime/phase-b/maw-engine-idle.webp",
+      "sha256": "6f70f896d26e1ff27b24a536aa3e8eff416545c13514c360d85bd8a1d9382c95",
+      "bytes": 47756,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/maw-engine-idle.webp",
+        "width": 499,
+        "height": 392,
+        "pivot": [
+          239.886,
+          383.283
+        ],
+        "torso": [
+          [
+            192.092,
+            114.064
+          ],
+          [
+            402.386,
+            114.064
+          ],
+          [
+            402.386,
+            309.15
+          ],
+          [
+            192.092,
+            309.15
+          ]
+        ],
+        "shoulder": [
+          225.548,
+          180.393
+        ],
+        "eye": [
+          177.754,
+          67.243
+        ],
+        "eyeRadius": 25.36121212121212,
+        "facing": "left",
+        "limb": [
+          [
+            311.577,
+            203.803
+          ],
+          [
+            397.607,
+            207.705
+          ],
+          [
+            416.725,
+            363.774
+          ],
+          [
+            302.019,
+            352.069
+          ]
+        ],
+        "jaw": [
+          [
+            161.026,
+            80.899
+          ],
+          [
+            239.886,
+            80.899
+          ],
+          [
+            239.886,
+            125.769
+          ],
+          [
+            161.026,
+            125.769
+          ]
+        ],
+        "eyes": [
+          [
+            177.754,
+            67.243
+          ]
+        ]
+      },
+      "cleanup": "Whole-sheet 2% alpha figure component, expanded one pixel, multiplied into original alpha; neighboring pose fragments excluded",
+      "figureComponent": "3"
+    },
+    {
+      "id": "maw-engine.attack",
+      "source": "assets/battle-v2/source/phase-b/maw-engine-poses.png",
+      "sourceSha256": "f2a26f601c6e0cea1a18d5ff0c987cd041251d42101950519e54737f6dc4a889",
+      "crop": [
+        493,
+        48,
+        593,
+        445
+      ],
+      "uniformSetScale": 0.9148665819567979,
+      "runtime": "assets/battle-v2/runtime/phase-b/maw-engine-attack.webp",
+      "sha256": "0c17935d093cafe306942015829f9bdda767c2243f747e18e0f2f607b1f2548b",
+      "bytes": 57868,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/maw-engine-attack.webp",
+        "width": 543,
+        "height": 407,
+        "pivot": [
+          285.235,
+          398.86
+        ],
+        "torso": [
+          [
+            274.961,
+            118.03
+          ],
+          [
+            470.167,
+            118.03
+          ],
+          [
+            470.167,
+            297.11
+          ],
+          [
+            274.961,
+            297.11
+          ]
+        ],
+        "shoulder": [
+          285.235,
+          175.01
+        ],
+        "eye": [
+          244.139,
+          97.68
+        ],
+        "eyeRadius": 26.455000000000002,
+        "facing": "left",
+        "limb": [
+          [
+            362.29,
+            211.64
+          ],
+          [
+            454.756,
+            215.71
+          ],
+          [
+            475.304,
+            378.51
+          ],
+          [
+            352.016,
+            366.3
+          ]
+        ],
+        "jaw": [
+          [
+            226.16,
+            111.925
+          ],
+          [
+            310.92,
+            111.925
+          ],
+          [
+            310.92,
+            158.73
+          ],
+          [
+            226.16,
+            158.73
+          ]
+        ],
+        "eyes": [
+          [
+            244.139,
+            97.68
+          ]
+        ]
+      },
+      "cleanup": "Whole-sheet 2% alpha figure component, expanded one pixel, multiplied into original alpha; neighboring pose fragments excluded",
+      "figureComponent": "2"
+    },
+    {
+      "id": "maw-engine.recoil",
+      "source": "assets/battle-v2/source/phase-b/maw-engine-poses.png",
+      "sourceSha256": "f2a26f601c6e0cea1a18d5ff0c987cd041251d42101950519e54737f6dc4a889",
+      "crop": [
+        9,
+        496,
+        528,
+        520
+      ],
+      "uniformSetScale": 0.9148665819567979,
+      "runtime": "assets/battle-v2/runtime/phase-b/maw-engine-recoil.webp",
+      "sha256": "bf7b471d4428f3886e04adeff59d1d8cd7b246d4c55a45b929fa648ce8f1d1d8",
+      "bytes": 55254,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/maw-engine-recoil.webp",
+        "width": 483,
+        "height": 476,
+        "pivot": [
+          231.438,
+          466.48
+        ],
+        "torso": [
+          [
+            153.06,
+            147.56
+          ],
+          [
+            369.751,
+            147.56
+          ],
+          [
+            369.751,
+            380.8
+          ],
+          [
+            153.06,
+            380.8
+          ]
+        ],
+        "shoulder": [
+          194.554,
+          190.4
+        ],
+        "eye": [
+          240.658,
+          71.4
+        ],
+        "eyeRadius": 29.988,
+        "facing": "left",
+        "limb": [
+          [
+            300.594,
+            247.52
+          ],
+          [
+            383.583,
+            252.28
+          ],
+          [
+            402.024,
+            442.68
+          ],
+          [
+            291.373,
+            428.4
+          ]
+        ],
+        "jaw": [
+          [
+            224.522,
+            88.06
+          ],
+          [
+            300.594,
+            88.06
+          ],
+          [
+            300.594,
+            142.8
+          ],
+          [
+            224.522,
+            142.8
+          ]
+        ],
+        "eyes": [
+          [
+            240.658,
+            71.4
+          ]
+        ]
+      },
+      "cleanup": "Whole-sheet 2% alpha figure component, expanded one pixel, multiplied into original alpha; neighboring pose fragments excluded",
+      "figureComponent": "202"
+    },
+    {
+      "id": "maw-engine.defense",
+      "source": "assets/battle-v2/source/phase-b/maw-engine-poses.png",
+      "sourceSha256": "f2a26f601c6e0cea1a18d5ff0c987cd041251d42101950519e54737f6dc4a889",
+      "crop": [
+        494,
+        577,
+        587,
+        423
+      ],
+      "uniformSetScale": 0.9148665819567979,
+      "runtime": "assets/battle-v2/runtime/phase-b/maw-engine-defense.webp",
+      "sha256": "3f2bdaecc0dc10675178f378bf1d25b26db6c167178627e692c30d1aa059761a",
+      "bytes": 51276,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/maw-engine-defense.webp",
+        "width": 537,
+        "height": 387,
+        "pivot": [
+          277.648,
+          379.278
+        ],
+        "torso": [
+          [
+            236.152,
+            128.323
+          ],
+          [
+            464.381,
+            128.323
+          ],
+          [
+            464.381,
+            302.061
+          ],
+          [
+            236.152,
+            302.061
+          ]
+        ],
+        "shoulder": [
+          272.461,
+          174.653
+        ],
+        "eye": [
+          210.217,
+          132.184
+        ],
+        "eyeRadius": 25.09553191489362,
+        "facing": "left",
+        "limb": [
+          [
+            355.454,
+            201.679
+          ],
+          [
+            448.82,
+            205.54
+          ],
+          [
+            469.569,
+            359.974
+          ],
+          [
+            345.08,
+            348.391
+          ]
+        ],
+        "jaw": [
+          [
+            192.062,
+            145.697
+          ],
+          [
+            277.648,
+            145.697
+          ],
+          [
+            277.648,
+            190.097
+          ],
+          [
+            192.062,
+            190.097
+          ]
+        ],
+        "eyes": [
+          [
+            210.217,
+            132.184
+          ]
+        ]
+      },
+      "cleanup": "Whole-sheet 2% alpha figure component, expanded one pixel, multiplied into original alpha; neighboring pose fragments excluded",
+      "figureComponent": "216"
+    },
+    {
+      "id": "maw-engine.defeat",
+      "source": "assets/battle-v2/source/phase-b/maw-engine-poses.png",
+      "sourceSha256": "f2a26f601c6e0cea1a18d5ff0c987cd041251d42101950519e54737f6dc4a889",
+      "crop": [
+        7,
+        1063,
+        787,
+        350
+      ],
+      "uniformSetScale": 0.9148665819567979,
+      "runtime": "assets/battle-v2/runtime/phase-b/maw-engine-defeat.webp",
+      "sha256": "5b1c92309a002692de1cdc20d9ef696be14fc042805035382a934672c94de8ca",
+      "bytes": 49336,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/maw-engine-defeat.webp",
+        "width": 720,
+        "height": 320,
+        "pivot": [
+          360.457,
+          312.741
+        ],
+        "torso": [
+          [
+            252.595,
+            97.006
+          ],
+          [
+            597.756,
+            97.006
+          ],
+          [
+            597.756,
+            255.634
+          ],
+          [
+            252.595,
+            255.634
+          ]
+        ],
+        "shoulder": [
+          317.312,
+          138.249
+        ],
+        "eye": [
+          187.877,
+          192.183
+        ],
+        "eyeRadius": 20.621714285714287,
+        "facing": "left",
+        "limb": [
+          [
+            468.32,
+            166.802
+          ],
+          [
+            597.756,
+            169.975
+          ],
+          [
+            626.519,
+            296.878
+          ],
+          [
+            453.938,
+            287.36
+          ]
+        ],
+        "jaw": [
+          [
+            162.709,
+            203.287
+          ],
+          [
+            281.358,
+            203.287
+          ],
+          [
+            281.358,
+            239.771
+          ],
+          [
+            162.709,
+            239.771
+          ]
+        ],
+        "eyes": [
+          [
+            187.877,
+            192.183
+          ]
+        ]
+      },
+      "cleanup": "Whole-sheet 2% alpha figure component, expanded one pixel, multiplied into original alpha; neighboring pose fragments excluded",
+      "figureComponent": "348"
+    },
+    {
+      "id": "the-unfinished.idle",
+      "source": "assets/battle-v2/source/phase-b/the-unfinished-poses.png",
+      "sourceSha256": "c112ec13ceb0a8e44ec5b7b7f55579309f216ee402af84562cdb7af731be17b1",
+      "crop": [
+        7,
+        3,
+        510,
+        538
+      ],
+      "uniformSetScale": 1.0408921933085502,
+      "runtime": "assets/battle-v2/runtime/phase-b/the-unfinished-idle.webp",
+      "sha256": "9cd3a8adac9abf45aef04d71f6f79416cfd141da1b4fef0c3a93ba7733ec9af6",
+      "bytes": 66488,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/the-unfinished-idle.webp",
+        "width": 531,
+        "height": 560,
+        "pivot": [
+          263.418,
+          545.74
+        ],
+        "torso": [
+          [
+            200.447,
+            128.082
+          ],
+          [
+            352.626,
+            128.082
+          ],
+          [
+            352.626,
+            345.264
+          ],
+          [
+            200.447,
+            345.264
+          ]
+        ],
+        "shoulder": [
+          210.942,
+          167.063
+        ],
+        "eye": [
+          247.675,
+          83.532
+        ],
+        "eyeRadius": 34.10894117647059,
+        "facing": "left",
+        "limb": [
+          [
+            342.131,
+            289.576
+          ],
+          [
+            436.586,
+            295.145
+          ],
+          [
+            457.576,
+            517.896
+          ],
+          [
+            331.636,
+            501.19
+          ]
+        ],
+        "jaw": [
+          [
+            229.309,
+            103.022
+          ],
+          [
+            315.893,
+            103.022
+          ],
+          [
+            315.893,
+            167.063
+          ],
+          [
+            229.309,
+            167.063
+          ]
+        ],
+        "eyes": [
+          [
+            247.675,
+            83.532
+          ]
+        ]
+      },
+      "cleanup": "Whole-sheet 2% alpha figure component, expanded one pixel, multiplied into original alpha; neighboring pose fragments excluded",
+      "figureComponent": "4"
+    },
+    {
+      "id": "the-unfinished.attack",
+      "source": "assets/battle-v2/source/phase-b/the-unfinished-poses.png",
+      "sourceSha256": "c112ec13ceb0a8e44ec5b7b7f55579309f216ee402af84562cdb7af731be17b1",
+      "crop": [
+        508,
+        80,
+        574,
+        452
+      ],
+      "uniformSetScale": 1.0408921933085502,
+      "runtime": "assets/battle-v2/runtime/phase-b/the-unfinished-attack.webp",
+      "sha256": "8caa38d5edda49086091a91d1282a55200306502d5b7ea925e774e6130ac1266",
+      "bytes": 63232,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/the-unfinished-attack.webp",
+        "width": 597,
+        "height": 470,
+        "pivot": [
+          299.54,
+          458.562
+        ],
+        "torso": [
+          [
+            240.464,
+            121.659
+          ],
+          [
+            394.062,
+            121.659
+          ],
+          [
+            394.062,
+            280.752
+          ],
+          [
+            240.464,
+            280.752
+          ]
+        ],
+        "shoulder": [
+          246.372,
+          140.376
+        ],
+        "eye": [
+          305.448,
+          102.942
+        ],
+        "eyeRadius": 30.41482300884956,
+        "facing": "left",
+        "limb": [
+          [
+            388.154,
+            243.319
+          ],
+          [
+            494.491,
+            247.998
+          ],
+          [
+            518.121,
+            435.166
+          ],
+          [
+            376.339,
+            421.128
+          ]
+        ],
+        "jaw": [
+          [
+            284.771,
+            119.32
+          ],
+          [
+            382.246,
+            119.32
+          ],
+          [
+            382.246,
+            173.131
+          ],
+          [
+            284.771,
+            173.131
+          ]
+        ],
+        "eyes": [
+          [
+            305.448,
+            102.942
+          ]
+        ]
+      },
+      "cleanup": "Whole-sheet 2% alpha figure component, expanded one pixel, multiplied into original alpha; neighboring pose fragments excluded",
+      "figureComponent": "24"
+    },
+    {
+      "id": "the-unfinished.recoil",
+      "source": "assets/battle-v2/source/phase-b/the-unfinished-poses.png",
+      "sourceSha256": "c112ec13ceb0a8e44ec5b7b7f55579309f216ee402af84562cdb7af731be17b1",
+      "crop": [
+        93,
+        533,
+        423,
+        531
+      ],
+      "uniformSetScale": 1.0408921933085502,
+      "runtime": "assets/battle-v2/runtime/phase-b/the-unfinished-recoil.webp",
+      "sha256": "4d93357ea2718bbba5e6db1e8b2c07cedddc926873af671983ca6ba0a23d797d",
+      "bytes": 61352,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/the-unfinished-recoil.webp",
+        "width": 440,
+        "height": 553,
+        "pivot": [
+          220.0,
+          540.003
+        ],
+        "torso": [
+          [
+            154.312,
+            141.635
+          ],
+          [
+            316.342,
+            141.635
+          ],
+          [
+            316.342,
+            338.09
+          ],
+          [
+            154.312,
+            338.09
+          ]
+        ],
+        "shoulder": [
+          189.346,
+          174.377
+        ],
+        "eye": [
+          241.896,
+          87.064
+        ],
+        "eyeRadius": 28.464775413711585,
+        "facing": "left",
+        "limb": [
+          [
+            285.688,
+            288.976
+          ],
+          [
+            364.513,
+            294.433
+          ],
+          [
+            382.03,
+            512.717
+          ],
+          [
+            276.93,
+            496.346
+          ]
+        ],
+        "jaw": [
+          [
+            226.569,
+            106.164
+          ],
+          [
+            298.826,
+            106.164
+          ],
+          [
+            298.826,
+            168.92
+          ],
+          [
+            226.569,
+            168.92
+          ]
+        ],
+        "eyes": [
+          [
+            241.896,
+            87.064
+          ]
+        ]
+      },
+      "cleanup": "Whole-sheet 2% alpha figure component, expanded one pixel, multiplied into original alpha; neighboring pose fragments excluded",
+      "figureComponent": "203"
+    },
+    {
+      "id": "the-unfinished.defense",
+      "source": "assets/battle-v2/source/phase-b/the-unfinished-poses.png",
+      "sourceSha256": "c112ec13ceb0a8e44ec5b7b7f55579309f216ee402af84562cdb7af731be17b1",
+      "crop": [
+        603,
+        614,
+        457,
+        427
+      ],
+      "uniformSetScale": 1.0408921933085502,
+      "runtime": "assets/battle-v2/runtime/phase-b/the-unfinished-defense.webp",
+      "sha256": "7e5e86e647362d4de36c9ec9ebee81fb9665c075b7f693450977f3232a1c924a",
+      "bytes": 48218,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/the-unfinished-defense.webp",
+        "width": 476,
+        "height": 444,
+        "pivot": [
+          237.479,
+          435.141
+        ],
+        "torso": [
+          [
+            175.735,
+            147.217
+          ],
+          [
+            313.473,
+            147.217
+          ],
+          [
+            313.473,
+            293.394
+          ],
+          [
+            175.735,
+            293.394
+          ]
+        ],
+        "shoulder": [
+          189.983,
+          164.935
+        ],
+        "eye": [
+          189.983,
+          107.35
+        ],
+        "eyeRadius": 28.792412177985945,
+        "facing": "left",
+        "limb": [
+          [
+            308.723,
+            231.379
+          ],
+          [
+            394.215,
+            235.809
+          ],
+          [
+            413.214,
+            412.993
+          ],
+          [
+            299.224,
+            399.704
+          ]
+        ],
+        "jaw": [
+          [
+            173.36,
+            122.854
+          ],
+          [
+            251.728,
+            122.854
+          ],
+          [
+            251.728,
+            173.794
+          ],
+          [
+            173.36,
+            173.794
+          ]
+        ],
+        "eyes": [
+          [
+            189.983,
+            107.35
+          ]
+        ]
+      },
+      "cleanup": "Whole-sheet 2% alpha figure component, expanded one pixel, multiplied into original alpha; neighboring pose fragments excluded",
+      "figureComponent": "225"
+    },
+    {
+      "id": "the-unfinished.defeat",
+      "source": "assets/battle-v2/source/phase-b/the-unfinished-poses.png",
+      "sourceSha256": "c112ec13ceb0a8e44ec5b7b7f55579309f216ee402af84562cdb7af731be17b1",
+      "crop": [
+        7,
+        1099,
+        658,
+        336
+      ],
+      "uniformSetScale": 1.0408921933085502,
+      "runtime": "assets/battle-v2/runtime/phase-b/the-unfinished-defeat.webp",
+      "sha256": "643156083d582e843c7725128aa6d33cd7d5b8bfbf614684a0bc933bab7b0cfc",
+      "bytes": 55752,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/phase-b/the-unfinished-defeat.webp",
+        "width": 685,
+        "height": 350,
+        "pivot": [
+          343.021,
+          343.021
+        ],
+        "torso": [
+          [
+            219.908,
+            126.667
+          ],
+          [
+            438.775,
+            126.667
+          ],
+          [
+            438.775,
+            262.76
+          ],
+          [
+            219.908,
+            262.76
+          ]
+        ],
+        "shoulder": [
+          267.785,
+          165.052
+        ],
+        "eye": [
+          247.266,
+          116.198
+        ],
+        "eyeRadius": 22.682291666666668,
+        "facing": "left",
+        "limb": [
+          [
+            445.614,
+            182.5
+          ],
+          [
+            568.727,
+            185.99
+          ],
+          [
+            596.085,
+            325.573
+          ],
+          [
+            431.935,
+            315.104
+          ]
+        ],
+        "jaw": [
+          [
+            223.328,
+            128.411
+          ],
+          [
+            336.181,
+            128.411
+          ],
+          [
+            336.181,
+            168.542
+          ],
+          [
+            223.328,
+            168.542
+          ]
+        ],
+        "eyes": [
+          [
+            247.266,
+            116.198
+          ]
+        ]
+      },
+      "cleanup": "Whole-sheet 2% alpha figure component, expanded one pixel, multiplied into original alpha; neighboring pose fragments excluded",
+      "figureComponent": "386"
+    },
+    {
+      "id": "arena-catacomb",
+      "source": "assets/battle-v2/source/phase-b/arena-catacomb.png",
+      "sourceSha256": "d076673b693b4cafe20e4ca6dcd047eaa11ffd7c0c4c72497ebb21fcabccc63a",
+      "runtime": "assets/battle-v2/runtime/phase-b/arena-catacomb.webp",
+      "sha256": "8bd22db467d809f00b6282ee7a786e9ccfa2440f054630977f37adf0f393e5f0",
+      "bytes": 198636
+    },
+    {
+      "id": "arena-foundry",
+      "source": "assets/battle-v2/source/phase-b/arena-foundry.png",
+      "sourceSha256": "d7436fd987c71e1e88923ce8a53845cb2ddf02f4bea99391d79e9d4dca8419ec",
+      "runtime": "assets/battle-v2/runtime/phase-b/arena-foundry.webp",
+      "sha256": "cb0a287be1440937fe18559b701d3e836b1bb5737f605b02a3599af635c0f023",
+      "bytes": 208550
+    },
+    {
+      "id": "graft-barb",
+      "source": "assets/battle-v2/source/phase-b/graft-parts.png",
+      "sourceSha256": "1c228f14a0a758c7a4ece3b988de3cedebb6ec2ba3d534e6676966e5d1ae54b4",
+      "crop": [
+        0,
+        0,
+        444,
+        444
+      ],
+      "keptAlphaComponents": [
+        "1"
+      ],
+      "cleanup": "Keep main connected anatomical part; shards retain three intended fragments. Frame retained for stable roots; original alpha multiplied by union of individually retained one-pixel-expanded masks.",
+      "runtime": "assets/battle-v2/runtime/phase-b/graft-barb.webp",
+      "sha256": "3ae393f6834f602e396fc98a09507091fa9121d566e22a4baa4fd75588d8e64a",
+      "bytes": 10310
+    },
+    {
+      "id": "graft-veins",
+      "source": "assets/battle-v2/source/phase-b/graft-parts.png",
+      "sourceSha256": "1c228f14a0a758c7a4ece3b988de3cedebb6ec2ba3d534e6676966e5d1ae54b4",
+      "crop": [
+        444,
+        0,
+        444,
+        444
+      ],
+      "keptAlphaComponents": [
+        "1"
+      ],
+      "cleanup": "Keep main connected anatomical part; shards retain three intended fragments. Frame retained for stable roots; original alpha multiplied by union of individually retained one-pixel-expanded masks.",
+      "runtime": "assets/battle-v2/runtime/phase-b/graft-veins.webp",
+      "sha256": "1d4ddb9f1dabea5273e51ae852b647a780e2e8c3513ae22331e4ba2be2423320",
+      "bytes": 23840
+    },
+    {
+      "id": "graft-mouth",
+      "source": "assets/battle-v2/source/phase-b/graft-parts.png",
+      "sourceSha256": "1c228f14a0a758c7a4ece3b988de3cedebb6ec2ba3d534e6676966e5d1ae54b4",
+      "crop": [
+        887,
+        0,
+        444,
+        444
+      ],
+      "keptAlphaComponents": [
+        "1"
+      ],
+      "cleanup": "Keep main connected anatomical part; shards retain three intended fragments. Frame retained for stable roots; original alpha multiplied by union of individually retained one-pixel-expanded masks.",
+      "runtime": "assets/battle-v2/runtime/phase-b/graft-mouth.webp",
+      "sha256": "7cc469da46f2db859bff87143cae80389d15a1c537241e1349c523966b19673c",
+      "bytes": 15402
+    },
+    {
+      "id": "graft-growth",
+      "source": "assets/battle-v2/source/phase-b/graft-parts.png",
+      "sourceSha256": "1c228f14a0a758c7a4ece3b988de3cedebb6ec2ba3d534e6676966e5d1ae54b4",
+      "crop": [
+        1330,
+        0,
+        444,
+        444
+      ],
+      "keptAlphaComponents": [
+        "1"
+      ],
+      "cleanup": "Keep main connected anatomical part; shards retain three intended fragments. Frame retained for stable roots; original alpha multiplied by union of individually retained one-pixel-expanded masks.",
+      "runtime": "assets/battle-v2/runtime/phase-b/graft-growth.webp",
+      "sha256": "edb183b5bae65d1426a22ef161ea13c5a3a31ee9a6664f0c49700a44f5415774",
+      "bytes": 15946
+    },
+    {
+      "id": "graft-wound",
+      "source": "assets/battle-v2/source/phase-b/graft-parts.png",
+      "sourceSha256": "1c228f14a0a758c7a4ece3b988de3cedebb6ec2ba3d534e6676966e5d1ae54b4",
+      "crop": [
+        0,
+        444,
+        444,
+        443
+      ],
+      "keptAlphaComponents": [
+        "1"
+      ],
+      "cleanup": "Keep main connected anatomical part; shards retain three intended fragments. Frame retained for stable roots; original alpha multiplied by union of individually retained one-pixel-expanded masks.",
+      "runtime": "assets/battle-v2/runtime/phase-b/graft-wound.webp",
+      "sha256": "005ba26f6f5e7fb4ef9ba695def97ce9c7124bce30cb31076faa935267fa7d4d",
+      "bytes": 13436
+    },
+    {
+      "id": "graft-scar",
+      "source": "assets/battle-v2/source/phase-b/graft-parts.png",
+      "sourceSha256": "1c228f14a0a758c7a4ece3b988de3cedebb6ec2ba3d534e6676966e5d1ae54b4",
+      "crop": [
+        444,
+        444,
+        444,
+        443
+      ],
+      "keptAlphaComponents": [
+        "5"
+      ],
+      "cleanup": "Keep main connected anatomical part; shards retain three intended fragments. Frame retained for stable roots; original alpha multiplied by union of individually retained one-pixel-expanded masks.",
+      "runtime": "assets/battle-v2/runtime/phase-b/graft-scar.webp",
+      "sha256": "9a095ebf179de142796fe79e14543f4279f97f567a49565bb5fe5959e32951c0",
+      "bytes": 13516
+    },
+    {
+      "id": "graft-shards",
+      "source": "assets/battle-v2/source/phase-b/graft-parts.png",
+      "sourceSha256": "1c228f14a0a758c7a4ece3b988de3cedebb6ec2ba3d534e6676966e5d1ae54b4",
+      "crop": [
+        887,
+        444,
+        444,
+        443
+      ],
+      "keptAlphaComponents": [
+        "3",
+        "4",
+        "6"
+      ],
+      "cleanup": "Keep main connected anatomical part; shards retain three intended fragments. Frame retained for stable roots; original alpha multiplied by union of individually retained one-pixel-expanded masks.",
+      "runtime": "assets/battle-v2/runtime/phase-b/graft-shards.webp",
+      "sha256": "ed56cbc883046f89e4cea654eb08199a6de7553cebcbe710608427bd1289ef36",
+      "bytes": 10526
+    },
+    {
+      "id": "graft-limb-fragment",
+      "source": "assets/battle-v2/source/phase-b/graft-parts.png",
+      "sourceSha256": "1c228f14a0a758c7a4ece3b988de3cedebb6ec2ba3d534e6676966e5d1ae54b4",
+      "crop": [
+        1330,
+        444,
+        444,
+        443
+      ],
+      "keptAlphaComponents": [
+        "2"
+      ],
+      "cleanup": "Keep main connected anatomical part; shards retain three intended fragments. Frame retained for stable roots; original alpha multiplied by union of individually retained one-pixel-expanded masks.",
+      "runtime": "assets/battle-v2/runtime/phase-b/graft-limb-fragment.webp",
+      "sha256": "c466ffdf63e6222c9d5afd1468f19830421d18f4066bdc0fe2084a757448def6",
+      "bytes": 16840
+    }
+  ],
+  "familyRefinement": {
+    "script": "scripts/battle_v2_family_art.py",
+    "scriptSha256": "c0d641627dcbfde60952c0bfe4503cf57451cd2c76d4cfe6e4e3ea0bb30c0765",
+    "registration": "assets/battle-v2/family-refinement-registration.json",
+    "registrationSha256": "09e73b859d7b26da2a47be1751afd376f38213513328d3d8cd51dc47ee4de6fb"
+  }
+}

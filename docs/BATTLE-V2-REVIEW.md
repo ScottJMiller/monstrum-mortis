@@ -1,5 +1,8 @@
 # Battle v2 Phase A review
 
+Historical Phase A review. Its screenshots, recordings and dated checks remain preserved. Phase B was authorized on 13 October; see [current Phase B review](BATTLE-V2-PHASE-B-REVIEW.md) for the expanded library and evidence. Earlier pending Phase B gates and planned asset counts below describe this earlier milestone.
+
+
 **Phase A remains the review milestone.** Updated 13 October 2026 after the user's sound, effect, lettering, grounding and bite-pose feedback. Production play, mechanics, admission, recovery, protocol/schema/rules, infrastructure and experimental anatomy are unchanged. No deployment. [Specification](BATTLE-V2-SPEC.md) defines requirements; [plan](BATTLE-V2-PLAN.md) records decisions and the review gate.
 
 ## Play the revised sample

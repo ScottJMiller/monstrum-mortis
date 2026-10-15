@@ -1,13 +1,17 @@
-import art from '../../assets/battle-v2/art.json';
+import original from '../../assets/battle-v2/art.json';
+import {BODY_ART,ARENAS,GRAFTS} from './art.ts';
+import type {BodyId} from './art.ts';
 import { EFFECTS } from './effects.ts';
-/** Bounded pose/background/effect images, shared across DEV strict-effect remounts. */
-let pending:Promise<boolean>|null=null;
-export function preloadSample(retry=false):Promise<boolean>{
- if(pending&&!retry)return pending;
- const urls=[...Object.values(art['family-1']),...Object.values(art['iron-widow'])].map(a=>a.url).concat([art.arena,art.panel,art.shoulderEye],Object.values(EFFECTS).flatMap(e=>e.art?e.art.upper&&e.art.lower?[e.art.upper,e.art.lower]:[e.art.url]:[]));
- pending=Promise.allSettled(urls.map(url=>new Promise<void>((resolve,reject)=>{
-  const image=new Image(),timeout=setTimeout(()=>reject(new Error('Study artwork timeout')),12_000);
-  image.onload=()=>{clearTimeout(timeout);resolve();};image.onerror=()=>{clearTimeout(timeout);reject(new Error('Study artwork unavailable'));};image.src=url;
- }))).then(results=>results.every(r=>r.status==='fulfilled'));
- return pending;
+/** Retain only a selected-pair-sized image cache, never a complete animation library. */
+const cached=new Map<string,Promise<boolean>>();
+const MAX_IMAGES=28;
+export function preloadSample(retry=false,player:BodyId='family-1',rival:BodyId='iron-widow',arena='laboratory'):Promise<boolean>{
+ const urls=[...Object.values(BODY_ART[player]),...Object.values(BODY_ART[rival])].map(a=>a!.url).concat([ARENAS[arena]!,original.panel],[GRAFTS.barb,GRAFTS.veins,GRAFTS.mouth,GRAFTS.growth].map(g=>g.url),Object.values(EFFECTS).flatMap(e=>e.art?e.art.upper&&e.art.lower?[e.art.upper,e.art.lower]:[e.art.url]:[]));
+ return Promise.all([...new Set(urls)].map(url=>{
+  if(retry)cached.delete(url);
+  const previous=cached.get(url);if(previous){cached.delete(url);cached.set(url,previous);return previous;}
+  const load=new Promise<boolean>(resolve=>{const image=new Image(),timeout=setTimeout(()=>resolve(false),12_000);image.onload=()=>{clearTimeout(timeout);resolve(true);};image.onerror=()=>{clearTimeout(timeout);resolve(false);};image.src=url;});
+  cached.set(url,load);while(cached.size>MAX_IMAGES)cached.delete(cached.keys().next().value!);return load;
+ })).then(results=>results.every(Boolean));
 }
+export function cachedSampleImages(){return cached.size;}

@@ -2,6 +2,7 @@
 """Offline crop/optimization only; retained imagegen masters stay unchanged."""
 import json, hashlib, subprocess
 from pathlib import Path
+from battle_v2_family_art import extract_family
 root=Path('assets/battle-v2'); runtime=root/'runtime'; runtime.mkdir(parents=True,exist_ok=True)
 # Explicit source crop, uniform factor and source-relative grounded pivot.
 # Each registration is specific to that pose, including torso outline and protected eye zone.
@@ -25,6 +26,8 @@ poses={
 index={}; records=[]
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 for body,definitions in poses.items():
+ if body=='family-1' and (root/'family-refinement-registration.json').exists():
+  info,refined=extract_family(body,['idle','attack','recoil','defense','defeat','bite'],runtime);index[body]=info;records+=refined;continue
  source=root/'source'/(body+'-poses.png'); info={}
  for role,(crop,scale,pivot,torso,shoulder,eye) in definitions.items():
   source=root/'source'/(f'family-1-{role}.png' if body=='family-1' and role in ['idle','bite'] else body+'-poses.png')
@@ -44,7 +47,7 @@ source=Path('assets/source/mutation.existential-organ.png'); dest=runtime/'shoul
 subprocess.run(['convert',str(source),'-trim','+repage','-resize','128x128','-strip','-quality','84',str(dest)],check=True)
 index['shoulderEye']='/'+str(dest)
 records.append({'id':'shoulder-eye','source':str(source),'sourceSha256':sha(source),'runtime':str(dest),'sha256':sha(dest),'bytes':dest.stat().st_size,'origin':'Reused approved generated Existential Organ; exact original prompt/tool in assets/provenance.json','registration':'Pose-specific shoulder anchors in art.json; uniform size, pupil animation on associated growth'})
-index['readiness']={'family-1':'five-pose-sample-with-dedicated-bite-variant','iron-widow':'five-pose-sample','blob':'existing-art-idle-animation-only','remainingFamilies':'planned','remainingRivals':'planned','remainingArenas':'planned','damageVariants':'planned-phase-B'}
+index['historicalPhaseAReadiness']={'family-1':'five-pose-sample-with-dedicated-bite-variant','iron-widow':'five-pose-sample','blob':'existing-art-idle-animation-only','remainingFamilies':'planned','remainingRivals':'planned','remainingArenas':'planned','damageVariants':'planned-phase-B'}
 Path('src/assets/battle-v2/art.json').write_text(json.dumps(index,indent=2)+'\n')
-(root/'derivatives.json').write_text(json.dumps({'tool':'ImageMagick offline crop/uniform resize/WebP84; backgrounds WebP82','records':records},indent=2)+'\n')
+(root/'derivatives.json').write_text(json.dumps({'tool':'ImageMagick offline crop/uniform resize/WebP84; redesigned family sheets WebP82; backgrounds WebP82','familyRefinement':{'script':'scripts/battle_v2_family_art.py','scriptSha256':sha(Path('scripts/battle_v2_family_art.py')),'registration':'assets/battle-v2/family-refinement-registration.json','registrationSha256':sha(root/'family-refinement-registration.json')},'records':records},indent=2)+'\n')
 print(f'Prepared {len(records)} raster derivatives, {sum(r["bytes"] for r in records)} bytes.')

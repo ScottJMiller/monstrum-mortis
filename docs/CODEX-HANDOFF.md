@@ -1,15 +1,25 @@
 # Continue in VS Code with Codex
 
-> Current scope: [Battle v2 specification](BATTLE-V2-SPEC.md) and [Phase A plan](BATTLE-V2-PLAN.md) govern the development-only animation/audio sample. Earlier integration/battle appearance, region-selection, Same-Room and display-entry guidance below is historical and superseded for the future redesign. Production behavior and legacy permissions remain unchanged until Phase C. Historical verification below did not test Battle v2.
+Completion tracking: [Phase B completion checklist](BATTLE-V2-PHASE-B-PLAN.md#phase-b-completion-checklist) and [Phase C look-ahead](BATTLE-V2-PHASE-B-PLAN.md#phase-c-look-ahead-completion-checklist) separate development readiness, human acceptance and future production work. Phase C/deployment remain unauthorized.
+
+Current change (14 October 2026): saved monsters, tarot cards and the local cabinet are removed from the product plan, rather than deferred. Historical mentions retain their original dates/scope. Phase C includes production UI/UX; development contact sheets are references, not final production screens. After step 6 and Battle v2 A/B/C are complete and accepted, consolidate guidance and move superseded documents/evidence into dated `docs/archive/` folders, preserving provenance/verification and repairing links. That cleanup is pending; Phase C and deployment remain unauthorized.
+
+Latest approved family/blob refinement: [family redesign and voting](BATTLE-V2-FAMILY-REFINEMENT.md). Blob receives Razor Talons/Counterweight Tail votes and remains the no-vote fallback; Families 1/3 artwork is redesigned. Production rollout remains Phase C and is not authorized.
+
+Current Phase B presentation refinement: [14 October review](BATTLE-V2-REFINEMENT-2026-10-14.md) supersedes native status graphics, procedural added cues and damage masks. Creature damage is text feedback; production mechanics and Phase C authorization are unchanged.
+
+Current authorization (13 October 2026): **Battle v2 Phase B** asset production and development review. The user accepted the Phase A gate by requesting Phase B. See [Phase B plan](BATTLE-V2-PHASE-B-PLAN.md). Phase C production integration and deployment remain unauthorized; earlier Phase A-only notes below are historical.
+
+> Current scope: [Battle v2 specification](BATTLE-V2-SPEC.md) and [Phase B plan](BATTLE-V2-PHASE-B-PLAN.md) govern asset production in the development preview. Earlier appearance, region, Same-Room and display-entry guidance is superseded for the future redesign. Production behavior and legacy permissions remain unchanged until separately authorized Phase C. Dated verification records below retain their historical scope.
 
 
 Recommended: VS Code with the official OpenAI Codex extension, working on a local clone of `git@github.com:ScottJMiller/monstrum-mortis.git`. VS Code is the editor; Codex is the agent that can inspect and change the opened project. There is no need to migrate the game to an OpenAI runtime, add an OpenAI API, or create an API key for the game.
 
 ## Current Battle v2 handoff
 
-The user authorizes **Phase A only**: a reviewable development animation/audio sample, without another planning approval or deployment. Read [BATTLE-V2-SPEC.md](BATTLE-V2-SPEC.md), [BATTLE-V2-PLAN.md](BATTLE-V2-PLAN.md) and [BATTLE-V2-REVIEW.md](BATTLE-V2-REVIEW.md). Experimental anatomy and step 5/6 mechanics remain unchanged. The pure server-only selector is tested but has no production caller. Protocol/schema/rules remain 5/5/0.3.0. The DEV-only `/battle-v2` preview needs Vite only; production UI/routes/media remain the baseline.
+The user authorized Phase B after reviewing Phase A. Read [BATTLE-V2-SPEC.md](BATTLE-V2-SPEC.md), [BATTLE-V2-PHASE-B-PLAN.md](BATTLE-V2-PHASE-B-PLAN.md) and [BATTLE-V2-PHASE-B-REVIEW.md](BATTLE-V2-PHASE-B-REVIEW.md). Twelve five-role bodies, three arenas, textured grafts and the current effect/audio library render at Vite-only `/battle-v2`. `npm run test:battle-v2-phase-b` and `npm run review:battle-v2` reproduce current checks/artifacts; the original Phase A review remains dated history. Manual body/arena/damage overrides and directional samplers are explicitly art-only; 47 legal recordings use the existing producers.
 
-Phase A is the visual/audio review milestone. Stop before remaining Phase B creature production or Phase C rollout until the user accepts the sample. Those phases cover remaining animation/effect/damage sets and atomic persisted form/background selection, compatibility, themed UI, Americas-only new entry and removal of new Same-Room/display entry. Preserve existing regional guests and legacy display permissions. Cards/cabinet/naming/signals and deployment remain outside this authorization. Historical records below describe prior work, not v2 checks.
+Experimental anatomy and step 5/6 mechanics are unchanged. The selector has no production caller. Protocol/schema/rules remain 5/5/0.3.0; production UI/routes/media remain the baseline. Stop before Phase C, cards/cabinet/naming or deployment. Phase C requires atomic persisted form/background selection, compatibility, integrated playback/themed UI, Americas-only new entry and removal of new Same-Room/display entry while preserving legacy guests/permissions. Phase D covers physical devices and human sound/pacing/performance acceptance.
 
 ## Historical step 1 import instructions
 
@@ -73,6 +83,6 @@ Six rival masters/prompts/hashes are in `assets/rival-provenance.json` and `asse
 
 Earlier step 1 import notes above are historical; this local clone is authoritative. The approved design and project docs provide continuity without chat history.
 
-Phase A refinement (13 October): supplied sounds/SVGs, Metal Mania, removed shadow disks and dedicated bite lunge are integrated and locally checked. Current evidence/readiness and outstanding non-tint textured-graft discussion are in [BATTLE-V2-REVIEW.md](BATTLE-V2-REVIEW.md). Do not treat historical procedural-audio or initial review counts as the current asset inventory; no Phase B/C acceptance or deployment is inferred.
+Phase A refinement (13 October): supplied sounds/SVGs, Metal Mania, removed shadow disks and dedicated bite lunge are integrated and locally checked. Current evidence/readiness and outstanding non-tint textured-graft discussion are in [BATTLE-V2-REVIEW.md](BATTLE-V2-REVIEW.md). Do not treat historical procedural-audio or initial review counts as the current asset inventory; this was prior to the separately authorized Phase B work.
 
-Latest lettering refinement supersedes the earlier Metal Mania selection: New Rocker and all 21 requested phrases are integrated. Choices are cosmetic and stable per public event identity; block/miss/timeout lettering is enabled with the existing cap. Eleven labeled timelines and current 203-test/ten-browser-scenario evidence are documented in the review. Production/Phase B/C/deployment remain gated.
+Latest lettering refinement supersedes the earlier Metal Mania selection: New Rocker and all 21 requested phrases are integrated. Choices are cosmetic and stable per public event identity; block/miss/timeout lettering is enabled with the existing cap. Eleven labeled timelines and current 203-test/ten-browser-scenario evidence are documented in the review. This record predates Phase B authorization; production/Phase C/deployment remain gated.

@@ -2,224 +2,260 @@
   "family-1": {
     "idle": {
       "url": "/assets/battle-v2/runtime/family-1-idle.webp",
-      "width": 269,
-      "height": 589,
+      "width": 337,
+      "height": 560,
       "pivot": [
-        143.678,
-        579.09
+        161.76,
+        554.4
       ],
       "torso": [
         [
-          87.162,
-          101.092
+          117.95,
+          134.4
         ],
         [
-          158.802,
-          94.326
+          222.42,
+          151.2
         ],
         [
-          135.718,
-          219.696
+          192.09,
+          291.2
         ],
         [
-          64.078,
-          211.736
+          97.73,
+          274.4
         ]
       ],
       "shoulder": [
-        97.908,
-        100.296
+        104.47,
+        140.0
       ],
       "eye": [
-        203.776,
-        34.626
+        269.6,
+        44.8
       ],
-      "eyeRadius": 9.552,
+      "eyes": [
+        [
+          269.6,
+          44.8
+        ]
+      ],
+      "eyeRadius": 13.48,
       "facing": "right"
     },
     "attack": {
       "url": "/assets/battle-v2/runtime/family-1-attack.webp",
-      "width": 703,
-      "height": 572,
+      "width": 552,
+      "height": 513,
       "pivot": [
-        336.4,
-        553.32
+        276.0,
+        502.74
       ],
       "torso": [
         [
-          226.2,
-          103.24
+          215.28,
+          112.86
         ],
         [
-          312.04,
-          142.68
+          358.8,
+          123.12
         ],
         [
-          319.0,
-          261.0
+          303.6,
+          251.37
         ],
         [
-          250.56,
-          252.88
+          187.68,
+          215.46
         ]
       ],
       "shoulder": [
-        258.68,
-        113.68
+        231.84,
+        117.99
       ],
       "eye": [
-        436.16,
-        64.96
+        347.76,
+        51.3
       ],
-      "eyeRadius": 27.839999999999996,
-      "facing": "right"
-    },
-    "bite": {
-      "url": "/assets/battle-v2/runtime/family-1-bite.webp",
-      "width": 713,
-      "height": 472,
-      "pivot": [
-        437.1,
-        455.9
-      ],
-      "torso": [
+      "eyes": [
         [
-          355.32,
-          102.46
-        ],
-        [
-          497.26,
-          120.79
-        ],
-        [
-          474.7,
-          210.09
-        ],
-        [
-          347.33,
-          188.94
+          347.76,
+          51.3
         ]
       ],
-      "shoulder": [
-        363.31,
-        108.1
-      ],
-      "eye": [
-        653.3,
-        36.19
-      ],
-      "eyeRadius": 11.28,
+      "eyeRadius": 20.52,
       "facing": "right"
     },
     "recoil": {
       "url": "/assets/battle-v2/runtime/family-1-recoil.webp",
-      "width": 615,
-      "height": 601,
+      "width": 523,
+      "height": 539,
       "pivot": [
-        388.6,
-        575.36
+        298.11,
+        528.22
       ],
       "torso": [
         [
-          91.64,
-          61.48
+          120.29,
+          107.8
         ],
         [
-          206.48,
-          145.0
+          245.81,
+          161.7
         ],
         [
-          263.32,
-          247.08
+          298.11,
+          280.28
         ],
         [
-          175.16,
-          225.04
+          172.59,
+          226.38
         ]
       ],
       "shoulder": [
-        96.28,
-        88.16
+        125.52,
+        123.97
       ],
       "eye": [
-        96.28,
-        46.4
+        95.709,
+        26.95
       ],
-      "eyeRadius": 27.839999999999996,
+      "eyes": [
+        [
+          95.709,
+          26.95
+        ]
+      ],
+      "eyeRadius": 20.92,
       "facing": "right"
     },
     "defense": {
       "url": "/assets/battle-v2/runtime/family-1-defense.webp",
-      "width": 522,
-      "height": 581,
+      "width": 423,
+      "height": 532,
       "pivot": [
-        278.4,
-        553.32
+        211.5,
+        521.36
       ],
       "torso": [
         [
-          157.76,
-          156.6
+          148.05,
+          122.36
         ],
         [
-          269.12,
-          151.96
+          249.57,
+          127.68
         ],
         [
-          216.92,
-          299.28
+          241.11,
+          271.32
         ],
         [
-          119.48,
-          241.28
+          126.9,
+          228.76
         ]
       ],
       "shoulder": [
-        168.2,
-        167.04
+        156.51,
+        127.68
       ],
       "eye": [
-        336.4,
-        131.08
+        300.33,
+        63.84
       ],
-      "eyeRadius": 27.839999999999996,
+      "eyes": [
+        [
+          300.33,
+          63.84
+        ]
+      ],
+      "eyeRadius": 16.92,
       "facing": "right"
     },
     "defeat": {
       "url": "/assets/battle-v2/runtime/family-1-defeat.webp",
-      "width": 754,
-      "height": 341,
+      "width": 516,
+      "height": 315,
       "pivot": [
-        368.5,
-        305.8
+        283.8,
+        299.25
       ],
       "torso": [
         [
-          202.4,
-          91.3
+          263.16,
+          63.0
         ],
         [
-          305.8,
-          116.6
+          371.52,
+          75.6
         ],
         [
-          286.0,
-          191.4
+          361.2,
+          189.0
         ],
         [
-          138.6,
-          189.2
+          221.88,
+          185.85
         ]
       ],
       "shoulder": [
-        220.0,
-        100.1
+        288.96,
+        97.65
       ],
       "eye": [
-        159.5,
-        169.4
+        443.76,
+        119.7
       ],
-      "eyeRadius": 26.400000000000002,
+      "eyes": [
+        [
+          443.76,
+          119.7
+        ]
+      ],
+      "eyeRadius": 12.6,
+      "facing": "right"
+    },
+    "bite": {
+      "url": "/assets/battle-v2/runtime/family-1-bite.webp",
+      "width": 497,
+      "height": 474,
+      "pivot": [
+        273.35,
+        464.52
+      ],
+      "torso": [
+        [
+          328.02,
+          90.06
+        ],
+        [
+          387.66,
+          151.68
+        ],
+        [
+          263.41,
+          251.22
+        ],
+        [
+          218.68,
+          208.56
+        ]
+      ],
+      "shoulder": [
+        303.17,
+        104.28
+      ],
+      "eye": [
+        447.3,
+        45.03
+      ],
+      "eyes": [
+        [
+          447.3,
+          45.03
+        ]
+      ],
+      "eyeRadius": 18.96,
       "facing": "right"
     }
   },
@@ -413,7 +449,7 @@
   "arena": "/assets/battle-v2/runtime/arena.webp",
   "panel": "/assets/battle-v2/runtime/panel.webp",
   "shoulderEye": "/assets/battle-v2/runtime/shoulder-eye.webp",
-  "readiness": {
+  "historicalPhaseAReadiness": {
     "family-1": "five-pose-sample-with-dedicated-bite-variant",
     "iron-widow": "five-pose-sample",
     "blob": "existing-art-idle-animation-only",

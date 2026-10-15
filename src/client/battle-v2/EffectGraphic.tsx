@@ -1,6 +1,7 @@
 import { EFFECTS } from './effects.ts';
 import type { EffectId } from './effects.ts';
 import { biteJawOffset } from './animation.ts';
+/** Graphics are opt-in supplied art; status feedback stays in readable captions. */
 export function EffectGraphic({id,age,motion,onError}:{id:EffectId;age:number;motion:boolean;onError:()=>void}){
  const art=EFFECTS[id].art;if(!art)return null;
  const attributes={x:-art.width/2,y:-art.height/2,width:art.width,height:art.height,preserveAspectRatio:'xMidYMid meet',onError};

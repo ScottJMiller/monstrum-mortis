@@ -12,5 +12,15 @@
   "injection": "/assets/battle-v2/runtime/audio/injection.m4a",
   "integration": "/assets/battle-v2/runtime/audio/integration.m4a",
   "unleash": "/assets/battle-v2/runtime/audio/unleash.m4a",
-  "ambient": "/assets/battle-v2/runtime/audio/ambient.m4a"
+  "ambient": "/assets/battle-v2/runtime/audio/ambient.m4a",
+  "electric": "/assets/battle-v2/runtime/phase-b/audio/electric.m4a",
+  "poison": "/assets/battle-v2/runtime/phase-b/audio/poison.m4a",
+  "bleed": "/assets/battle-v2/runtime/phase-b/audio/bleed.m4a",
+  "restraint": "/assets/battle-v2/runtime/phase-b/audio/restraint.m4a",
+  "roar": "/assets/battle-v2/runtime/phase-b/audio/roar.m4a",
+  "regeneration": "/assets/battle-v2/runtime/phase-b/audio/regeneration.m4a",
+  "slowing": "/assets/battle-v2/runtime/phase-b/audio/slowing.m4a",
+  "crawling": "/assets/battle-v2/runtime/phase-b/audio/crawling.m4a",
+  "malfunction": "/assets/battle-v2/runtime/phase-b/audio/malfunction.m4a",
+  "detach": "/assets/battle-v2/runtime/phase-b/audio/detach.m4a"
 }

@@ -1,0 +1,44 @@
+{
+  "scope": "Approved Phase B family/blob vote refinement; no Phase C rollout",
+  "createdAt": "2026-10-14",
+  "tool": "Built-in image_gen.imagegen under imagegen skill; underlying model not exposed",
+  "origin": "Generated project output under applicable OpenAI terms; no stock ownership/exclusivity claim",
+  "originalsPreserved": true,
+  "sources": [
+    {
+      "id": "family-1",
+      "path": "assets/battle-v2/source/family-refinement/family-1-poses.png",
+      "prompt": "Use case: identity-preserve. Asset: finished transparent browser-game animation pose sheet, redesign of reference creature. Exactly TWO equal columns by THREE equal rows, SIX complete independent full-body poses of the SAME creature, in order: top-left IDLE, top-right ATTACK/body strike; middle-left RECOIL, middle-right DEFENSE; bottom-left DEFEAT, bottom-right BITE LUNGE. Every pose faces RIGHT toward an opponent, consistent three-quarter side perspective. Reference image 1 supplies the original creature identity, decayed olive-cream flesh, bruised purple sinew, antique brass joints, painted realistic texture, stitched Frankenstein/eldritch aesthetic and upper-left light. Redesign it into a GAUNT ARMORED EXECUTIONER: very long spring-loaded bent legs, narrow skinny torso, long hanging arms, irregular dirty ivory bone plates on shoulders, spine and shins with gaps exposing stitched flesh and aged brass machinery. Preserve the sinister original head identity but make its enormous cutting jaw with broad guillotine teeth the main focal point. Replace ALL razor talons on hands and feet with oversized BLUNT undertaker hands: thick knuckles, short uneven rounded fingers, ordinary short nails. Feet have blunt toes. NO long claws, hooked talons, needle fingers, blades on extremities or bulky tank proportions. Silhouette must read long bent legs, narrow armored torso, heavy blunt hands, enormous jaw. IDLE leaned alert stance with jaw visible; ATTACK thrusts a blunt palm/forearm forward-right; RECOIL thrown backward-left, hands spread; DEFENSE bent knees, blunt forearms/hands raised in front of body; DEFEAT collapsed complete body facing right, limbs folded; BITE LUNGE leans forward-right with a fully open huge cutting jaw and arms swept behind or below, visibly distinct from the hand strike. Same anatomy, armor locations, proportions, colors, lighting and scale throughout six poses. Each entire pose fits its own cell with generous 10% transparent margins and empty gutters, no overlap across cells or clipped hands/feet/jaw. True transparent background, no ground, floor shadow, lettering, labels, grid, aura or effect art. Keep comic institutional horror rather than heroic fantasy armor. High resolution portrait sheet.",
+      "references": [
+        "assets/battle-v2/source/family-1-idle.png"
+      ],
+      "poseRoles": [
+        "idle",
+        "attack",
+        "recoil",
+        "defense",
+        "defeat",
+        "bite"
+      ],
+      "sha256": "7ae7a2a5e773d740eb3f40e36840ce7d45bef5f5874beb69885e43d8cd603d6b",
+      "bytes": 2595256
+    },
+    {
+      "id": "family-3",
+      "path": "assets/battle-v2/source/family-refinement/family-3-poses.png",
+      "prompt": "Use case: precise-object-edit. Asset: transparent five-pose game animation sheet. Input image 1 is the edit target, existing horned kitten. Keep the SAME creature identity, palette, decayed painterly Frankenstein/eldritch texture, aged brass details, upper-left lighting, large bright green lantern eyes and curled cathedral horns. Apply precisely these approved changes consistently to ALL FIVE poses: REMOVE the long articulated heavy counterweight tail and its rounded brass weight entirely. Replace it with one SMALL FLUFFY BOBTAIL, never a long or mechanical tail. Make the kitten subtly 10\u201320% cuter, not a different cartoon: slightly fuller fluffy cheeks/body fur, softer rounder muzzle, smug almost-adorable resting expression. Forepaws and hind paws must look like rounded fluffy KITTEN PAWS, not long talons. Keep sparse blood stains and a few unpleasant stitched details to retain sinister comic horror. Keep long frightening teeth mainly visible in ATTACK; idle/defense/recoil have mostly closed or small mouths with only tiny fang hints, not the permanently bared giant grin. Defeat eyes closed, mouth relaxed. Preserve compact four-legged cat anatomy, horns/eyes/paw proportions and direction RIGHT. Preserve TWO columns THREE rows: IDLE top-left; ATTACK top-right lunging forward-right with front fluffy paw extended and mouth open showing long frightening fangs; RECOIL middle-left thrown backward-left; DEFENSE middle-right curled and braced; DEFEAT bottom-left lying complete on ground facing right; bottom-right EMPTY. Every entire pose within own cell, generous 10% clear transparent margins and empty gutters. No overlap or clipping, floor shadow, labels, words, extra creature, scene or runtime effects. True transparent background, no painted backdrop. Same scale and anatomy across all five independent poses. Highest available portrait resolution.",
+      "references": [
+        "assets/battle-v2/source/phase-b/family-3-poses.png"
+      ],
+      "poseRoles": [
+        "idle",
+        "attack",
+        "recoil",
+        "defense",
+        "defeat"
+      ],
+      "sha256": "6967556b79664ee493da5a362124a7917d165e054cc47e61d9c7f302efe55a7d",
+      "bytes": 1979362
+    }
+  ]
+}

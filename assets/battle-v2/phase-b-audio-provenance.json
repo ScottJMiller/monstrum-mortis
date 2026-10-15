@@ -1,0 +1,364 @@
+{
+  "origin": "User-supplied sound replacements received 14 October 2026; no creation tool/prompts supplied",
+  "license": "Original authorship/licensing unspecified by supplier; retained for development review, no third-party license invented",
+  "tool": "FFmpeg: linear gain, AAC-LC, original 22050 Hz; mono only for identical source channels",
+  "normalization": "10ms RMS windows above -20dB relative to loudest window; target -20dBFS foreground/-32dBFS ambience, gain capped +12dB and pre-encode peak -5dBFS; measure decoded output",
+  "playbackAdjustments": {
+    "source": "src/client/battle-v2/effects.ts SOUND_GAINS",
+    "amplitudeMultipliers": {
+      "strike": 1.15,
+      "guard": 1.15,
+      "recoil": 1.035,
+      "defeat": 1.15
+    },
+    "applied": "Web Audio voice gain before the existing limiter/device master; encoded files remain normalized",
+    "recoilRefinement": "14 October 2026: amplitude reduced 10% from previous 1.15 multiplier, yielding 1.035; normalized encoded file unchanged"
+  },
+  "productionScript": "scripts/prepare-battle-v2-phase-b-audio.py",
+  "scriptSha256": "eef3f5b04ac84136599f7d90673da0a1c70f1759445dbc2957b2de70c194b80f",
+  "ffmpegVersion": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
+  "priorProcedural": "assets/battle-v2/source/phase-b/audio/procedural-history/provenance.json",
+  "supersedes": "Procedural Phase B cues; recover and shards now have no sound",
+  "records": [
+    {
+      "id": "electric",
+      "source": "assets/battle-v2/source/user-review/phase-b/electric.wav",
+      "submittedSource": "docs/battle-v2-phase-b-review/SJM_change-files/electric.wav",
+      "sourceSha256": "4e71c1453ebf2237d3162db0f5c1ed8536659895333a29096d3a4af79f8a8fe9",
+      "sourceBytes": 61542,
+      "sourceLevels": {
+        "peakDbFS": -4.196,
+        "rmsDbFS": -19.165,
+        "activeRmsDbFS": -18.641
+      },
+      "gainDb": -1.359,
+      "edgeFadeSeconds": {
+        "in": 0.002,
+        "out": 0.005
+      },
+      "targetActiveRmsDbFS": -20,
+      "peakCeilingBeforeEncodingDbFS": -5,
+      "path": "assets/battle-v2/runtime/phase-b/audio/electric.m4a",
+      "url": "/assets/battle-v2/runtime/phase-b/audio/electric.m4a",
+      "bytes": 6645,
+      "sha256": "edaaa715c5c6e0620cf6c5fcff4803da6929ab8a4d08dfd95d350860e325a804",
+      "durationSeconds": 0.6899319727891157,
+      "sampleRate": 22050,
+      "channels": 2,
+      "sourceChannels": 2,
+      "dualMonoCollapsed": false,
+      "codec": "AAC-LC",
+      "encodedLevels": {
+        "peakDbFS": -4.833,
+        "rmsDbFS": -20.743,
+        "activeRmsDbFS": -19.818
+      }
+    },
+    {
+      "id": "poison",
+      "source": "assets/battle-v2/source/user-review/phase-b/poison.wav",
+      "submittedSource": "docs/battle-v2-phase-b-review/SJM_change-files/poison.wav",
+      "sourceSha256": "df0a0e685a248155af8b61b70eb6d96c988dad44548df7cc2fc63ac1d74a3a1f",
+      "sourceBytes": 77954,
+      "sourceLevels": {
+        "peakDbFS": -9.072,
+        "rmsDbFS": -21.157,
+        "activeRmsDbFS": -19.12
+      },
+      "gainDb": -0.88,
+      "edgeFadeSeconds": {
+        "in": 0.002,
+        "out": 0.005
+      },
+      "targetActiveRmsDbFS": -20,
+      "peakCeilingBeforeEncodingDbFS": -5,
+      "path": "assets/battle-v2/runtime/phase-b/audio/poison.m4a",
+      "url": "/assets/battle-v2/runtime/phase-b/audio/poison.m4a",
+      "bytes": 7992,
+      "sha256": "fd6c6b068c3eabdd22cf6b88957c16a5ed839bca2e7ee885b1fbd39db3e1e31e",
+      "durationSeconds": 0.8760090702947846,
+      "sampleRate": 22050,
+      "channels": 2,
+      "sourceChannels": 2,
+      "dualMonoCollapsed": false,
+      "codec": "AAC-LC",
+      "encodedLevels": {
+        "peakDbFS": -9.946,
+        "rmsDbFS": -22.02,
+        "activeRmsDbFS": -20.027
+      }
+    },
+    {
+      "id": "bleed",
+      "source": "assets/battle-v2/source/user-review/phase-b/bleed.wav",
+      "submittedSource": "docs/battle-v2-phase-b-review/SJM_change-files/bleed.wav",
+      "sourceSha256": "462702daac0a224c43a1b4ba9155775477d654d96f277130499d24fd964e9470",
+      "sourceBytes": 85378,
+      "sourceLevels": {
+        "peakDbFS": -0.051,
+        "rmsDbFS": -23.177,
+        "activeRmsDbFS": -20.143
+      },
+      "gainDb": -4.949,
+      "edgeFadeSeconds": {
+        "in": 0.002,
+        "out": 0.005
+      },
+      "targetActiveRmsDbFS": -20,
+      "peakCeilingBeforeEncodingDbFS": -5,
+      "path": "assets/battle-v2/runtime/phase-b/audio/bleed.m4a",
+      "url": "/assets/battle-v2/runtime/phase-b/audio/bleed.m4a",
+      "bytes": 8809,
+      "sha256": "5394c07fa2dfed34f911b9d5a5700dc8a68ca338aba7071ef7be096ac966f838",
+      "durationSeconds": 0.9601814058956916,
+      "sampleRate": 22050,
+      "channels": 2,
+      "sourceChannels": 2,
+      "dualMonoCollapsed": false,
+      "codec": "AAC-LC",
+      "encodedLevels": {
+        "peakDbFS": -6.275,
+        "rmsDbFS": -28.395,
+        "activeRmsDbFS": -25.475
+      }
+    },
+    {
+      "id": "restraint",
+      "source": "assets/battle-v2/source/user-review/phase-b/restraint.wav",
+      "submittedSource": "docs/battle-v2-phase-b-review/SJM_change-files/restraint.wav",
+      "sourceSha256": "e28c5d108f9eca5c75765e77585c8d757fb4413db8b15410864fb3c1e148809c",
+      "sourceBytes": 55842,
+      "sourceLevels": {
+        "peakDbFS": -3.459,
+        "rmsDbFS": -18.752,
+        "activeRmsDbFS": -17.43
+      },
+      "gainDb": -2.57,
+      "edgeFadeSeconds": {
+        "in": 0.002,
+        "out": 0.005
+      },
+      "targetActiveRmsDbFS": -20,
+      "peakCeilingBeforeEncodingDbFS": -5,
+      "path": "assets/battle-v2/runtime/phase-b/audio/restraint.m4a",
+      "url": "/assets/battle-v2/runtime/phase-b/audio/restraint.m4a",
+      "bytes": 5863,
+      "sha256": "7f4956c8002e6cf8a1aba8bb87cbbdd5eced5ea75656021ef429a0cdab1c2214",
+      "durationSeconds": 0.6253061224489795,
+      "sampleRate": 22050,
+      "channels": 2,
+      "sourceChannels": 2,
+      "dualMonoCollapsed": false,
+      "codec": "AAC-LC",
+      "encodedLevels": {
+        "peakDbFS": -5.974,
+        "rmsDbFS": -21.539,
+        "activeRmsDbFS": -20.048
+      }
+    },
+    {
+      "id": "roar",
+      "source": "assets/battle-v2/source/user-review/phase-b/roar.wav",
+      "submittedSource": "docs/battle-v2-phase-b-review/SJM_change-files/roar.wav",
+      "sourceSha256": "9a34d36c79103229638fcfe71a77ad1c48037d9ba929556bdf30e8fe83752af3",
+      "sourceBytes": 136466,
+      "sourceLevels": {
+        "peakDbFS": -2.155,
+        "rmsDbFS": -15.136,
+        "activeRmsDbFS": -14.728
+      },
+      "gainDb": -5.272,
+      "edgeFadeSeconds": {
+        "in": 0.002,
+        "out": 0.005
+      },
+      "targetActiveRmsDbFS": -20,
+      "peakCeilingBeforeEncodingDbFS": -5,
+      "path": "assets/battle-v2/runtime/phase-b/audio/roar.m4a",
+      "url": "/assets/battle-v2/runtime/phase-b/audio/roar.m4a",
+      "bytes": 13671,
+      "sha256": "bdd029175360ee240edf19c8047ec3ee1e706643fb0b870bab3dd6357081fcfe",
+      "durationSeconds": 1.5394104308390022,
+      "sampleRate": 22050,
+      "channels": 2,
+      "sourceChannels": 2,
+      "dualMonoCollapsed": false,
+      "codec": "AAC-LC",
+      "encodedLevels": {
+        "peakDbFS": -7.555,
+        "rmsDbFS": -20.543,
+        "activeRmsDbFS": -20.024
+      }
+    },
+    {
+      "id": "regeneration",
+      "source": "assets/battle-v2/source/user-review/phase-b/regeneration.wav",
+      "submittedSource": "docs/battle-v2-phase-b-review/SJM_change-files/regeneration.wav",
+      "sourceSha256": "7b921ccf61bf3786b566d892a845204b8d91fbf9de95825bca7dbade41084dad",
+      "sourceBytes": 262018,
+      "sourceLevels": {
+        "peakDbFS": -14.202,
+        "rmsDbFS": -30.61,
+        "activeRmsDbFS": -29.26
+      },
+      "gainDb": 9.202,
+      "edgeFadeSeconds": {
+        "in": 0.002,
+        "out": 0.005
+      },
+      "targetActiveRmsDbFS": -20,
+      "peakCeilingBeforeEncodingDbFS": -5,
+      "path": "assets/battle-v2/runtime/phase-b/audio/regeneration.m4a",
+      "url": "/assets/battle-v2/runtime/phase-b/audio/regeneration.m4a",
+      "bytes": 25145,
+      "sha256": "9637ba63194ee8134cd1edd5319db5e3c3f680492fca2148506a367dcc5ddcf7",
+      "durationSeconds": 2.9629024943310656,
+      "sampleRate": 22050,
+      "channels": 2,
+      "sourceChannels": 2,
+      "dualMonoCollapsed": false,
+      "codec": "AAC-LC",
+      "encodedLevels": {
+        "peakDbFS": -4.907,
+        "rmsDbFS": -21.456,
+        "activeRmsDbFS": -20.092
+      }
+    },
+    {
+      "id": "slowing",
+      "source": "assets/battle-v2/source/user-review/phase-b/slowing.wav",
+      "submittedSource": "docs/battle-v2-phase-b-review/SJM_change-files/slowing.wav",
+      "sourceSha256": "4d20ade34d82d545450424cd1b8c5407db9cb69de30f383ebd775873ea0e3431",
+      "sourceBytes": 73958,
+      "sourceLevels": {
+        "peakDbFS": -9.978,
+        "rmsDbFS": -25.449,
+        "activeRmsDbFS": -21.462
+      },
+      "gainDb": 1.462,
+      "edgeFadeSeconds": {
+        "in": 0.002,
+        "out": 0.005
+      },
+      "targetActiveRmsDbFS": -20,
+      "peakCeilingBeforeEncodingDbFS": -5,
+      "path": "assets/battle-v2/runtime/phase-b/audio/slowing.m4a",
+      "url": "/assets/battle-v2/runtime/phase-b/audio/slowing.m4a",
+      "bytes": 6401,
+      "sha256": "04f0088d396055250f3ee7f5ccd23bc66cadf5c239ac080fd3fe67bc8bd45732",
+      "durationSeconds": 0.830702947845805,
+      "sampleRate": 22050,
+      "channels": 1,
+      "sourceChannels": 2,
+      "dualMonoCollapsed": true,
+      "codec": "AAC-LC",
+      "encodedLevels": {
+        "peakDbFS": -7.054,
+        "rmsDbFS": -24.083,
+        "activeRmsDbFS": -20.061
+      }
+    },
+    {
+      "id": "crawling",
+      "source": "assets/battle-v2/source/user-review/phase-b/crawling.wav",
+      "submittedSource": "docs/battle-v2-phase-b-review/SJM_change-files/crawling.wav",
+      "sourceSha256": "90fa1bb051e635baf4d5b31926c564c0ed8216d62dea3777147fb9aeaff5432b",
+      "sourceBytes": 132582,
+      "sourceLevels": {
+        "peakDbFS": -4.191,
+        "rmsDbFS": -26.974,
+        "activeRmsDbFS": -21.515
+      },
+      "gainDb": -0.809,
+      "edgeFadeSeconds": {
+        "in": 0.002,
+        "out": 0.005
+      },
+      "targetActiveRmsDbFS": -20,
+      "peakCeilingBeforeEncodingDbFS": -5,
+      "path": "assets/battle-v2/runtime/phase-b/audio/crawling.m4a",
+      "url": "/assets/battle-v2/runtime/phase-b/audio/crawling.m4a",
+      "bytes": 13097,
+      "sha256": "1d34fa12411151f4d555cfead4bb0bd0fb4642c2313db3dfbb6966f9ca93c26b",
+      "durationSeconds": 1.495374149659864,
+      "sampleRate": 22050,
+      "channels": 2,
+      "sourceChannels": 2,
+      "dualMonoCollapsed": false,
+      "codec": "AAC-LC",
+      "encodedLevels": {
+        "peakDbFS": -5.114,
+        "rmsDbFS": -27.859,
+        "activeRmsDbFS": -22.193
+      }
+    },
+    {
+      "id": "malfunction",
+      "source": "assets/battle-v2/source/user-review/phase-b/malfunction.wav",
+      "submittedSource": "docs/battle-v2-phase-b-review/SJM_change-files/malfunction.wav",
+      "sourceSha256": "e15978d6f76d21f2d4d0479a1a34e0c16d23edee87b51f71cb4034d3563435e4",
+      "sourceBytes": 50138,
+      "sourceLevels": {
+        "peakDbFS": -6.083,
+        "rmsDbFS": -23.233,
+        "activeRmsDbFS": -23.075
+      },
+      "gainDb": 1.083,
+      "edgeFadeSeconds": {
+        "in": 0.002,
+        "out": 0.005
+      },
+      "targetActiveRmsDbFS": -20,
+      "peakCeilingBeforeEncodingDbFS": -5,
+      "path": "assets/battle-v2/runtime/phase-b/audio/malfunction.m4a",
+      "url": "/assets/battle-v2/runtime/phase-b/audio/malfunction.m4a",
+      "bytes": 5802,
+      "sha256": "7fa43e8fdf2fc5788e0fa1ce3151ebf523cc5ca07145439e4e7e8ec37be88d6d",
+      "durationSeconds": 0.5606349206349206,
+      "sampleRate": 22050,
+      "channels": 2,
+      "sourceChannels": 2,
+      "dualMonoCollapsed": false,
+      "codec": "AAC-LC",
+      "encodedLevels": {
+        "peakDbFS": -6.825,
+        "rmsDbFS": -22.446,
+        "activeRmsDbFS": -22.044
+      }
+    },
+    {
+      "id": "detach",
+      "source": "assets/battle-v2/source/user-review/phase-b/detach.wav",
+      "submittedSource": "docs/battle-v2-phase-b-review/SJM_change-files/detach.wav",
+      "sourceSha256": "fba0f4505604611e414d247a00d07c12e6d3b6941d8d7b718731f593fa7b1e33",
+      "sourceBytes": 92950,
+      "sourceLevels": {
+        "peakDbFS": -6.056,
+        "rmsDbFS": -19.665,
+        "activeRmsDbFS": -19.384
+      },
+      "gainDb": -0.616,
+      "edgeFadeSeconds": {
+        "in": 0.002,
+        "out": 0.005
+      },
+      "targetActiveRmsDbFS": -20,
+      "peakCeilingBeforeEncodingDbFS": -5,
+      "path": "assets/battle-v2/runtime/phase-b/audio/detach.m4a",
+      "url": "/assets/battle-v2/runtime/phase-b/audio/detach.m4a",
+      "bytes": 9563,
+      "sha256": "06ac645b6b5f03cb1f00e014d59378e6e8dffa6f4be601afb9f16606db35e17b",
+      "durationSeconds": 1.046031746031746,
+      "sampleRate": 22050,
+      "channels": 2,
+      "sourceChannels": 2,
+      "dualMonoCollapsed": false,
+      "codec": "AAC-LC",
+      "encodedLevels": {
+        "peakDbFS": -6.851,
+        "rmsDbFS": -20.379,
+        "activeRmsDbFS": -20.008
+      }
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "model": "Current weighted dealing and all-liability safeguards, uniform random tray choices, all six doses/player, round-robin injections; expected uniform highest-vote tie shares. Not human playtest or observed production frequency.",
+  "seed": "0x424c4f42",
+  "descriptorVersion": "battle-v2-b2",
+  "cohorts": [
+    {
+      "players": 2,
+      "trials": 20000,
+      "noVoteFallbacks": 30,
+      "selectionPercent": {
+        "1": 18.01,
+        "2": 15.53,
+        "3": 24.16,
+        "4": 15.72,
+        "5": 15.12,
+        "blob": 11.47
+      }
+    },
+    {
+      "players": 4,
+      "trials": 20000,
+      "noVoteFallbacks": 1,
+      "selectionPercent": {
+        "1": 20.22,
+        "2": 14.11,
+        "3": 28.18,
+        "4": 14.28,
+        "5": 12.59,
+        "blob": 10.62
+      }
+    },
+    {
+      "players": 6,
+      "trials": 20000,
+      "noVoteFallbacks": 0,
+      "selectionPercent": {
+        "1": 21.78,
+        "2": 13.67,
+        "3": 29.3,
+        "4": 13.32,
+        "5": 11.83,
+        "blob": 10.1
+      }
+    },
+    {
+      "players": 8,
+      "trials": 20000,
+      "noVoteFallbacks": 0,
+      "selectionPercent": {
+        "1": 23.67,
+        "2": 13.45,
+        "3": 30.03,
+        "4": 12.55,
+        "5": 10.47,
+        "blob": 9.83
+      }
+    }
+  ]
+}

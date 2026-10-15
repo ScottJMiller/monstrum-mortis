@@ -1,5 +1,8 @@
 # Step 6 review
 
+Step 6 mechanics verification remains historical below. Current Battle v2 asset work is the separately authorized [Phase B](BATTLE-V2-PHASE-B-PLAN.md), with [its own review/evidence](BATTLE-V2-PHASE-B-REVIEW.md). Production integration and deployment require a new instruction.
+
+
 User milestone decision (13 October 2026): step 6 can be closed after final validation and push. The current Battle v2 animation/audio refinements are documented in [BATTLE-V2-REVIEW.md](BATTLE-V2-REVIEW.md) and remain development-only; remaining artwork/rollout and deployment require separate authorization. Existing device and artistic limitations below remain evidence gaps, not a claim that the full Battle v2 redesign is delivered.
 
 > Current scope: [Battle v2 specification](BATTLE-V2-SPEC.md) and [Phase A plan](BATTLE-V2-PLAN.md) govern the development-only animation/audio sample. Earlier integration/battle appearance, region-selection, Same-Room and display-entry guidance below is historical and superseded for the future redesign. Production behavior and legacy permissions remain unchanged until Phase C. Historical verification below did not test Battle v2.

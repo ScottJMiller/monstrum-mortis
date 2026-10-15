@@ -4,7 +4,7 @@
   "tool": "FFmpeg: linear gain, AAC-LC, original 22050 Hz; mono only for identical source channels",
   "normalization": "10ms RMS windows above -20dB relative to loudest window; target -20dBFS foreground/-32dBFS ambience, gain capped +12dB and pre-encode peak -5dBFS; measure decoded output",
   "productionScript": "scripts/prepare-battle-v2-audio.py",
-  "scriptSha256": "e4a5cdd440d555c8fcfecbc22240623e37d5e0da1f62554ce1d66a7e623ef188",
+  "scriptSha256": "0176c96f9ec07900ec907c30efdfac2130a8d7837541361e05a959cfb37449dc",
   "ffmpegVersion": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers",
   "priorProcedural": "assets/battle-v2/source/procedural-audio/audio-provenance.json",
   "records": [
@@ -490,9 +490,10 @@
     "amplitudeMultipliers": {
       "strike": 1.15,
       "guard": 1.15,
-      "recoil": 1.15,
+      "recoil": 1.035,
       "defeat": 1.15
     },
-    "applied": "Web Audio voice gain before the existing limiter/device master; encoded files remain normalized"
+    "applied": "Web Audio voice gain before the existing limiter/device master; encoded files remain normalized",
+    "recoilRefinement": "14 October 2026: amplitude reduced 10% from previous 1.15 multiplier, yielding 1.035; normalized encoded file unchanged"
   }
 }

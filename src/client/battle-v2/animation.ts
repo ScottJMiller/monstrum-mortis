@@ -1,23 +1,30 @@
 import type { BattleEvent, BattleTimeline } from '../../shared/types.ts';
 import type { IntegratedForm } from '../../shared/integrated-form.ts';
 import { battleFrame } from '../battle-playback.ts';
-import { EFFECTS, effectFor } from './effects.ts';
+import { EFFECTS, effectFor, soundFor, letteringFor } from './effects.ts';
 export type Pose = 'idle'|'attack'|'recoil'|'defense'|'defeat';
 export type Side = 'team'|'rival';
 export const ANIMATION_BOUNDS = { anticipation:180, recovery:420, hitStop:45, effects:3, lettering:1, voices:8 } as const;
 const clamp=(n:number)=>Math.max(0,Math.min(1,n));
 export function sceneFrame(timeline:BattleTimeline, elapsed:number, motion=true){
  const state=battleFrame(timeline,timeline.startsAtMs+elapsed);
- // Final events stay seekable at terminal time; never enqueue an event.
- const effects=timeline.events.filter(e=>elapsed>=e.offsetMs&&elapsed-e.offsetMs<EFFECTS[effectFor(e)].duration)
+ // Transient arena effects clear at the boundary; a separate final word remains.
+ const remaining=timeline.durationMs-elapsed;
+ const countdown=elapsed>=0&&remaining>0&&remaining<=3000?Math.ceil(remaining/1000):null;
+ const terminalEvent=remaining<=0?timeline.events.findLast(e=>e.offsetMs<=timeline.durationMs&&(e.kind==='knockout'||e.kind==='timeout')):undefined;
+ const finalLetter=remaining<=0?(terminalEvent?letteringFor(timeline.battleId,terminalEvent):EFFECTS.timeout.words[0]!):null;
+ // The producer resolves timeouts by the published remaining health percentages.
+ // Read the terminal snapshot, never intermediate frames or art-only overrides.
+ const timeoutWinner=terminalEvent?.kind==='timeout'?(terminalEvent.teamHealth===terminalEvent.rivalHealth?'Draw':terminalEvent.teamHealth>terminalEvent.rivalHealth?'Our specimen wins':`${timeline.rival.name} wins`):null;
+ const effects=elapsed>=timeline.durationMs?[]:timeline.events.filter(e=>elapsed>=e.offsetMs&&elapsed-e.offsetMs<EFFECTS[effectFor(e)].duration)
   .map(event=>({event,id:effectFor(event),age:elapsed-event.offsetMs}))
   .sort((a,b)=>EFFECTS[b.id].priority-EFFECTS[a.id].priority||b.event.sequence-a.event.sequence);
  const active=effects.filter(e=>EFFECTS[e.id].status==='ready').slice(0,ANIMATION_BOUNDS.effects);
  const letter=active.find(e=>EFFECTS[e.id].major)??null;
  const fighter=(side:Side)=>{
   if(timeline.events.some(e=>e.kind==='knockout'&&e.target===side&&e.offsetMs<=elapsed))return {pose:'defeat' as Pose,attackStyle:'generic' as const,x:0,rotation:0,reaction:'defeat',contact:false};
-  const attack=timeline.events.findLast(e=>EFFECTS[effectFor(e)].direct&&e.actor===side&&elapsed>=e.offsetMs-ANIMATION_BOUNDS.anticipation&&elapsed<e.offsetMs+ANIMATION_BOUNDS.recovery);
-  const missed=timeline.events.findLast(e=>e.kind==='dodge'&&e.target===side&&elapsed>=e.offsetMs-180&&elapsed<e.offsetMs+420);
+  const attack=elapsed>=timeline.durationMs?undefined:timeline.events.findLast(e=>EFFECTS[effectFor(e)].direct&&e.actor===side&&elapsed>=e.offsetMs-ANIMATION_BOUNDS.anticipation&&elapsed<e.offsetMs+ANIMATION_BOUNDS.recovery);
+  const missed=elapsed>=timeline.durationMs?undefined:timeline.events.findLast(e=>e.kind==='dodge'&&e.target===side&&elapsed>=e.offsetMs-180&&elapsed<e.offsetMs+420);
   const reaction=effects.find(e=>(e.event.target===side&&e.event.magnitude>0&&e.event.kind!=='regeneration')||(e.id==='dodge'&&e.event.actor===side)||((e.id==='block')&&e.event.actor===side));
   let pose:Pose='idle',x=0,rotation=0;let contact=false;
   const outgoing=attack??missed;
@@ -32,7 +39,7 @@ export function sceneFrame(timeline:BattleTimeline, elapsed:number, motion=true)
   }
   return {pose,attackStyle:attack&&effectFor(attack)==='bite'?'bite' as const:'generic' as const,x:motion?x:0,rotation:motion?rotation:0,reaction:reaction?.id??'none',contact};
  };
- return {state,team:fighter('team'),rival:fighter('rival'),effects:active,letter,captions:state.captions,
+ return {state,team:fighter('team'),rival:fighter('rival'),effects:active,letter,finalLetter,timeoutWinner,countdown,captions:state.captions,
   compact:effects.filter(e=>!EFFECTS[e.id].major||EFFECTS[e.id].status==='planned').slice(0,4)};
 }
 /** Teeth meet at contact, open in recoil and close again. Pure seeking; static mode stays closed. */
@@ -51,6 +58,23 @@ export function acceptedAccent(previous:InjectionAccent|null,sequence:number,now
 }
 export function timelyCues(events:BattleEvent[],previous:number,now:number,hidden=false){
  if(hidden||now<previous||now-previous>250)return [];
- return events.filter(e=>e.offsetMs>previous&&e.offsetMs<=now&&EFFECTS[effectFor(e)].sound)
+ return initiationEvents(events).filter(e=>e.offsetMs>previous&&e.offsetMs<=now&&soundFor(e))
   .sort((a,b)=>EFFECTS[effectFor(b)].priority-EFFECTS[effectFor(a)].priority||a.sequence-b.sequence).slice(0,3);
+}
+/** Stateless onset derivation: refreshes/ticks do not replay a sound while a status is active.
+ * Reading the full prefix also suppresses a tick immediately after seeking/reconnection. */
+export function initiationEvents(events:BattleEvent[]){
+ const until=new Map<string,number>();return events.filter(e=>{
+  const id=effectFor(e);if(!soundFor(e))return false;
+  if(id==='poison'||id==='bleed'){
+   if(e.magnitude!==0)return false;
+   const key=`${e.target}:${id}`,active=e.offsetMs<=(until.get(key)??-1);
+   until.set(key,e.offsetMs+(e.durationMs??3000));return !active;
+  }
+  if(id==='regeneration'){
+   const key=`${e.target}:${id}`,active=e.offsetMs<=(until.get(key)??-1);
+   until.set(key,e.offsetMs+1100);return !active;
+  }
+  return true;
+ });
 }

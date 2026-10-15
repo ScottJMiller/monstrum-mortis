@@ -1,0 +1,655 @@
+{
+  "scope": "Real development media, excluded from production. Bytes are files; one-copy RGBA calculations are not measured browser/GPU memory.",
+  "readiness": "Phase B produced and integrated in development preview; human acceptance and Phase C rollout remain separate",
+  "inventory": {
+    "bodies": 12,
+    "poseRoles": 60,
+    "biteVariants": 1,
+    "arenas": 3,
+    "panel": 1,
+    "grafts": 8,
+    "activeGrafts": 4,
+    "audioCues": 24,
+    "semanticEffects": 20,
+    "suppliedSvgFiles": 8,
+    "font": "New Rocker"
+  },
+  "sets": [
+    {
+      "id": "family-1",
+      "poseRoles": 5,
+      "biteVariant": true,
+      "bytes": 339164,
+      "pixels": 1376947,
+      "files": [
+        {
+          "url": "/assets/battle-v2/runtime/family-1-idle.webp",
+          "bytes": 58598,
+          "sha256": "57888bd416bac065442ef27aee625137a198e32de61e2848e54cab24f8c425a3"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/family-1-attack.webp",
+          "bytes": 61272,
+          "sha256": "383c8c456afd0322fae924b2e0c4544a2e4cc13c2193f8a76c05dcf9971b8284"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/family-1-recoil.webp",
+          "bytes": 62828,
+          "sha256": "14860870961e709a1d77b7bed1329f92010b796c7548b2ef2fc347c407c3e145"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/family-1-defense.webp",
+          "bytes": 54330,
+          "sha256": "c06226101c00584344cdb139ab8113290dab8b3d769bd5aa09341ea29861c173"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/family-1-defeat.webp",
+          "bytes": 40682,
+          "sha256": "8ee401e6ea663763d9d8bc40cf0861c4a054e784261e95cffc3b15e8bd9dac15"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/family-1-bite.webp",
+          "bytes": 61454,
+          "sha256": "145614b31dee5fe5f938e4e9d47f684415017065259d2f1500fc47a6cacca87c"
+        }
+      ]
+    },
+    {
+      "id": "iron-widow",
+      "poseRoles": 5,
+      "bytes": 367894,
+      "pixels": 1558705,
+      "files": [
+        {
+          "url": "/assets/battle-v2/runtime/iron-widow-idle.webp",
+          "bytes": 74766,
+          "sha256": "f8577b5f9524ce148a51f8efd252d72c9ecee8e69207bbce7ec431c479bc6b2f"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/iron-widow-attack.webp",
+          "bytes": 69160,
+          "sha256": "13a95e03b675fdd76629f123b42019c264a511268c19c4fb801e303c4aaec2a8"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/iron-widow-recoil.webp",
+          "bytes": 88900,
+          "sha256": "b970ec039732da5e5d5f449d41da0c002d654a745213d89eee4defc49a9fdc1f"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/iron-widow-defense.webp",
+          "bytes": 70600,
+          "sha256": "35d25284c7927998fa54fd4f54a1ce254d5283ab803351aecca2ccbae9b9b8ae"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/iron-widow-defeat.webp",
+          "bytes": 64468,
+          "sha256": "d434a9d025c3a117e2524a0aefb8df0ad74fdfec73c307ceae94ebfa42a18073"
+        }
+      ]
+    },
+    {
+      "id": "family-2",
+      "poseRoles": 5,
+      "bytes": 358800,
+      "pixels": 1209790,
+      "files": [
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/family-2-idle.webp",
+          "bytes": 74532,
+          "sha256": "4efbb1ea9e9727bacc79508f728ad696864e114edca009391e67016bd5c93f63"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/family-2-attack.webp",
+          "bytes": 68730,
+          "sha256": "594e598a1cd5fd39f728103ca3986af6d429db7fd1f616e3f0e0fd747ffd617a"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/family-2-recoil.webp",
+          "bytes": 79692,
+          "sha256": "a014265563cf42d100fa93852387573e95eb03b8eeb69a60b522a59f0d45742b"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/family-2-defense.webp",
+          "bytes": 68682,
+          "sha256": "b47c5ad6919c55527b3dd9252ab5e7c9f2fc5d408c23509c13758fbc86571668"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/family-2-defeat.webp",
+          "bytes": 67164,
+          "sha256": "88557fd444aa26b65e7c807371019b1a891d15e1a2b851f159ce6b287d9362e1"
+        }
+      ]
+    },
+    {
+      "id": "family-3",
+      "poseRoles": 5,
+      "bytes": 375190,
+      "pixels": 1457027,
+      "files": [
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/family-3-idle.webp",
+          "bytes": 83180,
+          "sha256": "a0bcc0410bd5f7eee705221ff1d4ab13c9e85c91dc5eca054115be5dfb1b797e"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/family-3-attack.webp",
+          "bytes": 80006,
+          "sha256": "b44c13be796fdeb979a8da0f3a3b3f264b4462eca569a7b281dc52e08258ce70"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/family-3-recoil.webp",
+          "bytes": 82738,
+          "sha256": "cce25fad847ba2306a5b9e75671115547948ca1ccf6efee015a063d4921fd57c"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/family-3-defense.webp",
+          "bytes": 67966,
+          "sha256": "b92bff476ed2dec5b73d9e3030527f768bf26334cd93ede5895fb2b15a1b35ec"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/family-3-defeat.webp",
+          "bytes": 61300,
+          "sha256": "f4f4c3b19f4507c7d0a967604fc396d04e56eece18b2391bfb5754496ee565c9"
+        }
+      ]
+    },
+    {
+      "id": "family-4",
+      "poseRoles": 5,
+      "bytes": 362046,
+      "pixels": 1369827,
+      "files": [
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/family-4-idle.webp",
+          "bytes": 67334,
+          "sha256": "b45dc23d754548bc18ac63150b3a088a71ba6ea0b862d18b24747df56cdf1871"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/family-4-attack.webp",
+          "bytes": 81734,
+          "sha256": "7f996baeaf6d9bb2f966dded2cfe8ea021d2104d821c6cb295b42bd58e03577f"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/family-4-recoil.webp",
+          "bytes": 83998,
+          "sha256": "7c038def587ad43be2dc0b52d23fa2bddb1824dfab6d75a6e7772ea974b8b681"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/family-4-defense.webp",
+          "bytes": 64020,
+          "sha256": "6b7a9dc615733fc663b2392856a22d9d5b30eff012e780441a9f80521df2a218"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/family-4-defeat.webp",
+          "bytes": 64960,
+          "sha256": "56f0217453dd4f0ac247283654c061eedd4f3889079d19405e0655e10cdb4360"
+        }
+      ]
+    },
+    {
+      "id": "family-5",
+      "poseRoles": 5,
+      "bytes": 454068,
+      "pixels": 1224898,
+      "files": [
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/family-5-idle.webp",
+          "bytes": 78596,
+          "sha256": "2c8858a5b7109a7af8a4359d86acf72be8399af81fef7d2b5831d26918f825fd"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/family-5-attack.webp",
+          "bytes": 118414,
+          "sha256": "2da66f6498c1781abcec06da14cc1017ff05b9ee487683a44a8b6163cf5718a9"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/family-5-recoil.webp",
+          "bytes": 106516,
+          "sha256": "d9ffcba80e7f6f2cf2276014f4650808fd06142a6ed348d6974abba58f995ee1"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/family-5-defense.webp",
+          "bytes": 74308,
+          "sha256": "8fa3b9c277946211ab3f2b6be9d84651cf6e032aa0a8a08de0f8b4fe34e472e5"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/family-5-defeat.webp",
+          "bytes": 76234,
+          "sha256": "1b30aac15b92f3dfbf560ec7ffdf1b613f21c1fa9b56a8387bad7e05e407f50c"
+        }
+      ]
+    },
+    {
+      "id": "blob",
+      "poseRoles": 5,
+      "bytes": 254786,
+      "pixels": 1156795,
+      "files": [
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/blob-idle.webp",
+          "bytes": 51352,
+          "sha256": "75d6c44647ad0e85e10f868282cef71529cb56ff67898bead7c07b5398f9ee71"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/blob-attack.webp",
+          "bytes": 47430,
+          "sha256": "104aa43518f1cbf76f118e0ef2cdbce6711bd9177421f446b227f9b97cb697ff"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/blob-recoil.webp",
+          "bytes": 53130,
+          "sha256": "e286972ac972f2731749af1fab0089d34ab637b09078df1797e34cb77f44fd41"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/blob-defense.webp",
+          "bytes": 48774,
+          "sha256": "de52c34285c5597a3873e42c29cac6ed964c0c024a4c490d9a6c0bf874302db9"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/blob-defeat.webp",
+          "bytes": 54100,
+          "sha256": "54cd3066a02df7223af05cc7025d6d7c68297a70600a672eaccbaf1149069af2"
+        }
+      ]
+    },
+    {
+      "id": "gutter-seraph",
+      "poseRoles": 5,
+      "bytes": 401248,
+      "pixels": 1396718,
+      "files": [
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/gutter-seraph-idle.webp",
+          "bytes": 90348,
+          "sha256": "0d1db6d3f871fbed13cc01aac56d8e101fdcf10087729b94094671da4293ed53"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/gutter-seraph-attack.webp",
+          "bytes": 82940,
+          "sha256": "7bfeda56bdcbb3fe9045164baa93353e0b9d831649063d3813eeb128e80a3eba"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/gutter-seraph-recoil.webp",
+          "bytes": 97214,
+          "sha256": "5fae510097017fe3ef020c20361ceda919069d7e1d5dd11dbc837fcd81e3ec22"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/gutter-seraph-defense.webp",
+          "bytes": 70584,
+          "sha256": "c24087725ead1d6eb4adcddfe5045f6fd27544bc8cd85eaa87a66ab5be88e320"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/gutter-seraph-defeat.webp",
+          "bytes": 60162,
+          "sha256": "a0e3d3f7b996b1f71a6e8135409563741242e081766e179ff80752d8a87650ef"
+        }
+      ]
+    },
+    {
+      "id": "carrion-duke",
+      "poseRoles": 5,
+      "bytes": 295414,
+      "pixels": 1015342,
+      "files": [
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/carrion-duke-idle.webp",
+          "bytes": 59790,
+          "sha256": "577d08a4e97f86463e84688d63f7bad84742c37461b11630311773bec76dccd0"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/carrion-duke-attack.webp",
+          "bytes": 56266,
+          "sha256": "06ec9f76f289284b3708e6d334a49c2e2a80bf7a7593e8cce469fdbfa982d119"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/carrion-duke-recoil.webp",
+          "bytes": 59304,
+          "sha256": "c0ffd61d11cd94365e32710c5a60c9b11083bef21db9b4cc2bd751b88d461c88"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/carrion-duke-defense.webp",
+          "bytes": 56036,
+          "sha256": "052fa034f434ddb09620b4e82531b30934c7f9134fe0f2e637408aa9374cf910"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/carrion-duke-defeat.webp",
+          "bytes": 64018,
+          "sha256": "5e126ac08b0f3809919a226f1fc602a042aa0420855299d1a23376125d0d23a5"
+        }
+      ]
+    },
+    {
+      "id": "coil-saint",
+      "poseRoles": 5,
+      "bytes": 261808,
+      "pixels": 1158322,
+      "files": [
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/coil-saint-idle.webp",
+          "bytes": 55136,
+          "sha256": "125356e91753dcad790945857a94c2783c11e09f4c804c7256706db4386c0dc7"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/coil-saint-attack.webp",
+          "bytes": 58982,
+          "sha256": "9d5f78dea03000218db027ff233fc0f083b2bd9c62a7f6878dfa7ff9293b26e8"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/coil-saint-recoil.webp",
+          "bytes": 55658,
+          "sha256": "b88fa3e3b049b6090558ef0bf4434dfbf5bb85a8769b1190f69b8d12174a3bb8"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/coil-saint-defense.webp",
+          "bytes": 48754,
+          "sha256": "a136a387aca38c95406051cbcb27051bde4b824988c56a39eb711e023fe616e7"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/coil-saint-defeat.webp",
+          "bytes": 43278,
+          "sha256": "0f7c50fee8af068168a38365437492dedf2ffd2853b0cfb58a6dc67ac1fd52fd"
+        }
+      ]
+    },
+    {
+      "id": "maw-engine",
+      "poseRoles": 5,
+      "bytes": 261490,
+      "pixels": 1084736,
+      "files": [
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/maw-engine-idle.webp",
+          "bytes": 47756,
+          "sha256": "6f70f896d26e1ff27b24a536aa3e8eff416545c13514c360d85bd8a1d9382c95"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/maw-engine-attack.webp",
+          "bytes": 57868,
+          "sha256": "0c17935d093cafe306942015829f9bdda767c2243f747e18e0f2f607b1f2548b"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/maw-engine-recoil.webp",
+          "bytes": 55254,
+          "sha256": "bf7b471d4428f3886e04adeff59d1d8cd7b246d4c55a45b929fa648ce8f1d1d8"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/maw-engine-defense.webp",
+          "bytes": 51276,
+          "sha256": "3f2bdaecc0dc10675178f378bf1d25b26db6c167178627e692c30d1aa059761a"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/maw-engine-defeat.webp",
+          "bytes": 49336,
+          "sha256": "5b1c92309a002692de1cdc20d9ef696be14fc042805035382a934672c94de8ca"
+        }
+      ]
+    },
+    {
+      "id": "the-unfinished",
+      "poseRoles": 5,
+      "bytes": 295042,
+      "pixels": 1272364,
+      "files": [
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/the-unfinished-idle.webp",
+          "bytes": 66488,
+          "sha256": "9cd3a8adac9abf45aef04d71f6f79416cfd141da1b4fef0c3a93ba7733ec9af6"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/the-unfinished-attack.webp",
+          "bytes": 63232,
+          "sha256": "8caa38d5edda49086091a91d1282a55200306502d5b7ea925e774e6130ac1266"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/the-unfinished-recoil.webp",
+          "bytes": 61352,
+          "sha256": "4d93357ea2718bbba5e6db1e8b2c07cedddc926873af671983ca6ba0a23d797d"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/the-unfinished-defense.webp",
+          "bytes": 48218,
+          "sha256": "7e5e86e647362d4de36c9ec9ebee81fb9665c075b7f693450977f3232a1c924a"
+        },
+        {
+          "url": "/assets/battle-v2/runtime/phase-b/the-unfinished-defeat.webp",
+          "bytes": 55752,
+          "sha256": "643156083d582e843c7725128aa6d33cd7d5b8bfbf614684a0bc933bab7b0cfc"
+        }
+      ]
+    }
+  ],
+  "arenas": [
+    {
+      "url": "/assets/battle-v2/runtime/arena.webp",
+      "bytes": 203024,
+      "sha256": "4ff2f3308c01f2d5794ea0f164dd69ee6b4324ab3adec40b8a9cd1a2291f68dd"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/phase-b/arena-catacomb.webp",
+      "bytes": 198636,
+      "sha256": "8bd22db467d809f00b6282ee7a786e9ccfa2440f054630977f37adf0f393e5f0"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/phase-b/arena-foundry.webp",
+      "bytes": 208550,
+      "sha256": "cb0a287be1440937fe18559b701d3e836b1bb5737f605b02a3599af635c0f023"
+    }
+  ],
+  "grafts": [
+    {
+      "url": "/assets/battle-v2/runtime/phase-b/graft-barb.webp",
+      "bytes": 10310,
+      "sha256": "3ae393f6834f602e396fc98a09507091fa9121d566e22a4baa4fd75588d8e64a"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/phase-b/graft-veins.webp",
+      "bytes": 23840,
+      "sha256": "1d4ddb9f1dabea5273e51ae852b647a780e2e8c3513ae22331e4ba2be2423320"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/phase-b/graft-mouth.webp",
+      "bytes": 15402,
+      "sha256": "7cc469da46f2db859bff87143cae80389d15a1c537241e1349c523966b19673c"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/phase-b/graft-growth.webp",
+      "bytes": 15946,
+      "sha256": "edb183b5bae65d1426a22ef161ea13c5a3a31ee9a6664f0c49700a44f5415774"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/phase-b/graft-wound.webp",
+      "bytes": 13436,
+      "sha256": "005ba26f6f5e7fb4ef9ba695def97ce9c7124bce30cb31076faa935267fa7d4d"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/phase-b/graft-scar.webp",
+      "bytes": 13516,
+      "sha256": "9a095ebf179de142796fe79e14543f4279f97f567a49565bb5fe5959e32951c0"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/phase-b/graft-shards.webp",
+      "bytes": 10526,
+      "sha256": "ed56cbc883046f89e4cea654eb08199a6de7553cebcbe710608427bd1289ef36"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/phase-b/graft-limb-fragment.webp",
+      "bytes": 16840,
+      "sha256": "c466ffdf63e6222c9d5afd1468f19830421d18f4066bdc0fe2084a757448def6"
+    }
+  ],
+  "audio": [
+    {
+      "url": "/assets/battle-v2/runtime/audio/strike.m4a",
+      "bytes": 5126,
+      "sha256": "675e5fe2c7fc35286ebe26a72ba20a6a35d42b06824283763ad1fdecc643916c"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/audio/slash.m4a",
+      "bytes": 18296,
+      "sha256": "ea1ef68bc269cbc608d3507613b57324519f99e072cb9380bb34382d50d6ebc4"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/audio/bite.m4a",
+      "bytes": 5839,
+      "sha256": "59aaf74631807720483153f71bb7a15d30899855ccb7bfcb8cfa946b78012b78"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/audio/corrosion.m4a",
+      "bytes": 15746,
+      "sha256": "925853d363dccd831190c13e94c4e73ad3603d2787d548cfbbc1ae654b92b978"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/audio/retaliation.m4a",
+      "bytes": 6538,
+      "sha256": "5009f3566de1de902b552cb6acf5c3b0c4f12ab5681d3ac6b3e5f2aecc0a7c61"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/audio/miss.m4a",
+      "bytes": 2891,
+      "sha256": "b9130137184eafbf9325d211cad23c7155c514ae431b35e99191ccbebd83b4b9"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/audio/guard.m4a",
+      "bytes": 6053,
+      "sha256": "f8861c0b358a409d4b379a28e7f811067040386bef548e50cc5e9b731c43e47e"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/audio/recoil.m4a",
+      "bytes": 5341,
+      "sha256": "42f073625506453e28d9cf65b9707b16f46a1dcec7f146fc079acaf70a269f34"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/audio/defeat.m4a",
+      "bytes": 12488,
+      "sha256": "3b9177494cbf6e50de1a623104eb688222ab39a8b13a4085426e486c404edcd9"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/audio/result.m4a",
+      "bytes": 21817,
+      "sha256": "0d96b1f18ec4d6324d66786ad5e611628251f83410667e18b65b4003efea3732"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/audio/injection.m4a",
+      "bytes": 6766,
+      "sha256": "335d3cd2148faedd5bc88f7ac7f6c474e9b6292c29e89e79117d7ab921b94e97"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/audio/integration.m4a",
+      "bytes": 19600,
+      "sha256": "1e49be45ffd66f7c07fe36c020ffad4b7df86e26241fbfe5f309a3b034431bf7"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/audio/unleash.m4a",
+      "bytes": 27441,
+      "sha256": "f35dc73074dda3f5b435cde3c087dbf898ad23f8aff7a6017906c176c9583e47"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/audio/ambient.m4a",
+      "bytes": 76784,
+      "sha256": "1b884ed57890dc27e8a724c8fc717a25556c2064739f573c0d5edde5c031f76f"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/phase-b/audio/electric.m4a",
+      "bytes": 6645,
+      "sha256": "edaaa715c5c6e0620cf6c5fcff4803da6929ab8a4d08dfd95d350860e325a804"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/phase-b/audio/poison.m4a",
+      "bytes": 7992,
+      "sha256": "fd6c6b068c3eabdd22cf6b88957c16a5ed839bca2e7ee885b1fbd39db3e1e31e"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/phase-b/audio/bleed.m4a",
+      "bytes": 8809,
+      "sha256": "5394c07fa2dfed34f911b9d5a5700dc8a68ca338aba7071ef7be096ac966f838"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/phase-b/audio/restraint.m4a",
+      "bytes": 5863,
+      "sha256": "7f4956c8002e6cf8a1aba8bb87cbbdd5eced5ea75656021ef429a0cdab1c2214"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/phase-b/audio/roar.m4a",
+      "bytes": 13671,
+      "sha256": "bdd029175360ee240edf19c8047ec3ee1e706643fb0b870bab3dd6357081fcfe"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/phase-b/audio/regeneration.m4a",
+      "bytes": 25145,
+      "sha256": "9637ba63194ee8134cd1edd5319db5e3c3f680492fca2148506a367dcc5ddcf7"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/phase-b/audio/slowing.m4a",
+      "bytes": 6401,
+      "sha256": "04f0088d396055250f3ee7f5ccd23bc66cadf5c239ac080fd3fe67bc8bd45732"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/phase-b/audio/crawling.m4a",
+      "bytes": 13097,
+      "sha256": "1d34fa12411151f4d555cfead4bb0bd0fb4642c2313db3dfbb6966f9ca93c26b"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/phase-b/audio/malfunction.m4a",
+      "bytes": 5802,
+      "sha256": "7fa43e8fdf2fc5788e0fa1ce3151ebf523cc5ca07145439e4e7e8ec37be88d6d"
+    },
+    {
+      "url": "/assets/battle-v2/runtime/phase-b/audio/detach.m4a",
+      "bytes": 9563,
+      "sha256": "06ac645b6b5f03cb1f00e014d59378e6e8dffa6f4be601afb9f16606db35e17b"
+    }
+  ],
+  "selectedPair": {
+    "minImageBytes": 941670,
+    "maxImageBytes": 1290624,
+    "minPoseRgbaBytes": 8688548,
+    "maxPoseRgbaBytes": 12062928,
+    "imageLruLimit": 28,
+    "audioCompressedBytes": 333714
+  },
+  "budgets": {
+    "fivePoseTargetBytes": 600000,
+    "overTargetSets": [],
+    "arenaTargetBytes": 400000,
+    "overTargetArenas": []
+  },
+  "proceduralOrigin": "Supplied SVGs, intact creature sprites and registered mutation grafts; exact source and hashes below. Supplied audio originals/processing have separate ledgers. Prior procedural effects and damage artwork are superseded.",
+  "procedural": [
+    {
+      "file": "src/client/battle-v2/Sprite.tsx",
+      "sha256": "975dfad8a92491b1ab07481a3eef52e433b58568eaa864eb239d6a99fbab5898"
+    },
+    {
+      "file": "src/client/battle-v2/layout.ts",
+      "sha256": "6ede45b5d4f175d5961600b0b432e9e921f2bee654df026909cd9103e84ef2c0"
+    },
+    {
+      "file": "src/client/battle-v2/animation.ts",
+      "sha256": "fdae9723191dd1ccb3b7caacf5fb301653a26d97bfb7ccf3b4994f00dcfd4bd5"
+    },
+    {
+      "file": "src/client/battle-v2/Stage.tsx",
+      "sha256": "b01108b53439b4df87bec28201fc780dcee5d6bde9db25dfdcb32ef8da73a065"
+    },
+    {
+      "file": "src/client/battle-v2/preview.css",
+      "sha256": "2c27bf351ed431c9c4ae4ff98e31bd45244fe5eccf71627b5978ebc746489a2f"
+    },
+    {
+      "file": "src/client/battle-v2/EffectGraphic.tsx",
+      "sha256": "cc0a1915c8f1588a8f30174b15d7b641b1a539237cc5e2654685d6029a05096b"
+    },
+    {
+      "file": "src/client/battle-v2/damage.ts",
+      "sha256": "8e85dcd300a67f24739ddb94f94b08bdfe71eadae0ba2712ff7b7c16dcffcc23"
+    },
+    {
+      "file": "src/client/battle-v2/effects.ts",
+      "sha256": "fb99cfa58c2d116d18b917aa7bd5e99d80fca167235416d54e798f41590a61f4"
+    },
+    {
+      "file": "assets/battle-v2/phase-b-registration.json",
+      "sha256": "e27a95b5f567bae0ea52aff22599fda039ec8bb7db39efde4aa90176f0b06efb"
+    }
+  ]
+}

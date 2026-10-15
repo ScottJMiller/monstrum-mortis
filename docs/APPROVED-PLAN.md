@@ -1,11 +1,19 @@
 # Monstrum Mortis — Final Plan for Approval
 
-> Current scope: [Battle v2 specification](BATTLE-V2-SPEC.md) and [Phase A plan](BATTLE-V2-PLAN.md) govern the development-only animation/audio sample. Earlier integration/battle appearance, region-selection, Same-Room and display-entry guidance below is historical and superseded for the future redesign. Production behavior and legacy permissions remain unchanged until Phase C. Historical verification below did not test Battle v2.
+Completion tracking: [Phase B completion checklist](BATTLE-V2-PHASE-B-PLAN.md#phase-b-completion-checklist) and [Phase C look-ahead](BATTLE-V2-PHASE-B-PLAN.md#phase-c-look-ahead-completion-checklist) separate development readiness, human acceptance and future production work. Phase C/deployment remain unauthorized.
+
+Latest approved family/blob refinement: [family redesign and voting](BATTLE-V2-FAMILY-REFINEMENT.md). Blob receives Razor Talons/Counterweight Tail votes and remains the no-vote fallback; Families 1/3 artwork is redesigned. Production rollout remains Phase C and is not authorized.
+
+Current Phase B presentation refinement: [14 October review](BATTLE-V2-REFINEMENT-2026-10-14.md) supersedes native status graphics, procedural added cues and damage masks. Creature damage is text feedback; production mechanics and Phase C authorization are unchanged.
+
+Current authorization (13 October 2026): **Battle v2 Phase B** asset production and development review. The user accepted the Phase A gate by requesting Phase B. See [Phase B plan](BATTLE-V2-PHASE-B-PLAN.md). Phase C production integration and deployment remain unauthorized; earlier Phase A-only notes below are historical.
+
+> Current scope: [Battle v2 specification](BATTLE-V2-SPEC.md) and [Phase B plan](BATTLE-V2-PHASE-B-PLAN.md) govern asset production in the development preview. Earlier appearance, region, Same-Room and display-entry guidance is superseded for the future redesign. Production behavior and legacy permissions remain unchanged until separately authorized Phase C. Dated verification records below retain their historical scope.
 
 
-Phase A refinement authorized 13 October 2026: supplied audio/effect replacements, New Rocker lettering with approved word variants, removal of battle shadow disks and a dedicated bite-lunge variant. Non-tint overlays remain review samples; textured anatomical grafts are the user-selected next direction. See [current review](BATTLE-V2-REVIEW.md) for evidence and outstanding acceptance. No Phase B/C rollout or deployment authorization.
+Historical Phase A refinement (13 October 2026): supplied audio/effect replacements, New Rocker lettering with approved word variants, removal of battle shadow disks and a dedicated bite-lunge variant. Non-tint overlays remain review samples; textured anatomical grafts are the user-selected next direction. See [current review](BATTLE-V2-REVIEW.md) for evidence and outstanding acceptance. No Phase B/C rollout or deployment authorization.
 
-Delivery instruction (13 October 2026): the user considers step 6 complete after the final validation and push, and requested the npm commands and commit message. This closes the step 6 milestone; it does not authorize later implementation or deployment. Battle v2 remains a development-only Phase A slice, with remaining artwork/production rollout outside this delivery.
+Historical step 6 delivery instruction (13 October 2026): the user considers step 6 complete after the final validation and push, and requested the npm commands and commit message. This closes the step 6 milestone; it does not authorize later implementation or deployment. Battle v2 remains a development-only Phase A slice, with remaining artwork/production rollout outside this delivery.
 
 Historical step 6 authorization (10 October 2026): the user declared **step 5 complete** and authorized **step 6 only** under the approved design: six rivals, automatic combat, team results, personal commendations, and complete three-round progression. Preserve completed steps 1–5 and the approved creature artwork. Step 7 and later and deployment remain unauthorized. Historical planning and verification records below describe the evidence available at their dates.
 
@@ -15,7 +23,7 @@ Monstrum Mortis is a real-time browser party game for 2–8 players using their 
 
 The atmosphere is sinister, decayed Frankenstein-era science with eldritch details, grotesque comic mutations, and dry institutional humor. The creature, its transformations, and player reactions are the primary experience.
 
-First release: one shared-creature mode, public Quick Play matchmaking, private laboratories joined by code or invitation link, optional shared TV/browser display, three rounds per session, 30 DNA types, six rival archetypes, synchronized mutation and battle events, preset team signals, personal commendations, per-device sound controls, reconnect support, and downloadable tarot-style monster cards. No login is required to play. Public matchmaking assembles a cooperative laboratory; battles remain against authored rival creatures, not another matched human laboratory.
+First release: one shared-creature mode, public Quick Play matchmaking, private laboratories joined by code or invitation link, optional shared TV/browser display, three rounds per session, 30 DNA types, six rival archetypes, synchronized mutation and battle events, preset team signals, personal commendations, per-device sound controls, reconnect support, and accessible round/session results. No login is required to play. Public matchmaking assembles a cooperative laboratory; battles remain against authored rival creatures, not another matched human laboratory.
 
 Individual-creature competition, team-versus-team laboratories, competitive ranking, friend-party public queueing, accounts, cloud collections, playable saved monsters, free-text chat, integrated voice/video, and runtime AI generation are outside this release. Friends can play together in private code/link rooms from any location. Private rooms never enter public matchmaking.
 
@@ -52,18 +60,18 @@ The six-dose budget, six-second cooldown, and 75-second timer are configuration 
 
 ## 3. Session flow and screens
 
-> The older entry/display/Same-Room presentation guidance in this section is superseded by Battle v2 section 10 for Phase C. Phase A does not alter current production entry or legacy permissions. Gameplay flow remains preserved.
+> The older entry/display/Same-Room presentation guidance in this section is superseded by Battle v2 section 10 for Phase C. Phase B does not alter current production entry or legacy permissions. Gameplay flow remains preserved.
 
-1. Start screen: Quick Play, Create Private Laboratory, and Join by Code/Link, with Monstrum Mortis branding and a restrained laboratory backdrop. The Specimen Cabinet is accessible without entering a game.
+1. Start screen: Quick Play, Create Private Laboratory, and Join by Code/Link, with Monstrum Mortis branding and a restrained laboratory backdrop.
 2. Entry: Quick Play provides a short first-time interactive explanation, a cancellable matchmaking queue, and an automatic ready check. Private laboratories show a six-character room code excluding ambiguous characters, invitation link, QR join link, roster, connectivity, and instructions; the host starts with 2–8 players. No accounts or email.
 3. Rival briefing: approximately eight seconds, showing the rival's silhouette and one meaningful strength and weakness. Each round selects a different rival from the six archetypes.
 4. Experiment: everyone sees the same quivering blob and accepted mutations. Each player's private tray, remaining doses, cooldown, and switch are visible only on their controller.
 5. Release: switches illuminate, coils surge, the chamber opens, and the creature enters the battle stage.
 6. Battle: both specimens fight without player control. Camera changes, impacts, health changes, and concise event captions explain important outcomes.
-7. Autopsy: outcome, revealed traits, personal awards, monster name, and Save Specimen Card.
-8. After round three: total team score, three specimen cards, and cumulative commendations. Private rooms offer host-controlled Play Again with the same roster. Public rooms offer Play Again Together and Find New Laboratory; neither queues a player without an explicit choice.
+7. Autopsy: outcome, revealed traits, personal awards, monster name, and contribution summaries.
+8. After round three: total team score, round results, and cumulative commendations. Private rooms offer host-controlled Play Again with the same roster. Public rooms offer Play Again Together and Find New Laboratory; neither queues a player without an explicit choice.
 
-Each player's device is a complete game view: a prominent live chamber, private specimen tray, remaining doses, cooldown, teammate activity, switch readiness, team signals, full battle, results, and card export. A communal display is optional. On desktops the chamber occupies roughly two-thirds of the main view beside the controls. On phones it remains the dominant upper region, with four specimens in a compact grid and always-accessible primary controls. Screens must preserve readable anatomy rather than reducing the creature to a thumbnail. Battle takes over the main surface on every device.
+Each player's device is a complete game view: a prominent live chamber, private specimen tray, remaining doses, cooldown, teammate activity, switch readiness, team signals, full battle, results, and replay choices. A communal display is optional. On desktops the chamber occupies roughly two-thirds of the main view beside the controls. On phones it remains the dominant upper region, with four specimens in a compact grid and always-accessible primary controls. Screens must preserve readable anatomy rather than reducing the creature to a thumbnail. Battle takes over the main surface on every device.
 
 Private rooms support Remote and Same-Room presentation presets. Remote enables each player's audio after their first interaction. Same-Room designates one sound source, normally the TV/browser display, and mutes other devices initially. Players can override their own audio preference. The preset affects presentation only: physically mixed groups can still participate, and the rules are identical.
 
@@ -71,7 +79,7 @@ The host can play from their own device. An optional display-only view can run o
 
 ## 3A. Public matchmaking and low-population behavior
 
-> Region-selection UI and new pool choice below are historical. Phase C sends new Quick Play entries to Americas and removes that UI, without migrating existing guests. Current Phase A leaves queues unchanged.
+> Region-selection UI and new pool choice below are historical. Phase C sends new Quick Play entries to Americas and removes that UI, without migrating existing guests. Current Phase B leaves queues unchanged.
 
 Quick Play matches individual guests into cooperative laboratories. The initial system targets 4–6 players and allows up to eight; it never claims a queue time is guaranteed.
 
@@ -84,7 +92,7 @@ Quick Play matches individual guests into cooperative laboratories. The initial 
 - A player may cancel before launch. Ticket cancellation, readiness, and room admission are idempotent, and temporary reservations expire automatically.
 - Quick Play starts a new three-round session. Ordinary fresh tickets do not send players into a half-completed session.
 - Public rooms do not have a player host. Server rules start rounds, advance results, and handle departure. The build timer and switch ritual remain unchanged.
-- Public autopsy screens last 25 seconds. After the first 10 seconds, all active players choosing Next Round advances early. Saving a card never blocks progression: the completed record is already in that device's cabinet.
+- Public autopsy screens last 25 seconds. After the first 10 seconds, all active players choosing Next Round advances early.
 - At session end a 30-second regroup window lets players opt into Play Again Together. At least two opting in create a new session with reset score. If fewer than two opt in, they receive a choice to queue again or leave; there is no involuntary replay. Players choosing Find New Laboratory leave the regroup and enter the normal queue.
 
 Population is a product constraint: public matchmaking needs at least two people present in a pool. Empty queues receive useful status and private-invitation alternatives. Queue status shows actual waiting conditions and elapsed time, not unsupported estimates.
@@ -99,9 +107,9 @@ Active rounds never receive replacement injectors. After a departure, remaining 
 
 Ordinary between-round replacements must complete a ready check within the 25-second autopsy window; unused reservations expire, and the next round proceeds with at least two connected players. A replacement joins with a fresh six-dose budget at the next round boundary, never inherits someone else's identity, and receives no personal credit for earlier DNA. The interface distinguishes the laboratory's existing team score from the newcomer's own contribution history.
 
-At fewer than two players, public-room recovery pauses the unfinished experiment according to section 10. It then abandons that unfinished attempt if reconnection fails and opens a 60-second recovery lobby for opt-in replacements. With at least two confirmed players, retry that round from a fresh blob and retain only scores/cards from completed rounds. At recovery timeout, preserve completed cards and offer the remaining player Quick Play or Exit; do not force them into a new queue.
+At fewer than two players, public-room recovery pauses the unfinished experiment according to section 10. It then abandons that unfinished attempt if reconnection fails and opens a 60-second recovery lobby for opt-in replacements. With at least two confirmed players, retry that round from a fresh blob and retain scores/results from completed rounds. At recovery timeout, preserve completed results and offer the remaining player Quick Play or Exit; do not force them into a new queue.
 
-Public specimen names are generated. On the autopsy screen players may vote among three authored name suggestions; plurality wins, with seeded tie-breaking at screen close. The initial generated name remains valid until a winning title is finalized. This avoids giving a random stranger exclusive naming control. A downloaded card uses the current title; the cabinet record updates to the final shared title and can be downloaded again. Private-room hosts retain custom renaming.
+Public specimen names are generated. On the autopsy screen players may vote among three authored name suggestions; plurality wins, with seeded tie-breaking at screen close. The initial generated name remains valid until a winning title is finalized. This avoids giving a random stranger exclusive naming control. Private-room hosts retain custom renaming.
 
 ## 4. Specimen selection and mutation behavior
 
@@ -187,19 +195,9 @@ Personal commendations recognize observed contributions without pretending to pr
 
 Award only categories with qualifying activity. Ties are shared; a player may earn more than one award. Everyone receives a personal contribution summary even without an award. Commendations are humorous recognition, not a numerical individual leaderboard.
 
-## 8. Saved monsters and tarot cards
+## 8. Removed saved-monster features
 
-Every round freezes an archival portrait at the moment of release, before battle damage. Results pair that portrait with the outcome. Players can save winning, defeated, and drawn specimens.
-
-The card is a 1080 × 1800 PNG: aged-paper or stained-black stock, engraved occult border, Roman round numeral I/II/III, Monstrum Mortis title, the actual assembled creature, specimen name, six final gauges, up to four dominant traits, battle seal, and names of players who actually contributed to that specimen in a compact footer. The card excludes the room code. The rival and outcome can appear in a brief autopsy inscription. Smaller text must remain readable at export resolution.
-
-The exact creature renderer draws its parts into an export canvas using the frozen composition and a stable pose. It does not use a newly generated approximation or a screenshot containing interface controls. Artwork, fonts, and audio are bundled or served from the same origin; export waits for required assets to load.
-
-Names are generated from a small authored vocabulary, for example 'The Velvet Catastrophe'. Private-room hosts can rename a specimen on its results screen with a length limit; public rooms use the timed authored-name vote in section 3B. The shared card title updates consistently. Renaming does not alter the portrait or stats.
-
-Save Specimen Card downloads the PNG where supported. On devices where direct download is awkward, the game offers the native file-share action if available, then an image preview that can be saved manually. Players can save each card separately; no ZIP download is required.
-
-A device-local Specimen Cabinet keeps up to the 20 most recent completed cards and their brief records, using IndexedDB. Completed round cards are added automatically on that device; quota failures are handled with a clear notice and leave manual export available. The oldest cards are removed when the local limit is exceeded. This cabinet survives an ordinary reload but does not synchronize across devices or survive clearing browser data. Downloaded PNGs are the durable keepsakes. Cabinet cards cannot be imported back into battle in this release.
+Removed by user instruction on 14 October 2026: saved monsters, tarot cards, export/download/share flows, archival card portraits, and the device-local Specimen Cabinet. These are cancelled product requirements, not deferred milestones. Authoritative frozen creatures and recoverable round results remain necessary for battle/reconnection; they do not provide a saved-monster collection.
 
 ## 9. Art, animation, audio, and usability
 
@@ -221,21 +219,21 @@ The server owns seats, room phase, start times and deadlines, private trays and 
 
 Room phases: lobby → briefing → experiment → release → battle → autopsy, repeated three times, then session results. Private-room host actions govern start and advance; public rooms use server-owned readiness and timed progression. Timed transitions use server deadlines and alarms; clients animate countdowns locally rather than requesting a tick every second. Hibernating WebSockets and event-driven updates reduce idle resource usage.
 
-Data records: Room (public/private and presentation preset), PlayerSeat, GuestIdentity, QueueTicket, MatchReservation, ReadyCheck, Round, private SpecimenTray, CreatureComposition, InjectionEvent, BattleEvent, TeamSignal, NameVote, AwardSummary, and CardRecord. Room access uses the join code plus a separate random seat-reconnect token. Join codes are invitation conveniences rather than strong authentication. Validate names and action sizes, limit join attempts and action frequency, and reject unauthorized host actions. Public rooms are entered through matchmaking rather than a browsable room directory. No public free-text chat is included. Private join credentials are never advertised to matchmakers. Public membership requires a server-issued admission reservation; guessing a public room code cannot create a seat. Display access is separate and limited to its viewing role.
+Data records: Room (public/private and presentation preset), PlayerSeat, GuestIdentity, QueueTicket, MatchReservation, ReadyCheck, Round, private SpecimenTray, CreatureComposition, InjectionEvent, BattleEvent, TeamSignal, NameVote, AwardSummary. Room access uses the join code plus a separate random seat-reconnect token. Join codes are invitation conveniences rather than strong authentication. Validate names and action sizes, limit join attempts and action frequency, and reject unauthorized host actions. Public rooms are entered through matchmaking rather than a browsable room directory. No public free-text chat is included. Private join credentials are never advertised to matchmakers. Public membership requires a server-issued admission reservation; guessing a public room code cannot create a seat. Display access is separate and limited to its viewing role.
 
 Failure rules:
 
 - A dropped player has 15 seconds to reconnect with the same seat, hand, and budget. The round timer continues during that grace period.
 - After that grace, the disconnected player is marked finished for the current round and no longer blocks unanimous release. Their injected DNA remains. Returning after this point permits viewing but no further injections that round.
 - N is fixed at the experiment's start. Leaving does not retroactively strengthen the other doses or change rival strength.
-- With fewer than two connected players after grace during an experiment, suspend time for up to 30 additional seconds. Resume on return; otherwise abandon the unfinished attempt with no score. Finished specimen cards remain available. Private hosts may restart from the lobby with at least two players. Public rooms enter the 60-second recovery lobby described in section 3B. Already-started battles finish even if people disconnect, and their results are recoverable while the room exists.
+- With fewer than two connected players after grace during an experiment, suspend time for up to 30 additional seconds. Resume on return; otherwise abandon the unfinished attempt with no score. Completed round results remain recoverable while the room exists. Private hosts may restart from the lobby with at least two players. Public rooms enter the 60-second recovery lobby described in section 3B. Already-started battles finish even if people disconnect, and their results are recoverable while the room exists.
 - In private rooms, host ownership transfers to the longest-connected remaining player when the host's reconnect grace ends. Display-only devices cannot become host. Public rooms have no player host to transfer.
 - Private-room invitees enter during the lobby or between rounds. During an active round they may watch and receive a seat and dose budget for the next round if capacity permits. Public injectors enter only at a round boundary through the explicit fresh-session or existing-laboratory queue; no uninvited public spectators are admitted.
 - Reconnecting during battle receives current battle time and state, not a replay from the start.
 - An injection whose server handling begins at or after the experiment deadline is rejected. Server time governs expiry; the UI identifies rejected late actions and restores its displayed pending selection.
 - Public players with no injections in a completed experiment receive an inactivity prompt. If they neither interact with the prompt nor have sent any gameplay/readiness action during that round, their seat expires before the next round. Intentional early finishers who injected and pulled their switch are active. Individual players can leave instantly; this removes their pending queue reservation or marks their current-round seat finished, without deleting their existing contributions.
 - Room codes are collision-checked. Invalid, full, locked, expired, and temporarily unavailable rooms show distinct messages.
-- Room records expire after two hours without participant activity, with a hard maximum lifetime of 24 hours. Cleanup removes room state and server-held cards/snapshots; downloaded and device-local cards remain.
+- Room records expire after two hours without participant activity, with a hard maximum lifetime of 24 hours. Cleanup removes room state, credentials, receipts and battle/result snapshots.
 
 ### Matchmaking consistency and abuse limits
 
@@ -253,7 +251,7 @@ Target the Cloudflare Workers Free plan with SQLite-backed Durable Objects. Work
 
 Cloudflare documentation checked on 5 October 2026 states that SQLite-backed Durable Objects are supported on the free plan, subject to daily request, duration, and storage-operation quotas. Exceeding a free quota causes relevant operations to fail rather than providing unlimited capacity. Static asset requests are free under the documented asset-serving rules. Hibernating WebSockets are recommended for idle connections.
 
-Design for initial small-scale public and private use: short room and ticket lifetimes, compact event messages, no server frame-by-frame rendering, a single precomputed battle timeline, no persistent public leaderboard, and client-side card rendering. Matchmaking coordinators are event-driven and use hibernating connections; queue countdowns run locally against server deadlines. Include coordinator and queue traffic in the quota measurements. Measure usage in a multi-room test before making a capacity claim. The first target is 10 concurrent eight-player rooms plus display devices under synthetic test, not a promise that any traffic volume will be free.
+Design for initial small-scale public and private use: short room and ticket lifetimes, compact event messages, no server frame-by-frame rendering, a single precomputed battle timeline, no persistent public leaderboard. Matchmaking coordinators are event-driven and use hibernating connections; queue countdowns run locally against server deadlines. Include coordinator and queue traffic in the quota measurements. Measure usage in a multi-room test before making a capacity claim. The first target is 10 concurrent eight-player rooms plus display devices under synthetic test, not a promise that any traffic volume will be free.
 
 Public deployment requires access to the chosen hosting account and provision of the room binding. Verify deployment access and free-plan configuration before publishing. If unavailable in the build environment, deliver the runnable game and deployment instructions with the exact remaining step identified; do not substitute a single-device simulation for real multiplayer.
 
@@ -271,7 +269,7 @@ References:
 4. Produce the coherent laboratory and modular creature assets; implement chamber rendering, responsive controller screens, and accessibility settings.
 5. Implement all 30 DNA types, private dealing, six-dose budget, cooldown, body replacement/stacking rules, player-count scaling, mutation attribution, and switches.
 6. Implement six rivals, seeded automatic combat, synchronized battle playback, team score, personal awards, and three-round progression.
-7. Implement archival snapshots, tarot card rendering, downloads/mobile fallback, naming, and the local Specimen Cabinet.
+7. Cancelled: saved monsters, tarot exports and local cabinet (14 October 2026). Retain the milestone number for historical references; no implementation is planned.
 8. Integrate per-device/presentation-mode audio, team signals, public name votes, complete error/reconnect states, and exercise the acceptance checklist. Adjust numerical balance from measured results.
 9. Publish to the verified free-plan setup, test from the deployed origin, and deliver the game link, source, run/deploy instructions, and known limits.
 
@@ -282,25 +280,29 @@ References:
 - Each player has six doses per round, can spend at most one per six-second cooldown, and cannot inject after pulling the switch or after expiry. Repeated requests do not double-spend.
 - Switch unanimity and time expiry both start exactly one release and battle. A slow or disconnected client cannot hold the room indefinitely.
 - Body replacement affects combat. Repeated trait caps, negative effects, purely cosmetic effects, and player-count scaling work at 2–8 players.
-- All clients receive identical battle outcome, team score, awards, and monster card data. Cosmetic playback differences cannot change results.
+- All clients receive identical battle outcome, team score, awards, and recoverable round results. Cosmetic playback differences cannot change results.
 - All six rivals and thirty DNA entries have working visuals and the declared effects. Battle events visibly demonstrate relevant traits.
 - Reload, phone sleep, temporary disconnection, host departure, mid-round joining, and server reactivation recover according to section 10.
-- All three round monsters can be exported; exported PNGs match released anatomy, contain legible names/stats, and work on current mobile Safari and Chrome through the defined download/share/preview paths.
-- Local saved cards survive an ordinary reload. Quota errors leave manual export available. There is no claim of cross-device cloud saving.
 - Portrait phones, desktop display, keyboard operation, mute, reduced motion, and reduced flashing remain usable.
 - Quick Play correctly handles zero/one waiting guest, the 30-second two-player fallback, ordinary 4–6-player matching, ready-check expiry, cancellation races, duplicate queue attempts, pool switching, and allocation interruption. Public rooms never acquire more than eight players.
 - Private rooms never appear in public allocation. Public admission and display permissions cannot be bypassed by guessing a room code.
 - Public results advance automatically; no player host can stall a matched session. Missing players, explicit replacements, recovery-lobby expiry, and voluntary replay follow the specified timing. Newcomers get no earlier personal award credit.
 - Remote clients each see a prominent creature, full battle, readiness, and team signals, and independently hear audio after interaction. Private Same-Room mode retains the TV display and avoids default multi-device audio echo.
-- Public alias/name choices and team signals use authored vocabulary; public name votes and card exports remain consistent.
+- Public alias/name choices and team signals use authored vocabulary; public name votes remain consistent.
 - Artificial latency, message duplication, connection loss, and server reactivation do not fork room state or admit a guest to two rooms.
 - Synthetic ten-room load plus at least 100 idle queued guests is measured for latency and free-tier resource consumption; report observed limits honestly.
 - The deployed game is tested with separate browser sessions, and a human playtest from at least two independent devices is completed or explicitly identified as the remaining verification step.
 
 ## 14. Historical approval boundary and current execution scope
 
-Approval authorizes building this revised first release with the specified defaults, including remote-first public Quick Play matchmaking, private remote/same-room code and link play, optional TV/browser display, preset team signals, the 30-type catalogue, six rivals, free-hosting architecture, real multiplayer, tarot exports, and device-local cabinet. Ordinary implementation and numeric balancing choices may proceed within that scope. Material changes to mode, scoring, saving promises, paid services, or scope require discussion.
+Approval authorizes building this revised first release with the specified defaults, including remote-first public Quick Play matchmaking, private remote/same-room code and link play, optional TV/browser display, preset team signals, the 30-type catalogue, six rivals, free-hosting architecture, real multiplayer, tarot exports, and device-local cabinet. **Historical approval: saved-monster/card/cabinet requirements were cancelled on 14 October 2026; the active plan above reflects that change.** Ordinary implementation and numeric balancing choices may proceed within that scope. Material changes to mode, scoring, saving promises, paid services, or scope require discussion.
 
 Approval was granted on 5 October 2026, followed by the detailed step 4 and step 5 approvals. On 10 October 2026 the user declared step 5 complete and authorized **step 6 only**. The completed DNA and creature artwork remain the baseline. Step 6 implementation decisions are in [STEP-6-PLAN.md](STEP-6-PLAN.md); steps 7 and later require a new request. Deployment requires a separate instruction. Keep Cloudflare Free, SQLite-backed Durable Objects and workers.dev-only routing. Actual verification and remaining limitations are tracked in IMPLEMENTATION-STATUS.md.
 
-Current execution authorization: Battle v2 **Phase A only**, the development animation/audio review sample in [BATTLE-V2-SPEC.md](BATTLE-V2-SPEC.md). This brings sample sound forward, while preserving every gameplay mechanic and experimental anatomy. Full remaining animation production/production presentation and entry changes wait for sample acceptance. Future new Quick Play entry uses Americas; future UI removes Same-Room/display entry while retaining safe legacy recovery/permissions. Those changes are Phase C, not Phase A. No cards/cabinet/naming or deployment. See the [scoped plan](BATTLE-V2-PLAN.md) and [actual evidence](BATTLE-V2-REVIEW.md).
+Current execution authorization: Battle v2 **Phase B only**, the complete development asset library under [BATTLE-V2-SPEC.md](BATTLE-V2-SPEC.md) and [Phase B plan](BATTLE-V2-PHASE-B-PLAN.md). This follows the accepted Phase A review gate and preserves every gameplay mechanic and experimental anatomy. Twelve five-role bodies, textured grafts, all current effects/audio and three arenas are reviewable in the DEV-only gallery. Production form/background persistence, presentation/UI rollout, Americas-only new entry and removal of new Same-Room/display entry remain Phase C and require a new instruction. Preserve legacy recovery/permissions. Saved-monster/card/cabinet features are removed; naming remains unimplemented and outside this task. No deployment. See [actual current evidence](BATTLE-V2-PHASE-B-REVIEW.md); older Phase A and step 6 records remain historical.
+
+## 15. Battle v2 production UI and completion cleanup
+
+Phase C is the explicit UI/UX implementation phase under [specification section 10](BATTLE-V2-SPEC.md#10-ui-and-admission-simplification): themed compact entry/matchmaking, readiness and recovery, lab/private tray/switch, integration/battle, results and replay layouts; desktop/phone reflow, accessible controls and per-device sound remain required. The Phase B contact sheets are development art/choreography references, not final production screens. Their gallery controls, fixture selectors and review panels will not ship. The final-lettering sheet also predates the later family redesign. Phase C remains unauthorized until requested; its interface and real-device usability need review before deployment.
+
+User-authorized completion cleanup: once step 6 and Battle v2 A, B and C are complete and accepted, consolidate the current guidance and move superseded plans/reviews and historical evidence into dated folders under `docs/archive/`, with an archive index. Preserve original verification records and asset provenance; retain source masters required by live provenance. Update links, tooling references and current inventories, then rerun relevant checks. This cleanup is recorded now, pending that completion condition; historical files have not yet been moved. Phase D device/performance acceptance and deployment remain separate requirements.

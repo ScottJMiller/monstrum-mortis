@@ -1,6 +1,14 @@
 # Monstrum Mortis — Battle v2 specification
 
+Latest audio refinement (14 October 2026): crawling, malfunction, poison and slowing playback amplitude is increased by 15% (1.15 cue multiplier), preserving balanced source files, onset-only playback, device controls and voice/headroom limits. See the [Phase B completion](BATTLE-V2-PHASE-B-PLAN.md#phase-b-completion-checklist) and [Phase C look-ahead](BATTLE-V2-PHASE-B-PLAN.md#phase-c-look-ahead-completion-checklist) checklists for remaining work; Phase C is not authorized.
+
+Latest approved presentation/scope change (14 October 2026): show a smaller centered New Rocker winner line beneath final lettering only for timeout battles; remaining authoritative health percentages decide the winner, with equal percentages labeled Draw. A strike sharing its defender/contact timestamp with a block emits no strike SVG; sounds, damage, poses, captions and block graphics retain their existing semantics. Saved monsters, tarot exports and the local cabinet are removed from the product plan, not deferred.
+
+Latest approved 14 October family refinement: Razor Talons and Counterweight Tail vote for `blob`, which also remains the zero-vote fallback. Six candidates share the same survivor/uniform-tie rules; current development descriptor is `battle-v2-b2`. Family 1 is the gaunt armored executioner with blunt hands/toes; Family 3 has a fluffier/softer face and small bobtail. See [family review](BATTLE-V2-FAMILY-REFINEMENT.md) for actual production/provenance/checks. Phase C/deployment remain unauthorized.
+
 Version: 1.0 · 10 October 2026 (America/New_York)
+
+Current Phase B refinement (14 October 2026): only strike/slash/bite/corrosion/retaliation/block/electric use supplied SVG graphics. Porcelain shard retaliation has no graphic or sound; recover is also silent and text-only. Poison/bleed/restraint/roar/regeneration/slowing/crawling/malfunction/detach use supplied, balanced one-shot sounds with text feedback. Poison/bleed refreshes and damage ticks, and continuing healing ticks, do not replay a cue within an active episode. Transient arena effects and compact labels clear at the battle deadline; restore the final approved knockout/round-end word as larger centered, unrotated New Rocker lettering. The last three seconds of the actual timeline show one top-centered New Rocker numeral at a time (3, 2, 1), yielding to the final word at the deadline. Health, captions and terminal poses remain. Block/retaliation graphics sit immediately in front of the defender on its inward side, following pose, pivot, scale and motion; actor orientation remains unchanged. Recoil amplitude is 10% below its previous 1.15 multiplier (now 1.035), with other gains preserved. This supersedes earlier Phase A/B native-effect and damaged-artwork treatments; the sole registry remains `src/client/battle-v2/effects.ts`. Production integration remains Phase C.
 
 ## 1. Purpose, authority, and implementation boundary
 
@@ -8,7 +16,7 @@ This document consolidates the user's Battle_v2.md proposal, the subsequent desi
 
 The five integrated body types and overlays replace the modular released/battle appearance. The existing modular creature remains during experimentation. Gameplay remains cooperative, remote-first, 2–8 players, three rounds, private labs and public Quick Play, with authoritative automatic combat and personal commendations.
 
-Current instructions: reconcile documents, implement a development-only vertical slice, and deliver it for visual/audio review. Full asset production and production rollout follow acceptance of that sample. The sample must contain actual functioning animation, not just static concept art. Do not deploy. Do not implement card export/cabinet/naming or unrelated team-signal features in this work.
+Initial Phase A instructions: reconcile documents, implement a development-only vertical slice, and deliver it for visual/audio review. Execution update (13 October 2026): the user has accepted that review gate and authorized Phase B asset production; see BATTLE-V2-PHASE-B-PLAN.md. Phase C production integration and deployment remain outside current authorization. Full asset production and production rollout follow acceptance of that sample. The sample must contain actual functioning animation, not just static concept art. Do not deploy. Do not implement card export/cabinet/naming or unrelated team-signal features in this work.
 
 This specification supersedes previous appearance rules at integration/battle, region-selection UI, Same-Room presentation UI, and display-only entry UI. It preserves existing mechanics, infrastructure identities, and the experiment's approved anatomy artwork. Update AGENTS.md to describe this authorization accurately without erasing historical records.
 
@@ -18,11 +26,11 @@ Priority when interpreting requirements: current user instructions; this specifi
 
 - **Experimental creature:** existing modular, immediately mutated creature in the containment chamber.
 - **Integrated form:** a new presentation descriptor selected once from frozen active mutations at release. It is not a new mechanical creature.
-- **Body family:** one of five authored bodies below, plus an animated blob fallback.
+- **Body family:** one of six voted authored bodies (1–5 and `blob`); blob also remains the zero-vote fallback.
 - **Pose:** idle, attack, recoil, defense, or defeat. Recoil and defense are distinct even if initial assets share elements.
 - **Effect:** a reusable directional visual such as a slash, electrical arc, or corrosion splash.
 - **Lettering:** a themed comic-style word accompanying a significant effect.
-- **Current slice:** body family 1 versus Iron Widow in a development gallery; it does not replace the deployed game yet.
+- **Initial Phase A slice:** body family 1 versus Iron Widow in a development gallery. Phase B expands that development library to all twelve bodies; it does not replace the deployed game.
 
 The animated blob fallback is the explicit default adopted from the preceding recommendation, because the user did not designate one of the five bodies as the no-vote default. Preserve existing slot competition. No reinforcement-based visual variants for integrated forms in v1; Titan Fibers applies one 10% enlargement, irrespective of repeat doses. These defaults must be visible in the implementation plan and review handoff.
 
@@ -45,7 +53,7 @@ At release, after all relevant action/deadline/grace settlement, use the frozen 
 3. Each distinct mapped DNA ID contributes exactly one vote. Repeat doses, potency, contributor count, and the number of surviving targets do not multiply votes. In particular, paired claws/paws count once.
 4. Select the family with the most votes.
 5. If two or more families tie for the highest positive total, choose uniformly at random among those tied families only, ON THE SERVER.
-6. If no family receives a vote, choose animated blob fallback; do not randomly choose one of the five.
+6. If no family receives a vote, choose animated blob fallback without entropy. Blob also competes normally when Razor Talons or Counterweight Tail survives.
 7. Persist the chosen descriptor with the frozen attempt before broadcasting. Duplicate switches, concurrent release paths, reload, hibernation, and runtime restart must return the same choice.
 
 Use a server-only random source with unbiased bounded selection, or an existing suitable seeded generator with a fresh server-only seed. Neither client entropy nor request order chooses the winner. Keep entropy/seed private; the chosen family is public. Use an injectable entropy source in tests. Do not promise exact frequency equality in a finite statistical test; test tied-candidate eligibility and bucket boundaries deterministically.
@@ -60,7 +68,7 @@ All mappings apply only if at least one target survives at release. "None" in th
 | --- | --- | --- |
 | Titan Fibers | None | Uniform 1.10 scale; roots/grounding remain correct |
 | Spring Tendons | 1 | Represented by selected family; no extra leg overlay |
-| Razor Talons | 1 | Represented by selected family; no extra claw overlay |
+| Razor Talons | Blob | Represented by selected family; no extra claw overlay |
 | Guillotine Teeth | 1 | Represented by selected family; no extra tooth overlay |
 | Ossified Plates | 1 | Represented by selected family; no extra armor overlay |
 | Auxiliary Heart | None | Red body tint, 50% treatment opacity; no heart sprite |
@@ -72,7 +80,7 @@ All mappings apply only if at least one target survives at release. "None" in th
 | Barbed Hide | None | Opaque sparse torso barb nodes |
 | All-Seeing Cluster | 2 | Represented by selected family |
 | Bellows Lung | None | No persistent appearance change; mechanics/effect retained |
-| Counterweight Tail | 3 | Represented by selected family |
+| Counterweight Tail | Blob | Represented by selected family |
 | Funeral Mane | 5 | Represented by selected family |
 | Cathedral Horns | 3 | Represented by selected family |
 | Mourning Veil | 5 | Represented by selected family |
@@ -91,12 +99,12 @@ All mappings apply only if at least one target survives at release. "None" in th
 
 Body families:
 
-1. Long-legged, skinny creature; long arms/talons; face dominated by guillotine teeth.
+1. Gaunt armored executioner: long bent spring-loaded legs, narrow stitched torso with irregular bone plates at shoulders/spine/shins, antique machinery in exposed gaps, long arms with oversized blunt undertaker hands/short fingers, blunt toes and enormous guillotine jaw. No razor talons.
 2. Horrifying tentacled, multi-eyed creature with dragging viscera.
-3. Cute but blood-stained kitten body; long sharp teeth, cathedral horns, bright eyes, counterweight tail.
+3. Deceptively cute blood-stained kitten: subtly 10–20% softer/fluffier cheeks and fur, rounded kitten paws, cathedral horns, bright eyes and small fluffy bobtail. No articulated counterweight tail. Smug soft resting face; long frightening teeth mainly visible during attack. Sparse blood/stitch details preserve sinister humor.
 4. Fat, melty wax creature with precarious limbs and a dripping wax halo.
 5. Crumbly, decrepit skeleton with long ragged hair and mourning veil.
-6. Fallback identifier should be named `blob`, not another voted family: animate the starter blob without inventing additional mechanical abilities.
+6. Identifier remains `blob`: the existing animated silly blob is a sixth voted candidate via Razor Talons and Counterweight Tail, and remains the no-vote fallback. Surviving DNA retains its actual mechanics; do not invent bonuses or new anatomy based on family selection.
 
 The winning family is complete art, not a merger of silhouettes from other voted families. Mutations associated with losing families retain mechanics but do not add their family-specific body parts to the winning silhouette. Explain this separation in concise player-facing trait/help text, not implementation jargon.
 
@@ -108,7 +116,7 @@ Derive modifiers from surviving active DNA. Scale defaults to 1.0; Titan Fibers 
 
 All overlays need transparent backgrounds, matching registration, and sensible roots for EACH family and pose. "Same outline" means alignment with its associated body/pose, not one bitmap stretched onto six different silhouettes. Sparse barbs and mouths must remain readable at phone scale. Eye wandering is decorative and respects motion settings.
 
-A naive five-family independent-feature bound is 640, but it is not the actual current-rule count. Preserved slot competition gives an upper bound of 100 broad static modifier/family descriptors for five voted families, or 120 including blob, BEFORE accounting for unreachable vote/modifier combinations. These are bounds, not a claim of exact reachability. Enumerate reachable descriptors under the final selector in a development script if reporting an exact count. Exclude reinforcement, frame/time variations, event damage, and gameplay stat differences from this count.
+Historical five-voted-family bounds are superseded by the 14 October blob-vote change. Preserved slot competition gives an upper bound of 120 broad static modifier/family descriptors across six bodies including blob, BEFORE accounting for unreachable vote/modifier combinations. These are bounds, not a claim of exact reachability. Enumerate reachable descriptors under the final selector in a development script if reporting an exact count. Exclude reinforcement, frame/time variations, event damage, and gameplay stat differences from this count.
 
 ## 7. Injection and release choreography
 
@@ -154,7 +162,7 @@ Visual hit-stop pauses a local decorative pose only. It must not stop the author
 
 Use several authored battleground backgrounds for full rollout (initial target: three). Select a background once per battle on the server, persist its ID, and show the same background to everyone. Background selection has no gameplay effect and cannot reroll on reload. One finished background is sufficient for the slice. Keep figures grounded and overlay contrast readable.
 
-Existing timed detachment/melting/shattering mechanics stay intact. Map these to damaged pose variants, masks, or small effect components on the integrated form. Do not switch body family mid-battle or restore lost abilities. A visually pre-existing generic body limb is not proof of an active mechanical limb; avoid implying an unsupported combat change. Specify and test the mapping before full rollout.
+Refinement approved 14 October 2026 supersedes damaged-artwork guidance: keep integrated creature artwork intact for wounded/critical health, melting, limb loss and tooth loss. Show concise side-specific text beside health, derived from accepted timeline events; loss flags persist after healing and seeking. Timed detachment/melting/shattering mechanics, removed abilities, frozen family and attribution remain unchanged. Generic visible anatomy is presentation and does not imply a restored mechanical part.
 
 ## 9. Sound brought forward
 
@@ -193,7 +201,7 @@ Revisit/revise/clean up documents at every phase boundary. Maintain one source o
 
 ## 13. Implementation phases and review gate
 
-Phase A — reconciliation and vertical slice (current execution scope):
+Phase A — reconciliation and vertical slice (accepted review gate; historical scope):
 
 1. Install the canonical specification/plan and reconcile affected guidance.
 2. Build the pure vote/modifier selector and test it in isolation using frozen active states and injected entropy.
@@ -205,9 +213,9 @@ Phase A — reconciliation and vertical slice (current execution scope):
 
 Phase B — after sample acceptance: remaining five player sets and five rivals, complete effect/audio registry, pose/damage registration, and remaining arena artwork.
 
-Phase C — full integration: persisted presentation selection/backgrounds, wire/schema compatibility, integrated playback, themed compact UI, Americas-only entry, removal of new display/Same-Room flows, and migration/regression verification.
+Phase C — full integration (not yet authorized): persisted presentation selection/backgrounds, wire/schema compatibility, integrated playback, themed compact production UI across entry/matchmaking, readiness/recovery, experiment, integration/battle, results/replay, Americas-only entry, removal of new display/Same-Room flows, and migration/regression verification. Section 10 governs UI/UX. Development contact sheets are art/choreography references, not final production layouts; review/gallery controls do not ship. Review final desktop/phone layouts and accessibility before deployment.
 
-Phase D — review/acceptance: actual device performance, sound, pacing, readability, recovery, and asset budgets. Deployment requires a separate user instruction. Later cards must use the persisted integrated form, but card implementation is outside this task.
+Phase D — review/acceptance: actual device performance, sound, pacing, readability, recovery, and asset budgets. Deployment requires a separate user instruction. Saved-monster/card/cabinet requirements were removed on 14 October 2026.
 
 ## 14. Verification and completion evidence
 
@@ -220,3 +228,7 @@ Animation/browser tests: shared contact timing and clock seeking; no elapsed-tim
 Preserve relevant room, public matchmaking, recovery, admission, DNA, scoring/awards, host advancement, replay, and three-round regression coverage. Run check/build and appropriate runtime/browser suites; Worker changes need a dry run. Do not claim browser/device/audio playback checks if unavailable. Local timing is not Cloudflare quota evidence.
 
 Completion reports include: changed behavior and files; assets actually ready versus planned; previews and review evidence; passed checks and exit status; unrun/failed checks; bounds/performance measurements with scope; remaining limitations; phase reached; and the precise next decision. No implementation is considered visually complete on unit tests alone.
+
+## 15. Authorized completion archive
+
+After step 6 and Battle v2 A/B/C are complete and accepted, revise/consolidate current plans, status, architecture, handoff and AGENTS. Move deprecated/historical plans, reviews and evidence into dated `docs/archive/` folders with an index, preserving dated verification and provenance. Repair all links and tooling references; retain source masters needed by live provenance and rerun relevant checks. This future cleanup is authorized but its completion condition has not been met. Phase D acceptance and deployment remain separately gated.

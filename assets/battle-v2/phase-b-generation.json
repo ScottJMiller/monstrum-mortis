@@ -1,0 +1,207 @@
+{
+  "scope": "Phase B development production; Phase C rollout not authorized",
+  "tool": "Built-in image_gen.imagegen under local imagegen skill; underlying model not exposed",
+  "license": "Generated project output under applicable OpenAI terms; no stock ownership/exclusivity claim",
+  "sources": [
+    {
+      "id": "family-2",
+      "path": "assets/battle-v2/source/phase-b/family-2-poses.png",
+      "prompt": "Use case: stylized-concept. Finished transparent browser-game animation POSE SHEET. Exactly TWO equal columns by THREE equal rows, five COMPLETE poses of the SAME distinct creature, sixth cell EMPTY. Reading order IDLE, ATTACK; RECOIL, DEFENSE; DEFEAT, EMPTY. All five face RIGHT in three-quarter side view. Subject: A NON-HUMANOID terrifying cephalopod mutant: rounded olive leathery mantle and upper body, eight small alert eyes clustered high on its face, six thick muscular curling hook-tentacles visibly rooted around the mantle, compact dragging purple intestinal viscera under central abdomen. Absolutely NO humanoid hands, talons, feet, biped legs, enormous teeth or brass limb machinery. Ground support is tentacles, not legs. Comic institutional-horror personality. IDLE ready stance; ATTACK lunges forward-right, body pitches and leading tentacle strikes; RECOIL tilts back-left dramatically; DEFENSE curls and covers face with front tentacles; DEFEAT collapses spread low, eyes shut, all parts remain present. Same creature anatomy, palette, proportions across five poses. Decayed painterly Frankenstein-era eldritch horror, moss-olive cream and bruised purple, soft upper-left lighting, naturalistic texture and sinister comic mutation. Full character inside its own cell with at least 10% transparent margins and large gutters. No overlap across columns or rows, no clipped parts, floor, shadow, writing, labels, grid or scene. Truly transparent background. High resolution portrait 1536x2048 or highest available.",
+      "references": [],
+      "tool": "Built-in image_gen.imagegen",
+      "createdAt": "2026-10-13",
+      "origin": "Generated project output under applicable OpenAI terms",
+      "reason": "The style-reference candidate retained family-1 anatomy; regenerated a distinct specified silhouette",
+      "sha256": "a0c01a404fbd28b505111183657cf5dc14c12e98c1b19f17c493e388d5469a11",
+      "bytes": 1849281
+    },
+    {
+      "id": "family-3",
+      "path": "assets/battle-v2/source/phase-b/family-3-poses.png",
+      "prompt": "Use case: stylized-concept. Asset: finished transparent browser-game animation POSE SHEET. Exactly TWO columns and THREE rows with equal cells and generous transparent gutters, FIVE distinct full-body poses of ONE consistent monster; sixth cell EMPTY. Reading order top-left IDLE, top-right ATTACK, middle-left RECOIL, middle-right DEFENSE, bottom-left DEFEAT. Every creature faces RIGHT in three-quarter side view. Subject: a cute but sinister blood-stained kitten, cream-and-olive matted fur, small red stains, huge bright green feline eyes, long sharp ivory teeth, two aged cathedral-shaped curled horns, furry kitten paws, a long articulated heavy counterweight tail with a rounded segmented tip. Four-legged compact cat anatomy; comic smug look. Not a humanoid. Reference image is only lighting/palette/texture reference, not anatomy to copy. Painterly decayed Frankenstein/eldritch game realism, antique brass, moss olive, muted bruised purple, upper-left soft light, grotesque comic identity. IDLE coherent ready stance; ATTACK forward-right strike with body leaned and leading appendage extended; RECOIL thrown backward-left from contact with clear changed silhouette; DEFENSE curled/hunched and braced, protects face with front appendages; DEFEAT collapsed on ground with eyes closed and limbs folded but complete anatomy. Consistent character/materials/eye positions between poses. Full anatomy in each cell with 10% clear margin; NO clipped tails, tentacles, horns, halo or toes, NO overlap across cells. Actual transparent surroundings. No ground shadow, floor, words, grid, scenery, sparks, extra overlays or labels. High resolution portrait 1536x2048 sheet or highest available; polished usable independent sprites.",
+      "reference": "assets/battle-v2/source/family-1-idle.png",
+      "tool": "Built-in image_gen.imagegen",
+      "createdAt": "2026-10-13",
+      "origin": "Generated project output under applicable OpenAI terms",
+      "sha256": "0c66208f6554dda9e67bd118b9abd1d2dc463b29adcfbf5a09bc5d060e6bfeed",
+      "bytes": 2049768
+    },
+    {
+      "id": "family-4",
+      "path": "assets/battle-v2/source/phase-b/family-4-poses.png",
+      "prompt": "Use case: stylized-concept. Finished transparent browser-game animation POSE SHEET. Exactly TWO equal columns by THREE equal rows, five COMPLETE poses of the SAME distinct creature, sixth cell EMPTY. Reading order IDLE, ATTACK; RECOIL, DEFENSE; DEFEAT, EMPTY. All five face RIGHT in three-quarter side view. Subject: A very fat, squat MELTY WAX monster: broad sagging olive-cream wax belly, tiny crooked sleepy eyes, small gummy crooked mouth, two very short precarious wax arms with blunt fingers and two short stumpy wax legs. A dripping wax halo hovering immediately above head with wax filaments joining its roots. No talons, large sharp teeth, armor or humanoid tall frame. Soft wax drips form body silhouette, subtle purple sagging seams and modest aged-brass sutures. Comic grim anxiety. IDLE ready stance; ATTACK lunges forward-right, body pitches and leading stubby arm strikes; RECOIL tilts back-left dramatically; DEFENSE curls and covers face with front arms; DEFEAT collapses spread low, eyes shut, all parts remain present. Same creature anatomy, palette, proportions across five poses. Decayed painterly Frankenstein-era eldritch horror, moss-olive cream and bruised purple, soft upper-left lighting, naturalistic texture and sinister comic mutation. Full character inside its own cell with at least 10% transparent margins and large gutters. No overlap across columns or rows, no clipped parts, floor, shadow, writing, labels, grid or scene. Truly transparent background. High resolution portrait 1536x2048 or highest available.",
+      "references": [],
+      "tool": "Built-in image_gen.imagegen",
+      "createdAt": "2026-10-13",
+      "origin": "Generated project output under applicable OpenAI terms",
+      "reason": "The style-reference candidate retained family-1 anatomy; regenerated a distinct specified silhouette",
+      "sha256": "25229639f67cabe97f92f945d45508182dce7206a2d26286fb1aa5aec382a62c",
+      "bytes": 1659808
+    },
+    {
+      "id": "family-5",
+      "path": "assets/battle-v2/source/phase-b/family-5-poses.png",
+      "prompt": "Use case: stylized-concept. Finished transparent game animation POSE SHEET, exactly TWO equal columns and THREE equal rows, FIVE complete poses of the SAME skeleton; last cell EMPTY. Reading IDLE, ATTACK; RECOIL, DEFENSE; DEFEAT, EMPTY. All face RIGHT in three-quarter side view. Subject: an unmistakably CRUMBLY DECREPIT SKELETON with exposed dirty ivory skull, visible empty eye sockets, a complete exposed cracked rib cage and spine, long thin exposed bony arms/fingers and two long bony legs. NO muscular Frankenstein skin, talons or brass mechanical joints. Long ragged wet black-purple hair hangs from skull and a thin ragged translucent MOURNING VEIL hangs from shoulder bones. A few olive rotted tissue scraps and modest brass sutures connect bones, soft bruised-purple shaded hollows. Sinister comic despair, ancient frail anatomy, painterly decayed Frankenstein/eldritch realism, soft upper-left lighting. IDLE bent sorrowful ready stance; ATTACK bony arm lunges forward RIGHT, veil/hair trails; RECOIL bends back LEFT with hands spread; DEFENSE curls and crosses bony forearms in front of skull; DEFEAT collapsed bones loosely folded on ground, same skull and hair, not exploded unrelated fragments. Five distinctly drawn pose silhouettes with consistent anatomy and materials. Full body with 10% clear margins in every cell, generous gutters and no overlaps, cropped limbs, ground shadows, text, grid or scenery. Truly transparent surroundings. High resolution portrait 1536x2048 or highest available.",
+      "references": [],
+      "tool": "Built-in image_gen.imagegen",
+      "createdAt": "2026-10-13",
+      "origin": "Generated project output under applicable OpenAI terms",
+      "reason": "Style-reference candidate retained too much fleshy family-1 anatomy; regenerated explicit exposed bones",
+      "sha256": "7d15cd2098805c5b85f8c28e74eca84822fdae6e407d8878eae99a78a01d8d5c",
+      "bytes": 1784582
+    },
+    {
+      "id": "blob",
+      "path": "assets/battle-v2/source/phase-b/blob-poses.png",
+      "prompt": "Use case: identity-preserve. Asset: finished transparent game animation POSE SHEET, exactly TWO equal columns and THREE equal rows, FIVE full-body independent poses of ONE same character, last cell EMPTY. Top-left IDLE, top-right ATTACK, middle-left RECOIL, middle-right DEFENSE, bottom-left DEFEAT. Subject: the SAME starter blob from references, plump irregular olive-cream quivering sack with two rounded top lobes, saggy lower folds, the referenced sleepy paired eyes and crooked gummy comic mouth in a recognizable facial area. No legs, hands, horns or new mechanical anatomy. Blob squashes/stretchs itself for motion. Every pose faces RIGHT toward opponent in three-quarter side view. IDLE ready breathing shape. ATTACK leans/lunges forward-RIGHT with a clearly distinct complete silhouette, squashes low and extends its whole soft front, not an added limb; RECOIL thrown backward from impact, upper body tilted away; DEFENSE hunches/curls and braces, face protected; DEFEAT collapsed on ground, eyes shut, appendages folded. Retain SAME proportions, markings, eyes, anatomy identity and lighting across five poses. Painterly decayed Frankenstein/eldritch game realism, olive-cream/bruised-purple/old brass palette, upper-left soft light, sinister comic mutation. Entire anatomy visible with 10% clear cell margins; no clipping, overlapping cells, shadows, ground, text, labels or scenery. Truly transparent surroundings. Portrait high resolution 1536x2048 or highest available. Separate cells with generous transparent gutters, do not let wings/hair/tendrils cross gutters.",
+      "references": [
+        "assets/source/creature.blob.png",
+        "assets/source/creature.eyes.png",
+        "assets/source/creature.mouth.png"
+      ],
+      "tool": "Built-in image_gen.imagegen",
+      "createdAt": "2026-10-13",
+      "origin": "Generated project output under applicable OpenAI terms",
+      "sha256": "90d0c24235179f986077157b55b5b356c2046760d0822c2976d3da07d1f96e09",
+      "bytes": 1868076
+    },
+    {
+      "id": "gutter-seraph",
+      "path": "assets/battle-v2/source/phase-b/gutter-seraph-poses.png",
+      "prompt": "Use case: identity-preserve. Asset: finished transparent game animation POSE SHEET, exactly TWO equal columns and THREE equal rows, FIVE full-body independent poses of ONE same character, last cell EMPTY. Top-left IDLE, top-right ATTACK, middle-left RECOIL, middle-right DEFENSE, bottom-left DEFEAT. Subject: exactly the SAME Gutter Seraph from reference: gaunt bird-seraph with long narrow beaked head, a small dorsal crest, two wide ragged membranous wings with brass bones, two long thin birdlike legs ending in three sharp toes, decayed pale olive stitched torso. Preserve wing root count, head identity and rivets. Every pose faces LEFT toward opponent in three-quarter side view. IDLE ready breathing shape. ATTACK leans/lunges forward-LEFT with a clearly distinct complete silhouette, leading forelimb/wing/tentacle extended; RECOIL thrown backward from impact, upper body tilted away; DEFENSE hunches/curls and braces, face protected; DEFEAT collapsed on ground, eyes shut, appendages folded. Retain SAME proportions, markings, eyes, anatomy identity and lighting across five poses. Painterly decayed Frankenstein/eldritch game realism, olive-cream/bruised-purple/old brass palette, upper-left soft light, sinister comic mutation. Entire anatomy visible with 10% clear cell margins; no clipping, overlapping cells, shadows, ground, text, labels or scenery. Truly transparent surroundings. Portrait high resolution 1536x2048 or highest available. Separate cells with generous transparent gutters, do not let wings/hair/tendrils cross gutters.",
+      "references": [
+        "assets/source/rivals/gutter-seraph.png"
+      ],
+      "tool": "Built-in image_gen.imagegen",
+      "createdAt": "2026-10-13",
+      "origin": "Generated project output under applicable OpenAI terms",
+      "sha256": "4fab9c2f0ad20efca3cdbce95898e4e90b738c40afbaa078ca0b5c1c93c2960f",
+      "bytes": 2139315
+    },
+    {
+      "id": "carrion-duke",
+      "path": "assets/battle-v2/source/phase-b/carrion-duke-poses.png",
+      "prompt": "Use case: identity-preserve. Reference is the exact existing rival identity. Produce ONE finished transparent animation POSE SHEET of the SAME huge bloated amphibious carrion duke: low broad stitched pale bruised olive torso, small smug blunt head in a wide ruffled fleshy mushroom-like collar, thick rolled fatty back, four short squat limbs with claws. Match head/collar silhouette, folds and seams of reference. Exactly TWO equal columns and THREE equal rows, five complete poses, sixth cell EMPTY. Reading IDLE, ATTACK; RECOIL, DEFENSE; DEFEAT, EMPTY. Every pose faces LEFT in three-quarter side view. IDLE firm ready stance; ATTACK forward LEFT lunge; RECOIL recoils backward RIGHT with raised front; DEFENSE lowers/hunches and braces protecting face; DEFEAT collapses with eyes closed and limbs folded. FIVE independently drawn pose silhouettes, not rotations of one art. Decayed Frankenstein/eldritch painterly realist game sprites, sinister comic institutional personality, pale moss olive flesh, bruised purple shadows, patinated brass, consistent upper-left soft lighting. Same anatomy/proportions/roots/material/markings through every pose. Entire figure inside its cell with generous 10% transparent margin and large gutters: no clipping, overlapping poses, ground shadows, scenery, text, frame, labels or grid. High resolution portrait 1536x2048 or highest available. Actual transparent surroundings.",
+      "references": [
+        "assets/source/rivals/carrion-duke.png"
+      ],
+      "tool": "Built-in image_gen.imagegen",
+      "createdAt": "2026-10-13",
+      "origin": "Generated project output under applicable OpenAI terms",
+      "sha256": "11b40e8c1c429a9268207f6b58463e48ab9c604e04354c56675c74199103d048",
+      "bytes": 2545983
+    },
+    {
+      "id": "coil-saint",
+      "path": "assets/battle-v2/source/phase-b/coil-saint-poses.png",
+      "prompt": "Use case: identity-preserve. Reference is the exact existing rival identity. Produce ONE finished transparent animation POSE SHEET of the SAME tall thin stitched coil saint: narrow mournful humanoid head, small brass halo crown, two large aged brass induction coils at shoulders, dark skinny insectlike lower anatomy with two long pointed legs and two thin arm claws. Coils stay dark/unlit on this BODY sheet; electrical sparks are separate reusable effect. Match head/coil identity exactly. Exactly TWO equal columns and THREE equal rows, five complete poses, sixth cell EMPTY. Reading IDLE, ATTACK; RECOIL, DEFENSE; DEFEAT, EMPTY. Every pose faces LEFT in three-quarter side view. IDLE firm ready stance; ATTACK forward LEFT lunge; RECOIL recoils backward RIGHT with raised front; DEFENSE lowers/hunches and braces protecting face; DEFEAT collapses with eyes closed and limbs folded. FIVE independently drawn pose silhouettes, not rotations of one art. Decayed Frankenstein/eldritch painterly realist game sprites, sinister comic institutional personality, pale moss olive flesh, bruised purple shadows, patinated brass, consistent upper-left soft lighting. Same anatomy/proportions/roots/material/markings through every pose. Entire figure inside its cell with generous 10% transparent margin and large gutters: no clipping, overlapping poses, ground shadows, scenery, text, frame, labels or grid. High resolution portrait 1536x2048 or highest available. Actual transparent surroundings.",
+      "references": [
+        "assets/source/rivals/coil-saint.png"
+      ],
+      "tool": "Built-in image_gen.imagegen",
+      "createdAt": "2026-10-13",
+      "origin": "Generated project output under applicable OpenAI terms",
+      "sha256": "6b8d79ec1e0715b70ca4d8bf07bc1e67e5c08f462bf52a30f4bae0565f44a509",
+      "bytes": 1493894
+    },
+    {
+      "id": "maw-engine",
+      "path": "assets/battle-v2/source/phase-b/maw-engine-poses.png",
+      "prompt": "Use case: identity-preserve. Reference is the exact existing rival identity. Produce ONE finished transparent animation POSE SHEET of the SAME huge low four-legged stitched maw engine, olive fleshy iron/brass stitched bulk, a gigantic circular tooth-lined maw as entire front/head, small dorsal brass exhaust/coil cylinders, thick four muscular low legs. Preserve exact round tooth-ring face. ATTACK lunges maw forward-left to bite, not a hand slash. Exactly TWO equal columns and THREE equal rows, five complete poses, sixth cell EMPTY. Reading IDLE, ATTACK; RECOIL, DEFENSE; DEFEAT, EMPTY. Every pose faces LEFT in three-quarter side view. IDLE firm ready stance; ATTACK forward LEFT lunge; RECOIL recoils backward RIGHT with raised front; DEFENSE lowers/hunches and braces protecting face; DEFEAT collapses with eyes closed and limbs folded. FIVE independently drawn pose silhouettes, not rotations of one art. Decayed Frankenstein/eldritch painterly realist game sprites, sinister comic institutional personality, pale moss olive flesh, bruised purple shadows, patinated brass, consistent upper-left soft lighting. Same anatomy/proportions/roots/material/markings through every pose. Entire figure inside its cell with generous 10% transparent margin and large gutters: no clipping, overlapping poses, ground shadows, scenery, text, frame, labels or grid. High resolution portrait 1536x2048 or highest available. Actual transparent surroundings.",
+      "references": [
+        "assets/source/rivals/maw-engine.png"
+      ],
+      "tool": "Built-in image_gen.imagegen",
+      "createdAt": "2026-10-13",
+      "origin": "Generated project output under applicable OpenAI terms",
+      "sha256": "f2a26f601c6e0cea1a18d5ff0c987cd041251d42101950519e54737f6dc4a889",
+      "bytes": 2478912
+    },
+    {
+      "id": "the-unfinished",
+      "path": "assets/battle-v2/source/phase-b/the-unfinished-poses.png",
+      "prompt": "Use case: identity-preserve. Reference is the exact existing rival identity. Produce ONE finished transparent animation POSE SHEET of the SAME asymmetrical unfinished specimen, lumpy olive stitched upright torso, little wonky toothy face, unequal bulging eyes, one giant bulky claw arm and one long skinny bony dangling arm, two mismatched legs, small antenna/dorsal nub. Retain asymmetry and identity; do not add parts across poses. Exactly TWO equal columns and THREE equal rows, five complete poses, sixth cell EMPTY. Reading IDLE, ATTACK; RECOIL, DEFENSE; DEFEAT, EMPTY. Every pose faces LEFT in three-quarter side view. IDLE firm ready stance; ATTACK forward LEFT lunge; RECOIL recoils backward RIGHT with raised front; DEFENSE lowers/hunches and braces protecting face; DEFEAT collapses with eyes closed and limbs folded. FIVE independently drawn pose silhouettes, not rotations of one art. Decayed Frankenstein/eldritch painterly realist game sprites, sinister comic institutional personality, pale moss olive flesh, bruised purple shadows, patinated brass, consistent upper-left soft lighting. Same anatomy/proportions/roots/material/markings through every pose. Entire figure inside its cell with generous 10% transparent margin and large gutters: no clipping, overlapping poses, ground shadows, scenery, text, frame, labels or grid. High resolution portrait 1536x2048 or highest available. Actual transparent surroundings.",
+      "references": [
+        "assets/source/rivals/the-unfinished.png"
+      ],
+      "tool": "Built-in image_gen.imagegen",
+      "createdAt": "2026-10-13",
+      "origin": "Generated project output under applicable OpenAI terms",
+      "sha256": "c112ec13ceb0a8e44ec5b7b7f55579309f216ee402af84562cdb7af731be17b1",
+      "bytes": 1889471
+    },
+    {
+      "id": "arena-catacomb",
+      "path": "assets/battle-v2/source/phase-b/arena-catacomb.png",
+      "prompt": "Use case: stylized-concept. Finished landscape game battle arena background 1536x1024. A decayed Frankenstein-era underground ossuary surgery theatre, green-black gothic stone arches, tarnished brass apparatus and cracked specimen-vat glass at far edges, antique marrow pumping pipes, candles behind iron screens, damp olive stone floor with occult engraved circles. Painterly sinister eldritch realism, soft upper-left antique light, bruised purple shadows and muted old gold. Quiet dark spacious middle for two full creatures/effects, crisp clearly lit flat ground across bottom 25%, straight-across camera slightly looking down. No creatures, people, text, signs, grid, watermark or UI. Different from the existing industrial induction-coil laboratory while matching its palette and art quality. Dark atmospheric depth; no bright neon or cheerful fantasy.",
+      "references": [],
+      "tool": "Built-in image_gen.imagegen",
+      "createdAt": "2026-10-13",
+      "origin": "Generated project output under applicable OpenAI terms",
+      "sha256": "d076673b693b4cafe20e4ca6dcd047eaa11ffd7c0c4c72497ebb21fcabccc63a",
+      "bytes": 3156410
+    },
+    {
+      "id": "arena-foundry",
+      "path": "assets/battle-v2/source/phase-b/arena-foundry.png",
+      "prompt": "Use case: stylized-concept. Finished landscape game battle arena background 1536x1024. A corroded Victorian anatomical brass foundry, black iron gantries and enormous old wax-melting crucibles at far edges, thick patinated copper pipes, tarnished gothic valves, stained green glass vats behind safety grilles, old parchment blanks on equipment with NO lettering. Clearly lit cracked metal floor and three worn occult engravings across bottom 25%. Quiet dark spacious central background for two creature silhouettes. Painterly decayed Frankenstein/eldritch game realism, olive-black and old-brass palette, muted purple shadows, dim upper-left amber light. Camera straight across slightly downward, grounded flat horizontal platform. No creatures, humans, words, digits, labels, UI, watermark, modern tech or neon. Different from stone ossuary and original induction laboratory, consistent style.",
+      "references": [],
+      "tool": "Built-in image_gen.imagegen",
+      "createdAt": "2026-10-13",
+      "origin": "Generated project output under applicable OpenAI terms",
+      "sha256": "d7436fd987c71e1e88923ce8a53845cb2ddf02f4bea99391d79e9d4dca8419ec",
+      "bytes": 3154305
+    },
+    {
+      "id": "graft-parts",
+      "path": "assets/battle-v2/source/phase-b/graft-parts.png",
+      "prompt": "Use case: stylized-concept. Finished high-resolution transparent modular creature-asset sheet for a decayed Frankenstein/eldritch game, four columns and two rows, eight isolated assets with generous transparent gutters. Row1 left to right: (1) single short crooked dirty-ivory SKIN BARB with tiny fleshy olive-bruised-purple graft root and two brass sutures, (2) a branching MARBLED VEIN cluster of dark purple/black fleshy veins with cream-olive thin root edge, transparent BETWEEN branches, (3) one small sinister SURFACE MOUTH, cream-olive puckered stitched lip root and 5 dirty tiny teeth in dark cavity, (4) one small OPAQUE TUMOROUS SHOULDER GROWTH containing one pale wandering-eye socket with empty purple iris region, defined tapered flesh root at bottom, no backing torso. Row2 left to right: (5) small sewn WOUND patch with bruised dark purple slit and sparse brass stitches, (6) small stitched GRAFT SCAR with no limb anatomy, (7) two or three loose ivory TOOTH SHARDS joined in tiny scatter without big background, (8) one small detached rotten HAND/FORELIMB fragment with thin flesh root. Every part must match moss olive, cream, bruised purple, muted old brass, upper-left soft lighting and hand-painted realistic texture. No complete monster, extra anatomy, giant flesh backing mass, text, grid or shadows. True alpha transparency, neat useful attachment edges and no clipped parts. Target high resolution landscape 2048x1024 or highest available.",
+      "references": [],
+      "tool": "Built-in image_gen.imagegen",
+      "createdAt": "2026-10-13",
+      "origin": "Generated project output under applicable OpenAI terms",
+      "sha256": "1c228f14a0a758c7a4ece3b988de3cedebb6ec2ba3d534e6676966e5d1ae54b4",
+      "bytes": 1629699
+    }
+  ],
+  "candidates": [
+    {
+      "id": "family-2",
+      "path": "assets/battle-v2/source/phase-b/family-2-style-candidate.png",
+      "prompt": "Use case: stylized-concept. Asset: finished transparent browser-game animation POSE SHEET. Exactly TWO columns and THREE rows with equal cells and generous transparent gutters, FIVE distinct full-body poses of ONE consistent monster; sixth cell EMPTY. Reading order top-left IDLE, top-right ATTACK, middle-left RECOIL, middle-right DEFENSE, bottom-left DEFEAT. Every creature faces RIGHT in three-quarter side view. Subject: a horrifying crouched cephalopod Frankenstein creature, moss-olive leathery pear-shaped torso, an asymmetrical cluster of eight tiny dull eyes high on its head, six thick muscular hook-tentacles with convincingly joined roots, dragging compact bruised-purple viscera below the abdomen, tarnished brass sutures. No humanoid hands or thin legs. Same eye count and tentacle roots in each pose. Reference image is only lighting/palette/texture reference, not anatomy to copy. Painterly decayed Frankenstein/eldritch game realism, antique brass, moss olive, muted bruised purple, upper-left soft light, grotesque comic identity. IDLE coherent ready stance; ATTACK forward-right strike with body leaned and leading appendage extended; RECOIL thrown backward-left from contact with clear changed silhouette; DEFENSE curled/hunched and braced, protects face with front appendages; DEFEAT collapsed on ground with eyes closed and limbs folded but complete anatomy. Consistent character/materials/eye positions between poses. Full anatomy in each cell with 10% clear margin; NO clipped tails, tentacles, horns, halo or toes, NO overlap across cells. Actual transparent surroundings. No ground shadow, floor, words, grid, scenery, sparks, extra overlays or labels. High resolution portrait 1536x2048 sheet or highest available; polished usable independent sprites.",
+      "reference": "assets/battle-v2/source/family-1-idle.png",
+      "tool": "Built-in image_gen.imagegen",
+      "createdAt": "2026-10-13",
+      "origin": "Generated project output under applicable OpenAI terms",
+      "status": "rejected anatomy candidate; not runtime",
+      "sha256": "8bb3350fca398792c6e8cf52f4c082efa333f1f9eb307e355443f0582fde031b",
+      "bytes": 2072989
+    },
+    {
+      "id": "family-4",
+      "path": "assets/battle-v2/source/phase-b/family-4-style-candidate.png",
+      "prompt": "Use case: stylized-concept. Asset: finished transparent browser-game animation POSE SHEET. Exactly TWO columns and THREE rows with equal cells and generous transparent gutters, FIVE distinct full-body poses of ONE consistent monster; sixth cell EMPTY. Reading order top-left IDLE, top-right ATTACK, middle-left RECOIL, middle-right DEFENSE, bottom-left DEFEAT. Every creature faces RIGHT in three-quarter side view. Subject: a fat grotesque squat melty wax creature, olive-cream translucent wax flesh with bruised purple creases, tiny wonky eyes and sagging comic mouth, two precariously rooted stubby arms and two stumpy legs, one thick dripping wax halo attached above head, wax drips on torso. SAME full limbs in all five poses; do not detach them here. Reference image is only lighting/palette/texture reference, not anatomy to copy. Painterly decayed Frankenstein/eldritch game realism, antique brass, moss olive, muted bruised purple, upper-left soft light, grotesque comic identity. IDLE coherent ready stance; ATTACK forward-right strike with body leaned and leading appendage extended; RECOIL thrown backward-left from contact with clear changed silhouette; DEFENSE curled/hunched and braced, protects face with front appendages; DEFEAT collapsed on ground with eyes closed and limbs folded but complete anatomy. Consistent character/materials/eye positions between poses. Full anatomy in each cell with 10% clear margin; NO clipped tails, tentacles, horns, halo or toes, NO overlap across cells. Actual transparent surroundings. No ground shadow, floor, words, grid, scenery, sparks, extra overlays or labels. High resolution portrait 1536x2048 sheet or highest available; polished usable independent sprites.",
+      "reference": "assets/battle-v2/source/family-1-idle.png",
+      "tool": "Built-in image_gen.imagegen",
+      "createdAt": "2026-10-13",
+      "origin": "Generated project output under applicable OpenAI terms",
+      "status": "rejected anatomy candidate; not runtime",
+      "sha256": "c246706bd3d906d319fd48b4260f96170b5baae95d800ec4d37a76d6181b66e8",
+      "bytes": 1980799
+    },
+    {
+      "id": "family-5",
+      "path": "assets/battle-v2/source/phase-b/family-5-style-candidate.png",
+      "prompt": "Use case: identity-preserve. Asset: finished transparent game animation POSE SHEET, exactly TWO equal columns and THREE equal rows, FIVE full-body independent poses of ONE same character, last cell EMPTY. Top-left IDLE, top-right ATTACK, middle-left RECOIL, middle-right DEFENSE, bottom-left DEFEAT. Subject: a crumbly decrepit skeleton, cracked dirty-ivory bones and patchy olive rotted sinew, long soaked ragged black-purple hair and a ragged mourning veil attached at shoulders, thin long skeletal arms, two narrow bony legs, mournful tiny eyes and dry institutional comic despair. No robe/clothing backing mass. Every pose faces RIGHT toward opponent in three-quarter side view. IDLE ready breathing shape. ATTACK leans/lunges forward-RIGHT with a clearly distinct complete silhouette, leading forelimb/wing/tentacle extended; RECOIL thrown backward from impact, upper body tilted away; DEFENSE hunches/curls and braces, face protected; DEFEAT collapsed on ground, eyes shut, appendages folded. Retain SAME proportions, markings, eyes, anatomy identity and lighting across five poses. Painterly decayed Frankenstein/eldritch game realism, olive-cream/bruised-purple/old brass palette, upper-left soft light, sinister comic mutation. Entire anatomy visible with 10% clear cell margins; no clipping, overlapping cells, shadows, ground, text, labels or scenery. Truly transparent surroundings. Portrait high resolution 1536x2048 or highest available. Separate cells with generous transparent gutters, do not let wings/hair/tendrils cross gutters.",
+      "references": [
+        "assets/battle-v2/source/family-1-idle.png"
+      ],
+      "tool": "Built-in image_gen.imagegen",
+      "createdAt": "2026-10-13",
+      "origin": "Generated project output under applicable OpenAI terms",
+      "status": "rejected anatomy candidate; not runtime",
+      "sha256": "11b074e55a44bd1f2f5d03e5dcc1c100784966ffb65dcdaac81e0c6486ed1542",
+      "bytes": 1961713
+    }
+  ]
+}

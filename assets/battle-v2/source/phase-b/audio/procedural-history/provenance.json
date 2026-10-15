@@ -1,0 +1,273 @@
+{
+  "origin": "Original project-authored procedural oscillator/filtered-noise/inharmonic-pulse cues",
+  "license": "Project-authored output, no external sample license asserted",
+  "script": "scripts/prepare-battle-v2-phase-b-audio.py",
+  "scriptSha256": "2656e69f713ef7fb062f5170e2b0b7704d0a1c8cf7ef992c87f5a649d31a1b71",
+  "formulas": "Exact deterministic formulas and seeds retained in script; no audio API/runtime synthesis",
+  "records": [
+    {
+      "id": "electric",
+      "source": "assets/battle-v2/source/phase-b/audio/electric.wav",
+      "sourceSha256": "113cc586edcdf021960ca00c9a294a025ed4ed502e4b6741a4ce3aba95868208",
+      "runtime": "assets/battle-v2/runtime/phase-b/audio/electric.m4a",
+      "url": "/assets/battle-v2/runtime/phase-b/audio/electric.m4a",
+      "sha256": "c0cc48ea8e5703240d377c8d690a372f91dd9ff063e077ec3656357302136a92",
+      "bytes": 5117,
+      "seconds": 0.65,
+      "seed": 1346912768,
+      "recipe": {
+        "startHz": 1300,
+        "endHz": 70,
+        "noise": 0.75,
+        "metal": 0.55
+      },
+      "gainDb": 8.391398352312855,
+      "encodedLevels": {
+        "meanDbFS": -21.6,
+        "peakDbFS": -7.5
+      }
+    },
+    {
+      "id": "poison",
+      "source": "assets/battle-v2/source/phase-b/audio/poison.wav",
+      "sourceSha256": "bf609de056458957e4cb12e7e013ec2d816bc62c0e735a76e2fffd1674037f7d",
+      "runtime": "assets/battle-v2/runtime/phase-b/audio/poison.m4a",
+      "url": "/assets/battle-v2/runtime/phase-b/audio/poison.m4a",
+      "sha256": "7c809ee10946fa3f40d74d93a986d58c388544f2c2c6ef3d374514a82edbf242",
+      "bytes": 4606,
+      "seconds": 0.55,
+      "seed": 1346912769,
+      "recipe": {
+        "startHz": 150,
+        "endHz": 80,
+        "noise": 0.4,
+        "metal": 0.15
+      },
+      "gainDb": 10.805631424455452,
+      "encodedLevels": {
+        "meanDbFS": -19.8,
+        "peakDbFS": -6.3
+      }
+    },
+    {
+      "id": "bleed",
+      "source": "assets/battle-v2/source/phase-b/audio/bleed.wav",
+      "sourceSha256": "7746c00b878dd45ef17a4304391eea22268dfc924402011267a5f5551daa3929",
+      "runtime": "assets/battle-v2/runtime/phase-b/audio/bleed.m4a",
+      "url": "/assets/battle-v2/runtime/phase-b/audio/bleed.m4a",
+      "sha256": "ff781b213154ec28bf4c59c10c3667377d98343bc0cfc10274c4164e2ccb9b20",
+      "bytes": 2908,
+      "seconds": 0.28,
+      "seed": 1346912770,
+      "recipe": {
+        "startHz": 110,
+        "endHz": 60,
+        "noise": 0.45,
+        "metal": 0.15
+      },
+      "gainDb": 10.676280396605101,
+      "encodedLevels": {
+        "meanDbFS": -20.5,
+        "peakDbFS": -6.6
+      }
+    },
+    {
+      "id": "restraint",
+      "source": "assets/battle-v2/source/phase-b/audio/restraint.wav",
+      "sourceSha256": "952efabb2dbe14bd95dbac53b8e2093762e6168657567ffc17874f27d73c0674",
+      "runtime": "assets/battle-v2/runtime/phase-b/audio/restraint.m4a",
+      "url": "/assets/battle-v2/runtime/phase-b/audio/restraint.m4a",
+      "sha256": "be69872ed1acbd5c40498763ddcfe4115f92e2a41198670fd7f890a6f314b07f",
+      "bytes": 4578,
+      "seconds": 0.55,
+      "seed": 1346912771,
+      "recipe": {
+        "startHz": 160,
+        "endHz": 100,
+        "noise": 0.4,
+        "metal": 0.32
+      },
+      "gainDb": 10.881633885110261,
+      "encodedLevels": {
+        "meanDbFS": -20.0,
+        "peakDbFS": -7.3
+      }
+    },
+    {
+      "id": "roar",
+      "source": "assets/battle-v2/source/phase-b/audio/roar.wav",
+      "sourceSha256": "812d78ab5582c72e320848262c34565110cfe3cd2526ff40467818d46f16530a",
+      "runtime": "assets/battle-v2/runtime/phase-b/audio/roar.m4a",
+      "url": "/assets/battle-v2/runtime/phase-b/audio/roar.m4a",
+      "sha256": "868b666109f3df17da484869a0b92a6742dd661d53e6c00be31732b1ae080c6b",
+      "bytes": 5947,
+      "seconds": 0.75,
+      "seed": 1346912772,
+      "recipe": {
+        "startHz": 85,
+        "endHz": 42,
+        "noise": 0.55,
+        "metal": 0.36
+      },
+      "gainDb": 9.669842464201153,
+      "encodedLevels": {
+        "meanDbFS": -20.2,
+        "peakDbFS": -5.9
+      }
+    },
+    {
+      "id": "regeneration",
+      "source": "assets/battle-v2/source/phase-b/audio/regeneration.wav",
+      "sourceSha256": "156225f15d9f17090a2967d5628db13f65d0eac8400d82f88f5131187b8bf48e",
+      "runtime": "assets/battle-v2/runtime/phase-b/audio/regeneration.m4a",
+      "url": "/assets/battle-v2/runtime/phase-b/audio/regeneration.m4a",
+      "sha256": "92a103f9f411f6685e4eb6d24535fe3447f765c4ecf292002d9c76dbcb9ecad4",
+      "bytes": 4847,
+      "seconds": 0.6,
+      "seed": 1346912773,
+      "recipe": {
+        "startHz": 100,
+        "endHz": 230,
+        "noise": 0.25,
+        "metal": 0.15
+      },
+      "gainDb": 12.03524258761167,
+      "encodedLevels": {
+        "meanDbFS": -20.0,
+        "peakDbFS": -7.3
+      }
+    },
+    {
+      "id": "slowing",
+      "source": "assets/battle-v2/source/phase-b/audio/slowing.wav",
+      "sourceSha256": "0166fa3ae664610a038df2436ae3ca77dd832c31c5a716828cf377801d0399d9",
+      "runtime": "assets/battle-v2/runtime/phase-b/audio/slowing.m4a",
+      "url": "/assets/battle-v2/runtime/phase-b/audio/slowing.m4a",
+      "sha256": "2eaa08cddc197963be215c90033e25ecd0123800a5620d0e0be6bd3185a94820",
+      "bytes": 5148,
+      "seconds": 0.65,
+      "seed": 1346912774,
+      "recipe": {
+        "startHz": 95,
+        "endHz": 40,
+        "noise": 0.5,
+        "metal": 0.22
+      },
+      "gainDb": 10.133684545317038,
+      "encodedLevels": {
+        "meanDbFS": -19.9,
+        "peakDbFS": -5.4
+      }
+    },
+    {
+      "id": "crawling",
+      "source": "assets/battle-v2/source/phase-b/audio/crawling.wav",
+      "sourceSha256": "fbbfdaf6a4fa02954b88158a188b5ab3431eabde31503cc53c87ddc729191e14",
+      "runtime": "assets/battle-v2/runtime/phase-b/audio/crawling.m4a",
+      "url": "/assets/battle-v2/runtime/phase-b/audio/crawling.m4a",
+      "sha256": "fed4b370e0fb6f3189c8e704508a0eb21804f8d6e58fbadde2d746e90e78ea96",
+      "bytes": 4871,
+      "seconds": 0.6,
+      "seed": 1346912775,
+      "recipe": {
+        "startHz": 180,
+        "endHz": 85,
+        "noise": 0.48,
+        "metal": 0.35
+      },
+      "gainDb": 12.09579543739676,
+      "encodedLevels": {
+        "meanDbFS": -20.1,
+        "peakDbFS": -6.1
+      }
+    },
+    {
+      "id": "malfunction",
+      "source": "assets/battle-v2/source/phase-b/audio/malfunction.wav",
+      "sourceSha256": "71a9c953aaad783ce6d3cf7f31dff9ab74765b84159fd2d4b6d05e7417626f3a",
+      "runtime": "assets/battle-v2/runtime/phase-b/audio/malfunction.m4a",
+      "url": "/assets/battle-v2/runtime/phase-b/audio/malfunction.m4a",
+      "sha256": "588ac2f777fe02f5c277c41d28148ecb8fe4ab9462c7eb980e63279f4c42ce57",
+      "bytes": 4287,
+      "seconds": 0.5,
+      "seed": 1346912776,
+      "recipe": {
+        "startHz": 400,
+        "endHz": 45,
+        "noise": 0.75,
+        "metal": 0.45
+      },
+      "gainDb": 8.226710244012278,
+      "encodedLevels": {
+        "meanDbFS": -20.1,
+        "peakDbFS": -6.5
+      }
+    },
+    {
+      "id": "detach",
+      "source": "assets/battle-v2/source/phase-b/audio/detach.wav",
+      "sourceSha256": "f2e9241c2227248bbfbc0fb389e80f5e6cc576e8c54f6829dc7c8e0e4e1a9b96",
+      "runtime": "assets/battle-v2/runtime/phase-b/audio/detach.m4a",
+      "url": "/assets/battle-v2/runtime/phase-b/audio/detach.m4a",
+      "sha256": "18f60d46d861d56c977ddd31ef9686d187bd6a4e6d79f6325ca1987df9343ef0",
+      "bytes": 4607,
+      "seconds": 0.55,
+      "seed": 1346912777,
+      "recipe": {
+        "startHz": 95,
+        "endHz": 35,
+        "noise": 0.45,
+        "metal": 0.36
+      },
+      "gainDb": 10.329271908667938,
+      "encodedLevels": {
+        "meanDbFS": -20.0,
+        "peakDbFS": -7.1
+      }
+    },
+    {
+      "id": "recover",
+      "source": "assets/battle-v2/source/phase-b/audio/recover.wav",
+      "sourceSha256": "97a71015aae655316f6c55609f08ff905d7c1117f649f672d35784d35dd4a185",
+      "runtime": "assets/battle-v2/runtime/phase-b/audio/recover.m4a",
+      "url": "/assets/battle-v2/runtime/phase-b/audio/recover.m4a",
+      "sha256": "ac7e50fb71fac25427ec72abc2b040c44456664de681eb78deea8d49ec9b9e73",
+      "bytes": 3987,
+      "seconds": 0.45,
+      "seed": 1346912778,
+      "recipe": {
+        "startHz": 180,
+        "endHz": 340,
+        "noise": 0.15,
+        "metal": 0.3
+      },
+      "gainDb": 12.470012315986985,
+      "encodedLevels": {
+        "meanDbFS": -20.0,
+        "peakDbFS": -8.5
+      }
+    },
+    {
+      "id": "shards",
+      "source": "assets/battle-v2/source/phase-b/audio/shards.wav",
+      "sourceSha256": "e3625f009039ab12be1b4bd4b5082d0588306297ee14ac7602a95e5c3be2b32d",
+      "runtime": "assets/battle-v2/runtime/phase-b/audio/shards.m4a",
+      "url": "/assets/battle-v2/runtime/phase-b/audio/shards.m4a",
+      "sha256": "479e879403645b68d4c0088369b992f0e6ae17e95f3eae9d6f0b274719d522c8",
+      "bytes": 4576,
+      "seconds": 0.55,
+      "seed": 1346912779,
+      "recipe": {
+        "startHz": 1200,
+        "endHz": 480,
+        "noise": 0.55,
+        "metal": 0.5
+      },
+      "gainDb": 9.552250897901011,
+      "encodedLevels": {
+        "meanDbFS": -20.1,
+        "peakDbFS": -5.9
+      }
+    }
+  ]
+}

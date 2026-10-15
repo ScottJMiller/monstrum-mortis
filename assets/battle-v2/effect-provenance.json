@@ -149,6 +149,29 @@
         ],
         "color": "#e9ddaf"
       }
+    },
+    {
+      "id": "electric",
+      "source": "assets/battle-v2/source/user-review/electric.svg",
+      "sourceSha256": "bac4e6f3f627c849f5e89729cd0215828a843f60f0b2ef2a173d1d9006471ee4",
+      "sourceBytes": 1092,
+      "runtime": "assets/battle-v2/runtime/effects/electric.svg",
+      "sha256": "5f57c0dc75feb9017b17ba326d15897ed64ce45b4e9a72d81e9486bc17dd6641",
+      "bytes": 741,
+      "registration": {
+        "url": "/assets/battle-v2/runtime/effects/electric.svg",
+        "width": 123.247,
+        "height": 190.0,
+        "viewBox": [
+          0.0,
+          0.0,
+          54.139977,
+          83.463158
+        ],
+        "color": "#e9ddaf"
+      },
+      "submittedSource": "docs/battle-v2-phase-b-review/SJM_change-files/electric.svg",
+      "receivedAt": "2026-10-14"
     }
   ]
 }

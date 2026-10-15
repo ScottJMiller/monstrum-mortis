@@ -72,5 +72,17 @@
       87.2314
     ],
     "color": "#e9ddaf"
+  },
+  "electric": {
+    "url": "/assets/battle-v2/runtime/effects/electric.svg",
+    "width": 123.247,
+    "height": 190.0,
+    "viewBox": [
+      0.0,
+      0.0,
+      54.139977,
+      83.463158
+    ],
+    "color": "#e9ddaf"
   }
 }

@@ -33,9 +33,12 @@
     "test:combat-browser": "npm run deploy:dry && node scripts/prepare-combat-fixtures.mjs && node tests/combat.browser.mjs",
     "simulate:combat": "node scripts/simulate-combat.mjs",
     "test:step6": "npm run test:step5 && node tests/combat.runtime.mjs && node scripts/prepare-combat-fixtures.mjs && node tests/combat.browser.mjs && npm run test:composition && npm run simulate:combat",
-    "prepare:battle-v2": "node scripts/prepare-battle-v2-fixtures.mjs && python3 scripts/prepare-battle-v2-art.py && python3 scripts/prepare-battle-v2-audio.py && python3 scripts/prepare-battle-v2-effects.py",
+    "prepare:battle-v2": "node scripts/prepare-battle-v2-fixtures.mjs && python3 scripts/prepare-battle-v2-art.py && python3 scripts/prepare-battle-v2-audio.py && python3 scripts/prepare-battle-v2-effects.py && python3 scripts/prepare-battle-v2-phase-b-art.py && python3 scripts/prepare-battle-v2-phase-b-audio.py && node scripts/prepare-battle-v2-phase-b-fixtures.mjs && node scripts/measure-battle-v2-phase-b.mjs",
     "test:battle-v2": "npm run check && node tests/battle-v2.browser.mjs && npm run build && node scripts/check-battle-v2-build.mjs",
-    "review:battle-v2": "python3 scripts/prepare-battle-v2-review.py"
+    "review:battle-v2": "python3 scripts/prepare-battle-v2-phase-b-review.py",
+    "test:battle-v2-phase-b": "npm run check && node tests/battle-v2.browser.mjs && node tests/battle-v2-phase-b.browser.mjs && node tests/battle-v2-refinement.browser.mjs && node tests/battle-v2-family.browser.mjs && npm run build && node scripts/check-battle-v2-build.mjs",
+    "review:battle-v2-families": "python3 scripts/prepare-battle-v2-family-review.py",
+    "survey:battle-v2-families": "node scripts/survey-battle-v2-families.mjs"
   },
   "dependencies": {
     "pixi.js": "8.22.0",
