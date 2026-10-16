@@ -1,0 +1,210 @@
+{
+  "scope": "Actual local Chrome screenshots/motion/audio; no physical devices",
+  "files": [
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/arena-arena-catacomb.png",
+      "bytes": 1475211,
+      "sha256": "33b3057baa2d0e31ab6603b0dca41002176518a954f71464fc40b0cf9eb3ee09"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/arena-arena-foundry.png",
+      "bytes": 1502209,
+      "sha256": "2d3b202eab2790f7910838d5ccb9fc09d8bc515d18005957807634ebdfe78e27"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/arena-laboratory.png",
+      "bytes": 1459197,
+      "sha256": "f6c77e541182a017608b69550bfebc829c62d07852f3c19db2901101f948b842"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/battle-ended.png",
+      "bytes": 1444372,
+      "sha256": "50703d80b05b507ba5f9762e4966ea20908c9671a6d5dce7af4017d86b64069d"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/before-after-grafts.png",
+      "bytes": 212031,
+      "sha256": "c5a6b8aaea6627c1d98b87e4750b5f76b767c72e7a1c3f74b2d385df4be21a0a"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/contact-sheet.png",
+      "bytes": 1889623,
+      "sha256": "ee768668ce44f340451fa09ce272ba09dfb56b6ef689f2ae106f17f7cd13f147"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/damage-contact-sheet.png",
+      "bytes": 308943,
+      "sha256": "ed00b89a9df75b42d445dc4df34183a2cc2365735dd6a36aec39c95801ae8c26"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/damage-poses-limb-lost.png",
+      "bytes": 692270,
+      "sha256": "1816a5ca354caf80acc4b3224b302465865267221a5b19282a95cba9d5d34b7e"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/damage-poses-teeth-lost.png",
+      "bytes": 691529,
+      "sha256": "17f6bc2129aec14dbcdc994a73309719296a276355058679a6e2302681e17e40"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/damage-text-after.png",
+      "bytes": 1446640,
+      "sha256": "4bcd8c95c31ee0b91ff273487a45b108d3f346d77b6a7f969024bcd33ccac3df"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/desktop.png",
+      "bytes": 2607681,
+      "sha256": "5cc7385429cafa0ad9bc4fafa89e53b2808305d5cfc3c8e429048bf5f31e87bc"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/effect-bleed.png",
+      "bytes": 1454765,
+      "sha256": "2d5ade10694985701c1b889fc775070a79ea31043d0ba78ae09c81df3552d507"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/effect-contact-sheet.png",
+      "bytes": 1475653,
+      "sha256": "5b58a7aba57f90a01a5bb182adad08d0e623052448bf92c0d204820b542c8641"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/effect-crawling.png",
+      "bytes": 1449082,
+      "sha256": "c63fb67a1da4650f6cc6e3ce10dd878348ca10acc95b533582205bb4895a8e8a"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/effect-detach.png",
+      "bytes": 1449082,
+      "sha256": "c63fb67a1da4650f6cc6e3ce10dd878348ca10acc95b533582205bb4895a8e8a"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/effect-electric.png",
+      "bytes": 1454199,
+      "sha256": "b866a57b10c246df764c1a20c33c129a62063fc3fed8788e75e1146400faf12d"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/effect-malfunction.png",
+      "bytes": 1454765,
+      "sha256": "2d5ade10694985701c1b889fc775070a79ea31043d0ba78ae09c81df3552d507"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/effect-poison.png",
+      "bytes": 1459242,
+      "sha256": "5fef770f22841c4f70fabe6fc2d342e42ea34da29745c0e3fbf0bd749f1b2699"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/effect-regeneration.png",
+      "bytes": 1432486,
+      "sha256": "5c1d9c75d5d43f16e40c4afd4c5c5052fc81fc68eb8d03d0227fb8c9c0bbbfaa"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/effect-restraint.png",
+      "bytes": 1459242,
+      "sha256": "5fef770f22841c4f70fabe6fc2d342e42ea34da29745c0e3fbf0bd749f1b2699"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/effect-roar.png",
+      "bytes": 1455326,
+      "sha256": "637437cc3e80e9022f7a6d9bf1b4c5159a189a7f3db5de0e986cd0c483b3bee2"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/effect-slowing.png",
+      "bytes": 1449082,
+      "sha256": "c63fb67a1da4650f6cc6e3ce10dd878348ca10acc95b533582205bb4895a8e8a"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/graft-contact-sheet.png",
+      "bytes": 372732,
+      "sha256": "9110859536c482dd8a2e2e446a997438b24a219d2bfea50ca4d9733a6dc6fd9e"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/live-audio.webm",
+      "bytes": 134570,
+      "sha256": "3133ea1279bab466315e2dca97af32ec28141b7623f493f4ec49b03a7c6633f6"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/mirrored-grafts.png",
+      "bytes": 729975,
+      "sha256": "0ff4d1559d594ee2cb8617cbaac0bf7df1fb58fcc956d9a6ada0f3defe4a3add"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/motion-frames.png",
+      "bytes": 1637933,
+      "sha256": "becded8c14630b341feaeb0064ee161ee3d5d679968154717cd35e2027b4d9a7"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/opponent-after.png",
+      "bytes": 756613,
+      "sha256": "651782eb30ae8687a57f5c793d9307be8ee0d55ddb525deb1985ebd676ddbce0"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/opponent-before-after.png",
+      "bytes": 425712,
+      "sha256": "11cba2d07245b143024a0cd1efe026ba23107135832c5e968c07df4d772dff20"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/opponent-before-carrion-duke.png",
+      "bytes": 738821,
+      "sha256": "5197929048f292752267db790f34a7e00de33e2aa35e7aa73b6a3a1a8f2eda74"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/opponent-before-coil-saint.png",
+      "bytes": 638333,
+      "sha256": "7adb5f40c5d219da5f31cf9e61e013126a1b0af5a62b3c9263f5e4b9f4678d7a"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/opponent-before-maw-engine.png",
+      "bytes": 641335,
+      "sha256": "9ed19d9211e459907e1254633c160a318a7d2940c5ce7e80045891e56a72fb0e"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/opponent-mirrored.png",
+      "bytes": 754508,
+      "sha256": "093ec294fd09147dcf4e53d6b2a777e8b4a70266927eea92a128163df9def5e0"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/phase-b-recording.mp4",
+      "bytes": 1671375,
+      "sha256": "9b8cf229b644bfee59b37a7aeaaa1c3958f85186033629b0db6ff2fc7e9b2b95"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/phone-landscape.png",
+      "bytes": 1481490,
+      "sha256": "acd9b56a7a4f0d31a055fdcd74be1881017cb9e63763993a9ae28597673e74e0"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/phone-portrait.png",
+      "bytes": 638562,
+      "sha256": "4aaba449c98cd8019ea545f3f85da56debb34a2a4bf109a6d7753a1274ea7a37"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/phone-reduced.png",
+      "bytes": 639374,
+      "sha256": "8832b55d7b9c0bb5066ed8a679c6599a960aed9abf8ebb472c4831d4861ce42d"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/poses-before.png",
+      "bytes": 1564320,
+      "sha256": "6b2c93f62a1afbc4c222a6314fd8859491b24b968e8d7c1fb2a774899d0cded5"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/poses-contact-sheet.png",
+      "bytes": 1509944,
+      "sha256": "6ebdb78f36b1789c321035c60c3be1d4a557572219ca738e2d76cb18fb4f6895"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/real-detach-11990.png",
+      "bytes": 1444701,
+      "sha256": "7c0c092089403560eee7acc5452c704cb2a0b19e028aa7613c3db1a4d0189fd8"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/real-detach-12000.png",
+      "bytes": 1449082,
+      "sha256": "c63fb67a1da4650f6cc6e3ce10dd878348ca10acc95b533582205bb4895a8e8a"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14/real-detach-18000.png",
+      "bytes": 1454143,
+      "sha256": "c91702aa6e5a34ac70f541f9bd75da073aa875b4efe02d6713005afaac21ca7c"
+    }
+  ]
+}

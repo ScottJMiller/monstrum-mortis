@@ -1,0 +1,41 @@
+{
+  "recordedAt": "2026-10-15T16:14:48.291Z",
+  "status": "passed",
+  "scope": "Isolated local Miniflare/SQLite with native network clients; NO deployment, physical browser, real WAN latency or Cloudflare quota/CPU measurement",
+  "workerSha256": "200ea8587d068225c849fadf588e9b30476ce9d45da2352a0eec3b4a1c63af74",
+  "load": {
+    "privateLaboratories": 10,
+    "players": 80,
+    "legacyDisplays": 10,
+    "queueGuests": 100,
+    "queueMode": "fill-existing-laboratory; no public vacancies",
+    "intendedConcurrentSockets": 190,
+    "roundsPerRoom": 1,
+    "injectionsPerPlayer": 1,
+    "duplicatesPerRoom": 1,
+    "storageOrDeadlineEdits": false
+  },
+  "elapsedSeconds": 53.83,
+  "latency": {
+    "http": {
+      "samples": 8038,
+      "medianMs": 20.87,
+      "p95Ms": 59.14,
+      "maxMs": 2499.82
+    },
+    "actionAcknowledgement": {
+      "samples": 180,
+      "medianMs": 226.92,
+      "p95Ms": 499.79,
+      "maxMs": 501.85
+    }
+  },
+  "limitations": [
+    "Local loopback timings include test polling (25ms minimum cadence); not WAN measurements or production SLA.",
+    "Queue cohort tests idle fill-existing tickets, not fresh-session readiness/allocation bursts.",
+    "One accepted injection and one round per player; not full-dose or three-round sustained soak.",
+    "Legacy viewers use the retained compatibility join API in an isolated runtime; no production display entry is added.",
+    "Harness rotates test CF-Connecting-IP headers; does not establish shared-NAT production rate-limit behavior.",
+    "No CPU, billed request/GB-second, SQL row-operation, device/GPU or account-budget inference."
+  ]
+}

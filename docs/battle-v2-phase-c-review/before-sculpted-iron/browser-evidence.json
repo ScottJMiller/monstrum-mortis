@@ -1,0 +1,27 @@
+{
+  "scope": "Actual production build/local SQLite/Chrome desktop and phone emulation",
+  "physicalDevices": false,
+  "presentation": {
+    "arena": "laboratory",
+    "form": {
+      "version": "battle-v2-b2",
+      "attemptId": "5fd315db-5e50-4ee7-87bf-44ffb406e0c7",
+      "family": "blob",
+      "modifiers": {
+        "scale": 1,
+        "tint": "none",
+        "overlay": "none",
+        "growth": false,
+        "tremor": false
+      },
+      "integration": {
+        "startsAtMs": 1792076991977,
+        "endsAtMs": 1792076996977
+      }
+    }
+  },
+  "result": "victory",
+  "audioBytes": 307039,
+  "recordingFrames": 278,
+  "scenarios": 5
+}

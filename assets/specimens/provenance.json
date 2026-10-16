@@ -1,0 +1,575 @@
+{
+  "date": "2026-10-15",
+  "records": [
+    {
+      "id": "clue.c01",
+      "description": "Olive serrated filaments with 3 dotted marks.",
+      "source": "assets/specimens/source/c01.png",
+      "sourceSha256": "3ae5a3e703e255e671899687d73ed31a793ecd794e89b28a4e96bfcdbd4a77b4",
+      "sourceBytes": 1831245,
+      "runtime": "public/assets/specimens/illustrated/c01.webp",
+      "sha256": "799ff83065669f109d45640ffa4a7a7eb9e47bcf8c15460047ccd1c7e6cc89d9",
+      "bytes": 3820,
+      "dimensions": [
+        224,
+        224
+      ],
+      "fallback": "public/assets/specimens/c01.svg",
+      "processing": "ImageMagick resize to 224px square, strip metadata, WebP quality 82; no content repainting",
+      "origin": "generated",
+      "tool": "Built-in image_gen",
+      "license": "Generated project output; prompts and original paths in assets/specimens/generation.json; no third-party stock reference"
+    },
+    {
+      "id": "clue.c02",
+      "description": "Olive pulsing filaments with 3 dotted marks.",
+      "source": "assets/specimens/source/c02.png",
+      "sourceSha256": "d40020563f204f14947484de34711d764e71d91bd24087b35a716b39d245bda5",
+      "sourceBytes": 1887844,
+      "runtime": "public/assets/specimens/illustrated/c02.webp",
+      "sha256": "2d894063c2d9fa38f94834a6e13e6a1c34ae6d4efb7d8ac7b2fe8a0bd58eb8dc",
+      "bytes": 3692,
+      "dimensions": [
+        224,
+        224
+      ],
+      "fallback": "public/assets/specimens/c02.svg",
+      "processing": "ImageMagick resize to 224px square, strip metadata, WebP quality 82; no content repainting",
+      "origin": "generated",
+      "tool": "Built-in image_gen",
+      "license": "Generated project output; prompts and original paths in assets/specimens/generation.json; no third-party stock reference"
+    },
+    {
+      "id": "clue.c03",
+      "description": "Olive branching filaments with 3 dotted marks.",
+      "source": "assets/specimens/source/c03.png",
+      "sourceSha256": "9823269b140a6689b0d07ad6fc66fe0336f31130d397a72ff1b65d74acb9b7df",
+      "sourceBytes": 1847163,
+      "runtime": "public/assets/specimens/illustrated/c03.webp",
+      "sha256": "1e14c13d523cd5683707c12f908b4250fb7e07a1d924603607daa7948db968f7",
+      "bytes": 3862,
+      "dimensions": [
+        224,
+        224
+      ],
+      "fallback": "public/assets/specimens/c03.svg",
+      "processing": "ImageMagick resize to 224px square, strip metadata, WebP quality 82; no content repainting",
+      "origin": "generated",
+      "tool": "Built-in image_gen",
+      "license": "Generated project output; prompts and original paths in assets/specimens/generation.json; no third-party stock reference"
+    },
+    {
+      "id": "clue.c04",
+      "description": "Olive fuzzy filaments with 3 dotted marks.",
+      "source": "assets/specimens/source/c04.png",
+      "sourceSha256": "863a51b2227b94390f9b6e983475e302e0f9632cf83e6bb650b13b8f836c1b55",
+      "sourceBytes": 1906466,
+      "runtime": "public/assets/specimens/illustrated/c04.webp",
+      "sha256": "3d274ca79b127d7ecbbf8557fd71714edafd73603e55bdea00f46bb6b9bebe15",
+      "bytes": 3666,
+      "dimensions": [
+        224,
+        224
+      ],
+      "fallback": "public/assets/specimens/c04.svg",
+      "processing": "ImageMagick resize to 224px square, strip metadata, WebP quality 82; no content repainting",
+      "origin": "generated",
+      "tool": "Built-in image_gen",
+      "license": "Generated project output; prompts and original paths in assets/specimens/generation.json; no third-party stock reference"
+    },
+    {
+      "id": "clue.c05",
+      "description": "Olive spiral filaments with 3 dotted marks.",
+      "source": "assets/specimens/source/c05.png",
+      "sourceSha256": "60eac5542ca033d53ebd3bcf92fc586f31cedb3eeb110e48871bfd00e75d2894",
+      "sourceBytes": 1864679,
+      "runtime": "public/assets/specimens/illustrated/c05.webp",
+      "sha256": "5f337a67bc0e2f333ee793b5e4d2da50607a880918598bae1e0d967ce24da4c0",
+      "bytes": 3776,
+      "dimensions": [
+        224,
+        224
+      ],
+      "fallback": "public/assets/specimens/c05.svg",
+      "processing": "ImageMagick resize to 224px square, strip metadata, WebP quality 82; no content repainting",
+      "origin": "generated",
+      "tool": "Built-in image_gen",
+      "license": "Generated project output; prompts and original paths in assets/specimens/generation.json; no third-party stock reference"
+    },
+    {
+      "id": "clue.c06",
+      "description": "Violet serrated filaments with 4 dotted marks.",
+      "source": "assets/specimens/source/c06.png",
+      "sourceSha256": "5069e178231ec93f01306de170729144bda80294afcfc47f5c668fae22e9ef4f",
+      "sourceBytes": 1868591,
+      "runtime": "public/assets/specimens/illustrated/c06.webp",
+      "sha256": "936aa6a9b022c46238f954f4502e1193104d687793afbd99dcdf18c18e2a5da1",
+      "bytes": 3770,
+      "dimensions": [
+        224,
+        224
+      ],
+      "fallback": "public/assets/specimens/c06.svg",
+      "processing": "ImageMagick resize to 224px square, strip metadata, WebP quality 82; no content repainting",
+      "origin": "generated",
+      "tool": "Built-in image_gen",
+      "license": "Generated project output; prompts and original paths in assets/specimens/generation.json; no third-party stock reference"
+    },
+    {
+      "id": "clue.c07",
+      "description": "Violet pulsing filaments with 4 dotted marks.",
+      "source": "assets/specimens/source/c07.png",
+      "sourceSha256": "b65553c9b12f93f87b7ccbb2dbbc617af93129fc33f38981b5ab33bfafa771f3",
+      "sourceBytes": 1881105,
+      "runtime": "public/assets/specimens/illustrated/c07.webp",
+      "sha256": "41380945ffbc6eeab64b3538f9369d1c17ab4af6ea565f07d3770c790a42a52b",
+      "bytes": 3672,
+      "dimensions": [
+        224,
+        224
+      ],
+      "fallback": "public/assets/specimens/c07.svg",
+      "processing": "ImageMagick resize to 224px square, strip metadata, WebP quality 82; no content repainting",
+      "origin": "generated",
+      "tool": "Built-in image_gen",
+      "license": "Generated project output; prompts and original paths in assets/specimens/generation.json; no third-party stock reference"
+    },
+    {
+      "id": "clue.c08",
+      "description": "Violet branching filaments with 4 dotted marks.",
+      "source": "assets/specimens/source/c08.png",
+      "sourceSha256": "75f0ac6c849682679aa2f21562973525b5574ea47f1462312417c9ca740b6501",
+      "sourceBytes": 1886937,
+      "runtime": "public/assets/specimens/illustrated/c08.webp",
+      "sha256": "389edb8a97fda356d31e02e95bc019c47311114195c6cdda5f4c4c6a2a40c45b",
+      "bytes": 3726,
+      "dimensions": [
+        224,
+        224
+      ],
+      "fallback": "public/assets/specimens/c08.svg",
+      "processing": "ImageMagick resize to 224px square, strip metadata, WebP quality 82; no content repainting",
+      "origin": "generated",
+      "tool": "Built-in image_gen",
+      "license": "Generated project output; prompts and original paths in assets/specimens/generation.json; no third-party stock reference"
+    },
+    {
+      "id": "clue.c09",
+      "description": "Violet fuzzy filaments with 4 dotted marks.",
+      "source": "assets/specimens/source/c09.png",
+      "sourceSha256": "43cff35c3c64f557562d2d73ade0aa64b8589ae2a861a9ec2272ca1fd0fc6865",
+      "sourceBytes": 1915612,
+      "runtime": "public/assets/specimens/illustrated/c09.webp",
+      "sha256": "b75eb2f489dee25d76a853330824ce7d5ab684d6f64f25b098d3c78dccca44c5",
+      "bytes": 3706,
+      "dimensions": [
+        224,
+        224
+      ],
+      "fallback": "public/assets/specimens/c09.svg",
+      "processing": "ImageMagick resize to 224px square, strip metadata, WebP quality 82; no content repainting",
+      "origin": "generated",
+      "tool": "Built-in image_gen",
+      "license": "Generated project output; prompts and original paths in assets/specimens/generation.json; no third-party stock reference"
+    },
+    {
+      "id": "clue.c10",
+      "description": "Violet spiral filaments with 4 dotted marks.",
+      "source": "assets/specimens/source/c10.png",
+      "sourceSha256": "c979a8b042af1d4555f120b9dfe7a12d5b46b0547f21b1b2740f4e8374f5d239",
+      "sourceBytes": 1901585,
+      "runtime": "public/assets/specimens/illustrated/c10.webp",
+      "sha256": "73b7fde8e9e3b9e86d0ca872b63238a8a3557368ba4ceb07e74384b188bdd906",
+      "bytes": 3676,
+      "dimensions": [
+        224,
+        224
+      ],
+      "fallback": "public/assets/specimens/c10.svg",
+      "processing": "ImageMagick resize to 224px square, strip metadata, WebP quality 82; no content repainting",
+      "origin": "generated",
+      "tool": "Built-in image_gen",
+      "license": "Generated project output; prompts and original paths in assets/specimens/generation.json; no third-party stock reference"
+    },
+    {
+      "id": "clue.c11",
+      "description": "Ivory serrated filaments with 5 dotted marks.",
+      "source": "assets/specimens/source/c11.png",
+      "sourceSha256": "6b560e07f507a9b6a15cbe03702709f2eb66fc8f6cf9b0737642720cec2e9a92",
+      "sourceBytes": 1845372,
+      "runtime": "public/assets/specimens/illustrated/c11.webp",
+      "sha256": "870a87632f448f05e310a66c229b0a4a43ab41f938ed3ceefe20d02bdd9c2893",
+      "bytes": 4128,
+      "dimensions": [
+        224,
+        224
+      ],
+      "fallback": "public/assets/specimens/c11.svg",
+      "processing": "ImageMagick resize to 224px square, strip metadata, WebP quality 82; no content repainting",
+      "origin": "generated",
+      "tool": "Built-in image_gen",
+      "license": "Generated project output; prompts and original paths in assets/specimens/generation.json; no third-party stock reference"
+    },
+    {
+      "id": "clue.c12",
+      "description": "Ivory pulsing filaments with 5 dotted marks.",
+      "source": "assets/specimens/source/c12.png",
+      "sourceSha256": "4782ab1a725b667a5453cc6d7f3e043ea8639c903436602bfe70e4c53375e630",
+      "sourceBytes": 1917728,
+      "runtime": "public/assets/specimens/illustrated/c12.webp",
+      "sha256": "164f507975e6698b1a59275b088456112835e3713945b87ffc77b15d8f80fccd",
+      "bytes": 3686,
+      "dimensions": [
+        224,
+        224
+      ],
+      "fallback": "public/assets/specimens/c12.svg",
+      "processing": "ImageMagick resize to 224px square, strip metadata, WebP quality 82; no content repainting",
+      "origin": "generated",
+      "tool": "Built-in image_gen",
+      "license": "Generated project output; prompts and original paths in assets/specimens/generation.json; no third-party stock reference"
+    },
+    {
+      "id": "clue.c13",
+      "description": "Ivory branching filaments with 5 dotted marks.",
+      "source": "assets/specimens/source/c13.png",
+      "sourceSha256": "927ae9613e7b17d5d6f45abe1fb051590219641490bf87f8f6837d0de5bb2a79",
+      "sourceBytes": 1875861,
+      "runtime": "public/assets/specimens/illustrated/c13.webp",
+      "sha256": "5abd3159f548c3cbc02e854232bf5312c259c3e27a6db15eb51cc2edc2c64570",
+      "bytes": 4048,
+      "dimensions": [
+        224,
+        224
+      ],
+      "fallback": "public/assets/specimens/c13.svg",
+      "processing": "ImageMagick resize to 224px square, strip metadata, WebP quality 82; no content repainting",
+      "origin": "generated",
+      "tool": "Built-in image_gen",
+      "license": "Generated project output; prompts and original paths in assets/specimens/generation.json; no third-party stock reference"
+    },
+    {
+      "id": "clue.c14",
+      "description": "Ivory fuzzy filaments with 5 dotted marks.",
+      "source": "assets/specimens/source/c14.png",
+      "sourceSha256": "09283d75d723b5b0ecc94976481fc74f16a3aec8ecb3f7499d2103e35c104982",
+      "sourceBytes": 1903701,
+      "runtime": "public/assets/specimens/illustrated/c14.webp",
+      "sha256": "d2f3ba1ae779f300e15f53c3e589aa6105203867954d066170c97cca6fb2e777",
+      "bytes": 3642,
+      "dimensions": [
+        224,
+        224
+      ],
+      "fallback": "public/assets/specimens/c14.svg",
+      "processing": "ImageMagick resize to 224px square, strip metadata, WebP quality 82; no content repainting",
+      "origin": "generated",
+      "tool": "Built-in image_gen",
+      "license": "Generated project output; prompts and original paths in assets/specimens/generation.json; no third-party stock reference"
+    },
+    {
+      "id": "clue.c15",
+      "description": "Ivory spiral filaments with 5 dotted marks.",
+      "source": "assets/specimens/source/c15.png",
+      "sourceSha256": "59a9ad6e7f55e1895011f0ed9c82f5fd5abeff6a65935ba0fb5ef6bc89e00517",
+      "sourceBytes": 1881532,
+      "runtime": "public/assets/specimens/illustrated/c15.webp",
+      "sha256": "e8124fdc0553cac2b4181ff739fb872344bbd9b848837d5bb18cc429d2026214",
+      "bytes": 3838,
+      "dimensions": [
+        224,
+        224
+      ],
+      "fallback": "public/assets/specimens/c15.svg",
+      "processing": "ImageMagick resize to 224px square, strip metadata, WebP quality 82; no content repainting",
+      "origin": "generated",
+      "tool": "Built-in image_gen",
+      "license": "Generated project output; prompts and original paths in assets/specimens/generation.json; no third-party stock reference"
+    },
+    {
+      "id": "clue.c16",
+      "description": "Olive serrated filaments with 6 dotted marks.",
+      "source": "assets/specimens/source/c16.png",
+      "sourceSha256": "8652e4bf334a9e209a9d9e5b737f9b9ffd201eb4611653f0f79751e30554e9e1",
+      "sourceBytes": 1869226,
+      "runtime": "public/assets/specimens/illustrated/c16.webp",
+      "sha256": "716299e9bb386a0a640dd74d3b7e2056805183eaeece282ace26f8c4545a8fad",
+      "bytes": 3920,
+      "dimensions": [
+        224,
+        224
+      ],
+      "fallback": "public/assets/specimens/c16.svg",
+      "processing": "ImageMagick resize to 224px square, strip metadata, WebP quality 82; no content repainting",
+      "origin": "generated",
+      "tool": "Built-in image_gen",
+      "license": "Generated project output; prompts and original paths in assets/specimens/generation.json; no third-party stock reference"
+    },
+    {
+      "id": "clue.c17",
+      "description": "Olive pulsing filaments with 6 dotted marks.",
+      "source": "assets/specimens/source/c17.png",
+      "sourceSha256": "12e67322fe8609dbdea61e3feb48df15bb36bde202f1e8e8aef4a534e1423404",
+      "sourceBytes": 1888514,
+      "runtime": "public/assets/specimens/illustrated/c17.webp",
+      "sha256": "a84ab7cedc1368ecf51446aefa96094e2c5ebff8636269666b7901295f8ccb33",
+      "bytes": 3882,
+      "dimensions": [
+        224,
+        224
+      ],
+      "fallback": "public/assets/specimens/c17.svg",
+      "processing": "ImageMagick resize to 224px square, strip metadata, WebP quality 82; no content repainting",
+      "origin": "generated",
+      "tool": "Built-in image_gen",
+      "license": "Generated project output; prompts and original paths in assets/specimens/generation.json; no third-party stock reference"
+    },
+    {
+      "id": "clue.c18",
+      "description": "Olive branching filaments with 6 dotted marks.",
+      "source": "assets/specimens/source/c18.png",
+      "sourceSha256": "e9086cd40270bda2dcb1190a2de7ed65d5aed4f65cf7b937c1e5194308a934d3",
+      "sourceBytes": 1871853,
+      "runtime": "public/assets/specimens/illustrated/c18.webp",
+      "sha256": "23a7f6077945d21e17d04ac3030b452ffd42f99130c20dadb838d69d90823a1b",
+      "bytes": 3986,
+      "dimensions": [
+        224,
+        224
+      ],
+      "fallback": "public/assets/specimens/c18.svg",
+      "processing": "ImageMagick resize to 224px square, strip metadata, WebP quality 82; no content repainting",
+      "origin": "generated",
+      "tool": "Built-in image_gen",
+      "license": "Generated project output; prompts and original paths in assets/specimens/generation.json; no third-party stock reference"
+    },
+    {
+      "id": "clue.c19",
+      "description": "Olive fuzzy filaments with 6 dotted marks.",
+      "source": "assets/specimens/source/c19.png",
+      "sourceSha256": "5629b8533ae46d8c16efa29d6fd86587990f1c85ae8a602d96a3b38f27ae295e",
+      "sourceBytes": 1898446,
+      "runtime": "public/assets/specimens/illustrated/c19.webp",
+      "sha256": "4401bd5cdcdc116ea01a3adb7c170556049f9f5d6227e6f6b300f8cdd51263f3",
+      "bytes": 3596,
+      "dimensions": [
+        224,
+        224
+      ],
+      "fallback": "public/assets/specimens/c19.svg",
+      "processing": "ImageMagick resize to 224px square, strip metadata, WebP quality 82; no content repainting",
+      "origin": "generated",
+      "tool": "Built-in image_gen",
+      "license": "Generated project output; prompts and original paths in assets/specimens/generation.json; no third-party stock reference"
+    },
+    {
+      "id": "clue.c20",
+      "description": "Olive spiral filaments with 6 dotted marks.",
+      "source": "assets/specimens/source/c20.png",
+      "sourceSha256": "2691956884e8ef1595bdad379fe357e10137fe976a53b98fe60427ed3bb98d6a",
+      "sourceBytes": 1875109,
+      "runtime": "public/assets/specimens/illustrated/c20.webp",
+      "sha256": "384fd6f5c312bc5efc8bc7479538f66ccd4448e5102d84f810053eaa357e8eae",
+      "bytes": 3876,
+      "dimensions": [
+        224,
+        224
+      ],
+      "fallback": "public/assets/specimens/c20.svg",
+      "processing": "ImageMagick resize to 224px square, strip metadata, WebP quality 82; no content repainting",
+      "origin": "generated",
+      "tool": "Built-in image_gen",
+      "license": "Generated project output; prompts and original paths in assets/specimens/generation.json; no third-party stock reference"
+    },
+    {
+      "id": "clue.c21",
+      "description": "Violet serrated filaments with 7 dotted marks.",
+      "source": "assets/specimens/source/c21.png",
+      "sourceSha256": "5961f4acc280f5b6136abf6b02fe40ec5d9b4e3263e7884a096c2fa831c13471",
+      "sourceBytes": 1874399,
+      "runtime": "public/assets/specimens/illustrated/c21.webp",
+      "sha256": "0504500ec594270a639074a6cd423ea80837146e4c88f6e9158dbba895210861",
+      "bytes": 3952,
+      "dimensions": [
+        224,
+        224
+      ],
+      "fallback": "public/assets/specimens/c21.svg",
+      "processing": "ImageMagick resize to 224px square, strip metadata, WebP quality 82; no content repainting",
+      "origin": "generated",
+      "tool": "Built-in image_gen",
+      "license": "Generated project output; prompts and original paths in assets/specimens/generation.json; no third-party stock reference"
+    },
+    {
+      "id": "clue.c22",
+      "description": "Violet pulsing filaments with 7 dotted marks.",
+      "source": "assets/specimens/source/c22.png",
+      "sourceSha256": "78da2b64c48672444bdf591df3fa3e57d57850a7c609482de7905af3620051ed",
+      "sourceBytes": 1925616,
+      "runtime": "public/assets/specimens/illustrated/c22.webp",
+      "sha256": "e0734de1f02a708c109367ddf2663fdc5a16366298e870c85230e4b7abb7319d",
+      "bytes": 3914,
+      "dimensions": [
+        224,
+        224
+      ],
+      "fallback": "public/assets/specimens/c22.svg",
+      "processing": "ImageMagick resize to 224px square, strip metadata, WebP quality 82; no content repainting",
+      "origin": "generated",
+      "tool": "Built-in image_gen",
+      "license": "Generated project output; prompts and original paths in assets/specimens/generation.json; no third-party stock reference"
+    },
+    {
+      "id": "clue.c23",
+      "description": "Violet branching filaments with 7 dotted marks.",
+      "source": "assets/specimens/source/c23.png",
+      "sourceSha256": "645d0add41129c759e189e094802b794babed496c5a4cc04d198f096b31c5ee3",
+      "sourceBytes": 1903158,
+      "runtime": "public/assets/specimens/illustrated/c23.webp",
+      "sha256": "1816457ce5884f06d9958449d9f958472b44e75b41e2dd2f8141b0861063926e",
+      "bytes": 3870,
+      "dimensions": [
+        224,
+        224
+      ],
+      "fallback": "public/assets/specimens/c23.svg",
+      "processing": "ImageMagick resize to 224px square, strip metadata, WebP quality 82; no content repainting",
+      "origin": "generated",
+      "tool": "Built-in image_gen",
+      "license": "Generated project output; prompts and original paths in assets/specimens/generation.json; no third-party stock reference"
+    },
+    {
+      "id": "clue.c24",
+      "description": "Violet fuzzy filaments with 7 dotted marks.",
+      "source": "assets/specimens/source/c24.png",
+      "sourceSha256": "dc15a950b767425079b8b8da6b4933b0a1a47e38782796b8d03f3068d06dfd2c",
+      "sourceBytes": 1925255,
+      "runtime": "public/assets/specimens/illustrated/c24.webp",
+      "sha256": "f22a0b51b2a9a3c636f6ed123378042fb4f1ac988d903c4d062a53e70e389ba1",
+      "bytes": 3602,
+      "dimensions": [
+        224,
+        224
+      ],
+      "fallback": "public/assets/specimens/c24.svg",
+      "processing": "ImageMagick resize to 224px square, strip metadata, WebP quality 82; no content repainting",
+      "origin": "generated",
+      "tool": "Built-in image_gen",
+      "license": "Generated project output; prompts and original paths in assets/specimens/generation.json; no third-party stock reference"
+    },
+    {
+      "id": "clue.c25",
+      "description": "Violet spiral filaments with 7 dotted marks.",
+      "source": "assets/specimens/source/c25.png",
+      "sourceSha256": "94663eb40815beeeed12ce5736db4ddaa003a3e300b078616fbba3cce3823a4e",
+      "sourceBytes": 1893156,
+      "runtime": "public/assets/specimens/illustrated/c25.webp",
+      "sha256": "01984c0cab7c81f9b74a6717bc9be0d879a00b05c7779de2a2f31bacf628dc8a",
+      "bytes": 3860,
+      "dimensions": [
+        224,
+        224
+      ],
+      "fallback": "public/assets/specimens/c25.svg",
+      "processing": "ImageMagick resize to 224px square, strip metadata, WebP quality 82; no content repainting",
+      "origin": "generated",
+      "tool": "Built-in image_gen",
+      "license": "Generated project output; prompts and original paths in assets/specimens/generation.json; no third-party stock reference"
+    },
+    {
+      "id": "clue.c26",
+      "description": "Ivory serrated filaments with 8 dotted marks.",
+      "source": "assets/specimens/source/c26.png",
+      "sourceSha256": "984d797297d1e533efc9c76bc0b2b943ade8bae797b55b1ac020a2121b178c9d",
+      "sourceBytes": 1870679,
+      "runtime": "public/assets/specimens/illustrated/c26.webp",
+      "sha256": "5d842de3dbd727ab85aa0e20f643a447faf60682ef342a0ba57810d97ed07080",
+      "bytes": 4006,
+      "dimensions": [
+        224,
+        224
+      ],
+      "fallback": "public/assets/specimens/c26.svg",
+      "processing": "ImageMagick resize to 224px square, strip metadata, WebP quality 82; no content repainting",
+      "origin": "generated",
+      "tool": "Built-in image_gen",
+      "license": "Generated project output; prompts and original paths in assets/specimens/generation.json; no third-party stock reference"
+    },
+    {
+      "id": "clue.c27",
+      "description": "Ivory pulsing filaments with 8 dotted marks.",
+      "source": "assets/specimens/source/c27.png",
+      "sourceSha256": "a485beccb2acb17ded0bd2476f00121f0836933a87832e3721b8aa4643118d29",
+      "sourceBytes": 1902248,
+      "runtime": "public/assets/specimens/illustrated/c27.webp",
+      "sha256": "3da7e66c8d9afec049627c65ec7c77f4f7ae2d6775e77d3d1419337596863433",
+      "bytes": 3820,
+      "dimensions": [
+        224,
+        224
+      ],
+      "fallback": "public/assets/specimens/c27.svg",
+      "processing": "ImageMagick resize to 224px square, strip metadata, WebP quality 82; no content repainting",
+      "origin": "generated",
+      "tool": "Built-in image_gen",
+      "license": "Generated project output; prompts and original paths in assets/specimens/generation.json; no third-party stock reference"
+    },
+    {
+      "id": "clue.c28",
+      "description": "Ivory branching filaments with 8 dotted marks.",
+      "source": "assets/specimens/source/c28.png",
+      "sourceSha256": "f3f66a3c3e65a5b19a6b493e0ef7fc29167fc2ca86c5bd54f1618e5053b3886b",
+      "sourceBytes": 1894971,
+      "runtime": "public/assets/specimens/illustrated/c28.webp",
+      "sha256": "a5203396829df6b892eb9e9d206e2971f77dd0b83314c32aed0d6ee94127db1f",
+      "bytes": 4214,
+      "dimensions": [
+        224,
+        224
+      ],
+      "fallback": "public/assets/specimens/c28.svg",
+      "processing": "ImageMagick resize to 224px square, strip metadata, WebP quality 82; no content repainting",
+      "origin": "generated",
+      "tool": "Built-in image_gen",
+      "license": "Generated project output; prompts and original paths in assets/specimens/generation.json; no third-party stock reference"
+    },
+    {
+      "id": "clue.c29",
+      "description": "Ivory fuzzy filaments with 8 dotted marks.",
+      "source": "assets/specimens/source/c29.png",
+      "sourceSha256": "f6c4cae1565e939af8f840ce9da01d808f57776b45d20a987340eb9a88c2b0ff",
+      "sourceBytes": 1919453,
+      "runtime": "public/assets/specimens/illustrated/c29.webp",
+      "sha256": "b11599c7d76c11728931c7a2f53f3d7b19656bb14a2ed086aae1159a78d6da1c",
+      "bytes": 3660,
+      "dimensions": [
+        224,
+        224
+      ],
+      "fallback": "public/assets/specimens/c29.svg",
+      "processing": "ImageMagick resize to 224px square, strip metadata, WebP quality 82; no content repainting",
+      "origin": "generated",
+      "tool": "Built-in image_gen",
+      "license": "Generated project output; prompts and original paths in assets/specimens/generation.json; no third-party stock reference"
+    },
+    {
+      "id": "clue.c30",
+      "description": "Ivory spiral filaments with 8 dotted marks.",
+      "source": "assets/specimens/source/c30.png",
+      "sourceSha256": "96fb7d9b2685da54080e718593fb6f5eaf8202addba4cf13817df4384edd8449",
+      "sourceBytes": 1876278,
+      "runtime": "public/assets/specimens/illustrated/c30.webp",
+      "sha256": "ac0add1ddf408667ff00a29825130e79db90da825afbf4274d83d92e9da101f0",
+      "bytes": 4002,
+      "dimensions": [
+        224,
+        224
+      ],
+      "fallback": "public/assets/specimens/c30.svg",
+      "processing": "ImageMagick resize to 224px square, strip metadata, WebP quality 82; no content repainting",
+      "origin": "generated",
+      "tool": "Built-in image_gen",
+      "license": "Generated project output; prompts and original paths in assets/specimens/generation.json; no third-party stock reference"
+    }
+  ]
+}

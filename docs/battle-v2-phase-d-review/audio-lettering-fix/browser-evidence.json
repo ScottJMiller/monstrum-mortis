@@ -1,0 +1,778 @@
+{
+  "physicalDevices": false,
+  "scope": "Local Chromium trusted touch/mouse input, native AAC decode/audio graph and actual React Stage. Strict activation emulation is not Safari hardware.",
+  "audio": [
+    {
+      "device": "phone",
+      "attempts": [
+        {
+          "type": "touchend",
+          "allowed": true
+        }
+      ],
+      "decodes": 24,
+      "starts": 1,
+      "sessionTypes": [
+        "playback",
+        "playback"
+      ],
+      "peak": 0.01829703524708748,
+      "state": "running"
+    },
+    {
+      "device": "tablet",
+      "attempts": [
+        {
+          "type": "touchend",
+          "allowed": true
+        }
+      ],
+      "decodes": 24,
+      "starts": 1,
+      "sessionTypes": [
+        "playback",
+        "playback"
+      ],
+      "peak": 0.017384398728609085,
+      "state": "running"
+    },
+    {
+      "device": "desktop",
+      "attempts": [
+        {
+          "type": "click",
+          "allowed": true
+        }
+      ],
+      "decodes": 24,
+      "starts": 1,
+      "sessionTypes": [
+        "playback"
+      ],
+      "peak": 0.02665960229933262,
+      "state": "running"
+    }
+  ],
+  "lettering": [
+    {
+      "label": "wide-desktop",
+      "phrase": "ROUND OVER",
+      "arena": {
+        "width": 1550,
+        "height": 680
+      },
+      "font": 144,
+      "centered": true,
+      "children": [
+        {
+          "text": "ROUND OVER",
+          "font": 144,
+          "width": 889.5,
+          "height": 151.1875,
+          "inside": true
+        },
+        {
+          "text": "Professor Quiverworth the Unreasonably Persistent wins",
+          "font": 38,
+          "width": 977.40625,
+          "height": 45.59375,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "label": "wide-desktop",
+      "phrase": "YOUR TIME IS UP",
+      "arena": {
+        "width": 1550,
+        "height": 680
+      },
+      "font": 144,
+      "centered": true,
+      "children": [
+        {
+          "text": "YOUR TIME IS UP",
+          "font": 144,
+          "width": 1134.15625,
+          "height": 151.1875,
+          "inside": true
+        },
+        {
+          "text": "Professor Quiverworth the Unreasonably Persistent wins",
+          "font": 38,
+          "width": 977.40625,
+          "height": 45.59375,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "label": "wide-desktop",
+      "phrase": "CEASED!",
+      "arena": {
+        "width": 1550,
+        "height": 680
+      },
+      "font": 144,
+      "centered": true,
+      "children": [
+        {
+          "text": "CEASED!",
+          "font": 144,
+          "width": 563.1875,
+          "height": 151.1875,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "label": "wide-desktop",
+      "phrase": "DEFEAT!",
+      "arena": {
+        "width": 1550,
+        "height": 680
+      },
+      "font": 144,
+      "centered": true,
+      "children": [
+        {
+          "text": "DEFEAT!",
+          "font": 144,
+          "width": 568.515625,
+          "height": 151.1875,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "label": "desktop-panel",
+      "phrase": "ROUND OVER",
+      "arena": {
+        "width": 640,
+        "height": 352
+      },
+      "font": 71.53,
+      "centered": true,
+      "children": [
+        {
+          "text": "ROUND OVER",
+          "font": 71.53,
+          "width": 441.75,
+          "height": 75.09375,
+          "inside": true
+        },
+        {
+          "text": "Professor Quiverworth the Unreasonably Persistent wins",
+          "font": 21.459,
+          "width": 551.421875,
+          "height": 25.734375,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "label": "desktop-panel",
+      "phrase": "YOUR TIME IS UP",
+      "arena": {
+        "width": 640,
+        "height": 352
+      },
+      "font": 71.53,
+      "centered": true,
+      "children": [
+        {
+          "text": "YOUR TIME IS UP",
+          "font": 71.53,
+          "width": 563.25,
+          "height": 75.09375,
+          "inside": true
+        },
+        {
+          "text": "Professor Quiverworth the Unreasonably Persistent wins",
+          "font": 21.459,
+          "width": 551.421875,
+          "height": 25.734375,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "label": "desktop-panel",
+      "phrase": "CEASED!",
+      "arena": {
+        "width": 640,
+        "height": 352
+      },
+      "font": 71.53,
+      "centered": true,
+      "children": [
+        {
+          "text": "CEASED!",
+          "font": 71.53,
+          "width": 279.703125,
+          "height": 75.09375,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "label": "desktop-panel",
+      "phrase": "DEFEAT!",
+      "arena": {
+        "width": 640,
+        "height": 352
+      },
+      "font": 71.53,
+      "centered": true,
+      "children": [
+        {
+          "text": "DEFEAT!",
+          "font": 71.53,
+          "width": 282.34375,
+          "height": 75.09375,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "label": "desktop-short",
+      "phrase": "ROUND OVER",
+      "arena": {
+        "width": 800,
+        "height": 200
+      },
+      "font": 50.96,
+      "centered": true,
+      "children": [
+        {
+          "text": "ROUND OVER",
+          "font": 50.96,
+          "width": 314.75,
+          "height": 53.5,
+          "inside": true
+        },
+        {
+          "text": "Professor Quiverworth the Unreasonably Persistent wins",
+          "font": 18,
+          "width": 462.984375,
+          "height": 21.59375,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "label": "desktop-short",
+      "phrase": "YOUR TIME IS UP",
+      "arena": {
+        "width": 800,
+        "height": 200
+      },
+      "font": 50.96,
+      "centered": true,
+      "children": [
+        {
+          "text": "YOUR TIME IS UP",
+          "font": 50.96,
+          "width": 401.3125,
+          "height": 53.5,
+          "inside": true
+        },
+        {
+          "text": "Professor Quiverworth the Unreasonably Persistent wins",
+          "font": 18,
+          "width": 462.984375,
+          "height": 21.59375,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "label": "desktop-short",
+      "phrase": "CEASED!",
+      "arena": {
+        "width": 800,
+        "height": 200
+      },
+      "font": 50.96,
+      "centered": true,
+      "children": [
+        {
+          "text": "CEASED!",
+          "font": 50.96,
+          "width": 199.28125,
+          "height": 53.5,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "label": "desktop-short",
+      "phrase": "DEFEAT!",
+      "arena": {
+        "width": 800,
+        "height": 200
+      },
+      "font": 50.96,
+      "centered": true,
+      "children": [
+        {
+          "text": "DEFEAT!",
+          "font": 50.96,
+          "width": 201.171875,
+          "height": 53.5,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "label": "phone",
+      "phrase": "ROUND OVER",
+      "arena": {
+        "width": 360,
+        "height": 480
+      },
+      "font": 40.02,
+      "centered": true,
+      "children": [
+        {
+          "text": "ROUND OVER",
+          "font": 40.02,
+          "width": 247.1875,
+          "height": 42.015625,
+          "inside": true
+        },
+        {
+          "text": "Professor Quiverworth the Unreasonably Persistent wins",
+          "font": 18,
+          "width": 327.109375,
+          "height": 43.1875,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "label": "phone",
+      "phrase": "YOUR TIME IS UP",
+      "arena": {
+        "width": 360,
+        "height": 480
+      },
+      "font": 40.02,
+      "centered": true,
+      "children": [
+        {
+          "text": "YOUR TIME IS UP",
+          "font": 40.02,
+          "width": 315.171875,
+          "height": 42.015625,
+          "inside": true
+        },
+        {
+          "text": "Professor Quiverworth the Unreasonably Persistent wins",
+          "font": 18,
+          "width": 327.109375,
+          "height": 43.1875,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "label": "phone",
+      "phrase": "CEASED!",
+      "arena": {
+        "width": 360,
+        "height": 480
+      },
+      "font": 40.02,
+      "centered": true,
+      "children": [
+        {
+          "text": "CEASED!",
+          "font": 40.02,
+          "width": 156.515625,
+          "height": 42.015625,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "label": "phone",
+      "phrase": "DEFEAT!",
+      "arena": {
+        "width": 360,
+        "height": 480
+      },
+      "font": 40.02,
+      "centered": true,
+      "children": [
+        {
+          "text": "DEFEAT!",
+          "font": 40.02,
+          "width": 157.984375,
+          "height": 42.015625,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "label": "landscape",
+      "phrase": "ROUND OVER",
+      "arena": {
+        "width": 800,
+        "height": 195
+      },
+      "font": 49.56,
+      "centered": true,
+      "children": [
+        {
+          "text": "ROUND OVER",
+          "font": 49.56,
+          "width": 306.046875,
+          "height": 52.03125,
+          "inside": true
+        },
+        {
+          "text": "Professor Quiverworth the Unreasonably Persistent wins",
+          "font": 18,
+          "width": 462.984375,
+          "height": 21.59375,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "label": "landscape",
+      "phrase": "YOUR TIME IS UP",
+      "arena": {
+        "width": 800,
+        "height": 195
+      },
+      "font": 49.56,
+      "centered": true,
+      "children": [
+        {
+          "text": "YOUR TIME IS UP",
+          "font": 49.56,
+          "width": 390.234375,
+          "height": 52.03125,
+          "inside": true
+        },
+        {
+          "text": "Professor Quiverworth the Unreasonably Persistent wins",
+          "font": 18,
+          "width": 462.984375,
+          "height": 21.59375,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "label": "landscape",
+      "phrase": "CEASED!",
+      "arena": {
+        "width": 800,
+        "height": 195
+      },
+      "font": 49.56,
+      "centered": true,
+      "children": [
+        {
+          "text": "CEASED!",
+          "font": 49.56,
+          "width": 193.78125,
+          "height": 52.03125,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "label": "landscape",
+      "phrase": "DEFEAT!",
+      "arena": {
+        "width": 800,
+        "height": 195
+      },
+      "font": 49.56,
+      "centered": true,
+      "children": [
+        {
+          "text": "DEFEAT!",
+          "font": 49.56,
+          "width": 195.609375,
+          "height": 52.03125,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "label": "tablet",
+      "phrase": "ROUND OVER",
+      "arena": {
+        "width": 710,
+        "height": 620
+      },
+      "font": 79.58,
+      "centered": true,
+      "children": [
+        {
+          "text": "ROUND OVER",
+          "font": 79.58,
+          "width": 491.5625,
+          "height": 83.546875,
+          "inside": true
+        },
+        {
+          "text": "Professor Quiverworth the Unreasonably Persistent wins",
+          "font": 23.874,
+          "width": 613.71875,
+          "height": 28.640625,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "label": "tablet",
+      "phrase": "YOUR TIME IS UP",
+      "arena": {
+        "width": 710,
+        "height": 620
+      },
+      "font": 79.58,
+      "centered": true,
+      "children": [
+        {
+          "text": "YOUR TIME IS UP",
+          "font": 79.58,
+          "width": 626.765625,
+          "height": 83.546875,
+          "inside": true
+        },
+        {
+          "text": "Professor Quiverworth the Unreasonably Persistent wins",
+          "font": 23.874,
+          "width": 613.71875,
+          "height": 28.640625,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "label": "tablet",
+      "phrase": "CEASED!",
+      "arena": {
+        "width": 710,
+        "height": 620
+      },
+      "font": 79.58,
+      "centered": true,
+      "children": [
+        {
+          "text": "CEASED!",
+          "font": 79.58,
+          "width": 311.234375,
+          "height": 83.546875,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "label": "tablet",
+      "phrase": "DEFEAT!",
+      "arena": {
+        "width": 710,
+        "height": 620
+      },
+      "font": 79.58,
+      "centered": true,
+      "children": [
+        {
+          "text": "DEFEAT!",
+          "font": 79.58,
+          "width": 314.1875,
+          "height": 83.546875,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "label": "compact-results",
+      "phrase": "ROUND OVER",
+      "arena": {
+        "width": 350,
+        "height": 200
+      },
+      "font": 38.87,
+      "centered": true,
+      "children": [
+        {
+          "text": "ROUND OVER",
+          "font": 38.87,
+          "width": 240.03125,
+          "height": 40.8125,
+          "inside": true
+        },
+        {
+          "text": "Professor Quiverworth the Unreasonably Persistent wins",
+          "font": 18,
+          "width": 317.71875,
+          "height": 43.1875,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "label": "compact-results",
+      "phrase": "YOUR TIME IS UP",
+      "arena": {
+        "width": 350,
+        "height": 200
+      },
+      "font": 38.87,
+      "centered": true,
+      "children": [
+        {
+          "text": "YOUR TIME IS UP",
+          "font": 38.87,
+          "width": 306.0625,
+          "height": 40.8125,
+          "inside": true
+        },
+        {
+          "text": "Professor Quiverworth the Unreasonably Persistent wins",
+          "font": 18,
+          "width": 317.71875,
+          "height": 43.1875,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "label": "compact-results",
+      "phrase": "CEASED!",
+      "arena": {
+        "width": 350,
+        "height": 200
+      },
+      "font": 38.87,
+      "centered": true,
+      "children": [
+        {
+          "text": "CEASED!",
+          "font": 38.87,
+          "width": 151.984375,
+          "height": 40.8125,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "label": "compact-results",
+      "phrase": "DEFEAT!",
+      "arena": {
+        "width": 350,
+        "height": 200
+      },
+      "font": 38.87,
+      "centered": true,
+      "children": [
+        {
+          "text": "DEFEAT!",
+          "font": 38.87,
+          "width": 153.421875,
+          "height": 40.8125,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "label": "large-text",
+      "phrase": "ROUND OVER",
+      "arena": {
+        "width": 560,
+        "height": 260
+      },
+      "font": 62.33,
+      "centered": true,
+      "children": [
+        {
+          "text": "ROUND OVER",
+          "font": 62.33,
+          "width": 385,
+          "height": 65.4375,
+          "inside": true
+        },
+        {
+          "text": "Professor Quiverworth the Unreasonably Persistent wins",
+          "font": 18.699,
+          "width": 480.6875,
+          "height": 22.4375,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "label": "large-text",
+      "phrase": "YOUR TIME IS UP",
+      "arena": {
+        "width": 560,
+        "height": 260
+      },
+      "font": 62.33,
+      "centered": true,
+      "children": [
+        {
+          "text": "YOUR TIME IS UP",
+          "font": 62.33,
+          "width": 490.90625,
+          "height": 65.4375,
+          "inside": true
+        },
+        {
+          "text": "Professor Quiverworth the Unreasonably Persistent wins",
+          "font": 18.699,
+          "width": 480.6875,
+          "height": 22.4375,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "label": "large-text",
+      "phrase": "CEASED!",
+      "arena": {
+        "width": 560,
+        "height": 260
+      },
+      "font": 62.33,
+      "centered": true,
+      "children": [
+        {
+          "text": "CEASED!",
+          "font": 62.33,
+          "width": 243.765625,
+          "height": 65.4375,
+          "inside": true
+        }
+      ]
+    },
+    {
+      "label": "large-text",
+      "phrase": "DEFEAT!",
+      "arena": {
+        "width": 560,
+        "height": 260
+      },
+      "font": 62.33,
+      "centered": true,
+      "children": [
+        {
+          "text": "DEFEAT!",
+          "font": 62.33,
+          "width": 246.078125,
+          "height": 65.4375,
+          "inside": true
+        }
+      ]
+    }
+  ]
+}

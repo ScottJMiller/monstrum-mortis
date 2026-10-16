@@ -1,5 +1,5 @@
 import type { BattleEvent, BattleTimeline } from '../../shared/types.ts';
-import type { IntegratedForm } from '../../shared/integrated-form.ts';
+import type { PublicIntegratedForm } from '../../shared/integrated-form.ts';
 import { battleFrame } from '../battle-playback.ts';
 import { EFFECTS, effectFor, soundFor, letteringFor } from './effects.ts';
 export type Pose = 'idle'|'attack'|'recoil'|'defense'|'defeat';
@@ -44,7 +44,7 @@ export function sceneFrame(timeline:BattleTimeline, elapsed:number, motion=true)
 }
 /** Teeth meet at contact, open in recoil and close again. Pure seeking; static mode stays closed. */
 export function biteJawOffset(age:number,motion:boolean){return motion&&age>0&&age<300?16*Math.sin(Math.PI*age/300):0;}
-export function integrationFrame(form:IntegratedForm,now:number,motion=true){
+export function integrationFrame(form:PublicIntegratedForm,now:number,motion=true){
  const elapsed=Math.max(0,now-form.integration.startsAtMs);
  const reveal=clamp((elapsed-2000)/1500);
  return {elapsed,phase:elapsed<2000?'integrating':elapsed<3500?'reveal':elapsed<5000?'unleash':'battle',

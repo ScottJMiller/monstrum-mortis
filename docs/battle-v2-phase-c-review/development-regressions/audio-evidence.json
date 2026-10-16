@@ -1,0 +1,9 @@
+{
+  "scope": "Actual browser Web Audio output captured under CDP at default device volume; agent cannot perceptually listen",
+  "levels": [
+    "mean_volume: -36.8 dB",
+    "max_volume: -17.3 dB"
+  ],
+  "captureSha256": "f03ed150f521bd830e8d888401ca44a7dc093af59ded9e4a7f29ed5b573d03b2",
+  "humanListening": "Outstanding"
+}

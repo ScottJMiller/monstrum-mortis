@@ -1,0 +1,1 @@
+These pre-protocol-6 component tests assert removed private invitation/automatic queue behavior. Retained as history, excluded from current test discovery. Current public browser admission retry/leave/recovery coverage lives in simplification.browser.mjs and simplification.runtime.mjs. Do not claim historical passes for the new contract.

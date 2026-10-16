@@ -1,0 +1,101 @@
+{
+  "physicalDevices": false,
+  "recordingFrames": 297,
+  "files": [
+    {
+      "file": "docs/battle-v2-phase-c-review/before-victorian-labels/arena-detail.png",
+      "bytes": 659393,
+      "sha256": "1541d32f1a651e8c937354d78a30fc96091a73da0e3999fc635044b62a614553"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-victorian-labels/battle-desktop.png",
+      "bytes": 1261491,
+      "sha256": "817d50f312676652c713b94267b295b58b3285a286807b74f7751c0eb83e4bba"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-victorian-labels/battle-landscape.png",
+      "bytes": 754984,
+      "sha256": "b7fdec17dc990873a2be2213b459ec2398a08ed2d5f196e5d6511c6c686b1ee7"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-victorian-labels/battle-phone.png",
+      "bytes": 533996,
+      "sha256": "3412d21d4a151894715e08309f2391e57780fe06ed5f275b4963bce515462fd8"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-victorian-labels/briefing.png",
+      "bytes": 1790193,
+      "sha256": "b0d4ff26263aa50571cc607bd9dc3e4faf2f3874c13f2ad2da8cb6c1c8c531da"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-victorian-labels/contact-sheet.png",
+      "bytes": 909082,
+      "sha256": "ba7358db83d1c41e1f8b10ef59b7bdff19259349641a54383f3a0921855392c9"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-victorian-labels/countdown.png",
+      "bytes": 1261976,
+      "sha256": "ecad515b6f853d3d62f350406eb1da7b7fe78d2ce00e0abf71f2877c2293425f"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-victorian-labels/entry-desktop.png",
+      "bytes": 1721186,
+      "sha256": "2f003aeb816912ca381aa3fbc5d98303fa1d130625141ddf10d408a5e0005822"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-victorian-labels/entry-phone.png",
+      "bytes": 627652,
+      "sha256": "589c16d1976ff1ced282efecb7fe88e6c870ffb9a8041cc50dbd96f821f9f5d4"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-victorian-labels/experiment-phone.png",
+      "bytes": 755677,
+      "sha256": "c5b48137fa126975a6df2aaa74d1cddf7f19e80b3af9b230819115c14ce52b69"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-victorian-labels/injection-desktop.png",
+      "bytes": 2181036,
+      "sha256": "bf887031124ff01826310798e567daf8ae6f51c22837adefc0e4ae2ead987400"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-victorian-labels/integration.png",
+      "bytes": 969217,
+      "sha256": "3c3c170e98a5ec388d308c1e0b6195dc00b2dfa324eb868140565af623cf19a3"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-victorian-labels/production-audio.webm",
+      "bytes": 363380,
+      "sha256": "e3c32b5e912c2fa37732b7a9c509ff024bc289a4e1de98096607b4aee247b897"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-victorian-labels/production-recording.mp4",
+      "bytes": 1529950,
+      "sha256": "ab4eb765bb44e09d9fd34f6ab1cbfd424e7d1abc62777e16124a58af7d228e68"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-victorian-labels/recovered-art.png",
+      "bytes": 753443,
+      "sha256": "048920b736b5d2e86b25321b4aeaf621113b42cf4f46b48e0bbf283296835443"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-victorian-labels/result-desktop.png",
+      "bytes": 1832844,
+      "sha256": "b79e50de64657ad91bb741c52c2f4f5bb8061070475ef463406f7fc16e9f4460"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-victorian-labels/result-phone.png",
+      "bytes": 797686,
+      "sha256": "67a41687b4c4892c573608dc37e7eb47c9fc3380703428193477bd0cca048ca2"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-victorian-labels/reveal.png",
+      "bytes": 996726,
+      "sha256": "39b70cc67614169aab98acbef8c8592e1970297767c94ac7f73fdad262b2000f"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-victorian-labels/tray-detail-phone.png",
+      "bytes": 189520,
+      "sha256": "d0b3daee2e0b5a3f82ed37a617a279a2f68534bc6d1990a8b8e9d5c2196c5fbf"
+    }
+  ]
+}

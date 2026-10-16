@@ -1,9 +1,9 @@
-import { INTEGRATED_RULES,VOTED_FAMILIES } from '../shared/integrated-form.ts';
+import { INTEGRATED_RULES,VOTED_FAMILIES,BATTLE_ARENAS,PRESENTATION_VERSION } from '../shared/integrated-form.ts';
 import type { IntegratedForm, IntegratedModifiers, VotedFamily } from '../shared/integrated-form.ts';
 import type { FrozenCreature } from './dna-mechanics.ts';
 import { GAME_RULES } from '../shared/rules.ts';
 
-/** Server entropy adapter. Current callers are development fixtures/tests; Phase C room integration remains unauthorized. */
+/** Server entropy adapter. Consumed once inside the serialized, persisted release transaction. */
 export const serverUint32 = () => crypto.getRandomValues(new Uint32Array(1))[0]!;
 export function uniformIndex(count: number, entropy: () => number): number {
  if (!Number.isInteger(count) || count < 1 || count > VOTED_FAMILIES.length) throw new RangeError('Invalid tie count');
@@ -17,8 +17,8 @@ export function uniformIndex(count: number, entropy: () => number): number {
  throw new Error('Entropy source did not produce an accepted bucket');
 }
 /** Pure projection of logical survivors. Never use history, art slots or client entropy. */
-export function selectIntegratedForm(frozen: Pick<FrozenCreature, 'active' | 'attemptId' | 'releasedAtMs'>, entropy = serverUint32): IntegratedForm {
- const ids = new Set(Object.values(frozen.active).map(part => part.dnaId));
+export function deriveIntegratedTraits(active:FrozenCreature['active']) {
+ const ids = new Set(Object.values(active).map(part => part.dnaId));
  const votes: Record<VotedFamily, number> = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, blob:0 };
  const modifiers = new Set<string>();
  for (const id of ids) {
@@ -27,8 +27,6 @@ export function selectIntegratedForm(frozen: Pick<FrozenCreature, 'active' | 'at
   if (rule.vote) votes[rule.vote]++;
   if (rule.modifier) modifiers.add(rule.modifier);
  }
- const maximum = Math.max(...Object.values(votes));
- const tied = VOTED_FAMILIES.filter(f => votes[f] === maximum);
  // Existing target competition makes multiple surface overlays impossible; fail closed on corrupt fixtures.
  const overlays = (['barbs', 'veins', 'mouths'] as const).filter(m => modifiers.has(m));
  if (overlays.length > 1) throw new Error('Conflicting active skin overlays');
@@ -37,6 +35,25 @@ export function selectIntegratedForm(frozen: Pick<FrozenCreature, 'active' | 'at
   tint: modifiers.has('red') && modifiers.has('green') ? 'combined' : modifiers.has('red') ? 'red' : modifiers.has('green') ? 'green' : 'none',
   overlay: overlays[0] ?? 'none', growth: modifiers.has('growth'), tremor: modifiers.has('tremor'),
  };
- return { version: 'battle-v2-b2', attemptId: frozen.attemptId, family: maximum ? tied[uniformIndex(tied.length, entropy)]! : 'blob',
+ return {votes,modifiers:m};
+}
+export function selectIntegratedForm(frozen: Pick<FrozenCreature, 'active' | 'attemptId' | 'releasedAtMs'>, entropy = serverUint32): IntegratedForm {
+ const {votes,modifiers:m}=deriveIntegratedTraits(frozen.active),maximum=Math.max(...Object.values(votes)),tied=VOTED_FAMILIES.filter(f=>votes[f]===maximum);
+ return { version: PRESENTATION_VERSION, attemptId: frozen.attemptId, family: maximum ? tied[uniformIndex(tied.length, entropy)]! : 'blob',
   votes, modifiers: m, integration: { startsAtMs: frozen.releasedAtMs, endsAtMs: frozen.releasedAtMs + GAME_RULES.releaseDurationMs } };
+}
+
+export interface StoredBattlePresentation { form:IntegratedForm; arena:typeof BATTLE_ARENAS[number] }
+export function selectBattlePresentation(frozen:FrozenCreature,entropy=serverUint32):StoredBattlePresentation {
+ return {form:selectIntegratedForm(frozen,entropy),arena:BATTLE_ARENAS[uniformIndex(BATTLE_ARENAS.length,entropy)]!};
+}
+/** Check immutable stored selection against survivors; validation never consumes entropy. */
+export function validBattlePresentation(value:unknown,frozen:FrozenCreature):value is StoredBattlePresentation {
+ try {
+ if(!value||typeof value!=='object')return false;
+ const p=value as StoredBattlePresentation,f=p.form;if(!f||f.version!==PRESENTATION_VERSION||f.attemptId!==frozen.attemptId||!BATTLE_ARENAS.includes(p.arena)||!VOTED_FAMILIES.includes(f.family)||!f.integration||f.integration.startsAtMs!==frozen.releasedAtMs||f.integration.endsAtMs!==frozen.releasedAtMs+GAME_RULES.releaseDurationMs)return false;
+ const expected=deriveIntegratedTraits(frozen.active),maximum=Math.max(...Object.values(expected.votes));
+ if(!f.votes||!f.modifiers||VOTED_FAMILIES.some(k=>f.votes[k]!==expected.votes[k])||Object.entries(expected.modifiers).some(([key,v])=>f.modifiers[key as keyof IntegratedModifiers]!==v))return false;
+ return maximum>0?expected.votes[f.family]===maximum:f.family==='blob';
+ }catch{return false;}
 }

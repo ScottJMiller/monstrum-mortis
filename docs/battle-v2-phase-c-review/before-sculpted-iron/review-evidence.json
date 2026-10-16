@@ -1,0 +1,101 @@
+{
+  "physicalDevices": false,
+  "recordingFrames": 278,
+  "files": [
+    {
+      "file": "docs/battle-v2-phase-c-review/before-sculpted-iron/arena-detail.png",
+      "bytes": 648507,
+      "sha256": "a443626b8c987999db9ef6f2a018c0ca00dcabff0af37c915700f0bf674b5195"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-sculpted-iron/battle-desktop.png",
+      "bytes": 1361392,
+      "sha256": "e1111f9d8451f3ca0ffd603d53eb9da9adcebfa694e36ceda2a64b4b79d80cdd"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-sculpted-iron/battle-landscape.png",
+      "bytes": 793576,
+      "sha256": "8ad4a24115f2d468e6907bfe5d61a2a2c2a00568344224af05bd6f02f53bf6c1"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-sculpted-iron/battle-phone.png",
+      "bytes": 574014,
+      "sha256": "906826ff8c97e308ccf94e23fd0dab8e948cd2e0b5d8f94fb662876cb086f22f"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-sculpted-iron/briefing.png",
+      "bytes": 1815383,
+      "sha256": "c572da0e0dfc8be9f1fe520f136292ed3f17c9385d3d16b0fd137fd1174873ef"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-sculpted-iron/contact-sheet.png",
+      "bytes": 962150,
+      "sha256": "2d2bfe3932c2e95fcd4deb147d378255ea35722c2bf7c1205659fa7ccbca3791"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-sculpted-iron/countdown.png",
+      "bytes": 1354930,
+      "sha256": "c3c6e9fd19a8b6086a7fcaebf0fecdf9a7dcb013b6485f9b1399ae871395ee8b"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-sculpted-iron/entry-desktop.png",
+      "bytes": 1827791,
+      "sha256": "89aaf29fd8cbfa81accef842d305f35488b903b014b4c42c6b4cfef8222f85ad"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-sculpted-iron/entry-phone.png",
+      "bytes": 732352,
+      "sha256": "8f11309d75605d00f7e18717bb2e159eca5b544323bea7a645d773dd39e2c203"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-sculpted-iron/experiment-phone.png",
+      "bytes": 773624,
+      "sha256": "0a156f669bcf0903037b98e02869f1097adec61dba9563dc84115d44a30fb2e7"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-sculpted-iron/injection-desktop.png",
+      "bytes": 2087512,
+      "sha256": "25a593ec8a0d69073da13827c4e5dc07d1483cb45f92b664d8b8fa2362144715"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-sculpted-iron/integration.png",
+      "bytes": 1111205,
+      "sha256": "1c9bebc9b4dd3d17e990f266dbaa9b4f8fbe073dd1880b2284a56d2aa1177e48"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-sculpted-iron/production-audio.webm",
+      "bytes": 307039,
+      "sha256": "110d2888c08ce585c702a2b38177da9ea8f95ac8aa14b07e9460ff42ec3b172b"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-sculpted-iron/production-recording.mp4",
+      "bytes": 1207781,
+      "sha256": "27d0e916e7bf4199b094677f826a653a4c137411af404ec1e9b20e1c4eb94e77"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-sculpted-iron/recovered-art.png",
+      "bytes": 792363,
+      "sha256": "c5af0fd07bc897f47d86901707c4ef27c07531753d48e65dfb98d78f12788ce8"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-sculpted-iron/result-desktop.png",
+      "bytes": 2034825,
+      "sha256": "8a5eef2013c2cf647942cd620fe078b5ef08332de02d8c996a540b4b746e6667"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-sculpted-iron/result-phone.png",
+      "bytes": 860933,
+      "sha256": "388403298a687e6965066424d2e0c2a484c70bf3d6c05281a16cb12e9fa806d1"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-sculpted-iron/reveal.png",
+      "bytes": 1137236,
+      "sha256": "0a2c82670d9631896337b557c4e8c6adca074908a92ccced97c936c2977e7055"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-sculpted-iron/tray-detail-phone.png",
+      "bytes": 220229,
+      "sha256": "2ac8cb73972878fb130e5586ecd5159612ba0c5ebdf157d7da183ef7f9e23f76"
+    }
+  ]
+}

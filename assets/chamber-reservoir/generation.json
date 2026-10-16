@@ -1,0 +1,29 @@
+{
+  "tool": "Built-in image_gen; development only",
+  "date": "2026-10-15",
+  "reference": "assets/specimens/source/c01.png; style only",
+  "records": [
+    {
+      "id": "initial-transparent",
+      "source": "assets/chamber-reservoir/source/initial-transparent.png",
+      "prompt": "Use case: stylized-concept. Asset type: one production game UI illustration, a tall narrow EMPTY glass-and-brass laboratory reservoir gauge for Monstrum Mortis. Input image is STYLE REFERENCE ONLY: the existing specimen vial. Make a NEW straight cylindrical empty clear glass tube, very slender and tall, with tarnished dark brass/iron ornamental stopper at top and matching metal base at bottom, decayed Frankenstein-era machinery, subtle Gothic ridges, patina, tiny screws, upper-left lighting, painterly realistic material detail matching the reference. The complete vessel should have about 1:8 width-to-height proportions, centered and upright with comfortable transparent padding. Glass shaft about 75% of overall height, sides parallel; metal cap and foot equal width, a little wider than the glass. Clear empty interior, only thin pale glass rim reflections at edges: important that a runtime animated liquid layer placed BEHIND this image will show through the transparent center. No liquid, specimen, opaque interior, glow filling, numbers, letters, label, tick marks, pedestal, backdrop, ground shadow, extra tube, wires or people. TRUE TRANSPARENT BACKGROUND outside AND through the clear interior. One whole isolated object, not a sprite sheet. Keep all edges and both caps in frame.",
+      "originalPath": "/home/scottjmiller/.codex/generated_images/01a10e89-3135-7dd1-b485-5ad9b5c7fb0a/exec-3cb3f237-f5f7-4e79-a06e-e842df6be8fd.png",
+      "selected": false
+    },
+    {
+      "id": "glass-refinement",
+      "source": "assets/chamber-reservoir/source/glass-refinement.png",
+      "prompt": "Use case: precise-object-edit. Edit target: supplied isolated empty glass-and-brass gauge. Keep the complete vessel, exact cap/base, lighting, dark brass patina, proportions and transparent outer surroundings unchanged. Fix ONLY the glass interior: remove the irregular ragged opaque white edges around the center opening. Make the ENTIRE glass interior uniformly clear/translucent, with smooth delicate highlights confined to the left/right outermost glass edges. The inner rectangular channel must be transparent from the top brass ring to the bottom ring, so an animated dark green liquid behind the image remains visible through it. No white central patches, jagged cutout, heavy white backing, liquid or background. True transparent alpha. Keep both caps and all edges inside frame.",
+      "originalPath": "/home/scottjmiller/.codex/generated_images/01a10e89-3135-7dd1-b485-5ad9b5c7fb0a/exec-7152fe3c-8bc9-405f-a960-f6ffaec9552e.png",
+      "selected": false
+    },
+    {
+      "id": "final-dark-glass",
+      "source": "assets/chamber-reservoir/source/final-dark-glass.png",
+      "prompt": "Use case: precise-object-edit. Edit target: supplied empty glass/brass gauge. Preserve the exact metal stopper, brass base, overall silhouette, lighting and transparent exterior. Replace the ENTIRE space inside the glass cylinder, from upper ring to lower ring, with a smooth DARK FOREST GREEN / almost black translucent-looking glass face. It must be fully opaque inside, no transparent holes or alpha gaps inside the vessel. No ragged white/gray strips or torn-looking central areas. Paint a pristine smooth continuous dark-green glass cylinder with subtle vertical edge highlights and a very faint uniform olive haze. EMPTY, no specimen, no liquid line, no text. Background OUTSIDE the vessel remains true transparent. One complete vessel in frame. This is a painted dark glass face for liquid animation to be composited on TOP in the game.",
+      "originalPath": "/home/scottjmiller/.codex/generated_images/01a10e89-3135-7dd1-b485-5ad9b5c7fb0a/exec-70c67804-1237-42eb-9825-81230f289606.png",
+      "selected": true
+    }
+  ],
+  "license": "Generated project output; own project reference; no third-party stock"
+}

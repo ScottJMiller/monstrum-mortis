@@ -1,4 +1,5 @@
-import { GAME_RULES, dosePotency } from '../shared/rules.ts';
+import { selectBattlePresentation } from './integrated-form.ts';
+import { GAME_RULES, dosePotency, switchCooldownForRules } from '../shared/rules.ts';
 import type { BodySlot, CreatureStats, CreatureView, MutationView } from '../shared/types.ts';
 import { DNA_CATALOGUE } from './catalogue/dna.ts';
 import { ABILITY_BOUNDS, BASE_STATS, DNA_VERSION, PRODUCER_CONSTRAINTS, STAT_BOUNDS, clamp, diminishing } from './catalogue/mechanics.ts';
@@ -145,18 +146,18 @@ function requireAction(r: StoredRoom, seat: Seat, attemptId: string, now: number
   if (r.experiment.frozen) throw new ServiceError('wrong-phase', 'The released creature is frozen.', 409);
   if (r.phase === 'experiment' && r.phaseDeadlineMs !== null && now >= r.phaseDeadlineMs) throw new ServiceError('deadline-passed', 'The experiment deadline passed.', 409);
   if (r.phase !== 'experiment' || r.recovery || seat.role !== 'player' || !seat.connected || !seat.eligible || seat.finished || seat.departed) throw new ServiceError('wrong-phase', 'Your injections are locked in this phase.', 409);
-  if (now < seat.nextInjectionAtMs) throw new ServiceError('cooldown', 'Wait for your current cooldown.', 409);
 }
 export function inject(r: StoredRoom, seat: Seat, attemptId: string, specimenId: string, actionId: string, now: number) {
   requireAction(r, seat, attemptId, now);
-  if (seat.remainingDoses <= 0) throw new ServiceError('no-doses', 'Your six doses are spent. You may still pull the switch after cooldown.', 409);
+  if (now < seat.nextInjectionAtMs) throw new ServiceError('cooldown', 'Wait for your injection cooldown.', 409);
+  if (seat.remainingDoses <= 0) throw new ServiceError('no-doses', 'Your six doses are spent. You may still pull the switch when ready.', 409);
   const index = seat.tray?.findIndex(s => s.specimenId === specimenId) ?? -1;
   if (index < 0) throw new ServiceError('invalid-action', 'Select a specimen from your own current tray.', 409);
   const packet = seat.drawPlan?.[seat.drawCursor ?? 0];
   if (!packet || !r.playerCountAtExperimentStart) throw new ServiceError('temporarily-unavailable', 'Stored specimen plan is unavailable.', 503);
   const allLiability = seat.tray!.filter((_, i) => i !== index).every(s => dna(s.dnaId).family === 'liability') && dna(packet.primary).family === 'liability';
   const replacement = specimen(allLiability ? packet.safe : packet.primary);
-  applyMutation(r.experiment!, seat.tray![index]!.dnaId, seat.id, seat.alias, actionId, now, r.playerCountAtExperimentStart);
+  applyMutation(r.experiment!, seat.tray![index]!.dnaId, seat.id, seat.alias, actionId, now, Math.max(2, r.playerCountAtExperimentStart));
   seat.tray![index] = replacement; seat.drawCursor = (seat.drawCursor ?? 0) + 1;
   seat.remainingDoses--; seat.injectionsThisRound = (seat.injectionsThisRound ?? 0) + 1;
   seat.interactedThisRound = true; seat.nextInjectionAtMs = now + GAME_RULES.injectionCooldownMs;
@@ -169,11 +170,18 @@ export function beginRelease(r: StoredRoom, now: number, reason: FrozenCreature[
     e.frozen = { attemptId: e.id, rulesVersion: e.rulesVersion, catalogueVersion: e.catalogueVersion, playerCount: r.playerCountAtExperimentStart!,
       releasedAtMs: now, reason, creature: publicCreature(e), ...effectiveCreature(e), constraints: { ...PRODUCER_CONSTRAINTS }, active: structuredClone(e.active), history: structuredClone(e.history) };
   }
+  if(r.experiment?.frozen&&r.presentationVersion&&!r.battlePresentation)r.battlePresentation=selectBattlePresentation(r.experiment.frozen);
   r.phase = 'release'; r.phaseDeadlineMs = now + GAME_RULES.releaseDurationMs; r.revision++;
+}
+/** Derived from the persisted injection timestamp; no additional random or mutable clock. */
+export function switchReadyAt(r: StoredRoom, seat: Seat): number {
+  if (!r.experiment || !(seat.injectionsThisRound ?? 0)) return 0;
+  return seat.nextInjectionAtMs - GAME_RULES.injectionCooldownMs + switchCooldownForRules(r.experiment!.rulesVersion);
 }
 export function pullSwitch(r: StoredRoom, seat: Seat, attemptId: string, now: number) {
   requireAction(r, seat, attemptId, now);
   if ((seat.injectionsThisRound ?? 0) < GAME_RULES.switchMinimumInjections) throw new ServiceError('switch-locked', 'Inject at least once before pulling the switch.', 409);
+  if (now < switchReadyAt(r, seat)) throw new ServiceError('cooldown', 'Wait one moment before pulling the switch.', 409);
   seat.switchPulled = true; seat.finished = true; seat.finishReason = 'switch'; seat.remainingDoses = 0;
   seat.interactedThisRound = true; r.lastActivityAtMs = now; r.revision++;
   if (r.lockedPlayerIds.every(id => r.seats.find(s => s.id === id)?.finished)) beginRelease(r, now, 'unanimous');

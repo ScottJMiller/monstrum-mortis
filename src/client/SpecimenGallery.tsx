@@ -1,0 +1,3 @@
+import clues from '../assets/specimen-clues.json' with { type:'json' };
+import { SpecimenImage } from './SpecimenImage.tsx';
+export function SpecimenGallery(){return <main className="specimen-gallery"><h1>Specimen illustration study</h1><p>Public clue pictures only. No hidden DNA mapping or mechanical outcomes.</p><ul>{clues.filter(c=>/^clue\.c\d+$/.test(c.id)).map(c=><li key={c.id}><button className="specimen-button" aria-label={`${c.name}. ${c.description.replace(/ with \d+ dotted marks\./,'.')}`}><SpecimenImage id={c.id}/><span className="specimen-name">{c.name}</span><span className="sr-only">{c.description.replace(/ with \d+ dotted marks\./,'.')}</span></button></li>)}</ul></main>;}

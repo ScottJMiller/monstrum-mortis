@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-15",
+  "techniqueReference": "https://jacobfilipp.com/victorian-dual/",
+  "styleReferences": [
+    {
+      "file": "thick-frame_examples.jpg",
+      "use": "User-supplied visual reference: moulded iron rails, pointed tracery and raised clasps; pixels not redistributed."
+    },
+    {
+      "file": "thin-frame_examples.png",
+      "use": "User-supplied visual reference: curling acanthus scrolls and tapered finials; pixels not redistributed."
+    }
+  ],
+  "implementation": "Original shaded cast-iron/acanthus/Gothic-tracery SVG geometry. Explicit 144px nine-slice surrounds with 25% corners and complete repeated edges; Splash-only Method B 40px fixed caps plus doubled 120px scroll/finial frieze, quantized by CSS round(down,...). Whole-repeat fallback and native high-contrast borders. Gradients and carved highlight paths, no filters, scripts, external images or fonts. No reference/tutorial imagery redistributed.",
+  "source": "scripts/prepare-victorian-frames.py",
+  "previousStyle": "assets/interface-frames/history/geometric-2026-10-15/",
+  "records": [
+    {
+      "path": "public/assets/interface/victorian-thin.svg",
+      "bytes": 5304,
+      "sha256": "73f5867b2eee04f1f38fe93dd4c8a8f1a55e9cee25a22165ab4098c1c15f4d9a",
+      "origin": "original project-authored vector geometry",
+      "license": "Original project code artwork; no third-party motif copied"
+    },
+    {
+      "path": "public/assets/interface/victorian-thick.svg",
+      "bytes": 6928,
+      "sha256": "43c21057434ec5b49f90b17d6f8b6571fcddd85583dfd2cbb458e3456ddb1d54",
+      "origin": "original project-authored vector geometry",
+      "license": "Original project code artwork; no third-party motif copied"
+    },
+    {
+      "path": "public/assets/interface/victorian-dual-strip.svg",
+      "bytes": 4588,
+      "sha256": "40efb1e36b375826ec66d2fb59f9c01ab66f9338201909b524bd8f1ee2dd7499",
+      "origin": "original project-authored vector geometry",
+      "license": "Original project code artwork; no third-party motif copied"
+    }
+  ]
+}

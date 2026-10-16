@@ -1,4 +1,4 @@
-:root { color-scheme: dark; font-family: system-ui, sans-serif; color: #e7e0d1; background: #101211; font-synthesis: none; }
+:root { color-scheme: dark; font-family: 'Cabin',system-ui, sans-serif; color: #e7e0d1; background: #101211; font-synthesis: none; }
 * { box-sizing: border-box; }
 body { margin: 0; background: radial-gradient(ellipse at 25% 10%, #263128 0, transparent 48%), linear-gradient(120deg, #171c18, #101211 65%); }
 a { color: #eed99d; text-underline-offset: .2em; }
@@ -10,18 +10,18 @@ button:disabled { opacity: .65; cursor: not-allowed; }
 :focus-visible { outline: 3px solid #f2d28a; outline-offset: 4px; }
 input, select { display: block; width: 100%; min-height: 44px; margin-top: .5rem; padding: .7rem; background: #151d19; border: 1px solid #928e76; border-radius: 3px; color: #fff5df; }
 label { display: block; margin: 1.1rem 0; font-size: .93rem; }
-h1, h2, h3 { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; }
+h1, h2, h3 { font-family: 'PT Serif',Georgia, 'Times New Roman', serif; font-weight: 400; }
 h1 { margin: .1rem 0 .3rem; font-size: clamp(2.1rem, 4.5vw, 4.3rem); letter-spacing: -.045em; line-height: 1; }
 h1 em { color: #ccb68b; font-style: normal; }
 h2 { font-size: 1.9rem; margin: .4rem 0 .8rem; }
 h3 { font-size: 1.25rem; margin-bottom: .6rem; }
-h3 small { font: .8rem system-ui, sans-serif; color: #bab5a6; }
+h3 small { font: .8rem 'Cabin',system-ui, sans-serif; color: #bab5a6; }
 .laboratory-shell { max-width: 1380px; padding: 2rem clamp(1rem, 3vw, 3rem); margin: auto; }
 .masthead { display: flex; justify-content: space-between; gap: 1rem; align-items: center; padding-bottom: 1.5rem; border-bottom: 1px solid #5d604b; }
 .eyebrow { color: #c1b994; font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; margin: 0 0 .6rem; }
-.tagline { color: #c4c1b4; margin: .65rem 0 0; font-family: Georgia, serif; }
-.milestone-seal { padding: .8rem 1rem; border: 1px solid #655d48; color: #d7caa5; text-align: right; font-family: Georgia, serif; }
-.milestone-seal small { display: block; font: .7rem system-ui, sans-serif; margin-top: .5rem; }
+.tagline { color: #c4c1b4; margin: .65rem 0 0; font-family: 'PT Serif',Georgia, serif; }
+.milestone-seal { padding: .8rem 1rem; border: 1px solid #655d48; color: #d7caa5; text-align: right; font-family: 'PT Serif',Georgia, serif; }
+.milestone-seal small { display: block; font: .7rem 'Cabin',system-ui, sans-serif; margin-top: .5rem; }
 .laboratory-layout { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(20rem, 1fr); gap: clamp(1.25rem, 3vw, 3rem); padding-top: 1.75rem; align-items: start; }
 .scene-panel { min-width: 0; }
 .scene-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .4rem; padding: 0 .25rem .8rem; }
@@ -37,7 +37,7 @@ h3 small { font: .8rem system-ui, sans-serif; color: #bab5a6; }
 .static-creature img { position: absolute; object-fit: fill; }
 .chamber-glass { position: absolute; pointer-events: none; inset: 16% 21% 25%; background: linear-gradient(105deg, transparent 30%, #d1f5a608 35%, transparent 41%); opacity: .6; }
 .chamber figcaption { padding: .7rem .5rem; text-align: center; color: #c5bd9f; font-size: .73rem; letter-spacing: .025em; }
-.institutional-note { color: #c1b994; text-align: center; font: italic .9rem/1.5 Georgia, serif; margin: .4rem 0 1rem; }
+.institutional-note { color: #c1b994; text-align: center; font: italic .9rem/1.5 'PT Serif',Georgia, serif; margin: .4rem 0 1rem; }
 .control-panel { min-width: 0; }
 .control-panel section { background: linear-gradient(140deg, #252d24, #1a201b); border: 1px solid #63624d; border-top: 3px solid #aa9464; padding: 1.3rem; margin-bottom: 1.3rem; box-shadow: 0 .5rem 1.5rem #0003; }
 .control-panel p { font-size: .88rem; }
@@ -56,8 +56,6 @@ input.name-required { border-color: #f2cf8a; }
 .roster li { display: flex; gap: .7rem; align-items: center; padding: .65rem; border: 1px solid #525d4a; background: #18211a; overflow-wrap: anywhere; }
 .roster small { display: block; color: #c2c8b7; font-size: .72rem; margin-top: .2rem; }
 .player-symbol { font-size: 1.4rem; width: 2rem; flex: 0 0 auto; text-align: center; }
-.rehearsal { padding: .8rem; border: 1px dashed #8c8260; background: #171f19; }
-.rehearsal button { background: #35362a; }
 .queue-state { color: #e6d294; font-weight: 600; }
 .art-notice { position: absolute; left: 8%; right: 8%; bottom: 8%; margin: 0; padding: .75rem; background: #151c16ef; border: 1px solid #b19b6b; font-size: .8rem; line-height: 1.5; z-index: 20; }
 .art-notice p { margin: 0; }
@@ -147,7 +145,7 @@ input.name-required { border-color: #f2cf8a; }
 .rival-briefing .rival-portrait { width: 28%; max-height: 14rem; object-fit: contain; }
 .rival-silhouette { filter: brightness(.2) sepia(.4); }
 .battle-stage { min-width: 0; padding: 1rem; background: radial-gradient(ellipse at 50% 70%, #35442a, #11180f 65%); border: 2px solid #756244; border-radius: .3rem; }
-.battle-stage h2 { font-family: Georgia, serif; font-size: clamp(1.3rem, 3vw, 2.2rem); margin: .5rem 0; }
+.battle-stage h2 { font-family: 'PT Serif',Georgia, serif; font-size: clamp(1.3rem, 3vw, 2.2rem); margin: .5rem 0; }
 .battle-health { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .battle-health label { display: grid; gap: .3rem; font-size: .85rem; }
 .battle-health meter { width: 100%; height: 1.3rem; accent-color: #a9ba62; }
@@ -158,7 +156,7 @@ input.name-required { border-color: #f2cf8a; }
 .combatant { width: 47%; height: 96%; display: flex; align-items: flex-end; justify-content: center; transform-origin: center bottom; transition: transform .18s ease-out, filter .2s; }
 .battle-creature { width: 100%; height: 100%; overflow: visible; }
 .rival-combatant .rival-portrait { width: 100%; height: 90%; object-fit: contain; object-position: center bottom; }
-.battle-versus { position: absolute; left: 46%; bottom: 32%; color: #cfbd8299; font-family: Georgia, serif; }
+.battle-versus { position: absolute; left: 46%; bottom: 32%; color: #cfbd8299; font-family: 'PT Serif',Georgia, serif; }
 .combatant[data-pose="attack"] { transform: translateX(4%) rotate(2deg); }
 .rival-combatant[data-pose="attack"] { transform: translateX(-4%) rotate(-2deg); }
 .combatant[data-pose="regeneration"] { filter: drop-shadow(0 0 .7rem #9ccf6180); }

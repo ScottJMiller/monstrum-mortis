@@ -1,26 +1,14 @@
 # Monstrum Mortis — Battle v2 specification
 
-Latest audio refinement (14 October 2026): crawling, malfunction, poison and slowing playback amplitude is increased by 15% (1.15 cue multiplier), preserving balanced source files, onset-only playback, device controls and voice/headroom limits. See the [Phase B completion](BATTLE-V2-PHASE-B-PLAN.md#phase-b-completion-checklist) and [Phase C look-ahead](BATTLE-V2-PHASE-B-PLAN.md#phase-c-look-ahead-completion-checklist) checklists for remaining work; Phase C is not authorized.
+Version 1.3 · 16 October 2026. Battle art/mechanics presentation remains accepted; current execution is the approved [Phase D simplification](PHASE-D-SIMPLIFICATION-PROPOSAL.md), including recommendations. The user explicitly authorized workers.dev deployment for human testing after local checks. [Status](IMPLEMENTATION-STATUS.md) records actual evidence; [acceptance](BATTLE-V2-PHASE-D-ACCEPTANCE.md) is still open. The [previous specification](archive/pre-simplification-2026-10-16/BATTLE-V2-SPEC.md) retains all dated authorization history.
 
-Latest approved presentation/scope change (14 October 2026): show a smaller centered New Rocker winner line beneath final lettering only for timeout battles; remaining authoritative health percentages decide the winner, with equal percentages labeled Draw. A strike sharing its defender/contact timestamp with a block emits no strike SVG; sounds, damage, poses, captions and block graphics retain their existing semantics. Saved monsters, tarot exports and the local cabinet are removed from the product plan, not deferred.
+Accepted presentation remains: six voted player families including blob, six rivals, registered poses/grafts, strike/slash/bite/corrosion/retaliation/block/electric SVGs, text-only other effects, silent recover/shards, onset-only balanced sound, unmirrored New Rocker wording, centered final text/countdown and timeout-only winner/draw subtitle. The sole effect registry is src/client/battle-v2/effects.ts; the sole executable DNA/family/modifier mapping is src/shared/integrated-form.ts.
 
-Latest approved 14 October family refinement: Razor Talons and Counterweight Tail vote for `blob`, which also remains the zero-vote fallback. Six candidates share the same survivor/uniform-tie rules; current development descriptor is `battle-v2-b2`. Family 1 is the gaunt armored executioner with blunt hands/toes; Family 3 has a fluffier/softer face and small bobtail. See [family review](BATTLE-V2-FAMILY-REFINEMENT.md) for actual production/provenance/checks. Phase C/deployment remain unauthorized.
+## 1. Purpose, authority and implementation boundary
 
-Version: 1.0 · 10 October 2026 (America/New_York)
+The existing modular creature remains during experimentation; the integrated body is selected once from frozen surviving DNA for release/battle. Artwork never changes gameplay. [Approved plan](APPROVED-PLAN.md) and [architecture](ARCHITECTURE.md) define the current public forming-lab contract and its explicit solo-continuation exception. They supersede old private/host/display/queue/backfill and compatibility requirements. No cards/cabinet, unrelated features, paid services or domain changes are authorized.
 
-Current Phase B refinement (14 October 2026): only strike/slash/bite/corrosion/retaliation/block/electric use supplied SVG graphics. Porcelain shard retaliation has no graphic or sound; recover is also silent and text-only. Poison/bleed/restraint/roar/regeneration/slowing/crawling/malfunction/detach use supplied, balanced one-shot sounds with text feedback. Poison/bleed refreshes and damage ticks, and continuing healing ticks, do not replay a cue within an active episode. Transient arena effects and compact labels clear at the battle deadline; restore the final approved knockout/round-end word as larger centered, unrotated New Rocker lettering. The last three seconds of the actual timeline show one top-centered New Rocker numeral at a time (3, 2, 1), yielding to the final word at the deadline. Health, captions and terminal poses remain. Block/retaliation graphics sit immediately in front of the defender on its inward side, following pose, pivot, scale and motion; actor orientation remains unchanged. Recoil amplitude is 10% below its previous 1.15 multiplier (now 1.035), with other gains preserved. This supersedes earlier Phase A/B native-effect and damaged-artwork treatments; the sole registry remains `src/client/battle-v2/effects.ts`. Production integration remains Phase C.
-
-## 1. Purpose, authority, and implementation boundary
-
-This document consolidates the user's Battle_v2.md proposal, the subsequent design discussion, and approval: body selection uses surviving-mutation votes with random tie-breaking; the rest of the reviewed direction is accepted. It specifies a presentation redesign of the completed step 6 game, including earlier integration of sound. It is not permission to implement unrelated later features or deploy.
-
-The five integrated body types and overlays replace the modular released/battle appearance. The existing modular creature remains during experimentation. Gameplay remains cooperative, remote-first, 2–8 players, three rounds, private labs and public Quick Play, with authoritative automatic combat and personal commendations.
-
-Initial Phase A instructions: reconcile documents, implement a development-only vertical slice, and deliver it for visual/audio review. Execution update (13 October 2026): the user has accepted that review gate and authorized Phase B asset production; see BATTLE-V2-PHASE-B-PLAN.md. Phase C production integration and deployment remain outside current authorization. Full asset production and production rollout follow acceptance of that sample. The sample must contain actual functioning animation, not just static concept art. Do not deploy. Do not implement card export/cabinet/naming or unrelated team-signal features in this work.
-
-This specification supersedes previous appearance rules at integration/battle, region-selection UI, Same-Room presentation UI, and display-only entry UI. It preserves existing mechanics, infrastructure identities, and the experiment's approved anatomy artwork. Update AGENTS.md to describe this authorization accurately without erasing historical records.
-
-Priority when interpreting requirements: current user instructions; this specification; current approved plan after reconciliation; older implementation notes. Old notes are historical evidence, not competing requirements. Implementation refinements may clarify these requirements but may not silently change their design meaning.
+Priority: current user instructions; this specification and the approved simplification; reconciled current plan; historical notes. Historical phase scopes are not current competing requirements.
 
 ## 2. Explicit defaults and terminology
 
@@ -36,13 +24,11 @@ The animated blob fallback is the explicit default adopted from the preceding re
 
 ## 3. Preserved mechanical contract
 
-Preserve DNA IDs, targets, replacement, stacking, diminishing returns, 2/N scaling, stats, abilities, attribution, doses, cooldowns, switches, experiment/release deadlines, frozen records, rivals, combat generation, scoring, commendations, progression, matchmaking ownership, and recovery rules.
+Preserve all DNA IDs/targets, replacement/stacking/diminishing returns/caps, stats/abilities, attribution, six doses/four private specimens, six-second injection cooldown, one-second Unleash wait, 75-second experiment/five-second release, authoritative rivals/combat, outcomes/scoring/commendations and three-round structure. Normal scaling remains 2/N fixed at experiment start. Explicitly approved solo continuation uses 2/max(2,N) in later solo rounds; current-round N never changes.
 
-Existing timings include an eight-second briefing, 75-second experiment, six-second injection cooldown, and five-second release. Preserve private host advancement/replay, public readiness behavior, and three-round scoring (100 win / 50 draw / 0 loss).
+The old initial briefing/host/queue/recovery-backfill gates are superseded by public formation and solo continuation. Formation takes 30 seconds from two connected members, with strict-majority/full-eight shortening to at most three seconds and locked admission. Each round then gets the full 75 seconds. Autopsy retains 10-second all-active-ready minimum and 25-second automatic progression. Replay needs at least two opt-ins. Explicit Leave irrevocably revokes that guest in the lab.
 
-The integrated body, colors, size, and overlays confer NO stats, bonuses, penalties, attacks, or contribution credit. A body depicting teeth does not grant a bite mutation; a kitten silhouette does not automatically impose the Kitten Paws penalty. Actual active DNA remains the source of mechanics and attack semantics.
-
-The existing combat engine remains authoritative. Freeze the original active anatomy/mechanical contribution data, then derive a separate integrated presentation descriptor. Do not overwrite the frozen mechanical creature with a body-family approximation. Presentation must not recompute winners, health, or scoring.
+Integrated body, colors, size and overlays confer no stats, attacks, penalties or contribution credit. Freeze actual active anatomy/contributions, then derive a separate persisted presentation descriptor. Never approximate mechanics from the winning silhouette or recompute outcomes in the client.
 
 ## 4. Body selection: votes and persisted random ties
 
@@ -120,11 +106,11 @@ Historical five-voted-family bounds are superseded by the 14 October blob-vote c
 
 ## 7. Injection and release choreography
 
-Experiment art and mutation visibility retain their current identities and layout.
+Experiment art and mutation visibility retain their identities; layout follows the approved compact PDFs.
 
 Injection response, target duration 600–900 ms:
 
-1. Accepted injection triggers a fluid pulse through chamber tubes, with whoosh/bubble/squelch.
+1. Accepted injection triggers the existing quick sound/creature reaction; side reservoir/tube images are removed by the approved simplification.
 2. Creature quivers and machinery flickers briefly.
 3. New accepted composition resolves visibly; authoritative logs/doses update without waiting for the animation.
 
@@ -170,16 +156,15 @@ Integrate sound in this redesign rather than waiting for the old step 8 ordering
 
 Unlock audio through a user gesture; failed/blocked audio never blocks play. Provide accessible per-device mute and volume. New presentation is remote-only: each participant independently controls audio; no default single shared sound-source selection. Do not produce a backlog after reconnect/backgrounding. Seek visuals to current time and play only timely cues, with capped voice count and reduced ambient volume during foreground cues. Prefer a shared effects/sound event registry and same-origin bundled assets with recorded provenance. No paid or runtime AI audio dependency. If sound tooling is unavailable, use honest project-authored procedural effects or report the missing deliverable.
 
-## 10. UI and admission simplification
+## 10. Current UI and admission
 
-- Remove region-selection UI; NEW public entries use the existing Americas pool identifier. Preserve validation/server ownership and existing sessions in other pools until they safely leave/expire. Do not force-migrate queued guests or rename durable infrastructure.
-- Remove new Same-Room options and display-only creation/join UI. Participant play remains fully functional on desktop and phone. Preserve safe reconnect/leave behavior for legacy display sessions; a display must never gain player permissions. Do not keep advertising display mode in current docs/help.
-- Tighten entry, lab, experiment, results, and replay layouts while preserving important states and controls.
-- Mount text fields/buttons in aged brass/iron apparatus, stained labels, glass gauges, parchment, and real-looking specimen trays. Keep the chamber/battle the primary visual element.
-- Decorative artwork is separate from semantic HTML controls. Never rasterize input labels, button semantics, status text, or player names into a background. Use legible contrast, keyboard/touch operation, visible focus, mobile reflow, and at least 44 CSS-pixel touch targets. No drag-only requirement.
-- Preserve understandable name-required, pending, cooldown, offline/reconnect, waiting, finished, ready, host-only, error, and replay states. Copy explains the action; it should not expose architecture details.
+Follow the approved [PDF-based simplification](PHASE-D-SIMPLIFICATION-PROPOSAL.md) on desktop and phone. Public named forming labs in Americas replace private codes/hosts, automatic ready queues, backfill and legacy displays. No active users require a compatibility bridge: old external routes/browser credentials expire without namespace deletion.
 
-The full UI simplification is a later phase of this redesign. The slice demonstrates one themed panel and chamber/arena framing without rewriting the entire entry/session flow.
+Keep the creature primary: shared camera crop, no reservoirs, chamber/readings left and scrolling private vial rail/actions right, compact accomplices below. Auto-highlight first/replacement specimen without automatic injection. Eligible lettering gently pulses with a static reduced-motion alternative. Routine prose/descriptions/status duplication is removed; errors/recovery stay actionable.
+
+Splash lasts 15 seconds total including 3/2/1, immediately skippable; reconnect bypasses it. Server-authored persisted names label each lab/round creature independently of hidden DNA. Phone/tablet integration/battle fills the app viewport; desktop uses full width. Sound/mute/leave remain usable. Reports show summary first, detailed disclosures closed, Next experiment visible without scrolling.
+
+Retain original iron/acanthus thin image/thicker control frames with splash-only inner friezes, New Rocker/PT Serif/Cabin hierarchy, real vial illustrations/accessibility clues, 44px controls, contrast, keyboard/focus, large-text reflow and graphics fallback. Semantic controls/text stay HTML, not rasterized decoration.
 
 ## 11. Assets and performance
 
@@ -213,22 +198,28 @@ Phase A — reconciliation and vertical slice (accepted review gate; historical 
 
 Phase B — after sample acceptance: remaining five player sets and five rivals, complete effect/audio registry, pose/damage registration, and remaining arena artwork.
 
-Phase C — full integration (not yet authorized): persisted presentation selection/backgrounds, wire/schema compatibility, integrated playback, themed compact production UI across entry/matchmaking, readiness/recovery, experiment, integration/battle, results/replay, Americas-only entry, removal of new display/Same-Room flows, and migration/regression verification. Section 10 governs UI/UX. Development contact sheets are art/choreography references, not final production layouts; review/gallery controls do not ship. Review final desktop/phone layouts and accessibility before deployment.
+Phase C — authorized full integration: persisted presentation selection/backgrounds, wire/schema compatibility, integrated playback, themed compact production UI across entry/matchmaking, readiness/recovery, experiment, integration/battle, results/replay, Americas-only entry, removal of new display/Same-Room flows, and migration/regression verification. Section 10 governs UI/UX. Development contact sheets are art/choreography references, not final production layouts; review/gallery controls do not ship. Review final desktop/phone layouts and accessibility before deployment.
 
-Phase D — review/acceptance: actual device performance, sound, pacing, readability, recovery, and asset budgets. Deployment requires a separate user instruction. Saved-monster/card/cabinet requirements were removed on 14 October 2026.
+Phase D — acceptance began 15 October; the complete simplification and workers.dev testing deployment were explicitly authorized on 16 October. [Acceptance checklist](BATTLE-V2-PHASE-D-ACCEPTANCE.md) separates implementation/local checks from remaining human/device/network/performance/quota evidence. Saved-monster/card/cabinet requirements were removed on 14 October 2026.
 
 ## 14. Verification and completion evidence
 
 Selector tests: all 30 mappings; no-vote fallback; unique/partially surviving votes; paired target deduplication; no votes from replaced DNA; reinforcement-neutral counts; unbiased tie bucket behavior; active-only modifiers; family choice affects no stats/abilities.
 
-Integration runtime tests when Phase C is authorized: concurrent switch/deadline/grace release races persist one descriptor; random tie/background cannot reroll after duplicate actions/reload/eviction/restart; private hands/entropy stay private; old credentials/active sessions have an explicit versioned compatibility path; no retroactive random transformation of legacy attempts. Extend protocol/schema/rules versions only where justified and document compatibility precisely.
+Historical Phase C integration runtime tests (the old credential compatibility path is superseded by the approved clean cutover): concurrent switch/deadline/grace release races persist one descriptor; random tie/background cannot reroll after duplicate actions/reload/eviction/restart; private hands/entropy stay private; old credentials/active sessions have an explicit versioned compatibility path; no retroactive random transformation of legacy attempts. Extend protocol/schema/rules versions only where justified and document compatibility precisely.
 
 Animation/browser tests: shared contact timing and clock seeking; no elapsed-time resets; no delayed cosmetic backlog; proper recoil/block/miss/defeat; mirroring leaves words readable; registered overlays across all produced poses; rendering/texture/audio bounds; slow/failed asset retry; sound-unlock failure; reduced motion; phone portrait/landscape; keyboard and accessible text.
 
-Preserve relevant room, public matchmaking, recovery, admission, DNA, scoring/awards, host advancement, replay, and three-round regression coverage. Run check/build and appropriate runtime/browser suites; Worker changes need a dry run. Do not claim browser/device/audio playback checks if unavailable. Local timing is not Cloudflare quota evidence.
+Preserve relevant admission/recovery, DNA, scoring/awards, replay and three-round coverage; replace obsolete private/host/queue assertions with tests of the new approved public contract. Old scripts/checks remain clearly historical. Run check/build and appropriate runtime/browser suites; Worker changes need a dry run. Do not claim browser/device/audio playback checks if unavailable. Local timing is not Cloudflare quota evidence.
 
 Completion reports include: changed behavior and files; assets actually ready versus planned; previews and review evidence; passed checks and exit status; unrun/failed checks; bounds/performance measurements with scope; remaining limitations; phase reached; and the precise next decision. No implementation is considered visually complete on unit tests alone.
 
 ## 15. Authorized completion archive
 
-After step 6 and Battle v2 A/B/C are complete and accepted, revise/consolidate current plans, status, architecture, handoff and AGENTS. Move deprecated/historical plans, reviews and evidence into dated `docs/archive/` folders with an index, preserving dated verification and provenance. Repair all links and tooling references; retain source masters needed by live provenance and rerun relevant checks. This future cleanup is authorized but its completion condition has not been met. Phase D acceptance and deployment remain separately gated.
+After step 6 and Battle v2 A/B/C implementation are complete, revise/consolidate current plans, status, architecture, handoff and AGENTS. Move deprecated/historical plans, reviews and evidence into dated `docs/archive/` folders with an index, preserving dated verification and provenance. Repair all links and tooling references; retain source masters needed by live provenance and rerun relevant checks. Closed step/A/B material is now archived after Phase C implementation; current Phase C evidence remains outside the archive. Phase D acceptance is distinct from implementation completion. Phase D acceptance and deployment remain separately gated.
+
+## 16. Current integration contracts
+
+Room JSON schema 7/protocol 6/rules 0.6.0 introduces named public formation, majority start deadlines, clean epoch-6 guest/session cutover, irreversible membership departure, persisted creature names and solo continuation. DNA/combat calibration remains 0.2.0/0.3.0. Old private/queue/display entry returns expired-session responses; no infrastructure namespace/class/binding changes or global data wipe. The room still stores one battle-v2-b2 form/arena per frozen attempt before broadcast; snapshots omit private vote audit counts, entropy, trays and credentials. New-design retries/reconnects retain exact receipts and do not reroll.
+
+Accepted refinements: New Rocker word variants and final 3/2/1 countdown, centered final word, smaller timeout-only winner/draw line, no matching blocked-strike SVG, text-only damage and no recover/shard graphics/sound. Crawling/malfunction/poison/slowing/strike/guard/defeat gain is 1.15; recoil is 1.035. Balanced sources, onset-only playback, bounded voice/effect/cache limits and gesture/device controls remain. Saved-monster/card/cabinet requirements are cancelled. [Actual checks and limits](IMPLEMENTATION-STATUS.md) distinguish implementation, user acceptance, local browser evidence and Phase D physical/deployed verification.

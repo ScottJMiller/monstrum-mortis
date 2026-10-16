@@ -1,0 +1,15 @@
+{
+  "scope": "Real production build and local SQLite/network clients on an insecure HTTP hostname mapped to loopback. Native browser crypto availability is not mocked. Chromium phone viewport, NOT physical iPhone or Safari.",
+  "physicalDevices": false,
+  "scenarios": [
+    "HTTP startup, private create/join, synchronized sockets, clipboard fallback, credential reload and leave/create with fresh replay keys",
+    "Four independent HTTP Quick Play clients issue guests/tickets, confirm readiness and receive one public room",
+    "Trusted loopback native-randomUUID path still creates a room"
+  ],
+  "crypto": {
+    "secure": false,
+    "randomUUID": "undefined",
+    "getRandomValues": "function"
+  },
+  "status": "passed"
+}

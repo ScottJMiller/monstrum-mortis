@@ -1,0 +1,19 @@
+{
+  "recordedAt": "2026-10-16T23:32:37.657Z",
+  "scope": "Offline production build fingerprint for native-scroll/viewport correction; no physical-device or quota claim.",
+  "buildFingerprint": "33e4313b3203472b17eabdb31746f15baf470952c41b3d56f6df4cc3f4f9cae1",
+  "files": 249,
+  "bytes": 9755692,
+  "main": {
+    "path": "/assets/index-DvNiu3Gh.js",
+    "bytes": 353380,
+    "sha256": "9dd4b7da137b2db431e119e83cb8498a6a7c2572903190ffdc9e15b3b87c1320"
+  },
+  "css": [
+    {
+      "path": "/assets/index-xgMzGSCC.css",
+      "bytes": 45754,
+      "sha256": "d7234b3b12531ece5913c69d950306786f0470b05823da4be31772a364ff2bab"
+    }
+  ]
+}

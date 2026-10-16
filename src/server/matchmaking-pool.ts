@@ -1,23 +1,63 @@
 import { DurableObject } from 'cloudflare:workers';
 import { GAME_RULES as R } from '../shared/rules.ts';
 import type { MatchmakingRegion } from '../shared/rules.ts';
-import { PROTOCOL_VERSION, QUEUE_SOCKET_PROTOCOL } from '../shared/protocol.ts';
+import { PROTOCOL_VERSION, QUEUE_SOCKET_PROTOCOL, LABS_SOCKET_PROTOCOL } from '../shared/protocol.ts';
 import type { PublicQueueStatus, ReplacementOffer } from '../shared/matchmaking.ts';
 import type { WorkerEnv } from './env.ts';
 import { advanceQueue, newPool, queueDeadline } from './queue-model.ts';
 import type { Allocation, PoolModel, Ticket } from './queue-model.ts';
 import { body, exact, failure, operationId, ServiceError } from './validation.ts';
-interface Attachment { guestId: string; ticketId: string; openedAtMs: number; closed: boolean }
+interface Attachment { kind?: 'directory'; guestId: string; ticketId: string; openedAtMs: number; closed: boolean }
 export class MatchmakingPool extends DurableObject<WorkerEnv> {
   private tail: Promise<unknown> = Promise.resolve();
   constructor(ctx: DurableObjectState, env: WorkerEnv) {
     super(ctx, env);
+    ctx.storage.sql.exec('CREATE TABLE IF NOT EXISTS forming_labs(room_id TEXT PRIMARY KEY, revision INTEGER NOT NULL, record TEXT, expires_ms INTEGER NOT NULL)');
+    ctx.storage.sql.exec('CREATE TABLE IF NOT EXISTS forming_creations(operation_hash TEXT PRIMARY KEY, fingerprint TEXT NOT NULL, room_id TEXT NOT NULL, name TEXT NOT NULL, expires_ms INTEGER NOT NULL)');
     ctx.storage.sql.exec('CREATE TABLE IF NOT EXISTS pool_state(singleton INTEGER PRIMARY KEY, region TEXT NOT NULL, record TEXT NOT NULL)');
     ctx.storage.sql.exec('CREATE TABLE IF NOT EXISTS notices(room_id TEXT PRIMARY KEY, revision INTEGER NOT NULL, expires_ms INTEGER NOT NULL)');
     ctx.storage.sql.exec('CREATE TABLE IF NOT EXISTS rate_limits(guest_id TEXT PRIMARY KEY, until_ms INTEGER NOT NULL, count INTEGER NOT NULL)');
     ctx.setWebSocketAutoResponse(new WebSocketRequestResponsePair('ping', 'pong'));
   }
   private exclusive<T>(work: () => Promise<T>) { const result = this.tail.then(work); this.tail = result.catch(() => undefined); return result; }
+  private directorySockets(){return this.ctx.getWebSockets('directory').filter(ws=>!this.attachment(ws).closed);}
+  private directoryProjection(){const now=Date.now();return this.ctx.storage.sql.exec<{record:string}>('SELECT record FROM forming_labs WHERE record IS NOT NULL AND expires_ms > ? ORDER BY room_id LIMIT 64',now).toArray().map(row=>JSON.parse(row.record)).filter(lab=>lab.deadlineMs===null||lab.deadlineMs-now>R.startCountdownMs);}
+  private sendDirectory(ws:WebSocket){try{ws.send(JSON.stringify({labs:this.directoryProjection(),serverTimeMs:Date.now()}));}catch{}}
+  async formingLabs():Promise<import('../shared/room-service.ts').FormingLab[]> {
+    return this.exclusive(async()=>{
+      const now=Date.now();this.ctx.storage.sql.exec('DELETE FROM forming_labs WHERE expires_ms <= ?',now);
+      return this.ctx.storage.sql.exec<{record:string}>('SELECT record FROM forming_labs WHERE record IS NOT NULL ORDER BY room_id LIMIT 64').toArray().map(row=>JSON.parse(row.record)).filter(lab=>lab.deadlineMs===null||lab.deadlineMs-now>R.startCountdownMs);
+    });
+  }
+  async announceForming(id:string, revision:number, lab:import('../shared/room-service.ts').FormingLab|null) {
+    return this.exclusive(async()=>{
+      const now=Date.now();this.ctx.storage.sql.exec('DELETE FROM forming_labs WHERE expires_ms <= ?',now);
+      const prior=this.ctx.storage.sql.exec<{revision:number;record:string|null}>('SELECT revision, record FROM forming_labs WHERE room_id = ?',id).toArray()[0];
+      if(prior&&prior.revision>=revision)return;
+      if(!prior&&this.ctx.storage.sql.exec<{n:number}>('SELECT COUNT(*) AS n FROM forming_labs').one().n>=4096)return;
+      this.ctx.storage.sql.exec('INSERT OR REPLACE INTO forming_labs VALUES(?, ?, ?, ?)',id,revision,lab?JSON.stringify(lab):null,now+(lab?75_000:24*60*60_000));
+      if((prior?.record??null)!==(lab?JSON.stringify(lab):null)){const message=JSON.stringify({labs:this.directoryProjection(),serverTimeMs:Date.now()});for(const ws of this.directorySockets())try{ws.send(message);}catch{}}
+    });
+  }
+  async createForming(guestId:string,operation:string,alias:string):Promise<import('./admission.ts').ServiceResult<import('../shared/room-service.ts').RoomEntryResponse>> {
+    // Persist allocation before the room RPC. Retrying a lost response cannot create another lab.
+    try { const allocation=await this.exclusive(async()=>{
+      const now=Date.now();this.ctx.storage.sql.exec('DELETE FROM forming_creations WHERE expires_ms <= ?',now);
+      const fingerprint=JSON.stringify([guestId,alias]);const key=guestId+':'+operation;
+      let a=this.ctx.storage.sql.exec<{fingerprint:string;room_id:string;name:string}>('SELECT fingerprint, room_id, name FROM forming_creations WHERE operation_hash = ?',key).toArray()[0];
+      if(a&&a.fingerprint!==fingerprint)throw new ServiceError('idempotency-conflict','Creation details changed.',409);
+      if(!a){
+        this.ctx.storage.sql.exec('DELETE FROM forming_labs WHERE expires_ms <= ?',now);
+        if(this.ctx.storage.sql.exec<{n:number}>('SELECT COUNT(*) AS n FROM forming_labs WHERE record IS NOT NULL').one().n>=64)throw new ServiceError('room-full','Choose a forming laboratory before creating another.',409);
+        if(this.ctx.storage.sql.exec<{n:number}>('SELECT COUNT(*) AS n FROM forming_creations').one().n>=4096)throw new ServiceError('rate-limited','Laboratory capacity reached. Retry later.',429);
+        const adjectives=['Crooked','Velvet','Mourning','Hollow','Pickled','Wobbling','Grim','Unlicensed'];const nouns=['Academy','Sanatorium','Workshop','Institute','Observatory','Laboratory','Infirmary','Conservatory'];const n=crypto.getRandomValues(new Uint8Array(3));const subjects=['Gristle','Misfortune','Marrow','Wobbles','Oddities','Whispers','Sighs','Questionable Science'];
+        a={fingerprint,room_id:'l-'+crypto.randomUUID(),name:`${adjectives[n[0]!%8]} ${nouns[n[1]!%8]} of ${subjects[n[2]!%8]}`};
+        this.ctx.storage.sql.exec('INSERT INTO forming_creations VALUES(?, ?, ?, ?, ?)',key,fingerprint,a.room_id,a.name,now+R.roomMaxLifetimeMs+R.roomIdleExpiryMs);
+      }return a;
+    });
+    return await this.env.ROOMS.get(this.env.ROOMS.idFromName(`room:${allocation.room_id}`)).enterForming(allocation.room_id,guestId,operation,alias,allocation.name);
+    } catch(error) { return error instanceof ServiceError ? {ok:false,code:error.code,message:error.message,status:error.status} : {ok:false,code:'temporarily-unavailable',message:'Laboratory creation unavailable. Retry shortly.',status:503}; }
+  }
   private load(): { region: MatchmakingRegion; model: PoolModel } | null {
     const row = this.ctx.storage.sql.exec<{ region: MatchmakingRegion; record: string }>('SELECT region, record FROM pool_state WHERE singleton = 1').toArray()[0];
     return row ? { region: row.region, model: JSON.parse(row.record) } : null;
@@ -28,7 +68,7 @@ export class MatchmakingPool extends DurableObject<WorkerEnv> {
   }
   private lease(guestId: string) { return this.env.GUEST_LEASES.get(this.env.GUEST_LEASES.idFromName(`guest:${guestId}`)); }
   private attachment(ws: WebSocket) { return ws.deserializeAttachment() as Attachment; }
-  private sockets() { return this.ctx.getWebSockets().filter(ws => !this.attachment(ws).closed); }
+  private sockets() { return this.ctx.getWebSockets().filter(ws => !this.attachment(ws).closed && this.attachment(ws).kind!=='directory'); }
   private close(ws: WebSocket, reason: string) { const a = this.attachment(ws); a.closed = true; ws.serializeAttachment(a); try { ws.close(4001, reason); } catch { /* already closed */ } }
   private status(p: PoolModel, region: MatchmakingRegion, t: Ticket): PublicQueueStatus {
     const c = p.checks.find(c => c.id === t.checkId);
@@ -117,6 +157,12 @@ export class MatchmakingPool extends DurableObject<WorkerEnv> {
   }
   async fetch(request: Request): Promise<Response> {
     try {
+      if(new URL(request.url).pathname==='/internal/directory')return await this.exclusive(async()=>{
+        if(request.headers.get('Upgrade')?.toLowerCase()!=='websocket'||!(request.headers.get('Sec-WebSocket-Protocol')??'').split(',').map(s=>s.trim()).includes(LABS_SOCKET_PROTOCOL))throw new ServiceError('stale-session','Reload the laboratory browser.',426);
+        if(this.directorySockets().length>=256)throw new ServiceError('rate-limited','Laboratory browser is busy. Retry shortly.',429);
+        const pair=new WebSocketPair();this.ctx.acceptWebSocket(pair[1],['directory']);pair[1].serializeAttachment({kind:'directory',guestId:'',ticketId:'',openedAtMs:Date.now(),closed:false} satisfies Attachment);this.sendDirectory(pair[1]);
+        return new Response(null,{status:101,webSocket:pair[0],headers:{'Sec-WebSocket-Protocol':LABS_SOCKET_PROTOCOL}});
+      });
       // Fence cancellation outside the coordinator queue so it can interrupt allocation I/O.
       if (new URL(request.url).pathname.endsWith('/cancel')) {
         const guest = await this.auth(request); const v = await body(request.clone()); exact(v, ['ticketId']); const ticketId = operationId(v.ticketId);
@@ -145,7 +191,8 @@ export class MatchmakingPool extends DurableObject<WorkerEnv> {
       t = p.tickets.find(t => t.id === id);
       if (t && (t.guestId !== guest.guestId || t.mode !== v.mode)) throw new ServiceError('idempotency-conflict', 'Ticket key reused.', 409);
       if (!t) {
-        if (p.tickets.length >= 1000) throw new ServiceError('queue-full', 'This pool is at capacity. Choose another pool.', 503);
+        if(region!==R.matchmaking.newEntryRegion)throw new ServiceError('invalid-action','New Quick Play entries use Americas. Existing tickets can still resume or cancel.');
+        if (p.tickets.length >= 1000) throw new ServiceError('queue-full', 'Quick Play is at capacity. Try again shortly or create a private laboratory.', 503);
         if (!await this.lease(guest.guestId).acquireQueue(id, region)) throw new ServiceError('guest-busy', 'Leave or cancel the current queue/room before entering another pool.', 409);
         t = { id, guestId: guest.guestId, alias: guest.alias, mode: v.mode, enteredAtMs: now, lastSeenAtMs: now, leaseRenewAtMs: now + 45_000, state: 'waiting', checkId: null, ready: false, admission: null }; p.tickets.push(t);
       }
@@ -182,7 +229,7 @@ export class MatchmakingPool extends DurableObject<WorkerEnv> {
   }
   async webSocketMessage(ws: WebSocket, message: string | ArrayBuffer) {
     return this.exclusive(async () => {
-      const a = this.attachment(ws); const saved = this.load(); if (a.closed || !saved) return;
+      const a = this.attachment(ws); if(a.kind==='directory'){this.close(ws,'Directory sockets are receive-only');return;} const saved = this.load(); if (a.closed || !saved) return;
       // Queue intentions use authenticated HTTP; the socket is synchronization only.
       if (message !== 'sync') { this.close(ws, 'Use queue HTTP intentions'); return; }
       const last = this.ctx.storage.sql.exec<{ count: number }>('SELECT count FROM rate_limits WHERE guest_id = ? AND until_ms > ?', a.guestId, Date.now()).toArray()[0]?.count ?? 0;

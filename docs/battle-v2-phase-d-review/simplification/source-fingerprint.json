@@ -1,0 +1,6 @@
+{
+  "scope": "Current src tree; no credentials. Git HEAD alone does not identify this uncommitted candidate.",
+  "sha256": "2595c563febef1d0ca9ebd61101a4a242c148d09df070283285c41677736d314",
+  "files": 82,
+  "workerDryBundleSha256": "9996c23999abc5036b8ea940ef375e6a08f48b119ff2820952e33be443b443d7"
+}

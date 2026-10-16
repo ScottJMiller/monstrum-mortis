@@ -1,0 +1,140 @@
+{
+  "scope": "Actual local Chrome screenshots/audio/motion; human acceptance and physical devices separate",
+  "files": [
+    {
+      "path": "docs/battle-v2-phase-c-review/family-regressions/battle-blob.png",
+      "sha256": "84f9de4e70584c3075f96b81ef0b5892ae997f812a1bd39233cf6e2bc91de767",
+      "bytes": 1431254
+    },
+    {
+      "path": "docs/battle-v2-phase-c-review/family-regressions/battle-family-1.png",
+      "sha256": "84fa9c568708ad51c2399d7aa4f97baf4163b188eeaa67a1a36ec54bcb0f5646",
+      "bytes": 1464695
+    },
+    {
+      "path": "docs/battle-v2-phase-c-review/family-regressions/battle-family-3.png",
+      "sha256": "169f3dd6fda9b8108df09606251a05bf72f955cb119df0a620825d7621dfa65f",
+      "bytes": 1491400
+    },
+    {
+      "path": "docs/battle-v2-phase-c-review/family-regressions/before-after.png",
+      "sha256": "e3fd9c5bdb49526123ff18dda2831edfc481a2a66f95551a0f2da54fab46ee7d",
+      "bytes": 392179
+    },
+    {
+      "path": "docs/battle-v2-phase-c-review/family-regressions/contact-sheet.png",
+      "sha256": "dbd604b53f3c014ed8d9fd6623badf43562a40ada9f13b19a4e4faef8b3c7693",
+      "bytes": 521104
+    },
+    {
+      "path": "docs/battle-v2-phase-c-review/family-regressions/family-1-attack.png",
+      "sha256": "3df1be9d10ad5aeda88ff9f28d6e3d7619fd77152be38734973fa079135d3329",
+      "bytes": 687873
+    },
+    {
+      "path": "docs/battle-v2-phase-c-review/family-regressions/family-1-before.png",
+      "sha256": "a39b0e1c3b3a5eda9571a4e0b762725473d97f6bd71fdd7a2cb9def0708f2c25",
+      "bytes": 656811
+    },
+    {
+      "path": "docs/battle-v2-phase-c-review/family-regressions/family-1-bite.png",
+      "sha256": "fc849056e3c84a6ef9ed4a9cc73069d653904ac9d99b6e29096a6b76b2d73d2c",
+      "bytes": 685695
+    },
+    {
+      "path": "docs/battle-v2-phase-c-review/family-regressions/family-1-defeat.png",
+      "sha256": "4f30853d9bc8d4cf4c34bddbd2ce9e77130f341dc97de01cf68a6a029b70a0f7",
+      "bytes": 654179
+    },
+    {
+      "path": "docs/battle-v2-phase-c-review/family-regressions/family-1-defense.png",
+      "sha256": "367758c6e246b0ff189e5fc246d3823587e58ba0d8ff13d879703f9e46db41ed",
+      "bytes": 686168
+    },
+    {
+      "path": "docs/battle-v2-phase-c-review/family-regressions/family-1-idle.png",
+      "sha256": "65d53104436ac94f8ddc02eac1431931f7524c73bbc27e7a8f75ae7a749c2f40",
+      "bytes": 701914
+    },
+    {
+      "path": "docs/battle-v2-phase-c-review/family-regressions/family-1-recoil.png",
+      "sha256": "a9320f16ab5604de1f86a86903d2b9e46b9f1e511e28f1152a26857d3ed0e800",
+      "bytes": 731117
+    },
+    {
+      "path": "docs/battle-v2-phase-c-review/family-regressions/family-3-attack.png",
+      "sha256": "2bab09d3ed4d147999612bbc14d56cf5b829e7f16f357cccb73d179ca82d4463",
+      "bytes": 750625
+    },
+    {
+      "path": "docs/battle-v2-phase-c-review/family-regressions/family-3-before.png",
+      "sha256": "5197929048f292752267db790f34a7e00de33e2aa35e7aa73b6a3a1a8f2eda74",
+      "bytes": 738821
+    },
+    {
+      "path": "docs/battle-v2-phase-c-review/family-regressions/family-3-defeat.png",
+      "sha256": "89b053d833638e9d66c59f4d187a5b718952bced18c97afc4e2cebbb1d5bebab",
+      "bytes": 709949
+    },
+    {
+      "path": "docs/battle-v2-phase-c-review/family-regressions/family-3-defense.png",
+      "sha256": "7e0fe3e525305f7e32ffe41855d4224323c80b96fbee195cb7267c85f41fd597",
+      "bytes": 745382
+    },
+    {
+      "path": "docs/battle-v2-phase-c-review/family-regressions/family-3-idle.png",
+      "sha256": "527c3f1604fab263bb1f6d2aa25bd1e1743d76566a671f08f507734c950ffa45",
+      "bytes": 781826
+    },
+    {
+      "path": "docs/battle-v2-phase-c-review/family-regressions/family-3-recoil.png",
+      "sha256": "dfbca719f74a936f62b34b7821011f2721695f6a9f88ec2d694b46387fbbfdce",
+      "bytes": 794133
+    },
+    {
+      "path": "docs/battle-v2-phase-c-review/family-regressions/family-audio.webm",
+      "sha256": "9c5eadbe190ab3aed50e2d1d6780f3c57349fe3b7123c45439115b1059513b85",
+      "bytes": 179006
+    },
+    {
+      "path": "docs/battle-v2-phase-c-review/family-regressions/family-recording.mp4",
+      "sha256": "2f54772f243d4cbec318478a3f0806076f2484a547218d4cb625e7769a1e9c1e",
+      "bytes": 2878175
+    },
+    {
+      "path": "docs/battle-v2-phase-c-review/family-regressions/kitten-mirrored-tint.png",
+      "sha256": "8a139482631478fa74329f01471307e41d38238253fbaa7935d01c38bdac697d",
+      "bytes": 754242
+    },
+    {
+      "path": "docs/battle-v2-phase-c-review/family-regressions/motion-frames.png",
+      "sha256": "0c30d522a72dd83a51c8c7c1a19eb81d4469b6c22b1d2dc3800fff913cf7dfd4",
+      "bytes": 1072420
+    },
+    {
+      "path": "docs/battle-v2-phase-c-review/family-regressions/phone-blob.png",
+      "sha256": "4d578b87a7c0622bf24a9e4b9b7f59f9aca026d1a016e9c62498dec9c63093ad",
+      "bytes": 234576
+    },
+    {
+      "path": "docs/battle-v2-phase-c-review/family-regressions/phone-family-1.png",
+      "sha256": "77e0e4d978558ea90be379280c8d11d8896e67eb21d04756534729c4c85b265a",
+      "bytes": 235279
+    },
+    {
+      "path": "docs/battle-v2-phase-c-review/family-regressions/phone-family-3.png",
+      "sha256": "abbf955a50187abe41f52bf3efba52b7e6e35e277b4418e9d276bce1657c30f1",
+      "bytes": 238980
+    },
+    {
+      "path": "docs/battle-v2-phase-c-review/family-regressions/poses-contact-sheet.png",
+      "sha256": "9525aedd265e5c70183bcd06c585ef6fbbaf4acc5a5d468bf95219ecea2d4d94",
+      "bytes": 909320
+    },
+    {
+      "path": "docs/battle-v2-phase-c-review/family-regressions/voting-blob-slash.png",
+      "sha256": "f8daa7d6cb9f5132047c9dde797998dd5f42a4a9d2b85599cd2d87a95a1338c0",
+      "bytes": 1456461
+    }
+  ]
+}

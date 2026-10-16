@@ -1,0 +1,13 @@
+{
+  "checkedAt": "2026-10-16T23:44:44.950Z",
+  "origin": "https://monstrum-mortis.scott-jeffrey-miller.workers.dev",
+  "version": "f4813c32-185e-4a6a-b74a-1a508c76aadc",
+  "main": "/assets/index-DeMqWIJu.js",
+  "mainSha256": "cbb82b2dd7b23d64e48f09d09ebfef39cdc176a57608a30b8450acbbd5f6ec34",
+  "requests": 3,
+  "checks": [
+    "Served HTML and main bundle match the verified name-preference build",
+    "Health preserves protocol 6/rules 0.6.0 and all four configured bindings"
+  ],
+  "scope": "Bounded HTTP bundle/health verification only; browser behavior verified locally, not physical devices or production load."
+}

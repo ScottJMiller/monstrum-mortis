@@ -1,3 +1,4 @@
+import fonts from './interface-fonts.json' with { type: 'json' };
 import rivals from './rivals.json' with { type: 'json' };
 import clues from './specimen-clues.json' with { type: 'json' };
 import production from './production.json' with { type: 'json' };
@@ -14,11 +15,13 @@ export interface AssetDefinition {
   attachment: { x: number; y: number } | null;
 }
 
-export const ASSET_MANIFEST_VERSION = '0.4.0';
+export const ASSET_MANIFEST_VERSION = '0.5.0';
 
 const planned = (id: string, kind: AssetDefinition['kind']): AssetDefinition => {
   const clue = clues.find(a => a.id === id);
-  if (clue) return { id, kind, status: 'ready', url: clue.url, origin: 'original', license: 'Project-authored SVG; assets/specimen-provenance.json', attachment: null };
+  if (clue) return { id, kind, status: 'ready', url: clue.url, origin: clue.url.endsWith('.webp') ? 'generated' : 'original', license: clue.url.endsWith('.webp') ? 'Generated project output; assets/specimens/provenance.json' : 'Project-authored SVG; assets/specimen-provenance.json', attachment: null };
+  const font=fonts.find(f=>f.id===id);
+  if(font)return {id,kind,status:'ready',url:font.url,origin:'licensed',license:font.license,attachment:null};
   const combat = rivals.find(a=>a.id===id);
   if(combat) return {id,kind,status:'ready',url:combat.url,origin:'generated',license:'Generated project output; assets/rival-provenance.json',attachment:combat.attachment};
   const ready = production.find(a => a.id === id);
@@ -39,6 +42,7 @@ export const ASSET_MANIFEST: readonly AssetDefinition[] = [
   planned('creature.mouth', 'creature-part'),
   planned('font.display', 'font'),
   planned('font.interface', 'font'),
+  planned('font.heading', 'font'),
   planned('audio.hum', 'audio'),
   planned('audio.crackle', 'audio'),
   planned('audio.bubbling', 'audio'),
@@ -60,6 +64,5 @@ export const ASSET_MANIFEST: readonly AssetDefinition[] = [
   ].map(id => planned(`mutation.${id}`, 'creature-part')),
   ...['iron-widow', 'gutter-seraph', 'carrion-duke', 'coil-saint', 'maw-engine', 'the-unfinished']
     .map(id => planned(`rival.${id}`, 'creature-part')),
-  ...['serrated', 'pulsing', 'branching', 'fuzzy', 'spiral']
-    .map(id => planned(`clue.${id}`, 'texture')),
+  ...clues.map(clue=>planned(clue.id, 'texture')),
 ];

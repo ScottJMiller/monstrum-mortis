@@ -20,14 +20,14 @@ async function page(width=1280,reduced=false,fallback=false){const context=await
   set onmessage(handler){super.onmessage=event=>{const msg=event.data==='pong'?null:JSON.parse(event.data);if(window.__dropAck&&msg?.kind==='action-accepted'&&msg.actionId===window.__lastInjection){window.__dropAck=false;return;}handler(event);};}
  };
  if(fallback)HTMLCanvasElement.prototype.getContext=()=>null;
-},{fallback});const p=await context.newPage();p.on('pageerror',e=>errors.push(e.message));await p.goto(origin);await p.waitForSelector('.chamber-canvas canvas, .static-creature');return p;}
+},{fallback});const p=await context.newPage();p.on('pageerror',e=>errors.push(e.message));await p.goto(origin);await p.waitForSelector('.chamber-canvas canvas, .static-creature');await p.locator('.masthead h1').waitFor();const welcome=p.getByRole('button',{name:'Enter laboratory',exact:true});if(await welcome.count())await welcome.click();return p;}
 async function credentials(p){return p.evaluate(()=>JSON.parse(sessionStorage.getItem('mm.room.v2')));}
 async function view(p){const c=await credentials(p);return (await p.request.get(new URL(`/api/rooms/${c.roomId}/snapshot`,origin).href,{headers:{Authorization:`Bearer ${c.reconnectToken}`}})).json();}
 async function record(p,edit){const c=await credentials(p);const bindings=await mf.getBindings();const stub=bindings.ROOMS.get(bindings.ROOMS.idFromName(`room:${c.roomId}`));const sql=await mf.unsafeGetDurableObjectStorage('monstrum-mortis','LaboratoryRoom',{id:stub.id.toString()});const r=JSON.parse((await sql.exec('SELECT record FROM room_state'))[0].record);if(edit){edit(r,c);r.revision++;await sql.exec('UPDATE room_state SET record=?',JSON.stringify(r));}return r;}
 async function sync(p){const after=await p.evaluate(()=>{const after=window.__mmFrames.length;window.__mmSockets.at(-1).send(JSON.stringify({protocolVersion:5,actionId:crypto.randomUUID(),kind:'sync-request',afterRevision:0}));return after;});await p.waitForFunction(after=>window.__mmFrames.slice(after).some(m=>m.kind==='controller-snapshot'),after);}
 async function connected(p){await p.waitForFunction(()=>document.querySelector('.connection-badge')?.textContent.includes('Connected') && !!document.querySelector('.room-panel'));}
 async function create(p,name){await p.getByLabel('Player Name',{exact:true}).fill(name);await p.getByRole('button',{name:'Create Private Laboratory',exact:true}).click();await connected(p);return credentials(p);}
-async function joinLaboratory(p,id,name,display=false){await p.getByLabel('Invitation code',{exact:true}).fill(id);if(display)await p.getByLabel('Join as a display without a player seat').check();else await p.getByLabel('Player Name',{exact:true}).fill(name);await p.getByRole('button',{name:'Join by Code',exact:true}).click();await connected(p);}
+async function joinLaboratory(p,id,name,display=false){if(display){const response=await p.request.post(new URL(`/api/rooms/${id}/join`,origin).href,{data:{operationId:crypto.randomUUID(),alias:name,role:'display'}});const entry=await response.json();await p.evaluate(c=>sessionStorage.setItem('mm.room.v2',JSON.stringify(c)),entry.credentials);await p.reload();}else{await p.getByLabel('Invitation code',{exact:true}).fill(id);await p.getByLabel('Player Name',{exact:true}).fill(name);await p.getByRole('button',{name:'Join by Code',exact:true}).click();}await connected(p);}
 async function readyTray(p){await p.waitForFunction(()=>document.querySelectorAll('.specimen-button').length===4&&[...document.querySelectorAll('.specimen-button')].every(b=>!b.disabled));}
 async function inject(p,expected='action-accepted'){
  const previous=await p.evaluate(()=>window.__lastInjection);
@@ -62,9 +62,9 @@ try{
  assert.equal(await host.evaluate(()=>document.activeElement?.id),'specimen-tray-heading');
  await display.waitForFunction(()=>document.querySelectorAll('.static-creature img').length>=3);
  assert.equal(await phone.locator('.chamber-still').count(),1);await host.screenshot({path:join(artifacts,'desktop-experiment.png'),fullPage:true});await phone.screenshot({path:join(artifacts,'phone-experiment.png'),fullPage:true});
- const cooldown=accepted.controller.nextInjectionAtMs-Date.now();if(cooldown>0)assert.equal(await host.getByRole('button',{name:'Unleash the Creature!',exact:true}).isDisabled(),true);
+ const cooldown=(accepted.controller.switchReadyAtMs??accepted.controller.nextInjectionAtMs)-Date.now();if(cooldown>0)assert.equal(await host.getByRole('button',{name:'Unleash the Creature!',exact:true}).isDisabled(),true);
  await host.waitForFunction(()=>!document.querySelector('.unleash-switch').disabled);pass('independent simultaneous browser injections update doses, captions and identical rendered anatomy; focus and real cooldown work');
- await host.evaluate(()=>window.__dropAck=true);await host.locator('.specimen-button').first().click();await host.getByRole('button',{name:'Inject selected specimen',exact:true}).click();await host.waitForFunction(()=>!window.__dropAck);
+ await host.waitForFunction(()=>!document.querySelector('.primary-injection').disabled || !document.querySelector('.specimen-button').disabled);await host.locator('.specimen-button').first().click();await host.waitForFunction(()=>!document.querySelector('.primary-injection').disabled);await host.evaluate(()=>window.__dropAck=true);await host.locator('.specimen-button').first().click();await host.getByRole('button',{name:'Inject selected specimen',exact:true}).click();await host.waitForFunction(()=>!window.__dropAck);
  const pending=await host.evaluate(()=>JSON.parse(sessionStorage.getItem('mm.pending-intent.v5')).action);assert.equal((await view(host)).controller.remainingDoses,4);
  await host.reload();await connected(host);await host.waitForFunction(()=>sessionStorage.getItem('mm.pending-intent.v5')===null);
  assert.equal((await view(host)).controller.remainingDoses,4);assert.ok(await host.evaluate(id=>window.__mmIntents.some(a=>a.actionId===id&&a.kind==='inject'),pending.actionId));
@@ -101,7 +101,7 @@ try{
  const frozen=(await record(host)).experiment.frozen;assert.equal(frozen.history.length,7);assert.equal((await view(host)).snapshot.teamScore,0);await a11y(host);await host.screenshot({path:join(artifacts,'frozen-release.png'),fullPage:true});
  pass('six browser injections never auto-switch; explicit switches reach one frozen release and the approved Prepare for combat release headline before authoritative combat');
  const publicPages=await Promise.all([page(),page(390),page(768),page()]);
- for(const p of publicPages){const skip=p.getByRole('button',{name:'Skip rehearsal',exact:true});if(await skip.count())await skip.click();await p.getByLabel('Regional pool').selectOption('americas');await p.getByRole('button',{name:'Enter Quick Play',exact:true}).click();}
+ for(const p of publicPages){const skip=p.getByRole('button',{name:'Skip rehearsal',exact:true});if(await skip.count())await skip.click();await p.getByRole('button',{name:'Enter Quick Play',exact:true}).click();}
  await Promise.all(publicPages.map(async p=>{const b=p.getByRole('button',{name:'Ready',exact:true});await b.waitFor();await b.click();}));await Promise.all(publicPages.map(readyTray));
  // Deterministic browser-only lost activation: no intention reaches the app.
  // The helper must recover without ever repeating a submitted injection.

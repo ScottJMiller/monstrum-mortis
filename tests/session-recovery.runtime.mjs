@@ -54,7 +54,7 @@ try {
  await api(`/api/rooms/${privateEntry.credentials.roomId}/snapshot`,null,null,401,privateEntry.credentials);
  await wait(async()=>lostClient.ws.readyState,s=>s!==WebSocket.OPEN,5000);
 
- const newTicket=await enter(recoveryGuest,'europe-africa');
+ const newTicket=await enter(recoveryGuest,'americas');
  await api('/api/guests/leave-session',leaveBody,recoveryGuest,409);
  assert.ok(['waiting','ready-check'].includes((await status(newTicket)).state));
  const queuedSession=await api('/api/guests/session',null,recoveryGuest);
@@ -64,7 +64,7 @@ try {
  await api(`/api/rooms/${roomId}/snapshot`,null,null,401,publicEntry.credentials);
  await wait(async()=>publicClient.ws.readyState,s=>s!==WebSocket.OPEN,5000);
 
- await enter(publicGuests[1],'europe-africa');
+ await enter(publicGuests[1],'americas');
  console.log('PASS: authenticated lost-seat recovery for private/public rooms, queue cancellation, wrong-token denial, and stale/wrong-owner recovery cannot release another claim');
 
 } finally {for(const c of clients)c.close();await mf.dispose();await rm(persistence,{recursive:true,force:true});}

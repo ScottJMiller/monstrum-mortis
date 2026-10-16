@@ -4,7 +4,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { DNA_CATALOGUE } from '../src/server/catalogue/dna.ts';
 import { BASE_STATS, diminishing } from '../src/server/catalogue/mechanics.ts';
-import { applyMutation, beginRelease, effectiveCreature, inject, prepareHand, publicCreature, publicHistory, pullSwitch, draw } from '../src/server/dna-mechanics.ts';
+import { applyMutation, beginRelease, effectiveCreature, inject, prepareHand, publicCreature, publicHistory, pullSwitch, switchReadyAt, draw } from '../src/server/dna-mechanics.ts';
 import { newRoom, connect, startRound, settle, snapshot, controller, disconnect, completePublicRound, publicIntent } from '../src/server/room-model.ts';
 import type { Seat } from '../src/server/room-model.ts';
 import { migrateRoom } from '../src/server/room-storage.ts';
@@ -56,7 +56,7 @@ test('six injections replace one card each, consume cosmetic doses and never aut
     assert.equal(s.remainingDoses, 5 - i); assert.equal(s.tray!.length, 4); assert.notEqual(s.tray![0]!.specimenId, id);
     assert.deepEqual(s.tray!.slice(1).map(s => s.specimenId), other);
     code(() => inject(r, s, r.experiment!.id, s.tray![0]!.specimenId, uid(), now + 5999), 'cooldown');
-    code(() => pullSwitch(r, s, r.experiment!.id, now + 5999), 'cooldown');
+    code(() => pullSwitch(r, s, r.experiment!.id, now + 999), 'cooldown');
   }
   assert.equal(s.finished, false); assert.equal(s.switchPulled, false); assert.deepEqual(effectiveCreature(r.experiment!).stats, BASE_STATS);
   code(() => inject(r, s, r.experiment!.id, s.tray![0]!.specimenId, uid(), 44000), 'no-doses');
@@ -129,7 +129,7 @@ test('legacy schema migration preserves credentials/deadlines and leaves active 
   for (const schemaVersion of [2, 3]) for (const phase of ['lobby', 'briefing', 'experiment', 'release', 'battle'] as const) {
     const r = fixture(); const deadline = r.phaseDeadlineMs; const raw = JSON.parse(JSON.stringify(r));
     raw.schemaVersion = schemaVersion; raw.phase = phase; delete raw.experiment;
-    const migrated = migrateRoom(raw); assert.equal(migrated.schemaVersion, 5); assert.equal(migrated.seats[0]!.tokenHash, 'secret'); assert.equal(migrated.phaseDeadlineMs, deadline);
+    const migrated = migrateRoom(raw); assert.equal(migrated.schemaVersion, 6); assert.equal(migrated.seats[0]!.tokenHash, 'secret'); assert.equal(migrated.phaseDeadlineMs, deadline);
     assert.equal(migrated.experiment !== null, phase === 'briefing'); assert.equal(migrated.seats[0]!.tray!.length, 0);
   }
   const r = fixture(); const persisted = migrateRoom(JSON.parse(JSON.stringify(r))); assert.deepEqual(persisted, r);
@@ -140,7 +140,7 @@ test('legacy schema migration preserves credentials/deadlines and leaves active 
 test('protocol rejects absent attempt IDs, old protocol and submitted authoritative fields', () => {
   const action = { protocolVersion: PROTOCOL_VERSION, actionId: uid(), kind: 'inject', attemptId: uid(), specimenId: uid() };
   assert.equal(parseAction(action).kind, 'inject');
-  for (const invalid of [{ ...action, attemptId: undefined }, { ...action, protocolVersion: 3 }, { ...action, dnaId: 'titan-fibers' }, { ...action, remainingDoses: 6 }]) assert.throws(() => parseAction(invalid));
+  for (const invalid of [{ ...action, attemptId: undefined }, { ...action, protocolVersion: 3 }, { ...action, dnaId: 'titan-fibers' }, { ...action, remainingDoses: 6 }, { ...action, switchReadyAtMs: 0 }]) assert.throws(() => parseAction(invalid));
 });
 
 test('original clue sources match provenance and reveal descriptions without mutation names', () => {
@@ -225,4 +225,28 @@ test('switch at the exact experiment deadline rejects and cannot replace a deadl
   settle(r, r.phaseDeadlineMs!); const frozen = structuredClone(r.experiment!.frozen);
   assert.equal(seat.switchPulled, false); assert.equal(seat.finishReason, 'deadline');
   code(() => pullSwitch(r, seat, r.experiment!.id, 83001), 'wrong-phase'); assert.deepEqual(r.experiment!.frozen, frozen);
+});
+
+
+test('Unleash has its own exact one-second deadline, resets after each injection and survives storage reload', () => {
+ const r=fixture(),s=r.seats[0]!,attempt=r.experiment!.id;
+ inject(r,s,attempt,s.tray![0]!.specimenId,uid(),8000);
+ assert.equal(controller(s,r)!.switchReadyAtMs,9000);
+ code(()=>pullSwitch(r,s,attempt,8999),'cooldown');
+ const loaded=migrateRoom(JSON.parse(JSON.stringify(r))),owner=loaded.seats[0]!;
+ assert.equal(switchReadyAt(loaded,owner),9000);
+ code(()=>inject(loaded,owner,attempt,owner.tray![0]!.specimenId,uid(),9000),'cooldown');
+ pullSwitch(loaded,owner,attempt,9000);assert.equal(owner.remainingDoses,0);assert.equal(owner.finished,true);
+ inject(r,s,attempt,s.tray![0]!.specimenId,uid(),14000);assert.equal(switchReadyAt(r,s),15000);
+ code(()=>pullSwitch(r,s,attempt,14999),'cooldown');pullSwitch(r,s,attempt,15000);
+});
+
+test('stored 0.2/0.3/0.4 attempts retain six-second switch eligibility and load without changing snapshots', () => {
+ for(const version of ['0.2.0','0.3.0','0.4.0']){
+  const r=fixture(),s=r.seats[0]!;r.experiment!.rulesVersion=version;
+  inject(r,s,r.experiment!.id,s.tray![0]!.specimenId,uid(),8000);
+  const loaded=migrateRoom(JSON.parse(JSON.stringify(r)));assert.equal(controller(loaded.seats[0]!,loaded)!.switchReadyAtMs,14000);
+  code(()=>pullSwitch(loaded,loaded.seats[0]!,loaded.experiment!.id,13999),'cooldown');
+  pullSwitch(loaded,loaded.seats[0]!,loaded.experiment!.id,14000);
+ }
 });

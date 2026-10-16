@@ -1,0 +1,5 @@
+{
+  "scope": "Deterministic contact sheets of actual rendered browser screenshots, with clearly labeled historical comparison; no generated mockups.",
+  "generator": "scripts/prepare-simplification-review.mjs",
+  "physicalDevices": false
+}

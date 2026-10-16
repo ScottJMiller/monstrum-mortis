@@ -20,3 +20,9 @@ export interface RoomEntryResponse {
   snapshot: RoomSnapshot;
   controller: ControllerSnapshot | null;
 }
+
+/** Public forming directory: labels only, never credentials or private controller state. */
+export interface FormingLab {
+  roomId: string; name: string; players: { alias: string; symbol: string }[];
+  deadlineMs: number | null; revision: number;
+}

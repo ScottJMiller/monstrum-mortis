@@ -8,10 +8,11 @@ import type { RoomEntryResponse } from '../shared/room-service.ts';
 import type { WorkerEnv } from './env.ts';
 import type { PublicAllocation, PublicGrant, ServiceResult } from './admission.ts';
 import { body, exact, failure, alias, operationId, parseAction, PRIVATE_CODE, PUBLIC_ID, ServiceError } from './validation.ts';
+import { newCombatSession } from './combat.ts';
 import { inject, pullSwitch } from './dna-mechanics.ts';
 import { migrateRoom } from './room-storage.ts';
 import { hash, deriveToken, randomSecret } from './security.ts';
-import { completePublicRound, publicIntent, publicProgress, connectedPlayers, connect, controller, disconnect, expiresAt, livePlayers, newRoom, nextAlarm, requireLive, settle, snapshot, startRound, advancePrivate, replayPrivate, touch } from './room-model.ts';
+import { completePublicRound, publicIntent, publicProgress, connectedPlayers, connect, controller, disconnect, expiresAt, livePlayers, newRoom, nextAlarm, requireLive, settle, snapshot, startRound, advancePrivate, replayPrivate, touch, startVote } from './room-model.ts';
 import type { Seat, StoredRoom } from './room-model.ts';
 
 interface Attachment {
@@ -113,13 +114,13 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
   private advance(room: StoredRoom, now: number) {
     this.reconcile(room, now);
     settle(room, now);
-    if (room.publicState && ['autopsy', 'recovery-lobby', 'session-results'].includes(room.phase)) for (const seat of livePlayers(room)) if (!seat.connected && seat.disconnectDeadlineMs === null) disconnect(room, seat, now, true);
+    if (!room.forming && room.publicState && ['autopsy', 'recovery-lobby', 'session-results'].includes(room.phase)) for (const seat of livePlayers(room)) if (!seat.connected && seat.disconnectDeadlineMs === null) disconnect(room, seat, now, true);
     for (const grant of room.reservations) {
       if (!grant.cancelled && !grant.consumedByOperationHash && grant.expiresAtMs <= now) grant.cancelled = true;
     }
   }
   private async schedule(room: StoredRoom) {
-    if (room.phase === 'closed') { await this.ctx.storage.deleteAlarm(); return; }
+    if (room.phase === 'closed') { await this.ctx.storage.setAlarm(Date.now() + 1); return; }
     const socketCheck = this.sockets().length || room.publicState || room.seats.some(s => s.guestId && !s.departed) ? Date.now() + SOCKET_LIVENESS_MS : Infinity;
     await this.ctx.storage.setAlarm(Math.max(Date.now() + 1, Math.min(nextAlarm(room), socketCheck, room.publicState?.notice?.pending ? Date.now() + 1000 : Infinity, ...room.seats.filter(s => s.guestId && s.reservationId && !s.departed).map(s => s.leaseRenewAtMs ?? Infinity))));
   }
@@ -138,8 +139,8 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
   }
   private prepareNotice(room: StoredRoom) {
     const p = room.publicState; if (!p) return;
-    const signature = JSON.stringify(this.offer(room));
-    if (p.notice?.signature !== signature) p.notice = { revision: (p.notice?.revision ?? 0) + 1, signature, pending: true };
+    const signature = JSON.stringify(room.forming ? this.formingSummary(room) : this.offer(room));
+    if (p.notice?.signature !== signature || (room.forming && Date.now() - (p.notice?.updatedAtMs ?? 0) >= 45_000)) p.notice = { revision: (p.notice?.revision ?? 0) + 1, signature, pending: true, updatedAtMs: Date.now() };
   }
   private async persisted(room: StoredRoom, broadcast = true) {
     this.prepareNotice(room);
@@ -369,6 +370,8 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
           if(action.kind==='advance-private-round') advancePrivate(room,action.battleId,now);
           else if(action.kind==='play-again-private') replayPrivate(room,action.sessionId,now);
           else { if(room.phase==='battle'){if(connectedPlayers(room).length<2)throw new ServiceError('not-enough-players','At least two connected players are required.',409);room.phase='lobby';room.round=null;}startRound(room,now);touch(room,now); }
+        } else if (action.kind === 'start-now') {
+          startVote(room, seat, now);
         } else if (action.kind === 'next-round-ready' || action.kind === 'public-replay-opt-in') {
           publicIntent(room, seat, action.kind, now);
         } else if (action.kind === 'inject' || action.kind === 'pull-switch') {
@@ -407,6 +410,7 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
   async webSocketClose(ws: WebSocket): Promise<void> { return this.exclusive(() => this.socketClosed(ws)); }
   async webSocketError(ws: WebSocket): Promise<void> { return this.exclusive(() => this.socketClosed(ws)); }
   private async expire(room: StoredRoom) {
+    if(room.forming)this.ctx.waitUntil(this.env.MATCHMAKING.get(this.env.MATCHMAKING.idFromName('pool:americas')).announceForming(room.id,(room.publicState?.notice?.revision??0)+1,null).catch(()=>undefined));
     for (const ws of this.sockets()) this.closeSocket(ws, 4004, 'Laboratory expired');
     {
       for (const seat of room.seats) if (seat.guestId && seat.reservationId) await this.lease(seat.guestId).release('room', room.id, seat.reservationId);
@@ -433,9 +437,54 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
         if (next || codeNext) await this.ctx.storage.setAlarm(Math.max(now + 1, Math.min(next || Infinity, codeNext || Infinity)));
         return;
       }
+      if (!room.forming) { await this.expire(room); return; } // Retire pre-cutover alarms without continuing old games.
       this.advance(room, now);
       if (room.phase === 'closed') await this.expire(room); else await this.persisted(room);
     });
+  }
+  private formingSummary(r: StoredRoom): import('../shared/room-service.ts').FormingLab | null {
+    if (!r.forming || r.phase !== 'lobby' || r.forming.locked) return null;
+    return { roomId:r.id, name:r.forming.name, players:livePlayers(r).map(s=>({alias:s.alias,symbol:s.symbol})), deadlineMs:r.phaseDeadlineMs, revision:r.revision };
+  }
+  /** Binding-only admission serializes capacity, the countdown fence and guest tombstones. */
+  async enterForming(roomId: string, guestId: string, operation: string, name: string, createName: string | null): Promise<ServiceResult<RoomEntryResponse>> {
+    return this.exclusive(async()=>{
+      try {
+        operationId(operation); operationId(guestId); name=alias(name);
+        if (!/^l-[0-9a-f-]{36}$/.test(roomId) || !this.ctx.id.equals(this.env.ROOMS.idFromName(`room:${roomId}`))) throw new ServiceError('invalid-action','Invalid laboratory.');
+        const now=Date.now();let r=this.load();const opHash=await hash(operation);
+        if (!r) {
+          if (!createName) throw new ServiceError('room-not-found','This laboratory is no longer available.',404);
+          if (this.ctx.storage.sql.exec('SELECT key FROM limits WHERE key = ?', 'expired').toArray().length) throw new ServiceError('room-expired','This laboratory has closed.',410);
+          r=newRoom(roomId,'public','remote',randomSecret(),opHash,JSON.stringify([guestId,name]),now);r.schemaVersion=7;
+          r.forming={name:createName,votes:[],locked:false};
+          r.publicState={region:'americas',sessionId:crypto.randomUUID(),teamScore:0,completed:[],ready:[],replay:[],resultsStartedAtMs:null};r.combat=newCombatSession(r.publicState.sessionId);
+        } else { this.advance(r,now);requireLive(r,now); }
+        const prior=r.seats.find(s=>s.guestId===guestId);
+        if (prior?.departed) throw new ServiceError('stale-session','You have left this laboratory. Choose another.',410);
+        if (prior) {
+          if (prior.operationHash!==opHash) throw new ServiceError('guest-busy','Recover your existing laboratory membership.',409);
+          if (prior.entryFingerprint!==JSON.stringify([guestId,name])) throw new ServiceError('idempotency-conflict','Entry details changed. Retry the original request.',409);
+          if (!await this.lease(guestId).renew('room',r.id,prior.reservationId!)) throw new ServiceError('stale-session','This membership has expired.',410);
+          await this.persisted(r);return {ok:true,value:await this.entryResponse(r,prior)};
+        }
+        if (!r.forming || r.phase!=='lobby' || r.forming.locked || (r.phaseDeadlineMs!==null&&r.phaseDeadlineMs-now<=GAME_RULES.startCountdownMs)) throw new ServiceError('wrong-phase','This laboratory has started. Choose another.',409);
+        if(livePlayers(r).length>=8)throw new ServiceError('room-full','This laboratory is full.',409);
+        const profile=await this.lease(guestId).publicProfile();if(!profile)throw new ServiceError('unauthorized','Guest identity expired.',401);
+        if(!await this.lease(guestId).acquirePrivate(r.id,opHash))throw new ServiceError('guest-busy','You already belong to another laboratory.',409);
+        const seat=await this.addSeat(r,opHash,JSON.stringify([guestId,name]),name,'player',guestId,now);seat.symbol=profile.symbol;seat.reservationId=opHash;
+        await this.persisted(r);return {ok:true,value:await this.entryResponse(r,seat)};
+      } catch(error){return rpcError(error);}
+    });
+  }
+  async recoverForming(guestId:string,nonce:string):Promise<ServiceResult<RoomEntryResponse>> {
+    return this.exclusive(async()=>{try{
+      const r=this.load();if(!r?.forming)throw new ServiceError('stale-session','This session has expired.',410);
+      this.advance(r,Date.now());requireLive(r,Date.now());
+      const seat=r.seats.find(s=>s.guestId===guestId&&s.reservationId===nonce&&!s.departed);
+      if(!seat||!await this.lease(guestId).renew('room',r.id,nonce))throw new ServiceError('stale-session','This membership has expired.',410);
+      await this.persisted(r);return {ok:true,value:await this.entryResponse(r,seat)};
+    }catch(error){return rpcError(error);}});
   }
   /** Coordinator-only: idempotent public allocation, with expiring single-owner grants. */
   async allocatePublic(input: PublicAllocation): Promise<ServiceResult<PublicGrant[]>> {
@@ -478,7 +527,8 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
   private async flushNotice() {
     const r = this.load(); const p = r?.publicState; const notice = p?.notice;
     if (!r || !p || !notice?.pending) return;
-    await this.env.MATCHMAKING.get(this.env.MATCHMAKING.idFromName(`pool:${p.region}`)).announce(p.region, r.id, notice.revision, JSON.parse(notice.signature));
+    if (r.forming) await this.env.MATCHMAKING.get(this.env.MATCHMAKING.idFromName(`pool:${p.region}`)).announceForming(r.id, notice.revision, JSON.parse(notice.signature));
+    else await this.env.MATCHMAKING.get(this.env.MATCHMAKING.idFromName(`pool:${p.region}`)).announce(p.region, r.id, notice.revision, JSON.parse(notice.signature));
     await this.exclusive(async () => {
       const latest = this.load(); if (latest?.publicState?.notice?.signature === notice.signature && latest.publicState.notice.revision === notice.revision) { latest.publicState.notice.pending = false; this.save(latest); await this.schedule(latest); }
     });
@@ -489,7 +539,7 @@ export class LaboratoryRoom extends DurableObject<WorkerEnv> {
       if (!seat.guestId || !seat.reservationId) continue;
       if (seat.departed || r.phase === 'closed') { await this.lease(seat.guestId).release('room', r.id, seat.reservationId); continue; }
       if ((seat.leaseRenewAtMs ?? 0) > now) continue;
-      if (!seat.connected && seat.disconnectDeadlineMs === null && ['autopsy', 'recovery-lobby', 'session-results', 'lobby'].includes(r.phase)) disconnect(r, seat, now, true);
+      if (!r.forming && !seat.connected && seat.disconnectDeadlineMs === null && ['autopsy', 'recovery-lobby', 'session-results', 'lobby'].includes(r.phase)) disconnect(r, seat, now, true);
       if (seat.departed) { await this.lease(seat.guestId).release('room', r.id, seat.reservationId); changed = true; continue; }
       if (!await this.lease(seat.guestId).renew('room', r.id, seat.reservationId)) {
         disconnect(r, seat, now, true); for (const ws of this.sockets(seat.id)) this.closeSocket(ws, 4003, 'Guest claim expired');

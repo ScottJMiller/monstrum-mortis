@@ -1,0 +1,17 @@
+[
+  {
+    "id": "font.display",
+    "url": "/assets/battle-v2/runtime/font/NewRocker-Regular.ttf",
+    "license": "SIL OFL 1.1; assets/battle-v2/source/font/new-rocker/OFL.txt"
+  },
+  {
+    "id": "font.interface",
+    "url": "/assets/fonts/u-4i0qWljRw-PfU81xCKCpdpbgZJl6Xvqdns.woff2",
+    "license": "SIL OFL 1.1; assets/interface-fonts/provenance.json"
+  },
+  {
+    "id": "font.heading",
+    "url": "/assets/fonts/EJRVQgYoZZY2vCFuvAFWzr8.woff2",
+    "license": "SIL OFL 1.1; assets/interface-fonts/provenance.json"
+  }
+]

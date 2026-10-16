@@ -1,0 +1,79 @@
+{
+  "date": "2026-10-15",
+  "origin": "Google Fonts official fonts repository and CSS2 service",
+  "license": "SIL Open Font License 1.1; original licenses retained and shipped",
+  "stylesheet": "assets/interface-fonts/google-fonts.css",
+  "repository": "https://github.com/google/fonts",
+  "records": [
+    {
+      "url": "https://fonts.gstatic.com/s/cabin/v35/u-4V0qWljRw-Pd815fNqc8T_wAFcX-c37MPiNYlWniJ2hJXHx_KVxUbv.woff2",
+      "runtime": "public/assets/fonts/u-4V0qWljRw-Pd815fNqc8T_wAFcX-c37MPiNYlWniJ2hJXHx_KVxUbv.woff2",
+      "sha256": "dbfd04746d93eee810274a8a0d7784e64ab84636a62a0d9b9d10e49bae168b5d",
+      "bytes": 17452,
+      "processing": "Unmodified official WOFF2; Latin/Latin Extended subsets supplied by Google Fonts"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/cabin/v35/u-4V0qWljRw-Pd815fNqc8T_wAFcX-c37MPiNYlWniJ2hJXHx_KVy0bvM_s.woff2",
+      "runtime": "public/assets/fonts/u-4V0qWljRw-Pd815fNqc8T_wAFcX-c37MPiNYlWniJ2hJXHx_KVy0bvM_s.woff2",
+      "sha256": "fe94bc22af52e0ab1e87f3c7673a7037a10345eb00573c5440ec4097a4763df9",
+      "bytes": 10952,
+      "processing": "Unmodified official WOFF2; Latin/Latin Extended subsets supplied by Google Fonts"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/cabin/v35/u-4i0qWljRw-PfU81xCKCpdpbgZJl6Xvp9nsBXw.woff2",
+      "runtime": "public/assets/fonts/u-4i0qWljRw-PfU81xCKCpdpbgZJl6Xvp9nsBXw.woff2",
+      "sha256": "ec264e73a67355ac50685bd34a62852d8db06bfb03aeca9e88119ef1b9dea72e",
+      "bytes": 15992,
+      "processing": "Unmodified official WOFF2; Latin/Latin Extended subsets supplied by Google Fonts"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/cabin/v35/u-4i0qWljRw-PfU81xCKCpdpbgZJl6Xvqdns.woff2",
+      "runtime": "public/assets/fonts/u-4i0qWljRw-PfU81xCKCpdpbgZJl6Xvqdns.woff2",
+      "sha256": "f51448b0b7f024d139fb7598d21b4e06e8174268ac93fc26cc2d4196144cb672",
+      "bytes": 28320,
+      "processing": "Unmodified official WOFF2; Latin/Latin Extended subsets supplied by Google Fonts"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/ptserif/v19/EJRSQgYoZZY2vCFuvAnt66qSVys.woff2",
+      "runtime": "public/assets/fonts/EJRSQgYoZZY2vCFuvAnt66qSVys.woff2",
+      "sha256": "bf23a7a4eebedbb87d4084a69496b29815914a18e339a00f5dc73a03c9c9328f",
+      "bytes": 29588,
+      "processing": "Unmodified official WOFF2; Latin/Latin Extended subsets supplied by Google Fonts"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/ptserif/v19/EJRSQgYoZZY2vCFuvAnt66qcVyvHpA.woff2",
+      "runtime": "public/assets/fonts/EJRSQgYoZZY2vCFuvAnt66qcVyvHpA.woff2",
+      "sha256": "94cdabe31b8195f0691d18eda86ea1fed049be7cd21eea22c858ad6dd6cc306b",
+      "bytes": 19492,
+      "processing": "Unmodified official WOFF2; Latin/Latin Extended subsets supplied by Google Fonts"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/ptserif/v19/EJRTQgYoZZY2vCFuvAFT_r21cg.woff2",
+      "runtime": "public/assets/fonts/EJRTQgYoZZY2vCFuvAFT_r21cg.woff2",
+      "sha256": "cb373bde18855c82a0ebf2946ea661ebd0be58a7fbabdf20f7744ecd9c0a9cfd",
+      "bytes": 34896,
+      "processing": "Unmodified official WOFF2; Latin/Latin Extended subsets supplied by Google Fonts"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/ptserif/v19/EJRTQgYoZZY2vCFuvAFT_rO1chb-.woff2",
+      "runtime": "public/assets/fonts/EJRTQgYoZZY2vCFuvAFT_rO1chb-.woff2",
+      "sha256": "e03d9090077c76165d69af4d266eccb7bad28091d03244a31def2a711d597062",
+      "bytes": 23224,
+      "processing": "Unmodified official WOFF2; Latin/Latin Extended subsets supplied by Google Fonts"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/ptserif/v19/EJRVQgYoZZY2vCFuvAFWzr8.woff2",
+      "runtime": "public/assets/fonts/EJRVQgYoZZY2vCFuvAFWzr8.woff2",
+      "sha256": "4271064a37f3ffc0aac5f3806db8a72acc23e19447d1804e4e80d8796cbf6330",
+      "bytes": 33116,
+      "processing": "Unmodified official WOFF2; Latin/Latin Extended subsets supplied by Google Fonts"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/ptserif/v19/EJRVQgYoZZY2vCFuvAFYzr-tdg.woff2",
+      "runtime": "public/assets/fonts/EJRVQgYoZZY2vCFuvAFYzr-tdg.woff2",
+      "sha256": "2d7cdb9a975f016db59cb42a61df1b21889842b3ed4e2226f270f4b1349cf704",
+      "bytes": 21548,
+      "processing": "Unmodified official WOFF2; Latin/Latin Extended subsets supplied by Google Fonts"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-10-16T21:28:34.716Z",
+  "origin": "https://monstrum-mortis.scott-jeffrey-miller.workers.dev",
+  "health": {
+    "service": "monstrum-mortis",
+    "stage": "automatic-combat",
+    "protocolVersion": 6,
+    "rulesVersion": "0.6.0",
+    "configuredBindings": {
+      "assets": true,
+      "rooms": true,
+      "matchmaking": true,
+      "guestLeases": true
+    },
+    "gameplayAvailable": true,
+    "fullReleaseAvailable": false,
+    "mechanicsAvailable": true,
+    "combatAvailable": true,
+    "battlePresentationAvailable": true,
+    "roomServiceAvailable": true,
+    "matchmakingAvailable": true
+  },
+  "clients": 2,
+  "scope": "Bounded deployed HTTPS/SQLite/WebSocket smoke test; not a load test or physical-device acceptance",
+  "checks": [
+    "guest issuance/public create/join",
+    "majority start and exactly 75-second experiment",
+    "four private vials per player",
+    "two independent injections with identical shared anatomy",
+    "duplicate injection receipt consumes once",
+    "reconnect retains five doses",
+    "explicit switches and actual five-second release",
+    "one shared persisted presentation and real authoritative battle"
+  ],
+  "requestsBeforeCleanup": 7,
+  "physicalDevices": false,
+  "cloudflareQuotaHeadroomMeasured": false,
+  "deploymentVersion": "1e1b0cc9-1856-46f1-82a0-d2f742f71e61",
+  "buildFingerprint": "f177e017036c391b421baa970ab4cef5d93b13f0aad672834d41eca157caaa79",
+  "totalHttpRequestsIncludingCleanup": 9,
+  "cleanup": "Both authenticated test memberships explicitly left; WebSockets closed."
+}

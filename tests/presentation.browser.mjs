@@ -22,7 +22,7 @@ async function scientist(width = 1280, reduced = false) {
   contexts.push(context);
   const page = await context.newPage();
   page.on('pageerror', error => errors.push(error.message));
-  await page.goto(origin);
+  await page.goto(origin);await page.locator('.masthead h1').waitFor();const welcome=page.getByRole('button',{name:'Enter laboratory',exact:true});if(await welcome.count())await welcome.click();
   await page.waitForSelector('.chamber-canvas canvas, .static-creature');
   return page;
 }
@@ -59,9 +59,8 @@ try {
   assert.equal(await player.locator('.chamber-still').count(), 1);
   pass('independent desktop/390px phone contexts join the same room; reduced motion, roster and accessibility work');
   const display = await scientist(1920);
-  await display.getByLabel('Invitation code', { exact: true }).fill(first.roomId);
-  await display.getByLabel('Join as a display without a player seat').check();
-  await display.getByRole('button', { name: 'Join by Code', exact: true }).click(); await roomConnected(display);
+  const legacyResponse=await host.request.post(new URL(`/api/rooms/${first.roomId}/join`,origin).href,{data:{operationId:crypto.randomUUID(),alias:'Legacy display',role:'display'}});
+  const legacyEntry=await legacyResponse.json();await display.evaluate(c=>sessionStorage.setItem('mm.room.v2',JSON.stringify(c)),legacyEntry.credentials);await display.reload();await roomConnected(display);
   assert.equal(await display.locator('.display-layout').count(), 1);
   assert.equal(await display.locator('.chamber-stage').evaluate(el => el.getBoundingClientRect().bottom < innerHeight), true, 'TV chamber fits vertically');
   assert.equal(await display.getByRole('button', { name: 'Start experiment' }).count(), 0);
@@ -72,7 +71,7 @@ try {
   pass('display-only layout has no host action and consumes no player seat');
   let sockets = 0;
   host.on('websocket', () => sockets++);
-  await host.getByText('Display & motion settings', { exact: true }).click();
+  await host.getByText('Sound & motion settings', { exact: true }).click();
   await host.getByLabel('Creature and laboratory motion').selectOption('reduced');
   await host.getByRole('button', { name: 'Pause decorative animation', exact: true }).click();
   await host.setViewportSize({ width: 760, height: 900 });
@@ -90,7 +89,7 @@ try {
   pass('motion changes and resize keep the live socket; leave → rejoin and leave → create use fresh entries');
   await host.reload(); await roomConnected(host);
   assert.equal(await host.getByLabel('Creature and laboratory motion').inputValue(), 'reduced');
-  await host.getByRole('button', { name: "Forget this device's credential", exact: true }).click();
+  await host.evaluate(()=>{sessionStorage.removeItem('mm.room.v2');sessionStorage.removeItem('mm.pending-intent.v5');});await host.reload();
   await host.getByRole('button', { name: 'Check previous session', exact: true }).click();
   await host.getByRole('button', { name: 'Leave previous laboratory', exact: true }).click();
   assert.equal(await host.evaluate(() => JSON.parse(localStorage.getItem('mm.guest.v3')).guestId), guest.guestId);
@@ -116,7 +115,6 @@ try {
   for (const page of publicPages) {
     const skip = page.getByRole('button', { name: 'Skip rehearsal', exact: true });
     if (await skip.count()) await skip.click();
-    await page.getByLabel('Regional pool').selectOption('americas');
     await page.getByRole('button', { name: 'Enter Quick Play', exact: true }).click();
   }
   await Promise.all(publicPages.map(async page => {

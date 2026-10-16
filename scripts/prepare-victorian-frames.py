@@ -1,0 +1,79 @@
+#!/usr/bin/env python3
+"""Original sculpted Gothic SVGs, retaining the approved dual-repeat CSS geometry."""
+from pathlib import Path
+import hashlib,json
+root=Path(__file__).resolve().parents[1]
+out=root/'public/assets/interface';out.mkdir(parents=True,exist_ok=True)
+# Gradients and highlights model raised cast iron without filters, textures or runtime code.
+defs='''<defs>
+ <linearGradient id="iron" x1="0" y1="0" x2=".85" y2="1" gradientUnits="objectBoundingBox"><stop stop-color="#89918a"/><stop offset=".16" stop-color="#4e5653"/><stop offset=".35" stop-color="#242b2b"/><stop offset=".64" stop-color="#101617"/><stop offset=".84" stop-color="#464b47"/><stop offset="1" stop-color="#0a1011"/></linearGradient>
+ <linearGradient id="edge" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#8b9083"/><stop offset=".22" stop-color="#3c4541"/><stop offset=".52" stop-color="#111819"/><stop offset=".76" stop-color="#62685d"/><stop offset="1" stop-color="#171e1e"/></linearGradient>
+ <linearGradient id="worn" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#a19477"/><stop offset=".28" stop-color="#57584c"/><stop offset=".65" stop-color="#282e2b"/><stop offset="1" stop-color="#665d4b"/></linearGradient>
+ <radialGradient id="stud" cx=".32" cy=".23" r=".75"><stop stop-color="#a8a68c"/><stop offset=".3" stop-color="#5b6054"/><stop offset=".68" stop-color="#232b29"/><stop offset="1" stop-color="#080e10"/></radialGradient>
+ <g id="leaf" fill="url(#iron)" stroke="#090f10" stroke-width=".65" stroke-linejoin="round">
+  <path d="M1 28C8 23 4 18 12 13L9 13C15 12 11 6 19 2L18 7 24 4C18 12 25 12 20 18L24 16C21 25 12 23 10 29L13 29C8 33 5 30 1 32Z"/>
+  <path d="M3 29C14 20 13 15 20 7M11 21L16 21M14 15L16 11" fill="none" stroke="#8e9588" stroke-opacity=".65" stroke-width=".7"/>
+  <path d="M6 28C10 25 10 23 12 21M14 19L18 17" fill="none" stroke="#090f10" stroke-width="1.1"/>
+ </g>
+ <g id="scroll" fill="url(#iron)" stroke="#0a1011" stroke-width=".7" stroke-linejoin="round">
+  <path d="M0 23C8 25 6 13 15 9C23 5 34 9 34 17C34 26 21 29 18 21C15 13 27 10 28 17C29 22 22 23 22 18C23 20 25 19 25 17C25 14 20 16 21 20C23 25 31 22 31 17C31 11 24 9 18 12C11 16 13 30 0 30Z"/>
+  <path d="M1 24C10 26 9 13 18 10C25 8 32 11 33 16M19 22C20 26 26 26 30 23" fill="none" stroke="#8c958a" stroke-opacity=".72" stroke-width=".8"/>
+  <use href="#leaf" transform="translate(0 -2) scale(.7)"/>
+  <use href="#leaf" transform="translate(35 38) rotate(180) scale(.56)"/>
+ </g>
+ <g id="lance" stroke-linejoin="round">
+  <path d="M0-14C1-9 4-7 5-6L2-5 4-2 8 0 4 2 2 5 5 6C2 8 1 10 0 14C-1 10-2 8-5 6L-2 5-4 2-8 0-4-2-2-5-5-6C-2-8-1-10 0-14Z" fill="url(#iron)" stroke="#090f10" stroke-width=".8"/>
+  <path d="M0-11V10M-5 0H5" stroke="#9a9e8b" stroke-opacity=".62" stroke-width=".7"/>
+  <circle r="2.3" fill="url(#stud)" stroke="#111819" stroke-width=".65"/>
+ </g>
+ <g id="arch" fill="url(#iron)" stroke="#080e0f" stroke-width=".7" stroke-linejoin="round">
+  <path d="M1 28V20C1 13 11 12 18 4C25 12 35 13 35 20V28H31V21C31 16 24 16 18 10C12 16 5 16 5 21V28Z"/>
+  <path d="M3 27V21C3 15 12 14 18 7C24 14 33 15 33 21V27" fill="none" stroke="#7b8578" stroke-width=".8"/>
+  <path d="M18 14C22 18 23 22 18 27C13 22 14 18 18 14ZM9 23Q11 17 15 20Q13 25 9 23ZM27 23Q25 17 21 20Q23 25 27 23Z" fill="url(#edge)"/>
+  <path d="M18 16V25M11 22L13 21M25 22L23 21" fill="none" stroke="#7a8170" stroke-width=".6"/>
+ </g>
+ <g id="corner" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M2 36V2H36L33 7H8V33Z" fill="url(#edge)" stroke="#090f10" stroke-width="1"/>
+  <path d="M4 35V4H35M10 32V10H32" fill="none" stroke="#8e9280" stroke-opacity=".75" stroke-width=".65"/>
+  <use href="#leaf" transform="translate(2 1) scale(.9)"/>
+  <use href="#leaf" transform="translate(1 2) matrix(0 .9 .9 0 0 0)"/>
+  <path d="M10 29C26 31 33 20 27 14C22 9 14 13 17 19C19 22 23 18 20 16C25 16 25 22 20 23C12 25 10 17 13 12" fill="url(#iron)" stroke="#0a1011" stroke-width=".8"/>
+  <path d="M12 29C24 29 30 22 28 17M14 12C12 16 13 20 15 21" fill="none" stroke="#939988" stroke-opacity=".7" stroke-width=".8"/>
+  <path d="M3 3L11 6 6 11Z" fill="url(#worn)" stroke="#080e0f" stroke-width=".7"/>
+  <circle cx="7" cy="7" r="2" fill="url(#stud)"/>
+ </g>
+</defs>'''
+def svg(width,height,body):
+ return f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">{defs}{body}</svg>\n'
+def frame(thick):
+ if thick:
+  top='''<path d="M36 2H108V34H36Z" fill="#111819"/>
+  <path d="M36 2H108V7H36ZM36 29H108V34H36Z" fill="url(#edge)" stroke="#0a1011" stroke-width=".8"/>
+  <path d="M36 3H108M36 30H108" stroke="#8e9380" stroke-opacity=".8" stroke-width=".65"/>
+  <g opacity=".5"><use href="#arch" x="36"/><use href="#arch" x="72"/></g>
+  <use href="#scroll" transform="translate(36 -1) scale(1 .98)"/><use href="#scroll" transform="translate(108 35) rotate(180) scale(1 .98)"/>
+  <path d="M70 2H74L75 9 73 15 76 21 74 34H70L68 21 71 15 69 9Z" fill="url(#worn)" stroke="#0a1011" stroke-width=".8"/>
+  <path d="M70 3V33" stroke="#a0987f" stroke-width=".6"/>
+  <use href="#lance" transform="translate(72 18) scale(.75 1)"/>'''
+ else:
+  top='''<path d="M36 17H108V20H36Z" fill="url(#edge)" stroke="#0a1011" stroke-width=".7"/>
+  <use href="#scroll" x="36"/><use href="#scroll" x="72"/>
+  <use href="#lance" transform="translate(72 18) scale(.7 1.1)"/>
+  <path d="M36 18H108" stroke="#919782" stroke-opacity=".5" stroke-width=".5"/>'''
+ body=''.join(f'<g transform="rotate({angle} 72 72)">{top}<use href="#corner"/></g>' for angle in [0,90,180,270])
+ return svg(144,144,body)
+# Original 40px caps / 120px centre. Two 60px wide-scroll / narrow-lance pairs.
+strip='<path d="M1 12H199" stroke="#0a1011" stroke-width="3"/><path d="M1 11H199" stroke="#7a8372" stroke-width=".7"/>'
+for x in [0,40,100,160]:
+ strip+=f'<use href="#scroll" transform="translate({x+2} -2) scale(1 .8)"/>'
+for x in [40,100,160]:
+ strip+=f'<use href="#lance" transform="translate({x} 12) scale(.8)"/>'
+strip+='<use href="#lance" transform="translate(4 12) scale(.4 .7)"/><use href="#lance" transform="translate(196 12) scale(.4 .7)"/>'
+files={'victorian-thin.svg':frame(False),'victorian-thick.svg':frame(True),'victorian-dual-strip.svg':svg(200,24,strip)}
+records=[]
+for name,data in files.items():
+ p=out/name;p.write_text(data)
+ records.append({'path':str(p.relative_to(root)),'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'origin':'original project-authored vector geometry','license':'Original project code artwork; no third-party motif copied'})
+ledger={'date':'2026-10-15','techniqueReference':'https://jacobfilipp.com/victorian-dual/','styleReferences':[{'file':'thick-frame_examples.jpg','use':'User-supplied visual reference: moulded iron rails, pointed tracery and raised clasps; pixels not redistributed.'},{'file':'thin-frame_examples.png','use':'User-supplied visual reference: curling acanthus scrolls and tapered finials; pixels not redistributed.'}],'implementation':'Original shaded cast-iron/acanthus/Gothic-tracery SVG geometry. Explicit 144px nine-slice surrounds with 25% corners and complete repeated edges; Splash-only Method B 40px fixed caps plus doubled 120px scroll/finial frieze, quantized by CSS round(down,...). Whole-repeat fallback and native high-contrast borders. Gradients and carved highlight paths, no filters, scripts, external images or fonts. No reference/tutorial imagery redistributed.','source':'scripts/prepare-victorian-frames.py','previousStyle':'assets/interface-frames/history/geometric-2026-10-15/','records':records}
+(root/'assets/interface-frames/provenance.json').write_text(json.dumps(ledger,indent=2)+'\n')
+print(f'Prepared three original sculpted Gothic SVGs ({sum(r["bytes"]for r in records):,} bytes) and provenance.')

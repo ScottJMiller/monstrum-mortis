@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-15",
+  "techniqueReference": "https://jacobfilipp.com/victorian-dual/",
+  "implementation": "Original rosette/diamond motif geometry. Nine-slice surround with complete repeated edge motifs, plus Method B fixed-cap/doubled-repeat horizontal friezes quantized by CSS round(down,...). Fallback uses border-image-repeat:round. No tutorial images or source ornaments redistributed.",
+  "source": "assets/interface-frames/history/geometric-2026-10-15/prepare-victorian-frames.py",
+  "records": [
+    {
+      "path": "assets/interface-frames/history/geometric-2026-10-15/victorian-thin.svg",
+      "bytes": 3822,
+      "sha256": "38b70b80c41a57fefc4148d98e14e10c2583f486f2b501a17e475d67f0a0f598",
+      "origin": "original project-authored vector geometry",
+      "license": "Original project code artwork; no third-party motif copied"
+    },
+    {
+      "path": "assets/interface-frames/history/geometric-2026-10-15/victorian-thick.svg",
+      "bytes": 3870,
+      "sha256": "1086ece563e20dcab767117ba53b6e6a0c87c4d8047a945654dee8e66d896e89",
+      "origin": "original project-authored vector geometry",
+      "license": "Original project code artwork; no third-party motif copied"
+    },
+    {
+      "path": "assets/interface-frames/history/geometric-2026-10-15/victorian-dual-strip.svg",
+      "bytes": 1137,
+      "sha256": "c2380ca8abed6d5b56a48613a73cfb101aef274daccb72450ea48c97b46abe4f",
+      "origin": "original project-authored vector geometry",
+      "license": "Original project code artwork; no third-party motif copied"
+    }
+  ]
+}

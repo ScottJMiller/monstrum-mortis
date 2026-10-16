@@ -33,6 +33,6 @@ test('every current producer event has a finished bounded effect/cue; shard reta
 });
 test('supplied Phase B audio retains originals and bounded AAC derivatives with decoded headroom',()=>{
  const p=read('assets/battle-v2/phase-b-audio-provenance.json');assert.equal(p.records.length,10);assert.equal(sha(p.productionScript),p.scriptSha256);let total=0,original=0;
- for(const r of p.records){assert.equal(sha(r.source),r.sourceSha256);assert.equal(sha(r.path),r.sha256);assert.equal(sha(r.submittedSource),r.sourceSha256);assert.equal(readFileSync(r.path).subarray(4,8).toString(),'ftyp');assert.ok(r.durationSeconds<10);assert.ok(r.encodedLevels.peakDbFS<-3);total+=r.bytes;original+=r.sourceBytes;}
+ for(const r of p.records){assert.equal(sha(r.source),r.sourceSha256);assert.equal(sha(r.path),r.sha256);assert.equal(sha(r.submittedSource.replace('docs/battle-v2-phase-b-review/','docs/archive/battle-v2/battle-v2-phase-b-review/')),r.sourceSha256);assert.equal(readFileSync(r.path).subarray(4,8).toString(),'ftyp');assert.ok(r.durationSeconds<10);assert.ok(r.encodedLevels.peakDbFS<-3);total+=r.bytes;original+=r.sourceBytes;}
  assert.ok(total<300000);assert.ok(total<original*.15);
 });

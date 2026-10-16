@@ -1,0 +1,16 @@
+{
+  "scenarios": 5,
+  "physicalDevices": false,
+  "scope": "Actual production React app, independent Chromium contexts and local SQLite Durable Objects. Phone/desktop viewport emulation, not physical Safari.",
+  "screenshots": "docs/battle-v2-phase-d-review/simplification",
+  "checks": [
+    "15-second total splash including 3/2/1 and immediate skip",
+    "automatic default-on gesture unlock and half-second master fade",
+    "independent device mute without socket replacement",
+    "event-driven forming directory",
+    "real private vial art/actions and 320–1280px experiment accessibility",
+    "390 portrait/844 landscape/768 tablet/320 short battle controls",
+    "compact report and visible Next",
+    "lost response/reload/leave/create recovery"
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "physicalDevices": false,
+  "recordingFrames": 240,
+  "files": [
+    {
+      "file": "docs/battle-v2-phase-c-review/pre-refinement-2026-10-14/arena-detail.png",
+      "bytes": 644644,
+      "sha256": "a1866d3ecf44814815c8ef016d1ec80a33f1e2e9af6caa0a4973a9fa31ff1726"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/pre-refinement-2026-10-14/battle-desktop.png",
+      "bytes": 1261570,
+      "sha256": "84dfbb00bdbbcc7d709b3072ec548e7a2ed53a2ac2640c26039a844772b976f0"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/pre-refinement-2026-10-14/battle-landscape.png",
+      "bytes": 742703,
+      "sha256": "a661689be4b4a520f0d5221e86258cd4a6a10a97dd9a441e60621876674bd31d"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/pre-refinement-2026-10-14/battle-phone.png",
+      "bytes": 488091,
+      "sha256": "759de244d0443a58257d79a878c1eeed2d6608dd2b9e08f3ed7aedb42a9be9cf"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/pre-refinement-2026-10-14/briefing.png",
+      "bytes": 1783215,
+      "sha256": "3b885e48af6c9a383b39e31248a3d73b8de27932a91f5200dbbb1ff94a416e02"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/pre-refinement-2026-10-14/contact-sheet.png",
+      "bytes": 841012,
+      "sha256": "41b0442ba9b1509dba0457484dc24292dcdf14a55e98cb07dca36cf0cedc629d"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/pre-refinement-2026-10-14/countdown.png",
+      "bytes": 1267817,
+      "sha256": "6cf2ef719a02f0d14036011dda2c94c8ea9c2dacc17e497d24e927d386956543"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/pre-refinement-2026-10-14/entry-desktop.png",
+      "bytes": 1801337,
+      "sha256": "8ef8db8c9ce5e2cc8f94ed5172d91e5bc5536289f63354a8d10d87ce945157cc"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/pre-refinement-2026-10-14/entry-phone.png",
+      "bytes": 622473,
+      "sha256": "252165e5487681bfd6865ff224707abdffa22cf6b8026f6668de085cc6e47b72"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/pre-refinement-2026-10-14/experiment-phone.png",
+      "bytes": 668750,
+      "sha256": "f5d614ea1821a98e72cf86adb713ebbefb6f0a873cab46510a81f9bc37be79d9"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/pre-refinement-2026-10-14/injection-desktop.png",
+      "bytes": 2064914,
+      "sha256": "d3bbd829203ba9fe57e71af6ffd56056b47531d372d2dabb21104ea6037f1f9e"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/pre-refinement-2026-10-14/integration.png",
+      "bytes": 967002,
+      "sha256": "5485d9387dfcf88194836faf2deff4a55047379c02e0ef475421dd9d6a16c6db"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/pre-refinement-2026-10-14/production-audio.webm",
+      "bytes": 381484,
+      "sha256": "040be120643dc99df675bff434d1745c9251dcab0211342e067a75edc53e0271"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/pre-refinement-2026-10-14/production-recording.mp4",
+      "bytes": 1322056,
+      "sha256": "849f0c6b2a0f57344484ef11c7fe91e4fb9e1453e3979a74d4efaf16e0ea3b4f"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/pre-refinement-2026-10-14/recovered-art.png",
+      "bytes": 741950,
+      "sha256": "d9bfadcc46cc4d23cd1848b3b2c74a68b022eacad5a0ad1f88978080b2b1ecd0"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/pre-refinement-2026-10-14/result-desktop.png",
+      "bytes": 2021069,
+      "sha256": "70fd79e426cbc48652b20990a1267c1d65d5458a82406dee4ba2de82085d83fc"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/pre-refinement-2026-10-14/result-phone.png",
+      "bytes": 759712,
+      "sha256": "7d216b17097aca345d1561d37ea7e6dbfddfbbad7ce38c1d8a0e3d4d0e713992"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/pre-refinement-2026-10-14/reveal.png",
+      "bytes": 993927,
+      "sha256": "85f6d8cdd3b12660e994982d13d7ba49b09e0329ec3689da3a4f18ae51728e4b"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/pre-refinement-2026-10-14/tray-detail-phone.png",
+      "bytes": 166317,
+      "sha256": "952d1ec01171cc91ce81d28999901103c55f5fd275536a8eee7c06fb7c377bd3"
+    }
+  ]
+}

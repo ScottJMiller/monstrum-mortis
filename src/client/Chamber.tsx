@@ -32,6 +32,12 @@ export function Chamber({ creature, motion }: { creature: CreatureView | null; m
         await app.init({ width: 1024, height: 1536, backgroundAlpha: 0, autoStart: false, preference: 'webgl', resolution: Math.min(devicePixelRatio, 1.5), antialias: false });
         initialized = true;
         if (disposed) { app.destroy({ removeView: true }, { children: true }); return; }
+        // This scene is decorative. Pixi's default event target sets touch-action:
+        // none on the canvas, which traps page swipes on phones/tablets. Detach
+        // its DOM listeners rather than competing with native scrolling.
+        // @ts-expect-error Pixi 8.22 documents/uses null to detach; its declaration omits null.
+        app.renderer.events.setTargetElement(null);
+        app.stage.eventMode = 'none';
         const stage = new Container();
         const body = new Container({ x: 512, y: 756 }); stage.addChild(body); app.stage.addChild(stage);
         const sprites = new Map<string, { sprite: InstanceType<typeof Sprite>; height: number; eye: boolean }>();
@@ -53,7 +59,7 @@ export function Chamber({ creature, motion }: { creature: CreatureView | null; m
         };
         const updateMotion = () => {
           const animate = motionRef.current && visible && document.visibilityState === 'visible';
-          element.parentElement?.setAttribute('data-animate', String(animate));
+          element.closest('.chamber-stage')?.setAttribute('data-animate', String(animate));
           if (animate) app.start();
           else { app.stop(); body.scale.set(1); body.rotation = 0; body.y = 756; for (const p of sprites.values()) p.sprite.height = p.height; app.render(); }
         };
@@ -121,14 +127,14 @@ export function Chamber({ creature, motion }: { creature: CreatureView | null; m
   const failure = backgroundFailed || state === 'error' || projection.missing.length > 0;
   return <figure className={`chamber ${motion ? '' : 'chamber-still'}`}>
     <svg width="0" height="0" aria-hidden="true" style={{ position: 'absolute' }}><defs>{ART.filter(a => a.color || a.colorGrade).map(a => <filter key={a.id} id={`${filterId}-${a.id}`} colorInterpolationFilters="sRGB"><feColorMatrix type="matrix" values={colorMatrix(a).join(' ')} /></filter>)}</defs></svg>
-    <div className="chamber-stage">
+    <div className="chamber-stage"><div className="chamber-camera">
       <picture key={attempt}><source media="(max-width: 640px)" srcSet={PHONE_CHAMBER_URL} /><img className="chamber-backdrop" src={CHAMBER_URL} alt="" onError={() => setBackgroundFailed(true)} onLoad={() => setBackgroundFailed(false)} /></picture>
       <div className="chamber-canvas" role="img" aria-label={describeCreature(creature)} ref={host} style={{ visibility: state === 'ready' ? 'visible' : 'hidden' }} />
       {state !== 'ready' && <div className="static-creature" aria-hidden="true">{projection.layers.map(layer => <img key={layer.key} src={layer.asset.url} alt="" style={{ left: `${layer.x / 6}%`, top: `${layer.y / 7.2}%`, width: `${layer.width / 6}%`, height: `${layer.height / 7.2}%`, transform: layerTransform(layer), filter: layer.asset.color || layer.asset.colorGrade ? `url(#${filterId}-${layer.asset.id})` : undefined, zIndex: layer.order + 5, opacity: layer.opacity }} />)}</div>}
       <div className="chamber-glass" aria-hidden="true" /><div className="chamber-fluid" aria-hidden="true"><span /><span /><span /></div>
-      {state === 'loading' && <p className="art-notice" role="status">Preparing the chamber artwork… Controls remain available.</p>}
+      </div>{state === 'loading' && <p className="art-notice" role="status">Preparing the chamber artwork… Controls remain available.</p>}
       {failure && <div className="art-notice" role="status"><p>Some laboratory artwork is unavailable. Your connection controls remain available.</p><button onClick={() => { setBackgroundFailed(false); setAttempt(n => n + 1); }}>Retry artwork</button></div>}
     </div>
-    <figcaption>{creature ? 'Shared specimen · public anatomy' : 'Starter preview · awaiting specimen initialization'}{state === 'static' ? ' · static graphics fallback' : ''}</figcaption>
+    {state === 'static' && <p className="sr-only" role="status">static graphics fallback</p>}
   </figure>;
 }

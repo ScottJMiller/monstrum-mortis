@@ -1,0 +1,12 @@
+{
+  "checkedAt": "2026-10-16T22:13:57.963Z",
+  "origin": "https://monstrum-mortis.scott-jeffrey-miller.workers.dev",
+  "version": "e79035e1-ce79-429b-b794-65d0c0dedf85",
+  "requests": 3,
+  "checks": [
+    "Served HTML exactly matches verified local build",
+    "Health preserves protocol/rules and all four configured bindings",
+    "Served fingerprinted main script SHA-256 matches correction build"
+  ],
+  "scope": "Bounded deployed HTML/main-bundle identity and health check only. No multiplayer, physical audio, quota or load claim."
+}

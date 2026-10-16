@@ -40,7 +40,7 @@ export function parseAction(value: unknown): ClientAction {
       exact(v, [...base, 'battleId']); operationId(v.battleId); break;
     case 'play-again-private':
       exact(v, [...base, 'sessionId']); operationId(v.sessionId); break;
-    case 'start-private-session': case 'leave': case 'next-round-ready': case 'public-replay-opt-in':
+    case 'start-now': case 'start-private-session': case 'leave': case 'next-round-ready': case 'public-replay-opt-in':
       exact(v, base); break;
     case 'pull-switch':
       exact(v, [...base, 'attemptId']);

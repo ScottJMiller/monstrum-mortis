@@ -17,4 +17,4 @@ for(const n of [2,4,6,8]){
  }
  report.cohorts.push({players:n,trials,noVoteFallbacks:noVotes,selectionPercent:Object.fromEntries(Object.entries(count).map(([f,c])=>[f,+(100*c/trials).toFixed(2)]))});
 }
-await writeFile('docs/battle-v2-family-review/vote-survey.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));
+await writeFile('docs/battle-v2-phase-c-review/family-regressions/vote-survey.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));

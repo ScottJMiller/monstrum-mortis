@@ -1,0 +1,61 @@
+{
+  "scope": "Local Chrome production captures plus specimen contact sheet; no physical-device claim",
+  "artBytes": 114868,
+  "files": [
+    {
+      "file": "docs/predeploy-refinement-review/before-sculpted-iron/before-after.png",
+      "bytes": 892897,
+      "sha256": "9620d17a6b094fd91095ac6b7132cfd6a800c214a1e2e0ebf79819ce56a7619e"
+    },
+    {
+      "file": "docs/predeploy-refinement-review/before-sculpted-iron/contact-sheet.png",
+      "bytes": 715483,
+      "sha256": "d7c504a9f82f3fd8c91455317af918ea28e6f16c5974c1402a25223fe6220f6b"
+    },
+    {
+      "file": "docs/predeploy-refinement-review/before-sculpted-iron/entry-desktop.png",
+      "bytes": 1827821,
+      "sha256": "a22e7a9c1f45e0ad9434aff14c9fb9171ab98498b8e6739f13207a0f5d870f79"
+    },
+    {
+      "file": "docs/predeploy-refinement-review/before-sculpted-iron/entry-phone.png",
+      "bytes": 732352,
+      "sha256": "8f11309d75605d00f7e18717bb2e159eca5b544323bea7a645d773dd39e2c203"
+    },
+    {
+      "file": "docs/predeploy-refinement-review/before-sculpted-iron/experiment-desktop.png",
+      "bytes": 1985026,
+      "sha256": "dbeaaf4fb536ce42aac15f51f16753612bd9abffed5e97161647cbe762f14935"
+    },
+    {
+      "file": "docs/predeploy-refinement-review/before-sculpted-iron/specimen-browser-sheet.png",
+      "bytes": 1214980,
+      "sha256": "6557184a9b15842707f3b517a0e096c55c575cb3c555f1750b0e79fc692843a6"
+    },
+    {
+      "file": "docs/predeploy-refinement-review/before-sculpted-iron/specimen-contact-sheet.png",
+      "bytes": 1032439,
+      "sha256": "bcf68f6f8176345d2c1eacae59e4756adf14913a052899ba52fa6ece255cb159"
+    },
+    {
+      "file": "docs/predeploy-refinement-review/before-sculpted-iron/specimen-svg-fallback.png",
+      "bytes": 327014,
+      "sha256": "d20d9a4ee2b002c819a6b65f78052cf0b0c1ecbb699f4e792fd889bbf26eb906"
+    },
+    {
+      "file": "docs/predeploy-refinement-review/before-sculpted-iron/splash-desktop.png",
+      "bytes": 524570,
+      "sha256": "2ae13f8da3d6ba2e9d0e3b4227285a3facbfe50a1ccbcbac4836b92ef01a12a1"
+    },
+    {
+      "file": "docs/predeploy-refinement-review/before-sculpted-iron/splash-phone.png",
+      "bytes": 244698,
+      "sha256": "5ed786a80be1cb8a38a913097b8a3ecd420c76440436f1e58d8b0be91b514101"
+    },
+    {
+      "file": "docs/predeploy-refinement-review/before-sculpted-iron/tray-phone.png",
+      "bytes": 220914,
+      "sha256": "e79abda9eeb81f2b8ab550fceff1c13e00a3d6cfbddaec5d2bdf21b8587a8427"
+    }
+  ]
+}

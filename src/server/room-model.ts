@@ -1,8 +1,10 @@
+import { PRESENTATION_VERSION } from '../shared/integrated-form.ts';
+import type { StoredBattlePresentation } from './integrated-form.ts';
 import type { MatchmakingRegion } from '../shared/rules.ts';
 import { GAME_RULES } from '../shared/rules.ts';
 import { PROTOCOL_VERSION } from '../shared/protocol.ts';
 import type { ControllerSnapshot, PresentationMode, RoomPhase, RoomSnapshot } from '../shared/types.ts';
-import { beginRelease, initializeExperiment, newExperiment, privateSpecimens, publicCreature, publicHistory, readings } from './dna-mechanics.ts';
+import { beginRelease, initializeExperiment, newExperiment, privateSpecimens, switchReadyAt, publicCreature, publicHistory, readings } from './dna-mechanics.ts';
 import type { Experiment, Specimen, DrawPacket } from './dna-mechanics.ts';
 import { awardSummaries, combineContributions, newCombatSession, produceBattle, rivalView } from './combat.ts';
 import type { CombatSession } from './combat.ts';
@@ -50,7 +52,11 @@ export interface AdmissionReservation {
   purpose?: 'fresh' | 'replacement';
 }
 export interface StoredRoom {
-  schemaVersion: 5;
+  schemaVersion: 6 | 7;
+  forming?: { name: string; votes: string[]; locked: boolean };
+  creatureName?: string;
+  presentationVersion: typeof PRESENTATION_VERSION | null;
+  battlePresentation: StoredBattlePresentation | null;
   combat: CombatSession | null;
   experiment: Experiment | null;
   legacyRulesVersion?: string;
@@ -82,10 +88,10 @@ export interface PublicState {
   ready: string[];
   replay: string[];
   resultsStartedAtMs: number | null;
-  notice?: { revision: number; signature: string; pending: boolean };
+  notice?: { revision: number; signature: string; pending: boolean; updatedAtMs?: number };
 }
 export function newRoom(id: string, visibility: StoredRoom['visibility'], presentation: PresentationMode, secret: string, creationHash: string, creationFingerprint: string, now: number): StoredRoom {
-  return { schemaVersion: 5, combat: null, experiment: null, publicState: null, id, visibility, presentation, secret, creationHash, creationFingerprint, createdAtMs: now, lastActivityAtMs: now, revision: 0, phase: 'lobby', round: null, phaseDeadlineMs: null, hostId: null, seats: [], reservations: [], lockedPlayerIds: [], playerCountAtExperimentStart: null, recovery: null };
+  return { schemaVersion: 6, presentationVersion: PRESENTATION_VERSION, battlePresentation: null, combat: null, experiment: null, publicState: null, id, visibility, presentation, secret, creationHash, creationFingerprint, createdAtMs: now, lastActivityAtMs: now, revision: 0, phase: 'lobby', round: null, phaseDeadlineMs: null, hostId: null, seats: [], reservations: [], lockedPlayerIds: [], playerCountAtExperimentStart: null, recovery: null };
 }
 export const livePlayers = (r: StoredRoom) => r.seats.filter(s => s.role === 'player' && !s.departed);
 export const connectedPlayers = (r: StoredRoom) => livePlayers(r).filter(s => s.connected);
@@ -96,13 +102,16 @@ export function requireLive(r: StoredRoom, now: number) {
 export function snapshot(r: StoredRoom, now: number): RoomSnapshot {
   return {
     protocolVersion: PROTOCOL_VERSION, rulesVersion: r.experiment?.rulesVersion ?? r.legacyRulesVersion ?? GAME_RULES.rulesVersion, revision: r.revision, serverTimeMs: now,
+    laboratoryName: r.forming?.name, creatureName: r.creatureName, formation: r.forming ? { locked: r.forming.locked, votes: [...r.forming.votes] } : undefined,
     roomId: r.id, visibility: r.visibility, presentation: r.presentation, phase: r.phase, round: r.round,
     phaseDeadlineMs: r.phaseDeadlineMs, hostPlayerId: r.hostId,
     players: livePlayers(r).map(s => ({ playerId: s.id, alias: s.alias, symbol: s.symbol, connected: s.connected, finishedThisRound: s.finished, injectionsThisRound: s.injectionsThisRound ?? 0, cooldownUntilMs: s.nextInjectionAtMs, completionReason: s.finishReason ?? null, inactivityPrompt: r.phase === 'autopsy' && s.injectionsThisRound === 0, waitingForNextRound: !s.eligible && r.phase !== 'lobby' })),
     creature: r.experiment ? publicCreature(r.experiment) : null, teamScore: r.publicState?.teamScore ?? r.combat?.completed.reduce((n,result)=>n+GAME_RULES.score[result.outcome],0) ?? 0,
+    battlePresentationVersion: r.presentationVersion,
+    battlePresentation: r.battlePresentation ? {arena:r.battlePresentation.arena,form:{version:r.battlePresentation.form.version,attemptId:r.battlePresentation.form.attemptId,family:r.battlePresentation.form.family,modifiers:structuredClone(r.battlePresentation.form.modifiers),integration:{...r.battlePresentation.form.integration}}} : null,
     combatAvailable: r.combat !== null,
-    rival: r.combat && r.round ? rivalView(r.combat.rivalIds[r.round-1]!) : null,
-    battle: r.phase === 'battle' ? r.combat?.battle?.timeline ?? null : null,
+    rival: r.combat && (r.round || r.forming) ? rivalView(r.combat.rivalIds[(r.round ?? 1)-1]!) : null,
+    battle: (r.phase === 'battle'||Boolean(r.battlePresentation&&['autopsy','session-results'].includes(r.phase))) ? r.combat?.battle?.timeline ?? null : null,
     result: ['autopsy','session-results'].includes(r.phase) ? r.combat?.completed.at(-1) ?? null : null,
     session: r.combat ? { sessionId: r.combat.sessionId, completed: structuredClone(r.combat.completed), contributions: combineContributions(r.combat.completed), awards: awardSummaries(combineContributions(r.combat.completed)) } : null,
     publicSession: r.publicState ? { sessionId: r.publicState.sessionId, region: r.publicState.region, readyPlayerIds: [...r.publicState.ready], replayPlayerIds: [...r.publicState.replay], resultsStartedAtMs: r.publicState.resultsStartedAtMs, completedRounds: r.publicState.completed.length } : null,
@@ -114,16 +123,17 @@ export function snapshot(r: StoredRoom, now: number): RoomSnapshot {
   };
 }
 export function controller(s: Seat, r: StoredRoom): ControllerSnapshot | null {
-  return s.role === 'display' ? null : { revision: r.revision, attemptId: r.experiment?.id ?? null, playerId: s.id, tray: privateSpecimens(s), remainingDoses: s.remainingDoses, nextInjectionAtMs: s.nextInjectionAtMs, switchPulled: s.switchPulled ?? false };
+  return s.role === 'display' ? null : { revision: r.revision, attemptId: r.experiment?.id ?? null, playerId: s.id, tray: privateSpecimens(s), remainingDoses: s.remainingDoses, nextInjectionAtMs: s.nextInjectionAtMs, switchReadyAtMs: switchReadyAt(r,s), switchPulled: s.switchPulled ?? false };
 }
 export function touch(r: StoredRoom, now: number) { r.lastActivityAtMs = now; }
 export function setPhase(r: StoredRoom, phase: RoomPhase, deadline: number | null) { r.phase = phase; r.phaseDeadlineMs = deadline; r.revision++; }
 export function startRound(r: StoredRoom, now: number) {
   const players = connectedPlayers(r);
+  if (r.forming) { startSimpleRound(r, now); return; }
   if (players.length < GAME_RULES.minPlayers) throw new ServiceError('not-enough-players', 'At least two connected players are required.', 409);
   r.round = r.phase === 'recovery-lobby' ? (r.round ?? 1) : r.phase === 'lobby' ? 1 : ((r.round ?? 0) + 1) as 1 | 2 | 3;
   if (!r.combat || r.phase === 'lobby') r.combat = newCombatSession(r.publicState?.sessionId);
-  r.combat.battle = null;
+  r.combat.battle = null; r.presentationVersion = PRESENTATION_VERSION; r.battlePresentation = null;
   r.lockedPlayerIds = players.map(s => s.id);
   r.playerCountAtExperimentStart = null;
   r.recovery = null;
@@ -164,6 +174,7 @@ function transferHost(r: StoredRoom) {
 /** Catch up persisted deadlines in chronological order, including delayed alarms. */
 export function settle(r: StoredRoom, now: number): boolean {
   const revision = r.revision;
+  if (r.forming) return settleSimple(r, now);
   if (now >= expiresAt(r)) { if (r.phase !== 'closed') setPhase(r, 'closed', null); return r.revision !== revision; }
   for (let i = 0; i < 64; i++) {
     const grace = r.seats.filter(s => s.disconnectDeadlineMs !== null).reduce((min, s) => Math.min(min, s.disconnectDeadlineMs!), Infinity);
@@ -190,7 +201,7 @@ export function settle(r: StoredRoom, now: number): boolean {
         }
       }
     } else if (recovery === next) {
-      r.recovery = null; r.lockedPlayerIds = []; r.playerCountAtExperimentStart = null; r.experiment = null;
+      r.recovery = null; r.lockedPlayerIds = []; r.playerCountAtExperimentStart = null; r.experiment = null; r.battlePresentation = null;
       for (const seat of r.seats) { seat.tray = []; seat.drawPlan = []; seat.remainingDoses = 0; }
       for (const s of livePlayers(r)) { s.eligible = false; s.finished = false; }
       if (r.visibility === 'private') { r.round = null; setPhase(r, 'lobby', null); }
@@ -227,7 +238,7 @@ export function nextAlarm(r: StoredRoom): number {
   return Math.min(expiresAt(r), r.phaseDeadlineMs ?? Infinity, r.phase === 'autopsy' && r.publicState && connectedPlayers(r).every(s => r.publicState!.ready.includes(s.id)) && Date.now() < (r.publicState.resultsStartedAtMs ?? 0) + GAME_RULES.publicEarlyAdvanceMinimumMs ? r.publicState.resultsStartedAtMs! + GAME_RULES.publicEarlyAdvanceMinimumMs : Infinity, r.recovery?.deadlineMs ?? Infinity, ...r.seats.map(s => s.disconnectDeadlineMs ?? Infinity), ...r.reservations.filter(s => !s.cancelled && !s.consumedByOperationHash).map(s => s.expiresAtMs));
 }
 
-/** Step 3 orchestration; completion is supplied only by a trusted future battle producer. */
+/** Public orchestration; completion is supplied only by the trusted authoritative battle producer. */
 export function completePublicRound(r: StoredRoom, sessionId: string, completionId: string, outcome: 'victory' | 'draw' | 'defeat', now: number) {
   const p = r.publicState;
   if (!p || sessionId !== p.sessionId) throw new ServiceError('stale-session', 'Session mismatch.', 409);
@@ -260,6 +271,7 @@ function publicDeadline(r: StoredRoom, now: number) {
 }
 export function publicProgress(r: StoredRoom, now: number) {
   const p = r.publicState; if (!p) return;
+  if (r.forming) { simpleProgress(r, now); return; }
   if (r.phase === 'lobby' && connectedPlayers(r).length >= 2) startRound(r, now);
   else if (r.phase === 'recovery-lobby' && connectedPlayers(r).filter(s => p.ready.includes(s.id)).length >= 2) {
     for (const s of livePlayers(r)) if (!s.connected) disconnect(r, s, now, true);
@@ -273,7 +285,7 @@ export function publicProgress(r: StoredRoom, now: number) {
 export function publicIntent(r: StoredRoom, seat: Seat, kind: 'next-round-ready' | 'public-replay-opt-in', now: number) {
   const p = r.publicState; if (!p) throw new ServiceError('wrong-phase', 'Public session required.', 409);
   if (kind === 'next-round-ready') {
-    if (!['autopsy', 'recovery-lobby'].includes(r.phase)) throw new ServiceError('wrong-phase', 'No next round ready check.', 409);
+    if (!(r.forming ? ['autopsy'] : ['autopsy', 'recovery-lobby']).includes(r.phase)) throw new ServiceError('wrong-phase', 'No next round ready check.', 409);
     if (!p.ready.includes(seat.id)) { p.ready.push(seat.id); r.revision++; }
   } else {
     if (r.phase !== 'session-results' || r.phaseDeadlineMs === null) throw new ServiceError('wrong-phase', 'Regroup has ended.', 409);
@@ -302,4 +314,84 @@ export function replayPrivate(r:StoredRoom, sessionId:string, now:number){
  if(r.combat?.sessionId!==sessionId)throw new ServiceError('stale-session','This session changed.',409);
  if(connectedPlayers(r).length<2)throw new ServiceError('not-enough-players','At least two connected players are required.',409);
  r.round=null;r.phase='lobby';r.combat=null;startRound(r,now);touch(r,now);
+}
+
+/** Current public-only contract. Legacy pure model helpers above remain for historical fixtures. */
+const creatureTitles = ['Dr. Gristle', 'Baron Wobble', 'Madame Marrow', 'Professor Gloop', 'Count Quiver', 'Lady Rattle', 'Sir Squirm', 'Doctor Hush'];
+export function startSimpleRound(r: StoredRoom, now: number) {
+  const players = connectedPlayers(r);
+  if (players.length < (r.round === null ? 2 : 1)) throw new ServiceError('not-enough-players', 'Another scientist is needed to begin.', 409);
+  if (r.round === null) for (const seat of livePlayers(r)) if (!seat.connected) { seat.departed = true; seat.finished = true; seat.finishReason = 'grace'; }
+  r.round = (r.round === null ? 1 : r.round + 1) as 1 | 2 | 3;
+  if (!r.combat) r.combat = newCombatSession(r.publicState!.sessionId);
+  r.combat.battle = null; r.presentationVersion = PRESENTATION_VERSION; r.battlePresentation = null;
+  r.creatureName = creatureTitles[crypto.getRandomValues(new Uint8Array(1))[0]! % creatureTitles.length]!;
+  r.lockedPlayerIds = players.map(s => s.id); r.playerCountAtExperimentStart = players.length;
+  r.recovery = null; r.experiment = newExperiment(); delete r.legacyRulesVersion;
+  r.forming!.locked = true;
+  r.publicState!.ready = []; r.publicState!.resultsStartedAtMs = null;
+  for (const s of livePlayers(r)) {
+    s.eligible = players.includes(s); s.finished = !s.eligible; s.remainingDoses = 0; s.tray = []; s.drawPlan = []; s.drawCursor = 0;
+    s.switchPulled = false; s.finishReason = s.eligible ? null : 'grace'; s.nextInjectionAtMs = 0; s.injectionsThisRound = 0; s.interactedThisRound = false;
+  }
+  initializeExperiment(r);
+  setPhase(r, 'experiment', now + GAME_RULES.experimentDurationMs);
+  touch(r, now);
+}
+export function startVote(r: StoredRoom, seat: Seat, now: number) {
+  if (!r.forming || r.phase !== 'lobby' || !seat.connected || seat.departed) throw new ServiceError('wrong-phase', 'This laboratory has already started.', 409);
+  if (!r.forming.votes.includes(seat.id)) { r.forming.votes.push(seat.id); r.revision++; }
+  simpleProgress(r, now); touch(r, now);
+}
+export function simpleProgress(r: StoredRoom, now: number) {
+  const active = connectedPlayers(r), f = r.forming!;
+  if (r.phase === 'lobby') {
+    if (active.length < 2) {
+      if (r.phaseDeadlineMs !== null || f.locked) { r.phaseDeadlineMs = null; f.locked = false; f.votes = []; r.revision++; }
+      return;
+    }
+    if (r.phaseDeadlineMs === null) { r.phaseDeadlineMs = now + GAME_RULES.formationDurationMs; r.revision++; }
+    const votes = active.filter(s => f.votes.includes(s.id)).length;
+    if (!f.locked && (active.length === 8 || votes > active.length / 2 || r.phaseDeadlineMs - now <= GAME_RULES.startCountdownMs)) {
+      f.locked = true; r.phaseDeadlineMs = Math.min(r.phaseDeadlineMs, now + GAME_RULES.startCountdownMs); r.revision++;
+    }
+  } else if (r.phase === 'autopsy' && active.length && now >= (r.publicState!.resultsStartedAtMs ?? now) + GAME_RULES.publicEarlyAdvanceMinimumMs && active.every(s => r.publicState!.ready.includes(s.id))) startSimpleRound(r, now);
+}
+export function settleSimple(r: StoredRoom, now: number): boolean {
+  const revision = r.revision;
+  if (now >= expiresAt(r)) { setPhase(r, 'closed', null); return true; }
+  for (let i = 0; i < 64; i++) {
+    const grace = Math.min(...r.seats.map(s => s.disconnectDeadlineMs ?? Infinity));
+    const next = Math.min(grace, r.phaseDeadlineMs ?? Infinity);
+    if (next > now || !Number.isFinite(next)) break;
+    if (grace === next) {
+      for (const s of r.seats) if (s.disconnectDeadlineMs !== null && s.disconnectDeadlineMs <= next) { s.disconnectDeadlineMs = null; s.finished = true; s.finishReason ??= 'grace'; r.revision++; }
+      if (r.phase === 'experiment' && r.lockedPlayerIds.every(id => r.seats.find(s => s.id === id)?.finished)) beginRelease(r, next, 'unanimous');
+    } else if (r.phase === 'lobby') {
+      if (connectedPlayers(r).length >= 2) startSimpleRound(r, next);
+      else { r.phaseDeadlineMs = null; r.forming!.locked = false; r.forming!.votes = []; r.revision++; }
+    } else if (r.phase === 'experiment') {
+      for (const s of r.seats) if (s.eligible) { s.finished = true; s.finishReason ??= 'deadline'; }
+      beginRelease(r, next, 'deadline');
+    } else if (r.phase === 'release' && r.combat && r.experiment?.frozen) {
+      r.combat.battle = produceBattle(r.experiment.frozen, r.combat.rivalIds[r.round!-1]!, r.round!, next, crypto.randomUUID(), crypto.randomUUID(), r.lockedPlayerIds.map(playerId => ({playerId, alias:r.seats.find(s=>s.id===playerId)?.alias ?? 'Former accomplice'})));
+      r.combat.battle.result.creatureName = r.creatureName!;
+      for (const event of r.combat.battle.timeline.events) event.caption = event.caption.replaceAll('Our specimen', r.creatureName!).replaceAll('our specimen', r.creatureName!);
+      setPhase(r, 'battle', next + r.combat.battle.timeline.durationMs);
+    } else if (r.phase === 'battle') finishBattle(r, next);
+    else if (r.phase === 'autopsy') {
+      if (connectedPlayers(r).length) startSimpleRound(r, next);
+      else setPhase(r, 'closed', null);
+    } else if (r.phase === 'session-results') {
+      const opted = connectedPlayers(r).filter(s => r.publicState!.replay.includes(s.id));
+      if (opted.length >= 2) {
+        for (const s of livePlayers(r)) if (!opted.includes(s)) disconnect(r,s,next,true);
+        const p=r.publicState!;p.sessionId=crypto.randomUUID();p.teamScore=0;p.completed=[];p.ready=[];p.replay=[];p.resultsStartedAtMs=null;
+        r.round=null;r.combat=null;startSimpleRound(r,next);
+      } else { r.phaseDeadlineMs=null;r.revision++; }
+    } else { r.phaseDeadlineMs=null;r.revision++; }
+  }
+  if (!livePlayers(r).length || (!connectedPlayers(r).length && !r.seats.some(s=>s.disconnectDeadlineMs!==null&&!s.departed))) setPhase(r,'closed',null);
+  else simpleProgress(r,now);
+  return r.revision !== revision;
 }

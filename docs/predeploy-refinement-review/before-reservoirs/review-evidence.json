@@ -1,0 +1,66 @@
+{
+  "scope": "Local Chrome production captures plus specimen contact sheet; no physical-device claim",
+  "artBytes": 114868,
+  "files": [
+    {
+      "file": "docs/predeploy-refinement-review/before-reservoirs/before-after.png",
+      "bytes": 889617,
+      "sha256": "6b5083876c9d46612b09c8e9b4888fb2f43f3189972fc562a7d276f9ca16e8c9"
+    },
+    {
+      "file": "docs/predeploy-refinement-review/before-reservoirs/contact-sheet.png",
+      "bytes": 705257,
+      "sha256": "e921eeb61a11e29a61119d20ffad2cec929c3f5b8b21a019b277a7a44cead89f"
+    },
+    {
+      "file": "docs/predeploy-refinement-review/before-reservoirs/entry-desktop.png",
+      "bytes": 1849762,
+      "sha256": "ac125ea4ef514d5ca332aa6a91a614e594301cbcff1eca96821c5b31bc7e53bb"
+    },
+    {
+      "file": "docs/predeploy-refinement-review/before-reservoirs/entry-phone.png",
+      "bytes": 725334,
+      "sha256": "f203cd16040d1a92878ac5e18e5d398fa47bd4969b347d4309fa784c3c488fe8"
+    },
+    {
+      "file": "docs/predeploy-refinement-review/before-reservoirs/experiment-desktop.png",
+      "bytes": 2037618,
+      "sha256": "b6ef280e746894b6648a16537d06a77bb0b14c35f2a356e219346009596d5c96"
+    },
+    {
+      "file": "docs/predeploy-refinement-review/before-reservoirs/frame-before-after.png",
+      "bytes": 1173037,
+      "sha256": "ff32f7082d756bb33b35f4d953023e53d1410680e0003551e0325c4a2b588d8e"
+    },
+    {
+      "file": "docs/predeploy-refinement-review/before-reservoirs/specimen-browser-sheet.png",
+      "bytes": 1214980,
+      "sha256": "6557184a9b15842707f3b517a0e096c55c575cb3c555f1750b0e79fc692843a6"
+    },
+    {
+      "file": "docs/predeploy-refinement-review/before-reservoirs/specimen-contact-sheet.png",
+      "bytes": 1032439,
+      "sha256": "bcf68f6f8176345d2c1eacae59e4756adf14913a052899ba52fa6ece255cb159"
+    },
+    {
+      "file": "docs/predeploy-refinement-review/before-reservoirs/specimen-svg-fallback.png",
+      "bytes": 327014,
+      "sha256": "d20d9a4ee2b002c819a6b65f78052cf0b0c1ecbb699f4e792fd889bbf26eb906"
+    },
+    {
+      "file": "docs/predeploy-refinement-review/before-reservoirs/splash-desktop.png",
+      "bytes": 502838,
+      "sha256": "c275e7bedac3687550f745fdea52467e2d154da2867acfe5aabb680f90e69653"
+    },
+    {
+      "file": "docs/predeploy-refinement-review/before-reservoirs/splash-phone.png",
+      "bytes": 230231,
+      "sha256": "a2060afdebbac26e273e8f162731fabf912e9c5945bbe543a77ef86326da3697"
+    },
+    {
+      "file": "docs/predeploy-refinement-review/before-reservoirs/tray-phone.png",
+      "bytes": 215826,
+      "sha256": "476565fe30361e6bc3756c014466da878e742d6b3e2a6662bc0838a2670065b9"
+    }
+  ]
+}

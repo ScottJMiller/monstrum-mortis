@@ -1,0 +1,61 @@
+{
+  "scope": "Local Chrome production captures plus specimen contact sheet; no physical-device claim",
+  "artBytes": 114868,
+  "files": [
+    {
+      "file": "docs/predeploy-refinement-review/before-victorian-labels/before-after.png",
+      "bytes": 880367,
+      "sha256": "d6f3aa619daa177ce71859a681fa2d7a5125baff6ce647df82c0a2cf51373d91"
+    },
+    {
+      "file": "docs/predeploy-refinement-review/before-victorian-labels/contact-sheet.png",
+      "bytes": 664508,
+      "sha256": "a78edde242623f82798f7973fca30c13a920be925d77fb49b511c0a72cfeb460"
+    },
+    {
+      "file": "docs/predeploy-refinement-review/before-victorian-labels/entry-desktop.png",
+      "bytes": 1721055,
+      "sha256": "98133bb5a5064c8917a8ac51e0a871f4e2282598ecc1bdbaeac62cbdbdf6c423"
+    },
+    {
+      "file": "docs/predeploy-refinement-review/before-victorian-labels/entry-phone.png",
+      "bytes": 627652,
+      "sha256": "589c16d1976ff1ced282efecb7fe88e6c870ffb9a8041cc50dbd96f821f9f5d4"
+    },
+    {
+      "file": "docs/predeploy-refinement-review/before-victorian-labels/experiment-desktop.png",
+      "bytes": 2071025,
+      "sha256": "14af4c503c175df510d6f698a32060820c74129df01a835440460584e4aa627a"
+    },
+    {
+      "file": "docs/predeploy-refinement-review/before-victorian-labels/specimen-browser-sheet.png",
+      "bytes": 1334962,
+      "sha256": "96a993d06bb9df2c61bdcdff2af7b61ccb8fc026988c34555c33a843c340d573"
+    },
+    {
+      "file": "docs/predeploy-refinement-review/before-victorian-labels/specimen-contact-sheet.png",
+      "bytes": 1026591,
+      "sha256": "ea46df4c193076964895d3b0aeeca4f59e387176ab040efb888a04dd39ef4383"
+    },
+    {
+      "file": "docs/predeploy-refinement-review/before-victorian-labels/specimen-svg-fallback.png",
+      "bytes": 304760,
+      "sha256": "589ef05a3f57158111408b6fa9a7487c18e1fe387f7c9317bd83cb8b46f26ec4"
+    },
+    {
+      "file": "docs/predeploy-refinement-review/before-victorian-labels/splash-desktop.png",
+      "bytes": 447374,
+      "sha256": "e34755b46950c7996d1fea0937178e5cb66010a5189148a7f56ce65883bd391c"
+    },
+    {
+      "file": "docs/predeploy-refinement-review/before-victorian-labels/splash-phone.png",
+      "bytes": 207518,
+      "sha256": "883f743b308738d6d10d458659d6109c1ab47e47ae443edfa40fbe06ba27775a"
+    },
+    {
+      "file": "docs/predeploy-refinement-review/before-victorian-labels/tray-phone.png",
+      "bytes": 188371,
+      "sha256": "26b9e7ddaa0f84e2ac68d0763e190f051726b16ad4c2f084a1780abef613d0ba"
+    }
+  ]
+}

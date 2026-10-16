@@ -1,0 +1,16 @@
+{
+  "scenarios": 5,
+  "physicalDevices": false,
+  "scope": "Actual local production UI/SQLite controls and real development specimen renderer; Chrome desktop and phone emulation",
+  "illustrations": 30,
+  "checks": [
+    "splash",
+    "fonts",
+    "clipboard success/denial",
+    "one-second switch/six-second injection",
+    "leave success/rejection/local reset",
+    "thirty specimen images/short names",
+    "SVG fallback",
+    "keyboard/WCAG/320\u20131280px"
+  ]
+}

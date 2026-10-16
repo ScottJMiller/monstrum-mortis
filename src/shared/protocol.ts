@@ -1,11 +1,12 @@
 import type {
-  BattleTimeline, CardRecord, ControllerSnapshot, PlayerId, QueueMode,
+  BattleTimeline, ControllerSnapshot, PlayerId, QueueMode,
   QueueStatus, RoomSnapshot, SpecimenId, TeamSignal,
 } from './types.ts';
 import type { MatchmakingRegion } from './rules.ts';
 
-export const PROTOCOL_VERSION = 5 as const;
+export const PROTOCOL_VERSION = 6 as const;
 export const ROOM_SOCKET_PROTOCOL = `mm-v${PROTOCOL_VERSION}`;
+export const LABS_SOCKET_PROTOCOL = `mm-labs-v${PROTOCOL_VERSION}`;
 export const QUEUE_SOCKET_PROTOCOL = `mm-queue-v${PROTOCOL_VERSION}`;
 
 interface ClientEnvelope {
@@ -22,6 +23,7 @@ export type ClientAction = ClientEnvelope & (
   | { kind: 'advance-private-round'; battleId: string }
   | { kind: 'play-again-private'; sessionId: string }
   | { kind: 'next-round-ready' }
+  | { kind: 'start-now' }
   | { kind: 'vote-specimen-name'; suggestionId: string }
   | { kind: 'rename-private-specimen'; title: string }
   | { kind: 'queue-enter'; region: MatchmakingRegion; mode: QueueMode }
@@ -51,5 +53,4 @@ export type ServerMessage = ServerEnvelope & (
   | { kind: 'queue-status'; status: QueueStatus }
   | { kind: 'team-signal'; playerId: PlayerId; signal: TeamSignal }
   | { kind: 'battle-timeline'; timeline: BattleTimeline }
-  | { kind: 'card-record'; card: CardRecord }
 );

@@ -8,9 +8,13 @@ export function Results({room,playerId}:{room:RoomSnapshot;playerId:string|null}
  const session=room.phase==='session-results', people=session?room.session?.contributions??[]:result.contributions, own=people.find(p=>p.playerId===playerId);
  return <section className="autopsy" aria-label="Authoritative results"><p className="eyebrow">{session?'Session report':'Autopsy / specimen report'}</p><h3>{session?'Three experiments concluded':`${result.outcome[0]!.toUpperCase()+result.outcome.slice(1)} against ${result.rival.name}`}</h3>
   <p>Team score: <strong>{room.teamScore}/300</strong></p>
-  {room.session&&<ol className="round-results">{room.session.completed.map(r=><li key={r.battleId}>Round {r.round} · {r.rival.name} · <strong>{r.outcome}</strong></li>)}</ol>}
+  <p>{room.creatureName??'The creature'} · Power {result.stats.power.toFixed(0)} · Vitality {result.stats.vitality.toFixed(0)}</p>
+  {own&&<p>Your attributed damage: {own.damage.toFixed(1)}</p>}
+  {(session?room.session?.awards??[]:result.awards).filter(a=>a.recipientIds.includes(playerId??'')).map(a=><p key={a.awardId}><strong>{AWARDS[a.awardId]}</strong></p>)}
+  <details><summary>Full specimen report</summary>
+  {room.session&&<ol className="round-results">{room.session.completed.map(r=><li key={r.battleId}>Round {r.round} · {r.creatureName??'The creature'} / {r.rival.name} · <strong>{r.outcome}</strong></li>)}</ol>}
   <Commendations awards={session?room.session?.awards??[]:result.awards} people={people} />
   {playerId&&<><h4>Your contribution summary</h4>{own?<p>{own.damage.toFixed(1)} attributed damage · {(own.protection+own.healing).toFixed(1)} healing/protection · {own.inconvenience.toFixed(1)} successful interference · {own.liabilityDoses} questionable doses · {own.malfunction.toFixed(1)} malfunction evidence · {own.cosmeticDoses} cosmetic mutations.</p>:<p>No contributions recorded for your seat {session?'in this session':'in this round'}. Late arrivals receive no earlier personal credit.</p>}</>}
-  <details open={!session}><summary>Released specimen: final readings and traits</summary><dl className="final-stats">{Object.entries(result.stats).map(([name,value])=><div key={name}><dt>{name}</dt><dd>{value.toFixed(2)}</dd></div>)}</dl><ul className="revealed-traits" tabIndex={0} aria-label="Revealed trait details">{result.traits.map((t,i)=><li key={i}><strong>{t.name}</strong> ({t.status}) — {t.description}</li>)}</ul></details>
- </section>;
+  <details><summary>Released specimen: final readings and traits</summary><dl className="final-stats">{Object.entries(result.stats).map(([name,value])=><div key={name}><dt>{name}</dt><dd>{value.toFixed(2)}</dd></div>)}</dl><ul className="revealed-traits" tabIndex={0} aria-label="Revealed trait details">{result.traits.map((t,i)=><li key={i}><strong>{t.name}</strong> ({t.status}) — {t.description}</li>)}</ul></details>
+ </details></section>;
 }

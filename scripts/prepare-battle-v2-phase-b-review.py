@@ -3,7 +3,7 @@
 import json,subprocess,hashlib,sys,os
 from pathlib import Path
 os.environ.setdefault('MAGICK_THREAD_LIMIT','1')
-out=Path('docs/battle-v2-phase-b-review/refinement-2026-10-14');raw=Path('dist/battle-v2-refinement-capture');scratch=Path('dist/phase-b-refinement-tiles');scratch.mkdir(parents=True,exist_ok=True)
+out=Path('docs/battle-v2-phase-c-review/development-regressions');raw=Path('dist/battle-v2-refinement-capture');scratch=Path('dist/phase-b-refinement-tiles');scratch.mkdir(parents=True,exist_ok=True)
 players=['family-1','family-2','family-3','family-4','family-5','blob'];rivals=['Iron Widow','Gutter Seraph','Carrion Duke','Coil Saint','Maw Engine','The Unfinished'];roles=['idle','attack','recoil','defense','defeat']
 def sheet(name,items,columns=3,size=(420,280)):
  tiles=[];width,height=size
@@ -17,7 +17,7 @@ def sheet(name,items,columns=3,size=(420,280)):
 def terminal_sheet():
  global out
  # Latest timeout-only outcome line and blocked-strike treatment; preserve earlier sheets.
- newest=Path('docs/battle-v2-phase-b-review/refinement-2026-10-14/timeout-winner')
+ newest=Path('docs/battle-v2-phase-c-review/terminal-regressions')
  if (newest/'timeout-390-60-20.png').exists():
   previous=out;out=newest
   sheet('contact-sheet',[(newest/f'timeout-{width}-{team}-{rival}.png',f'Isolated timeout: {label} / {width}px',None)for width in [1280,390]for team,rival,label in [(60,20,'our specimen wins'),(20,60,'rival wins'),(50,50,'draw')]]+[(newest/f'strike-{side}-{state}.png',f'Isolated strike: {side} / {state}',None)for side in ['team','rival']for state in ['unblocked','blocked']],2,(520,340))
@@ -38,8 +38,8 @@ items+=[(raw/f'poses-{i}-idle.png',f'{players[i]} / {rivals[i]}',None)for i in r
 items+=[(out/f'real-detach-{t}.png',f'LEGAL: accepted damage at {t/1000:g}s',None)for t in [11990,12000,18000]]
 items+=[(out/f'effect-{fx}.png',f'LEGAL producer effect: {fx}',None)for fx in ['electric','roar','regeneration'] if (out/f'effect-{fx}.png').exists()]
 sheet('contact-sheet',items,3,(480,300))
-sheet('before-after-grafts',[(Path('docs/battle-v2-review')/f'modifier-{s}-idle.png',f'Phase A before: {label}','left') for s,label in [(5,'barbs'),(6,'veins'),(7,'mouths'),(8,'growth')]]+[(raw/f'graft-family-1-{s}-idle.png',f'Phase B after: {label}','left')for s,label in [(5,'barbs'),(6,'veins'),(7,'mouths'),(8,'growth')]],4,(320,320))
-sheet('opponent-before-after',[(out/f'opponent-before-{body}.png',f'13 Oct before: {body}',None)for body in ['carrion-duke','coil-saint','maw-engine']]+[(raw/f'poses-{i}-idle.png',f'14 Oct cleaned: {body}',None)for i,body in [(2,'carrion-duke'),(3,'coil-saint'),(4,'maw-engine')]],3,(440,290))
+sheet('before-after-grafts',[(Path('docs/archive/battle-v2/battle-v2-review')/f'modifier-{s}-idle.png',f'Phase A before: {label}','left') for s,label in [(5,'barbs'),(6,'veins'),(7,'mouths'),(8,'growth')]]+[(raw/f'graft-family-1-{s}-idle.png',f'Phase B after: {label}','left')for s,label in [(5,'barbs'),(6,'veins'),(7,'mouths'),(8,'growth')]],4,(320,320))
+sheet('opponent-before-after',[(Path('docs/archive/battle-v2/battle-v2-phase-b-review/refinement-2026-10-14')/f'opponent-before-{body}.png',f'13 Oct before: {body}',None)for body in ['carrion-duke','coil-saint','maw-engine']]+[(raw/f'poses-{i}-idle.png',f'14 Oct cleaned: {body}',None)for i,body in [(2,'carrion-duke'),(3,'coil-saint'),(4,'maw-engine')]],3,(440,290))
 # The later same-day terminal/countdown/shield request has separate focused evidence.
 latest=out/'final-lettering'
 if (latest/'final-desktop.png').exists():

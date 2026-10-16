@@ -1,0 +1,23 @@
+/* Original motifs, using https://jacobfilipp.com/victorian-dual/ Method B. */
+:root{--frame-thin:url('/assets/interface/victorian-thin.svg');--frame-thick:url('/assets/interface/victorian-thick.svg');--frame-strip:url('/assets/interface/victorian-dual-strip.svg')}
+/* Nine-slice corners are fixed; complete sculpted iron scroll/tracery motifs fill each edge. */
+.chamber-stage,.v2-arena,.v2-integration,.battle-arena,.thin-frame{border:9px solid transparent;border-image-source:var(--frame-thin);border-image-slice:25%;border-image-width:1;border-image-outset:0;border-image-repeat:round;box-shadow:0 0 0 1px #41473f,0 8px 24px #0008}
+.v2-arena:after,.v2-integration:after,.chamber-stage:after{content:none}
+.control-panel{border:0;border-image:none;box-shadow:none;padding:0;background:transparent}
+.control-panel:before,.control-panel:after{content:none}
+.control-panel .entry-panel,.control-panel .quick-play-panel,.control-panel .room-panel,.ornate-frame{position:relative;border:22px solid transparent;border-image-source:var(--frame-thick);border-image-slice:25%;border-image-width:1;border-image-outset:0;border-image-repeat:round;border-radius:0;padding:34px 16px 30px;background:linear-gradient(#18231af0,#101a13f0),url('/assets/battle-v2/runtime/panel.webp') center/100% 100%;box-shadow:0 6px 24px #0006}
+/* Splash only: static 40px caps plus a 120px centre (two 60px wide/narrow pairs).
+   Whole pairs retain the central narrow motif and never cut a motif in half. */
+.welcome-splash.ornate-frame:before,.welcome-splash.ornate-frame:after{content:'';position:absolute;left:50%;right:auto;width:calc(100% - 12px);height:24px;padding:0 40px;box-sizing:border-box;border:0 solid transparent;border-image-source:var(--frame-strip);border-image-slice:24 40 0 40;border-image-width:24px 40px 0 40px;border-image-repeat:round;background:none;pointer-events:none;z-index:2;transform:translateX(-50%)}
+.welcome-splash.ornate-frame:before{top:0}
+.welcome-splash.ornate-frame:after{top:auto;bottom:0;transform:translateX(-50%) rotate(180deg)}
+@supports(width:round(down,100px,10px)){
+ .welcome-splash.ornate-frame:before,.welcome-splash.ornate-frame:after{width:calc(80px + round(down,calc(100% - 92px),120px));border-image-repeat:repeat}
+}
+.welcome-splash.ornate-frame{background:linear-gradient(#101a13d9,#08120de8),url('/assets/laboratory/lab.chamber.webp') center/cover;padding:38px 24px}
+@media(max-width:640px){
+ .chamber-stage,.v2-arena,.v2-integration,.battle-arena,.thin-frame{border-width:6px}
+ .control-panel .entry-panel,.control-panel .quick-play-panel,.control-panel .room-panel,.ornate-frame{border-width:14px;padding:30px 10px}
+ .welcome-splash.ornate-frame{padding:30px 12px}
+}
+@media(forced-colors:active),(prefers-contrast:more){.chamber-stage,.v2-arena,.v2-integration,.thin-frame,.control-panel .entry-panel,.control-panel .quick-play-panel,.control-panel .room-panel,.ornate-frame{border-image:none;border:2px solid CanvasText}.welcome-splash.ornate-frame:before,.welcome-splash.ornate-frame:after,.control-panel section:before,.control-panel section:after{content:none}}

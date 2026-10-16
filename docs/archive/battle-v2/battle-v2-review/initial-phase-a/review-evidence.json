@@ -1,0 +1,205 @@
+{
+  "scope": "Actual local browser review artifacts; no physical-device evidence",
+  "files": [
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/accepted-injection.png",
+      "bytes": 388325,
+      "sha256": "d100d70a45e0aa80af2591ecf93b4fe1ad9afef0bd233a474092cd31ab7933a6"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/contact-sheet.png",
+      "bytes": 1919262,
+      "sha256": "b2cc6e006a852e281dd3acf0216ccab091301761401615c474a517f580c5b8d2"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/defeat.png",
+      "bytes": 1423495,
+      "sha256": "7d8c6272144da983553e448aab8843f125d1f55bcebba1e36f6290b381b44cef"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/desktop-static.png",
+      "bytes": 2255382,
+      "sha256": "09c9f69dd1e6921b801d33513426d3063e2fb42441fcc681297cc3d1c11707e7"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/desktop.png",
+      "bytes": 2280910,
+      "sha256": "502c35c66481b9a535ce458d379147c7fcf79ee63b4eeb437cc7a0d46fb7f0f9"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/effect-bite.png",
+      "bytes": 1438644,
+      "sha256": "bd40c7403a4514565450ebdae520aec2154b3150f1438a533d77c2ba77293115"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/effect-corrosion.png",
+      "bytes": 1432856,
+      "sha256": "a8e5e20af4d5e04a24c8b98f353a70379f2d7d77b11fde0817d133f2b7665561"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/effect-retaliation.png",
+      "bytes": 1433087,
+      "sha256": "917a0f7f36cb2be629f465340a9ca5c1446d323c05a0f68fbb6378cbec96d26a"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/effect-slash.png",
+      "bytes": 1443835,
+      "sha256": "6f97b24d8743035bd0c165763dfd8b21bc5e024714fffd657b6cc25a764d35da"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/effect-strike.png",
+      "bytes": 1446869,
+      "sha256": "560576d8cfcbb4c46b1a70374181ef7bc17060377d2668fadd557fe3fdf168f9"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/first-look.png",
+      "bytes": 2332492,
+      "sha256": "c7f6e355b42f8499b5b124e2682e4506d2f59e41b8b3dca2947133ddf746d4f8"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/integration-reveal.png",
+      "bytes": 519690,
+      "sha256": "cd50d2c67db673f095193366bb09ca63fbe97cb20a709365a3ea1433964e1652"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/integration-start.png",
+      "bytes": 510771,
+      "sha256": "1785f3e874a1aa1cf13d3e167b8f6daedcb964d896556d2e5423140329249c4e"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/integration-unleash.png",
+      "bytes": 485743,
+      "sha256": "c3d6d3369af9eb415f0bdbc3904f317f9ff8067c63606dc0862888b9296378e5"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/live-audio.webm",
+      "bytes": 147128,
+      "sha256": "5023118b6687ceb420c7303dda6f398188251943502729d2ecf29c5d82650d0e"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/mirrored-growth.png",
+      "bytes": 648797,
+      "sha256": "6fe99e90c25c269a94a7ca0c5cc72a1c0fb1f1e096d02ac33e46de73b707b457"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/miss.png",
+      "bytes": 1435456,
+      "sha256": "cdc152e17c7244c883d6d0a0060e785d11052f7c3d1c8ab569a3032f1c76fb47"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/modifier-0-attack.png",
+      "bytes": 648307,
+      "sha256": "585a67e3f2f90bc29612532358fe4ab892cdd433a52914c0dce3dab9112b3baa"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/modifier-0-defeat.png",
+      "bytes": 620105,
+      "sha256": "c04974653d901ce389f9466d6c001bf15960844ddaa3c40861aba1cf375e1f2b"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/modifier-0-defense.png",
+      "bytes": 635658,
+      "sha256": "5d82058c8d0be1f9964263aa2b90f16978cddb331e1cf0337dcdd0854cbdfff5"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/modifier-0-idle.png",
+      "bytes": 658068,
+      "sha256": "81b7fdd64785aac01e0dfae81cc2edf805c493bcbd8f976ae554e4f98b6db57f"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/modifier-0-recoil.png",
+      "bytes": 689439,
+      "sha256": "148fa856e723a2aa6ed3036e8f047727ce2f8c52816904e19f1630dbb6b57b2f"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/modifier-1-idle.png",
+      "bytes": 675126,
+      "sha256": "8ce8066d9058e4a3c2ec1237b365f6a283b0847329cb7f2e7de9e3a9c4014a79"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/modifier-10-idle.png",
+      "bytes": 668700,
+      "sha256": "f596b4a8a3d5774639b8c3a2d8ecd6e0bcf803d6fedd930c408a304e366b5477"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/modifier-11-idle.png",
+      "bytes": 596582,
+      "sha256": "976cc91806e672911cb2bb7d26e1f1d73f9431a0123ed1ddd02d1db497d15211"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/modifier-2-idle.png",
+      "bytes": 649664,
+      "sha256": "45c79398306ddf32b8b22abcb242dc8ed88856fadf6c06fe6e675eefb3f373d0"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/modifier-3-idle.png",
+      "bytes": 648522,
+      "sha256": "1fcf436b395d81e028cc4ca514dcb1363b97628fe7ae5f7968eb3c36123499a2"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/modifier-4-idle.png",
+      "bytes": 651353,
+      "sha256": "8e7290cf3e7b3de0f9474bd5b5b70464a1307998eb6d4f1a6f7e6d83fb0c333d"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/modifier-5-idle.png",
+      "bytes": 659823,
+      "sha256": "404dc13bed809a8ca0f51bf4f7cd9e2e3729255600da8799ae7749b923cc6ed7"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/modifier-6-idle.png",
+      "bytes": 660597,
+      "sha256": "8c862a40a74064042364d58d56bccc7b96a38ae9b81d4365341a307f6f7965d3"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/modifier-7-idle.png",
+      "bytes": 659545,
+      "sha256": "17682ecc2f20699675578ec97813a7d81249aa959f81f58e3a297b7606360344"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/modifier-8-idle.png",
+      "bytes": 659607,
+      "sha256": "05efaa528c70fa289b8a8a5f55e42c9bed38297ace69de450f5a70b0bc0cf282"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/modifier-9-idle.png",
+      "bytes": 655613,
+      "sha256": "2714bd6f933598a3137ce26bf9fcb68e771599282f245317f317f6212961b4bf"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/modifier-contact-sheet.png",
+      "bytes": 1069451,
+      "sha256": "ddb32759737944998d12668bb6304c3fb7ae45b125eb72ee77c2edb6dcf590d6"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/motion-frames.png",
+      "bytes": 1605059,
+      "sha256": "91284d788e9ea3a1b3629bfdf39ce16bec3c0eb98755e12d4449ecb4d8482040"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/phase-a-recording.mp4",
+      "bytes": 1346828,
+      "sha256": "0ebe90974585ee96462037c8284e41fb1801bc9345e32765741fef1d1045b304"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/phone-landscape.png",
+      "bytes": 1215211,
+      "sha256": "2b28b318d74def0a6f596902aa570d8b7ce6800949b121f791524622dfefdde3"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/phone-portrait.png",
+      "bytes": 537036,
+      "sha256": "7f014550221448b3f3286311d5368e7a234c96870a6fd15d80e41c10f55e83eb"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/phone-reduced.png",
+      "bytes": 537234,
+      "sha256": "26278fefb957f54e00c4b3f29fe6c148df93f9a02af6a31436c6c72f3cbd35e2"
+    },
+    {
+      "file": "docs/archive/battle-v2/battle-v2-review/simultaneous.png",
+      "bytes": 1443266,
+      "sha256": "92c9e1c844a773c4d1338aa73bf1852e007c18c4ac8b65115b2d9070d9f14ad6"
+    }
+  ]
+}

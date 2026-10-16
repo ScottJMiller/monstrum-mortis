@@ -1,0 +1,101 @@
+{
+  "physicalDevices": false,
+  "recordingFrames": 265,
+  "files": [
+    {
+      "file": "docs/battle-v2-phase-c-review/arena-detail.png",
+      "bytes": 681194,
+      "sha256": "0a24dd61fabef72d1d020a91fb579ae441be940a3680348af26cdfd3894274b2"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/battle-desktop.png",
+      "bytes": 1400368,
+      "sha256": "6ff086ad95ca7dbe0d47f9b3fec8ad678ac5100d9033e984208dd9f693a75593"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/battle-landscape.png",
+      "bytes": 809264,
+      "sha256": "dc520c745977dcf5b6f632b623e200456d8d0a7d94f512f2ae5cac68c0f15a74"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/battle-phone.png",
+      "bytes": 578290,
+      "sha256": "7e104bc7119ed689d38eec0df58bcdb247a633513c609a493a9ccd2b2b6fd4ea"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/briefing.png",
+      "bytes": 1833794,
+      "sha256": "594ee2ee3d789f1c5f6a38a4fafe49307a11637a294c073bf31176809bdf7de5"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/contact-sheet.png",
+      "bytes": 957264,
+      "sha256": "6746ce183e22098d58d233055914aa3795f06d7693b51203d251b6734905f095"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/countdown.png",
+      "bytes": 1402951,
+      "sha256": "3aa97fa4e523daaba103dda4aa1eef6ca79f8a1c1fbb03c9e5b3600ca03e297b"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/entry-desktop.png",
+      "bytes": 1843388,
+      "sha256": "d91988abe7c255cb981b76e149b8d14d0131d22c489500ed70e57502394dffc8"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/entry-phone.png",
+      "bytes": 717626,
+      "sha256": "dfbc95bdd1f8cc7b24cba0118d4fa2172b32fcc3500491d1f4e82df95b0224e7"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/experiment-phone.png",
+      "bytes": 773640,
+      "sha256": "8dd66b58f8e59074822467c6e31dd0fbe1d6b2c0b831996ad86eaad20eb0f8cf"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/injection-desktop.png",
+      "bytes": 2121258,
+      "sha256": "2c330dca04644935882ee512ee84364e187e4b076d0eca587cbf2400fc49f69d"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/integration.png",
+      "bytes": 1127502,
+      "sha256": "9318c39fc6819ff6b9549b33dc1c3ddcfd6568af41a69e2e64701b2e1bf6452f"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/production-audio.webm",
+      "bytes": 312503,
+      "sha256": "2e990d2a5e6e8a9db342e25f0957bf06647e3fde3f1d5434add11c5bf99c0dbc"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/production-recording.mp4",
+      "bytes": 1282970,
+      "sha256": "b765acc8fa1ece04eb615096e21708db0172ab89c2bf3baf00a594d95ae9ef50"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/recovered-art.png",
+      "bytes": 807986,
+      "sha256": "073cfcbb6deabc1178b43ab585da9d56be7472dbfd2a04d3eacfa0fcb6453e60"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/result-desktop.png",
+      "bytes": 2098934,
+      "sha256": "8520cee9d88d7eeb7ea01612ea36131b265e74496a7f97a873ec669a1d0a7a27"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/result-phone.png",
+      "bytes": 873639,
+      "sha256": "d23995d02c417656dbf589e6336b7337f47037fb9f7ed98e11e2e477a799c25f"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/reveal.png",
+      "bytes": 1153002,
+      "sha256": "c4e38cb1d0b3049babec1e4f2aff8f9029effb95bcd815eb1a8e14912afe18ff"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/tray-detail-phone.png",
+      "bytes": 224695,
+      "sha256": "b5d5784c2fddc2f8731e5987707764d20e490a4dc6ea3f703fb6809cda41d846"
+    }
+  ]
+}

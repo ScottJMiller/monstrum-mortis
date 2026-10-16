@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import { PROTOCOL_VERSION } from '../src/shared/protocol.ts';
 import { GAME_RULES as R } from '../src/shared/rules.ts';
 import { newRoom, connect, disconnect, settle, startRound, snapshot } from '../src/server/room-model.ts';
 import type { Seat } from '../src/server/room-model.ts';
@@ -66,7 +67,7 @@ test('public projections and runtime validators reject authoritative client fiel
   const room = fixture();
   const serialized = JSON.stringify(snapshot(room, 10));
   for (const hidden of ['secret', 'tokenHash', 'operationHash', 'creationHash', 'guestId']) assert.ok(!serialized.includes(hidden));
-  const action = { protocolVersion: 5, actionId: crypto.randomUUID(), kind: 'start-private-session' };
+  const action = { protocolVersion: PROTOCOL_VERSION, actionId: crypto.randomUUID(), kind: 'start-private-session' };
   assert.equal(parseAction(action).kind, 'start-private-session');
   for (const invalid of [{ ...action, playerId: 'somebody' }, { ...action, protocolVersion: 1 }, { ...action, actionId: 'small' }, null, [], { ...action, kind: 'set-phase', phase: 'autopsy' }]) assert.throws(() => parseAction(invalid));
 });

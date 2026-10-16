@@ -1,3 +1,5 @@
+import { PRESENTATION_VERSION } from '../shared/integrated-form.ts';
+import { validBattlePresentation } from './integrated-form.ts';
 import type { StoredRoom } from './room-model.ts';
 import { dna, newExperiment } from './dna-mechanics.ts';
 import { DNA_VERSION } from './catalogue/mechanics.ts';
@@ -10,18 +12,21 @@ import { STAT_BOUNDS } from './catalogue/mechanics.ts';
 export function migrateRoom(value: unknown): StoredRoom {
   if (!value || typeof value !== 'object') throw new ServiceError('temporarily-unavailable', 'Invalid stored room.', 503);
   const r = value as StoredRoom; const version = (value as { schemaVersion: number }).schemaVersion;
-  if (![2, 3, 4, 5].includes(version) || typeof r.id !== 'string' || typeof r.secret !== 'string' || !Array.isArray(r.seats) || !Array.isArray(r.lockedPlayerIds) || !Array.isArray(r.reservations) || !Number.isSafeInteger(r.revision)) throw new ServiceError('temporarily-unavailable', 'Unsupported or corrupt stored room schema.', 503);
+  if (![2, 3, 4, 5, 6, 7].includes(version) || typeof r.id !== 'string' || typeof r.secret !== 'string' || !Array.isArray(r.seats) || !Array.isArray(r.lockedPlayerIds) || !Array.isArray(r.reservations) || !Number.isSafeInteger(r.revision)) throw new ServiceError('temporarily-unavailable', 'Unsupported or corrupt stored room schema.', 503);
+  if(version===7&&(!r.forming||typeof r.forming.name!=='string'||r.forming.name.length>80||typeof r.forming.locked!=='boolean'||!Array.isArray(r.forming.votes)||r.forming.votes.length>8||new Set(r.forming.votes).size!==r.forming.votes.length||r.forming.votes.some(id=>!r.seats.some(s=>s.id===id))||!r.publicState||r.publicState.region!=='americas'||(r.round!==null&&(typeof r.creatureName!=='string'||r.creatureName.length>40))))throw new ServiceError('temporarily-unavailable','Invalid stored forming laboratory.',503);
   if (version === 2) r.publicState = null;
   if (version < 4) {
-    r.schemaVersion = 5; r.experiment = r.phase === 'briefing' ? newExperiment() : null; r.legacyRulesVersion = '0.1.0';
+    r.schemaVersion = 6; r.experiment = r.phase === 'briefing' ? newExperiment() : null; r.legacyRulesVersion = '0.1.0';
     for (const s of r.seats) { s.tray = []; s.drawPlan = []; s.drawCursor = 0; s.switchPulled = false; s.finishReason = s.finished ? 'legacy' : null; }
   }
-  if (version < 5) { r.schemaVersion = 5; r.combat = null; }
+  if (version < 5) { r.schemaVersion = 6; r.combat = null; }
+  if(version<6){r.schemaVersion=6;r.presentationVersion=null;r.battlePresentation=null;}
+  if(![null,PRESENTATION_VERSION].includes(r.presentationVersion)||r.battlePresentation===undefined)throw new ServiceError('temporarily-unavailable','Unsupported presentation version.',503);
   if (r.combat) validateCombatSession(r.combat);
   else if(r.combat!==null) throw new ServiceError('temporarily-unavailable','Invalid combat session.',503);
   if (r.experiment) {
     const e = r.experiment;
-    if (e.catalogueVersion !== DNA_VERSION || !['0.2.0', GAME_RULES.rulesVersion].includes(e.rulesVersion) || !UUID.test(e.id) || !UUID.test(e.compositionSeed) || !e.active || Array.isArray(e.active) || !Array.isArray(e.history) || e.history.length > 48) throw new ServiceError('temporarily-unavailable', 'Unsupported stored mechanics version.', 503);
+    if (e.catalogueVersion !== DNA_VERSION || !['0.2.0','0.3.0','0.4.0', '0.5.0', GAME_RULES.rulesVersion].includes(e.rulesVersion) || !UUID.test(e.id) || !UUID.test(e.compositionSeed) || !e.active || Array.isArray(e.active) || !Array.isArray(e.history) || e.history.length > 48) throw new ServiceError('temporarily-unavailable', 'Unsupported stored mechanics version.', 503);
     for (const [slot, p] of Object.entries(e.active)) {
       const definition = dna(p.dnaId);
       if (!definition.targets.some(target => target === slot) || !Array.isArray(p.contributions) || !p.contributions.length || p.contributions.length > 48 || p.contributions.some(c => !UUID.test(c.injectionId) || typeof c.playerId !== 'string' || !Number.isFinite(c.units) || c.units <= 0 || c.units > 1)) throw new ServiceError('temporarily-unavailable', 'Invalid stored mutation contributions.', 503);
@@ -38,5 +43,7 @@ export function migrateRoom(value: unknown): StoredRoom {
       for (const [key, bounds] of Object.entries(STAT_BOUNDS)) { const value = f.stats?.[key as keyof typeof f.stats]; if (typeof value !== 'number' || !Number.isFinite(value) || value < bounds[0] || value > bounds[1]) throw new ServiceError('temporarily-unavailable', 'Invalid frozen creature stats.', 503); }
     }
   } else if (r.experiment !== null) throw new ServiceError('temporarily-unavailable', 'Invalid stored experiment.', 503);
+  if(r.battlePresentation!==null&&(!r.presentationVersion||!r.experiment?.frozen||!validBattlePresentation(r.battlePresentation,r.experiment.frozen)))throw new ServiceError('temporarily-unavailable','Corrupt stored battle presentation.',503);
+  if(r.presentationVersion&&r.experiment?.frozen&&!r.battlePresentation)throw new ServiceError('temporarily-unavailable','Missing frozen presentation.',503);
   return r;
 }

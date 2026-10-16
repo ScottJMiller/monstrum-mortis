@@ -2,7 +2,7 @@
 """Assemble actual family browser captures; no generated mockups or runtime endpoint."""
 import json,subprocess,hashlib
 from pathlib import Path
-out=Path('docs/battle-v2-family-review');raw=Path('dist/battle-v2-family-capture');scratch=Path('dist/family-review-tiles');scratch.mkdir(parents=True,exist_ok=True)
+out=Path('docs/battle-v2-phase-c-review/family-regressions');raw=Path('dist/battle-v2-family-capture');scratch=Path('dist/family-review-tiles');scratch.mkdir(parents=True,exist_ok=True)
 def sheet(name,items,columns=3):
  tiles=[]
  for i,(file,label)in enumerate(items):

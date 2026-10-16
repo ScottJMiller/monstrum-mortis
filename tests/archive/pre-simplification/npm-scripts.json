@@ -1,0 +1,22 @@
+{
+  "test:rooms": "npm run deploy:dry && node tests/rooms.runtime.mjs",
+  "test:matchmaking": "npm run deploy:dry && node tests/matchmaking.runtime.mjs",
+  "test:recovery": "npm run deploy:dry && node tests/session-recovery.runtime.mjs",
+  "test:fresh-admission": "npm run deploy:dry && node tests/fresh-admission.runtime.mjs",
+  "test:presentation": "npm run deploy:dry && node tests/presentation.browser.mjs",
+  "test:step4": "npm run deploy:dry && node tests/rooms.runtime.mjs && node tests/matchmaking.runtime.mjs && node tests/session-recovery.runtime.mjs && node tests/fresh-admission.runtime.mjs && node tests/presentation.browser.mjs",
+  "test:art": "node tests/art.browser.mjs",
+  "test:dna": "npm run deploy:dry && node tests/dna.runtime.mjs",
+  "test:dna-browser": "npm run deploy:dry && node tests/dna.browser.mjs",
+  "test:step5": "npm run deploy:dry && node tests/rooms.runtime.mjs && node tests/matchmaking.runtime.mjs && node tests/session-recovery.runtime.mjs && node tests/fresh-admission.runtime.mjs && node tests/dna.runtime.mjs && node tests/presentation.browser.mjs && node tests/dna.browser.mjs && node tests/art.browser.mjs",
+  "test:composition": "node scripts/prepare-composition-fixtures.mjs && node tests/composition.browser.mjs",
+  "test:combat": "npm run deploy:dry && node tests/combat.runtime.mjs && npm run simulate:combat",
+  "test:combat-browser": "npm run deploy:dry && node scripts/prepare-combat-fixtures.mjs && node tests/combat.browser.mjs",
+  "test:step6": "npm run test:step5 && node tests/combat.runtime.mjs && node scripts/prepare-combat-fixtures.mjs && node tests/combat.browser.mjs && npm run test:composition && npm run simulate:combat",
+  "test:battle-v2": "npm run check && node tests/battle-v2.browser.mjs && npm run build && node scripts/check-battle-v2-build.mjs",
+  "test:battle-v2-phase-b": "npm run check && node tests/battle-v2.browser.mjs && node tests/battle-v2-phase-b.browser.mjs && node tests/battle-v2-refinement.browser.mjs && node tests/battle-v2-family.browser.mjs && npm run build && node scripts/check-battle-v2-build.mjs",
+  "test:battle-v2-phase-c": "npm run deploy:dry && node tests/battle-v2-phase-c.runtime.mjs && node tests/battle-v2-phase-c.browser.mjs && node tests/combat.runtime.mjs && node tests/combat.browser.mjs && node scripts/check-battle-v2-build.mjs",
+  "test:predeploy-refinement": "npm run deploy:dry && node tests/predeploy-refinement.browser.mjs && node tests/dna.runtime.mjs && node tests/dna.browser.mjs && node tests/battle-v2-phase-c.runtime.mjs && node tests/battle-v2-phase-c.browser.mjs && node tests/presentation.browser.mjs && node tests/combat.runtime.mjs && node scripts/check-battle-v2-build.mjs",
+  "test:phase-d-local": "npm run deploy:dry && node scripts/check-battle-v2-build.mjs && node scripts/measure-phase-d-assets.mjs && node tests/phase-d-load.runtime.mjs && node tests/lan.browser.mjs",
+  "test:lan": "npm run deploy:dry && node tests/lan.browser.mjs && node scripts/check-battle-v2-build.mjs"
+}

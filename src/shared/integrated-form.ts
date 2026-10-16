@@ -23,3 +23,10 @@ export interface IntegratedForm {
 }
 /** Fixed sRGB palettes, 50% treatment, never injection-order filter composition. */
 export const TINT_PALETTES = Object.freeze({ red: [153, 77, 69], green: [91, 133, 82], combined: [137, 116, 68] } as const);
+
+export const PRESENTATION_VERSION = 'battle-v2-b2' as const;
+export const BATTLE_ARENAS = ['laboratory','arena-catacomb','arena-foundry'] as const;
+export type BattleArena = typeof BATTLE_ARENAS[number];
+/** Public descriptor deliberately omits internal vote audit counts. */
+export type PublicIntegratedForm = Omit<IntegratedForm,'votes'>;
+export interface BattlePresentation { form: PublicIntegratedForm; arena: BattleArena }

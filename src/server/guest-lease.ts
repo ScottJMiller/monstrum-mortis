@@ -6,7 +6,7 @@ import { deriveToken, hash, randomSecret } from './security.ts';
 import { operationId } from './validation.ts';
 export const LEASE_MS = 120_000;
 export interface Holder { kind: 'queue' | 'room'; id: string; nonce: string; region: MatchmakingRegion; ticketId: string; committed: boolean; expiresAtMs: number }
-interface Identity { guestId: string; secret: string; tokenHash: string; alias: string; symbol: string; holder: Holder | null; revision: number; expiresAtMs: number }
+interface Identity { epoch?: number; guestId: string; secret: string; tokenHash: string; alias: string; symbol: string; holder: Holder | null; revision: number; expiresAtMs: number }
 const adjectives = ['Grim', 'Velvet', 'Crooked', 'Cobalt', 'Mourning', 'Ashen', 'Brittle', 'Hollow'];
 const nouns = ['Curator', 'Alchemist', 'Archivist', 'Doctor', 'Warden', 'Scholar', 'Keeper', 'Observer'];
 export class GuestLease extends DurableObject<WorkerEnv> {
@@ -51,7 +51,7 @@ export class GuestLease extends DurableObject<WorkerEnv> {
       let identity = this.load();
       if (!identity) {
         const n = crypto.getRandomValues(new Uint8Array(3)); const secret = randomSecret();
-        identity = { guestId, secret, tokenHash: await hash(await deriveToken(secret, 'guest-access')), alias: `${adjectives[n[0]! % 8]} ${nouns[n[1]! % 8]}`, symbol: ['☽', '♜', '⚗', '✦', '☿', '♠', '☼', '⚙'][n[2]! % 8]!, holder: null, revision: 0, expiresAtMs: 0 };
+        identity = { epoch: 6, guestId, secret, tokenHash: await hash(await deriveToken(secret, 'guest-access')), alias: `${adjectives[n[0]! % 8]} ${nouns[n[1]! % 8]}`, symbol: ['☽', '♜', '⚗', '✦', '☿', '♠', '☼', '⚙'][n[2]! % 8]!, holder: null, revision: 0, expiresAtMs: 0 };
         await this.save(identity);
       }
       return { guestId, accessToken: await deriveToken(identity.secret, 'guest-access'), alias: identity.alias, symbol: identity.symbol };
@@ -63,7 +63,7 @@ export class GuestLease extends DurableObject<WorkerEnv> {
   async authenticate(token: string): Promise<{ guestId: string; alias: string; symbol: string } | null> {
     return this.exclusive(async () => {
       const i = this.load();
-      if (!i || i.expiresAtMs <= Date.now() || !/^[A-Za-z0-9_-]{43}$/.test(token) || await hash(token) !== i.tokenHash) return null;
+      if (!i || i.epoch !== 6 || i.expiresAtMs <= Date.now() || !/^[A-Za-z0-9_-]{43}$/.test(token) || await hash(token) !== i.tokenHash) return null;
       return { guestId: i.guestId, alias: i.alias, symbol: i.symbol };
     });
   }

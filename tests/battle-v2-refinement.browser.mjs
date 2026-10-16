@@ -3,7 +3,7 @@ import {mkdir,readFile,writeFile} from 'node:fs/promises';
 import {resolve,join} from 'node:path';
 import {chromium} from 'playwright-core';
 import {createServer} from 'vite';
-const out=resolve(process.env.MM_BATTLE_V2_REFINEMENT_DIR??'docs/battle-v2-phase-b-review/refinement-2026-10-14/timeout-winner');await mkdir(out,{recursive:true});
+const out=resolve(process.env.MM_BATTLE_V2_REFINEMENT_DIR??'docs/battle-v2-phase-c-review/terminal-regressions');await mkdir(out,{recursive:true});
 let browser,server;const evidence={physicalDevices:false,scope:'Local Chrome actual decode/render/playback; no subjective listening claim'},errors=[];
 async function select(page,label,value){await page.getByLabel(label,{exact:true}).selectOption(String(value));await page.waitForTimeout(40);}
 async function seek(page,time){await page.getByLabel('Recording time',{exact:true}).evaluate((e,v)=>{Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(e,String(v));e.dispatchEvent(new Event('input',{bubbles:true}));},time);await page.waitForTimeout(40);}
@@ -60,7 +60,7 @@ try{
   if(!window.__refinementRoot){const host=document.createElement('div');host.id='refinement-stage';document.body.prepend(host);window.__refinementRoot=createRoot(host);}
   const source=core[10],base=source.timeline.events[0];
   const timeline={...source.timeline,battleId:'isolated-refinement-study',durationMs:5000,events:options.events??[{...base,kind:options.kind??'timeout',offsetMs:5000,teamHealth:options.teamHealth,rivalHealth:options.rivalHealth}]};
-  window.__refinementRoot.render(React.createElement(Stage,{timeline,form:source.form,time:options.time??5000,motion:options.motion??true}));
+  window.__refinementRoot.render(React.createElement(Stage,{timeline,form:source.form,time:options.time??5000,motion:options.motion??true,outcome:options.outcome}));
  },{core,options});await page.waitForTimeout(100);}
  const sample=page.locator('#refinement-stage');
  for(const width of [1280,390]){
@@ -87,6 +87,9 @@ try{
   await sample.screenshot({path:join(out,`strike-${actor}-${blocked?'blocked':'unblocked'}.png`)});evidence.blockedStrikes.push({actor,blocked});
  }
  console.log('PASS 6: timeout-only winner/draw line fits desktop and reduced-motion phone in New Rocker; both blocked directions suppress strike SVG and preserve shields, attack poses and captions');
+ await renderStage({teamHealth:60,rivalHealth:20,outcome:null});assert.equal(await sample.locator('.v2-timeout-winner').count(),0);
+ await renderStage({teamHealth:60,rivalHealth:20,outcome:'defeat'});assert.equal(await sample.locator('.v2-timeout-winner').textContent(),`${core[10].timeline.rival.name} wins`);
+ console.log('PASS 7: production timeout subtitle waits for the published outcome and never replaces it with a fixture health comparison');
  await page.evaluate(()=>{window.__refinementRoot.unmount();document.getElementById('refinement-stage').remove();});
- assert.deepEqual(errors,[]);evidence.scenarios=6;await writeFile(join(out,'refinement-evidence.json'),JSON.stringify(evidence,null,2)+'\n');
+ assert.deepEqual(errors,[]);evidence.scenarios=7;await writeFile(join(out,'refinement-evidence.json'),JSON.stringify(evidence,null,2)+'\n');
 }finally{await browser?.close();await server?.close();}

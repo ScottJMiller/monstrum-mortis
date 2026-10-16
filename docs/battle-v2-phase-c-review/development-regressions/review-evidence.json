@@ -1,0 +1,170 @@
+{
+  "scope": "Actual local Chrome screenshots/motion/audio; no physical devices",
+  "files": [
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/arena-arena-catacomb.png",
+      "bytes": 1474478,
+      "sha256": "20c3898ddb00772839ac2cda58c0fc0e0fa994853f245f101bce49e3bf47c949"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/arena-arena-foundry.png",
+      "bytes": 1501357,
+      "sha256": "939a61ebc8171d61d59890b6936b453393b06b4709620f6ca8927f928e0958f9"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/arena-laboratory.png",
+      "bytes": 1462296,
+      "sha256": "7626f78916b124ed155ad336bfed0783a6ef122a3ec20c454ad9f5132647e240"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/before-after-grafts.png",
+      "bytes": 212031,
+      "sha256": "c5a6b8aaea6627c1d98b87e4750b5f76b767c72e7a1c3f74b2d385df4be21a0a"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/contact-sheet.png",
+      "bytes": 1804949,
+      "sha256": "1a9e40b492a1c7961fb958affbb243df061a31daa101fa82efc2f30c712fdb88"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/damage-contact-sheet.png",
+      "bytes": 308943,
+      "sha256": "ed00b89a9df75b42d445dc4df34183a2cc2365735dd6a36aec39c95801ae8c26"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/damage-poses-limb-lost.png",
+      "bytes": 692270,
+      "sha256": "1816a5ca354caf80acc4b3224b302465865267221a5b19282a95cba9d5d34b7e"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/damage-poses-teeth-lost.png",
+      "bytes": 691529,
+      "sha256": "17f6bc2129aec14dbcdc994a73309719296a276355058679a6e2302681e17e40"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/desktop.png",
+      "bytes": 2641213,
+      "sha256": "1320c1428d6ca8f1e8f91c03aa2f7fc6d172e85f478ab91e88b047cb8e01bf6b"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/effect-bleed.png",
+      "bytes": 1457517,
+      "sha256": "746405ecde3ce0990922102c5a0447523e23fa80cb9c5dda6c40c17a9d9c5c1b"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/effect-contact-sheet.png",
+      "bytes": 1384926,
+      "sha256": "414c28da53aa6006c89ae50d5a6db9df39d98b7ae0c272eee47cb73b5ed2cbcd"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/effect-crawling.png",
+      "bytes": 1451127,
+      "sha256": "1b836651c50a4fd3b724334c428e3828bfdf597b8d255423d1abd9734663a94c"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/effect-detach.png",
+      "bytes": 1451127,
+      "sha256": "1b836651c50a4fd3b724334c428e3828bfdf597b8d255423d1abd9734663a94c"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/effect-electric.png",
+      "bytes": 1456073,
+      "sha256": "f0f08bec60f76765f21ff12627d1277ff5a19e245c08f9d896c8d3e542935805"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/effect-malfunction.png",
+      "bytes": 1457517,
+      "sha256": "746405ecde3ce0990922102c5a0447523e23fa80cb9c5dda6c40c17a9d9c5c1b"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/effect-poison.png",
+      "bytes": 1462257,
+      "sha256": "82ee37b2cf12b5ad94ff8b1cb2c2df4e8d9061762d4b9fc69865f86b67fa8942"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/effect-regeneration.png",
+      "bytes": 1435297,
+      "sha256": "54f9879120325107ecdbe6836b9aa0837a1d00be06f68af054424aa15bb32d6c"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/effect-restraint.png",
+      "bytes": 1462257,
+      "sha256": "82ee37b2cf12b5ad94ff8b1cb2c2df4e8d9061762d4b9fc69865f86b67fa8942"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/effect-roar.png",
+      "bytes": 1458221,
+      "sha256": "6d8e07dde6008e5892b60b19f911dfb7805c6ccc9deba40775c35cdc832e9de2"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/effect-slowing.png",
+      "bytes": 1451127,
+      "sha256": "1b836651c50a4fd3b724334c428e3828bfdf597b8d255423d1abd9734663a94c"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/graft-contact-sheet.png",
+      "bytes": 372732,
+      "sha256": "9110859536c482dd8a2e2e446a997438b24a219d2bfea50ca4d9733a6dc6fd9e"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/live-audio.webm",
+      "bytes": 134570,
+      "sha256": "f03ed150f521bd830e8d888401ca44a7dc093af59ded9e4a7f29ed5b573d03b2"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/mirrored-grafts.png",
+      "bytes": 729975,
+      "sha256": "0ff4d1559d594ee2cb8617cbaac0bf7df1fb58fcc956d9a6ada0f3defe4a3add"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/motion-frames.png",
+      "bytes": 1699831,
+      "sha256": "3dd1919f10678d85ffa08604b7788c77cb85f8dd6040ba1910c32b8706cde66b"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/opponent-before-after.png",
+      "bytes": 425712,
+      "sha256": "11cba2d07245b143024a0cd1efe026ba23107135832c5e968c07df4d772dff20"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/phase-b-recording.mp4",
+      "bytes": 1841367,
+      "sha256": "442b3ec3b41c986209fcbc2ad023f869047060ae7e86cf2e971715811504ea8f"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/phone-landscape.png",
+      "bytes": 1498863,
+      "sha256": "2b1644f073a18772c9953048361754eecb5808cea6d4775d2f8d33241054f34b"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/phone-portrait.png",
+      "bytes": 640064,
+      "sha256": "f31e6e10602225bd5d3ed590e05f94ded9bcc6e90989d2d608c5aff29e232eaa"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/phone-reduced.png",
+      "bytes": 640889,
+      "sha256": "3af9af0097b8f734ecaa9d50d309cafe6c22c36e5bc0a37489cd2f12859aeade"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/poses-contact-sheet.png",
+      "bytes": 1509944,
+      "sha256": "6ebdb78f36b1789c321035c60c3be1d4a557572219ca738e2d76cb18fb4f6895"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/real-detach-11990.png",
+      "bytes": 1446734,
+      "sha256": "1c60a2668e7581b37db9019f23a5c344de80622053ac5a99f284c95290126099"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/real-detach-12000.png",
+      "bytes": 1451127,
+      "sha256": "1b836651c50a4fd3b724334c428e3828bfdf597b8d255423d1abd9734663a94c"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/development-regressions/real-detach-18000.png",
+      "bytes": 1457434,
+      "sha256": "b4243943a0be6610cf8eb53b13430246b3385ee0507075bf79fd43a86e08c2ea"
+    }
+  ]
+}

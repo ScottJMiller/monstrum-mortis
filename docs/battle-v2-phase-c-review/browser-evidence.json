@@ -1,0 +1,27 @@
+{
+  "scope": "Actual production build/local SQLite/Chrome desktop and phone emulation",
+  "physicalDevices": false,
+  "presentation": {
+    "arena": "arena-foundry",
+    "form": {
+      "version": "battle-v2-b2",
+      "attemptId": "2df83c50-960e-4f55-b5f2-1003615a1e1a",
+      "family": "blob",
+      "modifiers": {
+        "scale": 1,
+        "tint": "none",
+        "overlay": "none",
+        "growth": false,
+        "tremor": false
+      },
+      "integration": {
+        "startsAtMs": 1792079644806,
+        "endsAtMs": 1792079649806
+      }
+    }
+  },
+  "result": "victory",
+  "audioBytes": 312503,
+  "recordingFrames": 265,
+  "scenarios": 5
+}

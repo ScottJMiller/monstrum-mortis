@@ -23,6 +23,7 @@ export function createHealth(bindings: {
     fullReleaseAvailable: false,
     mechanicsAvailable: true,
     combatAvailable: true,
+    battlePresentationAvailable: true,
     roomServiceAvailable: true,
     matchmakingAvailable: true,
   };

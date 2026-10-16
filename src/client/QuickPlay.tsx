@@ -1,184 +1,43 @@
-import { QUEUE_SOCKET_PROTOCOL } from '../shared/protocol.ts';
 import { useEffect, useRef, useState } from 'react';
-import { GAME_RULES } from '../shared/rules.ts';
-import type { MatchmakingRegion } from '../shared/rules.ts';
-import type { GuestCredentials, GuestSessionClaim, PublicQueueStatus } from '../shared/matchmaking.ts';
-import type { RoomEntryResponse } from '../shared/room-service.ts';
-
-const GUEST_KEY = 'mm.guest.v3';
-const TICKET_KEY = 'mm.queue.v3';
-export function guestHeaders(): Record<string, string> {
-  try { const g = JSON.parse(localStorage.getItem(GUEST_KEY) ?? 'null') as GuestCredentials | null; return g ? { 'X-Guest-Id': g.guestId, 'X-Guest-Token': g.accessToken } : {}; } catch { return {}; }
-}
-const labels: Record<MatchmakingRegion, string> = { americas: 'Americas', 'europe-africa': 'Europe / Africa', 'asia-pacific': 'Asia / Pacific' };
-async function request<T>(path: string, g: GuestCredentials | null, value?: unknown): Promise<T> {
-  const response = await fetch(path, { method: value ? 'POST' : 'GET', headers: { 'Content-Type': 'application/json', ...(g ? { 'X-Guest-Id': g.guestId, Authorization: `Bearer ${g.accessToken}` } : {}) }, ...(value ? { body: JSON.stringify(value) } : {}) });
-  const data = await response.json(); if (!response.ok) throw new RequestError(data.code, data.message); return data as T;
-}
-class RequestError extends Error {
-  readonly code: string;
-  constructor(code: string, message: string) { super(`${code}: ${message}`); this.code = code; }
-}
-function read<T>(storage: Storage, key: string): T | null { try { return JSON.parse(storage.getItem(key) ?? 'null') as T | null; } catch { return null; } }
-
-/** Matchmaking UI uses only owner projections and sends explicit queue intentions. */
-export function QuickPlay({ onEntry, onBusy, autoStart = false }: { onEntry: (entry: RoomEntryResponse) => void; onBusy: (busy: boolean) => void; autoStart?: boolean }) {
-  const [guest, setGuest] = useState<GuestCredentials | null>(() => { try { return read(localStorage, GUEST_KEY); } catch { return null; } });
-  const [ticket, setTicket] = useState<{ region: MatchmakingRegion; id: string; mode: 'fresh-session' | 'fill-existing-laboratory'; admissionOperationId: string } | null>(() => { try { return read(sessionStorage, TICKET_KEY); } catch { return null; } });
-  const [region, setRegion] = useState<MatchmakingRegion>(ticket?.region ?? 'americas');
-  const [mode, setMode] = useState<'fresh-session' | 'fill-existing-laboratory'>(ticket?.mode ?? 'fresh-session');
-  const [status, setStatus] = useState<PublicQueueStatus | null>(null);
-  const [notice, setNotice] = useState('');
-  const [queueConnection, setQueueConnection] = useState('Checking queue connection');
-  const [claim, setClaim] = useState<GuestSessionClaim | null>(null);
-  const [measured, setMeasured] = useState(false);
-  const [pending, setPending] = useState(false);
-  const [tutorial, setTutorial] = useState(() => { try { return localStorage.getItem('mm.tutorial.v1') === 'done' ? 4 : 0; } catch { return 0; } });
-  const [dose, setDose] = useState(0);
-  const [selected, setSelected] = useState(false);
-  const [now, setNow] = useState(Date.now());
-  const serverOffset = useRef(0);
-  const issueKey = useRef(crypto.randomUUID());
-  const entryKey = useRef(ticket?.admissionOperationId ?? crypto.randomUUID());
-  const queueKey = useRef(crypto.randomUUID());
-  const entering = useRef(false);
-  const queueRequestInFlight = useRef(false);
-  const autoStarted = useRef(false);
-  function updateStatus(s: PublicQueueStatus | null) { if (s) serverOffset.current = s.serverTimeMs - Date.now(); setStatus(s); }
-  function remember(value: typeof ticket) {
-    try { value ? sessionStorage.setItem(TICKET_KEY, JSON.stringify(value)) : sessionStorage.removeItem(TICKET_KEY); } catch { setNotice('Storage unavailable: keep this page open to retain your queue ticket.'); }
-    setTicket(value); onBusy(!!value);
-  }
-  function finishTutorial() { setTutorial(4); try { localStorage.setItem('mm.tutorial.v1', 'done'); } catch { /* optional preference */ } }
-  function clearTicket() {
-    remember(null); updateStatus(null);
-    queueKey.current = crypto.randomUUID(); entryKey.current = crypto.randomUUID();
-  }
-  async function checkSession() {
-    if (!guest) return;
-    try {
-      const result = await request<{ holder: GuestSessionClaim | null }>('/api/guests/session', guest);
-      setClaim(result.holder);
-      setNotice(result.holder ? `Your guest still belongs to a ${result.holder.kind === 'room' ? 'laboratory' : 'queue'}. Use the button below to leave it before joining another.` : 'No previous session is holding your guest. You can enter Quick Play or a private laboratory.');
-    } catch (error) { setNotice(String(error)); }
-  }
-  async function leaveSession() {
-    if (!guest || !claim) return; setPending(true);
-    try {
-      const result = await request<{ holder: GuestSessionClaim | null }>('/api/guests/leave-session', guest, { kind: claim.kind, id: claim.id, nonce: claim.nonce });
-      setClaim(result.holder);
-      if (result.holder) setNotice('Your session changed. Check the current session before leaving again.');
-      else { clearTicket(); setNotice('Previous session released. Choose Quick Play or a private laboratory.'); }
-    } catch (error) { setNotice(String(error)); } finally { setPending(false); }
-  }
-  async function enterQueue() {
-    if (pending || ticket) return; queueRequestInFlight.current = true; setPending(true); onBusy(true);
-    try {
-      let identity = guest;
-      if (!identity) {
-        identity = await request<GuestCredentials>('/api/guests', null, { operationId: issueKey.current });
-        setGuest(identity); try { localStorage.setItem(GUEST_KEY, JSON.stringify(identity)); } catch { setNotice('Guest credentials cannot be saved; keep this page open.'); }
-      }
-      const id = queueKey.current;
-      // Persist before sending: a lost response must retry this ticket, not make another claim.
-      remember({ region, id, mode, admissionOperationId: entryKey.current });
-      const result = await request<PublicQueueStatus>(`/api/queue/${region}/enter`, identity, { operationId: id, mode });
-      updateStatus(result); setNotice('');
-    } catch (error) {
-      if (error instanceof RequestError && error.code === 'guest-busy') { clearTicket(); void checkSession(); }
-      setNotice(String(error));
-    } finally { queueRequestInFlight.current = false; setPending(false); }
-  }
-  useEffect(() => { onBusy(!!ticket); }, [ticket, onBusy]);
-  useEffect(() => {
-    if (autoStart && measured && tutorial === 4 && !autoStarted.current) { autoStarted.current = true; void enterQueue(); }
-  // An explicit Find New Laboratory choice is the only automatic queue entry.
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [autoStart, tutorial, measured]);
-  useEffect(() => {
-    const timer = setInterval(() => setNow(Date.now()), 250); return () => clearInterval(timer);
-  }, []);
-  useEffect(() => {
-    if (!ticket || !guest) return;
-    let stopped = false;
-    setQueueConnection('Connecting to queue');
-    const refresh = async () => {
-      try { const s = await request<PublicQueueStatus>(`/api/queue/${ticket.region}/status?ticketId=${ticket.id}`, guest); if (!stopped) updateStatus(s); }
-      catch (error) {
-        if (stopped) return;
-        if (error instanceof RequestError && error.code === 'ticket-not-found') {
-          if (!queueRequestInFlight.current) { clearTicket(); void checkSession(); }
-        }
-        else setNotice(String(error));
-      }
-    };
-    void refresh(); const poll = setInterval(refresh, 10_000);
-    const url = new URL(`/api/queue/${ticket.region}/socket?ticketId=${ticket.id}`, location.href); url.protocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-    const socket = new WebSocket(url, [QUEUE_SOCKET_PROTOCOL, `guest.${guest.guestId}`, `token.${guest.accessToken}`]);
-    const ping = setInterval(() => { if (socket.readyState === WebSocket.OPEN) socket.send('ping'); }, 20_000);
-    socket.onopen = () => { if (!stopped) setQueueConnection('Queue connected'); };
-    socket.onclose = () => { if (!stopped) setQueueConnection('Queue socket offline · checking status periodically'); };
-    socket.onmessage = event => { if (stopped || event.data === 'pong') return; try { updateStatus(JSON.parse(event.data).status as PublicQueueStatus); } catch { setNotice('Queue synchronization failed.'); } };
-    socket.onerror = () => { if (!stopped) { setQueueConnection('Queue socket unavailable · checking status periodically'); setNotice('Queue socket unavailable; checking the ticket periodically. Close other tabs using this ticket before reloading.'); } };
-    return () => { stopped = true; clearInterval(poll); clearInterval(ping); socket.close(); };
-  }, [ticket, guest]);
-  async function admit(s: PublicQueueStatus) {
-    if (!s.admission || entering.current) return; entering.current = true; setPending(true);
-    try {
-      const a = s.admission;
-      const entry = await request<RoomEntryResponse>(`/api/rooms/${a.roomId}/admit`, null, { operationId: entryKey.current, reservationId: a.reservationId, admissionToken: a.admissionToken });
-      remember(null); onEntry(entry);
-    } catch (error) { setNotice(`${String(error)}. Retry admission or cancel to release this claim.`); } finally { entering.current = false; setPending(false); }
-  }
-  useEffect(() => { if (status?.state === 'matched') void admit(status); }, [status?.state]); // One automatic attempt; retry stays explicit.
-  async function action(op: 'ready' | 'resume' | 'cancel') {
-    if (!ticket || !guest) return; setPending(true);
-    try {
-      const s = await request<PublicQueueStatus>(`/api/queue/${ticket.region}/${op}`, guest, { ticketId: ticket.id, ...(op === 'ready' ? { readyCheckId: status?.readyCheckId } : {}) });
-      updateStatus(s);
-      if (op === 'cancel') clearTicket();
-      setNotice('');
-    } catch (error) { setNotice(String(error)); } finally { setPending(false); }
-  }
-  useEffect(() => { if (ticket) setMeasured(true); else void measure(); }, []);
-  async function measure() {
-    setPending(true);
-    try {
-      const samples = await Promise.all(GAME_RULES.matchmaking.regions.map(async r => { const start = performance.now(); await request(`/api/pools/${r}/ping`, null); return { region: r, ms: Math.round(performance.now() - start) }; }));
-      samples.sort((a, b) => a.ms - b.ms); setRegion(samples[0]!.region); setNotice(`Response times: ${samples.map(s => `${labels[s.region]} ${s.ms} ms`).join('; ')}. You can override this choice.`);
-    } catch (error) { setNotice(String(error)); } finally { setPending(false); setMeasured(true); }
-  }
-  return <section id="public-entry" className="quick-play-panel" aria-label="Public Quick Play" aria-busy={pending}>
-    <p className="eyebrow">Remote cooperative play</p><h2 tabIndex={-1}>Quick Play</h2>
-    {tutorial < 4 && <div className="rehearsal" aria-label="Laboratory rehearsal">
-      <p>A short interface rehearsal before your first queue. These practice buttons do not affect the laboratory. Specimen effects stay mysterious.</p>
-      {tutorial === 0 && <><p>Select a mysterious specimen from your tray.</p><button onClick={() => { setSelected(true); setTutorial(1); }}>Select specimen</button></>}
-      {tutorial === 1 && <><p>{selected && 'Specimen selected.'} Inject up to six times. In a round, injections have a six-second cooldown.</p><button onClick={() => { setDose(n => n + 1); setTutorial(2); }}>Rehearse injection</button></>}
-      {tutorial === 2 && <><p>{dose} of 6 rehearsal doses used. Injecting leaves your switch locked during its cooldown; after at least one injection, the switch ends your personal turn. The round also has a shared deadline.</p><button onClick={() => setTutorial(3)}>Unleash the Creature!</button></>}
-      {tutorial === 3 && <><p>Your turn is finished. The creature waits for teammates before release; then everyone watches the automatic battle.</p><button onClick={finishTutorial}>Finish rehearsal</button></>}
-      <button onClick={finishTutorial}>Skip rehearsal</button>
-    </div>}
-    <p>At least two players must be present in the same pool.</p>
-    <p>Public guests use server-assigned aliases and symbols. Fresh sessions start with a group of 2–6; laboratories hold up to 8 players.</p>
-    {guest && <p>{guest.symbol} {guest.alias}</p>}
-    {guest && <button disabled={pending} onClick={checkSession}>Check previous session</button>}
-    {claim && <button disabled={pending} onClick={leaveSession}>{claim.kind === 'room' ? 'Leave previous laboratory' : 'Cancel previous queue'}</button>}
-    <label>Regional pool<select value={region} disabled={!!ticket || pending} onChange={e => setRegion(e.target.value as MatchmakingRegion)}>{GAME_RULES.matchmaking.regions.map(r => <option key={r} value={r}>{labels[r]}</option>)}</select></label>
-    <button disabled={!!ticket || pending} onClick={measure}>Choose fastest responding pool</button>
-    <label>Queue mode<select value={mode} disabled={!!ticket || pending} onChange={e => setMode(e.target.value as typeof mode)}><option value="fresh-session">Fresh session</option><option value="fill-existing-laboratory">Fill Existing Laboratory (join between rounds)</option></select></label>
-    {!ticket ? <button disabled={pending || tutorial < 4} onClick={enterQueue}>Enter Quick Play</button> : <>
-      <p className="connection-badge" role="status">{queueConnection}</p><p className="queue-state" role="status">{status?.state === 'ready-check' ? (status.readyConfirmed ? 'Ready confirmed · awaiting the group' : 'Your readiness is required') : status?.state === 'matched' ? 'Group allocated · entering laboratory' : status?.state === 'inactive' ? 'Waiting paused · resume when ready' : status?.state ?? 'Checking ticket'}</p><p>{Math.max(0, Math.floor((now + serverOffset.current - (status?.enteredAtMs ?? now + serverOffset.current)) / 1000))}s elapsed{status?.waitingPlayers !== undefined && ` · ${status.waitingPlayers} waiting`}</p>
-      {status?.readyDeadlineMs && <p>Ready check: {Math.max(0, Math.ceil((status.readyDeadlineMs - now - serverOffset.current) / 1000))}s remaining</p>}
-      {status?.offer && <p>Join round {status.offer.reason === 'vacancy' ? Math.min(3, status.offer.round + 1) : status.offer.round} · team score {status.offer.teamScore} · about {Math.ceil(status.offer.remainingSessionMs / 60_000)} minutes remaining · {status.offer.reason === 'recovery' ? 'Recovering an interrupted round' : 'Between-round vacancy'}.</p>}
-      {status?.state === 'ready-check' && <button disabled={pending || status.readyConfirmed} onClick={() => action('ready')}>{status.readyConfirmed ? 'Ready confirmed' : 'Ready'}</button>}
-      {status?.state === 'inactive' && <button disabled={pending} onClick={() => action('resume')}>Resume waiting</button>}
-      {status?.state === 'matched' && <button disabled={pending} onClick={() => admit(status)}>Retry admission</button>}
-      {status?.suggestAlternatives && <p>No match yet. You can cancel and choose another regional pool, or invite friends to a private laboratory below.</p>}
-      {!status && <button disabled={pending} onClick={async () => { try { updateStatus(await request<PublicQueueStatus>(`/api/queue/${ticket.region}/enter`, guest, { operationId: ticket.id, mode: ticket.mode })); } catch (error) { setNotice(String(error)); } }}>Retry queue entry</button>}
-      <button disabled={pending} onClick={() => action('cancel')}>Cancel queue</button>
-    </>}
-    {pending && <p className="pending-note">Waiting for server confirmation…</p>}
-    {notice && <p role="status">{notice}</p>}
-    {notice.includes('unauthorized') && <button onClick={() => { remember(null); updateStatus(null); setGuest(null); setClaim(null); try { localStorage.removeItem(GUEST_KEY); } catch { /* unavailable */ } issueKey.current = crypto.randomUUID(); queueKey.current = crypto.randomUUID(); entryKey.current = crypto.randomUUID(); setNotice('Expired guest credential cleared. Enter Quick Play when ready.'); }}>Reset expired guest credential</button>}
-  </section>;
+import { LABS_SOCKET_PROTOCOL } from '../shared/protocol.ts';
+import { clientId } from './random-id.ts';
+import type { GuestCredentials } from '../shared/matchmaking.ts';
+import type { FormingLab, RoomEntryResponse } from '../shared/room-service.ts';
+const KEY='mm.guest.v6',NAME_KEY='mm.player-name.v1';
+function savedName():string|null{try{const value=localStorage.getItem(NAME_KEY);return value?.trim()&&value.length<=24?value:null;}catch{return null;}}
+export function guestHeaders():Record<string,string>{try{const g=JSON.parse(localStorage.getItem(KEY)??'null');return g?{'X-Guest-Id':g.guestId,Authorization:`Bearer ${g.accessToken}`} : {};}catch{return {};}}
+/** Explicit public discovery; polling is bounded and stops while hidden/unmounted. */
+export function QuickPlay({onEntry}:{onEntry:(entry:RoomEntryResponse)=>void}){
+ const [guest,setGuest]=useState<GuestCredentials|null>(null),[name,setName]=useState(()=>savedName()??''),[labs,setLabs]=useState<FormingLab[]>([]),[error,setError]=useState(''),[busy,setBusy]=useState(false),[now,setNow]=useState(Date.now());
+ const op=useRef<{fingerprint:string;id:string}|null>((()=>{try{return JSON.parse(sessionStorage.getItem('mm.entry-intent.v6')??'null');}catch{return null;}})()),offset=useRef(0),live=useRef(true),nameEdited=useRef(false);
+ useEffect(()=>{live.current=true;let controller=new AbortController();
+  async function start(){try{
+   let g:GuestCredentials|null=null;try{g=JSON.parse(localStorage.getItem(KEY)??'null');}catch{}
+   if(!g){let key=sessionStorage.getItem('mm.guest-issue.v6');if(!key){key=clientId();sessionStorage.setItem('mm.guest-issue.v6',key);}const r=await fetch('/api/guests',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({operationId:key}),signal:controller.signal});g=await r.json();if(!r.ok)throw new Error('Could not prepare your scientist. Retry.');localStorage.setItem(KEY,JSON.stringify(g));}
+   if(!live.current||!g)return;if(!nameEdited.current)setName(savedName()??g.alias);
+   const recovery=await fetch('/api/guests/session',{headers:guestHeaders(),signal:controller.signal});
+   if(recovery.status===401){localStorage.removeItem(KEY);sessionStorage.removeItem('mm.guest-issue.v6');setError('Your previous session expired. Reload to begin again.');return;}
+   if(recovery.ok){const result=await recovery.json();if(live.current&&result.entry){onEntry(result.entry);return;}}
+   if(live.current)setGuest(g);
+  }catch(e){if(live.current&&!(e instanceof DOMException&&e.name==='AbortError'))setError(e instanceof Error?e.message:'Entry unavailable. Reload to retry.');}}
+  void start();return()=>{live.current=false;controller.abort();};
+ },[]);
+ useEffect(()=>{
+  let disposed=false,inflight=false,ws:WebSocket|null=null,retry:ReturnType<typeof setTimeout>|undefined;
+  const controller=new AbortController();
+  function receive(data:{labs:FormingLab[];serverTimeMs:number}){if(!disposed){setLabs(data.labs);offset.current=data.serverTimeMs-Date.now();}}
+  async function refresh(){if(document.hidden||inflight||ws?.readyState===WebSocket.OPEN)return;inflight=true;try{const r=await fetch('/api/labs',{signal:controller.signal});if(r.ok)receive(await r.json());}catch{if(!disposed)setError('Laboratories unavailable. Retrying…');}finally{inflight=false;}}
+  function connect(){if(disposed||document.hidden||ws?.readyState===WebSocket.OPEN||ws?.readyState===WebSocket.CONNECTING)return;const url=new URL('/api/labs/socket',location.href);url.protocol=location.protocol==='https:'?'wss:':'ws:';const socket=new WebSocket(url,[LABS_SOCKET_PROTOCOL]);ws=socket;socket.onmessage=e=>{if(e.data==='pong')return;try{receive(JSON.parse(e.data));}catch{}};socket.onclose=()=>{if(ws===socket)ws=null;if(!disposed&&!document.hidden)retry=setTimeout(connect,5000);};socket.onerror=()=>socket.close();}
+  void refresh();connect();
+  const heartbeat=setInterval(()=>{if(ws?.readyState===WebSocket.OPEN)ws.send('ping');},20000),fallback=setInterval(refresh,30000),tick=setInterval(()=>setNow(Date.now()),250);
+  const visible=()=>{if(document.hidden){ws?.close();ws=null;if(retry)clearTimeout(retry);}else{connect();void refresh();}};
+  document.addEventListener('visibilitychange',visible);return()=>{disposed=true;ws?.close();controller.abort();if(retry)clearTimeout(retry);clearInterval(heartbeat);clearInterval(fallback);clearInterval(tick);document.removeEventListener('visibilitychange',visible);};
+ },[]);
+ function changeName(value:string){
+  nameEdited.current=true;setName(value);
+  // A preference, separate from credentials: Leave and session expiry keep it.
+  try{if(value.trim())localStorage.setItem(NAME_KEY,value);else localStorage.removeItem(NAME_KEY);}catch{/* storage failure must not block entry or editing */}
+ }
+ async function enter(id:string|null){if(busy||!guest)return;setBusy(true);setError('');const path=id?`/api/rooms/${id}/join`:'/api/labs',fingerprint=JSON.stringify([path,name]);if(op.current?.fingerprint!==fingerprint)op.current={fingerprint,id:clientId()};try{sessionStorage.setItem('mm.entry-intent.v6',JSON.stringify(op.current));const r=await fetch(path,{method:'POST',headers:{'Content-Type':'application/json',...guestHeaders()},body:JSON.stringify({operationId:op.current.id,alias:name})});const data=await r.json();if(!r.ok)throw new Error(data.message??'Unable to join. Retry.');op.current=null;sessionStorage.removeItem('mm.entry-intent.v6');onEntry(data);}catch(e){setError(e instanceof Error?e.message:'Unable to join. Retry.');}finally{setBusy(false);}}
+ return <section className="entry-panel lab-browser" aria-busy={busy}><p className="eyebrow">Remote cooperative play</p><h2>Find a laboratory</h2><label>Player Name<span className="alias-entry"><span aria-hidden="true">{guest?.symbol??'⚗'}</span><input aria-label="Player Name" autoComplete="nickname" maxLength={24} value={name} onChange={e=>changeName(e.target.value)}/></span></label><h3>Join lab</h3><div className="forming-labs">{labs.filter(l=>l.deadlineMs===null||l.deadlineMs-now-offset.current>3000).map(l=><div className="lab-choice" key={l.roomId}><button className="lab-join" disabled={busy||!guest||!name.trim()} onClick={()=>enter(l.roomId)}><span>{l.name}</span><span aria-label={`${l.players.length} of 8 players`}>{['⓪','①','②','③','④','⑤','⑥','⑦','⑧'][l.players.length]}</span><span>{l.deadlineMs===null?'Waiting':`${Math.max(0,Math.ceil((l.deadlineMs-now-offset.current)/1000))}s`}</span></button><details><summary aria-label={`Scientists in ${l.name}`}><span aria-hidden="true">▸</span></summary><ul>{l.players.map((p,i)=><li key={i}>{p.symbol} {p.alias}</li>)}</ul></details></div>)}{!labs.length&&<p className="note">No laboratories forming. Start one below.</p>}</div><button className="create-lab" disabled={busy||!guest||!name.trim()} onClick={()=>enter(null)}>Create new</button>{error&&<p role="alert">{error}</p>}</section>;
 }

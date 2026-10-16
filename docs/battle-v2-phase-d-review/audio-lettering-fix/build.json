@@ -1,0 +1,13 @@
+{
+  "recordedAt": "2026-10-16T22:13:37.691Z",
+  "scope": "Offline build fingerprint for the audio/lettering correction; no network/quota/device performance claim.",
+  "buildFingerprint": "4738bd09e19acabd4aaa239ba1765670811c5072ee06f91553a0bff90cc96f67",
+  "files": 249,
+  "bytes": 9754141,
+  "main": {
+    "path": "/assets/index-DMX1wx__.js",
+    "bytes": 353314,
+    "sha256": "a4df2f0bb283bab20a944737c7d7a8081b1c247975077bee74f4fac85532f704"
+  },
+  "cssBytes": 44269
+}

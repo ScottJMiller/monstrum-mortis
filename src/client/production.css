@@ -1,0 +1,39 @@
+.laboratory-shell{--panel-brass:#aa9865;--panel-ink:#121c17}
+.masthead h1{font-family:'New Rocker','PT Serif',Georgia,'Times New Roman',serif}
+.control-panel{background:linear-gradient(#101b17e6,#101b17ed),url('/assets/battle-v2/runtime/panel.webp') center/100% 100%;border:3px ridge var(--panel-brass);padding:28px;box-shadow:inset 0 0 0 3px #263126,0 8px 30px #0009}
+.entry-panel,.quick-play-panel,.room-panel{background:#111c17d9;border:1px solid #706943;padding:18px;margin-bottom:16px}
+.service-controls input,.service-controls select{background:#101a15;color:#f1e6c6;border:1px solid #a18d5d;min-height:44px;border-radius:3px}
+.service-controls button,.settings button{background:linear-gradient(#666044,#333a29);color:#fff0ca;border:1px solid #b09a66;min-height:44px;border-radius:4px;box-shadow:inset 0 0 0 2px #222a20}
+.service-controls button:disabled{opacity:.65}.phase-strip{border-block:1px solid #746c49;padding-block:6px}
+.roster{max-height:260px;overflow:auto;scrollbar-color:#b69f69 #101b16}
+.device-audio{display:grid;grid-template-columns:auto auto;gap:12px;align-items:center;padding-block:14px}
+.device-audio label:has(input[type=range]),.device-audio p{grid-column:1/-1}
+.device-audio input[type=range]{min-height:44px;width:100%;accent-color:#b69e66}
+.accepted-injection{position:relative;--reservoir-width:clamp(28px,4vw,52px);--reservoir-gap:8px}
+.accepted-injection .chamber-stage{max-width:calc(100% - 2 * (var(--reservoir-width) + var(--reservoir-gap)))}
+.injection-tubes{position:absolute;inset:12% 0 13%;z-index:2;pointer-events:none}
+.injection-reservoir{position:absolute;top:50%;transform:translateY(-50%);width:var(--reservoir-width);height:100%;max-height:560px;display:flex;flex-direction:column}
+.injection-reservoir:first-child{left:0}.injection-reservoir:last-child{right:0}
+.reservoir-cap,.reservoir-base{display:block;width:100%;height:auto;flex:0 0 auto;overflow:hidden}
+.reservoir-cap{aspect-ratio:120/101}.reservoir-base{aspect-ratio:120/80}
+.reservoir-shaft{display:block;width:100%;height:100%;min-height:0;flex:1 1 0;overflow:hidden}
+.reservoir-bolus{transform-box:fill-box;transform:translateY(-130%)}
+[data-pulse=true] .reservoir-bolus{animation:accepted-fluid 800ms ease-out}[data-pulse=true] .chamber-stage{animation:v2-quiver 800ms ease-out}
+.scene-panel .v2-integration{min-height:460px}.scene-panel .v2-captions{max-height:140px;overflow:auto}
+.scene-panel .battle-clock{font:14px/1.5 'Cabin',system-ui;color:#eee3c3}
+.scene-panel .v2-word{max-width:94%;white-space:normal;text-align:center}.scene-panel .v2-final-word{max-width:none}
+.v2-integration-copy{padding:0 15px}.v2-integration-copy p{color:#eee3c3;text-shadow:0 1px 3px #000}
+.battle-record{max-height:240px;overflow:auto}.mobile-dose-status{display:none}
+.integration-failure{position:absolute;bottom:12px;inset-inline:12px;padding:12px;background:#101a15e6;color:#fff0ca}.integration-failure button{min-height:44px}
+@keyframes accepted-fluid{to{transform:translateY(440%)}}
+@media(max-width:640px){
+ .accepted-injection{--reservoir-width:24px;--reservoir-gap:4px}.control-panel{padding:12px}.entry-panel,.quick-play-panel,.room-panel{padding:14px}.scene-panel .v2-integration{min-height:400px}
+ .device-audio{grid-template-columns:1fr}.device-audio label,.device-audio p{grid-column:1}.masthead{gap:10px}.milestone-seal{display:none}.roster{max-height:190px}
+ .experiment-layout{padding-bottom:10rem}
+ .experiment-layout .dna-actions{position:fixed;bottom:max(.5rem,env(safe-area-inset-bottom));left:max(.6rem,env(safe-area-inset-left));right:max(.6rem,env(safe-area-inset-right));display:grid;grid-template-columns:1fr 1fr;gap:.5rem;z-index:30;padding:.5rem;background:#111b17f5;border:2px ridge #aa9865;box-shadow:0 0 12px #000a}
+ .dna-actions .primary-injection,.dna-actions .unleash-switch{margin:0;min-height:48px;font-size:13px}
+ .mobile-dose-status{display:block;grid-column:1/-1;font:13px/1.4 'Cabin',system-ui;color:#eee3c3;text-align:center}
+}
+@media(prefers-reduced-motion:reduce){.accepted-injection *{animation:none!important}}[data-pulse=false] .reservoir-bolus{animation:none}
+
+.integrated-rival-portrait{width:100%;height:150px;filter:brightness(.22) sepia(.25);overflow:visible}

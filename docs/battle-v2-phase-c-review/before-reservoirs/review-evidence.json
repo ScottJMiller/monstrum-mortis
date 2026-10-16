@@ -1,0 +1,101 @@
+{
+  "physicalDevices": false,
+  "recordingFrames": 284,
+  "files": [
+    {
+      "file": "docs/battle-v2-phase-c-review/before-reservoirs/arena-detail.png",
+      "bytes": 650671,
+      "sha256": "b751e925045c4e6d7cddf57977996925a1585b984c5cc7580ffffc85dd90189e"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-reservoirs/battle-desktop.png",
+      "bytes": 1380723,
+      "sha256": "6f66fc59d10798dad8c4bc55ac065c1e85c73e0350a111ef58268476c72035f8"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-reservoirs/battle-landscape.png",
+      "bytes": 810512,
+      "sha256": "f8703453097a06839511e5acad8139b7909c9e8438004ffaffa17703f198ada6"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-reservoirs/battle-phone.png",
+      "bytes": 570846,
+      "sha256": "eaa07b14354bf0d51063688d5c57760846b4873409964b479e067fb8f6aaf660"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-reservoirs/briefing.png",
+      "bytes": 1840022,
+      "sha256": "8c24f2d132d92294686851961ddec68c4818ad16244d4330613e79474d740dff"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-reservoirs/contact-sheet.png",
+      "bytes": 955757,
+      "sha256": "c6c7d83ebfb0e46a77faa12c766ef76cbb1cea59a396bf722feef167eb67f783"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-reservoirs/countdown.png",
+      "bytes": 1382330,
+      "sha256": "7a0c68955c939adeceb584b5560e78f481064c65d175a79731f049d8d431d87f"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-reservoirs/entry-desktop.png",
+      "bytes": 1849766,
+      "sha256": "10f866f42ecaf6fc6a1d0e123599582910470ff75e8c63c3eff7b55359b82e6d"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-reservoirs/entry-phone.png",
+      "bytes": 725334,
+      "sha256": "f203cd16040d1a92878ac5e18e5d398fa47bd4969b347d4309fa784c3c488fe8"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-reservoirs/experiment-phone.png",
+      "bytes": 767854,
+      "sha256": "9d5aa99abc10b89438569dbf50e266a538886bdb1c319f8befd16a7025db0295"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-reservoirs/injection-desktop.png",
+      "bytes": 2118745,
+      "sha256": "ad01ba7de2017b69c1ee01250b15fa8a454c9997b2b09072e8ea197017a1e1ec"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-reservoirs/integration.png",
+      "bytes": 1133362,
+      "sha256": "40ab9974840665428e997906e2053f3a8c8169ed2a7d43fbc02c633015d22d58"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-reservoirs/production-audio.webm",
+      "bytes": 300667,
+      "sha256": "2af8957091b134aea8c224c1c818f33c18a2f0b28ddc31b89cd9ec2513462d8d"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-reservoirs/production-recording.mp4",
+      "bytes": 1253584,
+      "sha256": "4cbce62d9a993ca640b7839e0e3d364b34ddf822ea4f6fd4a71419b0b5d90073"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-reservoirs/recovered-art.png",
+      "bytes": 810710,
+      "sha256": "2ca87e45e16c51f36fcf14918fad2ba68cb4c5ba5c87dc57060fa1e224b14171"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-reservoirs/result-desktop.png",
+      "bytes": 2085196,
+      "sha256": "f3288cf5765bd55bed0dc88ec5b9fd02ee3c4fbb788045b90b8bdea2c5e1b2af"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-reservoirs/result-phone.png",
+      "bytes": 869215,
+      "sha256": "f975d7954d4321ff32da3b0f99759cd2c5cd74988fd6a06a73d059fa3eedde41"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-reservoirs/reveal.png",
+      "bytes": 1157027,
+      "sha256": "6d931e255e2026e46d85c01c8729663a9fcf91629bcfe041872d21c18ba627fb"
+    },
+    {
+      "file": "docs/battle-v2-phase-c-review/before-reservoirs/tray-detail-phone.png",
+      "bytes": 214332,
+      "sha256": "15d9078da291b29bd5902258a6f7548ebf87d5fa3a818e5e237ca938ec8dc2f4"
+    }
+  ]
+}

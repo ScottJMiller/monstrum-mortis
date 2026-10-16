@@ -1,0 +1,17 @@
+[
+  {
+    "file": "docs/battle-v2-phase-d-review/lan-http/browser-evidence.json",
+    "sha256": "197b9dfa3c637dccf23d8cda1dcd5902ad766609a7f67703d013643dfc4f573c",
+    "bytes": 729
+  },
+  {
+    "file": "docs/battle-v2-phase-d-review/lan-http/private-phone.png",
+    "sha256": "7e923b86581a543c2994b876602a94c4272f26f0510c637151c69cddf6cb9e57",
+    "bytes": 594579
+  },
+  {
+    "file": "docs/battle-v2-phase-d-review/lan-http/public-phone.png",
+    "sha256": "9339731302c36b02c6747fcf48f790f20520a8cd1b703b3985bdb1626b6254b7",
+    "bytes": 634701
+  }
+]

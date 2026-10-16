@@ -1,20 +1,24 @@
 /** Change rulesVersion when gameplay defaults change. Server is authoritative. */
 export const GAME_RULES = {
   schemaVersion: 1,
-  rulesVersion: '0.3.0',
+  rulesVersion: '0.6.0',
   minPlayers: 2,
   maxPlayers: 8,
   roundsPerSession: 3,
   dosesPerPlayerPerRound: 6,
   specimensPerTray: 4,
   injectionCooldownMs: 6_000,
+  switchCooldownMs: 1_000,
   experimentDurationMs: 75_000,
   briefingDurationMs: 8_000,
+  formationDurationMs: 30_000,
+  startCountdownMs: 3_000,
   releaseDurationMs: 5_000,
   maxBattleDurationMs: 30_000,
   switchLabel: 'Unleash the Creature!',
   switchMinimumInjections: 1,
   matchmaking: {
+    newEntryRegion: 'americas',
     targetMinPlayers: 4,
     targetMaxPlayers: 6,
     smallGroupWaitMs: 30_000,
@@ -32,7 +36,6 @@ export const GAME_RULES = {
   roomIdleExpiryMs: 2 * 60 * 60 * 1_000,
   roomMaxLifetimeMs: 24 * 60 * 60 * 1_000,
   score: { victory: 100, draw: 50, defeat: 0 },
-  specimenCard: { width: 1080, height: 1800, localCabinetLimit: 20 },
   specimenDrawWeights: { tactical: 0.5, cosmetic: 0.25, liability: 0.25 },
 } as const;
 
@@ -46,4 +49,9 @@ export function dosePotency(playerCountAtStart: number): number {
     throw new RangeError('A round must start with 2–8 players.');
   }
   return GAME_RULES.minPlayers / playerCountAtStart;
+}
+
+/** Existing experiments retain their accepted cooldown contract. */
+export function switchCooldownForRules(version: string): number {
+  return ['0.1.0','0.2.0','0.3.0','0.4.0'].includes(version) ? GAME_RULES.injectionCooldownMs : GAME_RULES.switchCooldownMs;
 }

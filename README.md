@@ -1,131 +1,27 @@
 # Monstrum Mortis
 
-Current change (14 October 2026): saved monsters, tarot cards and the local cabinet are removed from the product plan, rather than deferred. Historical mentions retain their original dates/scope. Phase C includes production UI/UX; development contact sheets are references, not final production screens. After step 6 and Battle v2 A/B/C are complete and accepted, consolidate guidance and move superseded documents/evidence into dated `docs/archive/` folders, preserving provenance/verification and repairing links. That cleanup is pending; Phase C and deployment remain unauthorized.
+A cooperative browser game: scientists mutate one shared creature, unleash it into automatic combat, then complete three experiments for team scores and personal awards.
 
-Latest Phase B review: [redesigned executioner/kitten and voted blob](docs/BATTLE-V2-FAMILY-REFINEMENT.md), development only.
+The approved Phase D simplification replaces private invitations/automatic ready queues with named public forming labs and compact specimen controls. Start with 2–8 people; a remaining scientist can finish the session. [Approved rules](docs/APPROVED-PLAN.md), [actual implementation/deployment status](docs/IMPLEMENTATION-STATUS.md), [architecture](docs/ARCHITECTURE.md), [battle specification](docs/BATTLE-V2-SPEC.md) and [human checklist](docs/BATTLE-V2-PHASE-D-ACCEPTANCE.md).
 
-Battle v2 Phase B current presentation changes and local review: [14 October refinement](docs/BATTLE-V2-REFINEMENT-2026-10-14.md).
-
-A cooperative browser party game for 2–8 players, with remote Quick Play and private invitations. Current production baseline: completed step 5/6 DNA, automatic combat, results and three-round progression. Existing display permissions and regional sessions remain supported during this development work.
-
-**Current authorization: Battle v2 Phase B only.** The [canonical specification](docs/BATTLE-V2-SPEC.md), [Phase B plan](docs/BATTLE-V2-PHASE-B-PLAN.md) and [current review](docs/BATTLE-V2-PHASE-B-REVIEW.md) govern the development-only twelve-body animation/audio library. Experiment artwork and all gameplay are preserved. Battle appearance and future region/Same-Room/display-entry guidance in earlier notes are superseded; full UI/admission changes belong to separately authorized Phase C. No deployment, cards/cabinet/naming or unrelated signals. Historical deployment/verification records remain in [implementation status](docs/IMPLEMENTATION-STATUS.md).
-
-```sh
-npm run dev
-# Open http://127.0.0.1:5173/battle-v2
-npm run test:battle-v2-phase-b
-```
-
-The preview uses bundled art/audio and offline producer fixtures; it needs no Worker, credentials or generation service. Enable sound by button on each device. Play/seek a legal producer recording, inspect accepted injections, or choose body/arena/pose/modifier/damage studies. Art overrides and isolated direction samplers are labeled; they do not alter outcomes. It is excluded from the production build. Rebuild retained derivatives/fixtures with `npm run prepare:battle-v2`; generate contact sheets/recording after browser checks with `npm run review:battle-v2`.
-
-## Work locally
-
-Use Node.js 24 LTS and npm. Node 24 runs the TypeScript foundation, room and matchmaking tests without a separate test transpiler.
+Use Node 24 and the committed lockfile:
 
 ```sh
 npm ci
 npm run check
 npm run build
-```
-
-The manifest records installer approvals for the exact locked esbuild/workerd versions. `npm fund` lists optional sponsorship links. For dependency findings, inspect `npm audit` before changing versions; avoid `npm audit fix --force`, which can replace the pinned Cloudflare toolchain. A scoped Miniflare → Sharp 0.35.5 override resolves the recorded librsvg advisory while keeping the pinned Cloudflare toolchain (currently Wrangler 4.149.0). See the dependency follow-up in [implementation status](docs/IMPLEMENTATION-STATUS.md).
-
-Start the Worker in one terminal after the first build:
-
-```sh
 npm run dev:worker
 ```
 
-Start the client in another terminal:
+Open the reported Worker address using separate browser profiles/devices; create a public lab and choose its name in the other browser. For Vite development, run `npm run dev` in a second terminal. `/art-gallery`, `/combat-gallery`, `/specimen-gallery` and `/battle-v2` are development-only studies, excluded from production.
 
 ```sh
-npm run dev
+npm run test:simplification
+npm run test:composition
+npm run simulate:combat
+npm run measure:phase-d
 ```
 
-Open `http://localhost:5173`. The Vite server proxies `/api` and WebSocket requests to the Worker at port 8787. Worker API changes are watched by Wrangler; client changes are watched by Vite. Authentication is not needed for local development.
+The current public-only runtime/browser aggregate supersedes private/queue UI tests; previous scripts/checks are retained as historical material under tests/archive and docs/archive. DNA/combat/selector/animation unit regressions remain part of `npm run check`.
 
-For Quick Play, skip or complete the rehearsal, select the same regional pool on independent browser profiles, and tap Ready when enough guests join. Two guests trigger readiness after thirty seconds; four trigger it immediately. Each public player needs a separate browser guest identity.
-
-Create a private room and join its code/link from another browser profile or device. Existing legacy displays retain viewing-only permissions. The host can start an experiment with two connected players. After the eight-second briefing, select a private specimen and press Inject; finish using Unleash after at least one injection and its cooldown. Timer expiry also releases the creature. Credentials live in tab session storage; use Reconnect after a drop and explicitly confirm replacement if the same seat is still open elsewhere. For isolated automated runtime verification:
-
-```sh
-npm run test:rooms
-npm run test:matchmaking
-```
-
-See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for API contracts, protocol-5/schema-5 compatibility, combat and progression.
-
-## Layout
-
-| Path | Responsibility |
-| --- | --- |
-| `src/client/` | React views and per-device controls |
-| `src/shared/` | Public contracts, message types, versioned rules |
-| `src/server/` | Authoritative Worker and Durable Object classes |
-| `src/server/catalogue/` | Hidden DNA definitions and versioned executable combat/rival tables |
-| `src/assets/` | Versioned asset production manifest |
-| `public/assets/` | Produced chamber, creature layers, rival sprites and original specimen clues |
-| `tests/` | Foundation invariants, deterministic room tests and independent-client runtime verification |
-| `docs/` | Approved plan, setup guidance, implementation status |
-| `wrangler.json` | Cloudflare deployment and SQLite-backed bindings |
-
-The client must never import the server catalogue, persistent seat records, or server secrets. Specimen trays expose only visual clues until injection. Protocol types alone do not validate untrusted messages; the room service validates and authorizes every supported intent.
-
-## Cloudflare
-
-Cloudflare runs the Worker and stores room state. You do not run the Worker on your self-hosted server. The initial configuration uses only a provider `workers.dev` address and contains no route for `scottjmiller.com`.
-
-Follow [docs/CLOUDFLARE-SETUP.md](docs/CLOUDFLARE-SETUP.md) to sign in, check your account, review a dry run, and publish a reviewed milestone when requested. Durable Object namespaces are created by deployment; no D1, KV namespace, R2 bucket, tunnel, or separate paid server is needed.
-
-The health endpoint confirms bindings are present. It does not prove namespace storage operations, WebSockets, or matchmaking work. Those are verified in the corresponding stages.
-
-## Continue with Codex
-
-Open this directory in VS Code with the official Codex extension. Begin with [docs/CODEX-HANDOFF.md](docs/CODEX-HANDOFF.md); `AGENTS.md` records project constraints. Your local repository and Cloudflare browser login stay on your computer. This chat's conversation history should not be assumed to appear automatically in a new Codex session.
-
-## Checks and deployment commands
-
-| Command | Purpose |
-| --- | --- |
-| `npm run check` | Configuration guards, TypeScript checks, foundation/room/matchmaking and client regressions |
-| `npm run test:battle-v2-phase-b` | Selector/animation checks, original and expanded browser galleries, build and production exclusion |
-| `npm run review:battle-v2` | Labeled Phase B contact sheets and browser-captured recording after tests |
-| `npm run test:rooms` | Build/dry run, then independent WebSocket clients, SQLite persistence, alarms and runtime restart |
-| `npm run test:matchmaking` | Public queues, guest claims, readiness, allocation recovery and independent-client admission |
-| `npm run test:dna` | Private draws, concurrent/replayed injections, scaling, release and persisted mechanics |
-| `npm run test:dna-browser` | Actual trays/switches, pending reload, all 30 rendered mutations and public browser clients |
-| `npm run test:composition` | Development-only authoritative creature gallery, all 30 art modules, responsive/static screenshot checks |
-| `npm run test:combat` | Independent battle clients, reactivation/restart and full sessions, plus seeded simulation |
-| `npm run test:combat-browser` | Actual combat/results controls, responsive/accessibility/screenshots and rival gallery |
-| `npm run simulate:combat` | 4,536 seeded bounded calibration cases; local Node timings only |
-| `npm run test:step6` | All step 5 regressions plus combat runtime/browser, composition and simulations |
-| `npm run test:step5` | Checks/build/dry run, all service runtime suites, DNA/presentation/art browser checks |
-| `npm run build` | Build the client |
-| `npm run deploy:dry` | Run checks, build, and validate the Worker bundle without publishing |
-| `npm run cf:login` | Browser-based Cloudflare login |
-| `npm run cf:whoami` | Confirm the local authenticated Cloudflare account |
-| `npm run deploy` | Publish the reviewed milestone to Cloudflare |
-
-Never commit `.env`, `.dev.vars`, tokens, or login files. Only template files belong in Git. No automatic deployments are configured at this milestone.
-
-## Step 4 presentation and art review
-
-The approved laboratory presentation is implemented and user-confirmed deployed: real chamber/starter artwork, all 30 mutation appearance modules, responsive controller/TV views, motion settings and artwork-loading recovery. Step 5 connects these layers to authoritative mutations; step 6 reuses the same calibrated anatomy for combat. Production keeps the existing room/matchmaking/session service and does not expose the development art controls.
-
-With Node 24:
-
-```sh
-npm run test:step4
-npm run test:art
-npm run dev
-```
-
-`test:step4` performs checks/build/Worker dry run, the four service runtime suites and local browser regressions. `test:art` opens the development gallery with headless Chrome. Both browser harnesses use `/usr/bin/google-chrome` by default; set `MM_CHROME_PATH` locally for another installed Chrome/Chromium executable. No browser is downloaded and no deployment is performed.
-
-Visit `/art-gallery` on the Vite development origin to review individual modules and combinations. Start `npm run dev:worker` as well for actual local room/queue behavior. See [asset provenance](docs/ASSET-PROVENANCE.md) for source files/prompts/optimization and [implementation status](docs/IMPLEMENTATION-STATUS.md) for actual checks, user-reported deployment confirmation and physical-device/accessibility/performance limitations.
-
-Creature assembly was refined within step 5: body-relative sockets, actual pivots, outward limbs, protected facial areas, the definitive user contact sheet, half-opacity isolated lungs and original-part body assemblies calibrated to the higher-resolution sheet, and a single-triangle chamber seal. See [the composition review and screenshots](docs/CREATURE-COMPOSITION-REVIEW.md). Run `npm run test:composition` in addition to the existing step 5 regression suite. The refinement remains unchanged by step 6; no deployment is included.
-
-## Historical step 6 review
-
-Run `npm run test:step6` for the full local suite. `npm run dev` exposes `/combat-gallery` for six authoritative battle fixtures; `node scripts/prepare-combat-fixtures.mjs` regenerates them. Both galleries are excluded from production. Local runtime/browser checks cannot establish physical-device performance, deployed combat behavior or free-tier quota use. See the latest implementation status and [step 6 review](docs/STEP-6-REVIEW.md).
+The user authorized `npm run deploy` to the existing workers.dev address for Phase D testing. Deployment is distinct from human acceptance; see status for the actual published version. Keep Workers Free, SQLite Durable Object identities and bindings, and self-hosted scottjmiller.com/www unchanged. Never commit credentials. Saved monsters/cards/cabinet are cancelled.

@@ -1,0 +1,12 @@
+{
+  "checkedAt": "2026-10-16T23:32:55.752Z",
+  "origin": "https://monstrum-mortis.scott-jeffrey-miller.workers.dev",
+  "version": "6e8d425f-1128-4ba3-9049-e025f7624799",
+  "requests": 4,
+  "checks": [
+    "Served HTML equals verified build",
+    "Served main JavaScript and corrected CSS exactly match local SHA-256 hashes",
+    "Health preserves protocol 6/rules 0.6.0 and four configured bindings"
+  ],
+  "scope": "Bounded HTML/main/CSS identity and health verification, not physical scrolling, multiplayer, quota or load acceptance."
+}

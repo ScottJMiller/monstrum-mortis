@@ -206,7 +206,7 @@ try {
   await db.exec('UPDATE room_state SET record = ? WHERE singleton = 1', JSON.stringify(legacy));
   const migrated = await snapshot(waitingEntry.credentials); assert.equal(migrated.phase, 'battle');
   assert.equal(migrated.players.find(p => p.playerId === waitingEntry.credentials.sessionId).alias, legacy.seats.find(s => s.id === waitingEntry.credentials.sessionId).alias);
-  assert.equal(JSON.parse((await db.exec('SELECT record FROM room_state'))[0].record).schemaVersion, 5);
+  assert.equal(JSON.parse((await db.exec('SELECT record FROM room_state'))[0].record).schemaVersion, 6);
   checked('runtime restart retains phase, roster, hashed tokens and receipts; schema-2 private room migrates preserving credentials');
 
   const expiredRoomId = `p-${uid()}`; const expiredStub = (await mf.getBindings()).ROOMS.get((await mf.getBindings()).ROOMS.idFromName(`room:${expiredRoomId}`));

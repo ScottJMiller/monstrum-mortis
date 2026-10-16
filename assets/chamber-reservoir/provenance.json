@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-15",
+  "tool": "Built-in image_gen; development only",
+  "license": "Generated project output; own specimen artwork used as style reference; no third-party stock",
+  "prompts": "assets/chamber-reservoir/generation.json",
+  "originals": [
+    {
+      "path": "assets/chamber-reservoir/source/initial-transparent.png",
+      "sha256": "19a91256e17f49e03de734423182701c84b287da168aed7cdd2f60506b5901b7",
+      "bytes": 546448,
+      "selected": false
+    },
+    {
+      "path": "assets/chamber-reservoir/source/glass-refinement.png",
+      "sha256": "3be45193db98851942aa99b11ef04c73a0a2e3bbfd3a55171818c4bce24610f1",
+      "bytes": 613880,
+      "selected": false
+    },
+    {
+      "path": "assets/chamber-reservoir/source/final-dark-glass.png",
+      "sha256": "0b52bcbae2a338f3029229ed2a86e66e444198dfae8b13cd039cc0905a7a2f90",
+      "bytes": 520838,
+      "selected": true
+    }
+  ],
+  "records": [
+    {
+      "source": "assets/chamber-reservoir/source/final-dark-glass.png",
+      "sourceSha256": "0b52bcbae2a338f3029229ed2a86e66e444198dfae8b13cd039cc0905a7a2f90",
+      "runtime": "public/assets/interface/chamber-reservoir.webp",
+      "sha256": "21054e108d58b6b7c59e72477c4dc2db6b43ba9539a953a85084c56c16daf332",
+      "bytes": 11320,
+      "dimensions": [
+        120,
+        510
+      ],
+      "processing": "ImageMagick crop 320x1360+406+8, resize 120x510, strip metadata, WebP quality 86; preserve exterior alpha, no content repainting",
+      "registration": {
+        "top": [
+          0,
+          0,
+          120,
+          101
+        ],
+        "shaft": [
+          0,
+          101,
+          120,
+          329
+        ],
+        "base": [
+          0,
+          430,
+          120,
+          80
+        ],
+        "liquidChannel": [
+          20,
+          0,
+          80,
+          329
+        ]
+      },
+      "rendering": "Three SVG image windows preserve cap/base aspect ratios and stretch only the straight glass shaft vertically. Liquid pulse overlays the dark glass channel. One shared derivative for both sides; native SVG fallback if it fails."
+    }
+  ]
+}

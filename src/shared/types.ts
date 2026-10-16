@@ -1,3 +1,4 @@
+import type { BattlePresentation } from './integrated-form.ts';
 import type { PROTOCOL_VERSION } from './protocol.ts';
 import type { MatchmakingRegion } from './rules.ts';
 
@@ -72,6 +73,9 @@ export interface MutationView { sequence: number; injectionId: string; playerId:
 
 /** Shared state excludes hands, reconnect tokens, internal seeds, and DNA effects. */
 export interface RoomSnapshot {
+  laboratoryName?: string | undefined;
+  creatureName?: string | undefined;
+  formation?: { locked: boolean; votes: string[] } | undefined;
   protocolVersion: typeof PROTOCOL_VERSION;
   rulesVersion: string;
   revision: number;
@@ -95,6 +99,8 @@ export interface RoomSnapshot {
   releasedAtMs?: EpochMs | null;
   combatAvailable?: boolean;
   rival?: RivalView | null;
+  battlePresentationVersion?: 'battle-v2-b2' | null;
+  battlePresentation?: BattlePresentation | null;
   battle?: BattleTimeline | null;
   result?: RoundResult | null;
   session?: SessionView | null;
@@ -109,6 +115,8 @@ export interface ControllerSnapshot {
   tray: SpecimenView[];
   remainingDoses: number;
   nextInjectionAtMs: EpochMs;
+  /** Additive: old servers use the shared injection deadline. */
+  switchReadyAtMs?: EpochMs;
   switchPulled: boolean;
 }
 
@@ -144,7 +152,7 @@ export interface BattleTimeline {
 
 export interface RivalView { id: string; name: string; assetId: string; strength: string; weakness: string }
 export interface ContributionSummary { playerId: string; alias: string; damage: number; protection: number; healing: number; inconvenience: number; liabilityDoses: number; malfunction: number; cosmeticDoses: number }
-export interface RoundResult { battleId: string; round: RoundNumber; rival: RivalView; outcome: RoundOutcome; completedAtMs: number; stats: CreatureStats; traits: { name: string; status: string; description: string }[]; awards: AwardSummary[]; contributions: ContributionSummary[]; finalTeamHealth: number; finalRivalHealth: number }
+export interface RoundResult { creatureName?: string; battleId: string; round: RoundNumber; rival: RivalView; outcome: RoundOutcome; completedAtMs: number; stats: CreatureStats; traits: { name: string; status: string; description: string }[]; awards: AwardSummary[]; contributions: ContributionSummary[]; finalTeamHealth: number; finalRivalHealth: number }
 export interface SessionView { sessionId: string; completed: RoundResult[]; awards: AwardSummary[]; contributions: ContributionSummary[] }
 
 export type AwardId = 'instrument-of-ruin' | 'keeper-of-the-unkillable'
@@ -157,24 +165,8 @@ export interface AwardSummary {
   evidenceAmount: number;
 }
 
-export interface CardRecord {
-  schemaVersion: 1;
-  cardId: string;
-  rulesVersion: string;
-  assetManifestVersion: string;
-  round: RoundNumber;
-  title: string;
-  titleFinalized: boolean;
-  frozenAtRelease: CreatureView;
-  stats: CreatureStats;
-  dominantMutationIds: MutationId[];
-  rivalId: string;
-  outcome: RoundOutcome;
-  contributors: { playerId: PlayerId; alias: string }[];
-  completedAtMs: EpochMs;
-}
-
 export interface HealthResponse {
+  battlePresentationAvailable?: boolean;
   service: 'monstrum-mortis';
   stage: 'foundation' | 'room-service' | 'public-matchmaking' | 'dna-mechanics' | 'automatic-combat';
   protocolVersion: typeof PROTOCOL_VERSION;

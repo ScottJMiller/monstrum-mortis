@@ -1,103 +1,47 @@
-# Cloudflare setup without changing your self-hosted site
+# Cloudflare hosting and deployment
 
-> Battle v2 Phase A is development-only and has no deployed route, protocol/storage migration or health-capability change. Use [the sample review](BATTLE-V2-REVIEW.md) for local preview instructions. Deployment remains separately authorized. Future UI/admission changes are Phase C; the existing Workers Free infrastructure and self-hosted domains remain untouched.
+The approved simplification is deployed at **https://monstrum-mortis.scott-jeffrey-miller.workers.dev**. The user authorized publication for Phase D testing on 16 October 2026. [Status](IMPLEMENTATION-STATUS.md) records the exact version, local checks and bounded deployed smoke test. [Human acceptance](BATTLE-V2-PHASE-D-ACCEPTANCE.md) remains separate. Earlier foundation/migration instructions are [archived](archive/pre-simplification-2026-10-16/CLOUDFLARE-SETUP.md).
 
-Cloudflare hosts this game's Worker, static client, and SQLite-backed room/coordinator storage. Your computer is used for development and deployment commands; it does not need to stay online for deployed games. Your self-hosted `scottjmiller.com` site is separate.
+## Preserve the existing service
 
-The user completed the initial local login and deployment on 5 October 2026 and confirmed steps 1–4 pushed and deployed on 7 October at https://monstrum-mortis.scott-jeffrey-miller.workers.dev. Steps 1–3 passed multi-device tests and step 4 presentation was reviewed. Step 5 was subsequently approved and implemented locally; no new deployment is authorized. Do not repeat authentication unless the existing local login has expired. The steps below also serve as setup guidance for a new machine.
+Cloudflare hosts the Worker, static client and SQLite Durable Objects; the development computer does not need to stay online. Keep Workers Free, Worker name `monstrum-mortis`, `workers_dev: true`, no custom-domain routes, and the existing LaboratoryRoom/MatchmakingPool/GuestLease identities and ROOMS/MATCHMAKING/GUEST_LEASES bindings. ASSETS serves dist/client and /api/* runs the Worker first. No D1/KV/R2 bucket, tunnel, paid plan, nameserver change or custom domain is needed. Leave scottjmiller.com/www and their self-hosted DNS/routes unchanged.
 
-## 1. Use the account you already have
+Wrangler remains pinned to the committed dependency/lockfile. Do not use forced audit fixes or automatically upgrade dependencies during deployment. This candidate uses room JSON 7/protocol 6/rules 0.6.0, with unchanged DNA/combat calibration. The clean public-only cutover expires previous room/queue/display credentials without namespace deletion.
 
-Sign in to your Cloudflare dashboard and open **Workers & Pages**. Check that you are in the intended account and using the Workers Free plan. You do not need to transfer a domain, change nameservers, edit your home-server DNS records, or create a paid database for this milestone.
+## Validate and publish
 
-If prompted, choose a workers.dev account subdomain. The first deployment's address will have the form:
-
-`https://monstrum-mortis.<your-workers-subdomain>.workers.dev`
-
-This is an address pattern, not an already-created URL. If a Worker named `monstrum-mortis` already exists in that account, stop and inspect it before deploying: Wrangler would update that named service. Choose a fresh service name deliberately rather than overwriting unrelated work.
-
-## 2. Authenticate from your local clone
-
-Use Node 24 LTS. In the project directory:
+Use Node 24. Existing local Cloudflare login was verified for this publication; do not request or paste tokens into chat. If it expires, complete Wrangler's local browser login yourself.
 
 ```sh
 npm ci
-npm run cf:login
+npm run check
+npm run test:simplification
+npm run test:composition
+npm run simulate:combat
+```
+
+The simplification aggregate includes check/build, a Worker dry run, current public admission/DNA/runtime/browser checks and media exclusion/hash checks. `npm run deploy:dry` is useful on its own but does not publish or establish account access.
+
+When publication is authorized:
+
+```sh
 npm run cf:whoami
-```
-
-Wrangler opens your browser for Cloudflare authorization. Complete that browser flow yourself. Do not paste a Cloudflare token into this chat or put one in the repository. `whoami` should identify the account you intended. If you have several accounts, set the selected account's public account ID as Wrangler's `account_id` in your local reviewed configuration before deploying. An account ID is not an API token; it is not needed in the starter because most single-account logins can select the account automatically.
-
-The user has completed authentication/account access locally for the foundation deployment. A new machine or expired login still requires local verification. A local dry run cannot establish your account plan, permissions, or deployed domain state.
-
-## 3. Review the supplied configuration
-
-`wrangler.json` deliberately contains:
-
-- Worker name `monstrum-mortis`.
-- `workers_dev: true`, no custom domains, and no root-domain routes.
-- Client assets from `dist/client`; `/api/*` runs server code first.
-- Three Durable Object bindings: `ROOMS`, `MATCHMAKING`, `GUEST_LEASES`.
-- Declarative class exports with `storage: sqlite`, which fits the free plan.
-- No D1 binding, KV namespace, R2 bucket, tunnel, API key, or paid-plan configuration.
-
-You should not manually create a D1 database called ROOMS. A Durable Object owns its SQLite storage through its class namespace. Wrangler's deployment registers the declared namespaces.
-
-## 4. Validate before publishing
-
-```sh
-npm run deploy:dry
-```
-
-Expected: configuration checks, type checks, foundation/room/matchmaking tests, a client build, and a Worker bundle dry run all succeed. Inspect the listed bindings and confirm the SQLite exports. The dry run does not publish a service or verify your authenticated account's permissions.
-
-To test locally, start `npm run dev:worker` and then `npm run dev` in separate terminals. Open the local client, create a private laboratory, and join from another browser profile. Alternatively:
-
-```sh
-curl http://localhost:8787/api/health
-```
-
-The local step 6 tree returns `stage: automatic-combat`, `protocolVersion: 5`, `rulesVersion: 0.3.0`, room/matchmaking/DNA/combat available, `gameplayAvailable: true` for core three-round play, and `fullReleaseAvailable: false` because cards/audio/final acceptance remain later stages. All four configured bindings remain unchanged. The user reported deployed step 5; this session has not queried or changed that origin. Health is a wiring/capability check, not multiplayer or deployed access evidence.
-
-Use `npm run test:step5` for the local service, DNA, actual browser and art regressions, or the focused commands in README. The harnesses use isolated SQLite and independent clients. Neither the tests nor the dry run publishes anything.
-
-## 5. Publish a reviewed milestone when requested
-
-After confirming the selected account, Worker name, and free plan:
-
-```sh
 npm run deploy
 ```
 
-Wrangler builds the app, uploads the Worker and assets, registers its SQLite-backed namespaces, and prints the actual workers.dev URL. Open that URL and `/api/health`. Expect the screen and health stage for the milestone being published. The local step 6 tree adds actual seeded combat/results and three-round sessions. Existing schema-4 attempts keep their frozen pre-combat boundary without a retroactive rival; start a fresh combat session. Schema-2/3 migration preserves its service-only behavior. Old protocol clients must reload while retaining their reconnect credentials. After a separately authorized publication, test actual private storage/WebSocket operations and the new milestone behavior from separate browser profiles and devices on that origin; the health result alone is insufficient.
+This updates the existing named Worker and its assets; never rename infrastructure to work around a failed deploy or select a paid upgrade. Inspect the printed URL/version and binding list. The current capability response has stage automatic-combat, protocol 6/rules 0.6.0, all four configured bindings true, gameplay/mechanics/combat/presentation available and fullReleaseAvailable false while acceptance remains open. Health is configuration/capability evidence, not proof of storage or synchronization.
 
-In Workers & Pages, inspect this Worker and its bindings. Keep the Worker on the free plan, and inspect usage as testing expands. Free quotas are limits, not unlimited public matchmaking capacity; exceeding a quota can interrupt operations. Do not choose a paid upgrade just to make a failed configuration deploy.
+Use independent browsers/devices to create a public named lab, join that row, vote/start and play. Refresh old tabs after this cutover. Old private codes/queue clients are intentionally expired. The bounded deployed smoke test exercised actual HTTPS/SQLite/WebSockets, but physical Safari, network/memory/sound and account quota-headroom acceptance still require the user's checklist. No synthetic production load was run.
 
-## 6. Optional game subdomain later
+## Optional local review
 
-Once the game is working, a dedicated name such as `monstrum.scottjmiller.com` can point to this Worker while the apex and `www` continue to serve your self-hosted site.
+For desktop Vite development, run `npm run dev:worker` and `npm run dev` separately. For local multi-device production-build review:
 
-Prerequisites: the zone is active in your Cloudflare account, and the proposed game hostname is unused. Check its DNS and any wildcard entries first. Cloudflare cannot add a Worker Custom Domain on a hostname with an existing CNAME; do not delete records indiscriminately to work around that.
-
-Add only the dedicated game hostname as a Worker **Custom Domain**, not a broad Worker Route. Current dashboard path: Workers & Pages → your Worker → Settings → Domains & Routes → Add → Custom Domain. Cloudflare manages the game hostname's DNS and certificate.
-
-When chosen, mirror that setting in the reviewed Wrangler configuration so subsequent deployments preserve it:
-
-```json
-"routes": [
-  { "pattern": "monstrum.scottjmiller.com", "custom_domain": true }
-]
+```sh
+npm run build
+npx wrangler dev --ip 0.0.0.0 --port 8787
 ```
 
-Keep `workers_dev: true` if you want the provider address available too. This snippet is future guidance; it is intentionally not active in the starter. `npm run check:config` currently enforces workers.dev-only setup and must be deliberately updated when the custom-domain milestone is approved.
+On the same trusted LAN open the full numeric `http://<Linux-LAN-IP>:8787/` address. The secure-byte UUID helper supports ordinary HTTP; local review does not establish deployed HTTPS or physical-device acceptance. Do not forward this port through the public router. The deployed workers.dev address is the simpler authorized test path.
 
-Do not attach `scottjmiller.com/*`, `*.scottjmiller.com/*`, or `www.scottjmiller.com` to the game Worker. Those would affect your existing hosting. There is no reason to move the self-hosted site to Cloudflare Workers.
-
-## Official references
-
-- https://developers.cloudflare.com/workers/get-started/guide/
-- https://developers.cloudflare.com/workers/wrangler/configuration/
-- https://developers.cloudflare.com/durable-objects/get-started/
-- https://developers.cloudflare.com/workers/configuration/routing/workers-dev/
-- https://developers.cloudflare.com/workers/configuration/routing/custom-domains/
-- https://developers.cloudflare.com/durable-objects/platform/pricing/
+Before any sustained/deployed capacity test, check actual account Free usage/headroom and define a bounded cohort/stop condition. Never infer quota usage from Miniflare, Node timing or total shipped file size. Do not change account plan, namespace bindings or self-hosted domains.

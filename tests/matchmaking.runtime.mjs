@@ -14,7 +14,15 @@ async function api(path, value, guest, expected = 200, seat = null) {
  const data = await response.json(); assert.equal(response.status, expected, JSON.stringify(data)); return data;
 }
 async function createGuest() { return api('/api/guests',{operationId:uid()}); }
-async function enter(g, region='americas', mode='fresh-session', id=uid()) { const status = await api(`/api/queue/${region}/enter`, { operationId:id, mode },g); return {g,id,region,status}; }
+async function enter(g, region='americas', mode='fresh-session', id=uid()) {
+ // Non-Americas cohorts represent persisted pre-Phase-C tickets, never new entry.
+ if(region!=='americas'){
+  await api(`/api/pools/${region}/ping`);const authority=bindings.GUEST_LEASES.get(bindings.GUEST_LEASES.idFromName(`guest:${g.guestId}`));assert.equal(await authority.acquireQueue(id,region),true);
+  const sql=await mf.unsafeGetDurableObjectStorage('monstrum-mortis','MatchmakingPool',{name:`pool:${region}`});const rows=await sql.exec('SELECT record FROM pool_state');const {newPool}=await import('../src/server/queue-model.ts');const model=rows.length?JSON.parse(rows[0].record):newPool(),now=Date.now();
+  model.tickets.push({id,guestId:g.guestId,alias:g.alias,mode,enteredAtMs:now,lastSeenAtMs:now,leaseRenewAtMs:now+45000,state:'waiting',checkId:null,ready:false,admission:null});await sql.exec('INSERT OR REPLACE INTO pool_state(singleton,region,record) VALUES(1,?,?)',region,JSON.stringify(model));
+ }
+ const status = await api(`/api/queue/${region}/enter`, { operationId:id, mode },g); return {g,id,region,status};
+}
 async function status(t) { return api(`/api/queue/${t.region}/status?ticketId=${t.id}`,null,t.g); }
 async function ready(t) { const s = await status(t); return api(`/api/queue/${t.region}/ready`, {ticketId:t.id,readyCheckId:s.readyCheckId},t.g); }
 async function wait(fn, predicate, timeout=15000) { const end=Date.now()+timeout; while(Date.now()<end) { const value=await fn(); if(predicate(value)) return value; await sleep(500); } throw new Error('Runtime wait timed out'); }
@@ -41,8 +49,8 @@ try {
  await api('/api/queue/americas/enter',{operationId:uid(),mode:'fresh-session'},null,400);
  await api('/api/queue/americas/enter',{operationId:uid(),mode:'fresh-session'},{...g,accessToken:'x'.repeat(43)},401);
  const first=await enter(g); assert.equal(first.status.state,'waiting');
- const raced=await Promise.all(['europe-africa','asia-pacific'].map(region=>api(`/api/queue/${region}/enter`,{operationId:uid(),mode:'fresh-session'},g,409)));
- assert.ok(raced.every(r=>r.code==='guest-busy'));
+ const raced=await Promise.all(['europe-africa','asia-pacific'].map(region=>api(`/api/queue/${region}/enter`,{operationId:uid(),mode:'fresh-session'},g,400)));
+ assert.ok(raced.every(r=>r.code==='invalid-action'));
  const replay=await api('/api/queue/americas/enter',{operationId:first.id,mode:'fresh-session'},g); assert.equal(replay.enteredAtMs,first.status.enteredAtMs);
  await api('/api/rooms/private',{operationId:uid(),alias:'Guest',presentation:'remote'},g,409);
  await api('/api/queue/americas/enter',{operationId:first.id,mode:'fill-existing-laboratory'},g,409);
@@ -81,7 +89,7 @@ try {
  await api('/api/queue/americas/cancel',{ticketId:first.id},first.g,409);
  await api(`/api/rooms/${matched.admission.roomId}/join`,{operationId:uid(),alias:'Intruder',role:'player'},null,403);
  const experiment=await wait(()=>snap(entries[0]),s=>s.phase==='experiment',12000);assert.equal(experiment.playerCountAtExperimentStart,2);
- await api('/api/queue/asia-pacific/enter',{operationId:uid(),mode:'fresh-session'},first.g,409);
+ await api('/api/queue/asia-pacific/enter',{operationId:uid(),mode:'fresh-session'},first.g,400);
  checked('single-owner admissions, consumed-admission cancellation, hostless start, real eight-second briefing and no fresh mid-session entry');
  const roomId=entries[0].credentials.roomId;const sessionId=experiment.publicSession.sessionId;
  const room=await editRoom(roomId,r=>{r.phase='battle';r.phaseDeadlineMs=null;r.combat=null;});
@@ -100,7 +108,7 @@ try {
  for(const c of clients)c.close(); await sleep(100);await mf.dispose();mf=new Miniflare(convertV4MiniflareOptions(options));origin=await mf.ready;bindings=await mf.getBindings();
  const restored=await snap(entries[0]);assert.equal(restored.teamScore,100);assert.equal(restored.publicSession.sessionId,sessionId);
  const rc1=await roomSocket(entries[0]);const rc2=await roomSocket(entries[1]);
- await api('/api/queue/europe-africa/enter',{operationId:uid(),mode:'fresh-session'},first.g,409);
+ await api('/api/queue/europe-africa/enter',{operationId:uid(),mode:'fresh-session'},first.g,400);
  assert.equal((await rc1.send('leave')).kind,'action-accepted');await enter(first.g,'europe-africa');
  await api('/api/queue/americas/resume',{ticketId:group[2].id},group[2].g);
  const old=(await status(group[2])).enteredAtMs;assert.equal(old,group[2].status.enteredAtMs);

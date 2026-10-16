@@ -3,7 +3,7 @@ import {mkdir,readFile,writeFile} from 'node:fs/promises';
 import {join,resolve} from 'node:path';
 import {chromium} from 'playwright-core';
 import {createServer} from 'vite';
-const out=resolve('docs/battle-v2-family-review'),raw=resolve('dist/battle-v2-family-capture');await mkdir(out,{recursive:true});await mkdir(raw,{recursive:true});let server,browser;const errors=[],evidence={scope:'Actual local Chrome renderer and legal producer timelines; no physical-device claim',physicalDevices:false,poseRoles:0};
+const out=resolve('docs/battle-v2-phase-c-review/family-regressions'),raw=resolve('dist/battle-v2-family-capture');await mkdir(out,{recursive:true});await mkdir(raw,{recursive:true});let server,browser;const errors=[],evidence={scope:'Actual local Chrome renderer and legal producer timelines; no physical-device claim',physicalDevices:false,poseRoles:0};
 async function select(page,label,value){await page.getByLabel(label,{exact:true}).selectOption(String(value));await page.waitForTimeout(40);}
 async function seek(page,time){await page.getByLabel('Recording time',{exact:true}).evaluate((e,v)=>{Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(e,String(v));e.dispatchEvent(new Event('input',{bubbles:true}));},time);await page.waitForTimeout(40);}
 try{
