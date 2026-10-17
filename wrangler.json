@@ -22,5 +22,11 @@
     "LaboratoryRoom": { "type": "durable-object", "storage": "sqlite" },
     "MatchmakingPool": { "type": "durable-object", "storage": "sqlite" },
     "GuestLease": { "type": "durable-object", "storage": "sqlite" }
+  },
+  "observability": {
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true
+    }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-16T23:31:18.786Z",
+  "checkedAt": "2026-10-17T00:03:04.912Z",
   "physicalDevices": false,
   "scope": "Real React Presentation/Chamber/Stage and native Chromium touch scrolling. Isolated public layout fixtures use existing producer timelines; not physical Safari or multiplayer evidence.",
   "touch": [
@@ -7,8 +7,8 @@
       "label": "phone",
       "phase": "release",
       "start": 0,
-      "scrolled": 164,
-      "reversed": 3
+      "scrolled": 161,
+      "reversed": 0
     },
     {
       "label": "phone",
@@ -23,13 +23,13 @@
       "touchAction": "auto",
       "before": 60,
       "after": 221,
-      "back": 58
+      "back": 62
     },
     {
       "label": "phone-landscape",
       "phase": "release",
       "start": 0,
-      "scrolled": 160,
+      "scrolled": 157,
       "reversed": 0
     },
     {
@@ -44,15 +44,15 @@
       "phase": "chamber",
       "touchAction": "auto",
       "before": 253,
-      "after": 416,
-      "back": 255
+      "after": 415,
+      "back": 253
     },
     {
       "label": "tablet",
       "phase": "release",
       "start": 0,
-      "scrolled": 159,
-      "reversed": 0
+      "scrolled": 163,
+      "reversed": 2
     },
     {
       "label": "tablet",
@@ -73,8 +73,8 @@
       "label": "tablet-landscape",
       "phase": "release",
       "start": 0,
-      "scrolled": 163,
-      "reversed": 0
+      "scrolled": 162,
+      "reversed": 6
     },
     {
       "label": "tablet-landscape",
@@ -88,8 +88,8 @@
       "phase": "chamber",
       "touchAction": "auto",
       "before": 141,
-      "after": 300,
-      "back": 141
+      "after": 304,
+      "back": 138
     },
     {
       "label": "phone-static",

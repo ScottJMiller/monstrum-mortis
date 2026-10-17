@@ -1,4 +1,5 @@
 {
+  "checkedAt": "2026-10-17T00:02:44.670Z",
   "physicalDevices": false,
   "scope": "Local Chromium trusted touch/mouse input, native AAC decode/audio graph and actual React Stage. Strict activation emulation is not Safari hardware.",
   "audio": [
@@ -16,7 +17,7 @@
         "playback",
         "playback"
       ],
-      "peak": 0.01829703524708748,
+      "peak": 0.02665960229933262,
       "state": "running"
     },
     {

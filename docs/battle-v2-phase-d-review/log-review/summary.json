@@ -1,0 +1,105 @@
+{
+  "scope": "Read-only review of user-supplied live tail and dashboard export. One short deployed capture, not a new agent-run multiplayer test, a historical-event reconstruction or a capacity test. Raw request data remains outside the repository.",
+  "inputs": [
+    {
+      "filename": "monstrum-mortis-tail.log",
+      "bytes": 187072,
+      "sha256": "e3e5b8e3a1a50759b1f4e0e0b16a2ee04429b5e386cb8adbd8ba8f821a490f19"
+    },
+    {
+      "filename": "logs-2026-10-17T01_16_14.212Z.json",
+      "bytes": 261262,
+      "sha256": "18f674f928d0ae31828a8de3d74164bc63bf107ae7e415d351755fb7b3274961"
+    }
+  ],
+  "tailRecords": 120,
+  "dashboardRecords": 120,
+  "normalizedEntryOutcomeCpuWallMatches": 120,
+  "windowUtc": {
+    "firstEvent": "2026-10-17T01:11:01.672000+00:00",
+    "lastEvent": "2026-10-17T01:13:00.280000+00:00"
+  },
+  "scriptVersions": {
+    "f4813c32-185e-4a6a-b74a-1a508c76aadc": 120
+  },
+  "sourceHeadAtReview": "97f0cb34d861aef585fb6d84b0f90364f72c22df",
+  "sourceDiffAtReview": [],
+  "outcomes": {
+    "ok": 101,
+    "canceled": 17,
+    "responseStreamDisconnected": 2
+  },
+  "exceptions": 0,
+  "consoleLogs": 0,
+  "truncatedRecords": 0,
+  "dashboardLevels": {
+    "info": 120
+  },
+  "entrypoints": {
+    "Worker": {
+      "records": 18,
+      "outcomes": {
+        "ok": 11,
+        "canceled": 6,
+        "responseStreamDisconnected": 1
+      },
+      "maxCpuMs": 8
+    },
+    "GuestLease": {
+      "records": 45,
+      "outcomes": {
+        "ok": 45
+      },
+      "maxCpuMs": 3
+    },
+    "LaboratoryRoom": {
+      "records": 34,
+      "outcomes": {
+        "ok": 27,
+        "canceled": 7
+      },
+      "maxCpuMs": 11
+    },
+    "MatchmakingPool": {
+      "records": 23,
+      "outcomes": {
+        "ok": 18,
+        "canceled": 4,
+        "responseStreamDisconnected": 1
+      },
+      "maxCpuMs": 1
+    }
+  },
+  "cancellations": {
+    "socketFetches": 12,
+    "roomAlarms": 4,
+    "createFormingRpc": 1,
+    "disconnectedStreams": 2
+  },
+  "roomAlarms": {
+    "ok": 7,
+    "canceled": 4,
+    "canceledCpuMs": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "webSocketHandlers": {
+    "records": 19,
+    "outcomes": {
+      "ok": 19
+    },
+    "closes": {
+      "1005": 4,
+      "1001": 2,
+      "4002": 1,
+      "1006": 1
+    }
+  },
+  "completedHttpResponses": {
+    "200": 10
+  },
+  "conclusion": "No uncaught exception or resource-exhaustion outcome was observed. Cancellations include non-socket events, so do not label all 19 non-ok outcomes harmless browser disconnects. No confirmed gameplay failure is established by this capture; exact cancellation/abnormal-close causes and the earlier eight-counter discrepancy remain unresolved."
+}

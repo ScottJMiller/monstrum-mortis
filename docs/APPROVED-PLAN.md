@@ -1,6 +1,6 @@
 # Monstrum Mortis — approved plan
 
-Current work: the user approved the entire [Phase D simplification](PHASE-D-SIMPLIFICATION-PROPOSAL.md), including recommendations, on 16 October 2026. Deployment to the existing workers.dev address is explicitly authorized for testing after local checks. [Status](IMPLEMENTATION-STATUS.md) records actual verification and publication; [acceptance](BATTLE-V2-PHASE-D-ACCEPTANCE.md) remains open.
+**Accepted release — Phase D complete, 17 October 2026 UTC (16 October EDT).** Steps 1–6 and Battle v2 A–D are complete for the approved scope. [Status](IMPLEMENTATION-STATUS.md) and [completed acceptance](BATTLE-V2-PHASE-D-ACCEPTANCE.md) distinguish user-tested devices, reported final Node 24 checks, deployed evidence and remaining operational limits. The [approved simplification/PDF inventory](archive/release-closeout-2026-10-17/PHASE-D-SIMPLIFICATION-PROPOSAL.md) is retained as history. No next feature phase or new deployment is authorized by closeout.
 
 Monstrum Mortis is a cooperative browser creature-building game. A new public laboratory starts with 2–8 scientists on their own devices. They mutate one shared blob, unleash it into automatic authored-rival combat, and complete three rounds for a team score and personal awards. Sinister decayed machinery, eldritch anatomy and comic mutations remain the visual direction.
 
@@ -27,7 +27,7 @@ Unleash needs at least one accepted injection and its one-second wait. It perman
 
 ## Presentation and infrastructure
 
-The [PDF-based approved layout](PHASE-D-SIMPLIFICATION-PROPOSAL.md) applies on desktop as well as phones: prominent cropped chamber/readings left, scrolling private DNA rail and nearby actions right, compact accomplices below. No image reservoirs or routine diagnostic prose. Mutation captions are brief with optional history. Integration/battle fills the phone/tablet app viewport and desktop content width. Reports initially show top facts; details collapse and Next experiment remains visible.
+The [PDF-based approved layout](archive/release-closeout-2026-10-17/PHASE-D-SIMPLIFICATION-PROPOSAL.md) applies on desktop as well as phones: prominent cropped chamber/readings left, scrolling private DNA rail and nearby actions right, compact accomplices below. No image reservoirs or routine diagnostic prose. Mutation captions are brief with optional history. Integration/battle fills the phone/tablet app viewport and desktop content width. Reports initially show top facts; details collapse and Next experiment remains visible.
 
 Retain gothic frames and New Rocker/PT Serif/Cabin fonts, reduced motion, keyboard/screen-reader support, graphics fallback, sound controls and bounded loading. Preserve Cloudflare Workers Free, SQLite class/binding identities and workers.dev-only routing. Never alter scottjmiller.com/www.
 
