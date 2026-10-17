@@ -1,6 +1,10 @@
-# Monstrum Mortis
+![Monstrum Mortis — One creature. Many accomplices.](docs/images/monstrum-mortis-cover.png)
 
-A cooperative browser game: scientists mutate one shared creature, unleash it into automatic combat, then complete three experiments for team scores and personal awards.
+**Monstrum Mortis** is an entry in Handshake’s [Create a Multiplayer Game with OpenAI](https://joinhandshake.com/learn/create-a-multiplayer-game-8d7d59b5/) competition.
+
+A real-time cooperative browser party game for 2–8 players. Become questionable scientists, inject mysterious DNA into one shared creature, and unleash your creation into automatic battles. Sinister machinery meets ridiculous mutations across three rounds, with team victories and personal awards. No accounts or installation—just gather your accomplices and see what survives.
+
+[Play Monstrum Mortis](https://monstrum-mortis.scott-jeffrey-miller.workers.dev) · [Entry description](docs/COMPETITION-ENTRY.md) · [Cover artwork provenance](assets/project-cover/provenance.json)
 
 The approved Phase D simplification replaces private invitations/automatic ready queues with named public forming labs and compact specimen controls. Start with 2–8 people; a remaining scientist can finish the session. [Approved rules](docs/APPROVED-PLAN.md), [actual implementation/deployment status](docs/IMPLEMENTATION-STATUS.md), [architecture](docs/ARCHITECTURE.md), [battle specification](docs/BATTLE-V2-SPEC.md) and [completed release acceptance](docs/BATTLE-V2-PHASE-D-ACCEPTANCE.md).
 

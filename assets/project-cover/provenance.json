@@ -1,0 +1,44 @@
+{
+  "asset": "Monstrum Mortis project cover",
+  "createdAt": "2026-10-17T02:27:43.847588+00:00",
+  "purpose": "README heading and competition entry cover; promotional illustration, not a gameplay screenshot.",
+  "tool": "Built-in image_gen.imagegen via imagegen skill; underlying model identifier not exposed.",
+  "prompt": {
+    "path": "assets/project-cover/prompt.txt",
+    "bytes": 2178,
+    "sha256": "a4723ada87361d9d585daba864ee75f9e9fe227d4d728cbc220df555dc512ffb"
+  },
+  "exactPrompt": "Use case: ads-marketing\nAsset type: 1280 x 720 pixel, 16:9 project cover illustration for the existing browser party game Monstrum Mortis.\nInput image 1 is a STYLE AND CHARACTER REFERENCE ONLY: an actual screenshot of our game, showing our own original containment chamber and silly starter blob. Create new polished cover art, not a screenshot or interface mockup.\nScene: a decayed Frankenstein-era laboratory of oxidized brass, black wrought iron, cracked glass and eldritch green fluid; gothic acanthus details, restrained antique machinery.\nSubject: the recognizable pale olive gelatinous blob from the reference, with its wide mismatched eyes and awkward toothy smile, large and clearly readable inside a glowing cylindrical glass containment vessel. The creature is sinister but endearingly ridiculous. A few beautifully rendered tiny glass DNA specimen tubes near the base communicate mad science without clutter.\nComposition: cinematic wide 16:9 illustration, designed to remain legible as a small competition thumbnail. The chamber and large blob occupy the right half; the left half is dark, calm negative space for the dominant game title. Keep all important content well within the canvas, with roughly 50 pixels of safe margin at final 1280x720 size. Thin sculpted iron framing, no heavy decorative obstruction.\nStyle: detailed hand-painted dark fantasy game key art, aged flesh and worn metal textures, coherent anatomy, comic horror rather than extreme gore. Green chamber light and restrained warm brass highlights against near-black forest green.\nText, exactly: \"MONSTRUM MORTIS\" in very large warm ivory gothic lettering similar to our New Rocker title, stacked into two lines in the left half. Smaller line beneath it, exactly: \"One creature. Many accomplices.\" No other lettering.\nConstraints: produce a finished project cover at exactly 1280x720 if possible, otherwise a larger exact 16:9 composition suitable for uniform reduction to 1280x720. No website controls, menus, buttons, badges, watermarks, external logos, card imagery or fake screenshots. Preserve the charming identity of our reference blob and the game's sinister comic laboratory aesthetic.",
+  "references": [
+    {
+      "path": "docs/battle-v2-phase-d-review/simplification/entry-desktop.png",
+      "bytes": 1744566,
+      "sha256": "5997f85e7ca6e837b98410348f012f3ba0bd2684955d7bacf66cbba7263f2297",
+      "width": 1280,
+      "height": 1460,
+      "role": "Project-owned style/character reference, not an edit target or third-party stock."
+    }
+  ],
+  "source": {
+    "path": "assets/project-cover/source/cover-original.png",
+    "bytes": 2533879,
+    "sha256": "a243654e983e985e296a907a8fa1fabb76ed2fba22853198f3a30faff9d68849",
+    "width": 1672,
+    "height": 941
+  },
+  "derivative": {
+    "path": "docs/images/monstrum-mortis-cover.png",
+    "bytes": 1520676,
+    "sha256": "c0e6dcf14b80324ec9e02afcb20d011b8ec6c3d79c65b6bee792eb4ae9d4a7ee",
+    "width": 1280,
+    "height": 720
+  },
+  "processing": {
+    "tool": "ImageMagick convert",
+    "command": "convert assets/project-cover/source/cover-original.png -resize '1280x720^' -gravity center -extent 1280x720 -strip -define png:compression-level=9 docs/images/monstrum-mortis-cover.png",
+    "description": "Uniform reduction, minimal center crop to exact 16:9, metadata stripping and lossless PNG encoding. Original generated PNG remains unchanged."
+  },
+  "originAndRights": "Generated project artwork using project-owned reference artwork; subject to applicable OpenAI service terms. No third-party stock license or exclusivity guarantee is asserted.",
+  "inspection": "Generated original and final derivative visually inspected for title spelling, blob identity, readable composition and framing. Final dimensions verified as 1280x720.",
+  "deployment": "Documentation only; neither source nor cover is placed in public/ or added to runtime asset registries."
+}

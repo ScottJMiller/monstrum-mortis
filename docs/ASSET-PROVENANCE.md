@@ -1,5 +1,11 @@
 # Asset provenance — accepted library and production history
 
+## Project cover
+
+The [1280 × 720 project cover](images/monstrum-mortis-cover.png) was generated with the built-in imagegen tool using the project’s own entry-screen capture as a style/character reference. It is promotional illustration, not a gameplay screenshot. The [exact prompt](../assets/project-cover/prompt.txt), [original PNG](../assets/project-cover/source/cover-original.png) and [provenance/derivative hashes](../assets/project-cover/provenance.json) are retained. ImageMagick only reduced and center-fitted the image to the requested dimensions. This documentation asset is outside the production public directory and adds no runtime service or hosting dependency.
+
+## Accepted game library
+
 Current source ships the accepted Battle v2 library in Phase C via `scripts/ship-battle-v2.mjs`, with source hashes and the bundled New Rocker OFL license. Registered art/audio sources, exact prompts and originals remain under assets; dated review files are [archived](archive/README.md). The [historical Phase C review](archive/release-closeout-2026-10-17/BATTLE-V2-PHASE-C-REVIEW.md) records that implementation baseline; [completed acceptance](BATTLE-V2-PHASE-D-ACCEPTANCE.md) records the released candidate and separates actual rendered/decoded assets from user-reported device acceptance. Older production milestones below remain historical.
 
 > Current authority is the [canonical specification](BATTLE-V2-SPEC.md) and [completed release acceptance](BATTLE-V2-PHASE-D-ACCEPTANCE.md). The milestone records below describe asset production at their original dates, including plans, superseded derivatives and retired interface elements. Their “current,” “planned” and “DEV-only” statements are historical scope, not the accepted release state. Original prompts/hashes/licensing and rebuild commands are retained rather than rewritten as new production evidence.
