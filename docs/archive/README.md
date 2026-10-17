@@ -1,6 +1,8 @@
 # Historical project material
 
-Closed step 4–6 and Battle v2 A/B plans, reviews and dated screenshots/audio/video are retained here after Phase C implementation. Current guidance is [approved plan](../APPROVED-PLAN.md), [canonical specification](../BATTLE-V2-SPEC.md), [Phase C plan](../BATTLE-V2-PHASE-C-PLAN.md), [current status](../IMPLEMENTATION-STATUS.md) and [current architecture](../ARCHITECTURE.md).
+Closed step 4–6 and Battle v2 A–D guidance is historical. Current guidance is the [approved plan](../APPROVED-PLAN.md), [canonical specification](../BATTLE-V2-SPEC.md), [current status](../IMPLEMENTATION-STATUS.md), [architecture](../ARCHITECTURE.md) and [completed acceptance](../BATTLE-V2-PHASE-D-ACCEPTANCE.md).
+
+- [Release closeout archive](release-closeout-2026-10-17/README.md): completed Phase C plans/review, refinements, approved Phase D simplification and pre-closeout implementation/acceptance ledgers. Their linked browser evidence stays at stable tool paths; historical context is archived here.
 
 - [Status through Phase B](IMPLEMENTATION-STATUS-through-phase-b.md): original dated verification records and user-reported deployments.
 - [Earlier architecture](ARCHITECTURE-through-phase-b.md) and [earlier handoff](CODEX-HANDOFF-through-phase-b.md).
@@ -12,4 +14,4 @@ These records describe their original scopes/checks, not current authorization. 
 
 ## 16 October clean session cutover
 
-[Pre-simplification plan/status/architecture/specification/acceptance and byte inventory](pre-simplification-2026-10-16/) retain the previous approved contract and actual dated checks. The current approved public-only flow is in ../APPROVED-PLAN.md and ../PHASE-D-SIMPLIFICATION-PROPOSAL.md; current verification/publication is in ../IMPLEMENTATION-STATUS.md. No historical pass is a new-contract acceptance claim.
+[Pre-simplification plan/status/architecture/specification/acceptance and byte inventory](pre-simplification-2026-10-16/) retain the previous approved contract and actual dated checks. The current approved public-only flow is in [the approved plan](../APPROVED-PLAN.md); its [approved proposal](release-closeout-2026-10-17/PHASE-D-SIMPLIFICATION-PROPOSAL.md) is historical. Current verification/publication is in [status](../IMPLEMENTATION-STATUS.md). No historical pass is a new-contract acceptance claim.

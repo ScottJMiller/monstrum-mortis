@@ -1,0 +1,91 @@
+# Monstrum Mortis — implementation status
+
+> Historical record archived at release closeout (17 October 2026 UTC). Instructions, open items and candidate descriptions below describe their dated scope. Current [rules](../../APPROVED-PLAN.md), [status](../../IMPLEMENTATION-STATUS.md) and [completed acceptance](../../BATTLE-V2-PHASE-D-ACCEPTANCE.md) supersede them.
+
+Updated **16 October 2026**. The user approved the full [Phase D simplification](PHASE-D-SIMPLIFICATION-PROPOSAL.md), including recommendations, and separately authorized deployment to workers.dev for easier testing. The implementation is published; **The user has accepted Phase D human/device/network/accessibility/performance testing (items 1–4); final regression, Free-quota review and record reconciliation remain open**. [Previous implementation/check history](../pre-simplification-2026-10-16/IMPLEMENTATION-STATUS.md) is preserved rather than reclassified as evidence for this contract.
+
+## Current candidate
+
+- Room JSON **7**, protocol **6**, rules **0.6.0**. DNA **0.2.0**, combat **0.3.0** and battle-v2-b2 mappings/assets remain unchanged.
+- Named public forming labs with editable generated player aliases, public roster disclosure and a hibernating directory socket. A 30-second formation starts with two connected members; strict majority or eight connected commits at most three seconds and closes admission. No creator/host privileges, private codes, ready queues, displays, backfill or waiting-seat entry.
+- Direct shared experiment start, full **75 seconds every round**. The old automatic two-socket/first-cohort briefing gate is removed; first rival briefing appears during formation. This fixes that timing path; the user's reported physical-device short first round still needs a measured human retest.
+- Irrevocable authenticated Leave, fenced recovery/lost-response retry, old-session clean cutover and zero-member secret/receipt cleanup. One survivor finishes remaining rounds with six doses and a minimum-two scaling denominator. No new solo game/replay.
+- Compact PDF-based chamber/readings + scrolling private vial rail/actions, automatic initial/replacement selection, eligible lettering pulse/static reduced-motion highlight, brief attributed captions, concise accomplices and optional history.
+- One shared undistorted camera crop for Pixi/static anatomy; reservoirs and redundant figcaptions removed. Entry-only anatomical quip. Phone/tablet viewport battle with visible sound/exit; desktop full width. Collapsed reports and always-visible Next experiment.
+- Fifteen-second total splash including 3/2/1, immediately skippable, bypassed on recovery. Gesture-unlocked default-on sound with half-second master fade and saved per-device preferences. Server-persisted proper creature names also remain attached to completed round results.
+
+## Actual checks
+
+| Check | Result and scope |
+| --- | --- |
+| `npm run test:simplification` | Passed: configuration, both TypeScript projects, **226 tests**, build/dry run, six independent-client runtime groups, four DNA runtime groups, five production-browser groups and production-exclusion/hash guards. |
+| Final server corrections | A later creation-key conflict test initially found HTTP 503 across the RPC exception boundary. Structured service errors now preserve 409. Zero-member rooms now schedule actual secret/receipt cleanup. Fresh `npm run deploy:dry` and six-group `node tests/simplification.runtime.mjs` passed after those corrections; both final deployment check/build steps also passed. The whole aggregate was not rerun after these isolated server corrections. |
+| DNA runtime | All **30** mutations through real handlers; private trays/ownership, accepted/rejected duplicate receipts, real six-second cooldown, 2–8 independent cohorts with 2/N scaling, synchronization, deadline freeze and reactivation. Test-only fixture editing is labeled. |
+| Room runtime | Real initial countdown; majority/idempotent votes, full 75s first clock, directory hibernation/broadcast, ten concurrent entrants/eight-seat cap, no duplicate guest seat, immutable Leave/recovery, three-round solo continuation, no solo replay, restart/eviction and obsolete-route expiry. Later phase deadlines are accelerated by local SQLite inspection, never a production endpoint. |
+| Browser | Real built React app/SQLite service in independent Chromium contexts. Actual 15s splash and final 3, immediate skip/recovery bypass, gesture audio/master fade/device mute, lost create response, named join, auto-selection/scrolling vial controls, authoritative mutation, switch/injection waits, phase focus, WCAG checks and 320–1280px experiment reflow. Battle checks include 390 portrait, 844 landscape, 768 tablet and 320 short viewports; compact result/visible Next and leave/create/reload. **Not physical Safari/iPhone/iPad evidence.** |
+| `npm run test:composition` | Passed **48** authoritative fixtures + **12** definitive-sheet art samplers, all 30 assets, heavy/reinforced and replacement anatomy, mirrored limbs, desktop/phone/display-gallery/static/reduced/animated. Camera border-aspect issue corrected; stable-pose static/canvas mean channel difference **1.402/255**, worst definitive sampler **0.896/255**. |
+| `npm run simulate:combat` | Passed **4,536** seeded cases. Numerical battle calibration remains unchanged; Node timing is not Cloudflare CPU/quota evidence. |
+| `npm run measure:phase-d` | Offline output: **249 files / 9,752,524 bytes**, main script **351,831 bytes** (illustrative gzip 109,696), CSS **44,135 bytes**. Whole shipped library is not initial transfer/decoded memory. [Inventory/fingerprint](../../battle-v2-phase-d-review/assets.json). |
+| `npx wrangler whoami` | Existing local OAuth login/account verified; no credentials copied into the repository. This does not measure remaining Free quota. |
+| `npm run deploy` | Published successfully to the existing workers.dev Worker, preserving the three SQLite classes/bindings and asset binding. No domain/routing/paid-plan configuration change. |
+
+Earlier exploratory failures (badge contrast, fallback status/alignment and RPC conflict status) were corrected and rechecked. Some earlier Miniflare browser attempts emitted its RPC-stub disposal diagnostic; no physical/deployed resource claim follows from those runs. Historical private/queue component tests/scripts are retained under tests/archive/pre-simplification and older files; current package test aliases point to the public-contract suites. They are not silently counted as new-contract passes.
+
+## Deployment
+
+- URL: https://monstrum-mortis.scott-jeffrey-miller.workers.dev
+- Initial simplification Cloudflare version: **1e1b0cc9-1856-46f1-82a0-d2f742f71e61**; superseded by the audio/lettering correction below.
+- Initial publication d3e58e7d-4cce-41ab-84d1-3c75e0c10d7e was followed by the verified error/cleanup correction above; final client assets were unchanged.
+- Initial simplification build fingerprint: **f177e017036c391b421baa970ab4cef5d93b13f0aad672834d41eca157caaa79**. Existing uncommitted work is preserved; Git HEAD alone does not identify this candidate.
+- Bounded deployed smoke **passed**: two real HTTPS/WebSocket clients issued guests, created/joined, majority-started a full 75-second experiment, synchronized two injections, retried without double spending, reconnected with five doses, switched and reached one real five-second integration/authoritative battle with identical persisted presentation. Nine HTTP requests including cleanup; both memberships explicitly left. [Deployed evidence](../../battle-v2-phase-d-review/simplification/deployed-evidence.json). This is not a production load or physical-device test.
+
+## Review and remaining limits
+
+[Contact sheet](../../battle-v2-phase-d-review/simplification/contact-sheet.png), [historical/current comparison](../../battle-v2-phase-d-review/simplification/before-after.png), [browser evidence](../../battle-v2-phase-d-review/simplification/browser-evidence.json), [audio unlock capture](../../battle-v2-phase-d-review/simplification/sound-unlock.webm) and local logs are review artifacts from actual rendering, not mockups. Existing art and provenance are retained; no runtime generation/new paid dependency.
+
+Refresh old tabs for the clean protocol/session cutover. The guarantee against rejoining is for the authenticated guest, not a person who resets identity/storage. First-vs-later pacing, touch readability, portrait arena scale, audio balance/unlock on actual Safari, sleep/cellular recovery, cold/warm loading and memory/GPU behavior still need human testing. Free account usage/headroom has not been measured; no sustained/deployed load acceptance is claimed. Use the [short device checklist](../../BATTLE-V2-PHASE-D-ACCEPTANCE.md). Saved monsters/cards/cabinet remain cancelled. No new combat rules, paid services or custom domains.
+
+## Audio/lettering correction — 16 October 2026
+
+The user reported silent iPhone/iPad Safari/Chrome and oversized long desktop timeout wording. [Correction and evidence](../../battle-v2-phase-d-review/audio-lettering-fix/README.md): completed-touch/click unlock, retryable interrupted/pending resume, guarded Apple playback session and optional capture support; actual arena/glyph fitting with readable wrapping winner text. No protocol/rules, gameplay, asset-source, binding or routing changes.
+
+- `npm run deploy:dry`: passed configuration/types, **232 tests**, production build and Worker dry run. `node scripts/check-battle-v2-build.mjs`: passed all required asset hashes and production exclusions.
+- `node tests/audio-lettering.browser.mjs`: passed three trusted touch/mouse contexts with native 24-sample AAC decode and nonzero captured PCM, plus **32** terminal phrase/layout cases and live resize. Six audio state-machine tests also pass. Screenshots inspected; Chromium activation modeling is not physical Safari.
+- `node tests/simplification.browser.mjs`: passed all **five** existing production-browser groups against local SQLite rooms, including gesture fade/mute, independent admission, synchronized mutations, release/results, recovery and leave/create. No Worker behavior changed, so the backend runtime aggregate was not repeated for this client correction.
+- `npm run deploy`: passed check (**232 tests**)/build and published **e79035e1-ce79-429b-b794-65d0c0dedf85** to the same workers.dev URL. Audio-correction client fingerprint: **4738bd09e19acabd4aaa239ba1765670811c5072ee06f91553a0bff90cc96f67** ([build](../../battle-v2-phase-d-review/audio-lettering-fix/build.json)). Three bounded deployed HTTP requests verified exact HTML/main bundle hash and unchanged health ([evidence](../../battle-v2-phase-d-review/audio-lettering-fix/deployed-evidence.json)); they do not repeat multiplayer or establish physical audio/quota acceptance.
+- Earlier dated checks above remain historical. Refresh the page and physically retest iPhone/iPad sound and desktop timeout wording; Phase D acceptance remains open.
+
+## Native scrolling/viewport correction — 16 October 2026
+
+The user reported blocked chamber/arena swipes on iPhone/iPad and vertically cut-off desktop battle presentation. [Correction/evidence](../../battle-v2-phase-d-review/viewport-scroll-fix/README.md): remove decorative Pixi input capture, pass gestures through artwork, and fit desktop integration/battle to available viewport height using real health/control rows. Full-width backdrop and the entire uniformly scaled SVG world are retained. Renderer/audio/socket ownership and all authoritative mechanics remain unchanged.
+
+- Configuration/types and **232 tests** passed. Production build and all asset hash/exclusion guards passed.
+- The existing independent-client production-browser suite passed **five** groups with this correction, including sound/mute, synchronized mutation/release, recovery, results and accessibility. [Separate current run](../../battle-v2-phase-d-review/viewport-scroll-fix/production-flow/browser-evidence.json).
+- `npm run test:viewport-scroll`: passed native up/down gesture cases on all three artwork surfaces in **four** phone/tablet portrait/landscape contexts, plus static fallback. The same canvas stays mounted. **Twelve** integration/battle layout cases across six desktop viewports fit immediately on phase entry, preserve the entire uniformly scaled SVG world and keep health/captions/controls visible. Settings/Leave and live resize passed. Actual screenshots were inspected.
+- `npm run deploy`: check (**232 tests**)/build passed, published **6e8d425f-1128-4ba3-9049-e025f7624799** to the existing workers.dev address. Latest build fingerprint: **33e4313b3203472b17eabdb31746f15baf470952c41b3d56f6df4cc3f4f9cae1** ([build](../../battle-v2-phase-d-review/viewport-scroll-fix/build.json)); four HTTPS requests verified deployed HTML, main/CSS hashes and unchanged health ([evidence](../../battle-v2-phase-d-review/viewport-scroll-fix/deployed-evidence.json)). No Worker behavior changed; backend runtime/multiplayer/load suites were not repeated for this client-only correction.
+- Earlier audio correction and multiplayer checks remain dated historical evidence. Physical iPhone/iPad Safari confirmation and Phase D acceptance remain open; refresh the page before retesting.
+
+
+## Remembered player name — 16 October 2026
+
+The user approved saving their typed player name on this browser/device. Quick Play now restores a separate local preference, saves edits automatically, and keeps it through Leave/reload/returning in another tab. It stays editable and does not alter guest credentials, revoked membership, active-seat recovery or server validation. New devices/browsers have independent preferences; clearing browser data removes the saved name. A blank name clears the preference and the next visit uses the generated default. Initialization cannot overwrite a name already being typed.
+
+Actual verification: configuration/types, **232 tests**, production build and asset hash/exclusion guards passed. The existing production-browser suite passed **five groups**, extended to verify that a typed name survives Leave/reload/new tabs, can be edited and reused for new admission, and remains independent on another device context. [Current browser evidence](../../battle-v2-phase-d-review/player-name/production-flow/browser-evidence.json). No backend rules or persistence migration changed; backend runtime/load suites and physical-device acceptance were not repeated for this preference. Published via `npm run deploy` (check/build passed again) as **f4813c32-185e-4a6a-b74a-1a508c76aadc** at the existing workers.dev URL. Deployed bundle identity/health verification is recorded in [publication evidence](../../battle-v2-phase-d-review/player-name/deployed-evidence.json). Earlier checks/deployment versions remain dated history.
+
+
+## User acceptance of items 1–4 — 16 October 2026
+
+The user explicitly instructed “Consider 1 through 4 complete”: latest physical-device fixes, three-round multiplayer/timing/solo continuation, interruption/recovery behavior, and accessibility/performance. This records user acceptance of the current deployed candidate, not new agent-observed hardware tests or supplied numerical benchmarks. Earlier dated open-device notes describe their earlier evidence state and are superseded by this acceptance for completion tracking.
+
+[Item 5 checklist](BATTLE-V2-PHASE-D-ACCEPTANCE.md#remaining-item-5--release-verification-and-closure): rerun final local regression aggregates; inspect actual account Free usage/headroom and errors; identify the tested commit/deployment; reconcile/archive final records. No tests, deployment, load or account inspection were performed during this checklist update. Phase D closure remains pending item 5.
+
+
+## Final verification inputs and live-log review — 17 October 2026 UTC
+
+The user reported all final Node 24 commands passed: `test:phase-d-local`, `test:composition`, `simulate:combat`, `test:audio-lettering` and `test:viewport-scroll`. This is a user-reported final rerun, distinct from earlier agent-run checks; exact new totals/stdout are not inferred. User-generated artifacts already present in the working tree are preserved.
+
+User-supplied Cloudflare reports show approximately 146.19 GB-s, 46k SQL rows read and 18k rows written across the three namespace 30-day views. The separate October 17 account summary reports 0.034 GB-s, five requests, 20 rows read, eight rows written and 1.89 MB stored. These different windows are labeled, not conflated. Resource headroom is satisfactory for the demonstrated testing volume, not a quantified capacity guarantee. Historical error-card totals differ from their visible breakdowns by eight; the difference is not eight identified exceptions and is not a requirement to recover nonexistent/expired event records.
+
+[Live-log review and sanitized evidence](../../battle-v2-phase-d-review/log-review/README.md): both supplied files represent one 120-record sample of code version f4813c32-185e-4a6a-b74a-1a508c76aadc, from 01:11:01.672 to 01:13:00.280 UTC. Outcomes: 101 ok, 17 canceled, two disconnected streams; zero exceptions or resource-exhaustion outcomes. All 19 WebSocket message/close handlers and seven alarms completed ok; four zero-CPU alarms and one successful-endpoint creation RPC are additionally classified canceled. There is one abnormal socket close. Exact causes cannot all be established from metadata; no confirmed gameplay defect is demonstrated. This sample does not resolve the earlier aggregate-counter mismatch.
+
+The local Wrangler observability settings match the user's dashboard instructions and are preserved. No application source/package changes, new test run or deployment were made by this review. Final tests, human acceptance and quota/log review inputs are received; documentation reconciliation and final phase closure remain to be recorded.

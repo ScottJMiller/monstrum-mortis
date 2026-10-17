@@ -2,7 +2,7 @@
 
 > Archived historical record. Current execution and evidence are in [implementation status](../../IMPLEMENTATION-STATUS.md). Original dated checks retain their scope; this file does not authorize work.
 
-Latest 14 October scope/presentation update: timeout-only smaller winner/draw subtitle below final New Rocker lettering, and no strike SVG for a contact with a matching block. Saved-monster/card/cabinet requirements are removed, rather than deferred. Production UI/UX is Phase C; development contact sheets are references, not final shipping screens. The user authorized consolidation and dated `docs/archive/` moves after step 6 and A/B/C are complete/accepted; this cleanup is pending. See [current plan](../../APPROVED-PLAN.md#15-battle-v2-production-ui-and-completion-cleanup).
+Latest 14 October scope/presentation update: timeout-only smaller winner/draw subtitle below final New Rocker lettering, and no strike SVG for a contact with a matching block. Saved-monster/card/cabinet requirements are removed, rather than deferred. Production UI/UX is Phase C; development contact sheets are references, not final shipping screens. The user authorized consolidation and dated `docs/archive/` moves after step 6 and A/B/C are complete/accepted; this cleanup is pending. See [current plan](../APPROVED-PLAN-through-phase-b.md#15-battle-v2-production-ui-and-completion-cleanup).
 
 Later family artwork/vote refinement: [current family review](BATTLE-V2-FAMILY-REFINEMENT.md). The sound/countdown/damage-feedback decisions here remain; earlier screenshots and measurements below show their prior artwork versions.
 

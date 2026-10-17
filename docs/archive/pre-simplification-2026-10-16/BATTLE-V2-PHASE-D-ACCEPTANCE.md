@@ -2,7 +2,7 @@
 
 The user indicated readiness for Phase D on 15 October 2026 after accepting the Phase C presentation refinements. **Current work is acceptance testing, not new gameplay. Phase D is not yet passed.** Deployment still needs a separate explicit instruction. Preserve all mechanics, credentials, private data, server entropy/persistence, infrastructure identities, Workers Free and workers.dev-only routing. No saved creatures/cards/cabinet, naming, signals or unrelated features.
 
-[Specification](../../BATTLE-V2-SPEC.md), [implemented Phase C review](../../BATTLE-V2-PHASE-C-REVIEW.md), [accepted refinements](../../PREDEPLOY-REFINEMENT.md), [current status](../../IMPLEMENTATION-STATUS.md) and [evidence ledger](../../battle-v2-phase-d-review/README.md).
+[Specification](../../BATTLE-V2-SPEC.md), [implemented Phase C review](../release-closeout-2026-10-17/BATTLE-V2-PHASE-C-REVIEW.md), [accepted refinements](../release-closeout-2026-10-17/PREDEPLOY-REFINEMENT.md), [current status](../../IMPLEMENTATION-STATUS.md) and [evidence ledger](../../battle-v2-phase-d-review/README.md).
 
 ## Candidate and evidence
 

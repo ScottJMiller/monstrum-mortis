@@ -1,8 +1,10 @@
 # Battle v2 Phase C implementation plan
 
-**Historical accepted baseline:** This document records Phase C/pre-simplification implementation and dated checks. Conflicting UI/admission/credential/timer guidance is superseded by the approved [16 October simplification](PHASE-D-SIMPLIFICATION-PROPOSAL.md). Current publication and evidence are in [status](IMPLEMENTATION-STATUS.md).
+> Historical record archived at release closeout (17 October 2026 UTC). Instructions, open items and candidate descriptions below describe their dated scope. Current [rules](../../APPROVED-PLAN.md), [status](../../IMPLEMENTATION-STATUS.md) and [completed acceptance](../../BATTLE-V2-PHASE-D-ACCEPTANCE.md) supersede them.
 
-Authorized 14 October 2026: “Phase B is complete, proceed with Phase C.” The accepted [canonical specification](BATTLE-V2-SPEC.md) and refinements remain the design contract. Phase B user acceptance is confirmed; dated local checks remain evidence of what actually ran. No second planning approval is required. Deployment remains separately gated.
+**Historical accepted baseline:** This document records Phase C/pre-simplification implementation and dated checks. Conflicting UI/admission/credential/timer guidance is superseded by the approved [16 October simplification](PHASE-D-SIMPLIFICATION-PROPOSAL.md). Current publication and evidence are in [status](../../IMPLEMENTATION-STATUS.md).
+
+Authorized 14 October 2026: “Phase B is complete, proceed with Phase C.” The accepted [canonical specification](../../BATTLE-V2-SPEC.md) and refinements remain the design contract. Phase B user acceptance is confirmed; dated local checks remain evidence of what actually ran. No second planning approval is required. Deployment remains separately gated.
 
 ## Implementation decisions
 
@@ -26,7 +28,7 @@ Phase C ends with reviewable production integration, not deployment or blanket d
 
 ## Completion record
 
-Phase C implementation is complete locally for review. Existing local server/browser suites and the newly scoped persistence/production browser checks are listed individually in [status](IMPLEMENTATION-STATUS.md), with [actual screenshots/recording](BATTLE-V2-PHASE-C-REVIEW.md). Closed milestones/evidence have been archived under the user's completion-cleanup instruction; current docs and live provenance remain accessible. Phase D human/device/browser/performance/network acceptance and deployment remain separate, not inferred from these checks.
+Phase C implementation is complete locally for review. Existing local server/browser suites and the newly scoped persistence/production browser checks are listed individually in [status](../../IMPLEMENTATION-STATUS.md), with [actual screenshots/recording](BATTLE-V2-PHASE-C-REVIEW.md). Closed milestones/evidence have been archived under the user's completion-cleanup instruction; current docs and live provenance remain accessible. Phase D human/device/browser/performance/network acceptance and deployment remain separate, not inferred from these checks.
 
 
 ## Approved predeployment refinement — 15 October 2026
@@ -35,4 +37,4 @@ The subsequent [approved scope](PREDEPLOY-REFINEMENT.md) extends this completed 
 
 ## Phase boundary — 15 October 2026
 
-The user indicated readiness for Phase D after the approved refinements. [Current acceptance checklist](BATTLE-V2-PHASE-D-ACCEPTANCE.md) and [new evidence ledger](battle-v2-phase-d-review/README.md) now track the active work. This plan remains the completed implementation record; its checks are not retroactive physical-device/network/quota acceptance. No deployment.
+The user indicated readiness for Phase D after the approved refinements. [Current acceptance checklist](../../BATTLE-V2-PHASE-D-ACCEPTANCE.md) and [new evidence ledger](../../battle-v2-phase-d-review/README.md) now track the active work. This plan remains the completed implementation record; its checks are not retroactive physical-device/network/quota acceptance. No deployment.

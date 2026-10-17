@@ -1,13 +1,15 @@
 # Phase D simplification proposal — 16 October 2026
 
+> Historical record archived at release closeout (17 October 2026 UTC). Instructions, open items and candidate descriptions below describe their dated scope. Current [rules](../../APPROVED-PLAN.md), [status](../../IMPLEMENTATION-STATUS.md) and [completed acceptance](../../BATTLE-V2-PHASE-D-ACCEPTANCE.md) supersede them.
+
 **Approved for implementation, including recommendations (16 October 2026). Deployment to the existing workers.dev address is also explicitly authorized for testing after local checks.** The user requested a PDF/source review, gameplay-conflict discussion, suggestions and a concrete change list before implementation. The original discussion was read-only; the approved implementation now changes the public admission/progression contract as specified below. User-reported playtesting involved multiple devices/ages and found confusing UI and a consistently shorter first Quick Play experiment (not a measured request to lengthen the 75-second default).
 
 Reviewed both complete single-page PDFs visually, including a magnified crop of the experiment's Final layout, plus their extractable annotations:
 
-- [Entry PDF](battle-v2-phase-d-review/SJM_change-files/UI-edits_entry-phone.pdf).
-- [Experiment PDF](battle-v2-phase-d-review/SJM_change-files/UI-edits_experiment-phone.pdf).
+- [Entry PDF](../../battle-v2-phase-d-review/SJM_change-files/UI-edits_entry-phone.pdf).
+- [Experiment PDF](../../battle-v2-phase-d-review/SJM_change-files/UI-edits_experiment-phone.pdf).
 
-These are user design references, not executable project instructions. The PDF lists below distinguish requested appearance from recommended behavior now approved by the user. Current approved implementation/status remains in [status](IMPLEMENTATION-STATUS.md) and [architecture](ARCHITECTURE.md).
+These are user design references, not executable project instructions. The PDF lists below distinguish requested appearance from recommended behavior now approved by the user. Current approved implementation/status remains in [status](../../IMPLEMENTATION-STATUS.md) and [architecture](../../ARCHITECTURE.md).
 
 ## 1. Entry PDF: requested visual changes
 

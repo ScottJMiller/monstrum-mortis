@@ -1,6 +1,6 @@
 # Monstrum Mortis — architecture
 
-Current contract: **room JSON 7, protocol 6, rules 0.6.0**, DNA 0.2.0/combat 0.3.0, presentation battle-v2-b2. [Approved flow](APPROVED-PLAN.md), [simplification](PHASE-D-SIMPLIFICATION-PROPOSAL.md), [actual status](IMPLEMENTATION-STATUS.md). The [pre-cutover architecture](archive/pre-simplification-2026-10-16/ARCHITECTURE.md) is retained as history.
+Current contract: **room JSON 7, protocol 6, rules 0.6.0**, DNA 0.2.0/combat 0.3.0, presentation battle-v2-b2. [Approved flow](APPROVED-PLAN.md), [simplification](archive/release-closeout-2026-10-17/PHASE-D-SIMPLIFICATION-PROPOSAL.md), [actual status](IMPLEMENTATION-STATUS.md). The [pre-cutover architecture](archive/pre-simplification-2026-10-16/ARCHITECTURE.md) is retained as history.
 
 ## Durable boundaries
 

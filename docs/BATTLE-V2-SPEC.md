@@ -1,6 +1,6 @@
 # Monstrum Mortis — Battle v2 specification
 
-Version 1.3 · 16 October 2026. Battle art/mechanics presentation remains accepted; current execution is the approved [Phase D simplification](PHASE-D-SIMPLIFICATION-PROPOSAL.md), including recommendations. The user explicitly authorized workers.dev deployment for human testing after local checks. [Status](IMPLEMENTATION-STATUS.md) records actual evidence; [acceptance](BATTLE-V2-PHASE-D-ACCEPTANCE.md) is still open. The [previous specification](archive/pre-simplification-2026-10-16/BATTLE-V2-SPEC.md) retains all dated authorization history.
+Version 1.3 · release-status reconciliation, 17 October 2026 UTC (16 October EDT); no rules/mapping change. Step 6 and Battle v2 Phases A–D are complete for the accepted scope. [Status](IMPLEMENTATION-STATUS.md) and [completed acceptance](BATTLE-V2-PHASE-D-ACCEPTANCE.md) record the tested implementation/deployed identity, user acceptance and limits. The [approved simplification](archive/release-closeout-2026-10-17/PHASE-D-SIMPLIFICATION-PROPOSAL.md) and [previous specification](archive/pre-simplification-2026-10-16/BATTLE-V2-SPEC.md) retain authorization history. Further features or deployment require their own user instruction.
 
 Accepted presentation remains: six voted player families including blob, six rivals, registered poses/grafts, strike/slash/bite/corrosion/retaliation/block/electric SVGs, text-only other effects, silent recover/shards, onset-only balanced sound, unmirrored New Rocker wording, centered final text/countdown and timeout-only winner/draw subtitle. The sole effect registry is src/client/battle-v2/effects.ts; the sole executable DNA/family/modifier mapping is src/shared/integrated-form.ts.
 
@@ -158,7 +158,7 @@ Unlock audio through a user gesture; failed/blocked audio never blocks play. Pro
 
 ## 10. Current UI and admission
 
-Follow the approved [PDF-based simplification](PHASE-D-SIMPLIFICATION-PROPOSAL.md) on desktop and phone. Public named forming labs in Americas replace private codes/hosts, automatic ready queues, backfill and legacy displays. No active users require a compatibility bridge: old external routes/browser credentials expire without namespace deletion.
+Follow the approved [PDF-based simplification](archive/release-closeout-2026-10-17/PHASE-D-SIMPLIFICATION-PROPOSAL.md) on desktop and phone. Public named forming labs in Americas replace private codes/hosts, automatic ready queues, backfill and legacy displays. No active users require a compatibility bridge: old external routes/browser credentials expire without namespace deletion.
 
 Keep the creature primary: shared camera crop, no reservoirs, chamber/readings left and scrolling private vial rail/actions right, compact accomplices below. Auto-highlight first/replacement specimen without automatic injection. Eligible lettering gently pulses with a static reduced-motion alternative. Routine prose/descriptions/status duplication is removed; errors/recovery stay actionable.
 
@@ -196,11 +196,11 @@ Phase A — reconciliation and vertical slice (accepted review gate; historical 
 6. Deliver a playable preview, short recording where tooling permits, screenshots/contact sheet, actual tests, scope limits, and an updated next-phase plan. Keep unfinished redesign out of the production entrypoint/build. Do not deploy.
 7. Stop at visual/audio acceptance of the sample before producing all remaining families/rivals or replacing production presentation. Do not ask a separate planning confirmation before completing this already-authorized sample.
 
-Phase B — after sample acceptance: remaining five player sets and five rivals, complete effect/audio registry, pose/damage registration, and remaining arena artwork.
+Phase B — completed after sample acceptance: remaining five player sets and five rivals, complete effect/audio registry, pose/damage registration, and remaining arena artwork.
 
-Phase C — authorized full integration: persisted presentation selection/backgrounds, wire/schema compatibility, integrated playback, themed compact production UI across entry/matchmaking, readiness/recovery, experiment, integration/battle, results/replay, Americas-only entry, removal of new display/Same-Room flows, and migration/regression verification. Section 10 governs UI/UX. Development contact sheets are art/choreography references, not final production layouts; review/gallery controls do not ship. Review final desktop/phone layouts and accessibility before deployment.
+Phase C — completed full integration: persisted presentation selection/backgrounds, wire/schema compatibility, integrated playback, themed compact production UI across entry/matchmaking, readiness/recovery, experiment, integration/battle, results/replay, Americas-only entry, removal of new display/Same-Room flows, and migration/regression verification. Section 10 governs UI/UX. Development contact sheets are art/choreography references, not final production layouts; review/gallery controls do not ship. Review final desktop/phone layouts and accessibility before deployment.
 
-Phase D — acceptance began 15 October; the complete simplification and workers.dev testing deployment were explicitly authorized on 16 October. [Acceptance checklist](BATTLE-V2-PHASE-D-ACCEPTANCE.md) separates implementation/local checks from remaining human/device/network/performance/quota evidence. Saved-monster/card/cabinet requirements were removed on 14 October 2026.
+Phase D — complete at release closeout, 17 October UTC / 16 October EDT. Acceptance began 15 October; simplification/testing deployment was authorized on 16 October. The user subsequently accepted human testing, reported final Node 24 checks passed and supplied quota/log evidence. The [completed acceptance](BATTLE-V2-PHASE-D-ACCEPTANCE.md) separates each evidence source and remaining operational limits. Saved-monster/card/cabinet requirements were removed on 14 October 2026.
 
 ## 14. Verification and completion evidence
 
@@ -216,7 +216,7 @@ Completion reports include: changed behavior and files; assets actually ready ve
 
 ## 15. Authorized completion archive
 
-After step 6 and Battle v2 A/B/C implementation are complete, revise/consolidate current plans, status, architecture, handoff and AGENTS. Move deprecated/historical plans, reviews and evidence into dated `docs/archive/` folders with an index, preserving dated verification and provenance. Repair all links and tooling references; retain source masters needed by live provenance and rerun relevant checks. Closed step/A/B material is now archived after Phase C implementation; current Phase C evidence remains outside the archive. Phase D acceptance is distinct from implementation completion. Phase D acceptance and deployment remain separately gated.
+Completed step/A/B material and superseded Phase C/D plans/reviews are under [docs/archive](archive/README.md), with pre-closeout status/acceptance ledgers preserved. Current rules, architecture, specification, status and acceptance remain active. Evidence directories used by review scripts stay at their established paths, explicitly labeled by date/scope; this preserves reproducibility without relocating live masters, source licenses or definitive references. Links are repaired at closure. Historical open items do not reopen accepted phases. Future deployments and sustained production load remain separately authorized.
 
 ## 16. Current integration contracts
 

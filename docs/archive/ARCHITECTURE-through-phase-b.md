@@ -2,7 +2,7 @@
 
 > Archived historical record. Current execution and evidence are in [implementation status](../IMPLEMENTATION-STATUS.md). Original dated checks retain their scope; this file does not authorize work.
 
-Current authorization (14 October 2026): the user confirmed **Phase B complete** and authorized **Phase C** production integration. [Phase C plan](../BATTLE-V2-PHASE-C-PLAN.md) governs current execution; earlier Phase B-only/Phase C-unauthorized notes below are historical. Preserve every gameplay mechanic, legacy recovery/permissions, Workers Free identities and self-hosted domains. No deployment or cancelled card/cabinet work.
+Current authorization (14 October 2026): the user confirmed **Phase B complete** and authorized **Phase C** production integration. [Phase C plan](release-closeout-2026-10-17/BATTLE-V2-PHASE-C-PLAN.md) governs current execution; earlier Phase B-only/Phase C-unauthorized notes below are historical. Preserve every gameplay mechanic, legacy recovery/permissions, Workers Free identities and self-hosted domains. No deployment or cancelled card/cabinet work.
 
 Current change (14 October 2026): saved monsters, tarot cards and the local cabinet are removed from the product plan, rather than deferred. Historical mentions retain their original dates/scope. Phase C includes production UI/UX; development contact sheets are references, not final production screens. After step 6 and Battle v2 A/B/C are complete and accepted, consolidate guidance and move superseded documents/evidence into dated `docs/archive/` folders, preserving provenance/verification and repairing links. That cleanup is pending; Phase C and deployment remain unauthorized.
 

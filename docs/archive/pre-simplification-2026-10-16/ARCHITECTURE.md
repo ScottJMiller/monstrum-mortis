@@ -1,6 +1,6 @@
 # Current architecture
 
-Battle v2 Phase C production integration is implemented locally under [the specification](../../BATTLE-V2-SPEC.md) and [Phase C plan](../../BATTLE-V2-PHASE-C-PLAN.md). [Prior architecture](../../archive/ARCHITECTURE-through-phase-b.md) preserves historical decisions/checks. No deployment has occurred in this session.
+Battle v2 Phase C production integration is implemented locally under [the specification](../../BATTLE-V2-SPEC.md) and [Phase C plan](../release-closeout-2026-10-17/BATTLE-V2-PHASE-C-PLAN.md). [Prior architecture](../../archive/ARCHITECTURE-through-phase-b.md) preserves historical decisions/checks. No deployment has occurred in this session.
 
 ## Hosting and authority
 
@@ -36,14 +36,14 @@ One gesture-unlocked sound engine per device retains mute/volume settings, a lim
 
 `npm run build` builds Vite then explicitly copies approved runtime derivatives and the New Rocker OFL license. `dist/battle-v2-shipping.json` records shipped hashes/bytes; the production guard verifies them and excludes source masters, provenance, gallery fixtures and development controls. Original masters, prompts, registration and provenance remain under `assets/`; closed review documents/evidence are indexed under `docs/archive/`.
 
-[Current implementation status](../../IMPLEMENTATION-STATUS.md) and [Phase C review](../../BATTLE-V2-PHASE-C-REVIEW.md) list checks actually run and their scope. Worker dry run checks bundling/bindings, local independent clients exercise real SQLite/sockets/alarms/reactivation, and Chrome checks use real production build controls/media. These do not establish deployed account access, physical-phone/Safari/Firefox performance or free-tier capacity. Phase D acceptance and explicit deployment remain separate.
+[Current implementation status](../../IMPLEMENTATION-STATUS.md) and [Phase C review](../release-closeout-2026-10-17/BATTLE-V2-PHASE-C-REVIEW.md) list checks actually run and their scope. Worker dry run checks bundling/bindings, local independent clients exercise real SQLite/sockets/alarms/reactivation, and Chrome checks use real production build controls/media. These do not establish deployed account access, physical-phone/Safari/Firefox performance or free-tier capacity. Phase D acceptance and explicit deployment remain separate.
 
 Compatibility note: an already-open pre-update browser tab retains its older UI until reload. Reload adopts the new assets/layout while preserving protocol-5 credentials and pending intentions; the stored descriptor never rerolls. Older active attempts retain legacy presentation even after reload. Updated clients receive the same chosen descriptor/arena; additive wire compatibility does not hot-replace an old JavaScript renderer.
 
 
 ## Approved predeployment refinement — 15 October 2026
 
-[Scope and actual verification](../../PREDEPLOY-REFINEMENT.md). `switchReadyAtMs` is an additive private-controller field derived from the existing persisted `nextInjectionAtMs` and the attempt's rules version. No JSON schema, infrastructure migration, hidden vote or entropy change. Server common action validation retains phase/ownership/deadline checks; injection and switch then enforce separate deadlines. Old 0.2/0.3/0.4 attempts retain six seconds for both; new 0.5.0 rounds require one second for the switch and six between injections. Retrying/reloading never resets these timestamps.
+[Scope and actual verification](../release-closeout-2026-10-17/PREDEPLOY-REFINEMENT.md). `switchReadyAtMs` is an additive private-controller field derived from the existing persisted `nextInjectionAtMs` and the attempt's rules version. No JSON schema, infrastructure migration, hidden vote or entropy change. Server common action validation retains phase/ownership/deadline checks; injection and switch then enforce separate deadlines. Old 0.2/0.3/0.4 attempts retain six seconds for both; new 0.5.0 rounds require one second for the switch and six between injections. Retrying/reloading never resets these timestamps.
 
 The first-entry native dialog dismisses after three seconds or immediately by button/Escape. Saved room/queue credentials bypass it; the normal app/transport remains mounted. Rehearsal and its queue gate are removed. Successful authenticated leave already clears room/pending keys; only disconnected Connection help exposes local reset. Clipboard copying has accessible feedback and selectable input fallback.
 
