@@ -1,4 +1,5 @@
 /* Approved compact PDF hierarchy. One controller column; no fixed experiment bar. */
+.lab-browser .entry-player-count{margin:-.5rem 0 1rem;font-weight:700;color:#e6d9b5}
 .laboratory-shell{max-width:1250px}.laboratory-layout{align-items:start}.connection-badge{background:#e6d9b5;color:#18221b;border-color:#c7b77e}.milestone-seal{display:none}
 .accepted-injection .chamber-stage{max-width:100%;width:100%;margin:0;aspect-ratio:2/3;overflow:hidden}
 .chamber-camera{position:absolute;inset:0;transform:scale(1.13);transform-origin:50% 48%}

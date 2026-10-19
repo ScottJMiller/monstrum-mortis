@@ -1,0 +1,8 @@
+Use case: identity-preserve
+Asset type: transparent circular website favicon for the existing Monstrum Mortis game.
+Reference: the supplied image is our own original silly starter blob character, provided as character identity and palette reference. Create a favicon-friendly facial close-up, not a complete creature.
+Subject and composition: one large pair of mismatched sleepy googly eyes and the blob's funny uneven toothy grin, on its pale olive/yellow-green soft lumpy face, tightly framed within a simple circular silhouette. Preserve recognizable big eyelids, pinkish eye rims, two silly short blunt teeth, and friendly grotesque expression. Crop the chin/body away; eyes and mouth fill most of the circle. A very thin dark olive circumference helps readability.
+Style: polished simplified painted game icon matching the reference's decayed comic horror aesthetic. Strong readable shapes and restrained flesh shading. Reduce tiny veins and surface detail so it reads at 16x16 and 32x32. Face front-facing, both eyes entirely visible, mouth entirely visible.
+Background: genuine transparent alpha everywhere OUTSIDE the circular face, including all four corners. No opaque rectangle, no checkerboard drawn into the picture. Only the single circular face icon.
+Avoid: lettering, logos, elaborate framing, metallic machinery, props, limbs, horns, extra eyes, fangs, blood, dramatic scary aggression, drop shadows outside the circle.
+Output: square high quality transparent PNG suitable for uniform downscaling to favicon sizes.

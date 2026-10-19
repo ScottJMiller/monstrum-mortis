@@ -1,0 +1,76 @@
+{
+  "asset": "Monstrum Mortis circular blob-face favicon",
+  "generationDate": "2026-10-19",
+  "tool": "Built-in image_gen.imagegen; underlying model identifier not exposed.",
+  "exactPrompt": "Use case: identity-preserve\nAsset type: transparent circular website favicon for the existing Monstrum Mortis game.\nReference: the supplied image is our own original silly starter blob character, provided as character identity and palette reference. Create a favicon-friendly facial close-up, not a complete creature.\nSubject and composition: one large pair of mismatched sleepy googly eyes and the blob's funny uneven toothy grin, on its pale olive/yellow-green soft lumpy face, tightly framed within a simple circular silhouette. Preserve recognizable big eyelids, pinkish eye rims, two silly short blunt teeth, and friendly grotesque expression. Crop the chin/body away; eyes and mouth fill most of the circle. A very thin dark olive circumference helps readability.\nStyle: polished simplified painted game icon matching the reference's decayed comic horror aesthetic. Strong readable shapes and restrained flesh shading. Reduce tiny veins and surface detail so it reads at 16x16 and 32x32. Face front-facing, both eyes entirely visible, mouth entirely visible.\nBackground: genuine transparent alpha everywhere OUTSIDE the circular face, including all four corners. No opaque rectangle, no checkerboard drawn into the picture. Only the single circular face icon.\nAvoid: lettering, logos, elaborate framing, metallic machinery, props, limbs, horns, extra eyes, fangs, blood, dramatic scary aggression, drop shadows outside the circle.\nOutput: square high quality transparent PNG suitable for uniform downscaling to favicon sizes.",
+  "reference": {
+    "path": "assets/battle-v2/runtime/phase-b/blob-idle.webp",
+    "bytes": 51352,
+    "sha256": "75d6c44647ad0e85e10f868282cef71529cb56ff67898bead7c07b5398f9ee71",
+    "role": "Project-owned starter-blob character reference."
+  },
+  "source": {
+    "path": "assets/favicon/source/blob-face.png",
+    "bytes": 2119271,
+    "sha256": "6e9ecbd9a601d1be5cb9e4f85e1dba22fb4f7bc830d04f685372cb8c122829b1"
+  },
+  "derivatives": [
+    {
+      "path": "public/favicon.png",
+      "bytes": 9851,
+      "sha256": "f29a4f58ec1c89700e8ca146706727256944266480c7aa75c398c354708c59d7"
+    },
+    {
+      "path": "public/apple-touch-icon.png",
+      "bytes": 64151,
+      "sha256": "9b80ec9de8f215f4fd8521784200f324d74136c8faade3fdad554efa92c670a2"
+    },
+    {
+      "path": "public/favicon.ico",
+      "bytes": 15086,
+      "sha256": "7614ccf61ffda51d0b81a627c1ae29b31e85319c8edd59688fed39e747199f29"
+    }
+  ],
+  "processing": {
+    "tool": "ImageMagick; uniform downscaling and PNG/ICO encoding only, preserving alpha.",
+    "commands": [
+      [
+        "convert",
+        "assets/favicon/source/blob-face.png",
+        "-resize",
+        "64x64",
+        "-strip",
+        "public/favicon.png"
+      ],
+      [
+        "convert",
+        "assets/favicon/source/blob-face.png",
+        "-resize",
+        "180x180",
+        "-strip",
+        "public/apple-touch-icon.png"
+      ],
+      [
+        "convert",
+        "assets/favicon/source/blob-face.png",
+        "-define",
+        "icon:auto-resize=48,32,16",
+        "public/favicon.ico"
+      ]
+    ],
+    "icoSizes": [
+      48,
+      32,
+      16
+    ],
+    "pngSize": 64,
+    "appleTouchSize": 180,
+    "script": {
+      "path": "scripts/prepare-favicon.py",
+      "bytes": 2059,
+      "sha256": "5bc4bbc56b6562c25dcc25ce0d94a2080e090f4aca1d2287934b83b42d04b333"
+    }
+  },
+  "originAndRights": "Generated project artwork based on project-owned art, subject to applicable OpenAI service terms. No third-party stock license or exclusivity guarantee is asserted.",
+  "deployment": "Only the three small derivatives in public/ ship. Original, prompt and provenance stay outside public/."
+}

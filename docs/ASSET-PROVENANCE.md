@@ -1,5 +1,9 @@
 # Asset provenance — accepted library and production history
 
+## Blob favicon — 19 October 2026
+
+The circular face icon was generated with the built-in imagegen tool from the project's own starter-blob artwork. The [exact prompt](../assets/favicon/prompt.txt), [untouched transparent master](../assets/favicon/source/blob-face.png) and [source/derivative hashes and processing](../assets/favicon/provenance.json) are retained. It is a simplified character close-up for small browser icons; no gameplay artwork is replaced. Rebuild with `python3 scripts/prepare-favicon.py` using ImageMagick. Only the 64px PNG, 16/32/48px ICO and 180px Apple touch derivative ship; the generation source and records stay outside `public/`. No runtime generation service or external dependency is introduced. Transparency, live asset responses and appearance at 16/32/64px were checked locally; physical Apple home-screen/browser behavior was not tested.
+
 ## Project cover
 
 The [1280 × 720 project cover](images/monstrum-mortis-cover.png) was generated with the built-in imagegen tool using the project’s own entry-screen capture as a style/character reference. It is promotional illustration, not a gameplay screenshot. The [exact prompt](../assets/project-cover/prompt.txt), [original PNG](../assets/project-cover/source/cover-original.png) and [provenance/derivative hashes](../assets/project-cover/provenance.json) are retained. ImageMagick only reduced and center-fitted the image to the requested dimensions. This documentation asset is outside the production public directory and adds no runtime service or hosting dependency.

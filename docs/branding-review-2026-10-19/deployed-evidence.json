@@ -1,0 +1,72 @@
+{
+  "checkedAt": "2026-10-19T15:57:09.202Z",
+  "origin": "https://monstrum-mortis.scott-jeffrey-miller.workers.dev",
+  "version": "d84f5d81-2c2b-4b95-9282-68079106df4b",
+  "scope": "Seven bounded deployed HTTP requests. Served HTML, main/CSS and three icon hashes match the local build; exact title and player-count text checked. Unchanged health/bindings. No room/storage/multiplayer/load or physical-device test.",
+  "requests": 7,
+  "assets": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 691,
+      "sha256": "6f576652295cca9a75931eec448bcc726e5434bf26083e11ff5f656dee9e741f",
+      "contentType": "text/html"
+    },
+    {
+      "path": "/assets/index-ByJoBh8L.js",
+      "status": 200,
+      "bytes": 353739,
+      "sha256": "796c9297c3945d05c14c06022471ec5317fdb333f8fa885b0e95448372e55455",
+      "contentType": "text/javascript"
+    },
+    {
+      "path": "/assets/index-BiAmKnzV.css",
+      "status": 200,
+      "bytes": 45838,
+      "sha256": "82b3d4704355f37379a0e3e856e9346f72dea4265630647661be3db6897b2386",
+      "contentType": "text/css"
+    },
+    {
+      "path": "/favicon.png",
+      "status": 200,
+      "bytes": 9851,
+      "sha256": "f29a4f58ec1c89700e8ca146706727256944266480c7aa75c398c354708c59d7",
+      "contentType": "image/png"
+    },
+    {
+      "path": "/favicon.ico",
+      "status": 200,
+      "bytes": 15086,
+      "sha256": "7614ccf61ffda51d0b81a627c1ae29b31e85319c8edd59688fed39e747199f29",
+      "contentType": "image/vnd.microsoft.icon"
+    },
+    {
+      "path": "/apple-touch-icon.png",
+      "status": 200,
+      "bytes": 64151,
+      "sha256": "9b80ec9de8f215f4fd8521784200f324d74136c8faade3fdad554efa92c670a2",
+      "contentType": "image/png"
+    }
+  ],
+  "health": {
+    "service": "monstrum-mortis",
+    "stage": "automatic-combat",
+    "protocolVersion": 6,
+    "rulesVersion": "0.6.0",
+    "configuredBindings": {
+      "assets": true,
+      "rooms": true,
+      "matchmaking": true,
+      "guestLeases": true
+    },
+    "gameplayAvailable": true,
+    "fullReleaseAvailable": false,
+    "mechanicsAvailable": true,
+    "combatAvailable": true,
+    "battlePresentationAvailable": true,
+    "roomServiceAvailable": true,
+    "matchmakingAvailable": true
+  },
+  "baseHeadAtDeployment": "167705bdaab2c0ebcb5db04ea4b548f44920cece",
+  "builtFromUncommittedWorkingTree": true
+}
